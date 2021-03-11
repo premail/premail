@@ -5,26 +5,34 @@ A quick-start boilerplate setup for those writing email code in
 
 # Prerequisites
 
-This assumes you're running Sublime Text 3 on Linux and running Bash or ZSH, but
-most of it should work under other conditions, or at least give you a good
+This assumes you're running Sublime Text 3 and running Bash or ZSH in some form,
+but most of it should work under other conditions, or at least give you a good
 starting point.
 
 # Setup
 
 * Clone this repo and `cd` into it.
 * Install [mjml](https://www.npmjs.com/package/mjml) globally using node:
-`sudo npm install -g mjml`
-* `cp MJML.sublime-build ~/.config/sublime-text-3/Packages/User`
+`npm install -g mjml`
+* Copy the Sublime build file into your configuration:
+  * Linux: `cp MJML.sublime-build ~/.config/sublime-text-3/Packages/User`
+  * Mac: `cp MJML.sublime-build ~/Library/Application Support/Sublime Text 3/Packages/User`
+  * Windows: `cp MJML.sublime-build %APPDATA%\Sublime Text 3/Packages/User`
 * Open Sublime 3
-  * Install MJML-syntax for Sublime 3.
-  * In the Tools menu, make sure "Save All on Build" is checked.
-  * Tools > Build System > MJML
-* `cp -r _boilerplate EMAILNAME`
+  * Install the Package "MJML-syntax".
 
 # Usage
 
-* Edit the `.mjml` files in your email project directory.
-* At any time, press Ctrl-B to render `index.html`.
+* Create a project folder (or subfolder of your copy of this repo) with a name
+for your email project.
+* Copy the contents of `_boilerplate` into your project folder.
+* Open your project folder in Sublime Text 3.
+  * Sublime should auto-detect the build-system based on your files, but you can
+  check by going to Tools > Build System > MJML
+  * Also be sure that in the Tools menu, "Save All on Build" is checked
+  (default).
+  * Edit the `.mjml` files in your email project directory.
+  * At any time, press Ctrl-B to render `index.html`.
 * View `index.html` in browser.
 
 # Notes
