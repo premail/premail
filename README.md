@@ -69,7 +69,8 @@ somehow (for instance through new versions of MJML itself), you can simply
 choose to not commit the changed files, because you're using version-control.
 
 However, it may introduce issues of scale, if you have a directory with hundreds
-of email projects all getting re-rendered every time you hit <kbd>Ctrl-B</kbd>.
+of email projects all getting re-rendered every time you hit <kbd>Ctrl-B</kbd>
+or being watched.
 
-If that worries you, just use a separate directory for each project, re-cloning
-this project for every new one.
+If that worries you or is becoming an issue, just use a separate directory for
+each project, re-cloning this project for every new one.
