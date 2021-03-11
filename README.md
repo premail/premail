@@ -31,10 +31,8 @@ all of your email-code projects (though see note at bottom).
 for your email project.
 2. Copy the contents of `_boilerplate` into your project folder.
 3. Open your project folder in Sublime Text 3.
-   a. Sublime should auto-detect the build-system based on your files, but you can
-   check by going to Tools > Build System > MJML
-   b. Also be sure that in the Tools menu, "Save All on Build" is checked
-   (default).
+   a. Sublime should auto-detect the build-system based on your files, but you can check by going to Tools > Build System > MJML
+   b. Also be sure that in the Tools menu, "Save All on Build" is checked (default).
    c. Edit the `.mjml` files in your email project directory.
    d. At any time, press Ctrl-B to render `index.html`.
 4. View `index.html` in browser.
