@@ -6,5 +6,5 @@
 
 for file in $(find . -maxdepth 2 -type f -name "index.mjml") ; do
   dir=$(dirname "$file")
-  mjml -w "$file" -o "$dir"/index.html
+  mjml -w "$file" --config.beautify false -o "$dir"/index.html
 done

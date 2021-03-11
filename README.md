@@ -57,6 +57,12 @@ In your console, run `./mjml-watch.sh`. This will watch for any changes in any
 re-render `index.html` in default (unminified) form. You can leave your browser
 open to this page.
 
+By default,
+[watch output includes MJML depreciation notices](https://github.com/mjmlio/mjml/issues/2205);
+if these bother you, you can turn off errors by running
+`./mjml-watch.sh &> /dev/null` instead, but this means you won't get rebuild
+notifications in your console either.
+
 # Notes
 
 This project is designed to become your overarching directory in which
