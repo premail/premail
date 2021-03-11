@@ -7,9 +7,8 @@ The boilerplate templates included are
 [valid](https://mjml.io/documentation/#validating-mjml) under
 [MJML version 4](https://github.com/mjmlio/mjml/releases).
 
-One `index.html` file will be rendered,
-[in minified form](https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md#minify-and-beautify-the-output-html),
-ready to import into your emailer of choice.
+One `index.html` file will be rendered, ready to import into your emailer of
+choice.
 
 # Prerequisites
 
@@ -44,8 +43,19 @@ for your email project.
    2. Also be sure that in the Tools menu, "Save All on Build" is checked
    (default).
    3. Edit the `.mjml` files in your email project directory.
-   4. At any time, press <kbd>Ctrl-B</kbd> to render `index.html`.
-4. View `index.html` in your browser.
+
+## Build option
+
+At any time, press <kbd>Ctrl-B</kbd> to render `index.html`
+[in minified form](https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md#minify-and-beautify-the-output-html),
+then view `index.html` in your browser.
+
+## Watch option
+
+In your console, run `./mjml-watch.sh`. This will watch for any changes in any
+`index.mjml` files (including any partials referenced with `<mj-include>`), and
+re-render `index.html` in default (unminified) form. You can leave your browser
+open to this page.
 
 # Notes
 

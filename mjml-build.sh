@@ -1,5 +1,6 @@
 #!/bin/bash
-# Runs MJML (node) on any `index.mjml` files in first-level subdirectories
+# Uses MJML (node) on any `index.mjml` files in first-level subdirectories to
+# render the resulting `index.html` files in-place.
 
 for file in $(find . -maxdepth 2 -type f -name "index.mjml") ; do
   dir=$(dirname "$file")
