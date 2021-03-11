@@ -7,6 +7,10 @@ The boilerplate templates included are
 [valid](https://mjml.io/documentation/#validating-mjml) under
 [MJML version 4](https://github.com/mjmlio/mjml/releases).
 
+One `index.html` file will be rendered,
+[in minified form](https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md#minify-and-beautify-the-output-html),
+ready to import into your emailer of choice.
+
 # Prerequisites
 
 This assumes you're running Sublime Text 3 and running Bash or ZSH in some form,
