@@ -1,0 +1,25 @@
+<mj-head>
+	<mj-title>Email Title</mj-title>
+	<mj-attributes>
+		<mj-all padding="0" font-family="Arial, Helvetica, sans-serif" font-size="13px" color="#666666" />
+
+		<mj-class name="pre-col1" width="75%" />
+		<mj-class name="pre-col2" width="25%" padding="10px" />
+		<mj-class name="pre-date" align="center" font-weight="bold" />
+		<mj-class name="header-title" font-size="36px" align="center" />
+
+		<mj-class name="content-area" />
+		<mj-class name="2col" width="50%" vertical-align="middle"/>
+		<mj-class name="2col-intro" padding="25px" font-size="15px"/>
+		<mj-class name="2col-title" padding="15px" font-weight="bold" font-size="18px" align="center" vertical-align="middle" />
+		<mj-class name="2col-text" padding="25px" />
+		<mj-class name="2col-image" padding="25px" />	
+		<mj-class name="button" background-color="#fff" border="2px solid red" href="http://mjml.io" color="#666" />
+
+		<mj-class name="footer" padding="40px 0" background-color="#fff" />
+		<mj-class name="footer-text" color="#666" align="center" padding="15px" />
+		<mj-class name="footer-col" background-color="#888" />
+
+		<mj-class name="base-text" font-size="12px" color="#666" align="center" padding="15px" />
+	</mj-attributes>
+</mj-head>

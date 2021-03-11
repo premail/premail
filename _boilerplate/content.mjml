@@ -1,0 +1,35 @@
+<!-- Use this section for the bulk of your email, for large emails it helps to break this down into separate files and include them in the index file, embeded includes are not supported at time of writing (2.3.3) -->
+<mj-section mj-class="content-area">
+	<!-- Sample 2 Grid Layout Left Image-->
+	<mj-column>
+		<mj-text mj-class="2col-intro">Morbi fermentum est venenatis ex facilisis, quis bibendum lacus faucibus. Pellentesque vulputate auctor libero, ac maximus lacus mollis eget. Donec vel eleifend neque, nec faucibus urna. In at risus consectetur, fringilla nisl nec, consectetur mauris. Ut sed ultricies ante. Aliquam vestibulum pretium ligula sit amet pretium. Donec eu turpis nec erat auctor euismod imperdiet vel urna. Suspendisse in urna iaculis, mattis metus luctus, egestas libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras finibus arcu a sapien dictum mattis a et tellus.
+		</mj-text>
+	</mj-column>
+</mj-section>
+<mj-section>
+	<!-- Sample 2 Grid Layout Left Image-->
+	<mj-column mj-class="2col">
+		<mj-text mj-class="2col-title">A Random Tech Picture</mj-text>
+		<mj-raw><!-- This is an HTML Comment between rows of the display table --></mj-raw>
+		<mj-image mj-class="2col-image" src="http://lorempixel.com/600/300/technics" alt="2x image size for retina" href="http://mjml.io" />
+		<mj-button mj-class="button">Find out more</mj-button>
+	</mj-column>
+	<mj-column mj-class="2col">
+		<mj-text mj-class="2col-text">
+			Suspendisse lacinia, diam in malesuada fermentum, urna odio gravida tellus, a dictum mi lectus quis elit. In hac habitasse platea dictumst. Integer tempor lorem sit amet leo maximus feugiat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas posuere nunc in rhoncus pellentesque. Nulla quis aliquam quam, vel vestibulum ligula. Fusce fringilla, elit in aliquam pretium, sapien erat luctus sem, et finibus neque quam ut dolor. Aenean non dictum nibh.
+		</mj-text>
+	</mj-column>
+</mj-section>
+<mj-section>
+	<!-- Sample 2 Grid Layout Right Image-->
+	<mj-column mj-class="2col">
+		<mj-text mj-class="2col-text">
+			Suspendisse lacinia, diam in malesuada fermentum, urna odio gravida tellus, a dictum mi lectus quis elit. In hac habitasse platea dictumst. Integer tempor lorem sit amet leo maximus feugiat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas posuere nunc in rhoncus pellentesque. Nulla quis aliquam quam, vel vestibulum ligula. Fusce fringilla, elit in aliquam pretium, sapien erat luctus sem, et finibus neque quam ut dolor. Aenean non dictum nibh.
+		</mj-text>
+	</mj-column>
+	<mj-column mj-class="2col">
+		<mj-text mj-class="2col-title">A Random Business Picture</mj-text>
+		<mj-image mj-class="2col-image" src="http://lorempixel.com/600/301/business" alt="2x image size for retina" href="http://mjml.io" />
+		<mj-button mj-class="button">Find out more</mj-button>
+	</mj-column>
+</mj-section>

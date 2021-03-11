@@ -1,0 +1,10 @@
+<mj-section>
+	<mj-column mj-class="pre-col1">
+		<mj-text>This is the pre text for subject lines guide advice no more than 78 characters</mj-text><!-- <<= is 78 characters -->
+		<mj-raw><!-- This is an HTML Comment at the tbody close of the display table --></mj-raw>
+	</mj-column>
+	<mj-column mj-class="pre-col2">
+		<mj-text mj-class="pre-date">October 24, 2018</mj-text>
+	</mj-column>
+</mj-section>
+<mj-raw><!-- This is an HTML Comment below the table of the display table --></mj-raw>

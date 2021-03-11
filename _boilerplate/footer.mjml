@@ -1,0 +1,19 @@
+<mj-section mj-class="footer">
+	<mj-column mj-class="footer-col">
+		<mj-text mj-class="footer-text"><a href="http://mjml.io" style="color:#fff; text-decoration:none; padding:15px">Website</a></mj-text>
+	</mj-column>
+	<mj-column mj-class="footer-col" background-color="#fff">
+		<mj-text mj-class="footer-text"><a href="http://mjml.io" style="text-decoration:none; padding:15px">Shop</a></mj-text>
+	</mj-column>
+	<mj-column mj-class="footer-col">
+		<mj-text mj-class="footer-text"><a href="http://mjml.io" style="color:#fff; text-decoration:none; padding:15px">Careers</a></mj-text>
+	</mj-column>
+	<mj-column mj-class="footer-col" background-color="#fff">
+		<mj-text mj-class="footer-text"><a href="http://mjml.io" style="text-decoration:none; padding:15px">Contact</a></mj-text>
+	</mj-column>
+</mj-section>
+<mj-section>
+	<mj-column>
+		<mj-text mj-class="base-text">| This email was sent to you because you're awesome. |</mj-text>
+	</mj-column>
+</mj-section>

@@ -1,0 +1,7 @@
+<mj-section>
+	<!-- Sample 2 Grid Layout Left Image-->
+	<mj-column mj-class="header-image">
+		<mj-image mj-class="2col-image" src="http://lorempixel.com/1200/800/nature/Update" alt="2x image size for retina" href="http://mjml.io" />
+		<mj-text mj-class="header-title">Simple layout code example</mj-text>
+	</mj-column>
+</mj-section>
