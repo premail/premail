@@ -19,7 +19,7 @@
 
 <!-- Pretext -->
 
-			<mj-include path="./pretext.mjml" />
+			<mj-include path="./preview.mjml" />
 
 <!-- Menu -->
 
