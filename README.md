@@ -9,6 +9,10 @@ This assumes you're running Sublime Text 3 and running Bash or ZSH in some form,
 and installs MJML with Node. Most of it should work under other conditions, or
 at least give you a good starting point.
 
+The boilerplate templates included are
+[valid](https://mjml.io/documentation/#validating-mjml) under
+[MJML version 4](https://github.com/mjmlio/mjml/releases).
+
 The design of this is such that you should fork it, and then use it to contain
 all of your email-code projects (though see note at bottom).
 
@@ -47,7 +51,7 @@ for `index.mjml` files in the current directory and any first-order
 subdirectories, and renders them in place to corresponding `index.html` files.
 
 Generally this isn't a huge problem: Should re-rendered older projects change
-somehow (for instance through new versions of `mjml` itself), you can simply
+somehow (for instance through new versions of MJML itself), you can simply
 choose to not commit the changed files, because you're using version-control.
 
 However, it may introduce issues of scale, if you have a directory with hundreds
