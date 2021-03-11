@@ -6,8 +6,8 @@ A quick-start boilerplate setup for those writing email code in
 # Prerequisites
 
 This assumes you're running Sublime Text 3 and running Bash or ZSH in some form,
-but most of it should work under other conditions, or at least give you a good
-starting point.
+and installs MJML with Node. Most of it should work under other conditions, or
+at least give you a good starting point.
 
 The design of this is such that you should fork it, and then use it to contain
 all of your email-code projects (though see note at bottom).
