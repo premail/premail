@@ -40,8 +40,8 @@ for your email project.
    2. Also be sure that in the Tools menu, "Save All on Build" is checked
    (default).
    3. Edit the `.mjml` files in your email project directory.
-   4. At any time, press Ctrl-B to render `index.html`.
-4. View `index.html` in browser.
+   4. At any time, press <kbd>Ctrl-B</kbd> to render `index.html`.
+4. View `index.html` in your browser.
 
 # Notes
 
@@ -55,7 +55,7 @@ somehow (for instance through new versions of MJML itself), you can simply
 choose to not commit the changed files, because you're using version-control.
 
 However, it may introduce issues of scale, if you have a directory with hundreds
-of email projects all getting re-rendered every time you hit Ctrl-B.
+of email projects all getting re-rendered every time you hit <kbd>Ctrl-B</kbd>.
 
 If that worries you, just use a separate directory for each project, re-cloning
 this project for every new one.
