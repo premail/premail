@@ -118,3 +118,14 @@ of email projects all getting re-rendered on `watch` or `build`.
 
 If that worries you or is becoming an issue, just use a separate directory for
 each project, re-forking this project for every new one.
+
+# Known issues
+
+* Currently comments are not being stripped from minified files
+[due to a bug in mjml-cli](https://github.com/mjmlio/mjml/issues/2206#issuecomment-797352320).
+The build script does specify that comments should be stripped, so once MJML
+fixes this the issue will resolve itself.
+
+* The `signoff.mjml` template, used for a signature or closing with a person's
+image, uses a regular `<img>` tag with inline styles. This will be moved to a
+custom component in a future release.
