@@ -11,15 +11,15 @@
 
     <!-- Title -->
 
-    <mj-include path="./content/title.mjml" />
+    <mj-include path="content/title.mjml" />
 
     <!-- Attributes -->
 
-    <mj-include path="./style/attributes.mjml" />
+    <mj-include path="style/attributes.mjml" />
 
     <!-- Preview text -->
 
-    <mj-include path="./content/preview.mjml" />
+    <mj-include path="content/preview.mjml" />
 
   </mj-head>
 
@@ -29,27 +29,27 @@
 
 <!-- Top navigation -->
 
-    <mj-include path="./structure/nav-top.mjml" />
+    <mj-include path="structure/nav-top.mjml" />
 
 <!-- Header/hero area -->
 
-    <mj-include path="./content/header.mjml" />
+    <mj-include path="content/header.mjml" />
 
 <!-- Primary content -->
 
-    <mj-include path="./content/body.mjml" />
+    <mj-include path="content/body.mjml" />
 
 <!-- Bottom navigation -->
 
-    <mj-include path="./structure/nav-bottom.mjml" />
+    <mj-include path="structure/nav-bottom.mjml" />
 
 <!-- Social links -->
 
-    <mj-include path="./structure/social.mjml" />
+    <mj-include path="structure/social.mjml" />
 
 <!-- Footer -->
 
-    <mj-include path="./structure/footer.mjml" />
+    <mj-include path="structure/footer.mjml" />
 
 <!-- Body closure -->
 
