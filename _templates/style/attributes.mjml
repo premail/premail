@@ -11,25 +11,30 @@
   <mj-all
     padding="0"
     font-family="'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
-    font-size="16px"
+    font-size="18px"
     color="#666"
   />
 
-  <mj-class name="pre-col1"
-    width="75%"
+  <mj-class name="hero-image"
+    mode="fixed-height"
+    background-color="grey"
+    vertical-align="middle"
   />
 
-  <mj-class name="pre-col2"
-    width="25%"
-    padding="16px"
-  />
-
-  <mj-class name="header-title"
+  <mj-class name="hero-title"
     align="center"
-    font-size="36px"
+    font-size="48px"
+    font-weight="bold"
+    color="white"
   />
 
   <mj-class name="content-area"
+  />
+
+  <mj-class name="headline"
+    padding="16px 0"
+    font-size="36px"
+    font-weight="bold"
   />
 
   <mj-class name="2col"
@@ -39,7 +44,7 @@
 
   <mj-class name="2col-intro"
     padding="32px"
-    font-size="16px"
+    font-size="18px"
   />
 
   <mj-class name="2col-title"
@@ -81,7 +86,7 @@
 
   <mj-class name="base-text"
     padding="16px"
-    font-size="12px"
+    font-size="14px"
     color="#666"
     align="center"
   />

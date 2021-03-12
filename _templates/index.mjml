@@ -31,9 +31,9 @@
 
     <mj-include path="structure/nav-top.mjml" />
 
-<!-- Header/hero area -->
+<!-- Hero or header area -->
 
-    <mj-include path="content/header.mjml" />
+    <mj-include path="content/hero.mjml" />
 
 <!-- Primary content -->
 

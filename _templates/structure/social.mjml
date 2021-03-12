@@ -1,5 +1,9 @@
 <mj-section>
-	<mj-column>
-		<mj-social />
-	</mj-column>
+  <mj-column>
+    <mj-social font-size="16px" icon-size="32px" mode="horizontal">
+      <mj-social-element name="facebook" alt="Facebook" href="https://mjml.io/" background-color="purple" padding="16px"></mj-social-element>
+      <mj-social-element name="google" alt="Facebook" href="https://mjml.io/" background-color="purple" padding="16px"></mj-social-element>
+      <mj-social-element name="twitter" alt="Facebook" href="https://mjml.io/" background-color="purple" padding="16px"></mj-social-element>
+    </mj-social>
+  </mj-column>
 </mj-section>
