@@ -8,87 +8,188 @@
 
 <mj-attributes>
 
+<!-- Applied to all elements -->
+
   <mj-all
+    margin="0"
     padding="0"
     font-family="'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
     font-size="18px"
     color="#666"
   />
 
-  <mj-class name="hero-image"
+<!-- Structure -->
+
+  <mj-class name="content"
+    padding="0 8px"
+  />
+
+  <mj-class name="column"
+    vertical-align="top"
+  />
+
+  <mj-class name="column--25pc"
+    width="25%"
+  />
+
+  <mj-class name="column--50pc"
+    width="50%"
+  />
+
+  <mj-class name="column--75pc"
+    width="75%"
+  />
+
+  <mj-class name="signoff"
+    padding="0 8px"
+  />
+
+  <mj-class name="footer"
+    padding="48px 8px"
+    background-color="white"
+  />
+
+<!-- Typography -->
+
+  <mj-class name="h1"
+    padding="36px 0 18px"
+    font-size="36px"
+    line-height="32px"
+    font-weight="bold"
+  />
+
+  <mj-class name="h2"
+    padding="18px 0"
+    font-size="28px"
+    line-height="32px"
+    font-weight="bold"
+  />
+
+  <mj-class name="h2--50pc"
+    padding="18px"
+    align="center"
+    vertical-align="middle"
+  />
+
+  <mj-class name="text"
+    padding="18px 0"
+    font-size="18px"
+    line-height="32px"
+  />
+
+  <mj-class name="text--signoff"
+    line-height="24px"
+  />
+
+  <mj-class name="text--footer"
+    padding="12px 0"
+    font-size="11px"
+    line-height="11px"
+  />
+
+<!-- Buttons -->
+
+  <mj-class name="button"
+    padding="18px"
+    background-color="purple"
+    color="white"
+    font-weight="bold"
+    border-radius="8px"
+  />
+
+  <mj-class name="button--ghost"
+    background-color="white"
+    color="purple"
+    border="purple 2px solid"
+  />
+
+<!-- Images -->
+
+  <mj-class name="image"
+    padding="18px 0"
+  />
+
+  <mj-class name="image--50pc"
+    padding="18px 32px"
+  />
+
+<!-- Hero (banner) -->
+
+  <mj-class name="hero"
     mode="fixed-height"
     background-color="grey"
     vertical-align="middle"
   />
 
-  <mj-class name="hero-title"
+  <mj-class name="hero__title"
     align="center"
     font-size="48px"
     font-weight="bold"
     color="white"
   />
 
-  <mj-class name="content-area"
+<!-- Social media links -->
+
+  <mj-class name="social"
+    padding="32px 0 16px"
   />
 
-  <mj-class name="headline"
-    padding="16px 0"
-    font-size="36px"
-    font-weight="bold"
+  <mj-class name="social__border-top"
+    padding-bottom="16px"
+    border-width="1px"
+    border-style="dashed"
+    border-color="purple"
   />
 
-  <mj-class name="2col"
-    width="50%"
-    vertical-align="middle"
+  <mj-class name="social__nav"
+    mode="horizontal"
+    icon-size="48px"
+    font-size="16px"
   />
 
-  <mj-class name="2col-intro"
-    padding="32px"
-    font-size="18px"
+  <mj-class name="social__icon"
+    padding="16px"
+    background-color="purple"
+    border-radius="6px"
   />
 
-  <mj-class name="2col-title"
-    padding="18px"
-    align="center"
-    vertical-align="middle"
-    font-weight="bold"
-    font-size="18px"
-  />
+<!-- Navigation menus -->
 
-  <mj-class name="2col-text"
-    padding="32px"
-  />
-
-  <mj-class name="2col-image"
-    padding="32px"
-  />
-
-  <mj-class name="button" href="http://mjml.io"
+  <mj-class name="nav"
     background-color="purple"
     color="white"
+  />
+
+  <mj-class name="nav--top"
+  />
+
+  <mj-class name="nav--bottom"
+  />
+
+  <mj-class name="nav__logo"
+    padding="16px"
+    width="75px"
+    height="24px"
+  />
+
+  <mj-class name="nav__navbar"
+    hamburger="hamburger"
+    ico-color="white"
+  />
+
+  <mj-class name="nav__navbar--top"
+    padding="16px 0"
+  />
+
+  <mj-class name="nav__navbar--bottom"
+    padding="4px 0"
+  />
+
+  <mj-class name="nav__link"
+    padding="0 16px"
+    font-size="16px"
     font-weight="bold"
+    color="white"
   />
 
-  <mj-class name="footer"
-    padding="48px 0"
-    background-color="white"
-  />
-
-  <mj-class name="footer-text"
-    padding="16px"
-    align="center"
-    color="#666"
-  />
-
-  <mj-class name="footer-col"
-    background-color="#888"
-  />
-
-  <mj-class name="base-text"
-    padding="16px"
-    font-size="14px"
-    color="#666"
-    align="center"
-  />
-
-  </mj-attributes>
+</mj-attributes>

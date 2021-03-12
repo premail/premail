@@ -3,7 +3,7 @@
 
 <!-- Root declaration -->
 
-<mjml>
+<mjml lang="en">
 
 <!-- Head declaration -->
 
@@ -39,13 +39,17 @@
 
     <mj-include path="content/body.mjml" />
 
-<!-- Bottom navigation -->
+<!-- Sign-off, signature or closing -->
 
-    <mj-include path="structure/nav-bottom.mjml" />
+    <mj-include path="content/signoff.mjml" />
 
 <!-- Social links -->
 
     <mj-include path="structure/social.mjml" />
+
+<!-- Bottom navigation -->
+
+    <mj-include path="structure/nav-bottom.mjml" />
 
 <!-- Footer -->
 

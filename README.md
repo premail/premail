@@ -55,7 +55,8 @@ Edit the contents of `_templates` to fit your design that will be in place for
 each email.
 
 * `index.mjml`: This file includes all the component files. You shouldn't
-normally need to edit this unless you are re-ordering the structure.
+normally need to edit this unless you are re-ordering the structure or changing
+the `lang` value.
 * `content`: This folder holds files that will *always* change in each email
 -- the title, preview text, header/hero area and main body.
 * `structure`: This folder holds files that may *sometimes* change in each
