@@ -1,0 +1,89 @@
+<mj-font name="Source Sans Pro" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" />
+<!-- Web font with stock font fallbacks, including emoji fonts.
+     `mj-font` element needs to be outside `mj-attributes`
+     References:
+     https://markdotto.com/2018/02/07/github-system-fonts/#the-stack
+     https://documentation.mjml.io/#mj-font
+-->
+
+<mj-attributes>
+
+  <mj-all
+    padding="0"
+    font-family="'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
+    font-size="16px"
+    color="#666"
+  />
+
+  <mj-class name="pre-col1"
+    width="75%"
+  />
+
+  <mj-class name="pre-col2"
+    width="25%"
+    padding="16px"
+  />
+
+  <mj-class name="header-title"
+    align="center"
+    font-size="36px"
+  />
+
+  <mj-class name="content-area"
+  />
+
+  <mj-class name="2col"
+    width="50%"
+    vertical-align="middle"
+  />
+
+  <mj-class name="2col-intro"
+    padding="32px"
+    font-size="16px"
+  />
+
+  <mj-class name="2col-title"
+    padding="18px"
+    align="center"
+    vertical-align="middle"
+    font-weight="bold"
+    font-size="18px"
+  />
+
+  <mj-class name="2col-text"
+    padding="32px"
+  />
+
+  <mj-class name="2col-image"
+    padding="32px"
+  />
+
+  <mj-class name="button" href="http://mjml.io"
+    background-color="purple"
+    color="white"
+    font-weight="bold"
+  />
+
+  <mj-class name="footer"
+    padding="48px 0"
+    background-color="white"
+  />
+
+  <mj-class name="footer-text"
+    padding="16px"
+    align="center"
+    color="#666"
+  />
+
+  <mj-class name="footer-col"
+    background-color="#888"
+  />
+
+  <mj-class name="base-text"
+    padding="16px"
+    font-size="12px"
+    color="#666"
+    align="center"
+  />
+
+  </mj-attributes>

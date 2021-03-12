@@ -11,7 +11,7 @@
 	<mj-column mj-class="2col">
 		<mj-text mj-class="2col-title">A Random Tech Picture</mj-text>
 		<mj-raw><!-- This is an HTML Comment between rows of the display table --></mj-raw>
-		<mj-image mj-class="2col-image" src="http://lorempixel.com/600/300/technics" alt="2x image size for retina" href="http://mjml.io" />
+		<mj-image mj-class="2col-image" src="https://picsum.photos/600/300" alt="2x image size for retina" href="http://mjml.io" />
 		<mj-button mj-class="button">Find out more</mj-button>
 	</mj-column>
 	<mj-column mj-class="2col">
@@ -29,7 +29,7 @@
 	</mj-column>
 	<mj-column mj-class="2col">
 		<mj-text mj-class="2col-title">A Random Business Picture</mj-text>
-		<mj-image mj-class="2col-image" src="http://lorempixel.com/600/301/business" alt="2x image size for retina" href="http://mjml.io" />
+		<mj-image mj-class="2col-image" src="https://picsum.photos/600/300" alt="2x image size for retina" href="http://mjml.io" />
 		<mj-button mj-class="button">Find out more</mj-button>
 	</mj-column>
 </mj-section>
