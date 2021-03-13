@@ -182,8 +182,6 @@
   />
 
   <mj-class name="nav__navbar"
-    hamburger="hamburger"
-    ico-color="white"
   />
 
   <mj-class name="nav__navbar--top"
