@@ -1,4 +1,4 @@
-<mj-font name="Hind" href="https://fonts.googleapis.com/css?family=Hind" />
+<mj-font name="Hind" href="https://fonts.googleapis.com/css2?family=Hind:wght@400;700&amp;display=swap" />
 <!-- Web font with stock font fallbacks, including emoji fonts.
      `mj-font` element needs to be outside `mj-attributes`
      References:
