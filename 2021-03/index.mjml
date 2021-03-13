@@ -51,6 +51,10 @@
 
     <mj-include path="structure/social.mjml" />
 
+<!-- Bottom navigation -->
+
+    <mj-include path="structure/nav-bottom.mjml" />
+
 <!-- Footer -->
 
     <mj-include path="structure/footer.mjml" />
