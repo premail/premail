@@ -1,10 +1,48 @@
-<mj-font name="Source Sans Pro" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" />
+<mj-font name="Hind" href="https://fonts.googleapis.com/css2?family=Hind:wght@400;700&amp;display=swap" />
 <!-- Web font with stock font fallbacks, including emoji fonts.
      `mj-font` element needs to be outside `mj-attributes`
      References:
      https://markdotto.com/2018/02/07/github-system-fonts/#the-stack
      https://documentation.mjml.io/#mj-font
 -->
+
+<mj-style inline="inline">
+
+  h1 {
+    margin: 0;
+    padding: 18px 0;
+    font-size: 36px;
+    line-height: 32px;
+    font-weight: bold;
+    color: #46175b;
+  }
+
+  h2 {
+    margin: 0;
+    padding: 18px 0;
+    font-size: 28px;
+    line-height: 32px;
+    font-weight: bold;
+    color: #46175b;
+  }
+
+  .mj-column-per-50 h2 {
+    padding: 18px;
+    align: center;
+    vertical-align: middle;
+  }
+
+  p {
+    margin: 18px 0;
+  }
+
+  a {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #666;
+  }
+
+</mj-style>
 
 <mj-attributes>
 
@@ -13,7 +51,7 @@
   <mj-all
     margin="0"
     padding="0"
-    font-family="'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
+    font-family="Hind, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
     font-size="18px"
     color="#666"
   />
@@ -58,28 +96,8 @@
 
 <!-- Typography -->
 
-  <mj-class name="h1"
-    padding="18px 0"
-    font-size="36px"
-    line-height="32px"
-    font-weight="bold"
-  />
-
-  <mj-class name="h2"
-    padding="18px 0"
-    font-size="28px"
-    line-height="32px"
-    font-weight="bold"
-  />
-
-  <mj-class name="h2--50pc"
-    padding="18px"
-    align="center"
-    vertical-align="middle"
-  />
-
   <mj-class name="text"
-    padding="18px 0"
+    padding="0"
     font-size="18px"
     line-height="32px"
   />
@@ -182,8 +200,6 @@
   />
 
   <mj-class name="nav__navbar"
-    hamburger="hamburger"
-    ico-color="white"
   />
 
   <mj-class name="nav__navbar--top"
