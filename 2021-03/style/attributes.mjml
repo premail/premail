@@ -59,6 +59,10 @@
     text-decoration: underline !important;
   }
 
+  .social a:focus {
+    outline: 5px #46175b dotted;
+  }
+
 </mj-style>
 
 <mj-attributes>
