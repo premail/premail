@@ -22,25 +22,32 @@
 
   <mj-class name="content"
     padding="0 8px"
+    background-color="white"
   />
 
   <mj-class name="column"
     vertical-align="top"
   />
 
-  <mj-class name="column--25pc"
-    width="25%"
+  <mj-class name="column--33pc"
+    width="33%"
   />
 
   <mj-class name="column--50pc"
     width="50%"
   />
 
-  <mj-class name="column--75pc"
-    width="75%"
+  <mj-class name="column--67pc"
+    width="67%"
+  />
+
+  <mj-class name="salutation"
+    background-color="white"
+    padding="32px 8px 0"
   />
 
   <mj-class name="signoff"
+    background-color="white"
     padding="0 8px"
   />
 
@@ -52,7 +59,7 @@
 <!-- Typography -->
 
   <mj-class name="h1"
-    padding="36px 0 18px"
+    padding="18px 0"
     font-size="36px"
     line-height="32px"
     font-weight="bold"
@@ -91,7 +98,7 @@
 
   <mj-class name="button"
     padding="18px"
-    background-color="purple"
+    background-color="#46175b"
     color="white"
     font-weight="bold"
     border-radius="8px"
@@ -99,8 +106,8 @@
 
   <mj-class name="button--ghost"
     background-color="white"
-    color="purple"
-    border="purple 2px solid"
+    color="#46175b"
+    border="#46175b 2px solid"
   />
 
 <!-- Images -->
@@ -132,13 +139,14 @@
 
   <mj-class name="social"
     padding="32px 0 16px"
+    background-color="white"
   />
 
   <mj-class name="social__border-top"
     padding-bottom="16px"
     border-width="1px"
     border-style="dashed"
-    border-color="purple"
+    border-color="#46175b"
   />
 
   <mj-class name="social__nav"
@@ -149,14 +157,15 @@
 
   <mj-class name="social__icon"
     padding="16px"
-    background-color="purple"
+    background-color="#46175b"
     border-radius="6px"
   />
 
 <!-- Navigation menus -->
 
   <mj-class name="nav"
-    background-color="purple"
+    padding="0 16px 16px"
+    background-color="#46175b"
     color="white"
   />
 
@@ -167,9 +176,9 @@
   />
 
   <mj-class name="nav__logo"
-    padding="16px"
-    width="75px"
-    height="24px"
+    margin="16px"
+    width="196px"
+    height="80px"
   />
 
   <mj-class name="nav__navbar"
@@ -186,7 +195,7 @@
   />
 
   <mj-class name="nav__link"
-    padding="0 16px"
+    padding="20px 16px 0"
     font-size="16px"
     font-weight="bold"
     color="white"

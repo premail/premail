@@ -25,7 +25,7 @@
 
 <!-- Email body start -->
 
-  <mj-body>
+  <mj-body background-color="#46175b">
 
 <!-- Top navigation -->
 
@@ -34,6 +34,10 @@
 <!-- Hero or header area -->
 
     <mj-include path="content/hero.mjml" />
+
+<!-- Salutation, aka "Dear friend," -->
+
+    <mj-include path="content/salutation.mjml" />
 
 <!-- Primary content -->
 
@@ -46,10 +50,6 @@
 <!-- Social links -->
 
     <mj-include path="structure/social.mjml" />
-
-<!-- Bottom navigation -->
-
-    <mj-include path="structure/nav-bottom.mjml" />
 
 <!-- Footer -->
 

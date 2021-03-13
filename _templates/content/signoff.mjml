@@ -8,10 +8,10 @@
       (subsequent lines after the <br /> wrapping under the image) is
       acceptable. -->
       <mj-text mj-class="text text--signoff">
-        <img src="https://picsum.photos/75/100" width="75" height="100" alt="" style="border:0;outline:none;text-decoration:none;padding-right:18px;float:left;" />
-        Thank You,<br /><br />
-        John Q. Public<br />
-        Wild and Crazy Guy
+        <img src="images/chrisboothe.jpg" width="100" height="135" alt="" style="border:0;outline:none;text-decoration:none;padding-right:18px;float:left;" />
+        All the best,<br /><br />
+        Chris Boothe<br />
+        Multi-Etch answer man
       </mj-text>
     </mj-column>
   </mj-section>
