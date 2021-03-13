@@ -1,4 +1,4 @@
-<mj-section mj-class="nav nav--top">
+<mj-section mj-class="nav nav--top" css-class="nav">
   <mj-column mj-class="column column--33pc">
       <mj-image mj-class="nav__logo" href="https://www.multietch.com/" src="images/multietchlogo-small.png" alt="Multi-Etch" />
   </mj-column>
