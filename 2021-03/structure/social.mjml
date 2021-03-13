@@ -1,0 +1,21 @@
+<mj-wrapper mj-class="social">
+
+  <mj-section>
+    <mj-column>
+      <mj-divider mj-class="social__border-top" />
+    </mj-column>
+  </mj-section>
+
+  <mj-section>
+    <mj-column>
+      <mj-social mj-class="social__nav">
+        <mj-social-element mj-class="social__icon" name="facebook-noshare" alt="Follow us on Facebook" href="https://www.facebook.com/multietch"></mj-social-element>
+        <mj-social-element mj-class="social__icon" name="instagram-noshare" alt="Follow us on Instagram" href="https://www.instagram.com/multietch/"></mj-social-element>
+        <mj-social-element mj-class="social__icon" name="youtube-noshare" alt="Watch our videos on YouTube" href="https://www.youtube.com/multietch"></mj-social-element>
+        <mj-social-element mj-class="social__icon" name="twitter-noshare" alt="Follow us on Twitter" href="https://twitter.com/multietch"></mj-social-element>
+        <mj-social-element mj-class="social__icon" name="linkedin-noshare" alt="Follow us on LinkedIn" href="https://www.linkedin.com/company/multietch"></mj-social-element>
+      </mj-social>
+    </mj-column>
+  </mj-section>
+
+</mj-wrapper>

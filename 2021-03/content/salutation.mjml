@@ -1,0 +1,9 @@
+<mj-wrapper mj-class="salutation">
+  <mj-section>
+    <mj-column mj-class="column salutation__column">
+      <mj-text mj-class="text text--salutation">
+        Dear {first_name},
+      </mj-text>
+    </mj-column>
+  </mj-section>
+</mj-wrapper>

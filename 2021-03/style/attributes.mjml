@@ -1,0 +1,204 @@
+<mj-font name="Source Sans Pro" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" />
+<!-- Web font with stock font fallbacks, including emoji fonts.
+     `mj-font` element needs to be outside `mj-attributes`
+     References:
+     https://markdotto.com/2018/02/07/github-system-fonts/#the-stack
+     https://documentation.mjml.io/#mj-font
+-->
+
+<mj-attributes>
+
+<!-- Applied to all elements -->
+
+  <mj-all
+    margin="0"
+    padding="0"
+    font-family="'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
+    font-size="18px"
+    color="#666"
+  />
+
+<!-- Structure -->
+
+  <mj-class name="content"
+    padding="0 8px"
+    background-color="white"
+  />
+
+  <mj-class name="column"
+    vertical-align="top"
+  />
+
+  <mj-class name="column--33pc"
+    width="33%"
+  />
+
+  <mj-class name="column--50pc"
+    width="50%"
+  />
+
+  <mj-class name="column--67pc"
+    width="67%"
+  />
+
+  <mj-class name="salutation"
+    background-color="white"
+    padding="32px 8px 0"
+  />
+
+  <mj-class name="signoff"
+    background-color="white"
+    padding="0 8px"
+  />
+
+  <mj-class name="footer"
+    padding="48px 8px"
+    background-color="white"
+  />
+
+<!-- Typography -->
+
+  <mj-class name="h1"
+    padding="18px 0"
+    font-size="36px"
+    line-height="32px"
+    font-weight="bold"
+  />
+
+  <mj-class name="h2"
+    padding="18px 0"
+    font-size="28px"
+    line-height="32px"
+    font-weight="bold"
+  />
+
+  <mj-class name="h2--50pc"
+    padding="18px"
+    align="center"
+    vertical-align="middle"
+  />
+
+  <mj-class name="text"
+    padding="18px 0"
+    font-size="18px"
+    line-height="32px"
+  />
+
+  <mj-class name="text--signoff"
+    line-height="24px"
+  />
+
+  <mj-class name="text--footer"
+    padding="12px 0"
+    font-size="11px"
+    line-height="11px"
+  />
+
+<!-- Buttons -->
+
+  <mj-class name="button"
+    padding="18px"
+    background-color="#46175b"
+    color="white"
+    font-weight="bold"
+    border-radius="8px"
+  />
+
+  <mj-class name="button--ghost"
+    background-color="white"
+    color="#46175b"
+    border="#46175b 2px solid"
+  />
+
+<!-- Images -->
+
+  <mj-class name="image"
+    padding="18px 0"
+  />
+
+  <mj-class name="image--50pc"
+    padding="18px 32px"
+  />
+
+<!-- Hero (banner) -->
+
+  <mj-class name="hero"
+    mode="fixed-height"
+    background-color="grey"
+    vertical-align="middle"
+  />
+
+  <mj-class name="hero__title"
+    align="center"
+    font-size="48px"
+    font-weight="bold"
+    color="white"
+  />
+
+<!-- Social media links -->
+
+  <mj-class name="social"
+    padding="32px 0 16px"
+    background-color="white"
+  />
+
+  <mj-class name="social__border-top"
+    padding-bottom="16px"
+    border-width="1px"
+    border-style="dashed"
+    border-color="#46175b"
+  />
+
+  <mj-class name="social__nav"
+    mode="horizontal"
+    icon-size="48px"
+    font-size="16px"
+  />
+
+  <mj-class name="social__icon"
+    padding="16px"
+    background-color="#46175b"
+    border-radius="6px"
+  />
+
+<!-- Navigation menus -->
+
+  <mj-class name="nav"
+    padding="0 16px 16px"
+    background-color="#46175b"
+    color="white"
+  />
+
+  <mj-class name="nav--top"
+  />
+
+  <mj-class name="nav--bottom"
+  />
+
+  <mj-class name="nav__logo"
+    margin="16px"
+    width="196px"
+    height="80px"
+  />
+
+  <mj-class name="nav__navbar"
+    hamburger="hamburger"
+    ico-color="white"
+  />
+
+  <mj-class name="nav__navbar--top"
+    padding="16px 0"
+  />
+
+  <mj-class name="nav__navbar--bottom"
+    padding="4px 0"
+  />
+
+  <mj-class name="nav__link"
+    padding="20px 16px 0"
+    font-size="16px"
+    font-weight="bold"
+    color="white"
+  />
+
+</mj-attributes>
