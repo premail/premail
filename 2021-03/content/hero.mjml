@@ -4,3 +4,8 @@
   background-url="images/jellyfish-earrings-banner.jpg"
 >
 </mj-hero>
+<mj-section>
+  <mj-column>
+    <mj-divider container-background-color="white" border-color="#46175b" border-width="2px" />
+  </mj-column>
+</mj-section>
