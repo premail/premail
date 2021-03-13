@@ -2,7 +2,7 @@
   <mj-section>
     <mj-column mj-class="column salutation__column">
       <mj-text mj-class="text text--salutation">
-        Dear {first_name},
+        <p>Dear {first_name},</p>
       </mj-text>
     </mj-column>
   </mj-section>
