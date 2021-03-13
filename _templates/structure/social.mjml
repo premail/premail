@@ -1,4 +1,4 @@
-<mj-wrapper mj-class="social">
+<mj-wrapper mj-class="social" css-class="social">
 
   <mj-section>
     <mj-column>
