@@ -1,4 +1,4 @@
-<mj-section mj-class="nav nav--bottom">
+<mj-section mj-class="nav nav--bottom" css-class="nav">
   <mj-column mj-class="column">
     <mj-navbar mj-class="nav__navbar nav__navbar--bottom" base-url="https://www.multietch.com">
         <mj-navbar-link mj-class="nav__link" href="/multietch-blog">Blog</mj-navbar-link>
