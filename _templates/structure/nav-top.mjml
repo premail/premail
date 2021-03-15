@@ -1,12 +1,5 @@
 <mj-section mj-class="nav nav--top" css-class="nav">
-  <mj-column mj-class="column column--33pc">
-      <mj-image mj-class="nav__logo" href="https://www.multietch.com/" src="images/multietchlogo-small.png" alt="Multi-Etch" />
-  </mj-column>
-  <mj-column mj-class="column column--67pc">
-    <mj-navbar mj-class="nav__navbar nav__navbar--top" base-url="https://www.multietch.com/">
-        <mj-navbar-link mj-class="nav__link" href="/multietch-blog">Blog</mj-navbar-link>
-        <mj-navbar-link mj-class="nav__link" href="/order">Order</mj-navbar-link>
-        <mj-navbar-link mj-class="nav__link" href="/contactus">Contact</mj-navbar-link>
-    </mj-navbar>
+  <mj-column mj-class="column">
+      <mj-image mj-class="nav__logo" href="https://www.multietch.com/" src="images/multietch.png" alt="Multi-Etch" />
   </mj-column>
 </mj-section>

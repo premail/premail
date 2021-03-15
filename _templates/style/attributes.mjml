@@ -216,8 +216,8 @@
 
   <mj-class name="nav__logo"
     margin="16px"
-    width="196px"
-    height="80px"
+    width="250px"
+    height="100px"
   />
 
   <mj-class name="nav__navbar"
