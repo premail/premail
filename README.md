@@ -35,3 +35,13 @@ the image float is disabled.
 or:
 `<mj-button mj-class="button button--ghost" css-class="button button--ghost" href="#" title="TITLE">TEXT</mj-button>`
 The CSS classes are necessary for styling of the link elements.
+
+# Licenses
+
+Underlying code from
+[rootwork/mjml-quickstart](https://github.com/rootwork/mjml-quickstart) is
+[GPLv3](LICENSE-code).
+
+Content of emails, including text, logos, and images, are
+[copyrighted](LICENSE-content) by [Multi-Etch, LLC](https://www.multietch.com)
+or their respective copyright-holders as noted in the newsletters.
