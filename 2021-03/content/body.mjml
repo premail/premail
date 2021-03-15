@@ -14,7 +14,7 @@
         <h1>More ways to use Multi-Etch</h1>
         <p>This month we performed experiments using room temperature Multi-Etch on rust stains inside of a porcelain toilet tank. Results were quick!</p>
       </mj-text>
-      <mj-button mj-class="button button--ghost" css-class="button button--ghost" href="#" title="View the video on Instagram">Watch a video of Multi-Etch used on rust</mj-button>
+      <mj-button mj-class="button" css-class="button" href="#" title="View the video on Instagram">Watch a video of Multi-Etch used on rust</mj-button>
       <mj-text mj-class="text">
         <p>Don't forget, Multi-Etch contains no hydrofluoric acid! <b>That means you keep conditions safer for yourself, your employees, and your planet.</b></p>
         <h1>Raffle for Multi-Etch users</h1>
