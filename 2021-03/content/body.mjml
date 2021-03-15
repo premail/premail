@@ -6,7 +6,10 @@
         <p><b>We're running a raffle! Details at the end.</b></p>
         <h1>New discoveries with Multi-Etch</h1>
         <p>Over the last year we've spent time experimenting with Multi-Etch. Some of our discoveries:</p>
-        <p>♦&nbsp; We tested <a href="https://www.multietch.com/room-temperature" title="View our guide on using Multi-Etch at room temperature">room temperature Multi-Etch</a> and discovered that it works much better if you heat the batch one time to 130-140°F — this activates it. You can then use it right away or at some later time at room temperature (70°F.)</p>
+        <p>♦&nbsp; We tested <a href="https://www.multietch.com/room-temperature" title="View our guide on using Multi-Etch at room temperature">room-temperature Multi-Etch</a> and discovered that it works much better if you heat the batch one time to 130-140°F — this activates it. You can then use it right away or at some later time at room temperature (70°F). Here are some examples of titanium strips etched with room-temperature Multi-Etch at lengths of time from 30 seconds to 5 minutes:</p>
+      </mj-text>
+      <mj-image mj-class="image" src="images/room-temperature-strips.jpg" alt="Titanium strips with room-temperature Multi-Etch and varying times" />
+      <mj-text mj-class="text">
         <p>♦&nbsp; We discovered that Multi-Etch in solution gets a little stronger and works faster the older it is. <b>When capped, it's good for at least a year.</b></p>
         <h1>More ways to use Multi-Etch</h1>
         <p>This month we performed experiments using room temperature Multi-Etch on rust stains inside of a porcelain toilet tank. Results were quick!</p>
