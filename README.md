@@ -97,6 +97,17 @@ you can import into your email sender of choice.
 In your console, run `./mjml-build.sh`. This will render `index.html`
 [in minified form](https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md#minify-and-beautify-the-output-html).
 
+Images can be included locally while you're drafting the email, but MJML doesn't
+do anything magical in terms of hosting these images -- you'll still have to
+upload them somewhere and change the references to the hosted images.
+
+Once the production email is rendered, you can:
+
+* import directly (as HTML) into your emailer of choice
+* share the `index.html` file with colleagues
+* upload the file as part of a repo and use something like
+[GitHub Pages](https://pages.github.com/) to view/share it in a browser
+
 ### Sublime Text 3 users
 
 Press <kbd>Ctrl-B</kbd> to run the build script.
