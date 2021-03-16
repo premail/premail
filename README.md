@@ -45,3 +45,5 @@ Underlying code from
 Content of emails, including text, logos, and images, are
 [copyrighted](LICENSE-content) by [Multi-Etch, LLC](https://www.multietch.com)
 or their respective copyright-holders as noted in the newsletters.
+
+"Multi-Etch" is a registered trademark of Exotica Jewelry, Inc.
