@@ -14,8 +14,8 @@ choice.
 If you're here, you are probably already familiar with MJML, but if not you
 should [read a little about it](https://documentation.mjml.io) first.
 
-The structure of this is such that you should fork it, and then use it to
-contain all of your email projects within a single design.
+The structure of this is such you should use it to contain all of your email
+projects within a single design.
 
 For instance, if you're a freelancer, you'd fork this project once each for
 Company A and Company B, and place each individual email as a subdirectory
@@ -30,7 +30,10 @@ extra tools for Sublime Text 3 users.
 
 # Setup
 
-* Fork this repo, clone it locally and `cd` into it.
+* Go to the [Releases](releases) page and grab the most recent stable version.
+Download and extract it to the location of your choice. Alternatively, if you're
+going to be keeping your newsletters in a repo, you can simply fork this one,
+rename it as needed, and clone it locally.
 * Install [mjml](https://www.npmjs.com/package/mjml) globally using node:
 `npm install -g mjml`
 
@@ -140,3 +143,7 @@ fixes this the issue will resolve itself.
 * The `signoff.mjml` template, used for a signature or closing with a person's
 image, uses a regular `<img>` tag with inline styles. This will be moved to a
 custom component in a future release.
+
+# License
+
+GPLv3. See [LICENSE](LICENSE).
