@@ -54,6 +54,4 @@ exports.watch = function () {
 }
 
 // Gulp default
-exports.default = async function() {
-  html_pretty();
-}
+exports.default = html_pretty;
