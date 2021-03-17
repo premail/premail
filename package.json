@@ -23,7 +23,8 @@
     "type": "github",
     "url": "https://github.com/sponsors/rootwork"
   },
-  "devDependencies": {
-    "gulp": "^4.0.2"
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-mjml": "^4.0.2"
   }
 }

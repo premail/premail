@@ -1,4 +1,4 @@
 {
-  "shell_cmd": "cd $folder; ./mjml-build.sh",
+  "shell_cmd": "cd $folder; gulp",
   "file_patterns": ["*.mjml"]
 }
