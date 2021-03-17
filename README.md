@@ -14,6 +14,21 @@ choice.
   this section. -->
 
 <!--ts-->
+   * [Overview](#overview)
+   * [Setup](#setup)
+      * [If you have Sublime Text 3](#if-you-have-sublime-text-3)
+   * [Usage](#usage)
+      * [Creating a new design](#creating-a-new-design)
+         * [Sublime Text 3 users](#sublime-text-3-users)
+      * [Creating a new email from an existing design](#creating-a-new-email-from-an-existing-design)
+      * [Rendering the email for production](#rendering-the-email-for-production)
+         * [Sublime Text 3 users](#sublime-text-3-users-1)
+   * [Notes on project structure](#notes-on-project-structure)
+   * [Known issues](#known-issues)
+   * [License](#license)
+
+<!-- Added by: runner, at: Wed Mar 17 00:38:57 UTC 2021 -->
+
 <!--te-->
 
 # Overview
