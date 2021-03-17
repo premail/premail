@@ -1,7 +1,7 @@
 <mj-wrapper mj-class="footer">
   <mj-section>
   	<mj-column>
-      <mj-text mj-class="text text--footer">This email was sent to you because you're awesome. <a href="#">Unsubscribe</a> or <a href="#">manage your preferences</a>.</mj-text>
+      <mj-text mj-class="text text--footer">This email was sent to you because you're awesome. <a href="#">Unsubscribe</a> or <a href="$[LI:UNSUBSCRIBE]$">manage your preferences</a>.</mj-text>
       <mj-text mj-class="text text--footer"><a href="http://mjml.io">MJML.io</a>, 123 Main Street, Anywhere, US 33333</mj-text>
   	</mj-column>
   </mj-section>

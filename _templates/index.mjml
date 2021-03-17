@@ -35,6 +35,10 @@
 
     <mj-include path="content/hero.mjml" />
 
+<!-- Salutation, aka "Dear friend," -->
+
+    <mj-include path="content/salutation.mjml" />
+
 <!-- Primary content -->
 
     <mj-include path="content/body.mjml" />

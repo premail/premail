@@ -9,3 +9,8 @@
     Hero image title
   </mj-text>
 </mj-hero>
+<mj-section>
+  <mj-column>
+    <mj-divider mj-class="hero-border" />
+  </mj-column>
+</mj-section>

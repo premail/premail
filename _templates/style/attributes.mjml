@@ -6,6 +6,81 @@
      https://documentation.mjml.io/#mj-font
 -->
 
+
+<!-- The following CSS will be inlined by MJML. Use it for
+styling basic HTML elements. Don't include anything that can't
+be inlined (like link-hover styles). -->
+<mj-style inline="inline">
+
+  h1 {
+    margin: 0;
+    padding: 18px 0;
+    font-size: 36px;
+    line-height: 32px;
+    font-weight: bold;
+  }
+
+  h2 {
+    margin: 0;
+    padding: 18px 0;
+    font-size: 28px;
+    line-height: 32px;
+    font-weight: bold;
+  }
+
+  .mj-column-per-50 h2 {
+    padding: 18px;
+    align: center;
+    vertical-align: middle;
+  }
+
+  p {
+    margin: 18px 0;
+  }
+
+  a {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+</mj-style>
+
+<!-- WARNING: The following section is for CSS styles that cannot
+be inlined, like link-hover effects. Remember that only
+a small subset of recipients will see these, so use this
+section for enhancement only; things should be readable even
+when these styles don't load! You'll need to add !important
+to all these styles to override the inlined ones, so be sure
+to test (e.g. if you change a link's color on hover, make
+sure it still works in the context of buttons, navigation menus,
+the footer, headings/subheadings, social icons, etc.). -->
+<mj-style>
+
+  a:hover,
+  a:focus,
+  a:active {
+  }
+
+  .button a:hover,
+  .button a:focus,
+  .button a:active {
+  }
+
+  .button--ghost table a:hover,
+  .button--ghost table a:focus,
+  .button--ghost table a:active {
+  }
+
+  .nav a:hover,
+  .nav a:focus,
+  .nav a:active {
+  }
+
+  .social a:focus {
+  }
+
+</mj-style>
+
 <mj-attributes>
 
 <!-- Applied to all elements -->
@@ -22,6 +97,7 @@
 
   <mj-class name="content"
     padding="0 8px"
+    background-color="white"
   />
 
   <mj-class name="column"
@@ -32,8 +108,24 @@
     width="25%"
   />
 
+  <mj-class name="column--33pc"
+    width="33%"
+  />
+
+  <mj-class name="column--40pc"
+    width="40%"
+  />
+
   <mj-class name="column--50pc"
     width="50%"
+  />
+
+  <mj-class name="column--60pc"
+    width="60%"
+  />
+
+  <mj-class name="column--67pc"
+    width="67%"
   />
 
   <mj-class name="column--75pc"
@@ -41,6 +133,7 @@
   />
 
   <mj-class name="signoff"
+    background-color="white"
     padding="0 8px"
   />
 
@@ -50,26 +143,6 @@
   />
 
 <!-- Typography -->
-
-  <mj-class name="h1"
-    padding="36px 0 18px"
-    font-size="36px"
-    line-height="32px"
-    font-weight="bold"
-  />
-
-  <mj-class name="h2"
-    padding="18px 0"
-    font-size="28px"
-    line-height="32px"
-    font-weight="bold"
-  />
-
-  <mj-class name="h2--50pc"
-    padding="18px"
-    align="center"
-    vertical-align="middle"
-  />
 
   <mj-class name="text"
     padding="18px 0"
@@ -128,10 +201,17 @@
     color="white"
   />
 
+  <mj-class name="hero-border"
+    container-background-color="white"
+    border-color="purple"
+    border-width="2px"
+  />
+
 <!-- Social media links -->
 
   <mj-class name="social"
     padding="32px 0 16px"
+    background-color="white"
   />
 
   <mj-class name="social__border-top"
@@ -156,6 +236,7 @@
 <!-- Navigation menus -->
 
   <mj-class name="nav"
+    padding="0 16px 16px"
     background-color="purple"
     color="white"
   />
@@ -172,6 +253,8 @@
     height="24px"
   />
 
+  <!-- Note using the hamburger menu icon will necessitate
+  another font download for the icon, per MJML. -->
   <mj-class name="nav__navbar"
     hamburger="hamburger"
     ico-color="white"
