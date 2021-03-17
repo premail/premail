@@ -24,15 +24,6 @@ function html_pretty() {
       beautify: true,
     })
     )
-  .pipe(prettier({
-    parser: 'html',
-    "overrides": [
-      {
-        "files": "index.html",
-        "options": { "parser": "html" }
-      }
-    ]
-  }))
   .on('error', (e) => console.log(e))
   .pipe(
     rename(function (path) {
