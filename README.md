@@ -150,8 +150,7 @@ each project, re-forking this project for every new one.
 
 # Known issues
 
-*
-[Gulp output includes MJML depreciation notices](https://github.com/mjmlio/mjml/issues/2205)
+* [Gulp output includes MJML depreciation notices](https://github.com/mjmlio/mjml/issues/2205)
 over which we have no control. The options `mjml` is warning us about will be
 moved to `mjml-cli` once we're given a way to do that.
 
