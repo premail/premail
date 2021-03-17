@@ -1,5 +1,5 @@
 A quick-start setup for those writing email code in [MJML](https://mjml.io/),
-the email templating language.
+the email templating language, using Node and Gulp.
 
 The templates included are
 [valid](https://mjml.io/documentation/#validating-mjml) under
@@ -44,21 +44,18 @@ Company A and Company B, and place each individual email as a subdirectory
 inside the company directories. For more information, see the Notes section at
 the bottom.
 
-We take advantage of MJML's `mj-class` option to gather all of the styles in one
-place, and let MJML take care of all the inlining.
-
-The build scripts assume you're running Bash or ZSH in some form. There are some
-extra tools for Sublime Text 3 users.
-
 # Setup
+
+This has been tested with Node version 10.19.0 and NPM version 7.6.3 and should
+work with any newer releases. The gulp and MJML requirements are listed in
+[`package.json`](package.json) and will be installed automatically.
 
 * Go to the [Releases](https://github.com/rootwork/mjml-quickstart/releases)
 page and grab the most recent stable version. Alternatively, you can simply fork
 this repo and clone it locally.
 * Remove the `.github` folder if you don't want to use
 [GitHub Actions](https://docs.github.com/en/actions).
-* Install [mjml](https://www.npmjs.com/package/mjml) globally using node:
-`npm install -g mjml`
+* Install with `npm i`
 
 ## If you have Sublime Text 3
 
@@ -74,9 +71,6 @@ this repo and clone it locally.
 
 ## Creating a new design
 
-Run setup above, and rename your fork of the repo with your design or company's
-name.
-
 Edit the contents of `_templates` to fit your design that will be in place for
 each email.
 
@@ -90,17 +84,16 @@ email -- top and bottom navigation menus, social media links, and the footer
 area.
 * `style`: This folder contains the CSS attributes that, ideally, *will not*
 change from project to project.
+* `dist`: This folder doesn't exist initially, but will contain the output
+`index.html` for you to use.
 
-In your console, run `./mjml-watch.sh`. This will watch for any changes in any
+In your console, run `gulp watch`. This will watch for any changes in any
 `index.mjml` files (including any partials referenced with `<mj-include>`), and
-re-render `index.html` in default (unminified) form. You can leave your browser
-open to this page.
+re-render `index.html` file in unminified form in the `dist` subdirectory. You
+can leave your browser open to this page.
 
-By default,
-[watch output includes MJML depreciation notices](https://github.com/mjmlio/mjml/issues/2205);
-if these bother you, you can turn off errors by running
-`./mjml-watch.sh &> /dev/null` instead, but this means you won't get rebuild
-notifications in your console either.
+If you don't want to continuously watch your files, you can simply run `gulp`
+and it will build the `index.html` file in unminified form and then stop.
 
 ### Sublime Text 3 users
 
@@ -110,18 +103,21 @@ check by going to Tools > Build System > MJML
 Be sure that in the Tools menu, "Save All on Build" is checked (which is the
 default).
 
+Then, you can press <kbd>Ctrl-B</kbd> to run the unminified build.
+
 ## Creating a new email from an existing design
 
 1. Once you have a standard design, copy the `_templates` directory and give it
 a name for a specific email.
 2. Edit the `.mjml` files as necessary for this individual email.
-3. Use the build or watch options above to recompile into an `index.html` file
+3. Use the watch or build options above to recompile into an `index.html` file
 you can import into your email sender of choice.
 
 ## Rendering the email for production
 
-In your console, run `./mjml-build.sh`. This will render `index.html`
-[in minified form](https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md#minify-and-beautify-the-output-html).
+In your console, run `gulp export`. This will render `index.html`
+[in minified form](https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md#minify-and-beautify-the-output-html)
+in the `dist` subdirectory of your design.
 
 Images can be included locally while you're drafting the email, but MJML doesn't
 do anything magical in terms of hosting these images -- you'll still have to
@@ -133,43 +129,38 @@ Once the production email is rendered, you can:
 * share the `index.html` file with colleagues
 * upload the file as part of a repo and use something like
 [GitHub Pages](https://pages.github.com/) to view/share it in a browser; for instance
-[here's the rendered file](https://rootwork.github.io/mjml-quickstart/_templates/index.html)
+[here's the rendered file](https://rootwork.github.io/mjml-quickstart/_templates/dist/index.html)
 from the sample templates
-
-### Sublime Text 3 users
-
-Press <kbd>Ctrl-B</kbd> to run the build script.
 
 # Notes on project structure
 
 This project is designed to become your overarching directory in which
-individual email projects with a single design are kept in subdirectories. The
-script included looks for `index.mjml` files in the current directory and any
-first-order subdirectories, and renders them in place to corresponding
-`index.html` files.
+individual email projects with a single design are kept in subdirectories. Gulp
+looks for `index.mjml` files in the current directory and any subdirectories,
+and renders them into the `dist` subdirectory as `index.html` files.
 
 Generally this isn't a huge problem: Should re-rendered older projects change
 somehow (for instance through new versions of MJML itself), you can simply
 choose to not commit the changed files, because you're using version-control.
 
 However, it may introduce issues of scale, if you have a directory with hundreds
-of email projects all getting re-rendered on `watch` or `build`.
+of email projects all getting re-rendered on `gulp` or `watch`.
 
 If that worries you or is becoming an issue, just use a separate directory for
 each project, re-forking this project for every new one.
 
 # Known issues
 
-* Currently comments are not being stripped from minified files
-[due to a bug in mjml-cli](https://github.com/mjmlio/mjml/issues/2206#issuecomment-797352320).
-The build script does specify that comments should be stripped, so once MJML
-fixes this the issue will resolve itself.
+*
+[Gulp output includes MJML depreciation notices](https://github.com/mjmlio/mjml/issues/2205)
+over which we have no control. The options `mjml` is warning us about will be
+moved to `mjml-cli` once we're given a way to do that.
 
 * The `signoff.mjml` template, used for a signature or closing with a person's
 image, uses a regular `<img>` tag with inline styles. This will be moved to a
 custom component in a future release.
 
-# Thanks
+# Thanks and Sponsorships
 
 Work funded in part by [Multi-Etch, LLC](https://www.multietch.com/).
 
