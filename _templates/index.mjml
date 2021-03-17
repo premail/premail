@@ -4,11 +4,9 @@
 <!-- Root declaration -->
 
 <mjml lang="en">
-
-<!-- Head declaration -->
+  <!-- Head declaration -->
 
   <mj-head>
-
     <!-- Title -->
 
     <mj-include path="content/title.mjml" />
@@ -20,49 +18,45 @@
     <!-- Preview text -->
 
     <mj-include path="content/preview.mjml" />
-
   </mj-head>
 
-<!-- Email body start -->
+  <!-- Email body start -->
 
   <mj-body>
-
-<!-- Top navigation -->
+    <!-- Top navigation -->
 
     <mj-include path="structure/nav-top.mjml" />
 
-<!-- Hero or header area -->
+    <!-- Hero or header area -->
 
     <mj-include path="content/hero.mjml" />
 
-<!-- Salutation, aka "Dear friend," -->
+    <!-- Salutation, aka "Dear friend," -->
 
     <mj-include path="content/salutation.mjml" />
 
-<!-- Primary content -->
+    <!-- Primary content -->
 
     <mj-include path="content/body.mjml" />
 
-<!-- Sign-off, signature or closing -->
+    <!-- Sign-off, signature or closing -->
 
     <mj-include path="content/signoff.mjml" />
 
-<!-- Social links -->
+    <!-- Social links -->
 
     <mj-include path="structure/social.mjml" />
 
-<!-- Bottom navigation -->
+    <!-- Bottom navigation -->
 
     <mj-include path="structure/nav-bottom.mjml" />
 
-<!-- Footer -->
+    <!-- Footer -->
 
     <mj-include path="structure/footer.mjml" />
 
-<!-- Body closure -->
-
+    <!-- Body closure -->
   </mj-body>
 
-<!-- Root closure -->
-
+  <!-- Root closure -->
 </mjml>

@@ -26,6 +26,7 @@
   "dependencies": {
     "gulp": "^4.0.2",
     "gulp-mjml": "^4.0.2",
+    "gulp-prettier": "^3.0.0",
     "gulp-rename": "^2.0.0",
     "mjml": "^4.9.0"
   }

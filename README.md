@@ -13,18 +13,19 @@ choice. [See example.](https://rootwork.github.io/mjml-quickstart/_templates/ind
   this section. -->
 
 <!--ts-->
-   * [Overview](#overview)
-   * [Setup](#setup)
-      * [If you have Sublime Text 3](#if-you-have-sublime-text-3)
-   * [Usage](#usage)
-      * [Creating a new design](#creating-a-new-design)
-         * [Sublime Text 3 users](#sublime-text-3-users)
-      * [Creating a new email from an existing design](#creating-a-new-email-from-an-existing-design)
-      * [Rendering the email for production](#rendering-the-email-for-production)
-   * [Notes on project structure](#notes-on-project-structure)
-   * [Known issues](#known-issues)
-   * [Thanks and Sponsorships](#thanks-and-sponsorships)
-   * [License](#license)
+
+- [Overview](#overview)
+- [Setup](#setup)
+  - [If you have Sublime Text 3](#if-you-have-sublime-text-3)
+- [Usage](#usage)
+  - [Creating a new design](#creating-a-new-design)
+    - [Sublime Text 3 users](#sublime-text-3-users)
+  - [Creating a new email from an existing design](#creating-a-new-email-from-an-existing-design)
+  - [Rendering the email for production](#rendering-the-email-for-production)
+- [Notes on project structure](#notes-on-project-structure)
+- [Known issues](#known-issues)
+- [Thanks and Sponsorships](#thanks-and-sponsorships)
+- [License](#license)
 
 <!-- Added by: runner, at: Wed Mar 17 21:04:39 UTC 2021 -->
 
@@ -49,22 +50,22 @@ This has been tested with Node version 10.19.0 and NPM version 7.6.3 and should
 work with any newer releases. The gulp and MJML requirements are listed in
 [`package.json`](package.json) and will be installed automatically.
 
-* Go to the [Releases](https://github.com/rootwork/mjml-quickstart/releases)
-page and grab the most recent stable version. Alternatively, you can simply fork
-this repo and clone it locally.
-* Remove the `.github` folder if you don't want to use
-[GitHub Actions](https://docs.github.com/en/actions).
-* Install with `npm i`
+- Go to the [Releases](https://github.com/rootwork/mjml-quickstart/releases)
+  page and grab the most recent stable version. Alternatively, you can simply
+  fork this repo and clone it locally.
+- Remove the `.github` folder if you don't want to use
+  [GitHub Actions](https://docs.github.com/en/actions).
+- Install with `npm i`
 
 ## If you have Sublime Text 3
 
-* Copy the Sublime build file into your configuration:
-  * Linux: `cp MJML.sublime-build ~/.config/sublime-text-3/Packages/User`
-  * Mac: `cp MJML.sublime-build ~/Library/Application Support/Sublime Text 3/Packages/User`
-  * Windows: `cp MJML.sublime-build %APPDATA%\Sublime Text 3/Packages/User`
-* Open Sublime Text
-  * Install the Package
-  [MJML-syntax](https://packagecontrol.io/packages/MJML-syntax).
+- Copy the Sublime build file into your configuration:
+  - Linux: `cp MJML.sublime-build ~/.config/sublime-text-3/Packages/User`
+  - Mac: `cp MJML.sublime-build ~/Library/Application Support/Sublime Text 3/Packages/User`
+  - Windows: `cp MJML.sublime-build %APPDATA%\Sublime Text 3/Packages/User`
+- Open Sublime Text
+  - Install the Package
+    [MJML-syntax](https://packagecontrol.io/packages/MJML-syntax).
 
 # Usage
 
@@ -73,18 +74,18 @@ this repo and clone it locally.
 Edit the contents of `_templates` to fit your design that will be in place for
 each email.
 
-* `index.mjml`: This file includes all the component files. You shouldn't
-normally need to edit this unless you are re-ordering the structure or changing
-the `lang` value.
-* `content`: This folder holds files that will *always* change in each email
--- the title, preview text, header/hero area and main body.
-* `structure`: This folder holds files that may *sometimes* change in each
-email -- top and bottom navigation menus, social media links, and the footer
-area.
-* `style`: This folder contains the CSS attributes that, ideally, *will not*
-change from project to project.
-* `dist`: This folder doesn't exist initially, but will contain the output
-`index.html` for you to use.
+- `index.mjml`: This file includes all the component files. You shouldn't
+  normally need to edit this unless you are re-ordering the structure or
+  changing the `lang` value.
+- `content`: This folder holds files that will _always_ change in each email
+  -- the title, preview text, header/hero area and main body.
+- `structure`: This folder holds files that may _sometimes_ change in each
+  email -- top and bottom navigation menus, social media links, and the footer
+  area.
+- `style`: This folder contains the CSS attributes that, ideally, _will not_
+  change from project to project.
+- `dist`: This folder doesn't exist initially, but will contain the output
+  `index.html` for you to use.
 
 In your console, run `gulp watch`. This will watch for any changes in any
 `index.mjml` files (including any partials referenced with `<mj-include>`), and
@@ -107,10 +108,10 @@ Then, you can press <kbd>Ctrl-B</kbd> to run the unminified build.
 ## Creating a new email from an existing design
 
 1. Once you have a standard design, copy the `_templates` directory and give it
-a name for a specific email.
+   a name for a specific email.
 2. Edit the `.mjml` files as necessary for this individual email.
 3. Use the watch or build options above to recompile into an `index.html` file
-you can import into your email sender of choice.
+   you can import into your email sender of choice.
 
 ## Rendering the email for production
 
@@ -124,12 +125,17 @@ upload them somewhere and change the references to the hosted images.
 
 Once the production email is rendered, you can:
 
-* import directly (as HTML) into your emailer of choice
-* share the `index.html` file with colleagues
-* upload the file as part of a repo and use something like
-[GitHub Pages](https://pages.github.com/) to view/share it in a browser; for instance
-[here's the rendered file](https://rootwork.github.io/mjml-quickstart/_templates/dist/index.html)
-from the sample templates
+- import directly (as HTML) into your emailer of choice
+- share the `index.html` file with colleagues
+- upload the file as part of a repo and use something like
+  [GitHub Pages](https://pages.github.com/) to view/share it in a browser; for
+  instance
+  [here's the rendered file](https://rootwork.github.io/mjml-quickstart/_templates/dist/index.html)
+  from the sample templates
+
+## Cleaning up your MJML files
+
+Run `gulp mjml_pretty` to auto-format all of your `.mjml` files.
 
 # Notes on project structure
 
@@ -150,13 +156,13 @@ each project, re-forking this project for every new one.
 
 # Known issues
 
-* [Gulp output includes MJML depreciation notices](https://github.com/mjmlio/mjml/issues/2205)
-over which we have no control. The options `mjml` is warning us about will be
-moved to `mjml-cli` once we're given a way to do that.
+- [Gulp output includes MJML depreciation notices](https://github.com/mjmlio/mjml/issues/2205)
+  over which we have no control. The options `mjml` is warning us about will be
+  moved to `mjml-cli` once we're given a way to do that.
 
-* The `signoff.mjml` template, used for a signature or closing with a person's
-image, uses a regular `<img>` tag with inline styles. This will be moved to a
-custom component in a future release.
+- The `signoff.mjml` template, used for a signature or closing with a person's
+  image, uses a regular `<img>` tag with inline styles. This will be moved to a
+  custom component in a future release.
 
 # Thanks and Sponsorships
 
