@@ -9,6 +9,13 @@ The templates included are
 One `index.html` file will be rendered, ready to import into your emailer of
 choice.
 
+<!-- The following section, from "ts" to "te", is an automatically-generated
+  table of contents, updated whenever this file changes. Do not edit within
+  this section. -->
+
+<!--ts-->
+<!--te-->
+
 # Overview
 
 If you're here, you are probably already familiar with MJML, but if not you
@@ -31,9 +38,9 @@ extra tools for Sublime Text 3 users.
 # Setup
 
 * Go to the [Releases](releases) page and grab the most recent stable version.
-Download and extract it to the location of your choice. Alternatively, if you're
-going to be keeping your newsletters in a repo, you can simply fork this one,
-rename it as needed, and clone it locally.
+Alternatively, you can simply fork this repo and clone it locally.
+* Remove the `.github` folder if you don't want to use
+[GitHub Actions](https://docs.github.com/en/actions).
 * Install [mjml](https://www.npmjs.com/package/mjml) globally using node:
 `npm install -g mjml`
 
