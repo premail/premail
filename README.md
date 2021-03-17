@@ -21,13 +21,12 @@ choice. [See example.](https://rootwork.github.io/mjml-quickstart/_templates/ind
          * [Sublime Text 3 users](#sublime-text-3-users)
       * [Creating a new email from an existing design](#creating-a-new-email-from-an-existing-design)
       * [Rendering the email for production](#rendering-the-email-for-production)
-         * [Sublime Text 3 users](#sublime-text-3-users-1)
    * [Notes on project structure](#notes-on-project-structure)
    * [Known issues](#known-issues)
-   * [Thanks](#thanks)
+   * [Thanks and Sponsorships](#thanks-and-sponsorships)
    * [License](#license)
 
-<!-- Added by: runner, at: Wed Mar 17 01:32:32 UTC 2021 -->
+<!-- Added by: runner, at: Wed Mar 17 20:57:58 UTC 2021 -->
 
 <!--te-->
 
