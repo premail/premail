@@ -37,7 +37,11 @@ be inlined (like link-hover styles). -->
   }
 
   p {
-    margin: 18px 0;
+    margin: 0 0 18px;
+  }
+
+  .salutation p {
+    margin: 0;
   }
 
   a {
@@ -134,6 +138,11 @@ the footer, headings/subheadings, social icons, etc.). -->
     width="75%"
   />
 
+  <mj-class name="salutation"
+    background-color="white"
+    padding="0 8px"
+  />
+
   <mj-class name="signoff"
     background-color="white"
     padding="0 8px"
@@ -150,6 +159,9 @@ the footer, headings/subheadings, social icons, etc.). -->
     padding="18px 0"
     font-size="18px"
     line-height="32px"
+  />
+
+  <mj-class name="text--salutation"
   />
 
   <mj-class name="text--signoff"
