@@ -1,8 +1,9 @@
 <mj-wrapper mj-class="footer">
   <mj-section>
-  	<mj-column>
-      <mj-text mj-class="text text--footer">You're receiving this email because you have purchased Multi-Etch, done business with us in the past, or signed up to receive our newsletter on the MultiEtch.com website. <a href="#">Unsubscribe</a></mj-text>
+    <mj-column>
+      <mj-text mj-class="text text--footer">You're receiving this email because you have purchased Multi-Etch, done business with us in the past, or signed up to receive our newsletter on the MultiEtch.com website. <a href="$[LI:UNSUBSCRIBE]$">Unsubscribe</a></mj-text>
       <mj-text mj-class="text text--footer"><a href="https://www.multietch.com/">Multi-Etch, LLC</a>, P.O. Box 9, Clarkdale, AZ 86324 USA</mj-text>
-  	</mj-column>
+      <mj-text mj-class="text text--footer">"Multi-Etch" is a registered trademark of Exotica Jewelry, Inc. Text, logos, and images are copyrighted by Multi-Etch, LLC or their respective copyright-holders as noted in the text.
+    </mj-column>
   </mj-section>
 </mj-wrapper>
