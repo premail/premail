@@ -1,4 +1,6 @@
-<mj-font name="Source Sans Pro" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" />
+<!-- Carefully note format of Google Fonts URL if you want to be sure you're
+getting true bold and italic versions of the font. -->
+<mj-font name="Source Sans Pro" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,900;1,400;1,900&amp;display=swap" />
 <!-- Web font with stock font fallbacks, including emoji fonts.
      `mj-font` element needs to be outside `mj-attributes`
      References:
