@@ -250,7 +250,7 @@ the footer, headings/subheadings, social icons, etc.). -->
 <!-- Navigation menus -->
 
   <mj-class name="nav"
-    padding="0 16px 16px"
+    padding="16px"
     background-color="purple"
     color="white"
   />
