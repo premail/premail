@@ -115,7 +115,7 @@
 
   <mj-class name="salutation"
     background-color="white"
-    padding="0 8px"
+    padding="32px 8px 0"
   />
 
   <mj-class name="signoff"
