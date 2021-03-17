@@ -1,0 +1,23 @@
+{
+  "name": "mjml-quickstart",
+  "version": "1.0.0",
+  "description": "A quick-start setup for those writing email code in [MJML](https://mjml.io/), the email templating language.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rootwork/mjml-quickstart.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rootwork/mjml-quickstart/issues"
+  },
+  "homepage": "https://github.com/rootwork/mjml-quickstart#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
