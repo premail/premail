@@ -1,6 +1,5 @@
 A quick-start setup for those writing email code in [MJML](https://mjml.io/),
-the email templating language. With inspiration from
-[dalefish/mjml-boilerplate-win](https://github.com/dalefish/mjml-boilerplate-win).
+the email templating language.
 
 The templates included are
 [valid](https://mjml.io/documentation/#validating-mjml) under
@@ -52,8 +51,9 @@ extra tools for Sublime Text 3 users.
 
 # Setup
 
-* Go to the [Releases](releases) page and grab the most recent stable version.
-Alternatively, you can simply fork this repo and clone it locally.
+* Go to the [Releases](https://github.com/rootwork/mjml-quickstart/releases)
+page and grab the most recent stable version. Alternatively, you can simply fork
+this repo and clone it locally.
 * Remove the `.github` folder if you don't want to use
 [GitHub Actions](https://docs.github.com/en/actions).
 * Install [mjml](https://www.npmjs.com/package/mjml) globally using node:
@@ -165,6 +165,17 @@ fixes this the issue will resolve itself.
 * The `signoff.mjml` template, used for a signature or closing with a person's
 image, uses a regular `<img>` tag with inline styles. This will be moved to a
 custom component in a future release.
+
+# Thanks
+
+Work funded in part by [Multi-Etch, LLC](https://www.multietch.com/).
+
+Built with original inspiration from
+[dalefish/mjml-boilerplate-win](https://github.com/dalefish/mjml-boilerplate-win).
+
+Thanks, of course, to the folks working on
+[mjmlio/mjml](https://github.com/mjmlio/mjml). You are the light in the terrible
+email-HTML darkness.
 
 # License
 
