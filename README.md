@@ -24,9 +24,10 @@ choice.
          * [Sublime Text 3 users](#sublime-text-3-users-1)
    * [Notes on project structure](#notes-on-project-structure)
    * [Known issues](#known-issues)
+   * [Thanks](#thanks)
    * [License](#license)
 
-<!-- Added by: runner, at: Wed Mar 17 00:38:57 UTC 2021 -->
+<!-- Added by: runner, at: Wed Mar 17 00:45:19 UTC 2021 -->
 
 <!--te-->
 
