@@ -19,19 +19,28 @@ const paths = {
 // MJML -> HTML: Pretty version
 function html_pretty() {
   return src(paths.mjml.src)
-    .pipe(
-      mjml(mjmlEngine, {
-        beautify: true,
-      })
+  .pipe(
+    mjml(mjmlEngine, {
+      beautify: true,
+    })
     )
-    .on('error', (e) => console.log(e))
-    .pipe(
-      rename(function (path) {
-        path.dirname = path.dirname + paths.mjml.dir
-        return path
-      })
+  .pipe(prettier({
+    parser: 'html',
+    "overrides": [
+      {
+        "files": "index.html",
+        "options": { "parser": "html" }
+      }
+    ]
+  }))
+  .on('error', (e) => console.log(e))
+  .pipe(
+    rename(function (path) {
+      path.dirname = path.dirname + paths.mjml.dir
+      return path
+    })
     )
-    .pipe(dest(paths.mjml.dest))
+  .pipe(dest(paths.mjml.dest))
 }
 exports.html_pretty = html_pretty
 
