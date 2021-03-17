@@ -22,12 +22,12 @@ jobs:
         uses: urlstechie/urlchecker-action@master
         with:
           # A comma-separated list of file types to cover in the URL checks
-          file_types: md,mjml,scss
+          file_types: .md,.mjml,.scss
           # The timeout seconds to provide to requests, defaults to 5 seconds
           timeout: 30
           # How many times to retry a failed request (each is logged, defaults to 1)
           retry_count: 1
           # Choose whether to include files with no URLs in the output
-          print_all: true
+          print_all: false
           # A comma separated patterns to exclude during URL checks
-          exclude_patterns: http://www.w3.org,http://schema.org/,http://purl.org,http://ogp.me,http://rdfs.org,http://xmlns.com
+          exclude_patterns: http://www.w3.org
