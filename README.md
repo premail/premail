@@ -6,7 +6,7 @@ The templates included are
 [MJML version 4](https://github.com/mjmlio/mjml/releases).
 
 One `index.html` file will be rendered, ready to import into your emailer of
-choice.
+choice. [See example.](https://rootwork.github.io/mjml-quickstart/_templates/index.html)
 
 <!-- The following section, from "ts" to "te", is an automatically-generated
   table of contents, updated whenever this file changes. Do not edit within
@@ -132,7 +132,9 @@ Once the production email is rendered, you can:
 * import directly (as HTML) into your emailer of choice
 * share the `index.html` file with colleagues
 * upload the file as part of a repo and use something like
-[GitHub Pages](https://pages.github.com/) to view/share it in a browser
+[GitHub Pages](https://pages.github.com/) to view/share it in a browser; for instance
+[here's the rendered file](https://rootwork.github.io/mjml-quickstart/_templates/index.html)
+from the sample templates
 
 ### Sublime Text 3 users
 
