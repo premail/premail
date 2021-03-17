@@ -177,7 +177,7 @@ the footer, headings/subheadings, social icons, etc.). -->
 <!-- Buttons -->
 
   <mj-class name="button"
-    padding="18px"
+    padding="0 18px 18px"
     background-color="purple"
     color="white"
     font-weight="bold"
