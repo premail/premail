@@ -18,7 +18,7 @@
       <h2>Subheading</h2>
       <p>Donec eu turpis nec erat auctor euismod imperdiet vel urna. Suspendisse in urna iaculis, mattis metus luctus, egestas libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras finibus arcu a sapien dictum mattis a et tellus.</p>
     </mj-text>
-    <mj-button mj-class="button" href="#">Take action</mj-button>
+    <mj-button mj-class="button" css-class="button" href="#">Take action</mj-button>
   </mj-column>
   </mj-section>
 
@@ -26,7 +26,7 @@
     <mj-column mj-class="column column--50pc">
       <mj-text><h2>An illustrative picture</h2></mj-text>
       <mj-image mj-class="image image--50pc" src="https://picsum.photos/600/300" alt="" href="#" />
-      <mj-button mj-class="button button--ghost" href="#">Find out more</mj-button>
+      <mj-button mj-class="button button--ghost" css-class="button button--ghost" href="#">Find out more</mj-button>
     </mj-column>
     <mj-column mj-class="column column--50pc">
       <mj-text mj-class="text">
@@ -44,7 +44,7 @@
     <mj-column mj-class="column column--50pc">
       <mj-text><h2>An image worth 999 words</h2></mj-text>
       <mj-image mj-class="image image--50pc" src="https://picsum.photos/600/500" alt="" href="#" />
-      <mj-button mj-class="button button--ghost" href="#">Add your thoughts</mj-button>
+      <mj-button mj-class="button button--ghost" css-class="button button--ghost" href="#">Add your thoughts</mj-button>
     </mj-column>
   </mj-section>
 </mj-wrapper>
