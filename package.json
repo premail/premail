@@ -1,8 +1,8 @@
 {
   "name": "mjml-quickstart",
-  "version": "1.0.0",
-  "description": "A quick-start setup for those writing email code in [MJML](https://mjml.io/), the email templating language.",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "A quick-start setup for those writing email code in MJML, the email templating language.",
+  "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,13 +10,19 @@
     "type": "git",
     "url": "git+https://github.com/rootwork/mjml-quickstart.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "homepage": "https://github.com/rootwork/mjml-quickstart#readme",
+  "keywords": [
+    "mjml"
+  ],
+  "author": "Ivan Boothe <ivan@rootwork.org> (https://rootwork.org/)",
+  "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/rootwork/mjml-quickstart/issues"
   },
-  "homepage": "https://github.com/rootwork/mjml-quickstart#readme",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/rootwork"
+  },
   "devDependencies": {
     "gulp": "^4.0.2"
   }
