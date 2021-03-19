@@ -7,6 +7,10 @@ const rename     = require('gulp-rename');
 const mjml       = require('gulp-mjml');
 const mjmlEngine = require('mjml');
 const prettier   = require('gulp-prettier');
+const prompt     = require('prompt-sync')({ sigint: true });
+
+const name = prompt('What is your name? ');
+console.log(`Hey there ${name}`);
 
 //
 // Config
