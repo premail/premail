@@ -1,15 +1,13 @@
-'use strict';
-
 import {
     src,
     dest
 } from 'gulp';
 
-const rename = require('gulp-rename')
-const mjml = require('gulp-mjml')
-const mjmlEngine = require('mjml')
-
+import rename from 'gulp-rename';
+import mjml from 'gulp-mjml';
+import mjmlEngine from 'mjml';
 import path from 'path';
+
 import * as Config from './config.js';
 
 // MJML -> HTML: Development version (pretty-formatted, with comments)
