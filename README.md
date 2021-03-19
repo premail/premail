@@ -87,13 +87,14 @@ each email.
 - `dist`: This folder doesn't exist initially, but will contain the output
   `index.html` for you to use.
 
-In your console, run `gulp watch`. This will watch for any changes in any
-`index.mjml` files (including any partials referenced with `<mj-include>`), and
-re-render `index.html` file in unminified form in the `dist` subdirectory. You
-can leave your browser open to this page.
+In your console, run `gulp watchTemplates`. This will watch for any changes in
+any `index.mjml` files (including any partials referenced with `<mj-include>`),
+and re-render `index.html` file in unminified form in the `dist` subdirectory.
+You can leave your browser open to this page.
 
 If you don't want to continuously watch your files, you can simply run `gulp`
-and it will build the `index.html` file in unminified form and then stop.
+and it will build the `index.html` file in unminified form and then stop. This
+is equivalent to running `gulp compileTemplates`.
 
 ### Sublime Text 3 users
 
@@ -115,7 +116,7 @@ Then, you can press <kbd>Ctrl-B</kbd> to run the unminified build.
 
 ## Rendering the email for production
 
-In your console, run `gulp export`. This will render `index.html`
+In your console, run `gulp buildTemplates`. This will render `index.html`
 [in minified form](https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md#minify-and-beautify-the-output-html)
 in the `dist` subdirectory of your design.
 
@@ -135,7 +136,7 @@ Once the production email is rendered, you can:
 
 ## Cleaning up your MJML files
 
-Run `gulp mjml_pretty` to auto-format all of your `.mjml` files.
+Run `gulp prettyMJML` to auto-format all of your `.mjml` files.
 
 # Notes on project structure
 
