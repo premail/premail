@@ -24,7 +24,6 @@
     "url": "https://github.com/sponsors/rootwork"
   },
   "dependencies": {
-    "esm": "^3.2.25",
     "gulp": "^4.0.2",
     "gulp-mjml": "^4.0.2",
     "gulp-prettier": "^3.0.0",

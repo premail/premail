@@ -69,6 +69,8 @@ work with any newer releases. The gulp and MJML requirements are listed in
 
 # Usage
 
+Run `gulp --tasks` if you want to see all of the options quickly.
+
 ## Creating a new design
 
 Edit the contents of `_templates` to fit your design that will be in place for
@@ -94,7 +96,7 @@ You can leave your browser open to this page.
 
 If you don't want to continuously watch your files, you can simply run `gulp`
 and it will build the `index.html` file in unminified form and then stop. This
-is equivalent to running `gulp compileTemplates`.
+is equivalent to running `gulp devTemplates`.
 
 ### Sublime Text 3 users
 
@@ -116,7 +118,7 @@ Then, you can press <kbd>Ctrl-B</kbd> to run the unminified build.
 
 ## Rendering the email for production
 
-In your console, run `gulp buildTemplates`. This will render `index.html`
+In your console, run `gulp prodTemplates`. This will render `index.html`
 [in minified form](https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md#minify-and-beautify-the-output-html)
 in the `dist` subdirectory of your design.
 
