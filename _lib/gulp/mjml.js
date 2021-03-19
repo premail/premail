@@ -12,8 +12,8 @@ const mjmlEngine = require('mjml')
 import path from 'path';
 import * as Config from './config.js';
 
-// MJML -> HTML: Pretty version
-export function htmlPretty() {
+// MJML -> HTML: Development version (pretty-formatted, with comments)
+export function htmlDev() {
   return src(Config.paths.srcMJML)
   .pipe(
     mjml(mjmlEngine, {
@@ -29,7 +29,7 @@ export function htmlPretty() {
   .pipe(dest(Config.paths.destMJML))
 }
 
-// MJML -> HTML: Production version
+// MJML -> HTML: Production version (minified, no comments)
 export function htmlProd() {
   return src(Config.paths.srcMJML)
     .pipe(

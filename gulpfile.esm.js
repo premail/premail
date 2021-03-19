@@ -17,7 +17,7 @@ exports.default = compileTemplates;
 
 // Compile templates for development
 function compileTemplates(done) {
-  return parallel(MJML.htmlPretty)(done);
+  return parallel(MJML.htmlDev)(done);
 }
 exports.compileTemplates = compileTemplates;
 
