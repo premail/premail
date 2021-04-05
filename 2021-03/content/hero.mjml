@@ -1,0 +1,11 @@
+<mj-hero mj-class="hero"
+  height="200px"
+  background-height="200px"
+  background-url="https://campaign-image.com/zohocampaigns/jellyfish_earrings_banner_zc_v2_722626000000716006.jpg"
+>
+</mj-hero>
+<mj-section>
+  <mj-column>
+    <mj-divider mj-class="hero-border" />
+  </mj-column>
+</mj-section>

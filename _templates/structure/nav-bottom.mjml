@@ -1,4 +1,4 @@
-<mj-section mj-class="nav nav--bottom">
+<mj-section mj-class="nav nav--bottom" css-class="nav">
   <mj-column>
     <mj-navbar mj-class="nav__navbar nav__navbar--bottom" base-url="https://mjml.io">
         <mj-navbar-link mj-class="nav__link" href="/#">Website</mj-navbar-link>

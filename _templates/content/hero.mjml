@@ -1,9 +1,9 @@
 <!-- For Retina display, width and height should be half the size of the image
      in pixels. -->
 <mj-hero mj-class="hero"
-  height="400px"
-  background-height="400px"
-  background-url="https://picsum.photos/1200/800"
+  height="200px"
+  background-height="200px"
+  background-url="https://picsum.photos/1200/400"
 >
   <mj-text mj-class="hero__title">
     Hero image title

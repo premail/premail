@@ -1,43 +1,21 @@
 A quick-start setup for those writing email code in [MJML](https://mjml.io/),
-the email templating language.
+the email templating language. With inspiration from
+[dalefish/mjml-boilerplate-win](https://github.com/dalefish/mjml-boilerplate-win).
 
 The templates included are
 [valid](https://mjml.io/documentation/#validating-mjml) under
 [MJML version 4](https://github.com/mjmlio/mjml/releases).
 
 One `index.html` file will be rendered, ready to import into your emailer of
-choice. [See example.](https://rootwork.github.io/mjml-quickstart/_templates/index.html)
-
-<!-- The following section, from "ts" to "te", is an automatically-generated
-  table of contents, updated whenever this file changes. Do not edit within
-  this section. -->
-
-<!--ts-->
-   * [Overview](#overview)
-   * [Setup](#setup)
-      * [If you have Sublime Text 3](#if-you-have-sublime-text-3)
-   * [Usage](#usage)
-      * [Creating a new design](#creating-a-new-design)
-         * [Sublime Text 3 users](#sublime-text-3-users)
-      * [Creating a new email from an existing design](#creating-a-new-email-from-an-existing-design)
-      * [Rendering the email for production](#rendering-the-email-for-production)
-         * [Sublime Text 3 users](#sublime-text-3-users-1)
-   * [Notes on project structure](#notes-on-project-structure)
-   * [Known issues](#known-issues)
-   * [Thanks](#thanks)
-   * [License](#license)
-
-<!-- Added by: runner, at: Wed Mar 17 01:32:32 UTC 2021 -->
-
-<!--te-->
+choice.
 
 # Overview
 
 If you're here, you are probably already familiar with MJML, but if not you
 should [read a little about it](https://documentation.mjml.io) first.
 
-The structure of this is such you should use it to contain all of your email
-projects within a single design.
+The structure of this is such that you should fork it, and then use it to
+contain all of your email projects within a single design.
 
 For instance, if you're a freelancer, you'd fork this project once each for
 Company A and Company B, and place each individual email as a subdirectory
@@ -52,11 +30,7 @@ extra tools for Sublime Text 3 users.
 
 # Setup
 
-* Go to the [Releases](https://github.com/rootwork/mjml-quickstart/releases)
-page and grab the most recent stable version. Alternatively, you can simply fork
-this repo and clone it locally.
-* Remove the `.github` folder if you don't want to use
-[GitHub Actions](https://docs.github.com/en/actions).
+* Fork this repo, clone it locally and `cd` into it.
 * Install [mjml](https://www.npmjs.com/package/mjml) globally using node:
 `npm install -g mjml`
 
@@ -123,19 +97,6 @@ you can import into your email sender of choice.
 In your console, run `./mjml-build.sh`. This will render `index.html`
 [in minified form](https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md#minify-and-beautify-the-output-html).
 
-Images can be included locally while you're drafting the email, but MJML doesn't
-do anything magical in terms of hosting these images -- you'll still have to
-upload them somewhere and change the references to the hosted images.
-
-Once the production email is rendered, you can:
-
-* import directly (as HTML) into your emailer of choice
-* share the `index.html` file with colleagues
-* upload the file as part of a repo and use something like
-[GitHub Pages](https://pages.github.com/) to view/share it in a browser; for instance
-[here's the rendered file](https://rootwork.github.io/mjml-quickstart/_templates/index.html)
-from the sample templates
-
 ### Sublime Text 3 users
 
 Press <kbd>Ctrl-B</kbd> to run the build script.
@@ -168,18 +129,3 @@ fixes this the issue will resolve itself.
 * The `signoff.mjml` template, used for a signature or closing with a person's
 image, uses a regular `<img>` tag with inline styles. This will be moved to a
 custom component in a future release.
-
-# Thanks
-
-Work funded in part by [Multi-Etch, LLC](https://www.multietch.com/).
-
-Built with original inspiration from
-[dalefish/mjml-boilerplate-win](https://github.com/dalefish/mjml-boilerplate-win).
-
-Thanks, of course, to the folks working on
-[mjmlio/mjml](https://github.com/mjmlio/mjml). You are the light in the terrible
-email-HTML darkness.
-
-# License
-
-GPLv3. See [LICENSE](LICENSE).
