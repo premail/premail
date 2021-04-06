@@ -2,6 +2,7 @@
 
 const { src, dest, series, parallel, watch } = require('gulp');
 
+const fs         = require('fs')
 const path       = require('path');
 const rename     = require('gulp-rename');
 const mjml       = require('gulp-mjml');
@@ -9,13 +10,22 @@ const mjmlEngine = require('mjml');
 const prettier   = require('gulp-prettier');
 const prompt     = require('prompt-sync')({ sigint: true });
 
-const name = prompt('What is your name? ');
-console.log(`Hey there ${name}`);
+// const name = prompt('What is your name? ');
+// console.log(`Hey there ${name}`);
 
 //
 // Config
 //
 
+// Acquire directory information
+const getDirectories = srcPath =>
+  fs.readdirSync(srcPath)
+    .filter(file => fs.lstatSync(path.join(srcPath, file)).isDirectory())
+
+const designs = getDirectories('designs');
+const emails = getDirectories('emails');
+
+// Paths
 const paths = {
   dist: path.resolve('/dist/'),
   srcMJML: path.resolve('./', '**/index.mjml'),
