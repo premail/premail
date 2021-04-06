@@ -44,11 +44,13 @@ Company A and Company B, and place each individual email as a subdirectory
 inside the company directories. For more information, see the Notes section at
 the bottom.
 
-# Setup
+# Requirements
 
-This has been tested with Node version 10.19.0 and NPM version 7.6.3 and should
-work with any newer releases. The gulp and MJML requirements are listed in
-[`package.json`](package.json) and will be installed automatically.
+* [Node](https://nodejs.org/en/download/) 10.10.0+
+* [Gulp](https://gulpjs.com/docs/en/getting-started/quick-start) 4.0.2+
+* [MJML](https://github.com/mjmlio/mjml/releases) 4.9.0+
+
+# Setup
 
 - Go to the [Releases](https://github.com/rootwork/mjml-quickstart/releases)
   page and grab the most recent stable version. Alternatively, you can simply
