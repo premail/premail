@@ -30,6 +30,7 @@ const styleDir = 'style';
 const distDir = 'dist';
 
 // Acquire CLI arguments
+// @TODO move this to separate module.
 const arg = (argList => {
 
   let arg = {}, a, opt, thisOpt, curOpt;
