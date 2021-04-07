@@ -8,8 +8,9 @@ const rename     = require('gulp-rename');
 const mjml       = require('gulp-mjml');
 const mjmlEngine = require('mjml');
 const prettier   = require('gulp-prettier');
-const prompt     = require('prompt-sync')({ sigint: true });
 
+// @TODO use or remove
+// const prompt     = require('prompt-sync')({ sigint: true });
 // const name = prompt('What is your name? ');
 // console.log(`Hey there ${name}`);
 
@@ -22,10 +23,22 @@ const getDirectories = srcPath =>
   fs.readdirSync(srcPath)
     .filter(file => fs.lstatSync(path.join(srcPath, file)).isDirectory())
 
-const designs = getDirectories('designs');
-const emails = getDirectories('emails');
+// Top-level directory for designs
+const designDir = getDirectories('designs');
 
-// Paths
+// Top-level directory for individual emails
+const emailDir = getDirectories('emails');
+
+// File extensions to process from MJML to HTML
+const mjmlFileExt = 'mjml';
+
+// Subdirectory of designs in which to look for Sass/CSS styles
+const styleDir = 'style';
+
+// Subdirectory of emails in which to export HTML code
+const distDir = 'dist';
+
+// Old paths (@TODO rewrite/replace in code below with new ones above.)
 const paths = {
   dist: path.resolve('/dist/'),
   srcMJML: path.resolve('./', '**/index.mjml'),
