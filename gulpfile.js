@@ -14,6 +14,21 @@ const prettier   = require('gulp-prettier');
 // Config
 //
 
+// Top-level directory for designs
+const designDir = 'designs';
+
+// Top-level directory for individual emails
+const emailDir = 'emails';
+
+// File extensions to process from MJML to HTML
+const mjmlFileExt = 'mjml';
+
+// Subdirectory of designs in which to look for Sass/CSS styles
+const styleDir = 'style';
+
+// Subdirectory of emails in which to export HTML code
+const distDir = 'dist';
+
 // Acquire CLI arguments
 const arg = (argList => {
 
@@ -54,21 +69,6 @@ const emailCurrent =  arg.e;
 // const name = prompt('What is your name? ');
 // console.log(`Hey there ${name}`);
 
-// Top-level directory for designs
-const designDir = 'designs';
-
-// Top-level directory for individual emails
-const emailDir = 'emails';
-
-// File extensions to process from MJML to HTML
-const mjmlFileExt = 'mjml';
-
-// Subdirectory of designs in which to look for Sass/CSS styles
-const styleDir = 'style';
-
-// Subdirectory of emails in which to export HTML code
-const distDir = 'dist';
-
 // Acquire directory information
 const getDirectories = srcPath =>
   fs.readdirSync(srcPath)
@@ -79,6 +79,13 @@ const designList = getDirectories(designDir);
 
 // Get list of emails by directory name
 const emailList = getDirectories(emailDir);
+
+// Set fully qualified paths
+const designCurrentDir = path.resolve('./', designDir, designCurrent );
+const emailCurrentDir = path.resolve('./', emailDir, emailCurrent );
+
+console.log(designCurrentDir);
+console.log(emailCurrentDir);
 
 // Old paths (@TODO rewrite/replace in code below with new ones above.)
 const paths = {
