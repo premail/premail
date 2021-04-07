@@ -28,8 +28,8 @@
     "gulp-mjml": "^4.0.2",
     "gulp-prettier": "^3.0.0",
     "gulp-rename": "^2.0.0",
+    "minimist": "^1.2.5",
     "mjml": "^4.9.0",
-    "npm": "^7.8.0",
-    "prompt-sync": "^4.2.0"
+    "npm": "^7.8.0"
   }
 }
