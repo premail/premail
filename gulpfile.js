@@ -21,7 +21,7 @@ const designDir = 'designs';
 const emailDir = 'emails';
 
 // File extensions to process from MJML to HTML
-const mjmlFileExt = 'mjml';
+const mjmlFileExt = '.mjml';
 
 // Subdirectory of designs in which to look for Sass/CSS styles
 const styleDir = 'style';
@@ -61,8 +61,18 @@ const arg = (argList => {
 })(process.argv);
 
 // Set constants from CLI arguments
-const designCurrent = arg.d;
-const emailCurrent =  arg.e;
+let designCurrent = '_templates';
+
+if (arg.d) {
+  designCurrent = arg.d;
+}
+
+let emailCurrent = '';
+
+if (arg.e) {
+  emailCurrent = arg.e;
+}
+
 // @TODO consider replacing this with prompt based on existing directories
 // (see getDirectories, below).
 //
