@@ -16,7 +16,6 @@ choice. [See example.](https://rootwork.github.io/mjml-quickstart/designs/_templ
    * [Overview](#overview)
    * [Requirements](#requirements)
    * [Setup](#setup)
-      * [If you have Sublime Text 3](#if-you-have-sublime-text-3)
    * [Usage](#usage)
       * [Creating a new design](#creating-a-new-design)
       * [Creating a new email from an existing design](#creating-a-new-email-from-an-existing-design)
@@ -26,7 +25,7 @@ choice. [See example.](https://rootwork.github.io/mjml-quickstart/designs/_templ
    * [Thanks and Sponsorships](#thanks-and-sponsorships)
    * [License](#license)
 
-<!-- Added by: runner, at: Thu Apr  8 00:35:26 UTC 2021 -->
+<!-- Added by: runner, at: Thu Apr  8 00:36:40 UTC 2021 -->
 
 <!--te-->
 
