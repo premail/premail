@@ -158,6 +158,8 @@ Run `gulp prettyMJML` to auto-format all of your `.mjml` files.
                     -d:     Specifies design folder to use. (Default: _templates)
                     -e:     Specifies email folder to render.
 ├── watch       Watches and renders HTML files for development (formatted, with comments).
+├── sass        Compiles Sass files in the 'style' directory to CSS files in the 'dist' directory.
+├── sassWatch   Watches Sass files in the 'style' directory and on changes compiles to CSS files in the 'dist' directory
 └── prettyMJML  Cleans up your MJML files with Prettier
 ```
 
