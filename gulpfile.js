@@ -80,29 +80,32 @@ if (arg.prod) {
   prod = true;
 }
 
-// @TODO consider replacing this with prompt based on existing directories
-// (see getDirectories, below).
+// @TODO New feature that would get the list of current designs and emails
+// based on directory names, and prompt the user to select one, rather than
+// only relying on passing arguments via the command-line.
 //
-// const prompt     = require('prompt-sync')({ sigint: true });
+// const prompt = require('prompt-sync')({ sigint: true });
+//
+// Acquire directory information
+// const getDirectories = srcPath =>
+//   fs.readdirSync(srcPath)
+//     .filter(file => fs.lstatSync(path.join(srcPath, file)).isDirectory())
+//
+// Get list of designs by directory name
+// const designList = getDirectories(designDir);
+//
+// Get list of emails by directory name
+// const emailList = getDirectories(emailDir);
+//
+// Set fully qualified paths
+// let designCurrentDir = path.resolve(__dirname, designDir, designCurrent);
+// let emailCurrentDir  = path.resolve(__dirname, emailDir, emailCurrent);
+// let designDistDir    = path.resolve('/', designDir, designCurrent, distDir);
+// let emailDistDir     = path.resolve('/', emailDir, emailCurrent, distDir);
+//
+// Prompt user (example code)
 // const name = prompt('What is your name? ');
 // console.log(`Hey there ${name}`);
-
-// Acquire directory information
-const getDirectories = srcPath =>
-  fs.readdirSync(srcPath)
-    .filter(file => fs.lstatSync(path.join(srcPath, file)).isDirectory())
-
-// Get list of designs by directory name
-const designList = getDirectories(designDir);
-
-// Get list of emails by directory name
-const emailList = getDirectories(emailDir);
-
-// Set fully qualified paths
-let designCurrentDir = path.resolve(__dirname, designDir, designCurrent);
-let emailCurrentDir  = path.resolve(__dirname, emailDir, emailCurrent);
-let designDistDir    = path.resolve('/', designDir, designCurrent, distDir);
-let emailDistDir     = path.resolve('/', emailDir, emailCurrent, distDir);
 
 //
 // Error handling
