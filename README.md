@@ -152,13 +152,13 @@ Run `gulp prettyMJML` to auto-format all of your `.mjml` files.
 ├─┬ default
 │ └─┬ <series>
 │   └── renderHTML
-├── build           Builds HTML files from MJML templates.
-                      Options:
-                        --prod: Renders a production file, minified and with HTML comments stripped out.
-                        -d:     Specifies design folder to use. (Default: _templates)
-                        -e:     Specifies email folder to render.
-├── watchTemplates  Watches and rebuilds templates for development (formatted, with comments)
-└── prettyMJML      Cleans up your MJML files with Prettier
+├── build       Builds HTML files from MJML templates.
+                  Options:
+                    --prod: Renders a production file, minified and with HTML comments stripped out.
+                    -d:     Specifies design folder to use. (Default: _templates)
+                    -e:     Specifies email folder to render.
+├── watch       Watches and rebuilds templates for development (formatted, with comments)
+└── prettyMJML  Cleans up your MJML files with Prettier
 ```
 
 # Known issues

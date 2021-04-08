@@ -199,14 +199,14 @@ exports.default = series(renderHTML);
 
 // Build HTML files
 exports.build = renderHTML;
-exports.build.description = "Builds HTML files from MJML templates.\n                               Options:\n                                 --prod: Renders a production file, minified and with HTML comments stripped out.\n                                 -d:     Specifies design folder to use. (Default: _templates)\n                                 -e:     Specifies email folder to render.";
+exports.build.description = "Builds HTML files from MJML templates.\n                             Options:\n                               --prod: Renders a production file, minified and with HTML comments stripped out.\n                               -d:     Specifies design folder to use. (Default: _templates)\n                               -e:     Specifies email folder to render.";
 
 // Watch templates
 function watchTemplates () {
-  watch('./**/*.mjml', htmlDev);
+  watch('./**/*.mjml', renderHTML);
 }
-exports.watchTemplates = watchTemplates;
-exports.watchTemplates.description = "Watches and rebuilds templates for development (formatted, with comments)";
+exports.watch = watchTemplates;
+exports.watch.description = "Watches and rebuilds templates for development (formatted, with comments)";
 
 // Pretty MJML files
 exports.prettyMJML = prettyMJML;
