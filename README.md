@@ -42,7 +42,7 @@ Company A and Company B, and place each individual email as a subdirectory
 inside the company directories. For more information, see the Notes section at
 the bottom.
 
-# Requirements
+## Requirements
 
 * [Node](https://nodejs.org/en/download/) 10.10.0+
 * [Gulp](https://gulpjs.com/docs/en/getting-started/quick-start) 4.0.2+
@@ -62,7 +62,8 @@ with syntax highlighting.
 
 # Usage
 
-Run `gulp --tasks` if you want to see all of the options quickly.
+Run `gulp --tasks` if you want to see all of the options quickly, or skip down
+to the [full list of options](#full-list-of-options).
 
 ## Creating a new design
 
@@ -76,9 +77,11 @@ design and modify it, or write your own.
 If you're starting out for the first time and want to create a new design with
 the name `postmodern`, for instance, you'd do the following in your console:
 
-- `cd designs`
-- `cp -r _templates postmodern`
-- `cd postmodern`
+```sh
+cd designs
+cp -r _templates postmodern
+cd postmodern
+```
 
 Within each design directory, you'll find the following:
 
@@ -137,6 +140,22 @@ Once the production email is rendered, you can:
 ## Cleaning up your MJML files
 
 Run `gulp prettyMJML` to auto-format all of your `.mjml` files.
+
+# Full list of options
+
+```sh
+$ gulp --tasks
+├─┬ default
+│ └─┬ <series>
+│   └── renderHTML
+├── build           Builds HTML files from MJML templates.
+                      Options:
+                        --prod: Renders a production file, minified and with HTML comments stripped out.
+                        -d:     Specifies design folder to use. (Default: _templates)
+                        -e:     Specifies email folder to render.
+├── watchTemplates  Watches and rebuilds templates for development (formatted, with comments)
+└── prettyMJML      Cleans up your MJML files with Prettier
+```
 
 # Known issues
 
