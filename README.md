@@ -79,7 +79,7 @@ The `_templates` directory holds an example design. You can choose to use this
 design and modify it, or write your own.
 
 If you're starting out for the first time and want to create a new design with
-the name `postmodern`, for instance, you'd do the following in your console:
+the name "postmodern", for instance, you'd do the following in your console:
 
 ```sh
 cd designs
@@ -103,7 +103,7 @@ Within each design directory, you'll find the following:
 
 In your console, run `gulp watch` with the `-d` option, followed by the
 directory name of your design. Using the example above with a design named
-`postmodern`, you'd run `gulp watch -d postmodern`.
+"postmodern", you'd run `gulp watch -d postmodern`.
 
 This will watch for any changes in any `index.mjml` files (including any
 partials referenced with `<mj-include>`), and re-render the `index.html` file in
@@ -111,7 +111,7 @@ unminified form in the `dist` subdirectory of your design. You can leave a web
 browser open to this page.
 
 If you don't want to continuously watch your files, use `gulp build`, or just
-`gulp` instead. Again using the `postmodern` example, that would be
+`gulp` instead. Again using the "postmodern" example, that would be
 `gulp build -d postmodern`. This will create the `index.html` file and then
 stop.
 
@@ -121,8 +121,8 @@ Instructions TK.
 
 ## Rendering the email for production
 
-In your console, append `--prod`, e.g. `gulp build -d postmodern --prod`. This
-will render `index.html`
+In your console, append `--prod`, e.g. with a design named "postmodern," you'd
+use `gulp build -d postmodern --prod`. This will render `index.html`
 [in minified form](https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md#minify-and-beautify-the-output-html)
 in the `dist` subdirectory.
 
