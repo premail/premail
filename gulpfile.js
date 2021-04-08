@@ -6,6 +6,7 @@ const fs         = require('fs')
 const path       = require('path');
 const minimist   = require('minimist');
 const rename     = require('gulp-rename');
+const gulpif     = require('gulp-if');
 const mjml       = require('gulp-mjml');
 const mjmlEngine = require('mjml');
 const prettier   = require('gulp-prettier');
@@ -15,19 +16,19 @@ const prettier   = require('gulp-prettier');
 //
 
 // Top-level directory for designs
-const designDir = 'designs';
+let designDir = 'designs';
 
 // Top-level directory for individual emails
-const emailDir = 'emails';
+let emailDir = 'emails';
 
 // File extensions to process from MJML to HTML
-const mjmlFileExt = '.mjml';
+let mjmlFileExt = '.mjml';
 
 // Subdirectory of designs in which to look for Sass/CSS styles
-const styleDir = 'style';
+let styleDir = 'style';
 
 // Subdirectory of emails in which to export HTML code
-const distDir = 'dist';
+let distDir = 'dist';
 
 // Acquire CLI arguments
 // @TODO move this to separate module.
@@ -73,6 +74,12 @@ if (arg.e) {
   emailCurrent = arg.e;
 }
 
+let prod = false;
+
+if (arg.prod) {
+  prod = true;
+}
+
 // @TODO consider replacing this with prompt based on existing directories
 // (see getDirectories, below).
 //
@@ -92,11 +99,10 @@ const designList = getDirectories(designDir);
 const emailList = getDirectories(emailDir);
 
 // Set fully qualified paths
-const designCurrentDir = path.resolve('./', designDir, designCurrent );
-const emailCurrentDir = path.resolve('./', emailDir, emailCurrent );
-
-console.log(designCurrentDir);
-console.log(emailCurrentDir);
+let designCurrentDir = path.resolve(__dirname, designDir, designCurrent);
+let emailCurrentDir = path.resolve(__dirname, emailDir, emailCurrent);
+let designDistDir = path.resolve('/', designDir, designCurrent, distDir);
+let emailDistDir = path.resolve('/', emailDir, emailCurrent, distDir);
 
 // Old paths (@TODO rewrite/replace in code below with new ones above.)
 const paths = {
@@ -108,44 +114,71 @@ const paths = {
 }
 
 //
+// Error handling
+//
+
+function handleError (err) {
+  console.log(err.toString());
+  this.emit('end');
+}
+
+//
 // MJML
 //
 
-// MJML -> HTML: Development version (pretty-formatted, with comments)
-function htmlDev() {
-  return src(paths.srcMJML)
-  .pipe(
+// MJML -> HTML
+function htmlMJML() {
+
+  let sourceFile;
+
+  if (emailCurrent) {
+    sourceFile = emailCurrentDir + '/index' + mjmlFileExt;
+  } else {
+    sourceFile = designCurrentDir + '/index' + mjmlFileExt;
+  }
+
+  let destDir;
+
+  if (emailCurrent) {
+    destDir = emailDistDir;
+  } else {
+    destDir = designDistDir;
+  }
+
+  // @TODO: Move these notifications to the interior of the rendering function;
+  // spruce them up.
+  console.log('Source:         ' + sourceFile);
+  let destFile = path.resolve(__dirname, destDir, 'index.html');
+  console.log('Generated HTML: ' + destFile);
+
+  if (prod) {
+    console.log('Production: Minified with comments stripped.')
+  }
+
+  return src(sourceFile)
+  .pipe(gulpif(prod,
+    // Production
     mjml(mjmlEngine, {
+      fileExt: mjmlFileExt,
+      beautify: false,
+      minify: true,
+      keepComments: false,
+    }),
+    // Development
+    mjml(mjmlEngine, {
+      fileExt: mjmlFileExt,
       beautify: true,
     })
-    )
-  .on('error', (e) => console.log(e))
+  ))
+  .on('error', handleError)
   .pipe(
     rename(function (path) {
-      path.dirname += paths.dist;
+      path.dirname += destDir;
     })
     )
-  .pipe(dest(paths.destMJML))
+  .pipe(dest('.'))
 }
-
-// MJML -> HTML: Production version (minified, no comments)
-function htmlProd() {
-  return src(paths.srcMJML)
-    .pipe(
-      mjml(mjmlEngine, {
-        beautify: false,
-        minify: true,
-        keepComments: false,
-      })
-    )
-    .on('error', (e) => console.log(e))
-  .pipe(
-    rename(function (path) {
-      path.dirname += paths.dist;
-    })
-    )
-    .pipe(dest(paths.destMJML))
-}
+exports.build = htmlMJML;
 
 //
 // Prettier
