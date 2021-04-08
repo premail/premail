@@ -10,6 +10,9 @@ const gulpif     = require('gulp-if');
 const mjml       = require('gulp-mjml');
 const mjmlEngine = require('mjml');
 const prettier   = require('gulp-prettier');
+const sass       = require('gulp-sass');
+const Fiber      = require('fibers');
+sass.compiler    = require('sass');
 
 //
 // Config
@@ -84,6 +87,9 @@ if (arg.prod) {
 // based on directory names, and prompt the user to select one, rather than
 // only relying on passing arguments via the command-line.
 //
+// Nice example:
+// https://github.com/kraftvaerk/generator-rammevaerk/blob/master/app/index.js
+//
 // const prompt = require('prompt-sync')({ sigint: true });
 //
 // Acquire directory information
@@ -111,7 +117,7 @@ if (arg.prod) {
 // Error handling
 //
 
-function handleError (err) {
+function handleError(err) {
   console.log(err.toString());
   this.emit('end');
 }
@@ -185,6 +191,24 @@ function prettyMJML() {
 }
 
 //
+// Sass styling
+//
+
+function sassBuild() {
+  return src('./designs/_templates/style/**/*.scss')
+    .pipe(sass({
+      fiber: Fiber,
+      outputStyle: 'compressed',
+    })
+    .on('error', sass.logError))
+    .pipe(dest('./designs/_templates/dist/'));
+}
+
+function sassWatch() {
+  watch('./designs/_templates/style/**/*.scss', series('sass'));
+}
+
+//
 // Tasks
 //
 
@@ -201,6 +225,12 @@ function watchTemplates () {
 }
 exports.watch = watchTemplates;
 exports.watch.description = "Watches and renders HTML files for development (formatted, with comments).";
+
+// Sass compilation and watch (@TODO: Move watch into general watch function)
+exports.sass = sassBuild;
+exports.sass.description = "Compiles Sass files in the 'style' directory to CSS files in the 'dist' directory.";
+exports.sassWatch = sassWatch;
+exports.sassWatch.description = "Watches Sass files in the 'style' directory and on changes compiles to CSS files in the 'dist' directory";
 
 // Pretty MJML files
 exports.prettyMJML = prettyMJML;
