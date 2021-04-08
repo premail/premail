@@ -100,18 +100,9 @@ const emailList = getDirectories(emailDir);
 
 // Set fully qualified paths
 let designCurrentDir = path.resolve(__dirname, designDir, designCurrent);
-let emailCurrentDir = path.resolve(__dirname, emailDir, emailCurrent);
-let designDistDir = path.resolve('/', designDir, designCurrent, distDir);
-let emailDistDir = path.resolve('/', emailDir, emailCurrent, distDir);
-
-// Old paths (@TODO rewrite/replace in code below with new ones above.)
-const paths = {
-  dist: path.resolve('/dist/'),
-  srcMJML: path.resolve('./', '**/index.mjml'),
-  destMJML: path.resolve('.'),
-  srcPrettier: path.resolve('./', '**/*.mjml'),
-  destPrettier: path.resolve('.')
-}
+let emailCurrentDir  = path.resolve(__dirname, emailDir, emailCurrent);
+let designDistDir    = path.resolve('/', designDir, designCurrent, distDir);
+let emailDistDir     = path.resolve('/', emailDir, emailCurrent, distDir);
 
 //
 // Error handling
@@ -184,10 +175,10 @@ function renderHTML() {
 //
 
 function prettyMJML() {
-  return src(paths.srcPrettier)
+  return src('./**/*' + mjmlFileExt)
     .pipe(prettier())
-    .on('error', (e) => console.log(e))
-    .pipe(dest(paths.destPrettier))
+    .on('error', handleError)
+    .pipe(dest('.'))
 }
 
 //
@@ -203,14 +194,14 @@ exports.build.description = "Builds HTML files from MJML templates.\n           
 
 // Watch templates
 function watchTemplates () {
-  watch('./**/*.mjml', renderHTML);
+  watch('./**/*' + mjmlFileExt, renderHTML);
 }
 exports.watch = watchTemplates;
-exports.watch.description = "Watches and rebuilds templates for development (formatted, with comments)";
+exports.watch.description = "Watches and renders HTML files for development (formatted, with comments).";
 
 // Pretty MJML files
 exports.prettyMJML = prettyMJML;
-exports.prettyMJML.description = "Cleans up your MJML files with Prettier";
+exports.prettyMJML.description = "Cleans up your MJML files with Prettier.";
 
 
 
