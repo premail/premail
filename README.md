@@ -58,8 +58,8 @@ provider's system.
 - Go to the [Releases](https://github.com/rootwork/mjml-quickstart/releases)
   page and grab the most recent stable version. Alternatively, you can simply
   fork this repo and clone it locally.
-- Remove the `.github` folder if you don't want to use
-  [GitHub Actions](https://docs.github.com/en/actions).
+- Remove the `.github` folder if you are using your own GitHub repo and don't
+want [GitHub Actions](https://docs.github.com/en/actions) running on it.
 - Install with `npm i`
 - MJML has [plugins](https://documentation.mjml.io/#applications-and-plugins)
 for Visual Studio Code, Atom, and Sublime Text 3.
@@ -173,9 +173,10 @@ Run `gulp prettyMJML` to auto-format all of your `.mjml` files.
 
 # Thanks and Sponsorships
 
-Work funded in part by [Multi-Etch, LLC](https://www.multietch.com/). Consider
-[sponsoring me](https://github.com/sponsors/rootwork) and have your name or logo
-included here.
+Work funded in part by [Multi-Etch, LLC](https://www.multietch.com/).
+
+**Consider [sponsoring me](https://github.com/sponsors/rootwork) and have your
+name or logo included here!**
 
 Built with original inspiration from
 [dalefish/mjml-boilerplate-win](https://github.com/dalefish/mjml-boilerplate-win).
