@@ -62,13 +62,9 @@ the bottom.
 
 ## If you have Sublime Text 3
 
-- Copy the Sublime build file into your configuration:
-  - Linux: `cp MJML.sublime-build ~/.config/sublime-text-3/Packages/User`
-  - Mac: `cp MJML.sublime-build ~/Library/Application Support/Sublime Text 3/Packages/User`
-  - Windows: `cp MJML.sublime-build %APPDATA%\Sublime Text 3/Packages/User`
-- Open Sublime Text
-  - Install the Package
-    [MJML-syntax](https://packagecontrol.io/packages/MJML-syntax).
+Install the Package
+[MJML-syntax](https://packagecontrol.io/packages/MJML-syntax) for (minimal) help
+with syntax highlighting.
 
 # Usage
 
@@ -76,54 +72,59 @@ Run `gulp --tasks` if you want to see all of the options quickly.
 
 ## Creating a new design
 
-Edit the contents of `_templates` to fit your design that will be in place for
-each email.
+Look in the `designs` subdirectory. This will hold each of the designs
+(structure and styling) for your emails. For instance, you might have a
+newsletter design, a welcome message design, and a special holiday design.
+
+The `_templates` directory holds an example design. You can choose to use this
+design and modify it, or write your own.
+
+If you're starting out for the first time and want to create a new design with
+the name `postmodern`, for instance, you'd do the following in your console:
+
+- `cd designs`
+- `cp -r _templates postmodern`
+- `cd postmodern`
+
+Within each design directory, you'll find the following:
 
 - `index.mjml`: This file includes all the component files. You shouldn't
   normally need to edit this unless you are re-ordering the structure or
   changing the `lang` value.
-- `content`: This folder holds files that will _always_ change in each email
+- `content`: This directory holds files that will _always_ change in each email
   -- the title, preview text, header/hero area and main body.
-- `structure`: This folder holds files that may _sometimes_ change in each
+- `structure`: This directory holds files that may _sometimes_ change in each
   email -- top and bottom navigation menus, social media links, and the footer
   area.
-- `style`: This folder contains the CSS attributes that, ideally, _will not_
+- `style`: This directory contains the CSS attributes that, ideally, _will not_
   change from project to project.
-- `dist`: This folder doesn't exist initially, but will contain the output
+- `dist`: This directory doesn't exist initially, but will contain the output
   `index.html` for you to use.
 
-In your console, run `gulp watchTemplates`. This will watch for any changes in
-any `index.mjml` files (including any partials referenced with `<mj-include>`),
-and re-render `index.html` file in unminified form in the `dist` subdirectory.
-You can leave your browser open to this page.
+In your console, run `gulp watch` with the `-d` option, followed by the
+directory name of your design. Using the example above with a design named
+`postmodern`, you'd run `gulp watch -d postmodern`.
 
-If you don't want to continuously watch your files, you can simply run `gulp`
-and it will build the `index.html` file in unminified form and then stop. This
-is equivalent to running `gulp devTemplates`.
+This will watch for any changes in any `index.mjml` files (including any
+partials referenced with `<mj-include>`), and re-render the `index.html` file in
+unminified form in the `dist` subdirectory of your design. You can leave a web
+browser open to this page.
 
-### Sublime Text 3 users
-
-Sublime should auto-detect the build-system based on your files, but you can
-check by going to Tools > Build System > MJML
-
-Be sure that in the Tools menu, "Save All on Build" is checked (which is the
-default).
-
-Then, you can press <kbd>Ctrl-B</kbd> to run the unminified build.
+If you don't want to continuously watch your files, use `gulp build`, or just
+`gulp` instead. Again using the `postmodern` example, that would be
+`gulp build -d postmodern`. This will create the `index.html` file and then
+stop.
 
 ## Creating a new email from an existing design
 
-1. Once you have a standard design, copy the `_templates` directory and give it
-   a name for a specific email.
-2. Edit the `.mjml` files as necessary for this individual email.
-3. Use the watch or build options above to recompile into an `index.html` file
-   you can import into your email sender of choice.
+Instructions TK.
 
 ## Rendering the email for production
 
-In your console, run `gulp prodTemplates`. This will render `index.html`
+In your console, append `--prod`, e.g. `gulp build -d postmodern --prod`. This
+will render `index.html`
 [in minified form](https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md#minify-and-beautify-the-output-html)
-in the `dist` subdirectory of your design.
+in the `dist` subdirectory.
 
 Images can be included locally while you're drafting the email, but MJML doesn't
 do anything magical in terms of hosting these images -- you'll still have to
@@ -136,29 +137,12 @@ Once the production email is rendered, you can:
 - upload the file as part of a repo and use something like
   [GitHub Pages](https://pages.github.com/) to view/share it in a browser; for
   instance
-  [here's the rendered file](https://rootwork.github.io/mjml-quickstart/_templates/dist/index.html)
+  [here's the rendered file](https://rootwork.github.io/mjml-quickstart/designs/_templates/dist/index.html)
   from the sample templates
 
 ## Cleaning up your MJML files
 
 Run `gulp prettyMJML` to auto-format all of your `.mjml` files.
-
-# Notes on project structure
-
-This project is designed to become your overarching directory in which
-individual email projects with a single design are kept in subdirectories. Gulp
-looks for `index.mjml` files in the current directory and any subdirectories,
-and renders them into the `dist` subdirectory as `index.html` files.
-
-Generally this isn't a huge problem: Should re-rendered older projects change
-somehow (for instance through new versions of MJML itself), you can simply
-choose to not commit the changed files, because you're using version-control.
-
-However, it may introduce issues of scale, if you have a directory with hundreds
-of email projects all getting re-rendered on `gulp` or `watch`.
-
-If that worries you or is becoming an issue, just use a separate directory for
-each project, re-forking this project for every new one.
 
 # Known issues
 
