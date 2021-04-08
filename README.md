@@ -6,7 +6,7 @@ The templates included are
 [MJML version 4](https://github.com/mjmlio/mjml/releases).
 
 One `index.html` file will be rendered, ready to import into your emailer of
-choice. [See example.](https://rootwork.github.io/mjml-quickstart/_templates/index.html)
+choice. [See example.](https://rootwork.github.io/mjml-quickstart/designs/_templates/index.html)
 
 <!-- The following section, from "ts" to "te", is an automatically-generated
   table of contents, updated whenever this file changes. Do not edit within
