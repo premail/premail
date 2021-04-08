@@ -146,7 +146,7 @@ Run `gulp prettyMJML` to auto-format all of your `.mjml` files.
 
 # Full list of options
 
-`gulp --tasks`:
+`gulp --tasks`
 
 ```
 ├─┬ default
@@ -173,7 +173,9 @@ Run `gulp prettyMJML` to auto-format all of your `.mjml` files.
 
 # Thanks and Sponsorships
 
-Work funded in part by [Multi-Etch, LLC](https://www.multietch.com/).
+Work funded in part by [Multi-Etch, LLC](https://www.multietch.com/). Consider
+[sponsoring me](https://github.com/sponsors/rootwork) and have your name or logo
+included here.
 
 Built with original inspiration from
 [dalefish/mjml-boilerplate-win](https://github.com/dalefish/mjml-boilerplate-win).
