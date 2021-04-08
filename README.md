@@ -148,7 +148,7 @@ Run `gulp prettyMJML` to auto-format all of your `.mjml` files.
 
 `gulp --tasks`:
 
-```sh
+```
 ├─┬ default
 │ └─┬ <series>
 │   └── renderHTML
