@@ -57,10 +57,7 @@ the bottom.
 - Remove the `.github` folder if you don't want to use
   [GitHub Actions](https://docs.github.com/en/actions).
 - Install with `npm i`
-
-## If you have Sublime Text 3
-
-Install the Package
+- If you have Sublime Text 3, install the Package
 [MJML-syntax](https://packagecontrol.io/packages/MJML-syntax) for (minimal) help
 with syntax highlighting.
 
