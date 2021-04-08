@@ -33,15 +33,19 @@ choice. [See example.](https://rootwork.github.io/mjml-quickstart/designs/_templ
 # Overview
 
 If you're here, you are probably already familiar with MJML, but if not you
-should [read a little about it](https://documentation.mjml.io) first.
+should [read a little about it](https://documentation.mjml.io) first. It's a
+component-based templating system that makes writing marketing or transactional
+emails vastly easier, more compatible, and mobile-responsive. If you're
+comfortable with HTML code, MJML will likely be much faster for you than any
+drag-and-drop visual editor provided by an email service provider like
+Mailchimp, Constant Contact, etc.
 
-The structure of this is such you should use it to contain all of your email
-projects within a single design.
-
-For instance, if you're a freelancer, you'd fork this project once each for
-Company A and Company B, and place each individual email as a subdirectory
-inside the company directories. For more information, see the Notes section at
-the bottom.
+This project gives you a structure and workflow in which you can create
+different email designs in MJML, then create individual emails based on those
+designs. The resulting `index.html` file is optimized to render correctly in
+[the vast majority of email systems and clients](https://mjml.io/faq#email-clients).
+When you're done, just drop the code from the file into your email service
+provider's system.
 
 ## Requirements
 
@@ -57,9 +61,8 @@ the bottom.
 - Remove the `.github` folder if you don't want to use
   [GitHub Actions](https://docs.github.com/en/actions).
 - Install with `npm i`
-- If you have Sublime Text 3, install the Package
-[MJML-syntax](https://packagecontrol.io/packages/MJML-syntax) for (minimal) help
-with syntax highlighting.
+- MJML has [plugins](https://documentation.mjml.io/#applications-and-plugins)
+for Visual Studio Code, Atom, and Sublime Text 3.
 
 # Usage
 
@@ -96,8 +99,7 @@ Within each design directory, you'll find the following:
   area.
 - `style`: This directory contains the CSS attributes that, ideally, _will not_
   change from project to project.
-- `dist`: This directory doesn't exist initially, but will contain the output
-  `index.html` for you to use.
+- `dist`: This directory contains the output `index.html` for you to use.
 
 In your console, run `gulp watch` with the `-d` option, followed by the
 directory name of your design. Using the example above with a design named
@@ -144,8 +146,9 @@ Run `gulp prettyMJML` to auto-format all of your `.mjml` files.
 
 # Full list of options
 
+`gulp --tasks`:
+
 ```sh
-$ gulp --tasks
 ├─┬ default
 │ └─┬ <series>
 │   └── renderHTML
