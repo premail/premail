@@ -126,8 +126,8 @@ function handleError (err) {
 // MJML
 //
 
-// MJML -> HTML
-function htmlMJML() {
+// Render MJML templates into an HTML file.
+function renderHTML() {
 
   let sourceFile;
 
@@ -152,7 +152,7 @@ function htmlMJML() {
   console.log('Generated HTML: ' + destFile);
 
   if (prod) {
-    console.log('Production: Minified with comments stripped.')
+    console.log('Production: Minified with HTML comments stripped.')
   }
 
   return src(sourceFile)
@@ -178,7 +178,6 @@ function htmlMJML() {
     )
   .pipe(dest('.'))
 }
-exports.build = htmlMJML;
 
 //
 // Prettier
@@ -196,21 +195,11 @@ function prettyMJML() {
 //
 
 // Gulp default
-exports.default = series(devTemplates);
+exports.default = series(renderHTML);
 
-// Compile templates for development
-function devTemplates(done) {
-  return parallel(htmlDev)(done);
-}
-exports.devTemplates = devTemplates;
-exports.devTemplates.description = "Builds MJML templates for development (formatted, with comments)";
-
-// Build templates for production
-function prodTemplates(done) {
-  return parallel(htmlProd)(done);
-}
-exports.prodTemplates = prodTemplates;
-exports.prodTemplates.description = "Builds MJML templates for production (minified, stripped comments)";
+// Build HTML files
+exports.build = renderHTML;
+exports.build.description = "Builds HTML files from MJML templates.\n                               Options:\n                                 --prod: Renders a production file, minified and with HTML comments stripped out.\n                                 -d:     Specifies design folder to use. (Default: _templates)\n                                 -e:     Specifies email folder to render.";
 
 // Watch templates
 function watchTemplates () {
