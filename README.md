@@ -19,16 +19,14 @@ choice. [See example.](https://rootwork.github.io/mjml-quickstart/_templates/ind
       * [If you have Sublime Text 3](#if-you-have-sublime-text-3)
    * [Usage](#usage)
       * [Creating a new design](#creating-a-new-design)
-         * [Sublime Text 3 users](#sublime-text-3-users)
       * [Creating a new email from an existing design](#creating-a-new-email-from-an-existing-design)
       * [Rendering the email for production](#rendering-the-email-for-production)
       * [Cleaning up your MJML files](#cleaning-up-your-mjml-files)
-   * [Notes on project structure](#notes-on-project-structure)
    * [Known issues](#known-issues)
    * [Thanks and Sponsorships](#thanks-and-sponsorships)
    * [License](#license)
 
-<!-- Added by: runner, at: Tue Apr  6 23:54:55 UTC 2021 -->
+<!-- Added by: runner, at: Thu Apr  8 00:34:19 UTC 2021 -->
 
 <!--te-->
 
