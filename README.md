@@ -14,18 +14,19 @@ choice. [See example.](https://rootwork.github.io/mjml-quickstart/designs/_templ
 
 <!--ts-->
    * [Overview](#overview)
-   * [Requirements](#requirements)
+      * [Requirements](#requirements)
    * [Setup](#setup)
    * [Usage](#usage)
       * [Creating a new design](#creating-a-new-design)
       * [Creating a new email from an existing design](#creating-a-new-email-from-an-existing-design)
       * [Rendering the email for production](#rendering-the-email-for-production)
       * [Cleaning up your MJML files](#cleaning-up-your-mjml-files)
+   * [Full list of options](#full-list-of-options)
    * [Known issues](#known-issues)
    * [Thanks and Sponsorships](#thanks-and-sponsorships)
    * [License](#license)
 
-<!-- Added by: runner, at: Thu Apr  8 00:36:40 UTC 2021 -->
+<!-- Added by: runner, at: Thu Apr  8 00:41:32 UTC 2021 -->
 
 <!--te-->
 
