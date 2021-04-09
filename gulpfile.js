@@ -83,6 +83,12 @@ if (arg.prod) {
   prod = true;
 }
 
+// Set fully qualified paths
+let designCurrentDir = path.resolve(__dirname, designDir, designCurrent);
+let emailCurrentDir  = path.resolve(__dirname, emailDir, emailCurrent);
+let designDistDir    = path.resolve('/', designDir, designCurrent, distDir);
+let emailDistDir     = path.resolve('/', emailDir, emailCurrent, distDir);
+
 // @TODO New feature that would get the list of current designs and emails
 // based on directory names, and prompt the user to select one, rather than
 // only relying on passing arguments via the command-line.
@@ -102,12 +108,6 @@ if (arg.prod) {
 //
 // Get list of emails by directory name
 // const emailList = getDirectories(emailDir);
-//
-// Set fully qualified paths
-// let designCurrentDir = path.resolve(__dirname, designDir, designCurrent);
-// let emailCurrentDir  = path.resolve(__dirname, emailDir, emailCurrent);
-// let designDistDir    = path.resolve('/', designDir, designCurrent, distDir);
-// let emailDistDir     = path.resolve('/', emailDir, emailCurrent, distDir);
 //
 // Prompt user (example code)
 // const name = prompt('What is your name? ');
@@ -195,17 +195,17 @@ function prettyMJML() {
 //
 
 function sassBuild() {
-  return src('./designs/_templates/style/**/*.scss')
+  return src(designCurrentDir + '/' + styleDir + '/**/*.scss')
     .pipe(sass({
       fiber: Fiber,
       outputStyle: 'compressed',
     })
     .on('error', sass.logError))
-    .pipe(dest('./designs/_templates/dist/'));
+    .pipe(dest(designCurrentDir + '/' + distDir + '/'));
 }
 
 function sassWatch() {
-  watch('./designs/_templates/style/**/*.scss', series('sass'));
+  watch(designCurrentDir + '/' + styleDir + '/**/*.scss', series('sass'));
 }
 
 //
