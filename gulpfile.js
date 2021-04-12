@@ -187,7 +187,18 @@ function prettyMJML() {
   return src('./**/*' + mjmlFileExt)
     .pipe(prettier())
     .on('error', handleError)
-    .pipe(dest('.'))
+    .pipe(dest(file => file.base))
+}
+
+function prettySass() {
+  return src(designCurrentDir + '/' + styleDir + '/**/*.scss')
+    .pipe(
+      prettier({
+        parser: "scss"
+      })
+    )
+    .on('error', handleError)
+    .pipe(dest(file => file.base))
 }
 
 //
@@ -232,9 +243,11 @@ exports.sass.description = "Compiles Sass files in the 'style' directory to CSS 
 exports.sassWatch = sassWatch;
 exports.sassWatch.description = "Watches Sass files in the 'style' directory and on changes compiles to CSS files in the 'dist' directory";
 
-// Pretty MJML files
-exports.prettyMJML = prettyMJML;
-exports.prettyMJML.description = "Cleans up your MJML files with Prettier.";
+// Code formatting
+exports.formatMJML = prettyMJML;
+exports.formatMJML.description = "Format your MJML code with Prettier.";
+exports.formatSass = prettySass;
+exports.formatSass.description = "Format your Sass code with Prettier.";
 
 
 
