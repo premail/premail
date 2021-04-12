@@ -97,7 +97,7 @@ Within each design directory, you'll find the following:
 - `structure`: This directory holds files that may _sometimes_ change in each
   email -- top and bottom navigation menus, social media links, and the footer
   area.
-- `style`: This directory contains the CSS attributes that, ideally, _will not_
+- `theme`: This directory contains the CSS attributes that, ideally, _will not_
   change from project to project.
 - `dist`: This directory contains the output `index.html` for you to use.
 
@@ -158,9 +158,11 @@ Run `gulp prettyMJML` to auto-format all of your `.mjml` files.
                     -d:     Specifies design folder to use. (Default: _templates)
                     -e:     Specifies email folder to render.
 ├── watch       Watches and renders HTML files for development (formatted, with comments).
-├── sass        Compiles Sass files in the 'style' directory to CSS files in the 'dist' directory.
-├── sassWatch   Watches Sass files in the 'style' directory and on changes compiles to CSS files in the 'dist' directory
-└── prettyMJML  Cleans up your MJML files with Prettier
+├── sass        Compiles Sass files in the 'theme' directory.
+├── sassWatch   Watches Sass files in the 'theme' directory.
+├── formatMJML  Format your MJML code with Prettier.
+└── formatSass  Format your Sass code with Prettier.
+
 ```
 
 # Known issues

@@ -241,9 +241,9 @@ exports.watch.description = "Watches and renders HTML files for development (for
 
 // Sass compilation and watch (@TODO: Move watch into general watch function)
 exports.sass = sassBuild;
-exports.sass.description = "Compiles Sass files in the 'style' directory.";
+exports.sass.description = "Compiles Sass files in the 'theme' directory.";
 exports.sassWatch = sassWatch;
-exports.sassWatch.description = "Watches Sass files in the 'style' directory.";
+exports.sassWatch.description = "Watches Sass files in the 'theme' directory.";
 
 // Code formatting
 exports.formatMJML = prettyMJML;
