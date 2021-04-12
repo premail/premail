@@ -27,8 +27,8 @@ let emailDir = 'emails';
 // File extensions to process from MJML to HTML
 let mjmlFileExt = '.mjml';
 
-// Subdirectory of designs in which to look for Sass/CSS styles
-let styleDir = 'style';
+// Subdirectory of designs in which settings for styling are kept
+let themeDir = 'theme';
 
 // Subdirectory of emails in which to export HTML code
 let distDir = 'dist';
@@ -88,6 +88,7 @@ let designCurrentDir = path.resolve(__dirname, designDir, designCurrent);
 let emailCurrentDir  = path.resolve(__dirname, emailDir, emailCurrent);
 let designDistDir    = path.resolve('/', designDir, designCurrent, distDir);
 let emailDistDir     = path.resolve('/', emailDir, emailCurrent, distDir);
+let sassDir          = designCurrentDir + '/' + themeDir + '/sass/';
 
 // @TODO New feature that would get the list of current designs and emails
 // based on directory names, and prompt the user to select one, rather than
@@ -191,7 +192,7 @@ function prettyMJML() {
 }
 
 function prettySass() {
-  return src(designCurrentDir + '/' + styleDir + '/**/*.scss')
+  return src(sassDir + '**/*.scss')
     .pipe(
       prettier({
         parser: "scss"
@@ -206,17 +207,18 @@ function prettySass() {
 //
 
 function sassBuild() {
-  return src(designCurrentDir + '/' + styleDir + '/**/*.scss')
+  // console.log('CSS file written to ' + sassDir);
+  return src(sassDir + '**/*.scss')
     .pipe(sass({
       fiber: Fiber,
       outputStyle: 'compressed',
     })
     .on('error', sass.logError))
-    .pipe(dest(designCurrentDir + '/' + distDir + '/'));
+    .pipe(dest(sassDir));
 }
 
 function sassWatch() {
-  watch(designCurrentDir + '/' + styleDir + '/**/*.scss', series('sass'));
+  watch(sassDir + '**/*.scss', series('sass'));
 }
 
 //
@@ -239,9 +241,9 @@ exports.watch.description = "Watches and renders HTML files for development (for
 
 // Sass compilation and watch (@TODO: Move watch into general watch function)
 exports.sass = sassBuild;
-exports.sass.description = "Compiles Sass files in the 'style' directory to CSS files in the 'dist' directory.";
+exports.sass.description = "Compiles Sass files in the 'style' directory.";
 exports.sassWatch = sassWatch;
-exports.sassWatch.description = "Watches Sass files in the 'style' directory and on changes compiles to CSS files in the 'dist' directory";
+exports.sassWatch.description = "Watches Sass files in the 'style' directory.";
 
 // Code formatting
 exports.formatMJML = prettyMJML;
