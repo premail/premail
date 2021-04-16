@@ -20,13 +20,13 @@ choice. [See example.](https://rootwork.github.io/mjml-quickstart/designs/_templ
       * [Creating a new design](#creating-a-new-design)
       * [Creating a new email from an existing design](#creating-a-new-email-from-an-existing-design)
       * [Rendering the email for production](#rendering-the-email-for-production)
-      * [Cleaning up your formatting](#cleaning-up-your-formatting)
+      * [Formatting your code files](#formatting-your-code-files)
    * [Full list of options](#full-list-of-options)
    * [Known issues](#known-issues)
    * [Thanks and Sponsorships](#thanks-and-sponsorships)
    * [License](#license)
 
-<!-- Added by: runner, at: Fri Apr 16 22:17:12 UTC 2021 -->
+<!-- Added by: runner, at: Fri Apr 16 22:19:55 UTC 2021 -->
 
 <!--te-->
 
