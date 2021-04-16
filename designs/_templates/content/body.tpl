@@ -5,9 +5,8 @@
         ><p>
           <b>Morbi fermentum est venenatis ex facilisis</b>, quis bibendum lacus
           faucibus. Pellentesque vulputate auctor libero, ac maximus lacus
-          mollis
+          mollis.
         </p>
-
         <h1>Headline</h1>
         <p>
           In at risus consectetur, fringilla nisl nec, consectetur mauris. Ut

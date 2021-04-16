@@ -8,7 +8,11 @@
   "bracketSpacing": true,
   "overrides": [
     {
-      "files": ".mjml",
+      "files": [
+        ".html",
+        ".mjml",
+        ".tpl"
+      ],
       "options": { "parser": "html" }
     }
   ]

@@ -2,17 +2,20 @@
 
 const { src, dest, series, parallel, watch } = require('gulp');
 
-const fs         = require('fs')
-const path       = require('path');
-const minimist   = require('minimist');
-const rename     = require('gulp-rename');
-const gulpif     = require('gulp-if');
-const mjml       = require('gulp-mjml');
-const mjmlEngine = require('mjml');
-const prettier   = require('gulp-prettier');
-const sass       = require('gulp-sass');
-const Fiber      = require('fibers');
-sass.compiler    = require('sass');
+const fs          = require('fs')
+const path        = require('path');
+const minimist    = require('minimist');
+const PluginError = require('plugin-error');
+const chalk       = require('chalk');
+const Handlebars  = require("handlebars");
+const rename      = require('gulp-rename');
+const gulpif      = require('gulp-if');
+const mjml        = require('gulp-mjml');
+const mjmlEngine  = require('mjml');
+const prettier    = require('gulp-prettier');
+const sass        = require('gulp-sass');
+const Fiber       = require('fibers');
+sass.compiler     = require('sass');
 
 //
 // Config
@@ -24,8 +27,11 @@ let designDir = 'designs';
 // Top-level directory for individual emails
 let emailDir = 'emails';
 
+// Main template file
+let templateFile = 'index.tpl';
+
 // File extensions to process from MJML to HTML
-let mjmlFileExt = '.mjml';
+let mjmlFileExt = 'tpl';
 
 // Subdirectory of designs in which settings for styling are kept
 let themeDir = 'theme';
@@ -114,13 +120,96 @@ let sassDir          = designCurrentDir + '/' + themeDir + '/sass/';
 // const name = prompt('What is your name? ');
 // console.log(`Hey there ${name}`);
 
+function getFiles(base,ext,files,result) {
+  files = files || fs.readdirSync(base)
+  result = result || []
+
+  files.forEach(
+    function (file) {
+      var newbase = path.join(base,file)
+      if ( fs.statSync(newbase).isDirectory() )
+      {
+        result = getFiles(newbase,ext,fs.readdirSync(newbase),result)
+      }
+      else
+      {
+        if ( file.substr(-1*(ext.length+1)) == '.' + ext )
+        {
+          result.push(newbase)
+        }
+      }
+    }
+  )
+  return result
+}
+
 //
-// Error handling
+// Notifications and error handling
 //
 
+const log = console.log;
+
+const msg = {
+  error: chalk.bgRed.bold.white,
+  warn: chalk.bgYellow.bold.black,
+  info: chalk.bold.green,
+  debug: chalk.keyword('aqua')
+}
+
 function handleError(err) {
-  console.log(err.toString());
+  log(msg.error(err));
   this.emit('end');
+}
+
+// Sprucing up sass.logError
+const sassError = function logError(error) {
+  const message = new PluginError('gulp-sass', error.messageFormatted).toString();
+  log(msg.error('\nSass processing error'));
+  log(`${message}\n`);
+  this.emit('end');
+};
+
+//
+// Sass building
+//
+
+function sassBuild() {
+  return src(sassDir + '**/*.scss')
+    .pipe(sass({
+      fiber: Fiber,
+      outputStyle: 'compressed',
+    })
+    .on('error', sassError))
+    .pipe(dest(sassDir))
+    .on('finish', function(source) {
+      log(msg.info('CSS file written to ' + sassDir));
+    })
+}
+
+function sassWatch() {
+  watch(sassDir + '**/*.scss', series('sass'));
+}
+
+//
+// Template rendering
+//
+
+// Handlebars
+let templatePath = designCurrentDir + '/' + templateFile;
+let templatePartials = getFiles(designCurrentDir, ('.' + mjmlFileExt));
+
+// let templatePartials = srcPath =>
+//   fs.readdirSync(srcPath)
+//     .filter(file => fs.lstatSync(path.join(templatePath, file)));
+
+// for(let partial of templatePartials){
+//   Handlebars.registerPartial(partial, fs.readFileSync(templatePartials, 'utf8'));
+// }
+
+async function listTemplates() {
+  let partialList = templatePartials.toString().split(',').join('\n');
+  log(msg.debug(templatePath));
+  log(msg.debug(partialList));
 }
 
 //
@@ -133,9 +222,9 @@ function renderHTML() {
   let sourceFile;
 
   if (emailCurrent) {
-    sourceFile = emailCurrentDir + '/index' + mjmlFileExt;
+    sourceFile = emailCurrentDir + '/index.' + mjmlFileExt;
   } else {
-    sourceFile = designCurrentDir + '/index' + mjmlFileExt;
+    sourceFile = designCurrentDir + '/index.' + mjmlFileExt;
   }
 
   let destDir;
@@ -146,15 +235,7 @@ function renderHTML() {
     destDir = designDistDir;
   }
 
-  // @TODO: Move these notifications to the interior of the rendering function;
-  // spruce them up.
-  console.log('Source:         ' + sourceFile);
   let destFile = path.resolve(__dirname, destDir, 'index.html');
-  console.log('Generated HTML: ' + destFile);
-
-  if (prod) {
-    console.log('Production: Minified with HTML comments stripped.')
-  }
 
   return src(sourceFile)
   .pipe(gulpif(prod,
@@ -171,6 +252,9 @@ function renderHTML() {
       beautify: true,
     })
   ))
+  .on('finish', function(source) {
+    log(msg.info('Source:         ' + sourceFile));
+  })
   .on('error', handleError)
   .pipe(
     rename(function (path) {
@@ -178,17 +262,28 @@ function renderHTML() {
     })
     )
   .pipe(dest('.'))
+  .on('finish', function(source) {
+    log(msg.info('Generated HTML: ' + destFile));
+    if (prod) {
+      log(msg.info('Production: Minified with HTML comments stripped.'));
+    }
+  })
 }
 
 //
 // Prettier
 //
 
-function prettyMJML() {
-  return src('./**/*' + mjmlFileExt)
-    .pipe(prettier())
+function prettyTemplates() {
+  return src('./**/*.' + mjmlFileExt)
+    .pipe(prettier({
+        parser: "html"
+      }))
     .on('error', handleError)
     .pipe(dest(file => file.base))
+    .on('finish', function(source) {
+      log(msg.info('All .' + mjmlFileExt + ' templates reformatted.'));
+    })
 }
 
 function prettySass() {
@@ -200,25 +295,9 @@ function prettySass() {
     )
     .on('error', handleError)
     .pipe(dest(file => file.base))
-}
-
-//
-// Sass styling
-//
-
-function sassBuild() {
-  // console.log('CSS file written to ' + sassDir);
-  return src(sassDir + '**/*.scss')
-    .pipe(sass({
-      fiber: Fiber,
-      outputStyle: 'compressed',
+    .on('finish', function(source) {
+      log(msg.info('Reformatted Sass files.'));
     })
-    .on('error', sass.logError))
-    .pipe(dest(sassDir));
-}
-
-function sassWatch() {
-  watch(sassDir + '**/*.scss', series('sass'));
 }
 
 //
@@ -230,7 +309,10 @@ exports.default = series(renderHTML);
 
 // Build HTML files
 exports.build = renderHTML;
-exports.build.description = "Builds HTML files from MJML templates.\n                             Options:\n                               --prod: Renders a production file, minified and with HTML comments stripped out.\n                               -d:     Specifies design folder to use. (Default: _templates)\n                               -e:     Specifies email folder to render.";
+exports.build.description = "Builds HTML files from MJML templates.\n                                  Options:\n                                    --prod: Renders a production file, minified and with HTML comments stripped out.\n                                    -d:     Specifies design folder to use. (Default: _templates)\n                                    -e:     Specifies email folder to render.";
+
+exports.listTemplates = listTemplates;
+exports.listTemplates.description = "List all templates that will be processed. Useful for debugging.";
 
 // Watch templates
 function watchTemplates () {
@@ -246,8 +328,8 @@ exports.sassWatch = sassWatch;
 exports.sassWatch.description = "Watches Sass files in the 'theme' directory.";
 
 // Code formatting
-exports.formatMJML = prettyMJML;
-exports.formatMJML.description = "Format your MJML code with Prettier.";
+exports.formatTemplates = prettyTemplates;
+exports.formatTemplates.description = "Format your MJML templates with Prettier.";
 exports.formatSass = prettySass;
 exports.formatSass.description = "Format your Sass code with Prettier.";
 

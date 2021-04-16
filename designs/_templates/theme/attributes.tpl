@@ -14,9 +14,7 @@ getting true bold and italic versions of the font. -->
 <!-- The following CSS will be inlined by MJML. Use it for
 styling basic HTML elements. Don't include anything that can't
 be inlined (like link-hover styles). -->
-<mj-style inline="inline">
-
-</mj-style>
+<mj-style inline="inline"> </mj-style>
 
 <!-- WARNING: The following section is for CSS styles that cannot
 be inlined, like link-hover effects. Remember that only

@@ -89,7 +89,7 @@ cd postmodern
 
 Within each design directory, you'll find the following:
 
-- `index.mjml`: This file includes all the component files. You shouldn't
+- `index.tpl`: This file includes all the component files. You shouldn't
   normally need to edit this unless you are re-ordering the structure or
   changing the `lang` value.
 - `content`: This directory holds files that will _always_ change in each email
@@ -105,7 +105,7 @@ In your console, run `gulp watch` with the `-d` option, followed by the
 directory name of your design. Using the example above with a design named
 "postmodern", you'd run `gulp watch -d postmodern`.
 
-This will watch for any changes in any `index.mjml` files (including any
+This will watch for any changes in any `index.tpl` files (including any
 partials referenced with `<mj-include>`), and re-render the `index.html` file in
 unminified form in the `dist` subdirectory of your design. You can leave a web
 browser open to this page.
@@ -140,9 +140,11 @@ Once the production email is rendered, you can:
   [here's the rendered file](https://rootwork.github.io/mjml-quickstart/designs/_templates/dist/index.html)
   from the sample templates
 
-## Cleaning up your MJML files
+## Cleaning up your formatting
 
-Run `gulp prettyMJML` to auto-format all of your `.mjml` files.
+Run `gulp formatTemplates` to auto-format all of your `.tpl` files.
+
+Run `gulp formatSass` to auto-format all of your `.scss` files.
 
 # Full list of options
 
@@ -157,10 +159,11 @@ Run `gulp prettyMJML` to auto-format all of your `.mjml` files.
                     --prod: Renders a production file, minified and with HTML comments stripped out.
                     -d:     Specifies design folder to use. (Default: _templates)
                     -e:     Specifies email folder to render.
+├── listTemplates    List all templates that will be processed. Useful for debugging.
 ├── watch       Watches and renders HTML files for development (formatted, with comments).
 ├── sass        Compiles Sass files in the 'theme' directory.
 ├── sassWatch   Watches Sass files in the 'theme' directory.
-├── formatMJML  Format your MJML code with Prettier.
+├── formatTemplates  Format your MJML templates with Prettier.
 └── formatSass  Format your Sass code with Prettier.
 
 ```
