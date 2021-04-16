@@ -140,11 +140,13 @@ Once the production email is rendered, you can:
   [here's the rendered file](https://rootwork.github.io/mjml-quickstart/designs/_templates/dist/index.html)
   from the sample templates
 
-## Cleaning up your formatting
+## Formatting your code files
 
-Run `gulp formatTemplates` to auto-format all of your `.tpl` files.
+Run `gulp formatTemplates` to auto-format all of your `.tpl` files using
+[Prettier](https://prettier.io/).
 
-Run `gulp formatSass` to auto-format all of your `.scss` files.
+Run `gulp formatSass` to auto-format all of your `.scss` files using
+[Prettier](https://prettier.io/).
 
 # Full list of options
 
