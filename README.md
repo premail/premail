@@ -26,7 +26,7 @@ choice. [See example.](https://rootwork.github.io/mjml-quickstart/designs/_templ
    * [Thanks and Sponsorships](#thanks-and-sponsorships)
    * [License](#license)
 
-<!-- Added by: runner, at: Fri Apr 16 22:13:14 UTC 2021 -->
+<!-- Added by: runner, at: Fri Apr 16 22:17:12 UTC 2021 -->
 
 <!--te-->
 
