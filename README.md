@@ -150,7 +150,7 @@ Run `gulp formatSass` to auto-format all of your `.scss` files using
 
 # Full list of options
 
-$ `gulp --tasks`
+`gulp --tasks`
 
 ```
 ├─┬ default

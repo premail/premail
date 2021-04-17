@@ -309,7 +309,6 @@ function formatSass() {
 //
 
 // Sets
-
 exports.default = series(
   buildSass,
   buildTemplates
