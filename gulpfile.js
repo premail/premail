@@ -173,7 +173,7 @@ const sassError = function logError(error) {
 // Sass building
 //
 
-function sassBuild() {
+function buildSass() {
   return src(sassDir + '**/*.scss')
     .pipe(sass({
       fiber: Fiber,
@@ -186,8 +186,8 @@ function sassBuild() {
     })
 }
 
-function sassWatch() {
-  watch(sassDir + '**/*.scss', series('sass'));
+function watchSass() {
+  watch(sassDir + '**/*.scss', series('buildSass'));
 }
 
 //
@@ -217,7 +217,7 @@ async function listTemplates() {
 //
 
 // Render MJML templates into an HTML file.
-function renderHTML() {
+function buildTemplates() {
 
   let sourceFile;
 
@@ -270,11 +270,15 @@ function renderHTML() {
   })
 }
 
+function watchTemplates () {
+  watch('./**/*' + mjmlFileExt, buildTemplates);
+}
+
 //
 // Prettier
 //
 
-function prettyTemplates() {
+function formatTemplates() {
   return src('./**/*.' + mjmlFileExt)
     .pipe(prettier({
         parser: "html"
@@ -286,7 +290,7 @@ function prettyTemplates() {
     })
 }
 
-function prettySass() {
+function formatSass() {
   return src(sassDir + '**/*.scss')
     .pipe(
       prettier({
@@ -304,34 +308,38 @@ function prettySass() {
 // Tasks
 //
 
-// Gulp default
-exports.default = series(renderHTML);
+// Sets
 
-// Build HTML files
-exports.build = renderHTML;
-exports.build.description = "Builds HTML files from MJML templates.\n                                  Options:\n                                    --prod: Renders a production file, minified and with HTML comments stripped out.\n                                    -d:     Specifies design folder to use. (Default: _templates)\n                                    -e:     Specifies email folder to render.";
+exports.default = series(
+  buildSass,
+  buildTemplates
+);
 
-exports.listTemplates = listTemplates;
-exports.listTemplates.description = "List all templates that will be processed. Useful for debugging.";
+exports.build = exports.default;
 
-// Watch templates
-function watchTemplates () {
-  watch('./**/*' + mjmlFileExt, renderHTML);
-}
-exports.watch = watchTemplates;
-exports.watch.description = "Watches and renders HTML files for development (formatted, with comments).";
+exports.watch = parallel(
+  watchSass,
+  watchTemplates
+);
 
-// Sass compilation and watch (@TODO: Move watch into general watch function)
-exports.sass = sassBuild;
-exports.sass.description = "Compiles Sass files in the 'theme' directory.";
-exports.sassWatch = sassWatch;
-exports.sassWatch.description = "Watches Sass files in the 'theme' directory.";
+// Build
+exports.buildTemplates = buildTemplates;
+exports.buildTemplates.description = "Builds HTML files from MJML templates.\n                                  Options:\n                                    --prod: Renders a production file, minified and with HTML comments stripped out.\n                                    -d:     Specifies design folder to use. (Default: _templates)\n                                    -e:     Specifies email folder to render.";
+exports.buildSass = buildSass;
+exports.buildSass.description = "Compiles Sass files in the 'theme' directory.";
 
-// Code formatting
-exports.formatTemplates = prettyTemplates;
+// Watch
+exports.watchTemplates = watchTemplates;
+exports.watchTemplates.description = "Watches and renders HTML files for development (formatted, with comments).";
+exports.watchSass = watchSass;
+exports.watchSass.description = "Watches Sass files in the 'theme' directory.";
+
+// Format
+exports.formatTemplates = formatTemplates;
 exports.formatTemplates.description = "Format your MJML templates with Prettier.";
-exports.formatSass = prettySass;
+exports.formatSass = formatSass;
 exports.formatSass.description = "Format your Sass code with Prettier.";
 
-
-
+// Debug
+exports.listTemplates = listTemplates;
+exports.listTemplates.description = "List all templates that will be processed. Useful for debugging.";

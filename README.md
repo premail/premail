@@ -150,23 +150,32 @@ Run `gulp formatSass` to auto-format all of your `.scss` files using
 
 # Full list of options
 
-`gulp --tasks`
+$ `gulp --tasks`
 
 ```
 ├─┬ default
 │ └─┬ <series>
-│   └── renderHTML
-├── build            Builds HTML files from MJML templates.
+│   ├── buildSass
+│   └── buildTemplates
+├─┬ build
+│ └─┬ <series>
+│   ├── buildSass
+│   └── buildTemplates
+├─┬ watch
+│ └─┬ <parallel>
+│   ├── watchSass
+│   └── watchTemplates
+├── buildTemplates   Builds HTML files from MJML templates.
                        Options:
-                        --prod: Renders a production file, minified and with HTML comments stripped out.
+                         --prod: Renders a production file, minified and with HTML comments stripped out.
                          -d:     Specifies design folder to use. (Default: _templates)
                          -e:     Specifies email folder to render.
-├── listTemplates    List all templates that will be processed. Useful for debugging.
-├── watch            Watches and renders HTML files for development (formatted, with comments).
-├── sass             Compiles Sass files in the 'theme' directory.
-├── sassWatch        Watches Sass files in the 'theme' directory.
+├── buildSass        Compiles Sass files in the 'theme' directory.
+├── watchTemplates   Watches and renders HTML files for development (formatted, with comments).
+├── watchSass        Watches Sass files in the 'theme' directory.
 ├── formatTemplates  Format your MJML templates with Prettier.
-└── formatSass       Format your Sass code with Prettier.
+├── formatSass       Format your Sass code with Prettier.
+└── listTemplates    List all templates that will be processed. Useful for debugging.
 
 ```
 
