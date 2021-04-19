@@ -2,7 +2,7 @@
 
 const { src, dest, series, parallel, watch } = require('gulp');
 
-const fs          = require('fs')
+const fs          = require('fs');
 const path        = require('path');
 const del         = require('del');
 const PluginError = require('plugin-error');
@@ -21,7 +21,8 @@ sass.compiler     = require('sass');
 // File includes
 //
 
-const { arg } = require('./arg.js');
+const { arg } = require('./functions/arg.js');
+const { log } = require('./functions/log.js');
 
 //
 // Config
@@ -123,8 +124,6 @@ function getFiles(base,ext,files,result) {
 //
 // Notifications and error handling
 //
-
-const log = console.log;
 
 const msg = {
   error: chalk.bgRed.bold.white,
