@@ -1,21 +1,20 @@
 'use strict';
 
+//
+// arg(): Resolve a path relative to the root project directory.
+//
+// `INIT_CWD` is an environmental variable provided by Gulp that always resolves
+// to the project root directory. Combining it with `path.resolve()` will return
+// an absolute path.
+//
+// Source:
+// https://github.com/vigetlabs/blendid/blob/master/gulpfile.js/lib/projectPath.js
+//
+
+// Requirements
 const path = require('path');
 
-/**
- * A function that can be used to resolve a path relatively to the
- * project directory.
- *
- * We often want to resolve paths relatively to the project root
- * directory. To do that, we use the `INIT_CWD` environment variable
- * provided by Gulp. This variable always resolves to the project
- * root directory so we use it as the seed path and then add the
- * remaining arguments passed and resolving everything using the
- * `path.resolve` function.
- *
- * The returned path is a fully resolved absolute path relative to
- * the project root directory.
- */
+// Function
 module.exports = function projectPath(...paths) {
   return path.resolve(process.env.INIT_CWD, ...paths);
 }

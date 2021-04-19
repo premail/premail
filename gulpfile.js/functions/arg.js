@@ -1,8 +1,13 @@
 'use strict';
 
+//
+// arg(): Process arguments from the command-line.
+//
+
+// Requirements
 const minimist = require('minimist');
 
-// Acquire CLI arguments
+// Function
 const arg = (argList => {
 
   let arg = {}, a, opt, thisOpt, curOpt;
