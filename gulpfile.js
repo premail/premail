@@ -151,9 +151,10 @@ const log = console.log;
 
 const msg = {
   error: chalk.bgRed.bold.white,
-  warn: chalk.bgYellow.bold.black,
-  info: chalk.bold.green,
-  debug: chalk.keyword('aqua')
+  warn:  chalk.bgYellow.black,
+  info:  chalk.green,
+  debug: chalk.keyword('aqua'),
+  b:     chalk.bold
 }
 
 function handleError(err) {
@@ -182,7 +183,7 @@ function buildSass() {
     .on('error', sassError))
     .pipe(dest(sassDir))
     .on('finish', function(source) {
-      log(msg.info('CSS file written to ' + sassDir));
+      log(msg.info(msg.b('CSS file written to:\n') + sassDir));
     })
 }
 
@@ -198,18 +199,14 @@ function watchSass() {
 let templatePath = designCurrentDir + '/' + templateFile;
 let templatePartials = getFiles(designCurrentDir, ('.' + mjmlFileExt));
 
-// let templatePartials = srcPath =>
-//   fs.readdirSync(srcPath)
-//     .filter(file => fs.lstatSync(path.join(templatePath, file)));
-
-// for(let partial of templatePartials){
-//   Handlebars.registerPartial(partial, fs.readFileSync(templatePartials, 'utf8'));
-// }
+for(let partial of templatePartials){
+  Handlebars.registerPartial(partial, fs.readFileSync(templatePartials, 'utf8'));
+}
 
 async function listTemplates() {
   let partialList = templatePartials.toString().split(',').join('\n');
-  log(msg.debug(templatePath));
-  log(msg.debug(partialList));
+  log(msg.debug(msg.b('Main template file:\n') + templatePath + '\n'));
+  log(msg.debug(msg.b('Partials:\n') + partialList));
 }
 
 //
@@ -253,7 +250,7 @@ function buildTemplates() {
     })
   ))
   .on('finish', function(source) {
-    log(msg.info('Source:         ' + sourceFile));
+    log(msg.info(msg.b('Source:\n') + sourceFile));
   })
   .on('error', handleError)
   .pipe(
@@ -263,9 +260,9 @@ function buildTemplates() {
     )
   .pipe(dest('.'))
   .on('finish', function(source) {
-    log(msg.info('Generated HTML: ' + destFile));
+    log(msg.info(msg.b('Generated HTML:\n') + destFile));
     if (prod) {
-      log(msg.info('Production: Minified with HTML comments stripped.'));
+      log(msg.info(msg.b('Production:') + ' Minified with HTML comments stripped.'));
     }
   })
 }
