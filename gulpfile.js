@@ -5,6 +5,7 @@ const { src, dest, series, parallel, watch } = require('gulp');
 const fs          = require('fs')
 const path        = require('path');
 const minimist    = require('minimist');
+const del         = require('del');
 const PluginError = require('plugin-error');
 const chalk       = require('chalk');
 const Handlebars  = require("handlebars");
@@ -92,8 +93,8 @@ if (arg.prod) {
 // Set fully qualified paths
 let designCurrentDir = path.resolve(__dirname, designDir, designCurrent);
 let emailCurrentDir  = path.resolve(__dirname, emailDir, emailCurrent);
-let designDistDir    = path.resolve('/', designDir, designCurrent, distDir);
-let emailDistDir     = path.resolve('/', emailDir, emailCurrent, distDir);
+let designDistDir    = path.resolve(__dirname, designDir, designCurrent, distDir);
+let emailDistDir     = path.resolve(__dirname, emailDir, emailCurrent, distDir);
 let sassDir          = designCurrentDir + '/' + themeDir + '/sass/';
 
 // @TODO New feature that would get the list of current designs and emails
@@ -171,6 +172,24 @@ const sassError = function logError(error) {
 };
 
 //
+// Directory and file cleaning
+//
+
+function clean(done) {
+  log(msg.warn('Deleting generated files...'))
+
+  const deletedFilePaths = del.sync([
+    designDistDir + '/*',
+    sassDir + '*.css'
+  ]);
+
+  log(msg.debug(deletedFilePaths.join('\n')));
+
+  done();
+}
+
+
+//
 // Sass building
 //
 
@@ -195,19 +214,31 @@ function watchSass() {
 // Template rendering
 //
 
-// Handlebars
 let templatePath = designCurrentDir + '/' + templateFile;
 let templatePartials = getFiles(designCurrentDir, ('.' + mjmlFileExt));
-
-for(let partial of templatePartials){
-  Handlebars.registerPartial(partial, fs.readFileSync(templatePartials, 'utf8'));
-}
 
 async function listTemplates() {
   let partialList = templatePartials.toString().split(',').join('\n');
   log(msg.debug(msg.b('Main template file:\n') + templatePath + '\n'));
   log(msg.debug(msg.b('Partials:\n') + partialList));
 }
+
+// Handlebars
+for(let partial of templatePartials){
+  Handlebars.registerPartial(partial, fs.readFileSync(templatePartials, 'utf8'));
+}
+
+// function formatTemplates() {
+//   return src('./**/*.' + mjmlFileExt)
+//     .pipe(prettier({
+//         parser: "html"
+//       }))
+//     .on('error', handleError)
+//     .pipe(dest(file => file.base))
+//     .on('finish', function(source) {
+//       log(msg.info('All .' + mjmlFileExt + ' templates reformatted.'));
+//     })
+// }
 
 //
 // MJML
@@ -227,9 +258,9 @@ function buildTemplates() {
   let destDir;
 
   if (emailCurrent) {
-    destDir = emailDistDir;
+    destDir = path.resolve('/', emailDir, emailCurrent, distDir);
   } else {
-    destDir = designDistDir;
+    destDir = path.resolve('/', designDir, designCurrent, distDir);
   }
 
   let destFile = path.resolve(__dirname, destDir, 'index.html');
@@ -260,7 +291,7 @@ function buildTemplates() {
     )
   .pipe(dest('.'))
   .on('finish', function(source) {
-    log(msg.info(msg.b('Generated HTML:\n') + destFile));
+    log(msg.info(msg.b('Generated HTML:\n') + designDistDir + '/index.html'));
     if (prod) {
       log(msg.info(msg.b('Production:') + ' Minified with HTML comments stripped.'));
     }
@@ -339,3 +370,5 @@ exports.formatSass.description = "Format your Sass code with Prettier.";
 // Debug
 exports.listTemplates = listTemplates;
 exports.listTemplates.description = "List all templates that will be processed. Useful for debugging.";
+exports.clean = clean;
+exports.clean.description = "Remove all generated files from the current design or email."
