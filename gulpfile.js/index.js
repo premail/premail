@@ -4,7 +4,6 @@ const { src, dest, series, parallel, watch } = require('gulp');
 
 const fs          = require('fs')
 const path        = require('path');
-const minimist    = require('minimist');
 const del         = require('del');
 const PluginError = require('plugin-error');
 const chalk       = require('chalk');
@@ -17,6 +16,12 @@ const prettier    = require('gulp-prettier');
 const sass        = require('gulp-sass');
 const Fiber       = require('fibers');
 sass.compiler     = require('sass');
+
+//
+// File includes
+//
+
+const { arg } = require('./arg.js');
 
 //
 // Config
@@ -39,37 +44,6 @@ let themeDir = 'theme';
 
 // Subdirectory of emails in which to export HTML code
 let distDir = 'dist';
-
-// Acquire CLI arguments
-// @TODO move this to separate module.
-const arg = (argList => {
-
-  let arg = {}, a, opt, thisOpt, curOpt;
-  for (a = 0; a < argList.length; a++) {
-
-    thisOpt = argList[a].trim();
-    opt = thisOpt.replace(/^\-+/, '');
-
-    if (opt === thisOpt) {
-
-      // argument value
-      if (curOpt) arg[curOpt] = opt;
-      curOpt = null;
-
-    }
-    else {
-
-      // argument name
-      curOpt = opt;
-      arg[curOpt] = true;
-
-    }
-
-  }
-
-  return arg;
-
-})(process.argv);
 
 // Set constants from CLI arguments
 let designCurrent = '_templates';
