@@ -23,10 +23,10 @@ sass.compiler     = require('sass');
 //
 
 // Top-level directory for designs
-let designDir = 'designs';
+let designDir = '../designs';
 
 // Top-level directory for individual emails
-let emailDir = 'emails';
+let emailDir = '../emails';
 
 // Main template file
 let templateFile = 'index.tpl';
