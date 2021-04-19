@@ -338,6 +338,7 @@ function formatSass() {
 
 // Sets
 exports.default = series(
+  clean,
   buildSass,
   buildTemplates
 );
