@@ -84,6 +84,8 @@ if (arg.e) {
   emailCurrent = arg.e;
 }
 
+// Note 'debug' is set in the notifications and error handling section.
+
 let prod = false;
 
 if (arg.prod) {
@@ -158,6 +160,12 @@ const msg = {
   b:     chalk.bold
 }
 
+let debug = function () { return '' };
+
+if (arg.debug) {
+  debug = msg.debug;
+}
+
 function handleError(err) {
   log(msg.error(err));
   this.emit('end');
@@ -183,7 +191,7 @@ function clean(done) {
     sassDir + '*.css'
   ]);
 
-  log(msg.debug(deletedFilePaths.join('\n')));
+  log(debug(deletedFilePaths.join('\n')));
 
   done();
 }
@@ -202,7 +210,7 @@ function buildSass() {
     .on('error', sassError))
     .pipe(dest(sassDir))
     .on('finish', function(source) {
-      log(msg.info(msg.b('CSS file written to:\n') + sassDir));
+      log(debug(msg.b('CSS file written to:\n') + sassDir));
     })
 }
 
@@ -281,7 +289,7 @@ function buildTemplates() {
     })
   ))
   .on('finish', function(source) {
-    log(msg.info(msg.b('Source:\n') + sourceFile));
+    log(debug(msg.b('Source:\n') + sourceFile));
   })
   .on('error', handleError)
   .pipe(
