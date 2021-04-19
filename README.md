@@ -175,8 +175,8 @@ Run `gulp formatSass` to auto-format all of your `.scss` files using
 ├── watchSass        Watches Sass files in the 'theme' directory.
 ├── formatTemplates  Format your MJML templates with Prettier.
 ├── formatSass       Format your Sass code with Prettier.
-└── listTemplates    List all templates that will be processed. Useful for debugging.
-
+├── listTemplates    List all templates that will be processed. Useful for debugging.
+└── clean            Remove all generated files from the current design or email.
 ```
 
 # Known issues
