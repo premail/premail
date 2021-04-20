@@ -23,10 +23,17 @@ sass.compiler     = require('sass');
 
 const { arg } = require('./functions/arg.js');
 const { log } = require('./functions/log.js');
+const paths = require('./paths.js');
 
 //
 // Config
 //
+
+function test(done) {
+  console.log(paths.designDir);
+  done();
+}
+exports.test = test;
 
 // Top-level directory for designs
 let designDir = '../designs';
