@@ -36,9 +36,10 @@ const { debug }    = require(lib + 'vars/debug.js');
 // Import tasks.
 //
 
-const clean     = require(lib + 'tasks/clean.js');
-const buildSass = require(lib + 'tasks/buildSass.js');
-const watchSass = require(lib + 'tasks/watchSass.js');
+const clean         = require(lib + 'tasks/clean.js');
+const buildSass     = require(lib + 'tasks/buildSass.js');
+const watchSass     = require(lib + 'tasks/watchSass.js');
+const listTemplates = require(lib + 'tasks/listTemplates.js');
 
 //
 // Test function for debugging
@@ -54,16 +55,10 @@ const watchSass = require(lib + 'tasks/watchSass.js');
 // Template rendering
 //
 
-async function listTemplates() {
-  let partialList = paths.templatePartials.toString().split(',').join('\n');
-  log(msg.debug(msg.b('Main template file:\n') + paths.templateFile + '\n'));
-  log(msg.debug(msg.b('Partials:\n') + partialList));
-}
-
 // Handlebars
-for(let partial of paths.templatePartials){
-  Handlebars.registerPartial(partial, fs.readFileSync(paths.templatePartials, 'utf8'));
-}
+// for(let partial of paths.templatePartials){
+//   Handlebars.registerPartial(partial, fs.readFileSync(paths.templatePartials, 'utf8'));
+// }
 
 // function formatTemplates() {
 //   return src('./**/*.' + config.files.mjml.ext)

@@ -56,7 +56,7 @@ let sassDir          = designCurrentDir + '/' + config.paths.theme.dir + '/sass/
 // console.log(`Hey there ${name}`);
 
 let templateFile = designCurrentDir + '/' + config.files.template;
-let templatePartials = getFiles(designCurrentDir, ('.' + config.files.mjml.ext));
+let templatePartials = getFiles(designCurrentDir, config.files.mjml.ext);
 
 module.exports = {
   designCurrent,
