@@ -57,6 +57,14 @@ let sassDir          = designCurrentDir + '/' + config.paths.theme.dir + '/sass/
 
 let templateFile = designCurrentDir + '/' + config.files.template;
 let templatePartials = getFiles(designCurrentDir, config.files.mjml.ext);
+let templatePartialsList =
+    templatePartials
+    .filter(function(value){
+        return value !== templateFile;
+    })
+    .toString()
+    .split(',')
+    .join('\n');
 
 module.exports = {
   designCurrent,
@@ -67,5 +75,6 @@ module.exports = {
   emailDistDir,
   sassDir,
   templateFile,
-  templatePartials
+  templatePartials,
+  templatePartialsList
 };

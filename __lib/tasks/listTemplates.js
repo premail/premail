@@ -10,15 +10,6 @@ const { debug } = require('../vars/debug.js');
 //
 
 module.exports = async function listTemplates() {
-  let partialList =
-    paths.templatePartials
-    .filter(function(value){
-        return value !== paths.templateFile;
-    })
-    .toString()
-    .split(',')
-    .join('\n');
-
   log(msg.debug(msg.b('Main template file:\n') + paths.templateFile + '\n'));
-  log(msg.debug(msg.b('Partials:\n') + partialList));
+  log(msg.debug(msg.b('Partials:\n') + paths.templatePartialsList));
 }
