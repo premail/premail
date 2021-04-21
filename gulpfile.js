@@ -5,7 +5,6 @@ const { src, dest, series, parallel, watch } = require('gulp');
 const fs          = require('fs');
 const path        = require('path');
 const del         = require('del');
-const PluginError = require('plugin-error');
 const chalk       = require('chalk');
 const Handlebars  = require("handlebars");
 const rename      = require('gulp-rename');
@@ -25,6 +24,7 @@ const lib = './__lib/';
 
 const { config }   = require(lib + 'functions/config.js');
 const { arg }      = require(lib + 'functions/arg.js');
+const err          = require(lib + 'functions/err.js');
 const { log }      = require(lib + 'vars/log.js');
 const paths        = require(lib + 'vars/paths.js');
 const { getFiles } = require(lib + 'functions/getFiles.js');
@@ -41,23 +41,6 @@ const { debug }    = require(lib + 'vars/debug.js');
 //   done();
 // }
 // exports.test = test;
-
-//
-// Notifications and error handling
-//
-
-function handleError(err) {
-  log(msg.error(err));
-  this.emit('end');
-}
-
-// Sprucing up sass.logError
-const sassError = function logError(error) {
-  const message = new PluginError('gulp-sass', error.messageFormatted).toString();
-  log(msg.error('\nSass processing error'));
-  log(`${message}\n`);
-  this.emit('end');
-};
 
 //
 // Directory and file cleaning
@@ -87,7 +70,7 @@ function buildSass() {
       fiber: Fiber,
       outputStyle: 'compressed',
     })
-    .on('error', sassError))
+    .on('error', err.sassError))
     .pipe(dest(paths.sassDir))
     .on('finish', function(source) {
       log(debug(msg.b('CSS file written to:\n') + paths.sassDir));
@@ -121,7 +104,7 @@ for(let partial of templatePartials){
 //     .pipe(prettier({
 //         parser: "html"
 //       }))
-//     .on('error', handleError)
+//     .on('error', err.handleError)
 //     .pipe(dest(file => file.base))
 //     .on('finish', function(source) {
 //       log(msg.info('All .' + config.files.mjml.ext + ' templates reformatted.'));
@@ -171,7 +154,7 @@ function buildTemplates() {
   .on('finish', function(source) {
     log(debug(msg.b('Source:\n') + sourceFile));
   })
-  .on('error', handleError)
+  .on('error', err.handleError)
   .pipe(
     rename(function (path) {
       path.dirname += destDir;
@@ -199,7 +182,7 @@ function formatTemplates() {
     .pipe(prettier({
         parser: "html"
       }))
-    .on('error', handleError)
+    .on('error', err.handleError)
     .pipe(dest(file => file.base))
     .on('finish', function(source) {
       log(msg.info('All .' + config.files.mjml.ext + ' templates reformatted.'));
@@ -213,7 +196,7 @@ function formatSass() {
         parser: "scss"
       })
     )
-    .on('error', handleError)
+    .on('error', err.handleError)
     .pipe(dest(file => file.base))
     .on('finish', function(source) {
       log(msg.info('Reformatted Sass files.'));
