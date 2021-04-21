@@ -11,7 +11,7 @@ const { debug } = require('../vars/debug.js');
 // Clean generated files and directories.
 //
 
-function clean(done) {
+module.exports = function clean(done) {
   log(msg.warn('Deleting generated files...'))
 
   const deletedFilePaths = [
@@ -24,8 +24,4 @@ function clean(done) {
   log(debug(deletedFilePaths.join('\n')));
 
   done();
-}
-
-module.exports = {
-  clean
 }

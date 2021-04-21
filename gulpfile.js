@@ -36,7 +36,7 @@ const { debug }    = require(lib + 'vars/debug.js');
 // Import tasks.
 //
 
-const { clean }     = require(lib + 'tasks/clean.js');
+const clean = require(lib + 'tasks/clean.js');
 
 //
 // Test function for debugging
