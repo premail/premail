@@ -54,18 +54,15 @@ const watchSass = require(lib + 'tasks/watchSass.js');
 // Template rendering
 //
 
-let templatePath = paths.designCurrentDir + '/' + config.files.template;
-let templatePartials = getFiles(paths.designCurrentDir, ('.' + config.files.mjml.ext));
-
 async function listTemplates() {
-  let partialList = templatePartials.toString().split(',').join('\n');
-  log(msg.debug(msg.b('Main template file:\n') + templatePath + '\n'));
+  let partialList = paths.templatePartials.toString().split(',').join('\n');
+  log(msg.debug(msg.b('Main template file:\n') + paths.templateFile + '\n'));
   log(msg.debug(msg.b('Partials:\n') + partialList));
 }
 
 // Handlebars
-for(let partial of templatePartials){
-  Handlebars.registerPartial(partial, fs.readFileSync(templatePartials, 'utf8'));
+for(let partial of paths.templatePartials){
+  Handlebars.registerPartial(partial, fs.readFileSync(paths.templatePartials, 'utf8'));
 }
 
 // function formatTemplates() {

@@ -4,6 +4,7 @@ const path = require('path');
 
 const { config } = require('../functions/config.js');
 const { arg }    = require('../functions/arg.js');
+const getFiles   = require('../functions/getFiles.js');
 
 //
 // Construct fully-qualified paths based on CLI arguments, if any.
@@ -54,6 +55,9 @@ let sassDir          = designCurrentDir + '/' + config.paths.theme.dir + '/sass/
 // const name = prompt('What is your name? ');
 // console.log(`Hey there ${name}`);
 
+let templateFile = designCurrentDir + '/' + config.files.template;
+let templatePartials = getFiles(designCurrentDir, ('.' + config.files.mjml.ext));
+
 module.exports = {
   designCurrent,
   emailCurrent,
@@ -61,5 +65,7 @@ module.exports = {
   emailCurrentDir,
   designDistDir,
   emailDistDir,
-  sassDir
+  sassDir,
+  templateFile,
+  templatePartials
 };
