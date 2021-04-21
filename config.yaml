@@ -1,0 +1,27 @@
+#
+# QUICKSTART CONFIGURATION
+#
+# This file is formatted in YAML -- indentation and whitespace is important!
+# If you're not familiar with YAML, there are lots of guides and many
+# implementations out there. Here are some examples:
+# https://blog.stackpath.com/yaml/
+# https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes
+# https://yaml.org
+
+# 1. Paths
+paths:
+  design:
+    dir: ../designs
+    default: _templates
+  theme:
+    dir: theme
+  email:
+    dir: ../emails
+  output:
+    dir: dist
+
+# 2. Files and file types
+files:
+  template: index.tpl
+  mjml:
+    ext: tpl

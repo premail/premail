@@ -3,6 +3,7 @@
 const { src, dest, series, parallel, watch } = require('gulp');
 
 const fs          = require('fs');
+const yaml        = require('js-yaml');
 const path        = require('path');
 const del         = require('del');
 const PluginError = require('plugin-error');
@@ -18,43 +19,55 @@ const Fiber       = require('fibers');
 sass.compiler     = require('sass');
 
 //
+// Load config
+//
+
+const configJSON = yaml.loadAll(fs.readFileSync('./config.yaml', {encoding: 'utf-8'}));
+const config = configJSON[0];
+
+//
 // File includes
 //
 
 const { arg } = require('./functions/arg.js');
 const { log } = require('./functions/log.js');
-const paths = require('./paths.js');
+
+const vars = require('./vars.js');
+
+//
+// Test function for debugging
+//
+
+// function test(done) {
+//   console.log();
+//   done();
+// }
+// exports.test = test;
 
 //
 // Config
 //
 
-function test(done) {
-  console.log(paths.designDir);
-  done();
-}
-exports.test = test;
-
 // Top-level directory for designs
-let designDir = '../designs';
+let designDir = config.paths.design.dir;
 
 // Top-level directory for individual emails
-let emailDir = '../emails';
+let emailDir = config.paths.email.dir;
 
 // Main template file
-let templateFile = 'index.tpl';
+let templateFile = config.files.template;
 
 // File extensions to process from MJML to HTML
-let mjmlFileExt = 'tpl';
+let mjmlFileExt = config.files.mjml.ext;
 
 // Subdirectory of designs in which settings for styling are kept
-let themeDir = 'theme';
+let themeDir = config.paths.theme.dir;
 
 // Subdirectory of emails in which to export HTML code
-let distDir = 'dist';
+let distDir = config.paths.output.dir;
 
 // Set constants from CLI arguments
-let designCurrent = '_templates';
+let designCurrent = config.paths.design.default;
 
 if (arg.d) {
   designCurrent = arg.d;
