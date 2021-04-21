@@ -1,7 +1,9 @@
 'use strict';
 
 const { src, dest } = require('gulp');
+const path          = require('path');
 const sass          = require('gulp-sass');
+const tap           = require('gulp-tap');
 const Fiber         = require('fibers');
 sass.compiler       = require('sass');
 
@@ -22,8 +24,10 @@ module.exports = function buildSass() {
       outputStyle: 'compressed',
     })
     .on('error', err.sassError))
-    .pipe(dest(paths.sassDir))
-    .on('finish', function(source) {
-      log(debug(msg.b('CSS file written to:\n') + paths.sassDir));
-    })
+    .pipe(dest(paths.themeDir + '/'))
+    .pipe(
+      tap(function (file,t) {
+        log(debug(msg.b('CSS file written to:\n') + paths.themeDir + '/sass/' + path.basename(file.path)));
+      })
+    )
 }

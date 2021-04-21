@@ -16,7 +16,7 @@ module.exports = function clean(done) {
 
   const deletedFilePaths = [
     paths.designDistDir + '/*',
-    paths.sassDir + '*.css'
+    paths.themeDir + '/sass/*.css'
   ];
 
   del.sync(deletedFilePaths);
