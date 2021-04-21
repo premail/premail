@@ -2,9 +2,10 @@
 
 const path = require('path');
 
-const { config } = require('../functions/config.js');
-const { arg }    = require('../functions/arg.js');
-const getFiles   = require('../functions/getFiles.js');
+const { config }  = require('../functions/config.js');
+const { arg }     = require('../functions/arg.js');
+const projectPath = require('../functions/projectPath.js');
+const getFiles    = require('../functions/getFiles.js');
 
 //
 // Construct fully-qualified paths based on CLI arguments, if any.
@@ -24,12 +25,13 @@ if (arg.e) {
 }
 
 // Set fully qualified paths
-// @TODO: Clean up this mess with the 'projectPath' function in this directory.
-let designCurrentDir = path.resolve(__dirname, '../', config.paths.design.dir, designCurrent);
-let emailCurrentDir  = path.resolve(__dirname, '../', config.paths.email.dir, emailCurrent);
-let designDistDir    = path.resolve(__dirname, '../', config.paths.design.dir, designCurrent, config.paths.output.dir);
-let emailDistDir     = path.resolve(__dirname, '../', config.paths.email.dir, emailCurrent, config.paths.output.dir);
-let sassDir          = designCurrentDir + '/' + config.paths.theme.dir + '/sass/';
+let __base = projectPath(__dirname, '../');
+
+let designCurrentDir = projectPath(__base, config.paths.design.dir, designCurrent);
+let emailCurrentDir  = projectPath(__base, config.paths.email.dir, emailCurrent);
+let designDistDir  = projectPath(__base, config.paths.design.dir, designCurrent, config.paths.output.dir);
+let emailDistDir  = projectPath(__base, config.paths.email.dir, emailCurrent, config.paths.output.dir);
+let themeDir = projectPath(__base, config.paths.design.dir, designCurrent, config.paths.theme.dir);
 
 // @TODO New feature that would get the list of current designs and emails
 // based on directory names, and prompt the user to select one, rather than
@@ -73,7 +75,7 @@ module.exports = {
   emailCurrentDir,
   designDistDir,
   emailDistDir,
-  sassDir,
+  themeDir,
   templateFile,
   templatePartials,
   templatePartialsList

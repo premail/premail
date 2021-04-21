@@ -7,7 +7,7 @@ const { series, parallel } = require('gulp');
 //
 
 // function test(done) {
-//   console.log(projectPath);
+//   console.log();
 //   done();
 // }
 // exports.test = test;
