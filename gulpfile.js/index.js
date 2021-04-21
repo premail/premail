@@ -26,28 +26,19 @@ const { arg }    = require('./functions/arg.js');
 const { log }    = require('./functions/log.js');
 
 const vars       = require('./vars.js');
-
-const { designCurrent } = require('./functions/paths.js');
-const { emailCurrent } = require('./functions/paths.js');
-const { prod } = require('./functions/paths.js');
-const { designCurrentDir } = require('./functions/paths.js');
-const { emailCurrentDir } = require('./functions/paths.js');
-const { designDistDir } = require('./functions/paths.js');
-const { emailDistDir } = require('./functions/paths.js');
-const { sassDir } = require('./functions/paths.js');
+const paths      = require('./functions/pathConstruction.js');
 
 const { getFiles } = require('./functions/getFiles.js');
-
 
 //
 // Test function for debugging
 //
 
-function test(done) {
-  console.log(designCurrent);
-  done();
-}
-exports.test = test;
+// function test(done) {
+//   console.log();
+//   done();
+// }
+// exports.test = test;
 
 //
 // Notifications and error handling
@@ -88,8 +79,8 @@ function clean(done) {
   log(msg.warn('Deleting generated files...'))
 
   const deletedFilePaths = del.sync([
-    designDistDir + '/*',
-    sassDir + '*.css'
+    paths.designDistDir + '/*',
+    paths.sassDir + '*.css'
   ]);
 
   log(debug(deletedFilePaths.join('\n')));
@@ -103,28 +94,28 @@ function clean(done) {
 //
 
 function buildSass() {
-  return src(sassDir + '**/*.scss')
+  return src(paths.sassDir + '**/*.scss')
     .pipe(sass({
       fiber: Fiber,
       outputStyle: 'compressed',
     })
     .on('error', sassError))
-    .pipe(dest(sassDir))
+    .pipe(dest(paths.sassDir))
     .on('finish', function(source) {
-      log(debug(msg.b('CSS file written to:\n') + sassDir));
+      log(debug(msg.b('CSS file written to:\n') + paths.sassDir));
     })
 }
 
 function watchSass() {
-  watch(sassDir + '**/*.scss', series('buildSass'));
+  watch(paths.sassDir + '**/*.scss', series('buildSass'));
 }
 
 //
 // Template rendering
 //
 
-let templatePath = designCurrentDir + '/' + config.files.template;
-let templatePartials = getFiles(designCurrentDir, ('.' + config.files.mjml.ext));
+let templatePath = paths.designCurrentDir + '/' + config.files.template;
+let templatePartials = getFiles(paths.designCurrentDir, ('.' + config.files.mjml.ext));
 
 async function listTemplates() {
   let partialList = templatePartials.toString().split(',').join('\n');
@@ -158,24 +149,24 @@ function buildTemplates() {
 
   let sourceFile;
 
-  if (emailCurrent) {
-    sourceFile = emailCurrentDir + '/index.' + config.files.mjml.ext;
+  if (paths.emailCurrent) {
+    sourceFile = paths.emailCurrentDir + '/index.' + config.files.mjml.ext;
   } else {
-    sourceFile = designCurrentDir + '/index.' + config.files.mjml.ext;
+    sourceFile = paths.designCurrentDir + '/index.' + config.files.mjml.ext;
   }
 
   let destDir;
 
-  if (emailCurrent) {
-    destDir = path.resolve('/', config.paths.email.dir, emailCurrent, config.paths.output.dir);
+  if (paths.emailCurrent) {
+    destDir = path.resolve('/', config.paths.email.dir, paths.emailCurrent, config.paths.output.dir);
   } else {
-    destDir = path.resolve('/', config.paths.design.dir, designCurrent, config.paths.output.dir);
+    destDir = path.resolve('/', config.paths.design.dir, paths.designCurrent, config.paths.output.dir);
   }
 
   let destFile = path.resolve(__dirname, destDir, 'index.html');
 
   return src(sourceFile)
-  .pipe(gulpif(prod,
+  .pipe(gulpif(arg.prod,
     // Production
     mjml(mjmlEngine, {
       fileExt: config.files.mjml.ext,
@@ -200,8 +191,8 @@ function buildTemplates() {
     )
   .pipe(dest('.'))
   .on('finish', function(source) {
-    log(msg.info(msg.b('Generated HTML:\n') + designDistDir + '/index.html'));
-    if (prod) {
+    log(msg.info(msg.b('Generated HTML:\n') + paths.designDistDir + '/index.html'));
+    if (arg.prod) {
       log(msg.info(msg.b('Production:') + ' Minified with HTML comments stripped.'));
     }
   })
@@ -228,7 +219,7 @@ function formatTemplates() {
 }
 
 function formatSass() {
-  return src(sassDir + '**/*.scss')
+  return src(paths.sassDir + '**/*.scss')
     .pipe(
       prettier({
         parser: "scss"

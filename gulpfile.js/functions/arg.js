@@ -37,6 +37,12 @@ const arg = (argList => {
 
 })(process.argv);
 
+let prod = false;
+
+if (arg.prod) {
+  prod = true;
+}
+
 module.exports = {
   arg
 }

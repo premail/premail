@@ -22,15 +22,8 @@ if (arg.e) {
   emailCurrent = arg.e;
 }
 
-// Note 'debug' is set in the notifications and error handling section.
-
-let prod = false;
-
-if (arg.prod) {
-  prod = true;
-}
-
 // Set fully qualified paths
+// @TODO: Clean up this mess with the 'projectPath' function in this directory.
 let designCurrentDir = path.resolve(__dirname, '../', config.paths.design.dir, designCurrent);
 let emailCurrentDir  = path.resolve(__dirname, '../', config.paths.email.dir, emailCurrent);
 let designDistDir    = path.resolve(__dirname, '../', config.paths.design.dir, designCurrent, config.paths.output.dir);
@@ -64,7 +57,6 @@ let sassDir          = designCurrentDir + '/' + config.paths.theme.dir + '/sass/
 module.exports = {
   designCurrent,
   emailCurrent,
-  prod,
   designCurrentDir,
   emailCurrentDir,
   designDistDir,
