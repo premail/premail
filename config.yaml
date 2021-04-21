@@ -2,6 +2,7 @@
 # QUICKSTART CONFIGURATION
 #
 # This file is formatted in YAML -- indentation and whitespace is important!
+#
 # If you're not familiar with YAML, there are lots of guides and many
 # implementations out there. Here are some examples:
 # https://blog.stackpath.com/yaml/
@@ -10,18 +11,37 @@
 
 # 1. Paths
 paths:
+
   design:
+
+    # Top-level directory for designs
     dir: ../designs
+
+    # If no design is specified, default to this directory
     default: _templates
+
   theme:
+
+    # Subdirectory of designs in which settings for styling are kept
     dir: theme
+
   email:
+
+    # Top-level directory for individual emails
     dir: ../emails
+
   output:
+
+    # Subdirectory of emails in which to export HTML code
     dir: dist
 
 # 2. Files and file types
 files:
+
+  # Main template file
   template: index.tpl
+
   mjml:
+
+    # File extensions to process from MJML to HTML
     ext: tpl

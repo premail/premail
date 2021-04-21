@@ -45,28 +45,9 @@ const vars = require('./vars.js');
 // exports.test = test;
 
 //
-// Config
+// Get arguments from command line
 //
 
-// Top-level directory for designs
-let designDir = config.paths.design.dir;
-
-// Top-level directory for individual emails
-let emailDir = config.paths.email.dir;
-
-// Main template file
-let templateFile = config.files.template;
-
-// File extensions to process from MJML to HTML
-let mjmlFileExt = config.files.mjml.ext;
-
-// Subdirectory of designs in which settings for styling are kept
-let themeDir = config.paths.theme.dir;
-
-// Subdirectory of emails in which to export HTML code
-let distDir = config.paths.output.dir;
-
-// Set constants from CLI arguments
 let designCurrent = config.paths.design.default;
 
 if (arg.d) {
@@ -88,11 +69,11 @@ if (arg.prod) {
 }
 
 // Set fully qualified paths
-let designCurrentDir = path.resolve(__dirname, designDir, designCurrent);
-let emailCurrentDir  = path.resolve(__dirname, emailDir, emailCurrent);
-let designDistDir    = path.resolve(__dirname, designDir, designCurrent, distDir);
-let emailDistDir     = path.resolve(__dirname, emailDir, emailCurrent, distDir);
-let sassDir          = designCurrentDir + '/' + themeDir + '/sass/';
+let designCurrentDir = path.resolve(__dirname, config.paths.design.dir, designCurrent);
+let emailCurrentDir  = path.resolve(__dirname, config.paths.email.dir, emailCurrent);
+let designDistDir    = path.resolve(__dirname, config.paths.design.dir, designCurrent, config.paths.output.dir);
+let emailDistDir     = path.resolve(__dirname, config.paths.email.dir, emailCurrent, config.paths.output.dir);
+let sassDir          = designCurrentDir + '/' + config.paths.theme.dir + '/sass/';
 
 // @TODO New feature that would get the list of current designs and emails
 // based on directory names, and prompt the user to select one, rather than
@@ -109,10 +90,10 @@ let sassDir          = designCurrentDir + '/' + themeDir + '/sass/';
 //     .filter(file => fs.lstatSync(path.join(srcPath, file)).isDirectory())
 //
 // Get list of designs by directory name
-// const designList = getDirectories(designDir);
+// const designList = getDirectories(config.paths.design.dir);
 //
 // Get list of emails by directory name
-// const emailList = getDirectories(emailDir);
+// const emailList = getDirectories(config.paths.email.dir);
 //
 // Prompt user (example code)
 // const name = prompt('What is your name? ');
@@ -194,8 +175,8 @@ function watchSass() {
 // Template rendering
 //
 
-let templatePath = designCurrentDir + '/' + templateFile;
-let templatePartials = getFiles(designCurrentDir, ('.' + mjmlFileExt));
+let templatePath = designCurrentDir + '/' + config.files.template;
+let templatePartials = getFiles(designCurrentDir, ('.' + config.files.mjml.ext));
 
 async function listTemplates() {
   let partialList = templatePartials.toString().split(',').join('\n');
@@ -209,14 +190,14 @@ for(let partial of templatePartials){
 }
 
 // function formatTemplates() {
-//   return src('./**/*.' + mjmlFileExt)
+//   return src('./**/*.' + config.files.mjml.ext)
 //     .pipe(prettier({
 //         parser: "html"
 //       }))
 //     .on('error', handleError)
 //     .pipe(dest(file => file.base))
 //     .on('finish', function(source) {
-//       log(msg.info('All .' + mjmlFileExt + ' templates reformatted.'));
+//       log(msg.info('All .' + config.files.mjml.ext + ' templates reformatted.'));
 //     })
 // }
 
@@ -230,17 +211,17 @@ function buildTemplates() {
   let sourceFile;
 
   if (emailCurrent) {
-    sourceFile = emailCurrentDir + '/index.' + mjmlFileExt;
+    sourceFile = emailCurrentDir + '/index.' + config.files.mjml.ext;
   } else {
-    sourceFile = designCurrentDir + '/index.' + mjmlFileExt;
+    sourceFile = designCurrentDir + '/index.' + config.files.mjml.ext;
   }
 
   let destDir;
 
   if (emailCurrent) {
-    destDir = path.resolve('/', emailDir, emailCurrent, distDir);
+    destDir = path.resolve('/', config.paths.email.dir, emailCurrent, config.paths.output.dir);
   } else {
-    destDir = path.resolve('/', designDir, designCurrent, distDir);
+    destDir = path.resolve('/', config.paths.design.dir, designCurrent, config.paths.output.dir);
   }
 
   let destFile = path.resolve(__dirname, destDir, 'index.html');
@@ -249,14 +230,14 @@ function buildTemplates() {
   .pipe(gulpif(prod,
     // Production
     mjml(mjmlEngine, {
-      fileExt: mjmlFileExt,
+      fileExt: config.files.mjml.ext,
       beautify: false,
       minify: true,
       keepComments: false,
     }),
     // Development
     mjml(mjmlEngine, {
-      fileExt: mjmlFileExt,
+      fileExt: config.files.mjml.ext,
       beautify: true,
     })
   ))
@@ -279,7 +260,7 @@ function buildTemplates() {
 }
 
 function watchTemplates () {
-  watch('./**/*' + mjmlFileExt, buildTemplates);
+  watch('./**/*' + config.files.mjml.ext, buildTemplates);
 }
 
 //
@@ -287,14 +268,14 @@ function watchTemplates () {
 //
 
 function formatTemplates() {
-  return src('./**/*.' + mjmlFileExt)
+  return src('./**/*.' + config.files.mjml.ext)
     .pipe(prettier({
         parser: "html"
       }))
     .on('error', handleError)
     .pipe(dest(file => file.base))
     .on('finish', function(source) {
-      log(msg.info('All .' + mjmlFileExt + ' templates reformatted.'));
+      log(msg.info('All .' + config.files.mjml.ext + ' templates reformatted.'));
     })
 }
 
