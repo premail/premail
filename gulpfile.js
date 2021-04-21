@@ -41,6 +41,7 @@ const watchSass      = require(lib + 'tasks/watchSass.js');
 const listTemplates  = require(lib + 'tasks/listTemplates.js');
 const handlebars     = require(lib + 'tasks/handlebars.js');
 const buildTemplates = require(lib + 'tasks/buildTemplates.js');
+const watchTemplates = require(lib + 'tasks/watchTemplates.js');
 
 //
 // Test function for debugging
@@ -51,14 +52,6 @@ const buildTemplates = require(lib + 'tasks/buildTemplates.js');
 //   done();
 // }
 // exports.test = test;
-
-//
-// MJML
-//
-
-function watchTemplates () {
-  watch('./**/*' + config.files.mjml.ext, buildTemplates);
-}
 
 //
 // Prettier
