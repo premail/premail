@@ -7,7 +7,7 @@ const path = require('path');
 // List all files in a directory.
 //
 
-function getFiles(base,ext,files,result) {
+module.exports = function getFiles(base,ext,files,result) {
   files = files || fs.readdirSync(base)
   result = result || []
 
@@ -28,8 +28,4 @@ function getFiles(base,ext,files,result) {
     }
   )
   return result
-}
-
-module.exports = {
-  getFiles
 }
