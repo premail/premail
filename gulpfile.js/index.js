@@ -3,7 +3,6 @@
 const { src, dest, series, parallel, watch } = require('gulp');
 
 const fs          = require('fs');
-const yaml        = require('js-yaml');
 const path        = require('path');
 const del         = require('del');
 const PluginError = require('plugin-error');
@@ -19,27 +18,21 @@ const Fiber       = require('fibers');
 sass.compiler     = require('sass');
 
 //
-// Load config
-//
-
-const configJSON = yaml.loadAll(fs.readFileSync('./config.yaml', {encoding: 'utf-8'}));
-const config = configJSON[0];
-
-//
 // File includes
 //
 
-const { arg } = require('./functions/arg.js');
-const { log } = require('./functions/log.js');
+const { config } = require('./functions/config.js');
+const { arg }    = require('./functions/arg.js');
+const { log }    = require('./functions/log.js');
 
-const vars = require('./vars.js');
+const vars       = require('./vars.js');
 
 //
 // Test function for debugging
 //
 
 // function test(done) {
-//   console.log();
+//   console.log(config);
 //   done();
 // }
 // exports.test = test;
