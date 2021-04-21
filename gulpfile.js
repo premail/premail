@@ -35,13 +35,15 @@ const { debug }    = require(lib + 'vars/debug.js');
 // Import tasks.
 //
 
-const clean          = require(lib + 'tasks/clean.js');
-const buildSass      = require(lib + 'tasks/buildSass.js');
-const watchSass      = require(lib + 'tasks/watchSass.js');
-const listTemplates  = require(lib + 'tasks/listTemplates.js');
-const handlebars     = require(lib + 'tasks/handlebars.js');
-const buildTemplates = require(lib + 'tasks/buildTemplates.js');
-const watchTemplates = require(lib + 'tasks/watchTemplates.js');
+const clean           = require(lib + 'tasks/clean.js');
+const buildSass       = require(lib + 'tasks/buildSass.js');
+const watchSass       = require(lib + 'tasks/watchSass.js');
+const listTemplates   = require(lib + 'tasks/listTemplates.js');
+const handlebars      = require(lib + 'tasks/handlebars.js');
+const buildTemplates  = require(lib + 'tasks/buildTemplates.js');
+const watchTemplates  = require(lib + 'tasks/watchTemplates.js');
+const formatTemplates = require(lib + 'tasks/formatTemplates.js');
+const formatSass      = require(lib + 'tasks/formatSass.js');
 
 //
 // Test function for debugging
@@ -52,26 +54,6 @@ const watchTemplates = require(lib + 'tasks/watchTemplates.js');
 //   done();
 // }
 // exports.test = test;
-
-//
-// Prettier
-//
-
-const formatTemplates = require(lib + 'tasks/formatTemplates.js');
-
-function formatSass() {
-  return src(paths.sassDir + '**/*.scss')
-    .pipe(
-      prettier({
-        parser: "scss"
-      })
-    )
-    .on('error', err.handleError)
-    .pipe(dest(file => file.base))
-    .on('finish', function(source) {
-      log(msg.info('Reformatted Sass files.'));
-    })
-}
 
 //
 // Tasks
