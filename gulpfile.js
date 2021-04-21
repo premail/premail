@@ -6,7 +6,6 @@ const fs          = require('fs');
 const path        = require('path');
 const del         = require('del');
 const chalk       = require('chalk');
-const Handlebars  = require("handlebars");
 const rename      = require('gulp-rename');
 const gulpif      = require('gulp-if');
 const mjml        = require('gulp-mjml');
@@ -40,6 +39,7 @@ const clean         = require(lib + 'tasks/clean.js');
 const buildSass     = require(lib + 'tasks/buildSass.js');
 const watchSass     = require(lib + 'tasks/watchSass.js');
 const listTemplates = require(lib + 'tasks/listTemplates.js');
+const handlebars    = require(lib + 'tasks/handlebars.js');
 
 //
 // Test function for debugging
@@ -50,15 +50,6 @@ const listTemplates = require(lib + 'tasks/listTemplates.js');
 //   done();
 // }
 // exports.test = test;
-
-//
-// Template rendering
-//
-
-// Handlebars
-// for(let partial of paths.templatePartials){
-//   Handlebars.registerPartial(partial, fs.readFileSync(paths.templatePartials, 'utf8'));
-// }
 
 //
 // MJML
