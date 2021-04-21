@@ -16,17 +16,17 @@ const { series, parallel } = require('gulp');
 // Tasks
 //
 
-const lib = './__lib/';
+const taskDir = './__lib/tasks/';
 
-const clean           = require(lib + 'tasks/clean.js');
-const buildSass       = require(lib + 'tasks/buildSass.js');
-const watchSass       = require(lib + 'tasks/watchSass.js');
-const listTemplates   = require(lib + 'tasks/listTemplates.js');
-const handlebars      = require(lib + 'tasks/handlebars.js');
-const buildTemplates  = require(lib + 'tasks/buildTemplates.js');
-const watchTemplates  = require(lib + 'tasks/watchTemplates.js');
-const formatTemplates = require(lib + 'tasks/formatTemplates.js');
-const formatSass      = require(lib + 'tasks/formatSass.js');
+const clean           = require(taskDir + 'clean.js');
+const buildSass       = require(taskDir + 'buildSass.js');
+const watchSass       = require(taskDir + 'watchSass.js');
+const listTemplates   = require(taskDir + 'listTemplates.js');
+const handlebars      = require(taskDir + 'handlebars.js');
+const buildTemplates  = require(taskDir + 'buildTemplates.js');
+const watchTemplates  = require(taskDir + 'watchTemplates.js');
+const formatTemplates = require(taskDir + 'formatTemplates.js');
+const formatSass      = require(taskDir + 'formatSass.js');
 
 // Sets
 exports.default = series(
