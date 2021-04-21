@@ -60,18 +60,6 @@ const listTemplates = require(lib + 'tasks/listTemplates.js');
 //   Handlebars.registerPartial(partial, fs.readFileSync(paths.templatePartials, 'utf8'));
 // }
 
-// function formatTemplates() {
-//   return src('./**/*.' + config.files.mjml.ext)
-//     .pipe(prettier({
-//         parser: "html"
-//       }))
-//     .on('error', err.handleError)
-//     .pipe(dest(file => file.base))
-//     .on('finish', function(source) {
-//       log(msg.info('All .' + config.files.mjml.ext + ' templates reformatted.'));
-//     })
-// }
-
 //
 // MJML
 //
@@ -138,17 +126,7 @@ function watchTemplates () {
 // Prettier
 //
 
-function formatTemplates() {
-  return src('./**/*.' + config.files.mjml.ext)
-    .pipe(prettier({
-        parser: "html"
-      }))
-    .on('error', err.handleError)
-    .pipe(dest(file => file.base))
-    .on('finish', function(source) {
-      log(msg.info('All .' + config.files.mjml.ext + ' templates reformatted.'));
-    })
-}
+const formatTemplates = require(lib + 'tasks/formatTemplates.js');
 
 function formatSass() {
   return src(paths.sassDir + '**/*.scss')
