@@ -35,11 +35,12 @@ const { debug }    = require(lib + 'vars/debug.js');
 // Import tasks.
 //
 
-const clean         = require(lib + 'tasks/clean.js');
-const buildSass     = require(lib + 'tasks/buildSass.js');
-const watchSass     = require(lib + 'tasks/watchSass.js');
-const listTemplates = require(lib + 'tasks/listTemplates.js');
-const handlebars    = require(lib + 'tasks/handlebars.js');
+const clean          = require(lib + 'tasks/clean.js');
+const buildSass      = require(lib + 'tasks/buildSass.js');
+const watchSass      = require(lib + 'tasks/watchSass.js');
+const listTemplates  = require(lib + 'tasks/listTemplates.js');
+const handlebars     = require(lib + 'tasks/handlebars.js');
+const buildTemplates = require(lib + 'tasks/buildTemplates.js');
 
 //
 // Test function for debugging
@@ -54,60 +55,6 @@ const handlebars    = require(lib + 'tasks/handlebars.js');
 //
 // MJML
 //
-
-// Render MJML templates into an HTML file.
-function buildTemplates() {
-
-  let sourceFile;
-
-  if (paths.emailCurrent) {
-    sourceFile = paths.emailCurrentDir + '/index.' + config.files.mjml.ext;
-  } else {
-    sourceFile = paths.designCurrentDir + '/index.' + config.files.mjml.ext;
-  }
-
-  let destDir;
-
-  if (paths.emailCurrent) {
-    destDir = path.resolve('/', config.paths.email.dir, paths.emailCurrent, config.paths.output.dir);
-  } else {
-    destDir = path.resolve('/', config.paths.design.dir, paths.designCurrent, config.paths.output.dir);
-  }
-
-  let destFile = path.resolve(__dirname, destDir, 'index.html');
-
-  return src(sourceFile)
-  .pipe(gulpif(arg.prod,
-    // Production
-    mjml(mjmlEngine, {
-      fileExt: config.files.mjml.ext,
-      beautify: false,
-      minify: true,
-      keepComments: false,
-    }),
-    // Development
-    mjml(mjmlEngine, {
-      fileExt: config.files.mjml.ext,
-      beautify: true,
-    })
-  ))
-  .on('finish', function(source) {
-    log(debug(msg.b('Source:\n') + sourceFile));
-  })
-  .on('error', err.handleError)
-  .pipe(
-    rename(function (path) {
-      path.dirname += destDir;
-    })
-    )
-  .pipe(dest('.'))
-  .on('finish', function(source) {
-    log(msg.info(msg.b('Generated HTML:\n') + paths.designDistDir + '/index.html'));
-    if (arg.prod) {
-      log(msg.info(msg.b('Production:') + ' Minified with HTML comments stripped.'));
-    }
-  })
-}
 
 function watchTemplates () {
   watch('./**/*' + config.files.mjml.ext, buildTemplates);
