@@ -3,27 +3,11 @@
 const { series, parallel } = require('gulp');
 
 //
-// Import functions and variables.
-//
-
-const lib = './__lib/';
-
-const { config }   = require(lib + 'functions/config.js');
-const { arg }      = require(lib + 'functions/arg.js');
-const err          = require(lib + 'functions/err.js');
-const { log }      = require(lib + 'vars/log.js');
-const paths        = require(lib + 'vars/paths.js');
-const getFiles     = require(lib + 'functions/getFiles.js');
-const { msg }      = require(lib + 'vars/notifications.js');
-const { prod }     = require(lib + 'vars/prod.js');
-const { debug }    = require(lib + 'vars/debug.js');
-
-//
 // Test function for debugging
 //
 
 // function test(done) {
-//   console.log();
+//   console.log(projectPath);
 //   done();
 // }
 // exports.test = test;
@@ -31,6 +15,8 @@ const { debug }    = require(lib + 'vars/debug.js');
 //
 // Tasks
 //
+
+const lib = './__lib/';
 
 const clean           = require(lib + 'tasks/clean.js');
 const buildSass       = require(lib + 'tasks/buildSass.js');
