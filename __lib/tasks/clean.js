@@ -2,9 +2,9 @@
 
 const del = require('del');
 
-const paths    = require('../vars/paths.js');
-const { log }  = require('../vars/log.js');
-const { msg }  = require('../vars/notifications.js');
+const paths     = require('../vars/paths.js');
+const { log }   = require('../vars/log.js');
+const { msg }   = require('../vars/notifications.js');
 const { debug } = require('../vars/debug.js');
 
 //
