@@ -36,7 +36,9 @@ const { debug }    = require(lib + 'vars/debug.js');
 // Import tasks.
 //
 
-const clean = require(lib + 'tasks/clean.js');
+const clean     = require(lib + 'tasks/clean.js');
+const buildSass = require(lib + 'tasks/buildSass.js');
+const watchSass = require(lib + 'tasks/watchSass.js');
 
 //
 // Test function for debugging
@@ -47,27 +49,6 @@ const clean = require(lib + 'tasks/clean.js');
 //   done();
 // }
 // exports.test = test;
-
-//
-// Sass building
-//
-
-function buildSass() {
-  return src(paths.sassDir + '**/*.scss')
-    .pipe(sass({
-      fiber: Fiber,
-      outputStyle: 'compressed',
-    })
-    .on('error', err.sassError))
-    .pipe(dest(paths.sassDir))
-    .on('finish', function(source) {
-      log(debug(msg.b('CSS file written to:\n') + paths.sassDir));
-    })
-}
-
-function watchSass() {
-  watch(paths.sassDir + '**/*.scss', series('buildSass'));
-}
 
 //
 // Template rendering
