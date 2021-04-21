@@ -12,7 +12,7 @@ const { debug } = require('../vars/debug.js');
 module.exports = async function listTemplates() {
   let partialList =
     paths.templatePartials
-    .filter(function(value, index, arr){
+    .filter(function(value){
         return value !== paths.templateFile;
     })
     .toString()
