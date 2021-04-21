@@ -1,14 +1,12 @@
 'use strict';
 
-//
-// getFiles(): List all files in a directory.
-//
-
-// Requirements
 const fs = require('fs');
 const path = require('path');
 
-// Function
+//
+// List all files in a directory.
+//
+
 function getFiles(base,ext,files,result) {
   files = files || fs.readdirSync(base)
   result = result || []

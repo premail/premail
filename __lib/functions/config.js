@@ -4,7 +4,7 @@ const fs   = require('fs');
 const yaml = require('js-yaml');
 
 //
-// Load config
+// Load config from YAML file.
 //
 
 const configJSON = yaml.loadAll(fs.readFileSync('./config.yaml', {encoding: 'utf-8'}));

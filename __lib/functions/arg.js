@@ -1,13 +1,11 @@
 'use strict';
 
-//
-// arg(): Process arguments from the command-line.
-//
-
-// Requirements
 const minimist = require('minimist');
 
-// Function
+//
+// Process arguments from the command-line.
+//
+
 const arg = (argList => {
 
   let arg = {}, a, opt, thisOpt, curOpt;
@@ -36,12 +34,6 @@ const arg = (argList => {
   return arg;
 
 })(process.argv);
-
-let prod = false;
-
-if (arg.prod) {
-  prod = true;
-}
 
 module.exports = {
   arg

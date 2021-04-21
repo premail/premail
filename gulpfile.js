@@ -25,10 +25,12 @@ const lib = './__lib/';
 
 const { config }   = require(lib + 'functions/config.js');
 const { arg }      = require(lib + 'functions/arg.js');
-const { log }      = require(lib + 'functions/log.js');
-const vars         = require(lib + 'vars.js');
-const paths        = require(lib + 'functions/pathConstruction.js');
+const { log }      = require(lib + 'vars/log.js');
+const paths        = require(lib + 'vars/paths.js');
 const { getFiles } = require(lib + 'functions/getFiles.js');
+const { msg }      = require(lib + 'vars/notifications.js');
+const { prod }     = require(lib + 'vars/prod.js');
+const { debug }    = require(lib + 'vars/debug.js');
 
 //
 // Test function for debugging
@@ -43,20 +45,6 @@ const { getFiles } = require(lib + 'functions/getFiles.js');
 //
 // Notifications and error handling
 //
-
-const msg = {
-  error: chalk.bgRed.bold.white,
-  warn:  chalk.bgYellow.black,
-  info:  chalk.green,
-  debug: chalk.keyword('aqua'),
-  b:     chalk.bold
-}
-
-let debug = function () { return '' };
-
-if (arg.debug) {
-  debug = msg.debug;
-}
 
 function handleError(err) {
   log(msg.error(err));

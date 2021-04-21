@@ -2,8 +2,8 @@
 
 const path = require('path');
 
-const { config } = require('./config.js');
-const { arg }    = require('./arg.js');
+const { config } = require('../functions/config.js');
+const { arg }    = require('../functions/arg.js');
 
 //
 // Construct fully-qualified paths based on CLI arguments, if any.
