@@ -23,18 +23,18 @@ module.exports = function buildTemplates() {
 
   let sourceFile;
 
-  if (paths.emailCurrent) {
-    sourceFile = paths.emailCurrentDir + '/index.' + config.files.mjml.ext;
+  if (paths.email.name) {
+    sourceFile = paths.email.path + '/index.' + config.files.mjml.ext;
   } else {
-    sourceFile = paths.designCurrentDir + '/index.' + config.files.mjml.ext;
+    sourceFile = paths.design.path + '/index.' + config.files.mjml.ext;
   }
 
   let destDir;
 
-  if (paths.emailCurrent) {
-    destDir = path.resolve('/', config.paths.email.dir, paths.emailCurrent, config.paths.output.dir);
+  if (paths.email.name) {
+    destDir = path.resolve('/', config.paths.email.dir, paths.email.name, config.paths.output.dir);
   } else {
-    destDir = path.resolve('/', config.paths.design.dir, paths.designCurrent, config.paths.output.dir);
+    destDir = path.resolve('/', config.paths.design.dir, paths.design.name, config.paths.output.dir);
   }
 
   let destFile = path.resolve(__dirname, destDir, 'index.html');
@@ -65,7 +65,7 @@ module.exports = function buildTemplates() {
     )
   .pipe(dest('.'))
   .on('finish', function(source) {
-    log(msg.info(msg.b('Generated HTML:\n') + paths.designDistDir + '/index.html'));
+    log(msg.info(msg.b('Generated HTML:\n') + paths.design.dist + '/index.html'));
     if (prod) {
       log(msg.warn(msg.b('Production:') + ' Minified with HTML comments stripped.'));
     }

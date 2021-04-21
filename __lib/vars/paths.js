@@ -12,26 +12,37 @@ const getFiles    = require('../functions/getFiles.js');
 //
 
 // Get arguments from command line
-let designCurrent = config.paths.design.default;
+let currentDesign = config.paths.design.default;
 
 if (arg.d) {
-  designCurrent = arg.d;
+  currentDesign = arg.d;
 }
 
-let emailCurrent = '';
+let currentEmail = '';
 
 if (arg.e) {
-  emailCurrent = arg.e;
+  currentEmail = arg.e;
 }
 
 // Set fully qualified paths
 let __base = projectPath(__dirname, '../');
 
-let designCurrentDir = projectPath(__base, config.paths.design.dir, designCurrent);
-let emailCurrentDir  = projectPath(__base, config.paths.email.dir, emailCurrent);
-let designDistDir  = projectPath(__base, config.paths.design.dir, designCurrent, config.paths.output.dir);
-let emailDistDir  = projectPath(__base, config.paths.email.dir, emailCurrent, config.paths.output.dir);
-let themeDir = projectPath(__base, config.paths.design.dir, designCurrent, config.paths.theme.dir);
+let design = {
+  name: currentDesign,
+  path: projectPath(__base, config.paths.design.dir, currentDesign),
+  dist: projectPath(__base, config.paths.design.dir, currentDesign, config.paths.output.dir)
+}
+
+let email = {
+  name: currentEmail,
+  path: projectPath(__base, config.paths.email.dir, currentEmail),
+  dist: projectPath(__base, config.paths.email.dir, currentEmail, config.paths.output.dir)
+}
+
+let theme = {
+  name: config.paths.theme.dir,
+  path: projectPath(__base, config.paths.design.dir, currentDesign, config.paths.theme.dir)
+}
 
 // @TODO New feature that would get the list of current designs and emails
 // based on directory names, and prompt the user to select one, rather than
@@ -48,7 +59,7 @@ let themeDir = projectPath(__base, config.paths.design.dir, designCurrent, confi
 //     .filter(file => fs.lstatSync(path.join(srcPath, file)).isDirectory())
 //
 // Get list of designs by directory name
-// const designList = getDirectories(config.paths.design.dir);
+// const designList = getDirectories(config.paths.design.path);
 //
 // Get list of emails by directory name
 // const emailList = getDirectories(config.paths.email.dir);
@@ -57,10 +68,10 @@ let themeDir = projectPath(__base, config.paths.design.dir, designCurrent, confi
 // const name = prompt('What is your name? ');
 // console.log(`Hey there ${name}`);
 
-let templateFile = designCurrentDir + '/' + config.files.template;
-let templatePartials = getFiles(designCurrentDir, config.files.mjml.ext);
-let templatePartialsList =
-    templatePartials
+let templateFile = design.path + '/' + config.files.template;
+let partialsDir    = getFiles(design.path, config.files.mjml.ext);
+let partialsList   =
+    partialsDir
     .filter(function(value){
         return value !== templateFile;
     })
@@ -68,15 +79,17 @@ let templatePartialsList =
     .split(',')
     .join('\n');
 
+let templates = {
+  main: templateFile,
+  partials: {
+    dir: partialsDir,
+    list: partialsList
+  }
+}
+
 module.exports = {
-  designCurrent,
-  emailCurrent,
-  designCurrentDir,
-  emailCurrentDir,
-  designDistDir,
-  emailDistDir,
-  themeDir,
-  templateFile,
-  templatePartials,
-  templatePartialsList
+  design,
+  email,
+  theme,
+  templates
 };

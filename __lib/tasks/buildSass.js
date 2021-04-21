@@ -18,16 +18,16 @@ const { debug } = require('../vars/debug.js');
 //
 
 module.exports = function buildSass() {
-  return src(paths.sassDir + '**/*.scss')
+  return src(paths.theme.path + '/sass/**/*.scss')
     .pipe(sass({
       fiber: Fiber,
       outputStyle: 'compressed',
     })
     .on('error', err.sassError))
-    .pipe(dest(paths.themeDir + '/'))
+    .pipe(dest(paths.theme.path + '/sass'))
     .pipe(
       tap(function (file,t) {
-        log(debug(msg.b('CSS file written to:\n') + paths.themeDir + '/sass/' + path.basename(file.path)));
+        log(debug(msg.b('CSS file written to:\n') + paths.theme.path + '/sass/' + path.basename(file.path)));
       })
     )
 }

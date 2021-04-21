@@ -15,8 +15,8 @@ module.exports = function clean(done) {
   log(msg.warn('Deleting generated files...'))
 
   const deletedFilePaths = [
-    paths.designDistDir + '/*',
-    paths.themeDir + '/sass/*.css'
+    paths.design.dist + '/*',
+    paths.theme.path + '/sass/*.css'
   ];
 
   del.sync(deletedFilePaths);
