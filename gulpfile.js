@@ -1,19 +1,6 @@
 'use strict';
 
-const { src, dest, series, parallel, watch } = require('gulp');
-
-const fs          = require('fs');
-const path        = require('path');
-const del         = require('del');
-const chalk       = require('chalk');
-const rename      = require('gulp-rename');
-const gulpif      = require('gulp-if');
-const mjml        = require('gulp-mjml');
-const mjmlEngine  = require('mjml');
-const prettier    = require('gulp-prettier');
-const sass        = require('gulp-sass');
-const Fiber       = require('fibers');
-sass.compiler     = require('sass');
+const { series, parallel } = require('gulp');
 
 //
 // Import functions and variables.
@@ -32,20 +19,6 @@ const { prod }     = require(lib + 'vars/prod.js');
 const { debug }    = require(lib + 'vars/debug.js');
 
 //
-// Import tasks.
-//
-
-const clean           = require(lib + 'tasks/clean.js');
-const buildSass       = require(lib + 'tasks/buildSass.js');
-const watchSass       = require(lib + 'tasks/watchSass.js');
-const listTemplates   = require(lib + 'tasks/listTemplates.js');
-const handlebars      = require(lib + 'tasks/handlebars.js');
-const buildTemplates  = require(lib + 'tasks/buildTemplates.js');
-const watchTemplates  = require(lib + 'tasks/watchTemplates.js');
-const formatTemplates = require(lib + 'tasks/formatTemplates.js');
-const formatSass      = require(lib + 'tasks/formatSass.js');
-
-//
 // Test function for debugging
 //
 
@@ -58,6 +31,16 @@ const formatSass      = require(lib + 'tasks/formatSass.js');
 //
 // Tasks
 //
+
+const clean           = require(lib + 'tasks/clean.js');
+const buildSass       = require(lib + 'tasks/buildSass.js');
+const watchSass       = require(lib + 'tasks/watchSass.js');
+const listTemplates   = require(lib + 'tasks/listTemplates.js');
+const handlebars      = require(lib + 'tasks/handlebars.js');
+const buildTemplates  = require(lib + 'tasks/buildTemplates.js');
+const watchTemplates  = require(lib + 'tasks/watchTemplates.js');
+const formatTemplates = require(lib + 'tasks/formatTemplates.js');
+const formatSass      = require(lib + 'tasks/formatSass.js');
 
 // Sets
 exports.default = series(
