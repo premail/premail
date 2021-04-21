@@ -3,6 +3,7 @@
 const PluginError = require('plugin-error');
 const sass        = require('gulp-sass');
 
+const { log } = require('../vars/log.js');
 const { msg } = require('../vars/notifications.js');
 
 //
