@@ -21,14 +21,14 @@ sass.compiler     = require('sass');
 // File includes
 //
 
-const { config } = require('./functions/config.js');
-const { arg }    = require('./functions/arg.js');
-const { log }    = require('./functions/log.js');
+const lib = './__lib/';
 
-const vars       = require('./vars.js');
-const paths      = require('./functions/pathConstruction.js');
-
-const { getFiles } = require('./functions/getFiles.js');
+const { config }   = require(lib + 'functions/config.js');
+const { arg }      = require(lib + 'functions/arg.js');
+const { log }      = require(lib + 'functions/log.js');
+const vars         = require(lib + 'vars.js');
+const paths        = require(lib + 'functions/pathConstruction.js');
+const { getFiles } = require(lib + 'functions/getFiles.js');
 
 //
 // Test function for debugging
