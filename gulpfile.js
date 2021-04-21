@@ -17,7 +17,7 @@ const Fiber       = require('fibers');
 sass.compiler     = require('sass');
 
 //
-// File includes
+// Import functions and variables.
 //
 
 const lib = './__lib/';
@@ -33,6 +33,12 @@ const { prod }     = require(lib + 'vars/prod.js');
 const { debug }    = require(lib + 'vars/debug.js');
 
 //
+// Import tasks.
+//
+
+const { clean }     = require(lib + 'tasks/clean.js');
+
+//
 // Test function for debugging
 //
 
@@ -41,24 +47,6 @@ const { debug }    = require(lib + 'vars/debug.js');
 //   done();
 // }
 // exports.test = test;
-
-//
-// Directory and file cleaning
-//
-
-function clean(done) {
-  log(msg.warn('Deleting generated files...'))
-
-  const deletedFilePaths = del.sync([
-    paths.designDistDir + '/*',
-    paths.sassDir + '*.css'
-  ]);
-
-  log(debug(deletedFilePaths.join('\n')));
-
-  done();
-}
-
 
 //
 // Sass building
