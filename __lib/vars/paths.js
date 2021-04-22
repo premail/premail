@@ -12,7 +12,7 @@ const getFiles    = require('../functions/getFiles.js');
 //
 
 // Get arguments from command line
-let currentDesign = config.paths.design.default;
+let currentDesign = config.folders.design.default;
 
 if (arg.d) {
   currentDesign = arg.d;
@@ -29,19 +29,19 @@ let __base = projectPath(__dirname, '../../');
 
 let design = {
   name: currentDesign,
-  path: projectPath(__base, config.paths.design.dir, currentDesign),
-  dist: projectPath(__base, config.paths.design.dir, currentDesign, config.paths.output.dir)
+  path: projectPath(__base, config.folders.design.name, currentDesign),
+  dist: projectPath(__base, config.folders.design.name, currentDesign, config.folders.output.dir)
 }
 
 let email = {
   name: currentEmail,
-  path: projectPath(__base, config.paths.email.dir, currentEmail),
-  dist: projectPath(__base, config.paths.email.dir, currentEmail, config.paths.output.dir)
+  path: projectPath(__base, config.folders.email.name, currentEmail),
+  dist: projectPath(__base, config.folders.email.name, currentEmail, config.folders.output.dir)
 }
 
 let theme = {
-  name: config.paths.theme.dir,
-  path: projectPath(__base, config.paths.design.dir, currentDesign, config.paths.theme.dir)
+  name: config.folders.theme.dir,
+  path: projectPath(__base, config.folders.design.name, currentDesign, config.folders.theme.dir)
 }
 
 // @TODO New feature that would get the list of current designs and emails
@@ -59,10 +59,10 @@ let theme = {
 //     .filter(file => fs.lstatSync(path.join(srcPath, file)).isDirectory())
 //
 // Get list of designs by directory name
-// const designList = getDirectories(config.paths.design.path);
+// const designList = getDirectories(config.folders.design.path);
 //
 // Get list of emails by directory name
-// const emailList = getDirectories(config.paths.email.dir);
+// const emailList = getDirectories(config.folders.email.name);
 //
 // Prompt user (example code)
 // const name = prompt('What is your name? ');

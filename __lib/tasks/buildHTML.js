@@ -32,9 +32,9 @@ module.exports = function buildHTML() {
   let destDir;
 
   if (paths.email.name) {
-    destDir = path.resolve('/', config.paths.email.dir, paths.email.name, config.paths.output.dir);
+    destDir = path.resolve('/', config.folders.email.name, paths.email.name, config.folders.output.dir);
   } else {
-    destDir = path.resolve('/', config.paths.design.dir, paths.design.name, config.paths.output.dir);
+    destDir = path.resolve('/', config.folders.design.name, paths.design.name, config.folders.output.dir);
   }
 
   let destFile = path.resolve(__dirname, destDir, 'index.html');

@@ -9,13 +9,13 @@
 # https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes
 # https://yaml.org
 
-# 1. Paths
-paths:
+# 1. Folders
+folders:
 
   design:
 
-    # Top-level directory for designs
-    dir: designs
+    # Name of the folder for designs
+    name: designs
 
     # If no design is specified, default to this directory
     default: _templates
@@ -27,8 +27,8 @@ paths:
 
   email:
 
-    # Top-level directory for individual emails
-    dir: emails
+    # Name of the folder for individual emails
+    name: emails
 
   output:
 
