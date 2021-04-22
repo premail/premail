@@ -8,7 +8,7 @@
 
     <!-- Attributes -->
 
-    <mj-include path="style/attributes.tpl" />
+    <mj-include path="theme/attributes.tpl" />
 
     <!-- Preview text -->
 
