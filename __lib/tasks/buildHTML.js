@@ -24,20 +24,20 @@ module.exports = function buildHTML() {
   let sourceFile;
 
   if (paths.email.name) {
-    sourceFile = paths.email.path + '/index.' + config.files.mjml.ext;
+    sourceFile = paths.email.path + paths.email.file;
   } else {
-    sourceFile = paths.design.path + '/index.' + config.files.mjml.ext;
+    sourceFile = paths.design.path + paths.design.file;
   }
 
   let destDir;
 
   if (paths.email.name) {
-    destDir = path.resolve('/', config.folders.email.name, paths.email.name, config.folders.output.dir);
+    destDir = paths.email.dist;
   } else {
-    destDir = path.resolve('/', config.folders.design.name, paths.design.name, config.folders.output.dir);
+    destDir = paths.design.dist;
   }
 
-  let destFile = path.resolve(__dirname, destDir, 'index.html');
+  let destFile = destDir + '/index.html';
 
   return src(sourceFile)
   .pipe(gulpif(prod,
@@ -55,17 +55,12 @@ module.exports = function buildHTML() {
     })
   ))
   .on('finish', function(source) {
-    log(debug(msg.b('Source:\n') + sourceFile));
+    log(debug(msg.b('HTML source:\n') + sourceFile));
   })
   .on('error', err.handleError)
-  .pipe(
-    rename(function (path) {
-      path.dirname += destDir;
-    })
-    )
-  .pipe(dest('.'))
+  .pipe(dest(destDir))
   .on('finish', function(source) {
-    log(msg.info(msg.b('HTML version saved:\n') + paths.design.dist + '/index.html'));
+    log(msg.info(msg.b('HTML version saved:\n') + destFile));
     if (prod) {
       log(msg.warn(msg.b('Production:') + ' Minified with HTML comments stripped.'));
     }

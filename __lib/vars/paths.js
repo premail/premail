@@ -30,12 +30,14 @@ let __base = projectPath(__dirname, '../../');
 let design = {
   name: currentDesign,
   path: projectPath(__base, config.folders.design.name, currentDesign),
+  file: '/index.' + config.files.mjml.ext,
   dist: projectPath(__base, config.folders.design.name, currentDesign, config.folders.output.dir)
 }
 
 let email = {
   name: currentEmail,
   path: projectPath(__base, config.folders.email.name, currentEmail),
+  file: '/index.' + config.files.mjml.ext,
   dist: projectPath(__base, config.folders.email.name, currentEmail, config.folders.output.dir)
 }
 
