@@ -25,7 +25,7 @@ if (arg.e) {
 }
 
 // Set fully qualified paths
-let __base = projectPath(__dirname, '../');
+let __base = projectPath(__dirname, '../../');
 
 let design = {
   name: currentDesign,
@@ -69,8 +69,8 @@ let theme = {
 // console.log(`Hey there ${name}`);
 
 let templateFile = design.path + '/' + config.files.template;
-let partialsDir    = getFiles(design.path, config.files.mjml.ext);
-let partialsList   =
+let partialsDir  = getFiles(design.path, config.files.mjml.ext);
+let partialsList =
     partialsDir
     .filter(function(value){
         return value !== templateFile;

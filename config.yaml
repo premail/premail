@@ -15,7 +15,7 @@ paths:
   design:
 
     # Top-level directory for designs
-    dir: ../designs
+    dir: designs
 
     # If no design is specified, default to this directory
     default: _templates
@@ -28,7 +28,7 @@ paths:
   email:
 
     # Top-level directory for individual emails
-    dir: ../emails
+    dir: emails
 
   output:
 
