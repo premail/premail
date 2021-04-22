@@ -19,7 +19,7 @@ const { debug }  = require('../vars/debug.js');
 // Build HTML files from MJML source files.
 //
 
-module.exports = function buildTemplates() {
+module.exports = function buildHTML() {
 
   let sourceFile;
 

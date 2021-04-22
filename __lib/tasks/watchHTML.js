@@ -3,12 +3,12 @@
 const { watch, series } = require('gulp');
 
 const { config }     = require('../functions/config.js');
-const buildTemplates = require('./buildTemplates.js');
+const buildHTML = require('./buildHTML.js');
 
 //
 // Watch MJML source files and trigger build.
 //
 
-module.exports = function watchTemplates () {
-  watch('./**/*' + config.files.mjml.ext, buildTemplates);
+module.exports = function watchHTML () {
+  watch('./**/*' + config.files.mjml.ext, buildHTML);
 }

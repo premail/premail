@@ -159,22 +159,22 @@ written.
 ├─┬ default
 │ └─┬ <series>
 │   ├── buildSass
-│   └── buildTemplates
+│   └── buildHTML
 ├─┬ build
 │ └─┬ <series>
 │   ├── buildSass
-│   └── buildTemplates
+│   └── buildHTML
 ├─┬ watch
 │ └─┬ <parallel>
 │   ├── watchSass
-│   └── watchTemplates
-├── buildTemplates   Builds HTML files from MJML templates.
+│   └── watchHTML
+├── buildHTML        Builds HTML files from MJML templates.
                        Options:
                          --prod: Renders a production file, minified and with HTML comments stripped out.
                          -d:     Specifies design folder to use. (Default: _templates)
                          -e:     Specifies email folder to render.
 ├── buildSass        Compiles Sass files in the 'theme' directory.
-├── watchTemplates   Watches and renders HTML files for development (formatted, with comments).
+├── watchHTML        Watches and renders HTML files for development (formatted, with comments).
 ├── watchSass        Watches Sass files in the 'theme' directory.
 ├── formatTemplates  Format your MJML templates with Prettier.
 ├── formatSass       Format your Sass code with Prettier.

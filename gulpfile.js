@@ -23,8 +23,8 @@ const buildSass       = require(taskDir + 'buildSass.js');
 const watchSass       = require(taskDir + 'watchSass.js');
 const listTemplates   = require(taskDir + 'listTemplates.js');
 const handlebars      = require(taskDir + 'handlebars.js');
-const buildTemplates  = require(taskDir + 'buildTemplates.js');
-const watchTemplates  = require(taskDir + 'watchTemplates.js');
+const buildHTML       = require(taskDir + 'buildHTML.js');
+const watchHTML       = require(taskDir + 'watchHTML.js');
 const formatTemplates = require(taskDir + 'formatTemplates.js');
 const formatSass      = require(taskDir + 'formatSass.js');
 
@@ -32,25 +32,25 @@ const formatSass      = require(taskDir + 'formatSass.js');
 exports.default = series(
   clean,
   buildSass,
-  buildTemplates
+  buildHTML
 );
 
 exports.build = exports.default;
 
 exports.watch = parallel(
   watchSass,
-  watchTemplates
+  watchHTML
 );
 
 // Build
-exports.buildTemplates = buildTemplates;
-exports.buildTemplates.description = "Builds HTML files from MJML templates.\n                                  Options:\n                                    --prod: Renders a production file, minified and with HTML comments stripped out.\n                                    -d:     Specifies design folder to use. (Default: _templates)\n                                    -e:     Specifies email folder to render.";
+exports.buildHTML = buildHTML;
+exports.buildHTML.description = "Builds HTML files from MJML templates.\n                                  Options:\n                                    --prod: Renders a production file, minified and with HTML comments stripped out.\n                                    -d:     Specifies design folder to use. (Default: _templates)\n                                    -e:     Specifies email folder to render.";
 exports.buildSass = buildSass;
 exports.buildSass.description = "Compiles Sass files in the 'theme' directory.";
 
 // Watch
-exports.watchTemplates = watchTemplates;
-exports.watchTemplates.description = "Watches and renders HTML files for development (formatted, with comments).";
+exports.watchHTML = watchHTML;
+exports.watchHTML.description = "Watches and renders HTML files for development (formatted, with comments).";
 exports.watchSass = watchSass;
 exports.watchSass.description = "Watches Sass files in the 'theme' directory.";
 
