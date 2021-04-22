@@ -48,6 +48,7 @@ module.exports = async function buildText() {
       let html = fs.readFileSync(sourceFile, {encoding: 'utf-8'});
 
       let text = htmlToText(html, {
+        baseElement: 'div.message-body',
         tables: true
       });
 

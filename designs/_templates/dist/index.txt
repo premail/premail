@@ -1,6 +1,3 @@
-This is the preview text for email clients. No more than 90 characters
-suggested; some clients display as few as 35 characters.
-
 MJML [https://mjml.io/assets/img/logo-white-small.png]
 
 ☰ ⊗

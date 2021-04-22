@@ -17,7 +17,7 @@
 
   <!-- Email body start -->
 
-  <mj-body>
+  <mj-body css-class="message-body">
     <!-- Top navigation -->
 
     <mj-include path="structure/nav-top.tpl" />
