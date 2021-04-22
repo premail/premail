@@ -26,6 +26,7 @@ const handlebars      = require(taskDir + 'handlebars.js');
 const buildHTML       = require(taskDir + 'buildHTML.js');
 const watchHTML       = require(taskDir + 'watchHTML.js');
 const buildText       = require(taskDir + 'buildText.js');
+const watchText       = require(taskDir + 'watchText.js');
 const formatTemplates = require(taskDir + 'formatTemplates.js');
 const formatSass      = require(taskDir + 'formatSass.js');
 
@@ -33,14 +34,16 @@ const formatSass      = require(taskDir + 'formatSass.js');
 exports.default = series(
   clean,
   buildSass,
-  buildHTML
+  buildHTML,
+  buildText
 );
 
 exports.build = exports.default;
 
 exports.watch = parallel(
   watchSass,
-  watchHTML
+  watchHTML,
+  watchText
 );
 
 // Build
@@ -56,6 +59,8 @@ exports.watchHTML = watchHTML;
 exports.watchHTML.description = "Watches and renders HTML files for development (formatted, with comments).";
 exports.watchSass = watchSass;
 exports.watchSass.description = "Watches Sass files in the 'theme' directory.";
+exports.watchText = watchText;
+exports.watchText.description = "Watches rendered HTML file and regenerates plain-text version.";
 
 // Format
 exports.formatTemplates = formatTemplates;

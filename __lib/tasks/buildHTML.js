@@ -65,7 +65,7 @@ module.exports = function buildHTML() {
     )
   .pipe(dest('.'))
   .on('finish', function(source) {
-    log(msg.info(msg.b('Generated HTML:\n') + paths.design.dist + '/index.html'));
+    log(msg.info(msg.b('HTML version saved:\n') + paths.design.dist + '/index.html'));
     if (prod) {
       log(msg.warn(msg.b('Production:') + ' Minified with HTML comments stripped.'));
     }

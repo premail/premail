@@ -53,7 +53,7 @@ module.exports = async function buildText() {
 
       fs.writeFileSync(destFile, text);
 
-      log(msg.info(msg.b('Plain text version saved:\n') + destFile));
+      log(msg.info(msg.b('Plain-text version saved:\n') + destFile));
 
     } else {
       log(msg.error('Error: index.html does not exist. Run `gulp buildHTML` first to generate index.html.'));

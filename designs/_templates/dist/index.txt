@@ -3,6 +3,7 @@ suggested; some clients display as few as 35 characters.
 
 MJML [https://mjml.io/assets/img/logo-white-small.png]
 
+☰ ⊗
 Blog [https://mjml.io/#] Press [https://mjml.io/#] Share
 [https://mjml.io/#]
 
@@ -86,6 +87,7 @@ Follow us on LinkedIn
 [https://www.mailjet.com/images/theme/v1/icons/ico-social/linkedin.png]
 [https://linkedin.com/#]
 
+☰ ⊗
 Website [https://mjml.io/#] Shop [https://mjml.io/#] Careers
 [https://mjml.io/#] Contact [https://mjml.io/#]
 
