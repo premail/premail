@@ -25,6 +25,7 @@ const listTemplates   = require(taskDir + 'listTemplates.js');
 const handlebars      = require(taskDir + 'handlebars.js');
 const buildHTML       = require(taskDir + 'buildHTML.js');
 const watchHTML       = require(taskDir + 'watchHTML.js');
+const buildText       = require(taskDir + 'buildText.js');
 const formatTemplates = require(taskDir + 'formatTemplates.js');
 const formatSass      = require(taskDir + 'formatSass.js');
 
@@ -45,6 +46,8 @@ exports.watch = parallel(
 // Build
 exports.buildHTML = buildHTML;
 exports.buildHTML.description = "Builds HTML files from MJML templates.\n                                  Options:\n                                    --prod: Renders a production file, minified and with HTML comments stripped out.\n                                    -d:     Specifies design folder to use. (Default: _templates)\n                                    -e:     Specifies email folder to render.";
+exports.buildText = buildText;
+exports.buildText.description = "Generates a plain-text version of the email.";
 exports.buildSass = buildSass;
 exports.buildSass.description = "Compiles Sass files in the 'theme' directory.";
 
