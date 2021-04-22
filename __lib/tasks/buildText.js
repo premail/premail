@@ -36,28 +36,29 @@ module.exports = async function buildText() {
     destDir = paths.design.dist;
   }
 
-  if (debug) {
-    log(debug(msg.b('Source:\n') + sourceFile));
-  }
+  let destFile = destDir + '/index.txt';
 
-  let html = fs.readFileSync(sourceFile, {encoding: 'utf-8'});
+  fs.exists(sourceFile, function (exists) {
+    if (exists) {
 
-  let text = htmlToText(html, {
-    tables: true
+      if (debug) {
+        log(debug(msg.b('Plain-text source:\n') + sourceFile));
+      }
+
+      let html = fs.readFileSync(sourceFile, {encoding: 'utf-8'});
+
+      let text = htmlToText(html, {
+        tables: true
+      });
+
+      fs.writeFileSync(destFile, text);
+
+      log(msg.info(msg.b('Plain text version saved:\n') + destFile));
+
+    } else {
+      log(msg.error('Error: index.html does not exist. Run `gulp buildHTML` first to generate index.html.'));
+    }
+
   });
 
-  console.log(text);
-
-  // return src(fs.readFileSync(sourceFile, {encoding: 'utf-8'}))
-  // .pipe(html2txt({tables: true}))
-  // .on('error', err.handleError)
-  // .pipe(
-  //   rename(function (path) {
-  //     path.dirname += destDir;
-  //   })
-  //   )
-  // .pipe(dest('.'))
-  // .on('finish', function(source) {
-  //   log(msg.info(msg.b('Generated Text:\n') + paths.design.dist + '/index.txt'));
-  // })
 }
