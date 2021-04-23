@@ -84,7 +84,17 @@ module.exports = async function buildText() {
 
         let html = fs.readFileSync(sourceFile, {encoding: 'utf-8'});
 
-        let text = htmlToText(html, buildOpt);
+        let text = htmlToText(
+          // Remove hard-coded mobile navigation menu characters inserted by
+          // MJML, which will otherwise show up in the generated plain-text.
+          // Currently html-to-text does not give us a way to skip elements
+          // based on selectors.
+          //
+          // @see:
+          // https://github.com/html-to-text/node-html-to-text/issues/159
+          html.replace(/&#9776;/g, '').replace(/&#8855;/g, ''),
+          buildOpt
+        );
 
         fs.writeFileSync(destFile, text);
 
