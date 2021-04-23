@@ -1,5 +1,6 @@
-<!-- For Retina display, width and height should be half the size of the image
-     in pixels. -->
+<!-- A banner image, also known as a "hero image". For Retina display, the width
+     and height set below should each be half the actual size of the image in
+     pixels. -->
 <mj-hero
   mj-class="hero"
   height="400px"

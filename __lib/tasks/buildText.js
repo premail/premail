@@ -9,6 +9,7 @@ const { htmlToText } = require('html-to-text');
 
 const err        = require('../functions/err.js');
 const paths      = require('../vars/paths.js');
+const { config } = require('../functions/config.js');
 const { log }    = require('../vars/log.js');
 const { msg }    = require('../vars/notifications.js');
 const { prod }   = require('../vars/prod.js');
@@ -41,19 +42,41 @@ module.exports = async function buildText() {
 
     let destFile = destDir + '/index.txt';
 
+    let buildOpt = {
+      baseElement: [],
+      tables: true
+    }
+
+    let configOpt = {
+      include: {
+        topNav:     config.text.include.topNav,
+        banner:     config.text.include.banner,
+        salutation: config.text.include.salutation,
+        body:       true,
+        signoff:    config.text.include.signoff,
+        social:     config.text.include.social,
+        bottomNav:  config.text.include.bottomNav,
+        footer:     config.text.include.footer
+      }
+    };
+
+    Object.keys(configOpt.include).forEach(key => {
+      if(configOpt.include[key]) {
+        buildOpt.baseElement.push('div.component-' + key);
+      }
+    });
+
     fs.exists(sourceFile, function (exists) {
       if (exists) {
 
         if (debug) {
           log(debug(msg.b('Plain-text source:\n') + sourceFile));
+          log(debug(msg.b('\nPlain-text options configured:\n') + JSON.stringify(configOpt, null, 2).replace(/[\"{}]/g, '')));
         }
 
         let html = fs.readFileSync(sourceFile, {encoding: 'utf-8'});
 
-        let text = htmlToText(html, {
-          baseElement: 'div.message-body',
-          tables: true
-        });
+        let text = htmlToText(html, buildOpt);
 
         fs.writeFileSync(destFile, text);
 

@@ -17,38 +17,54 @@
 
   <!-- Email body start -->
 
-  <mj-body css-class="message-body">
+  <mj-body>
     <!-- Top navigation -->
 
-    <mj-include path="structure/nav-top.tpl" />
+    <mj-section css-class="nav nav--top component-topNav">
+      <mj-include path="structure/topNav.tpl" />
+    </mj-section>
 
     <!-- Hero or header area -->
 
-    <mj-include path="content/hero.tpl" />
+    <mj-section css-class="component-banner banner">
+      <mj-include path="content/banner.tpl" />
+    </mj-section>
 
     <!-- Salutation, aka "Dear friend," -->
 
-    <mj-include path="content/salutation.tpl" />
+    <mj-section css-class="component-salutation">
+      <mj-include path="content/salutation.tpl" />
+    </mj-section>
 
     <!-- Primary content -->
 
-    <mj-include path="content/body.tpl" />
+    <mj-section css-class="component-body message-body">
+      <mj-include path="content/body.tpl" />
+    </mj-section>
 
     <!-- Sign-off, signature or closing -->
 
-    <mj-include path="content/signoff.tpl" />
+    <mj-section css-class="component-signoff">
+      <mj-include path="content/signoff.tpl" />
+    </mj-section>
 
     <!-- Social links -->
 
-    <mj-include path="structure/social.tpl" />
+    <mj-section css-class="component-social">
+      <mj-include path="structure/social.tpl" />
+    </mj-section>
 
     <!-- Bottom navigation -->
 
-    <mj-include path="structure/nav-bottom.tpl" />
+    <mj-section css-class="nav nav--bottom component-bottomNav">
+      <mj-include path="structure/bottomNav.tpl" />
+    </mj-section>
 
     <!-- Footer -->
 
-    <mj-include path="structure/footer.tpl" />
+    <mj-section css-class="component-footer footer">
+      <mj-include path="structure/footer.tpl" />
+    </mj-section>
 
     <!-- Body closure -->
   </mj-body>

@@ -52,3 +52,13 @@ text:
   # Whether or not to generate a plain-text version. The subsequent options only
   # apply if this is set to "true".
   generate: true
+
+  # Whether to include the following elements in the plain-text version.
+  include:
+    topNav:     true
+    banner:     true
+    salutation: true
+    signoff:    true
+    social:     true
+    bottomNav:  true
+    footer:     true

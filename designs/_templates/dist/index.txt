@@ -6,8 +6,6 @@ Blog [https://mjml.io/#] Press [https://mjml.io/#] Share
 
 Hero image title
 
-
-
 Dear $[FNAME|friend]$,
 
 Morbi fermentum est venenatis ex facilisis, quis bibendum
