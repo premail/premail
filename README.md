@@ -5,8 +5,9 @@ The templates included are
 [valid](https://mjml.io/documentation/#validating-mjml) under
 [MJML version 4](https://github.com/mjmlio/mjml/releases).
 
-One `index.html` file will be rendered, ready to import into your emailer of
-choice. [See example.](https://rootwork.github.io/mjml-quickstart/designs/_templates/index.html)
+One `index.html` file will be rendered, as well as (optionally) a plain-text
+version, ready to import into your emailer of choice.
+[See an example of the default layout.](https://rootwork.github.io/mjml-quickstart/designs/_templates/index.html)
 
 <!-- The following section, from "ts" to "te", is an automatically-generated
   table of contents, updated whenever this file changes. Do not edit within
@@ -68,6 +69,19 @@ for Visual Studio Code, Atom, and Sublime Text 3.
 
 Run `gulp --tasks` if you want to see all of the options quickly, or skip down
 to the [full list of options](#full-list-of-options).
+
+## Setting options
+
+Look at the [`config.yaml`](config.yaml) file at the root of the project.
+
+Here you'll find options for setting the names of your `designs` and `emails`
+directories, which will hold individual designs and emails, respectively. You
+can also change the name of the master template file, and what types of files
+(`.tpl`, by default) the tool processes as templates.
+
+Under "Email-building options," you'll see preferences you can set on the
+rendered emails: Whether to generate a plain-text version, and options on what
+to include in that version.
 
 ## Creating a new design
 
@@ -139,6 +153,8 @@ Once the production email is rendered, you can:
   instance
   [here's the rendered file](https://rootwork.github.io/mjml-quickstart/designs/_templates/dist/index.html)
   from the sample templates
+- use the plain-text version, if you've chosen to have one created, in the
+  appropriate place provided by your emailer
 
 ## Formatting your code files
 

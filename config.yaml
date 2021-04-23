@@ -8,6 +8,9 @@
 # https://blog.stackpath.com/yaml/
 # https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes
 # https://yaml.org
+#
+# tl;dr: You can edit things on the right side of colons (:) but not on the
+# left. Don't change the indentation or spacing.
 
 # 1. Folders
 folders:
@@ -46,7 +49,8 @@ files:
     # File extensions to process from MJML to HTML
     ext: tpl
 
-# 3. Options
+# @TODO: This should really go in an email-specific config file.
+# 3. Email-building options
 text:
 
   # Whether or not to generate a plain-text version. The subsequent options only
