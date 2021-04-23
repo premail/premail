@@ -10,5 +10,5 @@ const buildHTML = require('./buildHTML.js');
 //
 
 module.exports = function watchHTML () {
-  watch('./**/*' + config.files.mjml.ext, buildHTML);
+  watch('./**/*' + config.data.files.mjml.ext, buildHTML);
 }

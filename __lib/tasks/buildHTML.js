@@ -43,14 +43,14 @@ module.exports = function buildHTML() {
   .pipe(gulpif(prod,
     // Production
     mjml(mjmlEngine, {
-      fileExt: config.files.mjml.ext,
+      fileExt: config.data.files.mjml.ext,
       beautify: false,
       minify: true,
       keepComments: false,
     }),
     // Development
     mjml(mjmlEngine, {
-      fileExt: config.files.mjml.ext,
+      fileExt: config.data.files.mjml.ext,
       beautify: true,
     })
   ))

@@ -12,7 +12,7 @@ const getFiles    = require('../functions/getFiles.js');
 //
 
 // Get arguments from command line
-let currentDesign = config.folders.design.default;
+let currentDesign = config.data.folders.design.default;
 
 if (arg.d) {
   currentDesign = arg.d;
@@ -29,21 +29,21 @@ let __base = projectPath(__dirname, '../../');
 
 let design = {
   name: currentDesign,
-  path: projectPath(__base, config.folders.design.name, currentDesign),
-  file: '/index.' + config.files.mjml.ext,
-  dist: projectPath(__base, config.folders.design.name, currentDesign, config.folders.output.dir)
+  path: projectPath(__base, config.data.folders.design.name, currentDesign),
+  file: '/index.' + config.data.files.mjml.ext,
+  dist: projectPath(__base, config.data.folders.design.name, currentDesign, config.data.folders.output.dir)
 }
 
 let email = {
   name: currentEmail,
-  path: projectPath(__base, config.folders.email.name, currentEmail),
-  file: '/index.' + config.files.mjml.ext,
-  dist: projectPath(__base, config.folders.email.name, currentEmail, config.folders.output.dir)
+  path: projectPath(__base, config.data.folders.email.name, currentEmail),
+  file: '/index.' + config.data.files.mjml.ext,
+  dist: projectPath(__base, config.data.folders.email.name, currentEmail, config.data.folders.output.dir)
 }
 
 let theme = {
-  name: config.folders.theme.dir,
-  path: projectPath(__base, config.folders.design.name, currentDesign, config.folders.theme.dir)
+  name: config.data.folders.theme.dir,
+  path: projectPath(__base, config.data.folders.design.name, currentDesign, config.data.folders.theme.dir)
 }
 
 // @TODO New feature that would get the list of current designs and emails
@@ -61,17 +61,17 @@ let theme = {
 //     .filter(file => fs.lstatSync(path.join(srcPath, file)).isDirectory())
 //
 // Get list of designs by directory name
-// const designList = getDirectories(config.folders.design.path);
+// const designList = getDirectories(config.data.folders.design.path);
 //
 // Get list of emails by directory name
-// const emailList = getDirectories(config.folders.email.name);
+// const emailList = getDirectories(config.data.folders.email.name);
 //
 // Prompt user (example code)
 // const name = prompt('What is your name? ');
 // console.log(`Hey there ${name}`);
 
-let templateFile = design.path + '/' + config.files.template;
-let partialsDir  = getFiles(design.path, config.files.mjml.ext);
+let templateFile = design.path + '/' + config.data.files.template;
+let partialsDir  = getFiles(design.path, config.data.files.mjml.ext);
 let partialsList =
     partialsDir
     .filter(function(value){

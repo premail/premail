@@ -13,13 +13,13 @@ const { msg }    = require('../vars/notifications.js');
 //
 
 module.exports = function formatTemplates() {
-  return src('./**/*.' + config.files.mjml.ext)
+  return src('./**/*.' + config.data.files.mjml.ext)
     .pipe(prettier({
         parser: "html"
       }))
     .on('error', err.handleError)
     .pipe(dest(file => file.base))
     .on('finish', function(source) {
-      log(msg.info('All .' + config.files.mjml.ext + ' templates reformatted.'));
+      log(msg.info('All .' + config.data.files.mjml.ext + ' templates reformatted.'));
     })
 }

@@ -51,16 +51,16 @@ module.exports = async function buildText() {
     }
 
     let configOpt = {
-      images: config.text.images,
+      images: config.data.text.images,
       include: {
-        topNav:     config.text.include.topNav,
-        banner:     config.text.include.banner,
-        salutation: config.text.include.salutation,
+        topNav:     config.data.text.include.topNav,
+        banner:     config.data.text.include.banner,
+        salutation: config.data.text.include.salutation,
         body:       true,
-        signoff:    config.text.include.signoff,
-        social:     config.text.include.social,
-        bottomNav:  config.text.include.bottomNav,
-        footer:     config.text.include.footer
+        signoff:    config.data.text.include.signoff,
+        social:     config.data.text.include.social,
+        bottomNav:  config.data.text.include.bottomNav,
+        footer:     config.data.text.include.footer
       }
     };
 
