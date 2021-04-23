@@ -18,6 +18,7 @@ version, ready to import into your emailer of choice.
       * [Requirements](#requirements)
    * [Setup](#setup)
    * [Usage](#usage)
+      * [Setting options](#setting-options)
       * [Creating a new design](#creating-a-new-design)
       * [Creating a new email from an existing design](#creating-a-new-email-from-an-existing-design)
       * [Rendering the email for production](#rendering-the-email-for-production)
@@ -27,7 +28,7 @@ version, ready to import into your emailer of choice.
    * [Thanks and Sponsorships](#thanks-and-sponsorships)
    * [License](#license)
 
-<!-- Added by: runner, at: Thu Apr 22 23:48:44 UTC 2021 -->
+<!-- Added by: runner, at: Fri Apr 23 02:24:25 UTC 2021 -->
 
 <!--te-->
 
