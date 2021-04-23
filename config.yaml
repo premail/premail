@@ -45,3 +45,10 @@ files:
 
     # File extensions to process from MJML to HTML
     ext: tpl
+
+# 3. Options
+text:
+
+  # Whether or not to generate a plain-text version. The subsequent options only
+  # apply if this is set to "true".
+  generate: true

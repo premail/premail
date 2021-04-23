@@ -12,6 +12,7 @@ const paths      = require('../vars/paths.js');
 const { log }    = require('../vars/log.js');
 const { msg }    = require('../vars/notifications.js');
 const { prod }   = require('../vars/prod.js');
+const { text }   = require('../vars/text.js');
 const { debug }  = require('../vars/debug.js');
 
 //
@@ -20,46 +21,52 @@ const { debug }  = require('../vars/debug.js');
 
 module.exports = async function buildText() {
 
-  let sourceFile;
+  if (text) {
 
-  if (paths.email.name) {
-    sourceFile = paths.email.dist + '/index.html';
-  } else {
-    sourceFile = paths.design.dist + '/index.html';
-  }
+    let sourceFile;
 
-  let destDir;
-
-  if (paths.email.name) {
-    destDir = paths.email.dist;
-  } else {
-    destDir = paths.design.dist;
-  }
-
-  let destFile = destDir + '/index.txt';
-
-  fs.exists(sourceFile, function (exists) {
-    if (exists) {
-
-      if (debug) {
-        log(debug(msg.b('Plain-text source:\n') + sourceFile));
-      }
-
-      let html = fs.readFileSync(sourceFile, {encoding: 'utf-8'});
-
-      let text = htmlToText(html, {
-        baseElement: 'div.message-body',
-        tables: true
-      });
-
-      fs.writeFileSync(destFile, text);
-
-      log(msg.info(msg.b('Plain-text version saved:\n') + destFile));
-
+    if (paths.email.name) {
+      sourceFile = paths.email.dist + '/index.html';
     } else {
-      log(msg.error('Error building text version: index.html does not exist. Run `gulp buildHTML` first to generate index.html.'));
+      sourceFile = paths.design.dist + '/index.html';
     }
 
-  });
+    let destDir;
+
+    if (paths.email.name) {
+      destDir = paths.email.dist;
+    } else {
+      destDir = paths.design.dist;
+    }
+
+    let destFile = destDir + '/index.txt';
+
+    fs.exists(sourceFile, function (exists) {
+      if (exists) {
+
+        if (debug) {
+          log(debug(msg.b('Plain-text source:\n') + sourceFile));
+        }
+
+        let html = fs.readFileSync(sourceFile, {encoding: 'utf-8'});
+
+        let text = htmlToText(html, {
+          baseElement: 'div.message-body',
+          tables: true
+        });
+
+        fs.writeFileSync(destFile, text);
+
+        log(msg.info(msg.b('Plain-text version saved:\n') + destFile));
+
+      } else {
+        log(msg.error('Error building text version: index.html does not exist. Run `gulp buildHTML` first to generate index.html.'));
+      }
+
+    });
+
+  } else {
+    log(msg.info('Plain-text generation turned off.'));
+  }
 
 }
