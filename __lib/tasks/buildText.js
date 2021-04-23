@@ -44,10 +44,14 @@ module.exports = async function buildText() {
 
     let buildOpt = {
       baseElement: [],
-      tables: true
+      tables: true,
+      tags: {
+        img: {}
+      }
     }
 
     let configOpt = {
+      images: config.text.images,
       include: {
         topNav:     config.text.include.topNav,
         banner:     config.text.include.banner,
@@ -59,6 +63,10 @@ module.exports = async function buildText() {
         footer:     config.text.include.footer
       }
     };
+
+    if(!configOpt.images) {
+      buildOpt.tags.img.format = 'skip';
+    }
 
     Object.keys(configOpt.include).forEach(key => {
       if(configOpt.include[key]) {

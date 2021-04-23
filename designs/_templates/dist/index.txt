@@ -1,5 +1,3 @@
-MJML [https://mjml.io/assets/img/logo-white-small.png]
-
 ☰ ⊗
 Blog [https://mjml.io/#] Press [https://mjml.io/#] Share
 [https://mjml.io/#]
@@ -30,7 +28,7 @@ sapien dictum mattis a et tellus.
 Take action
 
 AN ILLUSTRATIVE PICTURE
-[https://picsum.photos/600/300]
+
 Find out more
 
 Suspendisse lacinia, diam in malesuada fermentum, urna odio
@@ -54,33 +52,23 @@ aliquam pretium, sapien erat luctus sem, et finibus neque
 quam ut dolor. Aenean non dictum nibh.
 
 AN IMAGE WORTH 999 WORDS
-[https://picsum.photos/600/500]
+
 Add your thoughts
 
-[https://picsum.photos/75/100] Thank You,
+Thank You,
 
 John Q. Public
 Wild and Crazy Guy
 
-Follow us on Facebook
-[https://www.mailjet.com/images/theme/v1/icons/ico-social/facebook.png]
-[https://facebook.com/#]
+https://facebook.com/#
 
-Follow us on Instagram
-[https://www.mailjet.com/images/theme/v1/icons/ico-social/instagram.png]
-[https://instagram.com/#]
+https://instagram.com/#
 
-Watch our videos on YouTube
-[https://www.mailjet.com/images/theme/v1/icons/ico-social/youtube.png]
-[https://youtube.com/#]
+https://youtube.com/#
 
-Follow us on Twitter
-[https://www.mailjet.com/images/theme/v1/icons/ico-social/twitter.png]
-[https://twitter.com/#]
+https://twitter.com/#
 
-Follow us on LinkedIn
-[https://www.mailjet.com/images/theme/v1/icons/ico-social/linkedin.png]
-[https://linkedin.com/#]
+https://linkedin.com/#
 
 ☰ ⊗
 Website [https://mjml.io/#] Shop [https://mjml.io/#] Careers

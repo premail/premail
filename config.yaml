@@ -53,6 +53,11 @@ text:
   # apply if this is set to "true".
   generate: true
 
+  # When set to true, images are replaced by URLs to the image file in the
+  # plaintext version. Set to false to omit these images completely. Any tags
+  # wrapping the images (such as link tags) will be unaffected.
+  images: false
+
   # Whether to include the following elements in the plain-text version.
   include:
     topNav:     true
