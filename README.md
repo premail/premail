@@ -167,8 +167,8 @@ Run `gulp formatSass` to auto-format all of your `.scss` files using
 
 # Full list of options
 
-Append `--debug` to any command to see additional output on files being
-processed.
+Append `--debug` to any command to see additional output on your current
+configuration and files being processed.
 
 `gulp --tasks`
 
