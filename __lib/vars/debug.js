@@ -2,6 +2,7 @@
 
 const { arg } = require('../functions/arg.js');
 const { msg } = require('./notifications.js');
+const { log } = require('./log.js');
 
 //
 // Capture 'debug' from command-line flag.
@@ -10,7 +11,9 @@ const { msg } = require('./notifications.js');
 let debug = function () { return '' };
 
 if (arg.debug) {
-  debug = msg.debug;
+  debug = function (message) {
+    return log(msg.debug(message));
+  }
 }
 
 module.exports = {

@@ -27,7 +27,7 @@ module.exports = function buildSass() {
     .pipe(dest(paths.theme.path + '/sass'))
     .pipe(
       tap(function (file,t) {
-        log(debug(msg.b('CSS file written to:\n') + paths.theme.path + '/sass/' + path.basename(file.path)));
+        debug(msg.b('CSS file written to:\n') + paths.theme.path + '/sass/' + path.basename(file.path));
       })
     )
 }

@@ -21,7 +21,7 @@ module.exports = function clean(done) {
 
   del.sync(deletedFilePaths);
 
-  log(debug(deletedFilePaths.join('\n')));
+  debug(deletedFilePaths.join('\n'));
 
   done();
 }

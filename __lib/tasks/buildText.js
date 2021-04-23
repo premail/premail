@@ -78,8 +78,8 @@ module.exports = async function buildText() {
       if (exists) {
 
         if (debug) {
-          log(debug(msg.b('Plain-text source:\n') + sourceFile));
-          log(debug(msg.b('\nPlain-text options configured:\n') + JSON.stringify(configOpt, null, 2).replace(/[\"{}]/g, '')));
+          debug(msg.b('Plain-text source:\n') + sourceFile);
+          debug(msg.b('\nPlain-text options configured:\n') + JSON.stringify(configOpt, null, 2).replace(/[\"{}]/g, ''));
         }
 
         let html = fs.readFileSync(sourceFile, {encoding: 'utf-8'});

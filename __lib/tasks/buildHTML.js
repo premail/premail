@@ -55,7 +55,7 @@ module.exports = function buildHTML() {
     })
   ))
   .on('finish', function(source) {
-    log(debug(msg.b('HTML source:\n') + sourceFile));
+    debug(msg.b('HTML source:\n') + sourceFile);
   })
   .on('error', err.handleError)
   .pipe(dest(destDir))
