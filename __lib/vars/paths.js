@@ -26,6 +26,12 @@ if (arg.e) {
 
 // Set fully qualified paths
 let __base = projectPath(__dirname, '../../');
+let __lib = projectPath(__base, '__lib/');
+
+let settings = {
+  path: projectPath(__lib, 'settings'),
+  ext:  'yaml'
+}
 
 let design = {
   name: currentDesign,
@@ -43,7 +49,8 @@ let email = {
 
 let theme = {
   name: config.data.folders.theme.dir,
-  path: projectPath(__base, config.data.folders.design.name, currentDesign, config.data.folders.theme.dir)
+  path: projectPath(__base, config.data.folders.design.name, currentDesign, config.data.folders.theme.dir),
+  sassDir: '/sass'
 }
 
 // @TODO New feature that would get the list of current designs and emails
@@ -70,26 +77,21 @@ let theme = {
 // const name = prompt('What is your name? ');
 // console.log(`Hey there ${name}`);
 
-let templateFile = design.path + '/' + config.data.files.template;
-let partialsDir  = getFiles(design.path, config.data.files.mjml.ext);
-let partialsList =
-    partialsDir
-    .filter(function(value){
-        return value !== templateFile;
-    })
-    .toString()
-    .split(',')
-    .join('\n');
-
 let templates = {
-  main: templateFile,
-  partials: {
-    dir: partialsDir,
-    list: partialsList
-  }
+  path: design.path + '/'
 }
 
+templates.array = getFiles(templates.path, config.data.files.mjml.ext);
+templates.list = templates.array.toString().split(',').join('\n');
+templates.main = templates.path + config.data.files.template;
+templates.partials = templates.array
+    .filter(function(value){
+      return value !== templates.main;
+    })
+    .toString().split(',').join('\n');
+
 module.exports = {
+  settings,
   design,
   email,
   theme,
