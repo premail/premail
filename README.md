@@ -195,7 +195,6 @@ configuration and files being processed.
 │   ├── watchHTML
 │   └── watchText
 ├── buildHTML        Builds HTML files from MJML templates.
-
                        Options:
                          --prod: Renders a production file, minified and with HTML comments stripped out.
                          -d:     Specifies design folder to use. (Default: _templates)
