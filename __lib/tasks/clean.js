@@ -16,6 +16,7 @@ module.exports = function clean(done) {
 
   const deletedFilePaths = [
     paths.design.dist + '/*',
+    paths.design.path + '/.tmp',
     paths.theme.path + '/sass/*.css'
   ];
 

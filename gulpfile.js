@@ -26,6 +26,7 @@ const taskDir = './__lib/tasks/';
 const clean           = require(taskDir + 'clean.js');
 const buildSass       = require(taskDir + 'buildSass.js');
 const watchSass       = require(taskDir + 'watchSass.js');
+const processTemplates = require(taskDir + 'handlebars.js');
 const listTemplates   = require(taskDir + 'listTemplates.js');
 const handlebars      = require(taskDir + 'handlebars.js');
 const buildHTML       = require(taskDir + 'buildHTML.js');
@@ -58,6 +59,8 @@ exports.buildText = buildText;
 exports.buildText.description = "Generates a plain-text version of the email.";
 exports.buildSass = buildSass;
 exports.buildSass.description = "Compiles Sass files in the 'theme' directory.";
+
+exports.processTemplates = processTemplates;
 
 // Watch
 exports.watchHTML = watchHTML;

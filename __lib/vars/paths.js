@@ -26,7 +26,8 @@ if (arg.e) {
 
 // Set fully qualified paths
 let __base = projectPath(__dirname, '../../');
-let __lib = projectPath(__base, '__lib/');
+let __lib  = projectPath(__base, '__lib/');
+let __temp = '/.tmp/';
 
 let settings = {
   path: projectPath(__lib, 'settings'),
@@ -37,14 +38,16 @@ let design = {
   name: currentDesign,
   path: projectPath(__base, config.data.folders.design.name, currentDesign),
   file: '/index.' + config.data.files.mjml.ext,
-  dist: projectPath(__base, config.data.folders.design.name, currentDesign, config.data.folders.output.dir)
+  dist: projectPath(__base, config.data.folders.design.name, currentDesign, config.data.folders.output.dir),
+  temp: __temp
 }
 
 let email = {
   name: currentEmail,
   path: projectPath(__base, config.data.folders.email.name, currentEmail),
   file: '/index.' + config.data.files.mjml.ext,
-  dist: projectPath(__base, config.data.folders.email.name, currentEmail, config.data.folders.output.dir)
+  dist: projectPath(__base, config.data.folders.email.name, currentEmail, config.data.folders.output.dir),
+  temp: __temp
 }
 
 let theme = {
