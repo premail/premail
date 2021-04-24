@@ -11,7 +11,7 @@ const { debug } = require('../vars/debug.js');
 // Remove temporary files and directories.
 //
 
-module.exports = function clean(done) {
+module.exports = function removeTemp(done) {
   log(msg.warn('Deleting temporary files...'))
 
   const deletedFilePaths = [

@@ -18,7 +18,7 @@ const { debug }   = require('../vars/debug.js');
 // Render Handlebars templates into HTML.
 //
 
-module.exports = function processTemplates(done) {
+module.exports = function buildTemplates(done) {
 
   // Load default settings
   const settings = getFiles(paths.settings.path, paths.settings.ext);
