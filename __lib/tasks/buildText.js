@@ -20,7 +20,7 @@ const { debug }  = require('../vars/debug.js');
 // Build a plain-text version of the HTML file.
 //
 
-module.exports = async function buildText() {
+module.exports = function buildText(done) {
 
   if (text) {
 
@@ -74,8 +74,8 @@ module.exports = async function buildText() {
       }
     });
 
-    fs.exists(sourceFile, function (exists) {
-      if (exists) {
+    fs.stat(sourceFile, function(err, stat) {
+      if (err == null) {
 
         if (debug) {
           debug(msg.b('Plain-text source:\n') + sourceFile);
@@ -100,8 +100,11 @@ module.exports = async function buildText() {
 
         log(msg.info(msg.b('Plain-text version saved:\n') + destFile));
 
+      } else if (err.code === 'ENOENT') {
+        log(msg.error('Error building text version: index.html does not exist. Run `gulp buildHTML` before running this task.'));
+
       } else {
-        log(msg.error('Error building text version: index.html does not exist. Run `gulp buildHTML` first to generate index.html.'));
+        log(msg.error('Error: ' + err.code));
       }
 
     });
@@ -110,4 +113,5 @@ module.exports = async function buildText() {
     log(msg.info('Plain-text generation turned off.'));
   }
 
+  done();
 }

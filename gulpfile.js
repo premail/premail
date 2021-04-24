@@ -26,22 +26,24 @@ const taskDir = './__lib/tasks/';
 const clean           = require(taskDir + 'clean.js');
 const buildSass       = require(taskDir + 'buildSass.js');
 const watchSass       = require(taskDir + 'watchSass.js');
-const processTemplates = require(taskDir + 'handlebars.js');
+const buildTemplates  = require(taskDir + 'buildTemplates.js');
 const listTemplates   = require(taskDir + 'listTemplates.js');
-const handlebars      = require(taskDir + 'handlebars.js');
 const buildHTML       = require(taskDir + 'buildHTML.js');
 const watchHTML       = require(taskDir + 'watchHTML.js');
 const buildText       = require(taskDir + 'buildText.js');
 const watchText       = require(taskDir + 'watchText.js');
 const formatTemplates = require(taskDir + 'formatTemplates.js');
 const formatSass      = require(taskDir + 'formatSass.js');
+const removeTemp      = require(taskDir + 'removeTemp.js');
 
 // Sets
 exports.default = series(
   clean,
   buildSass,
+  buildTemplates,
   buildHTML,
-  buildText
+  buildText,
+  removeTemp
 );
 
 exports.build = exports.default;
@@ -59,8 +61,8 @@ exports.buildText = buildText;
 exports.buildText.description = "Generates a plain-text version of the email.";
 exports.buildSass = buildSass;
 exports.buildSass.description = "Compiles Sass files in the 'theme' directory.";
-
-exports.processTemplates = processTemplates;
+exports.buildTemplates = buildTemplates;
+exports.buildTemplates.description = "Builds MJML templates from Handlebars templates.";
 
 // Watch
 exports.watchHTML = watchHTML;
@@ -81,3 +83,5 @@ exports.listTemplates = listTemplates;
 exports.listTemplates.description = "List all templates that will be processed. Useful for debugging.";
 exports.clean = clean;
 exports.clean.description = "Remove all generated files from the current design or email."
+exports.removeTemp = removeTemp;
+exports.removeTemp.description = "Remove temporary files generated during individual tasks."

@@ -8,15 +8,14 @@ const { msg }   = require('../vars/notifications.js');
 const { debug } = require('../vars/debug.js');
 
 //
-// Clean generated files and directories.
+// Remove temporary files and directories.
 //
 
 module.exports = function clean(done) {
-  log(msg.warn('Deleting generated files...'))
+  log(msg.warn('Deleting temporary files...'))
 
   const deletedFilePaths = [
-    paths.design.dist + '/*',
-    paths.theme.path + '/sass/*.css'
+    paths.design.path + '/.tmp'
   ];
 
   del.sync(deletedFilePaths);

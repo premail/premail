@@ -18,7 +18,7 @@ const { debug }   = require('../vars/debug.js');
 // Render Handlebars templates into HTML.
 //
 
-module.exports = async function processTemplates() {
+module.exports = function processTemplates(done) {
 
   // Load default settings
   const settings = getFiles(paths.settings.path, paths.settings.ext);
@@ -60,31 +60,47 @@ module.exports = async function processTemplates() {
     templateArray.push(template);
   }
 
-  // Register Handlebars partials
-  let cssInline = fs.readFileSync(paths.theme.path + paths.theme.sassDir + '/' + data.css.inline, 'utf8');
-  Handlebars.registerPartial('cssInline', cssInline);
+  let cssInlineFile = paths.theme.path + paths.theme.sassDir + '/' + data.css.inline;
 
-  for(let file of templateArray){
+  fs.stat(cssInlineFile, function(err, stat) {
+    if (err == null) {
 
-    // Create new template
-    const template = fs.readFileSync(file, 'utf8');
-    const format = Handlebars.compile(template, {
-      strict: true
-    });
+      // Register Handlebars partials
+      let cssInline = fs.readFileSync(cssInlineFile, 'utf8');
+      Handlebars.registerPartial('cssInline', cssInline);
 
-    // Insert data
-    const processedTemplate = format(data);
+      for(let file of templateArray){
 
-    // Write the processed template
-    const destPath = tempDir + path.relative(templatePath, file).replace(path.basename(file), '');
+        // Create new template
+        const template = fs.readFileSync(file, 'utf8');
+        const format = Handlebars.compile(template, {
+          strict: true
+        });
 
-    if (!fs.existsSync(destPath)){
-      fs.mkdirSync(destPath, { recursive: true });
+        // Insert data
+        const processedTemplate = format(data);
+
+        // Write the processed template
+        const destPath = tempDir + path.relative(templatePath, file).replace(path.basename(file), '');
+
+        if (!fs.existsSync(destPath)){
+          fs.mkdirSync(destPath, { recursive: true });
+        }
+
+        fs.writeFileSync(destPath + '/' + path.basename(file), processedTemplate);
+
+        debug('Processed template file: ' + path.basename(file));
+      }
+
+      debug(msg.b('Created temporary files at: ') + paths.design.path + paths.design.temp);
+
+    } else if (err.code === 'ENOENT') {
+      log(msg.error('Error building template files: CSS files do not exist. Run `gulp buildSass` before running this task.'));
+
+    } else {
+      log(msg.error('Error: ' + err.code));
     }
+  });
 
-    fs.writeFileSync(destPath + '/' + path.basename(file), processedTemplate);
-
-    debug('Processed template file: ' + path.basename(file));
-  }
-
+  done();
 }

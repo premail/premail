@@ -17,8 +17,8 @@ const { debug } = require('../vars/debug.js');
 // Build CSS files from Sass source files.
 //
 
-module.exports = function buildSass() {
-  return src(paths.theme.path + paths.theme.sassDir + '/**/*.scss')
+module.exports = function buildSass(done) {
+  src(paths.theme.path + paths.theme.sassDir + '/**/*.scss')
     .pipe(sass({
       fiber: Fiber,
       outputStyle: 'compressed',
@@ -30,4 +30,6 @@ module.exports = function buildSass() {
         debug(msg.b('CSS file written to:\n') + paths.theme.path + paths.theme.sassDir + '/' + path.basename(file.path));
       })
     )
+
+  done();
 }
