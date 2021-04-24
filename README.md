@@ -177,33 +177,40 @@ configuration and files being processed.
 │ └─┬ <series>
 │   ├── clean
 │   ├── buildSass
+│   ├── buildTemplates
 │   ├── buildHTML
-│   └── buildText
+│   ├── buildText
+│   └── removeTemp
 ├─┬ build
 │ └─┬ <series>
 │   ├── clean
 │   ├── buildSass
+│   ├── buildTemplates
 │   ├── buildHTML
-│   └── buildText
+│   ├── buildText
+│   └── removeTemp
 ├─┬ watch
 │ └─┬ <parallel>
 │   ├── watchSass
 │   ├── watchHTML
 │   └── watchText
 ├── buildHTML        Builds HTML files from MJML templates.
+
                        Options:
                          --prod: Renders a production file, minified and with HTML comments stripped out.
                          -d:     Specifies design folder to use. (Default: _templates)
                          -e:     Specifies email folder to render.
 ├── buildText        Generates a plain-text version of the email.
 ├── buildSass        Compiles Sass files in the 'theme' directory.
+├── buildTemplates   Builds MJML templates from Handlebars templates.
 ├── watchHTML        Watches and renders HTML files for development (formatted, with comments).
 ├── watchSass        Watches Sass files in the 'theme' directory.
 ├── watchText        Watches rendered HTML file and regenerates plain-text version.
 ├── formatTemplates  Format your MJML templates with Prettier.
 ├── formatSass       Format your Sass code with Prettier.
 ├── listTemplates    List all templates that will be processed. Useful for debugging.
-└── clean            Remove all generated files from the current design or email.
+├── clean            Remove all generated files from the current design or email.
+└── removeTemp       Remove temporary files generated during individual tasks.
 
 ```
 
