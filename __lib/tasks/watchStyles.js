@@ -2,8 +2,8 @@
 
 const { watch, series } = require('gulp');
 
-const paths     = require('../vars/paths.js');
-const buildStyles = require('./buildStyles.js');
+const paths       = require('../vars/paths.js');
+const buildStyles = require('../tasks/buildStyles.js');
 
 //
 // Watch Sass source files and trigger build.

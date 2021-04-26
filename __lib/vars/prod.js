@@ -1,7 +1,7 @@
 'use strict';
 
 const { arg } = require('../functions/arg.js');
-const { msg } = require('./notifications.js');
+const { msg } = require('../vars/notifications.js');
 
 //
 // Capture 'prod' from command-line flag.

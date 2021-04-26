@@ -2,8 +2,8 @@
 
 const { watch, series } = require('gulp');
 
-const { mainConfig }     = require('../functions/mainConfig.js');
-const buildHTML = require('./buildHTML.js');
+const { mainConfig } = require('../functions/mainConfig.js');
+const buildHTML      = require('../tasks/buildHTML.js');
 
 //
 // Watch MJML source files and trigger build.

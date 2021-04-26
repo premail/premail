@@ -2,10 +2,10 @@
 
 const path = require('path');
 
-const { mainConfig }  = require('../functions/mainConfig.js');
-const { arg }     = require('../functions/arg.js');
-const projectPath = require('../functions/projectPath.js');
-const getFiles    = require('../functions/getFiles.js');
+const { mainConfig } = require('../functions/mainConfig.js');
+const { arg }        = require('../functions/arg.js');
+const projectPath    = require('../functions/projectPath.js');
+const getFiles       = require('../functions/getFiles.js');
 
 //
 // Construct fully-qualified paths based on CLI arguments, if any.

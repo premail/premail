@@ -4,9 +4,9 @@ const { src, dest } = require('gulp');
 const prettier      = require('gulp-prettier');
 
 const { mainConfig } = require('../functions/mainConfig.js');
-const err        = require('../functions/err.js');
-const { log }    = require('../vars/log.js');
-const { msg }    = require('../vars/notifications.js');
+const err            = require('../functions/err.js');
+const { log }        = require('../vars/log.js');
+const { msg }        = require('../vars/notifications.js');
 
 //
 // Format template files with Prettier.

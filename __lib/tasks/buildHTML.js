@@ -10,12 +10,12 @@ const mjml          = require('gulp-mjml');
 const mjmlEngine    = require('mjml');
 
 const { mainConfig } = require('../functions/mainConfig.js');
-const err        = require('../functions/err.js');
-const paths      = require('../vars/paths.js');
-const { log }    = require('../vars/log.js');
-const { msg }    = require('../vars/notifications.js');
-const { prod }   = require('../vars/prod.js');
-const { debug }  = require('../vars/debug.js');
+const err            = require('../functions/err.js');
+const paths          = require('../vars/paths.js');
+const { log }        = require('../vars/log.js');
+const { msg }        = require('../vars/notifications.js');
+const { prod }       = require('../vars/prod.js');
+const { debug }      = require('../vars/debug.js');
 
 //
 // Build HTML files from MJML source files.

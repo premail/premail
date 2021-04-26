@@ -7,14 +7,14 @@ const gulpif         = require('gulp-if');
 const rename         = require('gulp-rename');
 const { htmlToText } = require('html-to-text');
 
-const err        = require('../functions/err.js');
-const paths      = require('../vars/paths.js');
+const err            = require('../functions/err.js');
+const paths          = require('../vars/paths.js');
 const { mainConfig } = require('../functions/mainConfig.js');
-const { log }    = require('../vars/log.js');
-const { msg }    = require('../vars/notifications.js');
-const { prod }   = require('../vars/prod.js');
-const { text }   = require('../vars/text.js');
-const { debug }  = require('../vars/debug.js');
+const { log }        = require('../vars/log.js');
+const { msg }        = require('../vars/notifications.js');
+const { prod }       = require('../vars/prod.js');
+const { text }       = require('../vars/text.js');
+const { debug }      = require('../vars/debug.js');
 
 //
 // Build a plain-text version of the HTML file.

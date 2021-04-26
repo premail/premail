@@ -1,8 +1,8 @@
 'use strict';
 
 const { arg } = require('../functions/arg.js');
-const { msg } = require('./notifications.js');
-const { log } = require('./log.js');
+const { msg } = require('../vars/notifications.js');
+const { log } = require('../vars/log.js');
 
 //
 // Capture 'debug' from command-line flag.
