@@ -95,7 +95,7 @@ module.exports = function buildTemplates(done) {
       debug(msg.b('Created temporary files at: ') + paths.design.path + paths.design.temp);
 
     } else if (err.code === 'ENOENT') {
-      log(msg.error('Error building template files: CSS files do not exist. Run `gulp buildSass` before running this task.'));
+      log(msg.error('Error building template files: CSS files do not exist. Run `gulp buildStyles` before running this task.'));
 
     } else {
       log(msg.error('Error: ' + err.code));

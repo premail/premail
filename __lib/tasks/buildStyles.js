@@ -17,7 +17,7 @@ const { debug } = require('../vars/debug.js');
 // Build CSS files from Sass source files.
 //
 
-module.exports = function buildSass(done) {
+module.exports = function buildStyles(done) {
   src(paths.theme.path + paths.theme.sassDir + '/**/*.scss')
     .pipe(sass({
       fiber: Fiber,

@@ -12,7 +12,7 @@ const { msg } = require('../vars/notifications.js');
 // Format Sass files with Prettier.
 //
 
-module.exports = function formatSass() {
+module.exports = function formatStyles() {
   return src(paths.sassDir + '**/*.scss')
     .pipe(
       prettier({
