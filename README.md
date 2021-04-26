@@ -44,7 +44,8 @@ Mailchimp, Constant Contact, etc.
 
 This project gives you a structure and workflow in which you can create
 different email designs in MJML, then create individual emails based on those
-designs. The resulting `index.html` file is optimized to render correctly in
+designs. The resulting `index.html` file (and plain-text `index.txt` file, if
+you've chosen the text option) is optimized to render correctly in
 [the vast majority of email systems and clients](https://mjml.io/faq#email-clients).
 When you're done, just drop the code from the file into your email service
 provider's system.
