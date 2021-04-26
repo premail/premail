@@ -1,0 +1,61 @@
+#
+# THEME CONFIGURATION
+#
+# Settings here affect the theme within this design's directory only.
+#
+
+# Fonts
+fonts:
+
+  options:
+
+    # Mode options:
+    #   'sans-serif'
+    #   'serif'
+    #   'google'
+    #   'custom'
+    #
+    # sans-serif, serif: Uses a stack of safe fonts (sans-serif or serif,
+    # respectively), for every OS and device. These will look similar, though not
+    # identical, across email systems. This method won't require any fonts to be
+    # downloaded, and thus your email will render more quickly. For more
+    # information about this approach, see:
+    # https://markdotto.com/2018/02/07/github-system-fonts/#the-stack
+    # https://www.digitalocean.com/community/tutorials/css-system-font-stack
+    # https://css-tricks.com/snippets/css/system-font-stack/
+    #
+    # google: Choose a Google Font and options, and this will automatically
+    # embed the font in a best-practice tag. Note that web fonts are only visible
+    # in a small number of email systems, so most people will be seeing your
+    # fallback (sans-serif or serif) font in their system UI font.
+    #
+    # custom: Use this option to choose a non-Google web font, or to insert an
+    # already-crafted URI pointing to a font-loading CSS file.
+    mode: sans-serif
+
+    # These settings only apply if 'google' is chosen above
+    google:
+
+      # The name of the Google Font. Capitalization and spaces count!
+      name: Source Sans Pro
+
+      # The font weight(s) you want to use:
+      weights:
+        - 400
+        - 900
+
+      # Whether to include an italic variant for each weight
+      italics: true
+
+    # These settings only apply if 'custom' is chosen above
+    custom:
+
+      # The name of your custom font
+      name: Example Custom Font
+
+      # Valid URI pointing to a CSS file that loads web font(s). For an example,
+      # here's Google Fonts' file for Sans Serif Pro:
+      # https://fonts.googleapis.com/css2?family=Source+Sans+Pro&amp;display=swap
+      # You'll probably want to include references to bold and italics variants
+      # as well.
+      href: https://example.com/font.css

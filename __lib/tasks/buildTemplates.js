@@ -5,7 +5,10 @@ const path       = require('path');
 const yaml       = require('js-yaml');
 const Handlebars = require("handlebars");
 
-const { mainConfig }  = require('../functions/mainConfig.js');
+const { internalConfig } = require('../functions/internalConfig.js');
+const { mainConfig }     = require('../functions/mainConfig.js');
+const { themeConfig }    = require('../functions/themeConfig.js');
+
 const err         = require('../functions/err.js');
 const paths       = require('../vars/paths.js');
 const getFiles    = require('../functions/getFiles.js');
@@ -20,17 +23,8 @@ const { debug }   = require('../vars/debug.js');
 
 module.exports = function buildTemplates(done) {
 
-  // Load default settings
-  const settings = getFiles(paths.settings.path, paths.settings.ext);
-  const settingsJSON = {}
-
-  for(let setting of settings){
-    let file = yaml.loadAll(fs.readFileSync(setting, {encoding: 'utf-8'}));
-    Object.assign(settingsJSON, file[0]);
-  }
-
   // Combine with config settings to create merge data
-  const data = Object.assign({}, settingsJSON, mainConfig.json[0]);
+  const data = Object.assign({}, internalConfig.json, mainConfig.json[0]);
 
   // Define template location
   let templatePath;

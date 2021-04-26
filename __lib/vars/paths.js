@@ -29,11 +29,6 @@ let __base = projectPath(__dirname, '../../');
 let __lib  = projectPath(__base, '__lib/');
 let __temp = '/.tmp/';
 
-let settings = {
-  path: projectPath(__lib, 'settings'),
-  ext:  'yaml'
-}
-
 let design = {
   name: currentDesign,
   path: projectPath(__base, mainConfig.data.folders.design.name, currentDesign),
@@ -94,7 +89,6 @@ templates.partials = templates.array
     .toString().split(',').join('\n');
 
 module.exports = {
-  settings,
   design,
   email,
   theme,
