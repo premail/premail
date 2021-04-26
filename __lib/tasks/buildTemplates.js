@@ -4,6 +4,7 @@ const fs         = require('fs');
 const path       = require('path');
 const yaml       = require('js-yaml');
 const Handlebars = require("handlebars");
+const helpers    = require('handlebars-helpers')(['comparison']);
 
 const { internalConfig } = require('../functions/internalConfig.js');
 const { mainConfig }     = require('../functions/mainConfig.js');
@@ -23,8 +24,13 @@ const { debug }   = require('../vars/debug.js');
 
 module.exports = function buildTemplates(done) {
 
-  // Combine with config settings to create merge data
-  const data = Object.assign({}, internalConfig.json, mainConfig.json[0]);
+  // Acquire configuration data and combine it into one object
+  const config = Object.assign(
+    {},
+    internalConfig.data,
+    mainConfig.data,
+    themeConfig.data
+  );
 
   // Define template location
   let templatePath;
@@ -54,10 +60,13 @@ module.exports = function buildTemplates(done) {
     templateArray.push(template);
   }
 
-  let cssInlineFile = paths.theme.path + paths.theme.sassDir + '/' + data.css.inline;
+  let cssInlineFile = paths.theme.path + paths.theme.sassDir + '/' + config.css.inline;
 
   fs.stat(cssInlineFile, function(err, stat) {
     if (err == null) {
+
+      // Load data from configuration object
+      let data = config;
 
       // Register Handlebars partials
       let cssInline = fs.readFileSync(cssInlineFile, 'utf8');

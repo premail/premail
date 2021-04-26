@@ -23,6 +23,9 @@ for(let setting of internalConfig.list){
   Object.assign(internalConfig.json, file[0]);
 }
 
+// Done just to keep naming consistent with other config modules.
+internalConfig.data = internalConfig.json;
+
 // Uncomment the following line to see internal configuration on debug commands.
 // debug(msg.b('Internal configuration:\n') + JSON.stringify(internalConfig.json, null, 2).replace(/[\"{},]/g, ''));
 

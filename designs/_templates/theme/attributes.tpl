@@ -1,15 +1,22 @@
-<!-- Carefully note format of Google Fonts URL if you want to be sure you're
-getting true bold and italic versions of the font. -->
+<!-- `mj-font` element needs to be outside `mj-attributes`
+     @see: https://documentation.mjml.io/#mj-font
+-->
+
+{{#eq fonts.options.mode 'google'}}
 <mj-font
-  name="Source Sans Pro"
+  name="{{fonts.options.google.name}}"
   href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,900;1,400;1,900&amp;display=swap"
 />
-<!-- Web font with stock font fallbacks, including emoji fonts.
-     `mj-font` element needs to be outside `mj-attributes`
-     References:
-     https://markdotto.com/2018/02/07/github-system-fonts/#the-stack
-     https://documentation.mjml.io/#mj-font
--->
+<!-- Carefully note format of Google Fonts URL if you want to be sure you're
+getting true bold and italic versions of the font. -->
+{{/eq}}
+
+{{#eq fonts.options.mode 'custom'}}
+<mj-font
+  name="{{fonts.options.custom.name}}"
+  href="{{fonts.options.custom.href}}"
+/>
+{{/eq}}
 
 <!-- The following CSS will be inlined by MJML. Use it for
 styling basic HTML elements. Don't include anything that can't
@@ -38,7 +45,14 @@ the footer, headings/subheadings, social icons, etc.). -->
   <mj-all
     margin="0"
     padding="0"
-    font-family="'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
+    font-family="
+    {{#eq fonts.options.mode 'sans-serif'}}
+      'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
+    {{/eq}}
+    {{#eq fonts.options.mode 'serif'}}
+      'Iowan Old Style', 'Apple Garamond', Baskerville, 'Times New Roman', 'Droid Serif', Times, 'Source Serif Pro', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
+    {{/eq}}
+    "
     font-size="18px"
     color="#666"
   />
