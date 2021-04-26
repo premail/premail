@@ -162,7 +162,7 @@ Once the production email is rendered, you can:
 Run `gulp formatTemplates` to auto-format all of your `.tpl` files using
 [Prettier](https://prettier.io/).
 
-Run `gulp formatSass` to auto-format all of your `.scss` files using
+Run `gulp formatStyles` to auto-format all of your `.scss` files using
 [Prettier](https://prettier.io/).
 
 # Full list of options
@@ -176,7 +176,7 @@ configuration and files being processed.
 ├─┬ default
 │ └─┬ <series>
 │   ├── clean
-│   ├── buildSass
+│   ├── buildStyles
 │   ├── buildTemplates
 │   ├── buildHTML
 │   ├── buildText
@@ -184,14 +184,14 @@ configuration and files being processed.
 ├─┬ build
 │ └─┬ <series>
 │   ├── clean
-│   ├── buildSass
+│   ├── buildStyles
 │   ├── buildTemplates
 │   ├── buildHTML
 │   ├── buildText
 │   └── removeTemp
 ├─┬ watch
 │ └─┬ <parallel>
-│   ├── watchSass
+│   ├── watchStyles
 │   ├── watchHTML
 │   └── watchText
 ├── buildHTML        Builds HTML files from MJML templates.
@@ -200,13 +200,13 @@ configuration and files being processed.
                          -d:     Specifies design folder to use. (Default: _templates)
                          -e:     Specifies email folder to render.
 ├── buildText        Generates a plain-text version of the email.
-├── buildSass        Compiles Sass files in the 'theme' directory.
+├── buildStyles      Compiles Sass files in the 'theme' directory.
 ├── buildTemplates   Builds MJML templates from Handlebars templates.
 ├── watchHTML        Watches and renders HTML files for development (formatted, with comments).
-├── watchSass        Watches Sass files in the 'theme' directory.
+├── watchStyles      Watches Sass files in the 'theme' directory.
 ├── watchText        Watches rendered HTML file and regenerates plain-text version.
 ├── formatTemplates  Format your MJML templates with Prettier.
-├── formatSass       Format your Sass code with Prettier.
+├── formatStyles     Format your Sass code with Prettier.
 ├── listTemplates    List all templates that will be processed. Useful for debugging.
 ├── clean            Remove all generated files from the current design or email.
 └── removeTemp       Remove temporary files generated during individual tasks.
