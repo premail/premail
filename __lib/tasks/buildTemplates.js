@@ -5,7 +5,7 @@ const path       = require('path');
 const yaml       = require('js-yaml');
 const Handlebars = require("handlebars");
 
-const { config }  = require('../functions/config.js');
+const { mainConfig }  = require('../functions/mainConfig.js');
 const err         = require('../functions/err.js');
 const paths       = require('../vars/paths.js');
 const getFiles    = require('../functions/getFiles.js');
@@ -30,7 +30,7 @@ module.exports = function buildTemplates(done) {
   }
 
   // Combine with config settings to create merge data
-  const data = Object.assign({}, settingsJSON, config.json[0]);
+  const data = Object.assign({}, settingsJSON, mainConfig.json[0]);
 
   // Define template location
   let templatePath;

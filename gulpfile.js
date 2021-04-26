@@ -2,7 +2,7 @@
 
 const { series, parallel } = require('gulp');
 
-const { config } = require('./__lib/functions/config.js');
+const { mainConfig } = require('./__lib/functions/mainConfig.js');
 const { log }    = require('./__lib/vars/log.js');
 const { msg }    = require('./__lib/vars/notifications.js');
 const { debug }  = require('./__lib/vars/debug.js');

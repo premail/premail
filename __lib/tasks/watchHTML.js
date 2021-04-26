@@ -2,7 +2,7 @@
 
 const { watch, series } = require('gulp');
 
-const { config }     = require('../functions/config.js');
+const { mainConfig }     = require('../functions/mainConfig.js');
 const buildHTML = require('./buildHTML.js');
 
 //
@@ -10,5 +10,5 @@ const buildHTML = require('./buildHTML.js');
 //
 
 module.exports = function watchHTML () {
-  watch('./**/*' + config.data.files.mjml.ext, buildHTML);
+  watch('./**/*' + mainConfig.data.files.mjml.ext, buildHTML);
 }

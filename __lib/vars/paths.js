@@ -2,7 +2,7 @@
 
 const path = require('path');
 
-const { config }  = require('../functions/config.js');
+const { mainConfig }  = require('../functions/mainConfig.js');
 const { arg }     = require('../functions/arg.js');
 const projectPath = require('../functions/projectPath.js');
 const getFiles    = require('../functions/getFiles.js');
@@ -12,7 +12,7 @@ const getFiles    = require('../functions/getFiles.js');
 //
 
 // Get arguments from command line
-let currentDesign = config.data.folders.design.default;
+let currentDesign = mainConfig.data.folders.design.default;
 
 if (arg.d) {
   currentDesign = arg.d;
@@ -36,23 +36,23 @@ let settings = {
 
 let design = {
   name: currentDesign,
-  path: projectPath(__base, config.data.folders.design.name, currentDesign),
-  file: 'index.' + config.data.files.mjml.ext,
-  dist: projectPath(__base, config.data.folders.design.name, currentDesign, config.data.folders.output.dir),
+  path: projectPath(__base, mainConfig.data.folders.design.name, currentDesign),
+  file: 'index.' + mainConfig.data.files.mjml.ext,
+  dist: projectPath(__base, mainConfig.data.folders.design.name, currentDesign, mainConfig.data.folders.output.dir),
   temp: __temp
 }
 
 let email = {
   name: currentEmail,
-  path: projectPath(__base, config.data.folders.email.name, currentEmail),
-  file: 'index.' + config.data.files.mjml.ext,
-  dist: projectPath(__base, config.data.folders.email.name, currentEmail, config.data.folders.output.dir),
+  path: projectPath(__base, mainConfig.data.folders.email.name, currentEmail),
+  file: 'index.' + mainConfig.data.files.mjml.ext,
+  dist: projectPath(__base, mainConfig.data.folders.email.name, currentEmail, mainConfig.data.folders.output.dir),
   temp: __temp
 }
 
 let theme = {
-  name: config.data.folders.theme.dir,
-  path: projectPath(__base, config.data.folders.design.name, currentDesign, config.data.folders.theme.dir),
+  name: mainConfig.data.folders.theme.dir,
+  path: projectPath(__base, mainConfig.data.folders.design.name, currentDesign, mainConfig.data.folders.theme.dir),
   sassDir: '/sass'
 }
 
@@ -71,10 +71,10 @@ let theme = {
 //     .filter(file => fs.lstatSync(path.join(srcPath, file)).isDirectory())
 //
 // Get list of designs by directory name
-// const designList = getDirectories(config.data.folders.design.path);
+// const designList = getDirectories(mainConfig.data.folders.design.path);
 //
 // Get list of emails by directory name
-// const emailList = getDirectories(config.data.folders.email.name);
+// const emailList = getDirectories(mainConfig.data.folders.email.name);
 //
 // Prompt user (example code)
 // const name = prompt('What is your name? ');
@@ -84,9 +84,9 @@ let templates = {
   path: design.path + '/'
 }
 
-templates.array = getFiles(templates.path, config.data.files.mjml.ext);
+templates.array = getFiles(templates.path, mainConfig.data.files.mjml.ext);
 templates.list = templates.array.toString().split(',').join('\n');
-templates.main = templates.path + config.data.files.template;
+templates.main = templates.path + mainConfig.data.files.template;
 templates.partials = templates.array
     .filter(function(value){
       return value !== templates.main;

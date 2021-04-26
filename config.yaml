@@ -11,6 +11,10 @@
 #
 # tl;dr: You can edit things on the right side of colons (:) but not on the
 # left. Don't change the indentation or spacing.
+#
+# For design configuration, see themeConfig.yaml inside individual design
+# directories.
+#
 
 # 1. Folders
 folders:
