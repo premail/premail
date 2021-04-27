@@ -1,22 +1,19 @@
-<!-- `mj-font` element needs to be outside `mj-attributes`
-     @see: https://documentation.mjml.io/#mj-font
--->
+{{#if theme.fonts.web}}
+  <!-- `mj-font` element needs to be outside `mj-attributes`
+       @see: https://documentation.mjml.io/#mj-font
+  -->
+  <mj-font
+    {{#if theme.fonts.options.google.enabled}}
+      name="{{theme.fonts.options.google.name}}"
+      href="{{{theme.fonts.options.google.href}}}"
+    {{/if}}
 
-{{#eq fonts.options.mode 'google'}}
-<mj-font
-  name="{{fonts.options.google.name}}"
-  href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,900;1,400;1,900&amp;display=swap"
-/>
-<!-- Carefully note format of Google Fonts URL if you want to be sure you're
-getting true bold and italic versions of the font. -->
-{{/eq}}
-
-{{#eq fonts.options.mode 'custom'}}
-<mj-font
-  name="{{fonts.options.custom.name}}"
-  href="{{fonts.options.custom.href}}"
-/>
-{{/eq}}
+    {{#if theme.fonts.options.custom.enabled}}
+      name="{{theme.fonts.options.custom.name}}"
+      href="{{{theme.fonts.options.custom.href}}}"
+    {{/if}}
+  />
+{{/if}}
 
 <!-- The following CSS will be inlined by MJML. Use it for
 styling basic HTML elements. Don't include anything that can't
@@ -46,12 +43,9 @@ the footer, headings/subheadings, social icons, etc.). -->
     margin="0"
     padding="0"
     font-family="
-    {{#eq fonts.options.mode 'sans-serif'}}
-      'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
-    {{/eq}}
-    {{#eq fonts.options.mode 'serif'}}
-      'Iowan Old Style', 'Apple Garamond', Baskerville, 'Times New Roman', 'Droid Serif', Times, 'Source Serif Pro', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
-    {{/eq}}
+    {{~#eq theme.fonts.options.base 'serif'}}{{internal.fonts.serif}}{{/eq}}
+    {{~#eq theme.fonts.options.base 'sans'}}{{internal.fonts.sans}}{{/eq}}
+    {{~#eq theme.fonts.options.base 'mono'}}{{internal.fonts.mono}}{{/eq}}
     "
     font-size="18px"
     color="#666"

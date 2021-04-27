@@ -9,36 +9,35 @@ fonts:
 
   options:
 
-    # Mode options:
-    #   'sans-serif'
+    # Base options:
+    #   'sans'
     #   'serif'
-    #   'google'
-    #   'custom'
+    #   'mono'
     #
-    # sans-serif, serif: Uses a stack of safe fonts (sans-serif or serif,
-    # respectively), for every OS and device. These will look similar, though not
-    # identical, across email systems. This method won't require any fonts to be
-    # downloaded, and thus your email will render more quickly. For more
-    # information about this approach, see:
+    # Sets a base font stack of safe fonts (sans-serif, serif, or monospaced,
+    # respectively), for every OS and device. These will look
+    # similar, though not identical, across email systems. For more information
+    # about this approach, see:
     # https://markdotto.com/2018/02/07/github-system-fonts/#the-stack
     # https://www.digitalocean.com/community/tutorials/css-system-font-stack
     # https://css-tricks.com/snippets/css/system-font-stack/
     # https://systemfontstack.com
     #
-    # google: Choose a Google Font and options, and this will automatically
-    # embed the font in a best-practice tag. Note that web fonts are only visible
-    # in a small number of email systems, so most people will be seeing your
-    # fallback (sans-serif or serif) font in their system UI font. For more
-    # information about this approach, see:
-    # https://www.litmus.com/blog/the-ultimate-guide-to-web-fonts/
-    # https://css-tricks.com/kinda-can-use-custom-fonts-html-emails/
-    #
-    # custom: Use this option to choose a non-Google web font, or to insert an
-    # already-crafted URI pointing to a font-loading CSS file.
-    mode: sans-serif
+    # If you don't enable 'google' or 'custom', below, these will be the only
+    # fonts used.
+    base: sans
 
-    # These settings only apply if 'google' is chosen above
     google:
+
+      # google: If enabled, choose a Google font and options, and this will
+      # automatically embed the font in a best-practice tag. Note that web fonts
+      # require an additional download (potentially slowing down loading) an
+      # are only visible in a small number of email systems, so most people will
+      # be seeing the base font set above. For more information about this
+      # approach, see:
+      # https://www.litmus.com/blog/the-ultimate-guide-to-web-fonts/
+      # https://css-tricks.com/kinda-can-use-custom-fonts-html-emails/
+      enabled: true
 
       # The name of the Google Font. Capitalization and spaces count!
       name: Source Sans Pro
@@ -51,8 +50,11 @@ fonts:
       # Whether to include an italic variant for each weight
       italics: true
 
-    # These settings only apply if 'custom' is chosen above
     custom:
+
+      # custom: If enabled, choose a non-Google web font, or use an
+      # already-crafted URI pointing to a font-loading CSS file.
+      enabled: false
 
       # The name of your custom font
       name: Example Custom Font
