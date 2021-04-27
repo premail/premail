@@ -9,7 +9,7 @@ const rename        = require('gulp-rename');
 const mjml          = require('gulp-mjml');
 const mjmlEngine    = require('mjml');
 
-const { mainConfig } = require('../functions/mainConfig.js');
+const { userConfig } = require('../functions/userConfig.js');
 const err            = require('../functions/err.js');
 const paths          = require('../vars/paths.js');
 const { log }        = require('../vars/log.js');
@@ -48,14 +48,14 @@ module.exports = function buildHTML(done) {
       .pipe(gulpif(prod,
         // Production
         mjml(mjmlEngine, {
-          fileExt: mainConfig.data.files.mjml.ext,
+          fileExt: userConfig.data.files.mjml.ext,
           beautify: false,
           minify: true,
           keepComments: false,
         }),
         // Development
         mjml(mjmlEngine, {
-          fileExt: mainConfig.data.files.mjml.ext,
+          fileExt: userConfig.data.files.mjml.ext,
           beautify: true,
         })
       ))

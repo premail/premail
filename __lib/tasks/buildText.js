@@ -9,7 +9,7 @@ const { htmlToText } = require('html-to-text');
 
 const err            = require('../functions/err.js');
 const paths          = require('../vars/paths.js');
-const { mainConfig } = require('../functions/mainConfig.js');
+const { userConfig } = require('../functions/userConfig.js');
 const { log }        = require('../vars/log.js');
 const { msg }        = require('../vars/notifications.js');
 const { prod }       = require('../vars/prod.js');
@@ -51,16 +51,16 @@ module.exports = function buildText(done) {
     }
 
     let configOpt = {
-      images: mainConfig.data.text.images,
+      images: userConfig.data.text.images,
       include: {
-        topNav:     mainConfig.data.text.include.topNav,
-        banner:     mainConfig.data.text.include.banner,
-        salutation: mainConfig.data.text.include.salutation,
+        topNav:     userConfig.data.text.include.topNav,
+        banner:     userConfig.data.text.include.banner,
+        salutation: userConfig.data.text.include.salutation,
         body:       true,
-        signoff:    mainConfig.data.text.include.signoff,
-        social:     mainConfig.data.text.include.social,
-        bottomNav:  mainConfig.data.text.include.bottomNav,
-        footer:     mainConfig.data.text.include.footer
+        signoff:    userConfig.data.text.include.signoff,
+        social:     userConfig.data.text.include.social,
+        bottomNav:  userConfig.data.text.include.bottomNav,
+        footer:     userConfig.data.text.include.footer
       }
     };
 

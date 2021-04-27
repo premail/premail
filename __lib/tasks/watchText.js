@@ -2,7 +2,7 @@
 
 const { watch, series } = require('gulp');
 
-const { mainConfig } = require('../functions/mainConfig.js');
+const { userConfig } = require('../functions/userConfig.js');
 const { text }       = require('../vars/text.js');
 const buildText      = require('../tasks/buildText.js');
 
