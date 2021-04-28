@@ -34,8 +34,6 @@ const buildHTML = require(taskDir + 'buildHTML.js')
 const watchHTML = require(taskDir + 'watchHTML.js')
 const buildText = require(taskDir + 'buildText.js')
 const watchText = require(taskDir + 'watchText.js')
-const formatTemplates = require(taskDir + 'formatTemplates.js')
-const formatStyles = require(taskDir + 'formatStyles.js')
 const removeTemp = require(taskDir + 'removeTemp.js')
 
 // Sets
@@ -74,13 +72,6 @@ exports.watchStyles.description = "Watches Sass files in the 'theme' directory."
 exports.watchText = watchText
 exports.watchText.description =
   'Watches rendered HTML file and regenerates plain-text version.'
-
-// Format
-exports.formatTemplates = formatTemplates
-exports.formatTemplates.description =
-  'Format your MJML templates with Prettier.'
-exports.formatStyles = formatStyles
-exports.formatStyles.description = 'Format your Sass code with Prettier.'
 
 // Debug
 exports.listTemplates = listTemplates

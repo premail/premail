@@ -212,8 +212,6 @@ configuration and files being processed.
 ├── watchHTML        Watches and renders HTML files for development (formatted, with comments).
 ├── watchStyles      Watches Sass files in the 'theme' directory.
 ├── watchText        Watches rendered HTML file and regenerates plain-text version.
-├── formatTemplates  Format your MJML templates with Prettier.
-├── formatStyles     Format your Sass code with Prettier.
 ├── listTemplates    List all templates that will be processed. Useful for debugging.
 ├── clean            Remove all generated files from the current design or email.
 └── removeTemp       Remove temporary files generated during individual tasks.
