@@ -1,6 +1,8 @@
 'use strict'
 
+/* eslint-disable no-unused-vars */
 const path = require('path')
+/* eslint-enable no-unused-vars */
 
 //
 // Resolve a path relative to the root project directory.

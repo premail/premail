@@ -1,5 +1,6 @@
 'use strict'
 
+/* eslint-disable no-unused-vars */
 const fs = require('fs')
 const yaml = require('js-yaml')
 
@@ -8,6 +9,7 @@ const { msg } = require('../vars/notifications.js')
 const paths = require('../vars/paths.js')
 const projectPath = require('../functions/projectPath.js')
 const getFiles = require('../functions/getFiles.js')
+/* eslint-enable no-unused-vars */
 
 //
 // Load internal config from ./__lib/config directory.
@@ -30,5 +32,5 @@ internalConfig.data = internalConfig.json
 // debug(msg.b('Internal configuration:\n') + JSON.stringify(internalConfig.json, null, 2).replace(/[\"{},]/g, ''));
 
 module.exports = {
-  internalConfig
+  internalConfig,
 }

@@ -6,9 +6,7 @@
 
 # Fonts
 fonts:
-
   options:
-
     # Base options:
     #   'sans'
     #   'serif'
@@ -28,7 +26,6 @@ fonts:
     base: sans
 
     google:
-
       # google: If enabled, choose a Google font and options, and this will
       # automatically embed the font in a best-practice tag. Note that web fonts
       # require an additional download (potentially slowing down loading) an
@@ -51,7 +48,6 @@ fonts:
       italics: true
 
     custom:
-
       # custom: If enabled, choose a non-Google web font, or use an
       # already-crafted URI pointing to a font-loading CSS file.
       enabled: false

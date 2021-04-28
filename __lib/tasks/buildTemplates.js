@@ -1,5 +1,6 @@
 'use strict'
 
+/* eslint-disable no-unused-vars */
 const fs = require('fs')
 const path = require('path')
 const yaml = require('js-yaml')
@@ -17,6 +18,7 @@ const projectPath = require('../functions/projectPath.js')
 const { log } = require('../vars/log.js')
 const { msg } = require('../vars/notifications.js')
 const { debug } = require('../vars/debug.js')
+/* eslint-enable no-unused-vars */
 
 //
 // Render Handlebars templates into HTML.
@@ -54,7 +56,8 @@ module.exports = function buildTemplates (done) {
     templateArray.push(template)
   }
 
-  const cssInlineFile = paths.theme.path + paths.theme.sassDir + '/' + config.internal.css.inline
+  const cssInlineFile =
+    paths.theme.path + paths.theme.sassDir + '/' + config.internal.css.inline
 
   fs.stat(cssInlineFile, function (err, stat) {
     if (err == null) {
@@ -66,7 +69,7 @@ module.exports = function buildTemplates (done) {
         // Create new template
         const template = fs.readFileSync(file, 'utf8')
         const format = Handlebars.compile(template, {
-          strict: true
+          strict: true,
         })
 
         // Use configuration settings as data in the templates
@@ -75,20 +78,33 @@ module.exports = function buildTemplates (done) {
         // Write the processed template
         // @TODO: Ensure this doesn't keep creating `.tmp` subdirectories of one
         // another ad nauseum.
-        const destPath = tempDir + path.relative(templatePath, file).replace(path.basename(file), '')
+        const destPath =
+          tempDir +
+          path.relative(templatePath, file).replace(path.basename(file), '')
 
         if (!fs.existsSync(destPath)) {
           fs.mkdirSync(destPath, { recursive: true })
         }
 
-        fs.writeFileSync(destPath + '/' + path.basename(file), processedTemplate)
+        fs.writeFileSync(
+          destPath + '/' + path.basename(file),
+          processedTemplate
+        )
 
         debug('Processed template file: ' + path.basename(file))
       }
 
-      debug(msg.b('Created temporary files at: ') + paths.design.path + paths.design.temp)
+      debug(
+        msg.b('Created temporary files at: ') +
+          paths.design.path +
+          paths.design.temp
+      )
     } else if (err.code === 'ENOENT') {
-      log(msg.error('Error building template files: CSS files do not exist. Run `gulp buildStyles` before running this task.'))
+      log(
+        msg.error(
+          'Error building template files: CSS files do not exist. Run `gulp buildStyles` before running this task.'
+        )
+      )
     } else {
       log(msg.error('Error: ' + err.code))
     }

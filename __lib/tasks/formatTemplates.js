@@ -1,5 +1,6 @@
 'use strict'
 
+/* eslint-disable no-unused-vars */
 const { src, dest } = require('gulp')
 const prettier = require('gulp-prettier')
 
@@ -7,6 +8,7 @@ const { userConfig } = require('../functions/userConfig.js')
 const err = require('../functions/err.js')
 const { log } = require('../vars/log.js')
 const { msg } = require('../vars/notifications.js')
+/* eslint-enable no-unused-vars */
 
 //
 // Format template files with Prettier.
@@ -14,12 +16,18 @@ const { msg } = require('../vars/notifications.js')
 
 module.exports = function formatTemplates () {
   return src('./**/*.' + userConfig.data.files.mjml.ext)
-    .pipe(prettier({
-      parser: 'html'
-    }))
+    .pipe(
+      prettier({
+        parser: 'html',
+      })
+    )
     .on('error', err.handleError)
     .pipe(dest(file => file.base))
     .on('finish', function (source) {
-      log(msg.info('All .' + userConfig.data.files.mjml.ext + ' templates reformatted.'))
+      log(
+        msg.info(
+          'All .' + userConfig.data.files.mjml.ext + ' templates reformatted.'
+        )
+      )
     })
 }

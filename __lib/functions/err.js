@@ -1,10 +1,12 @@
 'use strict'
 
+/* eslint-disable no-unused-vars */
 const PluginError = require('plugin-error')
 const sass = require('gulp-sass')
 
 const { log } = require('../vars/log.js')
 const { msg } = require('../vars/notifications.js')
+/* eslint-enable no-unused-vars */
 
 //
 // Set up error handling.
@@ -17,7 +19,10 @@ function handleError (err) {
 
 // Sprucing up sass.logError
 const sassError = function logError (error) {
-  const message = new PluginError('gulp-sass', error.messageFormatted).toString()
+  const message = new PluginError(
+    'gulp-sass',
+    error.messageFormatted
+  ).toString()
   log(msg.error('\nSass processing error'))
   log(`${message}\n`)
   this.emit('end')
@@ -25,5 +30,5 @@ const sassError = function logError (error) {
 
 module.exports = {
   handleError,
-  sassError
+  sassError,
 }

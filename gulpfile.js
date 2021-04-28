@@ -1,11 +1,13 @@
 'use strict'
 
+/* eslint-disable no-unused-vars */
 const { series, parallel } = require('gulp')
 
 const { userConfig } = require('./__lib/functions/userConfig.js')
 const { log } = require('./__lib/vars/log.js')
 const { msg } = require('./__lib/vars/notifications.js')
 const { debug } = require('./__lib/vars/debug.js')
+/* eslint-enable no-unused-vars */
 
 //
 // Test function for debugging
@@ -48,40 +50,45 @@ exports.default = series(
 
 exports.build = exports.default
 
-exports.watch = parallel(
-  watchStyles,
-  watchHTML,
-  watchText
-)
+exports.watch = parallel(watchStyles, watchHTML, watchText)
 
 // Build
 exports.buildHTML = buildHTML
-exports.buildHTML.description = 'Builds HTML files from MJML templates.\n                                  Options:\n                                    --prod: Renders a production file, minified and with HTML comments stripped out.\n                                    -d:     Specifies design folder to use. (Default: _templates)\n                                    -e:     Specifies email folder to render.'
+exports.buildHTML.description =
+  'Builds HTML files from MJML templates.\n                                  Options:\n                                    --prod: Renders a production file, minified and with HTML comments stripped out.\n                                    -d:     Specifies design folder to use. (Default: _templates)\n                                    -e:     Specifies email folder to render.'
 exports.buildText = buildText
 exports.buildText.description = 'Generates a plain-text version of the email.'
 exports.buildStyles = buildStyles
-exports.buildStyles.description = "Compiles Sass files in the 'theme' directory."
+exports.buildStyles.description =
+  "Compiles Sass files in the 'theme' directory."
 exports.buildTemplates = buildTemplates
-exports.buildTemplates.description = 'Builds MJML templates from Handlebars templates.'
+exports.buildTemplates.description =
+  'Builds MJML templates from Handlebars templates.'
 
 // Watch
 exports.watchHTML = watchHTML
-exports.watchHTML.description = 'Watches and renders HTML files for development (formatted, with comments).'
+exports.watchHTML.description =
+  'Watches and renders HTML files for development (formatted, with comments).'
 exports.watchStyles = watchStyles
 exports.watchStyles.description = "Watches Sass files in the 'theme' directory."
 exports.watchText = watchText
-exports.watchText.description = 'Watches rendered HTML file and regenerates plain-text version.'
+exports.watchText.description =
+  'Watches rendered HTML file and regenerates plain-text version.'
 
 // Format
 exports.formatTemplates = formatTemplates
-exports.formatTemplates.description = 'Format your MJML templates with Prettier.'
+exports.formatTemplates.description =
+  'Format your MJML templates with Prettier.'
 exports.formatStyles = formatStyles
 exports.formatStyles.description = 'Format your Sass code with Prettier.'
 
 // Debug
 exports.listTemplates = listTemplates
-exports.listTemplates.description = 'List all templates that will be processed. Useful for debugging.'
+exports.listTemplates.description =
+  'List all templates that will be processed. Useful for debugging.'
 exports.clean = clean
-exports.clean.description = 'Remove all generated files from the current design or email.'
+exports.clean.description =
+  'Remove all generated files from the current design or email.'
 exports.removeTemp = removeTemp
-exports.removeTemp.description = 'Remove temporary files generated during individual tasks.'
+exports.removeTemp.description =
+  'Remove temporary files generated during individual tasks.'

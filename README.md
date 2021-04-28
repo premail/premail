@@ -14,19 +14,20 @@ version, ready to import into your emailer of choice.
   this section. -->
 
 <!--ts-->
-* [Overview](#overview)
-   * [Requirements](#requirements)
-* [Setup](#setup)
-* [Usage](#usage)
-   * [Setting options](#setting-options)
-   * [Creating a new design](#creating-a-new-design)
-   * [Creating a new email from an existing design](#creating-a-new-email-from-an-existing-design)
-   * [Rendering the email for production](#rendering-the-email-for-production)
-   * [Formatting your code files](#formatting-your-code-files)
-* [Full list of options](#full-list-of-options)
-* [Known issues](#known-issues)
-* [Thanks and Sponsorships](#thanks-and-sponsorships)
-* [License](#license)
+
+- [Overview](#overview)
+  - [Requirements](#requirements)
+- [Setup](#setup)
+- [Usage](#usage)
+  - [Setting options](#setting-options)
+  - [Creating a new design](#creating-a-new-design)
+  - [Creating a new email from an existing design](#creating-a-new-email-from-an-existing-design)
+  - [Rendering the email for production](#rendering-the-email-for-production)
+  - [Formatting your code files](#formatting-your-code-files)
+- [Full list of options](#full-list-of-options)
+- [Known issues](#known-issues)
+- [Thanks and Sponsorships](#thanks-and-sponsorships)
+- [License](#license)
 
 <!-- Added by: runner, at: Mon Apr 26 02:15:29 UTC 2021 -->
 
@@ -65,10 +66,10 @@ have them installed.
   page and grab the most recent stable version. Alternatively, you can simply
   fork this repo and clone it locally.
 - Remove the `.github` folder if you are using your own GitHub repo and don't
-want [GitHub Actions](https://docs.github.com/en/actions) running on it.
+  want [GitHub Actions](https://docs.github.com/en/actions) running on it.
 - Install with `npm i`
 - MJML has [plugins](https://documentation.mjml.io/#applications-and-plugins)
-for Visual Studio Code, Atom, and Sublime Text 3.
+  for Visual Studio Code, Atom, and Sublime Text 3.
 
 # Usage
 

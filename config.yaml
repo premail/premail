@@ -18,9 +18,7 @@
 
 # 1. Folders
 folders:
-
   design:
-
     # Name of the folder for designs
     name: designs
 
@@ -28,35 +26,29 @@ folders:
     default: _templates
 
   theme:
-
     # Subdirectory of designs in which settings for styling are kept
     dir: theme
 
   email:
-
     # Name of the folder for individual emails
     name: emails
 
   output:
-
     # Subdirectory of emails in which to export HTML code
     dir: dist
 
 # 2. Files and file types
 files:
-
   # Main template file
   template: index.tpl
 
   mjml:
-
     # File extensions to process from MJML to HTML
     ext: tpl
 
 # @TODO: This should really go in an email-specific config file.
 # 3. Email-building options
 text:
-
   # Whether or not to generate a plain-text version. The subsequent options only
   # apply if this is set to "true".
   generate: true
@@ -68,10 +60,10 @@ text:
 
   # Whether to include the following elements in the plain-text version.
   include:
-    topNav:     true
-    banner:     true
+    topNav: true
+    banner: true
     salutation: true
-    signoff:    true
-    social:     true
-    bottomNav:  true
-    footer:     true
+    signoff: true
+    social: true
+    bottomNav: true
+    footer: true

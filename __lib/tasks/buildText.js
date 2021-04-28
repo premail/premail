@@ -1,5 +1,6 @@
 'use strict'
 
+/* eslint-disable no-unused-vars */
 const { src, dest } = require('gulp')
 const fs = require('fs')
 const path = require('path')
@@ -15,6 +16,7 @@ const { msg } = require('../vars/notifications.js')
 const { prod } = require('../vars/prod.js')
 const { text } = require('../vars/text.js')
 const { debug } = require('../vars/debug.js')
+/* eslint-enable no-unused-vars */
 
 //
 // Build a plain-text version of the HTML file.
@@ -44,8 +46,8 @@ module.exports = function buildText (done) {
       baseElement: [],
       tables: true,
       tags: {
-        img: {}
-      }
+        img: {},
+      },
     }
 
     const configOpt = {
@@ -58,8 +60,8 @@ module.exports = function buildText (done) {
         signoff: userConfig.data.text.include.signoff,
         social: userConfig.data.text.include.social,
         bottomNav: userConfig.data.text.include.bottomNav,
-        footer: userConfig.data.text.include.footer
-      }
+        footer: userConfig.data.text.include.footer,
+      },
     }
 
     if (!configOpt.images) {
@@ -76,7 +78,10 @@ module.exports = function buildText (done) {
       if (err == null) {
         if (debug) {
           debug(msg.b('Plain-text source:\n') + sourceFile)
-          debug(msg.b('\nPlain-text options configuration:\n') + JSON.stringify(configOpt, null, 2).replace(/[\"{},]/g, ''))
+          debug(
+            msg.b('\nPlain-text options configuration:\n') +
+              JSON.stringify(configOpt, null, 2).replace(/["{},]/g, '')
+          )
         }
 
         const html = fs.readFileSync(sourceFile, { encoding: 'utf-8' })
@@ -97,7 +102,11 @@ module.exports = function buildText (done) {
 
         log(msg.info(msg.b('Plain-text version saved:\n') + destFile))
       } else if (err.code === 'ENOENT') {
-        log(msg.error('Error building text version: index.html does not exist. Run `gulp buildHTML` before running this task.'))
+        log(
+          msg.error(
+            'Error building text version: index.html does not exist. Run `gulp buildHTML` before running this task.'
+          )
+        )
       } else {
         log(msg.error('Error: ' + err.code))
       }

@@ -1,5 +1,6 @@
 'use strict'
 
+/* eslint-disable no-unused-vars */
 const fs = require('fs')
 const yaml = require('js-yaml')
 
@@ -7,15 +8,21 @@ const { debug } = require('../vars/debug.js')
 const { msg } = require('../vars/notifications.js')
 const { log } = require('../vars/log.js')
 const paths = require('../vars/paths.js')
+/* eslint-enable no-unused-vars */
 
 //
 // Load theme config from YAML file.
 //
 
 const themeConfig = {}
-themeConfig.json = yaml.loadAll(fs.readFileSync(paths.theme.path + '/themeConfig.yaml', { encoding: 'utf-8' }))
+themeConfig.json = yaml.loadAll(
+  fs.readFileSync(paths.theme.path + '/themeConfig.yaml', { encoding: 'utf-8' })
+)
 themeConfig.data = themeConfig.json[0]
-debug(msg.b('Design configuration:\n') + JSON.stringify(themeConfig.data, null, 2).replace(/[\"{},\[\]]/g, ''))
+debug(
+  msg.b('Design configuration:\n') +
+    JSON.stringify(themeConfig.data, null, 2).replace(/["{},[\]]/g, '')
+)
 
 //
 // Construct additional variables dependent on theme config.
@@ -23,7 +30,10 @@ debug(msg.b('Design configuration:\n') + JSON.stringify(themeConfig.data, null, 
 
 function constructVars () {
   // Web font
-  if ((themeConfig.data.fonts.options.google.enabled) || (themeConfig.data.fonts.options.custom.enabled)) {
+  if (
+    themeConfig.data.fonts.options.google.enabled ||
+    themeConfig.data.fonts.options.custom.enabled
+  ) {
     themeConfig.data.fonts.web = true
   }
 
@@ -53,17 +63,22 @@ function constructVars () {
       }
     }
 
-    specs += weights.reduce((s, x, i) => s + (i > 0 ? ';' : '') + (x == null ? '' : x), '')
+    specs += weights.reduce(
+      (s, x, i) => s + (i > 0 ? ';' : '') + (x == null ? '' : x),
+      ''
+    )
 
     themeConfig.data.fonts.options.google.href =
       'https://fonts.googleapis.com/css2?family=' +
       themeConfig.data.fonts.options.google.name.replace(/\s/g, '+') +
-      ':' + specs + '&amp;display=swap'
+      ':' +
+      specs +
+      '&amp;display=swap'
   }
 }
 
 constructVars()
 
 module.exports = {
-  themeConfig
+  themeConfig,
 }

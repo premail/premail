@@ -1,5 +1,6 @@
 'use strict'
 
+/* eslint-disable no-unused-vars */
 const { src, dest } = require('gulp')
 const fs = require('fs')
 const path = require('path')
@@ -16,6 +17,7 @@ const { log } = require('../vars/log.js')
 const { msg } = require('../vars/notifications.js')
 const { prod } = require('../vars/prod.js')
 const { debug } = require('../vars/debug.js')
+/* eslint-enable no-unused-vars */
 
 //
 // Build HTML files from MJML source files.
@@ -43,20 +45,23 @@ module.exports = function buildHTML (done) {
   fs.stat(sourceFile, function (err, stat) {
     if (err == null) {
       src(sourceFile)
-        .pipe(gulpif(prod,
-        // Production
-          mjml(mjmlEngine, {
-            fileExt: userConfig.data.files.mjml.ext,
-            beautify: false,
-            minify: true,
-            keepComments: false
-          }),
-          // Development
-          mjml(mjmlEngine, {
-            fileExt: userConfig.data.files.mjml.ext,
-            beautify: true
-          })
-        ))
+        .pipe(
+          gulpif(
+            prod,
+            // Production
+            mjml(mjmlEngine, {
+              fileExt: userConfig.data.files.mjml.ext,
+              beautify: false,
+              minify: true,
+              keepComments: false,
+            }),
+            // Development
+            mjml(mjmlEngine, {
+              fileExt: userConfig.data.files.mjml.ext,
+              beautify: true,
+            })
+          )
+        )
         .on('finish', function (source) {
           debug(msg.b('HTML source:\n') + sourceFile)
         })
@@ -64,11 +69,19 @@ module.exports = function buildHTML (done) {
         .on('finish', function (source) {
           log(msg.info(msg.b('HTML version saved:\n') + destFile))
           if (prod) {
-            log(msg.warn(msg.b('Production:') + ' Minified with HTML comments stripped.'))
+            log(
+              msg.warn(
+                msg.b('Production:') + ' Minified with HTML comments stripped.'
+              )
+            )
           }
         })
     } else if (err.code === 'ENOENT') {
-      log(msg.error('Error building HTML files: Main template file does not exist. Run `gulp buildTemplates` before running this task.'))
+      log(
+        msg.error(
+          'Error building HTML files: Main template file does not exist. Run `gulp buildTemplates` before running this task.'
+        )
+      )
     } else {
       log(msg.error('Error: ' + err.code))
     }
