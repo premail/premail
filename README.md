@@ -25,11 +25,12 @@ version, ready to import into your emailer of choice.
    * [Rendering the email for production](#rendering-the-email-for-production)
    * [Formatting your code files](#formatting-your-code-files)
 * [Full list of options](#full-list-of-options)
+   * [Disabling code formatting and linting](#disabling-code-formatting-and-linting)
 * [Known issues](#known-issues)
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Wed Apr 28 22:52:13 UTC 2021 -->
+<!-- Added by: runner, at: Wed Apr 28 22:58:50 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
