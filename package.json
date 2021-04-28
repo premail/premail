@@ -4,7 +4,10 @@
   "description": "A quick-start setup for those writing email code in MJML, the email templating language.",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "npx standard --verbose | snazzy"
+    "test": "modern test",
+    "format": "modern format",
+    "lint": "modern lint",
+    "precommit": "modern precommit"
   },
   "repository": {
     "type": "git",
@@ -47,7 +50,6 @@
     "sass": "^1.32.8"
   },
   "devDependencies": {
-    "snazzy": "^9.0.0",
-    "standard": "^16.0.3"
+    "modern-node": "^2.9.0"
   }
 }
