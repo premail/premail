@@ -164,13 +164,21 @@ Once the production email is rendered, you can:
 - use the plain-text version, if you've chosen to have one created, in the
   appropriate place provided by your emailer
 
-## Formatting your code files
+## Automatic code formatting and linting
 
-Run `gulp formatTemplates` to auto-format all of your `.tpl` files using
-[Prettier](https://prettier.io/).
+mjml-quickstart includes
+[sheerun/modern-node](https://github.com/sheerun/modern-node), which formats and
+lints code using [Prettier](https://prettier.io/). This will warn you about
+errors in your HTML, Sass or CSS syntax.
 
-Run `gulp formatStyles` to auto-format all of your `.scss` files using
-[Prettier](https://prettier.io/).
+It will not attempt to format or lint files in the `dist` directories.
+
+You can run this process using `npm run format`. It will also run on every git
+commit.
+
+If you don't want this check on commits, remove the `precommit` hook in
+[package.json](package.json). You can also remove the package entirely with
+`npm uninstall modern-node --save-dev`.
 
 # Full list of options
 
@@ -217,16 +225,6 @@ configuration and files being processed.
 └── removeTemp       Remove temporary files generated during individual tasks.
 
 ```
-
-## Disabling code formatting and linting
-
-mjml-quickstart includes
-[sheerun/modern-node](https://github.com/sheerun/modern-node), which runs code
-formatting and linting checks as a precommit hook. These do not run on generated
-files, but _will_ run on, for instance, your MJML and Sass/CSS files. If you
-don't want this, remove the `precommit` hook in [package.json](package.json), or
-remove the package entirely by running `npm uninstall modern-node --save-dev` on
-the command line.
 
 # Known issues
 
