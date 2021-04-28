@@ -12,6 +12,7 @@ version, ready to import into your emailer of choice.
 <!-- The following section, from "ts" to "te", is an automatically-generated
   table of contents, updated whenever this file changes. Do not edit within
   this section. -->
+<!-- prettier-ignore-start -->
 
 <!--ts-->
 * [Overview](#overview)
@@ -31,6 +32,7 @@ version, ready to import into your emailer of choice.
 <!-- Added by: runner, at: Wed Apr 28 22:32:28 UTC 2021 -->
 
 <!--te-->
+<!-- prettier-ignore-end -->
 
 # Overview
 
