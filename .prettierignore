@@ -8,7 +8,8 @@ LICENSE*
 LICENSE*.*
 
 # Builds
-dist/*
+dist
+inline.css
 
 # Sass caches and maps
 .sass-cache/
