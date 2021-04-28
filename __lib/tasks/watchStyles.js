@@ -1,14 +1,14 @@
-'use strict';
+'use strict'
 
-const { watch, series } = require('gulp');
+const { watch, series } = require('gulp')
 
-const paths       = require('../vars/paths.js');
-const buildStyles = require('../tasks/buildStyles.js');
+const paths = require('../vars/paths.js')
+const buildStyles = require('../tasks/buildStyles.js')
 
 //
 // Watch Sass source files and trigger build.
 //
 
-module.exports = function watchStyles() {
-  watch(paths.sassDir + '**/*.scss', series('buildStyles'));
+module.exports = function watchStyles () {
+  watch(paths.sassDir + '**/*.scss', series('buildStyles'))
 }

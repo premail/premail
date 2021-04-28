@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const chalk = require('chalk');
+const chalk = require('chalk')
 
 //
 // Set notification formats.
@@ -8,12 +8,12 @@ const chalk = require('chalk');
 
 const msg = {
   error: chalk.bgRed.bold.white,
-  warn:  chalk.bgYellow.black,
-  info:  chalk.hex('#37fd38'),
+  warn: chalk.bgYellow.black,
+  info: chalk.hex('#37fd38'),
   debug: chalk.keyword('aqua'),
-  b:     chalk.bold
+  b: chalk.bold
 }
 
 module.exports = {
   msg
-};
+}

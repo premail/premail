@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-const path = require('path');
+const path = require('path')
 
 //
 // Resolve a path relative to the root project directory.
@@ -13,6 +13,6 @@ const path = require('path');
 // https://github.com/vigetlabs/blendid/blob/master/gulpfile.js/lib/projectPath.js
 //
 
-module.exports = function projectPath(...paths) {
-  return path.resolve(process.env.INIT_CWD, ...paths);
+module.exports = function projectPath (...paths) {
+  return path.resolve(process.env.INIT_CWD, ...paths)
 }

@@ -1,35 +1,35 @@
-'use strict';
+'use strict'
 
-const path = require('path');
+const path = require('path')
 
-const { userConfig } = require('../functions/userConfig.js');
-const { arg }        = require('../functions/arg.js');
-const projectPath    = require('../functions/projectPath.js');
-const getFiles       = require('../functions/getFiles.js');
+const { userConfig } = require('../functions/userConfig.js')
+const { arg } = require('../functions/arg.js')
+const projectPath = require('../functions/projectPath.js')
+const getFiles = require('../functions/getFiles.js')
 
 //
 // Construct fully-qualified paths based on CLI arguments, if any.
 //
 
 // Get arguments from command line
-let currentDesign = userConfig.data.folders.design.default;
+let currentDesign = userConfig.data.folders.design.default
 
 if (arg.d) {
-  currentDesign = arg.d;
+  currentDesign = arg.d
 }
 
-let currentEmail = '';
+let currentEmail = ''
 
 if (arg.e) {
-  currentEmail = arg.e;
+  currentEmail = arg.e
 }
 
 // Set fully qualified paths
-let __base = projectPath(__dirname, '../../');
-let __lib  = projectPath(__base, '__lib/');
-let __temp = '/.tmp/';
+const __base = projectPath(__dirname, '../../')
+const __lib = projectPath(__base, '__lib/')
+const __temp = '/.tmp/'
 
-let design = {
+const design = {
   name: currentDesign,
   path: projectPath(__base, userConfig.data.folders.design.name, currentDesign),
   file: 'index.' + userConfig.data.files.mjml.ext,
@@ -37,7 +37,7 @@ let design = {
   temp: __temp
 }
 
-let email = {
+const email = {
   name: currentEmail,
   path: projectPath(__base, userConfig.data.folders.email.name, currentEmail),
   file: 'index.' + userConfig.data.files.mjml.ext,
@@ -45,7 +45,7 @@ let email = {
   temp: __temp
 }
 
-let theme = {
+const theme = {
   name: userConfig.data.folders.theme.dir,
   path: projectPath(__base, userConfig.data.folders.design.name, currentDesign, userConfig.data.folders.theme.dir),
   sassDir: '/sass'
@@ -75,22 +75,22 @@ let theme = {
 // const name = prompt('What is your name? ');
 // console.log(`Hey there ${name}`);
 
-let templates = {
+const templates = {
   path: design.path + '/'
 }
 
-templates.array = getFiles(templates.path, userConfig.data.files.mjml.ext);
-templates.list = templates.array.toString().split(',').join('\n');
-templates.main = templates.path + userConfig.data.files.template;
+templates.array = getFiles(templates.path, userConfig.data.files.mjml.ext)
+templates.list = templates.array.toString().split(',').join('\n')
+templates.main = templates.path + userConfig.data.files.template
 templates.partials = templates.array
-    .filter(function(value){
-      return value !== templates.main;
-    })
-    .toString().split(',').join('\n');
+  .filter(function (value) {
+    return value !== templates.main
+  })
+  .toString().split(',').join('\n')
 
 module.exports = {
   design,
   email,
   theme,
   templates
-};
+}
