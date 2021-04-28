@@ -37,18 +37,16 @@ if (themeConfig.data.fonts.options.google.enabled) {
 
   let specs = '';
 
-  if (themeConfig.data.fonts.options.google.italics) {
-    for(let weight of weights){
-      weight = '0,' + weight;
-      weights.push(weight);
-    }
-    specs = 'ital,wght@' + weights.reduce( (s,x,i) => s+(i>0 ? ';' : '') + (x==null ? '' : x), '');
-    log(specs);
+  // if (themeConfig.data.fonts.options.google.italics) {
+  //   for(let weight of weights){
+  //     weight = '0,' + weight;
+  //     weights.push(weight);
+  //   }
+  //   specs = 'ital,wght@' + weights.reduce( (s,x,i) => s+(i>0 ? ';' : '') + (x==null ? '' : x), '');
 
-  } else {
-    specs = 'wght@' + weights.reduce( (s,x,i) => s+(i>0 ? ';' : '') + (x==null ? '' : x), '');
-    log(specs);
-  }
+  // } else {
+  //   specs = 'wght@' + weights.reduce( (s,x,i) => s+(i>0 ? ';' : '') + (x==null ? '' : x), '');
+  // }
 
   themeConfig.data.fonts.options.google.href =
     'https://fonts.googleapis.com/css2?family=' +
