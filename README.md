@@ -121,21 +121,21 @@ Within each design directory, you'll find the following:
   area.
 - `theme`: This directory contains the CSS attributes that, ideally, _will not_
   change from project to project.
-- `dist`: This directory contains the output `index.html` for you to use.
+- `dist`: This directory contains the output `index.html` (and optionally a
+  plain-text `index.txt` file) for you to use.
 
 In your console, run `gulp watch` with the `-d` option, followed by the
 directory name of your design. Using the example above with a design named
 "postmodern", you'd run `gulp watch -d postmodern`.
 
 This will watch for any changes in any `index.tpl` files (including any
-partials referenced with `<mj-include>`), and re-render the `index.html` file in
+partials referenced with `<mj-include>`), and re-render the `index` files in
 unminified form in the `dist` subdirectory of your design. You can leave a web
 browser open to this page.
 
 If you don't want to continuously watch your files, use `gulp build`, or just
 `gulp` instead. Again using the "postmodern" example, that would be
-`gulp build -d postmodern`. This will create the `index.html` file and then
-stop.
+`gulp build -d postmodern`. This will create the `index` files and then stop.
 
 ## Creating a new email from an existing design
 
@@ -150,26 +150,26 @@ in the `dist` subdirectory.
 
 Images can be included locally while you're drafting the email, but MJML doesn't
 do anything magical in terms of hosting these images -- you'll still have to
-upload them somewhere and change the references to the hosted images.
+upload them somewhere and use the full URLs as references to the hosted images.
 
 Once the production email is rendered, you can:
 
 - import directly (as HTML) into your emailer of choice
-- share the `index.html` file with colleagues
+- share the `index` files with colleagues
 - upload the file as part of a repo and use something like
   [GitHub Pages](https://pages.github.com/) to view/share it in a browser; for
   instance
   [here's the rendered file](https://rootwork.github.io/mjml-quickstart/designs/_templates/dist/index.html)
   from the sample templates
-- use the plain-text version, if you've chosen to have one created, in the
-  appropriate place provided by your emailer
+- use the `index.txt` plain-text version, if you've chosen to have one created,
+  in the appropriate place provided by your emailer
 
 ## Automatic code formatting and linting
 
 mjml-quickstart includes
 [sheerun/modern-node](https://github.com/sheerun/modern-node), which formats and
 lints code using [Prettier](https://prettier.io/). This will warn you about
-errors in your HTML, Sass or CSS syntax.
+errors in the HTML, Sass or CSS syntax of your designs or emails.
 
 It will not attempt to format or lint files in the `dist` directories.
 
