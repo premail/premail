@@ -39,16 +39,13 @@ module.exports = function buildTemplates(done) {
     templatePath = paths.design.path;
   }
 
-  // Designate destination
-  let destDir;
+  // Establish temporary directory.
   let tempDir;
 
   if (paths.email.name) {
     tempDir = paths.email.path + paths.email.temp;
-    destDir = paths.email.path;
   } else {
     tempDir = paths.design.path + paths.design.temp;
-    destDir = paths.design.path;
   }
 
   // Load all templates
@@ -79,6 +76,8 @@ module.exports = function buildTemplates(done) {
         const processedTemplate = format(config);
 
         // Write the processed template
+        // @TODO: Ensure this doesn't keep creating `.tmp` subdirectories of one
+        // another ad nauseum.
         const destPath = tempDir + path.relative(templatePath, file).replace(path.basename(file), '');
 
         if (!fs.existsSync(destPath)){

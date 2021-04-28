@@ -21,47 +21,54 @@ debug(msg.b('Design configuration:\n') + JSON.stringify(themeConfig.data, null, 
 // Construct additional variables dependent on theme config.
 //
 
-// Web font
-if ((themeConfig.data.fonts.options.google.enabled) || (themeConfig.data.fonts.options.custom.enabled)) {
-  themeConfig.data.fonts.web = true;
-}
+function constructVars() {
 
-// Google Font URI
-// encodeURI()
-if (themeConfig.data.fonts.options.google.enabled) {
-
-  let weights = [];
-  for(let weight of themeConfig.data.fonts.options.google.weights){
-    weights.push(weight);
+  // Web font
+  if ((themeConfig.data.fonts.options.google.enabled) || (themeConfig.data.fonts.options.custom.enabled)) {
+    themeConfig.data.fonts.web = true;
   }
 
-  let specs = '';
+  // Google Font URI
+  // encodeURI()
+  if (themeConfig.data.fonts.options.google.enabled) {
 
-  // if (themeConfig.data.fonts.options.google.italics) {
-  //   for(let weight of weights){
-  //     weight = '0,' + weight;
-  //     weights.push(weight);
-  //   }
-  //   specs = 'ital,wght@' + weights.reduce( (s,x,i) => s+(i>0 ? ';' : '') + (x==null ? '' : x), '');
+    let weights = [];
+    let specs;
 
-  // } else {
-  //   specs = 'wght@' + weights.reduce( (s,x,i) => s+(i>0 ? ';' : '') + (x==null ? '' : x), '');
-  // }
+    if (themeConfig.data.fonts.options.google.italics) {
+      specs = 'ital,wght@';
 
-  themeConfig.data.fonts.options.google.href =
-    'https://fonts.googleapis.com/css2?family=' +
-    themeConfig.data.fonts.options.google.name.replace(/\s/g, '+') +
-    ':' + specs + '&amp;display=swap';
+      for(let weight of themeConfig.data.fonts.options.google.weights){
+        weight = '0,' + weight;
+        weights.push(weight);
+      }
+
+      for(let weight of themeConfig.data.fonts.options.google.weights){
+        weight = '1,' + weight;
+        weights.push(weight);
+      }
+
+    } else {
+      specs = 'wght@';
+
+      for(let weight of themeConfig.data.fonts.options.google.weights){
+        weights.push(weight);
+      }
+    }
+
+    specs += weights.reduce( (s,x,i) => s+(i>0 ? ';' : '') + (x==null ? '' : x), '');
+
+    themeConfig.data.fonts.options.google.href =
+      'https://fonts.googleapis.com/css2?family=' +
+      themeConfig.data.fonts.options.google.name.replace(/\s/g, '+') +
+      ':' + specs + '&amp;display=swap';
+  }
+
+return;
+
 }
 
-// One weight:
-// <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap" rel="stylesheet">
-// Two weights:
-// <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
-// One weight and italics:
-// <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-// Two weights and italics:
-// <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet">
+constructVars();
 
 module.exports = {
   themeConfig

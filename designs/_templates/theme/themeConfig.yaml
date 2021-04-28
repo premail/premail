@@ -42,7 +42,7 @@ fonts:
       # The name of the Google Font. Capitalization and spaces count!
       name: Source Sans Pro
 
-      # The font weight(s) you want to use:
+      # The font weight(s) you want to use (enter in ascending order):
       weights:
         - 400
         - 900
