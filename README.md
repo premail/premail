@@ -219,6 +219,15 @@ configuration and files being processed.
 
 ```
 
+## Disabling code formatting and linting
+
+mjml-quickstart includes
+[sheerun/modern-node](https://github.com/sheerun/modern-node), which runs code
+formatting and linting checks as a precommit hook. These do not run on generated
+files, but will run on, for instance, your MJML and Sass/CSS files. If you don't
+want this, you remove the `precommit` hook in [package.json](package.json), or
+remove the package entirely by running `npm uninstall modern-node --save-dev`.
+
 # Known issues
 
 - [Gulp output includes MJML depreciation notices](https://github.com/mjmlio/mjml/issues/2205)
