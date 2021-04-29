@@ -39,12 +39,8 @@ folders:
 
 # 2. Files and file types
 files:
-  # Main template file
+  # Name of the main template file
   template: index.tpl
-
-  mjml:
-    # File extensions to process from MJML to HTML
-    ext: tpl
 
 # @TODO: This should really go in an email-specific config file.
 # 3. Email-building options

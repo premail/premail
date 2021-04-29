@@ -33,7 +33,7 @@ const __temp = '/.tmp/'
 const design = {
   name: currentDesign,
   path: projectPath(__base, userConfig.data.folders.design.name, currentDesign),
-  file: 'index.' + userConfig.data.files.mjml.ext,
+  file: userConfig.data.files.template,
   dist: projectPath(
     __base,
     userConfig.data.folders.design.name,
@@ -46,7 +46,7 @@ const design = {
 const email = {
   name: currentEmail,
   path: projectPath(__base, userConfig.data.folders.email.name, currentEmail),
-  file: 'index.' + userConfig.data.files.mjml.ext,
+  file: userConfig.data.files.template,
   dist: projectPath(
     __base,
     userConfig.data.folders.email.name,
@@ -95,7 +95,7 @@ const templates = {
   path: design.path + '/',
 }
 
-templates.array = getFiles(templates.path, userConfig.data.files.mjml.ext)
+templates.array = getFiles(templates.path, userConfig.data.files.templateExt)
 templates.list = templates.array
   .toString()
   .split(',')

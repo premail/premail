@@ -50,14 +50,14 @@ module.exports = function buildHTML (done) {
             prod,
             // Production
             mjml(mjmlEngine, {
-              fileExt: userConfig.data.files.mjml.ext,
+              fileExt: userConfig.data.files.templateExt,
               beautify: false,
               minify: true,
               keepComments: false,
             }),
             // Development
             mjml(mjmlEngine, {
-              fileExt: userConfig.data.files.mjml.ext,
+              fileExt: userConfig.data.files.templateExt,
               beautify: true,
             })
           )

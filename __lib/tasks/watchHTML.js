@@ -12,5 +12,5 @@ const buildHTML = require('../tasks/buildHTML.js')
 //
 
 module.exports = function watchHTML () {
-  watch('./**/*' + userConfig.data.files.mjml.ext, buildHTML)
+  watch('./**/*' + userConfig.data.files.templateExt, buildHTML)
 }
