@@ -1,6 +1,11 @@
 A quick-start setup for those writing email code in [MJML](https://mjml.io/),
 the email templating language, using Node and Gulp.
 
+![Checks](https://img.shields.io/github/checks-status/rootwork/mjml-quickstart/main.svg)
+![Last commit](https://img.shields.io/github/last-commit/rootwork/mjml-quickstart.svg)
+[![Node ^10.23.2](https://img.shields.io/badge/node-%5E10.23.2-brightgreen.svg)](https://nodejs.org/en/download/)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 The templates included are
 [valid](https://mjml.io/documentation/#validating-mjml) under
 [MJML version 4](https://github.com/mjmlio/mjml/releases).
@@ -54,7 +59,7 @@ provider's system.
 
 ## Requirements
 
-You need to have at least [Node](https://nodejs.org/en/download/) 10.10.0. This
+You need to have at least [Node](https://nodejs.org/en/download/) 10.23.2. This
 tool uses
 [Gulp](https://gulpjs.com/docs/en/getting-started/quick-start) 4.0.2+ and
 [MJML](https://github.com/mjmlio/mjml/releases) 4.9.1+, but these are installed
