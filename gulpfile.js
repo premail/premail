@@ -30,6 +30,7 @@ const buildStyles = require(taskDir + 'buildStyles.js')
 const watchStyles = require(taskDir + 'watchStyles.js')
 const buildTemplates = require(taskDir + 'buildTemplates.js')
 const listTemplates = require(taskDir + 'listTemplates.js')
+const formatTemplates = require(taskDir + 'formatTemplates.js')
 const buildHTML = require(taskDir + 'buildHTML.js')
 const watchHTML = require(taskDir + 'watchHTML.js')
 const buildText = require(taskDir + 'buildText.js')
@@ -41,6 +42,7 @@ exports.default = series(
   cleanTemp,
   cleanGen,
   buildStyles,
+  formatTemplates,
   buildTemplates,
   buildHTML,
   buildText,
@@ -80,6 +82,10 @@ exports.watchHTML.description =
 exports.watchText = watchText
 exports.watchText.description =
   'Watch rendered HTML file and rebuild plain-text version on changes.'
+
+// Format
+exports.formatTemplates = formatTemplates
+exports.formatTemplates.description = 'Format MJML templates with Prettier.'
 
 // Clean
 exports.cleanTemp = cleanTemp

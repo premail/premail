@@ -5,7 +5,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "test": "modern test",
-    "format": "modern format",
+    "format": "modern format && prettier -w '**/*.{tpl,mjml}' --parser html",
     "lint": "modern lint",
     "precommit": "modern precommit",
     "readme": "markdown-exec ./README.md"
@@ -48,6 +48,7 @@
     "mjml": "^4.9.1",
     "npm": "^7.8.0",
     "plugin-error": "^1.0.1",
+    "prettier": "^2.2.1",
     "pretty-error": "^3.0.3",
     "sass": "^1.32.8"
   },
