@@ -189,7 +189,11 @@ configuration and files being processed.
 <!-- prettier-ignore-start -->
 <!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && gulp --tasks | grep -Po "[├│└].*|^[\s].*" && echo '```\n<'!'-- '-'->') --><!-- -->
 ```
-├─┬ default
+├─┬ default         Render a complete HTML email based on design and email templates.
+                                  Options:
+                                    --prod: Render production files (minified, no comments).
+                                    -d:     Specify design folder to use. (Default: _templates)
+                                    -e:     Specify email folder to render.
 │ └─┬ <series>
 │   ├── cleanTemp
 │   ├── cleanGen
@@ -198,7 +202,11 @@ configuration and files being processed.
 │   ├── buildHTML
 │   ├── buildText
 │   └── cleanTemp
-├─┬ build
+├─┬ build           Render a complete HTML email based on design and email templates.
+                                  Options:
+                                    --prod: Render production files (minified, no comments).
+                                    -d:     Specify design folder to use. (Default: _templates)
+                                    -e:     Specify email folder to render.
 │ └─┬ <series>
 │   ├── cleanTemp
 │   ├── cleanGen
@@ -207,27 +215,23 @@ configuration and files being processed.
 │   ├── buildHTML
 │   ├── buildText
 │   └── cleanTemp
-├─┬ watch
+├─┬ watch           Watch both design and template files and rebuild (formatted, with comments) as necessary.
 │ └─┬ <parallel>
 │   ├── watchStyles
 │   ├── watchHTML
 │   └── watchText
-├── buildHTML       Builds HTML files from MJML templates.
-                                  Options:
-                                    --prod: Renders a production file, minified and with HTML comments stripped out.
-                                    -d:     Specifies design folder to use. (Default: _templates)
-                                    -e:     Specifies email folder to render.
-├── buildText       Generates a plain-text version of the email.
-├── buildStyles     Compiles Sass files in the 'theme' directory.
-├── buildTemplates  Builds MJML templates from Handlebars templates.
-├── watchHTML       Watches and renders HTML files for development (formatted, with comments).
-├── watchStyles     Watches Sass files in the 'theme' directory.
-├── watchText       Watches rendered HTML file and regenerates plain-text version.
-├── listTemplates   List all templates that will be processed. Useful for debugging.
 ├─┬ clean           Remove all generated and temporary files from the current design or email.
 │ └─┬ <parallel>
 │   ├── cleanTemp
 │   └── cleanGen
+├── buildStyles     Build CSS files from Sass files in the "theme" folder.
+├── buildTemplates  Build MJML templates from Handlebars templates.
+├── buildHTML       Build HTML files from MJML templates.
+├── buildText       Generate a plain-text version of the email.
+├── watchStyles     Watch Sass and rebuild CSS files on changes.
+├── watchHTML       Watch templates and rebuild HTML files on changes.
+├── watchText       Watch rendered HTML file and rebuild plain-text version on changes.
+├── listTemplates   List all templates that will be processed. Useful for debugging.
 ├── cleanTemp       Remove temporary files from the current design or email.
 └── cleanGen        Remove generated files from the current design or email.
 ```

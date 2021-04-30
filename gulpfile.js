@@ -48,39 +48,43 @@ exports.default = series(
 )
 
 exports.build = exports.default
+exports.build.description =
+  'Render a complete HTML email based on design and email templates.\n                                  Options:\n                                    --prod: Render production files (minified, no comments).\n                                    -d:     Specify design folder to use. (Default: _templates)\n                                    -e:     Specify email folder to render.'
 
 exports.watch = parallel(watchStyles, watchHTML, watchText)
+exports.watch.description =
+  'Watch both design and template files and rebuild (formatted, with comments) as necessary.'
+
+exports.clean = parallel(cleanTemp, cleanGen)
+exports.clean.description =
+  'Remove all generated and temporary files from the current design or email.'
 
 // Build
-exports.buildHTML = buildHTML
-exports.buildHTML.description =
-  'Builds HTML files from MJML templates.\n                                  Options:\n                                    --prod: Renders a production file, minified and with HTML comments stripped out.\n                                    -d:     Specifies design folder to use. (Default: _templates)\n                                    -e:     Specifies email folder to render.'
-exports.buildText = buildText
-exports.buildText.description = 'Generates a plain-text version of the email.'
 exports.buildStyles = buildStyles
 exports.buildStyles.description =
-  "Compiles Sass files in the 'theme' directory."
+  'Build CSS files from Sass files in the "theme" folder.'
 exports.buildTemplates = buildTemplates
 exports.buildTemplates.description =
-  'Builds MJML templates from Handlebars templates.'
+  'Build MJML templates from Handlebars templates.'
+exports.buildHTML = buildHTML
+exports.buildHTML.description = 'Build HTML files from MJML templates.'
+exports.buildText = buildText
+exports.buildText.description = 'Generate a plain-text version of the email.'
 
 // Watch
+exports.watchStyles = watchStyles
+exports.watchStyles.description = 'Watch Sass and rebuild CSS files on changes.'
 exports.watchHTML = watchHTML
 exports.watchHTML.description =
-  'Watches and renders HTML files for development (formatted, with comments).'
-exports.watchStyles = watchStyles
-exports.watchStyles.description = "Watches Sass files in the 'theme' directory."
+  'Watch templates and rebuild HTML files on changes.'
 exports.watchText = watchText
 exports.watchText.description =
-  'Watches rendered HTML file and regenerates plain-text version.'
+  'Watch rendered HTML file and rebuild plain-text version on changes.'
 
 // Debug
 exports.listTemplates = listTemplates
 exports.listTemplates.description =
   'List all templates that will be processed. Useful for debugging.'
-exports.clean = parallel(cleanTemp, cleanGen)
-exports.clean.description =
-  'Remove all generated and temporary files from the current design or email.'
 exports.cleanTemp = cleanTemp
 exports.cleanTemp.description =
   'Remove temporary files from the current design or email.'
