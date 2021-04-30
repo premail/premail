@@ -130,7 +130,7 @@ templates.list = templates.array
   .toString()
   .split(',')
   .join('\n')
-templates.main = current.path + current.mainTemplate
+templates.main = path.join(current.path, current.mainTemplate)
 templates.partials = templates.array
   .filter(function (value) {
     return value !== templates.main
