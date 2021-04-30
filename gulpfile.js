@@ -78,7 +78,7 @@ exports.watchText.description =
 exports.listTemplates = listTemplates
 exports.listTemplates.description =
   'List all templates that will be processed. Useful for debugging.'
-exports.clean = series(cleanGen, cleanTemp)
+exports.clean = parallel(cleanTemp, cleanGen)
 exports.clean.description =
   'Remove all generated and temporary files from the current design or email.'
 exports.cleanGen = cleanGen
