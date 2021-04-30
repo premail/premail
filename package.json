@@ -48,6 +48,7 @@
     "mjml": "^4.9.1",
     "npm": "^7.8.0",
     "plugin-error": "^1.0.1",
+    "pretty-error": "^3.0.3",
     "sass": "^1.32.8"
   },
   "devDependencies": {

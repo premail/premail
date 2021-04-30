@@ -10,7 +10,7 @@ const chalk = require('chalk')
 
 const msg = {
   error: chalk.bgRed.bold.white,
-  errorText: chalk.bold.red,
+  errorText: chalk.yellow,
   warn: chalk.bgYellow.black,
   warnText: chalk.yellow,
   info: chalk.hex('#37fd38'),

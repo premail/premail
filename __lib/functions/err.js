@@ -3,13 +3,14 @@
 /* eslint-disable no-unused-vars */
 const PluginError = require('plugin-error')
 const sass = require('gulp-sass')
+require('pretty-error').start()
 
 const { log } = require('../vars/log.js')
 const { msg } = require('../vars/notifications.js')
 /* eslint-enable no-unused-vars */
 
 //
-// Set up error handling.
+// General errors
 //
 
 function handleError (err) {
@@ -18,13 +19,21 @@ function handleError (err) {
   this.emit('end')
 }
 
-// Sprucing up sass.logError
+// sass.logError
 const sassError = function logError (error) {
   const message = new PluginError(
     'gulp-sass',
     error.messageFormatted
   ).toString()
-  log(msg.error('\nSass processing error'))
+  log(msg.error('\nSass processing error:'))
+  log(`${message}\n`)
+  this.emit('end')
+}
+
+// mjml.logError
+const mjmlError = function logError (error) {
+  const message = new PluginError('mjml', error.message).toString()
+  log(msg.error('\nMJML processing error:'))
   log(`${message}\n`)
   this.emit('end')
 }
@@ -32,4 +41,5 @@ const sassError = function logError (error) {
 module.exports = {
   handleError,
   sassError,
+  mjmlError,
 }
