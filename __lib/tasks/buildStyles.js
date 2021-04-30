@@ -27,12 +27,12 @@ module.exports = function buildStyles (done) {
         outputStyle: 'compressed',
       }).on('error', err.sassError)
     )
-    .pipe(dest(paths.theme.path + paths.theme.sassDir))
+    .pipe(dest(paths.theme.temp + paths.theme.sassDir))
     .pipe(
       tap(function (file, t) {
         debug(
           msg.b('CSS file written to:\n') +
-            paths.theme.path +
+            paths.theme.temp +
             paths.theme.sassDir +
             '/' +
             path.basename(file.path)

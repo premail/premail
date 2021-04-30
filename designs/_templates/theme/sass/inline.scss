@@ -1,3 +1,10 @@
+/* INLINE STYLES
+ *
+ * The CSS in this file will be inlined by MJML into the HTML elements
+ * themselves to ensure email rendering. Use it for styling basic HTML elements.
+ * Don't include anything that can't be inlined (like link-hover styles).
+ *
+ */
 h1 {
   margin: 0;
   padding: 18px 0;

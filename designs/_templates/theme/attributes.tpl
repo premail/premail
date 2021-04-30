@@ -1,24 +1,13 @@
-{{#if theme.fonts.web}}
   <!-- `mj-font` element needs to be outside `mj-attributes`
        @see: https://documentation.mjml.io/#mj-font
   -->
   <mj-font
-    {{#if theme.fonts.options.google.enabled}}
-      name="{{theme.fonts.options.google.name}}"
-      href="{{{theme.fonts.options.google.href}}}"
-    {{/if}}
+      name="Source Sans Pro"
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,900;1,400;1,900&amp;display=swap"
 
-    {{#if theme.fonts.options.custom.enabled}}
-      name="{{theme.fonts.options.custom.name}}"
-      href="{{{theme.fonts.options.custom.href}}}"
-    {{/if}}
   />
-{{/if}}
 
-<!-- The following CSS will be inlined by MJML. Use it for
-styling basic HTML elements. Don't include anything that can't
-be inlined (like link-hover styles). -->
-<mj-style inline="inline">{{> cssInline}}</mj-style>
+<mj-style inline="inline">h1{margin:0;padding:18px 0;font-size:36px;line-height:32px;font-weight:bold}h2{margin:0;padding:18px 0;font-size:28px;line-height:32px;font-weight:bold}.mj-column-per-50 h2{padding:18px;align:center;vertical-align:middle}p{margin:0 0 18px}.salutation p{margin:0}a{font-weight:bold;text-decoration:underline}</mj-style>
 
 <!-- WARNING: The following section is for CSS styles that cannot
 be inlined, like link-hover effects. Remember that only
@@ -42,10 +31,7 @@ the footer, headings/subheadings, social icons, etc.). -->
   <mj-all
     margin="0"
     padding="0"
-    font-family="
-    {{~#eq theme.fonts.options.base 'serif'}}{{internal.fonts.serif}}{{/eq}}
-    {{~#eq theme.fonts.options.base 'sans'}}{{internal.fonts.sans}}{{/eq}}
-    {{~#eq theme.fonts.options.base 'mono'}}{{internal.fonts.mono}}{{/eq}}
+    font-family="Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
     "
     font-size="18px"
     color="#666"

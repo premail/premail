@@ -24,23 +24,8 @@ const { debug } = require('../vars/debug.js')
 
 module.exports = function buildText (done) {
   if (text) {
-    let sourceFile
-
-    if (paths.email.name) {
-      sourceFile = paths.email.dist + '/index.html'
-    } else {
-      sourceFile = paths.design.dist + '/index.html'
-    }
-
-    let destDir
-
-    if (paths.email.name) {
-      destDir = paths.email.dist
-    } else {
-      destDir = paths.design.dist
-    }
-
-    const destFile = destDir + '/index.txt'
+    const sourceFile = path.join(paths.current.temp, paths.current.mainTemplate)
+    const destFile = path.join(paths.current.dist, 'index.txt')
 
     const buildOpt = {
       baseElement: [],

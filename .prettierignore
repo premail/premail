@@ -9,7 +9,6 @@ LICENSE*.*
 
 # Builds
 dist
-inline.css
 
 # Sass caches and maps
 .sass-cache/

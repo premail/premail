@@ -3,6 +3,7 @@
 /* eslint-disable no-unused-vars */
 const path = require('path')
 
+const { internalConfig } = require('../functions/internalConfig.js')
 const { userConfig } = require('../functions/userConfig.js')
 const { arg } = require('../functions/arg.js')
 const projectPath = require('../functions/projectPath.js')
@@ -28,32 +29,52 @@ if (arg.e) {
 
 // Set fully qualified paths
 const __base = projectPath(__dirname, '../../')
-const __temp = '/.tmp/'
+const __temp = '/.tmp'
 
-const design = {
-  name: currentDesign,
-  path: projectPath(__base, userConfig.data.folders.design.name, currentDesign),
-  file: userConfig.data.files.template,
-  dist: projectPath(
+const current = {
+  mainTemplate: userConfig.data.files.template,
+  emailTemp: path.join(
+    __base,
+    userConfig.data.folders.email.name,
+    currentEmail,
+    __temp
+  ),
+  designTemp: path.join(
+    __base,
+    userConfig.data.folders.design.name,
+    currentDesign,
+    __temp
+  ),
+}
+
+if (currentEmail) {
+  current.name = currentEmail
+  current.path = projectPath(
+    __base,
+    userConfig.data.folders.email.name,
+    currentEmail
+  )
+  current.temp = current.emailTemp
+  current.dist = projectPath(
+    __base,
+    userConfig.data.folders.email.name,
+    currentDesign,
+    userConfig.data.folders.output.dir
+  )
+} else {
+  current.name = currentDesign
+  current.path = projectPath(
+    __base,
+    userConfig.data.folders.design.name,
+    currentDesign
+  )
+  current.temp = current.designTemp
+  current.dist = projectPath(
     __base,
     userConfig.data.folders.design.name,
     currentDesign,
     userConfig.data.folders.output.dir
-  ),
-  temp: __temp,
-}
-
-const email = {
-  name: currentEmail,
-  path: projectPath(__base, userConfig.data.folders.email.name, currentEmail),
-  file: userConfig.data.files.template,
-  dist: projectPath(
-    __base,
-    userConfig.data.folders.email.name,
-    currentEmail,
-    userConfig.data.folders.output.dir
-  ),
-  temp: __temp,
+  )
 }
 
 const theme = {
@@ -64,7 +85,15 @@ const theme = {
     currentDesign,
     userConfig.data.folders.theme.dir
   ),
+  temp: path.join(
+    __base,
+    userConfig.data.folders.design.name,
+    currentDesign,
+    __temp,
+    userConfig.data.folders.theme.dir
+  ),
   sassDir: '/sass',
+  cssInline: internalConfig.data.css.inline,
 }
 
 // @TODO New feature that would get the list of current designs and emails
@@ -91,16 +120,17 @@ const theme = {
 // const name = prompt('What is your name? ');
 // console.log(`Hey there ${name}`);
 
-const templates = {
-  path: design.path + '/',
-}
+const templates = {}
 
-templates.array = getFiles(templates.path, userConfig.data.files.templateExt)
+templates.array = getFiles(
+  current.path + '/',
+  userConfig.data.files.templateExt
+)
 templates.list = templates.array
   .toString()
   .split(',')
   .join('\n')
-templates.main = templates.path + userConfig.data.files.template
+templates.main = current.path + current.mainTemplate
 templates.partials = templates.array
   .filter(function (value) {
     return value !== templates.main
@@ -110,8 +140,7 @@ templates.partials = templates.array
   .join('\n')
 
 module.exports = {
-  design,
-  email,
+  current,
   theme,
   templates,
 }

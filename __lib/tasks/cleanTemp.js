@@ -4,22 +4,20 @@
 const del = require('del')
 
 const paths = require('../vars/paths.js')
+const { internalConfig } = require('../functions/internalConfig.js')
 const { log } = require('../vars/log.js')
 const { msg } = require('../vars/notifications.js')
 const { debug } = require('../vars/debug.js')
 /* eslint-enable no-unused-vars */
 
 //
-// Clean generated files and directories.
+// Clean temporary files and directories.
 //
 
-module.exports = function clean (done) {
-  log(msg.warn('Deleting generated files...'))
+module.exports = function cleanTemp (done) {
+  log(msg.warn('Deleting temporary files...'))
 
-  const deletedFilePaths = [
-    paths.design.dist + '/*',
-    paths.theme.path + '/sass/*.css',
-  ]
+  const deletedFilePaths = [paths.current.emailTemp, paths.current.designTemp]
 
   del.sync(deletedFilePaths)
 

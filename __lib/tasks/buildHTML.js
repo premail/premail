@@ -24,23 +24,8 @@ const { debug } = require('../vars/debug.js')
 //
 
 module.exports = function buildHTML (done) {
-  let sourceFile
-
-  if (paths.email.name) {
-    sourceFile = paths.email.path + paths.email.temp + paths.email.file
-  } else {
-    sourceFile = paths.design.path + paths.design.temp + paths.design.file
-  }
-
-  let destDir
-
-  if (paths.email.name) {
-    destDir = paths.email.dist
-  } else {
-    destDir = paths.design.dist
-  }
-
-  const destFile = destDir + '/index.html'
+  const sourceFile = path.join(paths.current.temp, paths.current.mainTemplate)
+  const destFile = path.join(paths.current.dist, 'index.html')
 
   fs.stat(sourceFile, function (err, stat) {
     if (err == null) {
@@ -65,7 +50,7 @@ module.exports = function buildHTML (done) {
         .on('finish', function (source) {
           debug(msg.b('HTML source:\n') + sourceFile)
         })
-        .pipe(dest(destDir))
+        .pipe(dest(path.dirname(destFile)))
         .on('finish', function (source) {
           log(msg.info(msg.b('HTML version saved:\n') + destFile))
           if (prod) {

@@ -2,6 +2,7 @@
 
 /* eslint-disable no-unused-vars */
 const fs = require('fs')
+const path = require('path')
 const yaml = require('js-yaml')
 
 const { debug } = require('../vars/debug.js')
@@ -16,7 +17,9 @@ const paths = require('../vars/paths.js')
 
 const themeConfig = {}
 themeConfig.json = yaml.loadAll(
-  fs.readFileSync(paths.theme.path + '/themeConfig.yaml', { encoding: 'utf-8' })
+  fs.readFileSync(path.join(paths.theme.path, 'themeConfig.yaml'), {
+    encoding: 'utf-8',
+  })
 )
 themeConfig.data = themeConfig.json[0]
 debug(

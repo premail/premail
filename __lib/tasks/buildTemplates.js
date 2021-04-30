@@ -31,24 +31,6 @@ module.exports = function buildTemplates (done) {
   config.user = userConfig.data
   config.theme = themeConfig.data
 
-  // Define template location
-  let templatePath
-
-  if (paths.email.name) {
-    templatePath = paths.email.path
-  } else {
-    templatePath = paths.design.path
-  }
-
-  // Establish temporary directory.
-  let tempDir
-
-  if (paths.email.name) {
-    tempDir = paths.email.path + paths.email.temp
-  } else {
-    tempDir = paths.design.path + paths.design.temp
-  }
-
   // Load all templates
   const templateArray = []
 
@@ -56,8 +38,11 @@ module.exports = function buildTemplates (done) {
     templateArray.push(template)
   }
 
-  const cssInlineFile =
-    paths.theme.path + paths.theme.sassDir + '/' + config.internal.css.inline
+  const cssInlineFile = path.join(
+    paths.theme.temp,
+    paths.theme.sassDir,
+    paths.theme.cssInline
+  )
 
   fs.stat(cssInlineFile, function (err, stat) {
     if (err == null) {
@@ -75,30 +60,31 @@ module.exports = function buildTemplates (done) {
         // Use configuration settings as data in the templates
         const processedTemplate = format(config)
 
-        // Write the processed template
-        // @TODO: Ensure this doesn't keep creating `.tmp` subdirectories of one
-        // another ad nauseum.
-        const destPath =
-          tempDir +
-          path.relative(templatePath, file).replace(path.basename(file), '')
+        // Extract subfolder data from file path
+        const subFolder = path
+          .dirname(file)
+          .replace(paths.current.path, '')
+          .replace('/.tmp', '')
 
-        if (!fs.existsSync(destPath)) {
-          fs.mkdirSync(destPath, { recursive: true })
+        // Determine the destination
+        const destPath = path.join(
+          paths.current.temp,
+          subFolder,
+          path.basename(file)
+        )
+
+        // Create the parent directory, if necessary
+        if (!fs.existsSync(path.dirname(destPath))) {
+          fs.mkdirSync(path.dirname(destPath))
         }
 
-        fs.writeFileSync(
-          destPath + '/' + path.basename(file),
-          processedTemplate
-        )
+        // Write the file
+        fs.writeFileSync(destPath, processedTemplate)
 
         debug('Processed template file: ' + path.basename(file))
       }
 
-      debug(
-        msg.b('Created temporary files at: ') +
-          paths.design.path +
-          paths.design.temp
-      )
+      debug(msg.b('Created temporary files at: ') + paths.templates.temp)
     } else if (err.code === 'ENOENT') {
       log(
         msg.error(

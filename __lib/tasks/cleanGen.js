@@ -10,13 +10,13 @@ const { debug } = require('../vars/debug.js')
 /* eslint-enable no-unused-vars */
 
 //
-// Remove temporary files and directories.
+// Clean generated files and directories.
 //
 
-module.exports = function removeTemp (done) {
-  log(msg.warn('Deleting temporary files...'))
+module.exports = function cleanGen (done) {
+  log(msg.warn('Deleting generated files...'))
 
-  const deletedFilePaths = [paths.design.path + '/.tmp']
+  const deletedFilePaths = [paths.current.dist + '/*']
 
   del.sync(deletedFilePaths)
 
