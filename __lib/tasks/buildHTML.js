@@ -49,7 +49,7 @@ module.exports = function buildHTML (done) {
             })
           )
         )
-        .on('error', error.handleError)
+        .on('error', error.mjmlError)
         .on('finish', function (source) {
           debug(msg.b('HTML source:\n') + sourceFile)
         })

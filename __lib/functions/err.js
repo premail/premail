@@ -35,6 +35,7 @@ const mjmlError = function logError (error) {
   const message = new PluginError('mjml', error.message).toString()
   log(msg.error('\nMJML processing error:'))
   log(`${message}\n`)
+  log(msg.error('Error: HTML was not built!\n'))
   this.emit('end')
 }
 
