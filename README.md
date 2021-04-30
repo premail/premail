@@ -228,8 +228,8 @@ configuration and files being processed.
 │ └─┬ <parallel>
 │   ├── cleanTemp
 │   └── cleanGen
-├── cleanGen        Remove generated files from the current design or email.
-└── cleanTemp       Remove temporary files from the current design or email.
+├── cleanTemp       Remove temporary files from the current design or email.
+└── cleanGen        Remove generated files from the current design or email.
 ```
 <!-- --><!-- /markdown-exec -->
 <!-- prettier-ignore-end -->

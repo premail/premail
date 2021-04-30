@@ -81,9 +81,9 @@ exports.listTemplates.description =
 exports.clean = parallel(cleanTemp, cleanGen)
 exports.clean.description =
   'Remove all generated and temporary files from the current design or email.'
-exports.cleanGen = cleanGen
-exports.cleanGen.description =
-  'Remove generated files from the current design or email.'
 exports.cleanTemp = cleanTemp
 exports.cleanTemp.description =
   'Remove temporary files from the current design or email.'
+exports.cleanGen = cleanGen
+exports.cleanGen.description =
+  'Remove generated files from the current design or email.'
