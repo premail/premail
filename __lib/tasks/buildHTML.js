@@ -11,7 +11,7 @@ const mjml = require('gulp-mjml')
 const mjmlEngine = require('mjml')
 
 const { userConfig } = require('../functions/userConfig.js')
-const err = require('../functions/err.js')
+const error = require('../functions/err.js')
 const paths = require('../vars/paths.js')
 const { log } = require('../vars/log.js')
 const { msg } = require('../vars/notifications.js')
@@ -35,6 +35,7 @@ module.exports = function buildHTML (done) {
             prod,
             // Production
             mjml(mjmlEngine, {
+              validationLevel: 'strict',
               fileExt: userConfig.data.files.templateExt,
               beautify: false,
               minify: true,
@@ -42,11 +43,13 @@ module.exports = function buildHTML (done) {
             }),
             // Development
             mjml(mjmlEngine, {
+              validationLevel: 'strict',
               fileExt: userConfig.data.files.templateExt,
               beautify: true,
             })
           )
         )
+        .on('error', error.handleError)
         .on('finish', function (source) {
           debug(msg.b('HTML source:\n') + sourceFile)
         })
