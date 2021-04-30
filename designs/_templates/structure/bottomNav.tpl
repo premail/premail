@@ -1,4 +1,4 @@
-<mj-section mj-class="nav nav--bottom">
+<mj-section>
   <mj-column>
     <mj-navbar
       mj-class="nav__navbar nav__navbar--bottom"

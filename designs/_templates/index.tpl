@@ -3,68 +3,79 @@
 
   <mj-head>
     <!-- Title -->
-
-    <mj-include path="content/title.tpl" />
+    <mj-title>
+      <mj-include path="content/title.tpl" />
+    </mj-title>
 
     <!-- Attributes -->
 
     <mj-include path="theme/attributes.tpl" />
 
     <!-- Preview text -->
-
-    <mj-include path="content/preview.tpl" />
+    <mj-preview>
+      <mj-include path="content/preview.tpl" />
+    </mj-preview>
   </mj-head>
 
   <!-- Email body start -->
 
-  <mj-body>
+  <mj-body css-class="body" background-color="white">
     <!-- Top navigation -->
 
-    <mj-section css-class="nav nav--top component-topNav">
+    <mj-wrapper
+      css-class="component-topNav nav nav--top"
+      mj-class="component-topNav nav nav--top"
+    >
       <mj-include path="structure/topNav.tpl" />
-    </mj-section>
+    </mj-wrapper>
 
     <!-- Hero or header area -->
 
-    <mj-section css-class="component-banner banner">
+    <mj-wrapper css-class="component-banner" mj-class="component-banner">
       <mj-include path="content/banner.tpl" />
-    </mj-section>
+    </mj-wrapper>
 
     <!-- Salutation, aka "Dear friend," -->
 
-    <mj-section css-class="component-salutation">
+    <mj-wrapper
+      css-class="component-salutation"
+      mj-class="component-salutation"
+    >
       <mj-include path="content/salutation.tpl" />
-    </mj-section>
+    </mj-wrapper>
 
     <!-- Primary content -->
 
-    <mj-section css-class="component-body message-body">
+    <mj-wrapper css-class="component-body" mj-class="component-body">
       <mj-include path="content/body.tpl" />
-    </mj-section>
+    </mj-wrapper>
 
     <!-- Sign-off, signature or closing -->
 
-    <mj-section css-class="component-signoff">
+    <mj-wrapper css-class="component-signoff" mj-class="component-signoff">
       <mj-include path="content/signoff.tpl" />
-    </mj-section>
+    </mj-wrapper>
 
     <!-- Social links -->
 
-    <mj-section css-class="component-social">
+    <mj-wrapper css-class="component-social" mj-class="component-social">
       <mj-include path="structure/social.tpl" />
-    </mj-section>
+    </mj-wrapper>
 
     <!-- Bottom navigation -->
 
-    <mj-section css-class="nav nav--bottom component-bottomNav">
+    <mj-wrapper
+      css-class="component-bottomNav nav nav--bottom"
+      mj-class="component-bottomNav nav nav--bottom"
+    >
       <mj-include path="structure/bottomNav.tpl" />
-    </mj-section>
+    </mj-wrapper>
 
     <!-- Footer -->
 
-    <mj-section css-class="component-footer footer">
+    <mj-wrapper css-class="component-footer" mj-class="component-footer">
       <mj-include path="structure/footer.tpl" />
-    </mj-section>
+    </mj-wrapper>
 
     <!-- Body closure -->
   </mj-body>

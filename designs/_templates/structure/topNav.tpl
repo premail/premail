@@ -1,4 +1,4 @@
-<mj-section mj-class="nav nav--top">
+<mj-section>
   <mj-column mj-class="column column--40pc">
     <mj-image
       mj-class="nav__logo"

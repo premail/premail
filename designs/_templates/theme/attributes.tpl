@@ -1,13 +1,19 @@
-  <!-- `mj-font` element needs to be outside `mj-attributes`
+<!-- `mj-font` element needs to be outside `mj-attributes`
        @see: https://documentation.mjml.io/#mj-font
   -->
-  <mj-font
-      name="Source Sans Pro"
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,900;1,400;1,900&amp;display=swap"
+<mj-font
+  name="Source Sans Pro"
+  href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,900;1,400;1,900&amp;display=swap"
+/>
 
-  />
-
-<mj-style inline="inline">h1{margin:0;padding:18px 0;font-size:36px;line-height:32px;font-weight:bold}h2{margin:0;padding:18px 0;font-size:28px;line-height:32px;font-weight:bold}.mj-column-per-50 h2{padding:18px;align:center;vertical-align:middle}p{margin:0 0 18px}.salutation p{margin:0}a{font-weight:bold;text-decoration:underline}</mj-style>
+<mj-style inline="inline"
+  >h1{margin:0;padding:18px
+  0;font-size:36px;line-height:32px;font-weight:bold}h2{margin:0;padding:18px
+  0;font-size:28px;line-height:32px;font-weight:bold}.mj-column-per-50
+  h2{padding:18px;align:center;vertical-align:middle}p{margin:0 0
+  18px}.salutation
+  p{margin:0}a{font-weight:bold;text-decoration:underline}</mj-style
+>
 
 <!-- WARNING: The following section is for CSS styles that cannot
 be inlined, like link-hover effects. Remember that only
@@ -39,8 +45,6 @@ the footer, headings/subheadings, social icons, etc.). -->
 
   <!-- Structure -->
 
-  <mj-class name="content" padding="0 8px" background-color="white" />
-
   <mj-class name="column" vertical-align="top" />
 
   <mj-class name="column--25pc" width="25%" />
@@ -57,17 +61,17 @@ the footer, headings/subheadings, social icons, etc.). -->
 
   <mj-class name="column--75pc" width="75%" />
 
-  <mj-class name="salutation" background-color="white" padding="0 8px" />
+  <mj-class name="component-salutation" background-color="white" />
 
-  <mj-class name="signoff" background-color="white" padding="0 8px" />
+  <mj-class name="component-signoff" background-color="white" />
 
-  <mj-class name="footer" padding="48px 8px" background-color="white" />
+  <mj-class name="component-footer" padding="48px 8px" />
 
   <!-- Typography -->
 
   <mj-class name="text" padding="18px 0" font-size="18px" line-height="32px" />
 
-  <mj-class name="text--salutation" />
+  <mj-class name="text--salutation" padding="18px 0 0" />
 
   <mj-class name="text--signoff" line-height="24px" />
 
@@ -128,7 +132,11 @@ the footer, headings/subheadings, social icons, etc.). -->
 
   <!-- Social media links -->
 
-  <mj-class name="social" padding="32px 0 16px" background-color="white" />
+  <mj-class
+    name="component-social"
+    padding="32px 0 16px"
+    background-color="white"
+  />
 
   <mj-class
     name="social__border-top"
