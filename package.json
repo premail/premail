@@ -7,7 +7,8 @@
     "test": "modern test",
     "format": "modern format",
     "lint": "modern lint",
-    "precommit": "modern precommit"
+    "precommit": "modern precommit",
+    "readme": "markdown-exec ./README.md"
   },
   "repository": {
     "type": "git",
@@ -50,6 +51,7 @@
     "sass": "^1.32.8"
   },
   "devDependencies": {
+    "markdown-exec": "^1.0.2",
     "modern-node": "^2.9.0"
   }
 }

@@ -186,6 +186,8 @@ configuration and files being processed.
 
 `gulp --tasks`
 
+<!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && gulp --tasks| grep -Po "[├│└].*" && echo '```\n<'!'-- '-'->') --><!-- -->
+
 ```
 ├─┬ default
 │ └─┬ <series>
@@ -211,10 +213,6 @@ configuration and files being processed.
 │   ├── watchHTML
 │   └── watchText
 ├── buildHTML       Builds HTML files from MJML templates.
-                                  Options:
-                                    --prod: Renders a production file, minified and with HTML comments stripped out.
-                                    -d:     Specifies design folder to use. (Default: _templates)
-                                    -e:     Specifies email folder to render.
 ├── buildText       Generates a plain-text version of the email.
 ├── buildStyles     Compiles Sass files in the 'theme' directory.
 ├── buildTemplates  Builds MJML templates from Handlebars templates.
@@ -228,8 +226,9 @@ configuration and files being processed.
 │   └── cleanGen
 ├── cleanGen        Remove generated files from the current design or email.
 └── cleanTemp       Remove temporary files from the current design or email.
-
 ```
+
+<!-- --><!-- /markdown-exec -->
 
 # Known issues
 
