@@ -231,9 +231,9 @@ configuration and files being processed.
 ├── watchStyles     Watch Sass and rebuild CSS files on changes.
 ├── watchHTML       Watch templates and rebuild HTML files on changes.
 ├── watchText       Watch rendered HTML file and rebuild plain-text version on changes.
-├── listTemplates   List all templates that will be processed. Useful for debugging.
 ├── cleanTemp       Remove temporary files from the current design or email.
-└── cleanGen        Remove generated files from the current design or email.
+├── cleanGen        Remove generated files from the current design or email.
+└── listTemplates   List all templates that will be processed. Useful for debugging.
 ```
 <!-- --><!-- /markdown-exec -->
 <!-- prettier-ignore-end -->

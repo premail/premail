@@ -81,13 +81,15 @@ exports.watchText = watchText
 exports.watchText.description =
   'Watch rendered HTML file and rebuild plain-text version on changes.'
 
-// Debug
-exports.listTemplates = listTemplates
-exports.listTemplates.description =
-  'List all templates that will be processed. Useful for debugging.'
+// Clean
 exports.cleanTemp = cleanTemp
 exports.cleanTemp.description =
   'Remove temporary files from the current design or email.'
 exports.cleanGen = cleanGen
 exports.cleanGen.description =
   'Remove generated files from the current design or email.'
+
+// Debug
+exports.listTemplates = listTemplates
+exports.listTemplates.description =
+  'List all templates that will be processed. Useful for debugging.'
