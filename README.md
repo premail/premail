@@ -186,8 +186,8 @@ configuration and files being processed.
 
 `gulp --tasks`
 
+<!-- prettier-ignore-start -->
 <!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && gulp --tasks| grep -Po "[├│└].*" && echo '```\n<'!'-- '-'->') --><!-- -->
-
 ```
 ├─┬ default
 │ └─┬ <series>
@@ -227,8 +227,8 @@ configuration and files being processed.
 ├── cleanGen        Remove generated files from the current design or email.
 └── cleanTemp       Remove temporary files from the current design or email.
 ```
-
 <!-- --><!-- /markdown-exec -->
+<!-- prettier-ignore-end -->
 
 # Known issues
 
