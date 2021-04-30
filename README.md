@@ -187,7 +187,7 @@ configuration and files being processed.
 `gulp --tasks`
 
 <!-- prettier-ignore-start -->
-<!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && gulp --tasks| grep -Po "[├│└].*" && echo '```\n<'!'-- '-'->') --><!-- -->
+<!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && gulp --tasks | grep -Po "[├│└].*|^[\s].*" && echo '```\n<'!'-- '-'->') --><!-- -->
 ```
 ├─┬ default
 │ └─┬ <series>
