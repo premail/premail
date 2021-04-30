@@ -13,7 +13,8 @@ const { msg } = require('../vars/notifications.js')
 //
 
 function handleError (err) {
-  log(msg.error(err))
+  log(msg.error('\nError:'))
+  log(msg.errorText(err) + '\n')
   this.emit('end')
 }
 

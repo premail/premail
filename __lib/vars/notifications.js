@@ -10,7 +10,9 @@ const chalk = require('chalk')
 
 const msg = {
   error: chalk.bgRed.bold.white,
+  errorText: chalk.bold.red,
   warn: chalk.bgYellow.black,
+  warnText: chalk.yellow,
   info: chalk.hex('#37fd38'),
   debug: chalk.keyword('aqua'),
   b: chalk.bold,
