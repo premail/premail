@@ -1,8 +1,8 @@
 # MJML Quickstart
 
 ![Checks](https://img.shields.io/github/checks-status/rootwork/mjml-quickstart/main.svg)
-![Last commit](https://img.shields.io/github/last-commit/rootwork/mjml-quickstart.svg)
 [![Node ^10.23.2](https://img.shields.io/badge/node-%5E10.23.2-brightgreen.svg)](https://nodejs.org/en/download/)
+[![MJML 4.0+ valid](https://img.shields.io/badge/mjml-4%2B-brightgreen.svg)](https://github.com/mjmlio/mjml/releases)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 A quick-start setup for those writing email code in [MJML](https://mjml.io/),
