@@ -197,7 +197,7 @@ configuration and files being processed.
 <!-- prettier-ignore-start -->
 <!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && gulp --tasks | grep -Po "[├│└].*|^[\s].*" && echo '```\n<'!'-- '-'->') --><!-- -->
 ```
-├─┬ default         Render a complete HTML email based on design and email templates.
+├─┬ default          Render a complete HTML email based on design and email templates.
                                   Options:
                                     --prod: Render production files (minified, no comments).
                                     -d:     Specify design folder to use. (Default: _templates)
@@ -206,11 +206,12 @@ configuration and files being processed.
 │   ├── cleanTemp
 │   ├── cleanGen
 │   ├── buildStyles
+│   ├── formatTemplates
 │   ├── buildTemplates
 │   ├── buildHTML
 │   ├── buildText
 │   └── cleanTemp
-├─┬ build           Render a complete HTML email based on design and email templates.
+├─┬ build            Render a complete HTML email based on design and email templates.
                                   Options:
                                     --prod: Render production files (minified, no comments).
                                     -d:     Specify design folder to use. (Default: _templates)
@@ -219,29 +220,31 @@ configuration and files being processed.
 │   ├── cleanTemp
 │   ├── cleanGen
 │   ├── buildStyles
+│   ├── formatTemplates
 │   ├── buildTemplates
 │   ├── buildHTML
 │   ├── buildText
 │   └── cleanTemp
-├─┬ watch           Watch both design and template files and rebuild (formatted, with comments) as necessary.
+├─┬ watch            Watch both design and template files and rebuild (formatted, with comments) as necessary.
 │ └─┬ <parallel>
 │   ├── watchStyles
 │   ├── watchHTML
 │   └── watchText
-├─┬ clean           Remove all generated and temporary files from the current design or email.
+├─┬ clean            Remove all generated and temporary files from the current design or email.
 │ └─┬ <parallel>
 │   ├── cleanTemp
 │   └── cleanGen
-├── buildStyles     Build CSS files from Sass files in the "theme" folder.
-├── buildTemplates  Build MJML templates from Handlebars templates.
-├── buildHTML       Build HTML files from MJML templates.
-├── buildText       Generate a plain-text version of the email.
-├── watchStyles     Watch Sass and rebuild CSS files on changes.
-├── watchHTML       Watch templates and rebuild HTML files on changes.
-├── watchText       Watch rendered HTML file and rebuild plain-text version on changes.
-├── cleanTemp       Remove temporary files from the current design or email.
-├── cleanGen        Remove generated files from the current design or email.
-└── listTemplates   List all templates that will be processed. Useful for debugging.
+├── buildStyles      Build CSS files from Sass files in the "theme" folder.
+├── buildTemplates   Build MJML templates from Handlebars templates.
+├── buildHTML        Build HTML files from MJML templates.
+├── buildText        Generate a plain-text version of the email.
+├── watchStyles      Watch Sass and rebuild CSS files on changes.
+├── watchHTML        Watch templates and rebuild HTML files on changes.
+├── watchText        Watch rendered HTML file and rebuild plain-text version on changes.
+├── formatTemplates  Format MJML templates with Prettier.
+├── cleanTemp        Remove temporary files from the current design or email.
+├── cleanGen         Remove generated files from the current design or email.
+└── listTemplates    List all templates that will be processed. Useful for debugging.
 ```
 <!-- --><!-- /markdown-exec -->
 <!-- prettier-ignore-end -->
