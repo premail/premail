@@ -176,16 +176,17 @@ Once the production email is rendered, you can:
 mjml-quickstart includes
 [sheerun/modern-node](https://github.com/sheerun/modern-node), which formats and
 lints code using [Prettier](https://prettier.io/). This will warn you about
-errors in the HTML, Sass or CSS syntax of your designs or emails.
+errors in the HTML, Sass or CSS syntax of your designs or emails, and
+auto-format your files on every build and git commit.
 
 It will not attempt to format or lint files in the `dist` directories.
 
-You can run this process using `npm run format`. It will also run on every git
-commit.
+If you want to format your template files separately (for instance while you're
+working on them), run `gulp formatTemplates`. This is run automatically during
+builds.
 
-If you don't want this check on commits, remove the `precommit` hook in
-[package.json](package.json). You can also remove the package entirely with
-`npm uninstall modern-node --save-dev`.
+If you don't want the linting and formatting on commits, remove the `precommit`
+hook in [package.json](package.json).
 
 # Full list of options
 
