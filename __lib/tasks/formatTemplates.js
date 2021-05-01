@@ -13,7 +13,13 @@ const { debug } = require('../vars/debug.js')
 //
 
 module.exports = function formatTemplates (done) {
-  exec('prettier -w "**/*.{tpl,mjml}" --parser html', function (
+  // This will use `--parser handlebars` once this issue:
+  // https://github.com/prettier/prettier/pull/10290
+  // is included in a release of Prettier.
+  //
+  // Currently erroring on partial inclusion; see:
+  // https://github.com/ember-template-lint/ember-template-lint/issues/486
+  exec('prettier -w "**/*.{tpl,mjml}" --parser glimmer', function (
     error,
     stdout,
     stderr
