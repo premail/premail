@@ -3,18 +3,13 @@
 
   <mj-head>
     <!-- Title -->
-    <mj-title>
-      <mj-include path="content/title.tpl" />
-    </mj-title>
+    <mj-include path="content/title.tpl" />
 
     <!-- Attributes -->
-
     <mj-include path="theme/attributes.tpl" />
 
     <!-- Preview text -->
-    <mj-preview>
-      <mj-include path="content/preview.tpl" />
-    </mj-preview>
+    <mj-include path="content/preview.tpl" />
   </mj-head>
 
   <!-- Email body start -->
