@@ -66,7 +66,7 @@ provider's system.
 You need to have at least [Node](https://nodejs.org/en/download/) 10.23.2. This
 tool uses
 [Gulp](https://gulpjs.com/docs/en/getting-started/quick-start) 4.0.2+ and
-[MJML](https://github.com/mjmlio/mjml/releases) 4.9.1+, but these are installed
+[MJML](https://github.com/mjmlio/mjml/releases) 4.9.3+, but these are installed
 automatically during setup, so it's only important to check these if you already
 have them installed.
 
