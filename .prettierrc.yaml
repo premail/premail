@@ -22,3 +22,7 @@ overrides:
       - '*.tpl'
     options:
       parser: html
+      htmlWhitespaceSensitivity: strict
+      canSelfClose: true
+      html:
+        void: any
