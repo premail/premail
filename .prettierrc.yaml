@@ -6,3 +6,19 @@ useTabs: false
 semi: false
 singleQuote: true
 bracketSpacing: true
+
+# Because our templates are a mix of Handlebars and MJML, and because
+# Prettier doesn't process Handlebars includes correctly, we use regular ol'
+# HTML standards to format the files.
+#
+# References:
+# https://github.com/prettier/prettier/pull/10290
+# https://github.com/ember-template-lint/ember-template-lint/issues/486
+# https://github.com/prettier/prettier/issues/10707
+overrides:
+  - files:
+      - '*.html'
+      - '*.mjml'
+      - '*.tpl'
+    options:
+      parser: html
