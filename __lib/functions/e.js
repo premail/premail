@@ -9,14 +9,17 @@ const { log } = require('../vars/log.js')
 const { msg } = require('../vars/notifications.js')
 /* eslint-enable no-unused-vars */
 
-//
-// General errors
-//
+function handleError (error, pluginName) {
+  // Ensure a pluginName is passed.
+  if (!pluginName) {
+    log(msg.error('The handleError function must include a pluginName.'))
 
-function handleError (err) {
-  log(msg.error('\nError:'))
-  log(msg.errorText(err) + '\n')
-  this.emit('end')
+    // General errors
+  } else {
+    pluginName = pluginName.charAt(0).toUpperCase() + pluginName.slice(1)
+    const message = new PluginError(pluginName, error.message).toString()
+    log(msg.errorText(`\n${message}\n`))
+  }
 }
 
 // sass.logError
