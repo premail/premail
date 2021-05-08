@@ -2,7 +2,8 @@
 
 /* eslint-disable no-unused-vars */
 const exec = require('child_process').exec
-const err = require('../functions/err.js')
+const e = require('../functions/e.js')
+const paths = require('../vars/paths.js')
 const { log } = require('../vars/log.js')
 const { msg } = require('../vars/notifications.js')
 const { debug } = require('../vars/debug.js')
@@ -13,21 +14,21 @@ const { debug } = require('../vars/debug.js')
 //
 
 module.exports = function formatTemplates (done) {
-  // This will use `--parser handlebars` once this issue:
-  // https://github.com/prettier/prettier/pull/10290
-  // is included in a release of Prettier.
+  const command =
+    'prettier --config .prettierrc.yaml -w "' +
+    paths.current.path +
+    '/**/*.{tpl,mjml}"'
+
+  // While modern-node's `format` should be able to handle this formatting,
+  // it doesn't seem to look at Prettier config files:
+  // https://github.com/sheerun/modern-node/issues/12
   //
-  // Currently erroring on partial inclusion; see:
-  // https://github.com/ember-template-lint/ember-template-lint/issues/486
-  exec('prettier -w "**/*.{tpl,mjml}" --parser glimmer', function (
-    error,
-    stdout,
-    stderr
-  ) {
+  // So we call Prettier directly.
+  exec(command, function (error, stdout, stderr) {
     if (error) {
-      log(msg.error(error.message))
+      e.handleError(error, 'prettier')
     } else {
-      debug(msg.b('Formatting templates:\n') + stdout)
+      debug(msg.b('Templates formatted:\n') + stdout)
     }
   })
   done()
