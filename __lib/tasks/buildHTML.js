@@ -11,7 +11,7 @@ const mjml = require('gulp-mjml')
 const mjmlEngine = require('mjml')
 
 const { userConfig } = require('../functions/userConfig.js')
-const error = require('../functions/err.js')
+const e = require('../functions/e.js')
 const paths = require('../vars/paths.js')
 const { log } = require('../vars/log.js')
 const { msg } = require('../vars/notifications.js')
@@ -27,8 +27,8 @@ module.exports = function buildHTML (done) {
   const sourceFile = path.join(paths.current.temp, paths.current.mainTemplate)
   const destFile = path.join(paths.current.dist, 'index.html')
 
-  fs.stat(sourceFile, function (err, stat) {
-    if (err == null) {
+  fs.stat(sourceFile, function (error, stat) {
+    if (error == null) {
       src(sourceFile)
         .pipe(
           gulpif(
@@ -49,7 +49,7 @@ module.exports = function buildHTML (done) {
             })
           )
         )
-        .on('error', error.mjmlError)
+        .on('error', e.mjmlError)
         .on('finish', function (source) {
           debug(msg.b('HTML source:\n') + sourceFile)
         })
@@ -64,14 +64,14 @@ module.exports = function buildHTML (done) {
             )
           }
         })
-    } else if (err.code === 'ENOENT') {
+    } else if (error.code === 'ENOENT') {
       log(
         msg.error(
           'Error building HTML files: Main template file does not exist. Run `gulp buildTemplates` before running this task.'
         )
       )
     } else {
-      log(msg.error('Error: ' + err.code))
+      log(msg.error('Error: ' + error.code))
     }
   })
 

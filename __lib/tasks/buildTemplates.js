@@ -11,7 +11,7 @@ const { internalConfig } = require('../functions/internalConfig.js')
 const { userConfig } = require('../functions/userConfig.js')
 const { themeConfig } = require('../functions/themeConfig.js')
 
-const err = require('../functions/err.js')
+const e = require('../functions/e.js')
 const paths = require('../vars/paths.js')
 const getFiles = require('../functions/getFiles.js')
 const projectPath = require('../functions/projectPath.js')
@@ -44,8 +44,8 @@ module.exports = function buildTemplates (done) {
     paths.theme.cssInline
   )
 
-  fs.stat(cssInlineFile, function (err, stat) {
-    if (err == null) {
+  fs.stat(cssInlineFile, function (error, stat) {
+    if (error == null) {
       // Register Handlebars partials
       const cssInline = fs.readFileSync(cssInlineFile, 'utf8')
       Handlebars.registerPartial('cssInline', cssInline)
@@ -85,14 +85,14 @@ module.exports = function buildTemplates (done) {
       }
 
       debug(msg.b('Created temporary files at: ') + paths.templates.temp)
-    } else if (err.code === 'ENOENT') {
+    } else if (error.code === 'ENOENT') {
       log(
         msg.error(
           'Error building template files: CSS files do not exist. Run `gulp buildStyles` before running this task.'
         )
       )
     } else {
-      log(msg.error('Error: ' + err.code))
+      log(msg.error('Error: ' + error.code))
     }
   })
 

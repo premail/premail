@@ -8,7 +8,7 @@ const tap = require('gulp-tap')
 const Fiber = require('fibers')
 sass.compiler = require('sass')
 
-const err = require('../functions/err.js')
+const e = require('../functions/e.js')
 const paths = require('../vars/paths.js')
 const { log } = require('../vars/log.js')
 const { msg } = require('../vars/notifications.js')
@@ -25,7 +25,7 @@ module.exports = function buildStyles (done) {
       sass({
         fiber: Fiber,
         outputStyle: 'compressed',
-      }).on('error', err.sassError)
+      }).on('error', e.sassError)
     )
     .pipe(dest(paths.theme.temp + paths.theme.sassDir))
     .pipe(

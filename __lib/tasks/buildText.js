@@ -8,7 +8,7 @@ const gulpif = require('gulp-if')
 const rename = require('gulp-rename')
 const { htmlToText } = require('html-to-text')
 
-const err = require('../functions/err.js')
+const e = require('../functions/e.js')
 const paths = require('../vars/paths.js')
 const { userConfig } = require('../functions/userConfig.js')
 const { log } = require('../vars/log.js')
@@ -59,8 +59,8 @@ module.exports = function buildText (done) {
       }
     })
 
-    fs.stat(sourceFile, function (err, stat) {
-      if (err == null) {
+    fs.stat(sourceFile, function (error, stat) {
+      if (error == null) {
         if (debug) {
           debug(msg.b('Plain-text source:\n') + sourceFile)
           debug(
@@ -86,14 +86,14 @@ module.exports = function buildText (done) {
         fs.writeFileSync(destFile, text)
 
         log(msg.info(msg.b('Plain-text version saved:\n') + destFile))
-      } else if (err.code === 'ENOENT') {
+      } else if (error.code === 'ENOENT') {
         log(
           msg.error(
             'Error building text version: index.html does not exist. Run `gulp buildHTML` before running this task.'
           )
         )
       } else {
-        log(msg.error('Error: ' + err.code))
+        log(msg.error('Error: ' + error.code))
       }
     })
   } else {
