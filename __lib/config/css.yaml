@@ -1,3 +1,4 @@
 # CSS file names
 css:
   inline: inline.css
+  pseudo: pseudo.css

@@ -94,6 +94,7 @@ const theme = {
   ),
   sassDir: '/sass',
   cssInline: internalConfig.data.css.inline,
+  cssPseudo: internalConfig.data.css.pseudo,
 }
 
 // @TODO New feature that would get the list of current designs and emails

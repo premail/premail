@@ -44,11 +44,19 @@ module.exports = function buildTemplates (done) {
     paths.theme.cssInline
   )
 
-  fs.stat(cssInlineFile, function (error, stat) {
+  const cssPseudoFile = path.join(
+    paths.theme.temp,
+    paths.theme.sassDir,
+    paths.theme.cssPseudo
+  )
+
+  fs.stat(templateArray[0], function (error, stat) {
     if (error == null) {
       // Register Handlebars partials
       const cssInline = fs.readFileSync(cssInlineFile, 'utf8')
       Handlebars.registerPartial('cssInline', cssInline)
+      const cssPseudo = fs.readFileSync(cssPseudoFile, 'utf8')
+      Handlebars.registerPartial('cssPseudo', cssPseudo)
 
       for (const file of templateArray) {
         // Create new template

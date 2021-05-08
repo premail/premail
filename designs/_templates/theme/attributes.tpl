@@ -15,24 +15,11 @@
 />
 {{/if}} {{/if}}
 
-<!-- Edit the inlined CSS styles by editing `inline.scss` -->
+<!-- To change inlined CSS styles, edit `inline.scss` -->
 <mj-style inline="inline">{{> cssInline}}</mj-style>
 
-<!-- WARNING: The following section is for CSS styles that cannot
-be inlined, like link-hover effects. Remember that only
-a small subset of recipients will see these, so use this
-section for enhancement only; things should be readable even
-when these styles don't load! You'll need to add !important
-to all these styles to override the inlined ones, so be sure
-to test (e.g. if you change a link's color on hover, make
-sure it still works in the context of buttons, navigation menus,
-the footer, headings/subheadings, social icons, etc.). -->
-<mj-style>
-  a:hover, a:focus, a:active { } .button a:hover, .button a:focus, .button
-  a:active { } .button--ghost table a:hover, .button--ghost table a:focus,
-  .button--ghost table a:active { } .nav a:hover, .nav a:focus, .nav a:active {
-  } .social a:focus { }
-</mj-style>
+<!-- To change pseudo CSS styles, edit `pseudo.scss` -->
+<mj-style>{{> cssPseudo}}</mj-style>
 
 <mj-attributes>
   <!-- Applied to all elements -->
