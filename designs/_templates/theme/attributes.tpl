@@ -1,12 +1,23 @@
 {{#if theme.fonts.web}}
-<!-- `mj-font` element needs to be outside `mj-attributes`
-       @see: https://documentation.mjml.io/#mj-font
-  -->
-<mj-font {{#if theme.fonts.options.google.enabled}}
-name="{{theme.fonts.options.google.name}}"
-href="{{{theme.fonts.options.google.href}}}" {{/if}} {{#if
-theme.fonts.options.custom.enabled}} name="{{theme.fonts.options.custom.name}}"
-href="{{{theme.fonts.options.custom.href}}}" {{/if}} /> {{/if}}
+  <!-- `mj-font` element needs to be outside `mj-attributes`
+         @see: https://documentation.mjml.io/#mj-font
+    -->
+
+  {{#if theme.fonts.options.google.enabled}}
+    <mj-font
+      name="{{theme.fonts.options.google.name}}"
+      href="{{{theme.fonts.options.google.href}}}"
+    />
+  {{/if}}
+
+  {{#if theme.fonts.options.custom.enabled}}
+    <mj-font
+      name="{{theme.fonts.options.custom.name}}"
+      href="{{{theme.fonts.options.custom.href}}}"
+    />
+  {{/if}}
+
+{{/if}}
 
 <!-- Edit the inlined CSS styles by editing `inline.scss` -->
 <mj-style inline="inline">{{> cssInline}}</mj-style>
