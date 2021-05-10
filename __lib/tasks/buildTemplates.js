@@ -58,79 +58,20 @@ module.exports = function buildTemplates (done) {
         .data(config)
     )
     .on('error', e.hbError)
-    .on('end', function () {
-      log('')
-    })
+    .pipe(
+      rename(function (path, file) {
+        const subPath = file.path
+          .replace(paths.current.path, '')
+          .replace(path.basename, '')
+          .replace(path.extname, '')
+        path.dirname += subPath
+        debug('Processed template file: ' + path.basename + path.extname)
+      })
+    )
     .pipe(dest(paths.current.temp))
+    .on('end', function () {
+      debug(msg.b('Created temporary files at: ') + paths.current.temp)
+    })
 
   done()
 }
-
-// OLD TASK
-
-// fs.stat(templateArray[0], function (error, stat, done) {
-
-//   if (error == null) {
-
-//     // Register Handlebars partials based on CSS config
-//     for (const key in paths.theme.css) {
-//       const partialName = 'css' + key.charAt(0).toUpperCase() + key.slice(1)
-//       const partialPath = path.join(
-//         paths.theme.temp,
-//         paths.theme.sassDir,
-//         paths.theme.css[key]
-//       )
-//       if (fs.existsSync(partialPath)) {
-//         const partialFile = fs.readFileSync(partialPath, 'utf8')
-//         Handlebars.registerPartial(`${partialName}`, partialFile)
-//       }
-//     }
-
-//     // Process templates
-//     for (const file of templateArray) {
-//       // Create new template
-//       const template = fs.readFileSync(file, 'utf8')
-//       const format = Handlebars.compile(template, {
-//         strict: true,
-//       })
-
-//       // Use configuration settings as data in the templates
-//       const processedTemplate = format(config)
-
-//       // Extract subfolder data from file path
-//       const subFolder = path
-//         .dirname(file)
-//         .replace(paths.current.path, '')
-//         .replace('/.tmp', '')
-
-//       // Determine the destination
-//       const destPath = path.join(
-//         paths.current.temp,
-//         subFolder,
-//         path.basename(file)
-//       )
-
-//       // Create the parent directory, if necessary
-//       if (!fs.existsSync(path.dirname(destPath))) {
-//         fs.mkdirSync(path.dirname(destPath), { recursive: true })
-//       }
-
-//       // Write the file
-//       fs.writeFileSync(destPath, processedTemplate)
-
-//       debug('Processed template file: ' + path.basename(file))
-//     }
-
-//     debug(msg.b('Created temporary files at: ') + paths.templates.temp)
-
-//   } else if (error.code === 'ENOENT') {
-//     log(
-//       msg.error(
-//         'Error building template files: CSS files do not exist. Run `gulp buildStyles` before running this task.'
-//       )
-//     )
-
-//   } else {
-//     log(msg.error('Error: ' + error.code))
-//   }
-// })
