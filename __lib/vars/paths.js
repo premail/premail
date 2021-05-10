@@ -93,8 +93,7 @@ const theme = {
     userConfig.data.folders.theme.dir
   ),
   sassDir: '/sass',
-  cssInline: internalConfig.data.css.inline,
-  cssPseudo: internalConfig.data.css.pseudo,
+  css: Object.assign(internalConfig.data.css),
 }
 
 // @TODO New feature that would get the list of current designs and emails

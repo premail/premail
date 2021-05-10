@@ -38,26 +38,18 @@ module.exports = function buildTemplates (done) {
     templateArray.push(template)
   }
 
-  const cssInlineFile = path.join(
-    paths.theme.temp,
-    paths.theme.sassDir,
-    paths.theme.cssInline
-  )
-
-  const cssPseudoFile = path.join(
-    paths.theme.temp,
-    paths.theme.sassDir,
-    paths.theme.cssPseudo
-  )
+  // Register Handlebars partials based on CSS config
+  for (const key in paths.theme.css) {
+    const partialName = 'css' + key.charAt(0).toUpperCase() + key.slice(1)
+    const partialFile = fs.readFileSync(
+      path.join(paths.theme.temp, paths.theme.sassDir, paths.theme.css[key]),
+      'utf8'
+    )
+    Handlebars.registerPartial(`${partialName}`, partialFile)
+  }
 
   fs.stat(templateArray[0], function (error, stat) {
     if (error == null) {
-      // Register Handlebars partials
-      const cssInline = fs.readFileSync(cssInlineFile, 'utf8')
-      Handlebars.registerPartial('cssInline', cssInline)
-      const cssPseudo = fs.readFileSync(cssPseudoFile, 'utf8')
-      Handlebars.registerPartial('cssPseudo', cssPseudo)
-
       for (const file of templateArray) {
         // Create new template
         const template = fs.readFileSync(file, 'utf8')
