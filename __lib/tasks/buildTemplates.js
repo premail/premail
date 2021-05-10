@@ -79,7 +79,7 @@ module.exports = function buildTemplates (done) {
 
         // Create the parent directory, if necessary
         if (!fs.existsSync(path.dirname(destPath))) {
-          fs.mkdirSync(path.dirname(destPath))
+          fs.mkdirSync(path.dirname(destPath), { recursive: true })
         }
 
         // Write the file
