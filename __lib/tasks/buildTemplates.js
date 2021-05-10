@@ -41,11 +41,15 @@ module.exports = function buildTemplates (done) {
   // Register Handlebars partials based on CSS config
   for (const key in paths.theme.css) {
     const partialName = 'css' + key.charAt(0).toUpperCase() + key.slice(1)
-    const partialFile = fs.readFileSync(
-      path.join(paths.theme.temp, paths.theme.sassDir, paths.theme.css[key]),
-      'utf8'
+    const partialPath = path.join(
+      paths.theme.temp,
+      paths.theme.sassDir,
+      paths.theme.css[key]
     )
-    Handlebars.registerPartial(`${partialName}`, partialFile)
+    if (fs.existsSync(partialPath)) {
+      const partialFile = fs.readFileSync(partialPath, 'utf8')
+      Handlebars.registerPartial(`${partialName}`, partialFile)
+    }
   }
 
   fs.stat(templateArray[0], function (error, stat) {
