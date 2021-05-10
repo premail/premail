@@ -12,13 +12,13 @@ const { msg } = require('../vars/notifications.js')
 function handleError (error, pluginName) {
   // Ensure a pluginName is passed.
   if (!pluginName) {
-    log(msg.error('The handleError function must include a pluginName.'))
+    return log(msg.error('The handleError function must include a pluginName.'))
 
     // General errors
   } else {
     pluginName = pluginName.charAt(0).toUpperCase() + pluginName.slice(1)
     const message = new PluginError(pluginName, error.message).toString()
-    log(msg.errorText(`\n${message}\n`))
+    return log(msg.errorText(`\n${message}\n`))
   }
 }
 
@@ -30,6 +30,15 @@ const sassError = function logError (error) {
   ).toString()
   log(msg.error('\nSass processing error:'))
   log(`${message}\n`)
+  this.emit('end')
+}
+
+// handlebars.logError
+const hbError = function logError (error) {
+  const message = new PluginError('handlebars', error.message).toString()
+  log(msg.error('\nHandlebars processing error (gulp-hb):'))
+  log(`${message}\n`)
+  log(msg.error('Error: Templates were not created!\n'))
   this.emit('end')
 }
 
@@ -45,5 +54,6 @@ const mjmlError = function logError (error) {
 module.exports = {
   handleError,
   sassError,
+  hbError,
   mjmlError,
 }
