@@ -33,6 +33,7 @@
     "fancy-log": "^1.3.3",
     "fibers": "^5.0.0",
     "gulp": "^4.0.2",
+    "gulp-hb": "^8.0.0",
     "gulp-html2txt": "^1.2.1",
     "gulp-if": "^3.0.0",
     "gulp-mjml": "^4.0.2",
