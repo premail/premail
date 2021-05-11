@@ -30,34 +30,34 @@ themeConfig.data = themeConfig.json[0]
 function constructVars () {
   // Web font
   if (
-    themeConfig.data.fonts.options.google.enabled ||
-    themeConfig.data.fonts.options.custom.enabled
+    themeConfig.data.fonts.stack.google.enabled ||
+    themeConfig.data.fonts.stack.custom.enabled
   ) {
     themeConfig.data.fonts.web = true
   }
 
   // Google Font URI
   // encodeURI()
-  if (themeConfig.data.fonts.options.google.enabled) {
+  if (themeConfig.data.fonts.stack.google.enabled) {
     const weights = []
     let specs
 
-    if (themeConfig.data.fonts.options.google.italics) {
+    if (themeConfig.data.fonts.stack.google.italics) {
       specs = 'ital,wght@'
 
-      for (let weight of themeConfig.data.fonts.options.google.weights) {
+      for (let weight of themeConfig.data.fonts.stack.google.weights) {
         weight = '0,' + weight
         weights.push(weight)
       }
 
-      for (let weight of themeConfig.data.fonts.options.google.weights) {
+      for (let weight of themeConfig.data.fonts.stack.google.weights) {
         weight = '1,' + weight
         weights.push(weight)
       }
     } else {
       specs = 'wght@'
 
-      for (const weight of themeConfig.data.fonts.options.google.weights) {
+      for (const weight of themeConfig.data.fonts.stack.google.weights) {
         weights.push(weight)
       }
     }
@@ -67,9 +67,9 @@ function constructVars () {
       ''
     )
 
-    themeConfig.data.fonts.options.google.href =
+    themeConfig.data.fonts.stack.google.href =
       'https://fonts.googleapis.com/css2?family=' +
-      themeConfig.data.fonts.options.google.name.replace(/\s/g, '+') +
+      themeConfig.data.fonts.stack.google.name.replace(/\s/g, '+') +
       ':' +
       specs +
       '&amp;display=swap'

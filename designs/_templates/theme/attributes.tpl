@@ -3,15 +3,15 @@
          @see: https://documentation.mjml.io/#mj-font
     -->
 
-{{#if theme.fonts.options.google.enabled}}
+{{#if theme.fonts.stack.google.enabled}}
 <mj-font
-  name="{{theme.fonts.options.google.name}}"
-  href="{{{theme.fonts.options.google.href}}}"
+  name="{{theme.fonts.stack.google.name}}"
+  href="{{{theme.fonts.stack.google.href}}}"
 />
-{{/if}} {{#if theme.fonts.options.custom.enabled}}
+{{/if}} {{#if theme.fonts.stack.custom.enabled}}
 <mj-font
-  name="{{theme.fonts.options.custom.name}}"
-  href="{{{theme.fonts.options.custom.href}}}"
+  name="{{theme.fonts.stack.custom.name}}"
+  href="{{{theme.fonts.stack.custom.href}}}"
 />
 {{/if}} {{/if}}
 
@@ -28,9 +28,9 @@
     margin="0"
     padding="0"
     font-family="
-    {{~#eq theme.fonts.options.base 'serif'}}{{internal.fonts.serif}}{{/eq}}
-    {{~#eq theme.fonts.options.base 'sans'}}{{internal.fonts.sans}}{{/eq}}
-    {{~#eq theme.fonts.options.base 'mono'}}{{internal.fonts.mono}}{{/eq}}
+    {{~#eq theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}}
+    {{~#eq theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}}
+    {{~#eq theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}}
     "
     font-size="18px"
     color="#666"

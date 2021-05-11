@@ -6,7 +6,7 @@
 
 # Fonts
 fonts:
-  options:
+  stack:
     # Base options:
     #   'sans'
     #   'serif'
