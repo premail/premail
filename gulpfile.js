@@ -87,6 +87,9 @@ exports.cleanGen.description =
   'Remove generated files from the current design or email.'
 
 // Debug
+exports.showConfig = showConfig
+exports.showConfig.description =
+  'Display the current configuration being used when rendering your email files.'
 exports.listTemplates = listTemplates
 exports.listTemplates.description =
   'List all templates that will be processed. Useful for debugging.'

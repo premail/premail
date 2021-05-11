@@ -205,6 +205,7 @@ configuration and files being processed.
                                     -d:     Specify design folder to use. (Default: _templates)
                                     -e:     Specify email folder to render.
 │ └─┬ <series>
+│   ├── showConfig
 │   ├── cleanTemp
 │   ├── cleanGen
 │   ├── buildStyles
@@ -219,6 +220,7 @@ configuration and files being processed.
                                     -d:     Specify design folder to use. (Default: _templates)
                                     -e:     Specify email folder to render.
 │ └─┬ <series>
+│   ├── showConfig
 │   ├── cleanTemp
 │   ├── cleanGen
 │   ├── buildStyles
@@ -246,6 +248,7 @@ configuration and files being processed.
 ├── formatTemplates  Format MJML templates with Prettier.
 ├── cleanTemp        Remove temporary files from the current design or email.
 ├── cleanGen         Remove generated files from the current design or email.
+├── showConfig       Display the current configuration being used when rendering your email files.
 └── listTemplates    List all templates that will be processed. Useful for debugging.
 ```
 <!-- --><!-- /markdown-exec -->
