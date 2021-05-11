@@ -52,10 +52,19 @@ const includeError = function logError (error) {
 
 // MJML
 const mjmlError = function logError (error) {
-  const message = new PluginError('mjml', error.message).toString()
+  const message = new PluginError('gulp-mjml', error.message).toString()
   log(msg.error('\nMJML processing error:'))
   log(`${message}\n`)
   log(msg.error('Error: HTML was not built!\n'))
+  this.emit('end')
+}
+
+// Plain text
+const textError = function logError (error) {
+  const message = new PluginError('gulp-html2txt', error.message).toString()
+  log(msg.error('\nPlain-text generation error:'))
+  log(`${message}\n`)
+  log(msg.error('Error: Plain text version was not built!\n'))
   this.emit('end')
 }
 
@@ -65,4 +74,5 @@ module.exports = {
   hbError,
   includeError,
   mjmlError,
+  textError,
 }

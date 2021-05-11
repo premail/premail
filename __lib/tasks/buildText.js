@@ -2,11 +2,11 @@
 
 /* eslint-disable no-unused-vars */
 const { src, dest } = require('gulp')
-const fs = require('fs')
 const path = require('path')
 const gulpif = require('gulp-if')
 const rename = require('gulp-rename')
-const { htmlToText } = require('html-to-text')
+const replace = require('gulp-replace')
+const html2txt = require('gulp-html2txt')
 
 const e = require('../functions/e.js')
 const paths = require('../vars/paths.js')
@@ -24,9 +24,10 @@ const { debug } = require('../vars/debug.js')
 
 module.exports = function buildText (done) {
   if (text) {
-    const sourceFile = path.join(paths.current.temp, paths.current.mainTemplate)
+    const sourceFile = path.join(paths.current.dist, 'index.html')
     const destFile = path.join(paths.current.dist, 'index.txt')
 
+    // Options for rendering text
     const buildOpt = {
       baseElement: [],
       tables: true,
@@ -35,7 +36,8 @@ module.exports = function buildText (done) {
       },
     }
 
-    const configOpt = {
+    // Determine which elements to include
+    const includeOpt = {
       images: userConfig.data.text.images,
       include: {
         topNav: userConfig.data.text.include.topNav,
@@ -49,53 +51,43 @@ module.exports = function buildText (done) {
       },
     }
 
-    if (!configOpt.images) {
+    if (!includeOpt.images) {
       buildOpt.tags.img.format = 'skip'
     }
 
-    Object.keys(configOpt.include).forEach(key => {
-      if (configOpt.include[key]) {
+    Object.keys(includeOpt.include).forEach(key => {
+      if (includeOpt.include[key]) {
         buildOpt.baseElement.push('div.component-' + key)
       }
     })
 
-    fs.stat(sourceFile, function (error, stat) {
-      if (error == null) {
-        if (debug) {
-          debug(msg.b('Plain-text source:\n') + sourceFile)
-          debug(
-            msg.b('\nPlain-text options configuration:\n') +
-              JSON.stringify(configOpt, null, 2).replace(/["{},]/g, '')
-          )
-        }
+    if (debug) {
+      debug(msg.b('Plain-text source:\n') + sourceFile)
+      debug(
+        msg.b('\nPlain-text options configuration:\n') +
+          JSON.stringify(includeOpt, null, 2).replace(/["{},]/g, '')
+      )
+    }
 
-        const html = fs.readFileSync(sourceFile, { encoding: 'utf-8' })
+    // Render plain text
+    src(sourceFile)
+      .pipe(html2txt(buildOpt).on('error', e.textError))
 
-        const text = htmlToText(
-          // Remove hard-coded mobile navigation menu characters inserted by
-          // MJML, which will otherwise show up in the generated plain-text.
-          // Currently html-to-text does not give us a way to skip elements
-          // based on selectors.
-          //
-          // @see:
-          // https://github.com/html-to-text/node-html-to-text/issues/159
-          html.replace(/&#9776;/g, '').replace(/&#8855;/g, ''),
-          buildOpt
-        )
+      // Remove hard-coded mobile navigation menu characters inserted by
+      // MJML, which will otherwise show up in the generated plain-text.
+      // Currently html-to-text does not give us a way to skip elements
+      // based on selectors.
+      //
+      // @see:
+      // https://github.com/html-to-text/node-html-to-text/issues/159
+      .pipe(replace('☰ ⊗\n', ''))
 
-        fs.writeFileSync(destFile, text)
-
-        log(msg.info(msg.b('Plain-text version saved:\n') + destFile))
-      } else if (error.code === 'ENOENT') {
-        log(
-          msg.error(
-            'Error building text version: index.html does not exist. Run `gulp buildHTML` before running this task.'
-          )
-        )
-      } else {
-        log(msg.error('Error: ' + error.code))
-      }
-    })
+      // Write file
+      .pipe(
+        dest(path.dirname(destFile)).on('finish', function (source) {
+          log(msg.info(msg.b('Plain-text version saved:\n') + destFile))
+        })
+      )
   } else {
     log(msg.info('Plain-text generation turned off.'))
   }

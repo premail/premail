@@ -2,7 +2,6 @@
 
 /* eslint-disable no-unused-vars */
 const { src, dest } = require('gulp')
-const fs = require('fs')
 const path = require('path')
 const del = require('del')
 const gulpif = require('gulp-if')
@@ -27,53 +26,44 @@ module.exports = function buildHTML (done) {
   const sourceFile = path.join(paths.current.temp, paths.current.mainTemplate)
   const destFile = path.join(paths.current.dist, 'index.html')
 
-  fs.stat(sourceFile, function (error, stat) {
-    if (error == null) {
-      src(sourceFile)
-        .pipe(
-          gulpif(
-            prod,
-            // Production
-            mjml(mjmlEngine, {
-              validationLevel: 'strict',
-              fileExt: userConfig.data.files.templateExt,
-              beautify: false,
-              minify: true,
-              keepComments: false,
-            }),
-            // Development
-            mjml(mjmlEngine, {
-              validationLevel: 'strict',
-              fileExt: userConfig.data.files.templateExt,
-              beautify: true,
-            })
+  // Render HTML
+  src(sourceFile)
+    .pipe(
+      gulpif(
+        prod,
+        // Production
+        mjml(mjmlEngine, {
+          validationLevel: 'strict',
+          fileExt: userConfig.data.files.templateExt,
+          beautify: false,
+          minify: true,
+          keepComments: false,
+        }),
+        // Development
+        mjml(mjmlEngine, {
+          validationLevel: 'strict',
+          fileExt: userConfig.data.files.templateExt,
+          beautify: true,
+        })
+      )
+    )
+    .on('error', e.mjmlError)
+    .on('finish', function (source) {
+      debug(msg.b('HTML source:\n') + sourceFile)
+    })
+
+    // Write file
+    .pipe(dest(path.dirname(destFile)))
+    .on('finish', function (source) {
+      log(msg.info(msg.b('HTML version saved:\n') + destFile))
+      if (prod) {
+        log(
+          msg.warn(
+            msg.b('Production:') + ' Minified with HTML comments stripped.'
           )
         )
-        .on('error', e.mjmlError)
-        .on('finish', function (source) {
-          debug(msg.b('HTML source:\n') + sourceFile)
-        })
-        .pipe(dest(path.dirname(destFile)))
-        .on('finish', function (source) {
-          log(msg.info(msg.b('HTML version saved:\n') + destFile))
-          if (prod) {
-            log(
-              msg.warn(
-                msg.b('Production:') + ' Minified with HTML comments stripped.'
-              )
-            )
-          }
-        })
-    } else if (error.code === 'ENOENT') {
-      log(
-        msg.error(
-          'Error building HTML files: Main template file does not exist. Run `gulp buildTemplates` before running this task.'
-        )
-      )
-    } else {
-      log(msg.error('Error: ' + error.code))
-    }
-  })
+      }
+    })
 
   done()
 }
