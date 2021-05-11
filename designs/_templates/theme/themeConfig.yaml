@@ -28,7 +28,7 @@ fonts:
     google:
       # google: If enabled, choose a Google font and options, and this will
       # automatically embed the font in a best-practice tag. Note that web fonts
-      # require an additional download (potentially slowing down loading) an
+      # require an additional download (potentially slowing down loading) and
       # are only visible in a small number of email systems, so most people will
       # be seeing the base font set above. For more information about this
       # approach, see:
