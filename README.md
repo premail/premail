@@ -3,8 +3,8 @@
 ![Checks](https://img.shields.io/github/checks-status/rootwork/mjml-quickstart/main.svg?style=flat-square)
 [![Node ^10.23.2](https://img.shields.io/badge/node-%5E10.23.2-brightgreen.svg?style=flat-square)](https://nodejs.org/en/download/)
 [![MJML 4.0+ valid](https://img.shields.io/badge/mjml-4%2B-brightgreen.svg?style=flat-square)](https://github.com/mjmlio/mjml/releases)
-[![Code style: JS Standard](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](https://standardjs.com)
-[![Code style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![Code style: JS Standard](https://img.shields.io/badge/code_style-standard-blue.svg?style=flat-square)](https://standardjs.com)
+[![Code style: Prettier](https://img.shields.io/badge/code_style-prettier-blue.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 A quick-start setup for those writing email code in [MJML](https://mjml.io/),
 the email templating language, using Node and Gulp.
