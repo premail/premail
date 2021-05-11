@@ -4,10 +4,9 @@
 const { src, dest } = require('gulp')
 const rename = require('gulp-rename')
 const path = require('path')
-// const yaml = require('js-yaml')
 const hb = require('gulp-hb')
-// const Handlebars = require('handlebars')
 const helpers = require('handlebars-helpers')(['comparison'])
+const fileinclude = require('gulp-file-include')
 
 const { internalConfig } = require('../functions/internalConfig.js')
 const { userConfig } = require('../functions/userConfig.js')
@@ -23,7 +22,7 @@ const { debug } = require('../vars/debug.js')
 /* eslint-enable no-unused-vars */
 
 //
-// Render Handlebars templates into HTML.
+// Render Handlebars templates into HTML/MJML.
 //
 
 module.exports = function buildTemplates (done) {
@@ -39,18 +38,9 @@ module.exports = function buildTemplates (done) {
     templates.push(template)
   }
 
-  // Load partials
-  const partials = []
-  for (const key in paths.theme.css) {
-    const partialPath = path.join(
-      paths.theme.temp,
-      paths.theme.sassDir,
-      paths.theme.css[key]
-    )
-    partials.push(partialPath)
-  }
-
+  // Render templates
   src(templates)
+    // Process Handlebars data
     .pipe(
       hb()
         .partials()
@@ -58,6 +48,17 @@ module.exports = function buildTemplates (done) {
         .data(config)
     )
     .on('error', e.hbError)
+
+    // Process file includes
+    .pipe(
+      fileinclude({
+        prefix: '@@',
+        basepath: path.join(paths.theme.temp, paths.theme.sassDir),
+      })
+    )
+    .on('error', e.includeError)
+
+    // Set destination and write files
     .pipe(
       rename(function (path, file) {
         const subPath = file.path
@@ -70,7 +71,7 @@ module.exports = function buildTemplates (done) {
     )
     .pipe(dest(paths.current.temp))
     .on('end', function () {
-      debug(msg.b('Created temporary files at: ') + paths.current.temp)
+      debug(msg.b('Created temporary template files at: ') + paths.current.temp)
     })
 
   done()

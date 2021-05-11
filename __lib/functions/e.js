@@ -33,16 +33,24 @@ const sassError = function logError (error) {
   this.emit('end')
 }
 
-// handlebars.logError
+// Handlebars
 const hbError = function logError (error) {
-  const message = new PluginError('handlebars', error.message).toString()
-  log(msg.error('\nHandlebars processing error (gulp-hb):'))
+  const message = new PluginError('gulp-hb', error.message).toString()
+  log(msg.error('\nHandlebars processing error:'))
   log(`${message}\n`)
   log(msg.error('Error: Templates were not created!\n'))
   this.emit('end')
 }
 
-// mjml.logError
+// File-include
+const includeError = function logError (error) {
+  const message = new PluginError('gulp-file-include', error.message).toString()
+  log(msg.error('\nFile-include error:'))
+  log(msg.errorText(`${message}\n`))
+  this.emit('end')
+}
+
+// MJML
 const mjmlError = function logError (error) {
   const message = new PluginError('mjml', error.message).toString()
   log(msg.error('\nMJML processing error:'))
@@ -55,5 +63,6 @@ module.exports = {
   handleError,
   sassError,
   hbError,
+  includeError,
   mjmlError,
 }

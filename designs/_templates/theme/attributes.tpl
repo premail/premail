@@ -16,10 +16,10 @@
 {{/if}} {{/if}}
 
 <!-- To change inlined CSS styles, edit `inline.scss` -->
-<mj-style inline="inline">{{> cssInline}}</mj-style>
+<mj-style inline="inline">@@include('{{internal.css.inline}}')</mj-style>
 
 <!-- To change pseudo CSS styles, edit `pseudo.scss` -->
-<mj-style>{{> cssPseudo}}</mj-style>
+<mj-style>@@include('{{internal.css.pseudo}}')</mj-style>
 
 <mj-attributes>
   <!-- Applied to all elements -->
