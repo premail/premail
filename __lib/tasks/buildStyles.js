@@ -4,7 +4,6 @@
 const { src, dest } = require('gulp')
 const path = require('path')
 const sass = require('gulp-sass')
-const tap = require('gulp-tap')
 const Fiber = require('fibers')
 sass.compiler = require('sass')
 
@@ -28,17 +27,13 @@ module.exports = function buildStyles (done) {
       }).on('error', e.sassError)
     )
     .pipe(dest(paths.theme.temp + paths.theme.sassDir))
-    .pipe(
-      tap(function (file, t) {
-        debug(
-          msg.b('CSS file written to:\n') +
-            paths.theme.temp +
-            paths.theme.sassDir +
-            '/' +
-            path.basename(file.path)
-        )
-      })
-    )
+    .on('end', function () {
+      debug(
+        msg.b('CSS files written to:\n') +
+          paths.theme.temp +
+          paths.theme.sassDir
+      )
+    })
 
   done()
 }
