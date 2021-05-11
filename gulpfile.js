@@ -3,21 +3,10 @@
 /* eslint-disable no-unused-vars */
 const { series, parallel } = require('gulp')
 
-const { userConfig } = require('./__lib/functions/userConfig.js')
 const { log } = require('./__lib/vars/log.js')
 const { msg } = require('./__lib/vars/notifications.js')
 const { debug } = require('./__lib/vars/debug.js')
 /* eslint-enable no-unused-vars */
-
-//
-// Test function for debugging
-//
-
-// function test(done) {
-//   log(msg.debug(()));
-//   done();
-// }
-// exports.test = test;
 
 //
 // Tasks
@@ -25,6 +14,7 @@ const { debug } = require('./__lib/vars/debug.js')
 
 const taskDir = './__lib/tasks/'
 
+const showConfig = require(taskDir + 'showConfig.js')
 const cleanGen = require(taskDir + 'cleanGen.js')
 const buildStyles = require(taskDir + 'buildStyles.js')
 const watchStyles = require(taskDir + 'watchStyles.js')
@@ -39,6 +29,7 @@ const cleanTemp = require(taskDir + 'cleanTemp.js')
 
 // Sets
 exports.default = series(
+  showConfig,
   cleanTemp,
   cleanGen,
   buildStyles,

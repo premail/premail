@@ -22,10 +22,6 @@ themeConfig.json = yaml.loadAll(
   })
 )
 themeConfig.data = themeConfig.json[0]
-debug(
-  msg.b('Design configuration:\n') +
-    JSON.stringify(themeConfig.data, null, 2).replace(/["{},[\]]/g, '')
-)
 
 //
 // Construct additional variables dependent on theme config.

@@ -20,10 +20,6 @@ userConfig.json = yaml.loadAll(
 userConfig.data = userConfig.json[0]
 const templateDotExt = path.extname(userConfig.data.files.template)
 userConfig.data.files.templateExt = templateDotExt.replace('.', '')
-debug(
-  msg.b('Current configuration:\n') +
-    JSON.stringify(userConfig.data, null, 2).replace(/["{},]/g, '')
-)
 
 module.exports = {
   userConfig,
