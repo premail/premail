@@ -1,0 +1,20 @@
+/* GMAIL-SPECIFIC STYLES
+ *
+ * These are styles that target Gmail behavior. They must be in their own
+ * dedicated <style> block, or Gmail will strip them.
+ *
+ * Currently, the only Gmail-specific style used here is to force any Gmail-
+ * created links (like for addresses and phone numbers) to inherit their
+ * parent text's styles.
+ *
+ * Resources:
+ * https://www.litmus.com/blog/update-banning-blue-links-on-ios-devices-2/
+ */
+a[x-apple-data-detectors] {
+  color: inherit !important;
+  text-decoration: none !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+}

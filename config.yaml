@@ -63,3 +63,21 @@ text:
     social: true
     bottomNav: true
     footer: true
+
+# 3. Language
+language:
+  # Sets the default language wrapping each email. This must be set to a valid
+  # lanugage tag to inform assistive devices like screen readers. If you have
+  # multilingual emails, you can include `lang` attributes in wrapping <div>
+  # tags. Resources:
+  # https://github.com/hteumeuleu/email-guidelines#lang
+  # https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
+  default: en
+
+# 4. Nitpicky Options
+nitpick:
+  # previewPad: When set to true, appends spaces to the preview or preheader
+  # text you enter to ensure that the rest of the content of your email isn't
+  # pulled up into the preview. Resources:
+  # https://www.goodemailcode.com/email-code/preheader
+  previewPad: true

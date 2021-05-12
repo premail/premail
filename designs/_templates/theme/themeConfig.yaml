@@ -3,9 +3,35 @@
 #
 # Settings here affect the theme within this design's directory only.
 #
+# Color values:
+# Quote all values to account for pound signs. Use hex (3- or 6-digits; MJML
+# will render it in 6 digits) or RGB formats. Do not use RGBA values or CSS
+# color keywords, as these are not universally supported. Also note that some
+# email clients will attempt to invert colors when the user has set a preference
+# for dark mode. You have limited control over what these inverted colors will
+# be, though workarounds exist. Resources:
+# https://www.litmus.com/blog/background-colors-html-email/
+# https://www.hteumeuleu.com/2021/fixing-gmail-dark-mode-css-blend-modes/
+#
+# Font sizes:
+# Set in pixels. Email clients render ems at vastly different sizes; 1em can
+# vary from as small as 12px to as large as 17px. Resources:
+# https://us4.campaign-archive.com/?u=00194e641f365c79871912856&id=1b0c8bc3ba&e=d274356b59
+# https://email.uplers.com/blog/em-or-px-how-to-code-your-emails-right/
+
+# Colors
+# See "Color values" at the top of this document.
+colors:
+  # primary: Used for buttons, navigation menus, and social media icons.
+  primary: '#800080'
 
 # Fonts
 fonts:
+  default:
+    # size: See "Font sizes" at the top of this document.
+    size: 18px
+    # color: See "Color values" at the top of this document.
+    color: '#666'
   stack:
     # Base options:
     #   'sans'

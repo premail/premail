@@ -21,19 +21,36 @@
 <!-- To change pseudo CSS styles, edit `pseudo.scss` -->
 <mj-style>@@include('{{internal.css.pseudo}}')</mj-style>
 
+<!-- To change Gmail-specific CSS styles, edit `gmail.scss` -->
+<mj-style>@@include('{{internal.css.gmail}}')</mj-style>
+
 <mj-attributes>
   <!-- Applied to all elements -->
 
   <mj-all
     margin="0"
     padding="0"
+    font-size="{{theme.fonts.default.size}}"
+    color="{{theme.fonts.default.color}}"
     font-family="
     {{~#eq theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}}
     {{~#eq theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}}
     {{~#eq theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}}
     "
-    font-size="18px"
-    color="#666"
+    {{!--
+      Background on these Outlook-specific tags:
+      https://www.hteumeuleu.com/2019/today-i-learned-about-mso-generic-font-family/
+      --}}
+    mso-generic-font-family="
+    {{~#eq theme.fonts.stack.base 'serif'}}roman{{/eq}}
+    {{~#eq theme.fonts.stack.base 'sans'}}swiss{{/eq}}
+    {{~#eq theme.fonts.stack.base 'mono'}}swiss{{/eq}}
+    "
+    mso-font-alt="
+    {{~#eq theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}}
+    {{~#eq theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}}
+    {{~#eq theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}}
+    "
   />
 
   <!-- Structure -->
@@ -62,7 +79,7 @@
 
   <!-- Typography -->
 
-  <mj-class name="text" padding="18px 0" font-size="18px" line-height="32px" />
+  <mj-class name="text" padding="18px 0" font-size="{{theme.fonts.default.size}}" line-height="32px" />
 
   <mj-class name="text--salutation" padding="18px 0 0" />
 
@@ -80,7 +97,7 @@
   <mj-class
     name="button"
     padding="0 18px 18px"
-    background-color="purple"
+    background-color="{{theme.colors.primary}}"
     color="white"
     font-weight="bold"
     border-radius="8px"
@@ -89,8 +106,8 @@
   <mj-class
     name="button--ghost"
     background-color="white"
-    color="purple"
-    border="purple 2px solid"
+    color="{{theme.colors.primary}}"
+    border="{{theme.colors.primary}} 2px solid"
   />
 
   <!-- Images -->
@@ -119,7 +136,7 @@
   <mj-class
     name="hero-border"
     container-background-color="white"
-    border-color="purple"
+    border-color="{{theme.colors.primary}}"
     border-width="2px"
   />
 
@@ -136,7 +153,7 @@
     padding-bottom="16px"
     border-width="1px"
     border-style="dashed"
-    border-color="purple"
+    border-color="{{theme.colors.primary}}"
   />
 
   <mj-class
@@ -149,13 +166,13 @@
   <mj-class
     name="social__icon"
     padding="16px"
-    background-color="purple"
+    background-color="{{theme.colors.primary}}"
     border-radius="6px"
   />
 
   <!-- Navigation menus -->
 
-  <mj-class name="nav" padding="16px" background-color="purple" color="white" />
+  <mj-class name="nav" padding="16px" background-color="{{theme.colors.primary}}" color="white" />
 
   <mj-class name="nav--top" />
 
