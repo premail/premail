@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 const del = require('del')
 
-const paths = require('../vars/paths.js')
+const { config } = require('../vars/config.js')
 const { log } = require('../vars/log.js')
 const { msg } = require('../vars/notifications.js')
 const { debug } = require('../vars/debug.js')
@@ -16,7 +16,7 @@ const { debug } = require('../vars/debug.js')
 module.exports = function cleanGen (done) {
   log(msg.warn('Deleting generated files...'))
 
-  const deletedFilePaths = [paths.current.dist + '/*']
+  const deletedFilePaths = [config.current.dist + '/*']
 
   del.sync(deletedFilePaths)
 

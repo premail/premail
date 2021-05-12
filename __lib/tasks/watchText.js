@@ -3,8 +3,8 @@
 /* eslint-disable no-unused-vars */
 const { watch, series } = require('gulp')
 
-const { userConfig } = require('../functions/userConfig.js')
-const { text } = require('../vars/text.js')
+const { config } = require('../vars/config.js')
+const e = require('../functions/e.js')
 const buildText = require('../tasks/buildText.js')
 /* eslint-enable no-unused-vars */
 
@@ -13,7 +13,7 @@ const buildText = require('../tasks/buildText.js')
 //
 
 module.exports = function watchText () {
-  if (text) {
-    watch('./**/*.html', buildText)
+  if (config.user.text.generate) {
+    watch('./**/*.html', buildText).on('error', e.textError)
   }
 }

@@ -9,9 +9,8 @@ const rename = require('gulp-rename')
 const mjml = require('gulp-mjml')
 const mjmlEngine = require('mjml')
 
-const { userConfig } = require('../functions/userConfig.js')
 const e = require('../functions/e.js')
-const paths = require('../vars/paths.js')
+const { config } = require('../vars/config.js')
 const { log } = require('../vars/log.js')
 const { msg } = require('../vars/notifications.js')
 const { prod } = require('../vars/prod.js')
@@ -23,8 +22,8 @@ const { debug } = require('../vars/debug.js')
 //
 
 module.exports = function buildHTML (done) {
-  const sourceFile = path.join(paths.current.temp, paths.current.mainTemplate)
-  const destFile = path.join(paths.current.dist, 'index.html')
+  const sourceFile = path.join(config.current.temp, config.current.mainTemplate)
+  const destFile = path.join(config.current.dist, 'index.html')
 
   // Render HTML
   src(sourceFile)
@@ -34,7 +33,7 @@ module.exports = function buildHTML (done) {
         // Production
         mjml(mjmlEngine, {
           validationLevel: 'strict',
-          fileExt: userConfig.data.files.templateExt,
+          fileExt: config.user.files.templateExt,
           beautify: false,
           minify: true,
           keepComments: false,
@@ -42,7 +41,7 @@ module.exports = function buildHTML (done) {
         // Development
         mjml(mjmlEngine, {
           validationLevel: 'strict',
-          fileExt: userConfig.data.files.templateExt,
+          fileExt: config.user.files.templateExt,
           beautify: true,
         })
       )

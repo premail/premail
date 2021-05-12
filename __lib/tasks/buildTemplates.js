@@ -8,12 +8,8 @@ const hb = require('gulp-hb')
 const helpers = require('handlebars-helpers')(['comparison'])
 const fileinclude = require('gulp-file-include')
 
-const { internalConfig } = require('../functions/internalConfig.js')
-const { userConfig } = require('../functions/userConfig.js')
-const { themeConfig } = require('../functions/themeConfig.js')
-
 const e = require('../functions/e.js')
-const paths = require('../vars/paths.js')
+const { config } = require('../vars/config.js')
 const getFiles = require('../functions/getFiles.js')
 const projectPath = require('../functions/projectPath.js')
 const { log } = require('../vars/log.js')
@@ -26,15 +22,9 @@ const { debug } = require('../vars/debug.js')
 //
 
 module.exports = function buildTemplates (done) {
-  // Acquire configuration data and combine it into one object
-  const config = {}
-  config.internal = internalConfig.data
-  config.user = userConfig.data
-  config.theme = themeConfig.data
-
   // Load templates
   const templates = []
-  for (const template of paths.templates.array) {
+  for (const template of config.current.templates.array) {
     templates.push(template)
   }
 
@@ -53,7 +43,10 @@ module.exports = function buildTemplates (done) {
     .pipe(
       fileinclude({
         prefix: '@@',
-        basepath: path.join(paths.theme.temp, paths.theme.sassDir),
+        basepath: path.join(
+          config.current.theme.temp,
+          config.current.theme.sassDir
+        ),
       })
     )
     .on('error', e.includeError)
@@ -62,16 +55,18 @@ module.exports = function buildTemplates (done) {
     .pipe(
       rename(function (path, file) {
         const subPath = file.path
-          .replace(paths.current.path, '')
+          .replace(config.current.path, '')
           .replace(path.basename, '')
           .replace(path.extname, '')
         path.dirname += subPath
         debug('Processed template file: ' + path.basename + path.extname)
       })
     )
-    .pipe(dest(paths.current.temp))
+    .pipe(dest(config.current.temp))
     .on('end', function () {
-      debug(msg.b('Created temporary template files at: ') + paths.current.temp)
+      debug(
+        msg.b('Created temporary template files at: ') + config.current.temp
+      )
     })
 
   done()

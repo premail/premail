@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 const exec = require('child_process').exec
 const e = require('../functions/e.js')
-const paths = require('../vars/paths.js')
+const config = require('../vars/config.js')
 const { log } = require('../vars/log.js')
 const { msg } = require('../vars/notifications.js')
 const { debug } = require('../vars/debug.js')
@@ -16,7 +16,7 @@ const { debug } = require('../vars/debug.js')
 module.exports = function formatTemplates (done) {
   const command =
     'prettier --config .prettierrc.yaml -w "' +
-    paths.current.path +
+    config.current.path +
     '/**/*.{tpl,mjml}"'
 
   // While modern-node's `format` should be able to handle this formatting,

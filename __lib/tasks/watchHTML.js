@@ -3,7 +3,8 @@
 /* eslint-disable no-unused-vars */
 const { watch, series } = require('gulp')
 
-const { userConfig } = require('../functions/userConfig.js')
+const { config } = require('../vars/config.js')
+const e = require('../functions/e.js')
 const buildHTML = require('../tasks/buildHTML.js')
 /* eslint-enable no-unused-vars */
 
@@ -12,5 +13,8 @@ const buildHTML = require('../tasks/buildHTML.js')
 //
 
 module.exports = function watchHTML () {
-  watch('./**/*' + userConfig.data.files.templateExt, buildHTML)
+  watch('./**/*' + config.user.files.templateExt, buildHTML).on(
+    'error',
+    e.mjmlError
+  )
 }

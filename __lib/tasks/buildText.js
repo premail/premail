@@ -9,12 +9,10 @@ const replace = require('gulp-replace')
 const html2txt = require('gulp-html2txt')
 
 const e = require('../functions/e.js')
-const paths = require('../vars/paths.js')
-const { userConfig } = require('../functions/userConfig.js')
+const { config } = require('../vars/config.js')
 const { log } = require('../vars/log.js')
 const { msg } = require('../vars/notifications.js')
 const { prod } = require('../vars/prod.js')
-const { text } = require('../vars/text.js')
 const { debug } = require('../vars/debug.js')
 /* eslint-enable no-unused-vars */
 
@@ -23,9 +21,9 @@ const { debug } = require('../vars/debug.js')
 //
 
 module.exports = function buildText (done) {
-  if (text) {
-    const sourceFile = path.join(paths.current.dist, 'index.html')
-    const destFile = path.join(paths.current.dist, 'index.txt')
+  if (config.user.text.generate) {
+    const sourceFile = path.join(config.current.dist, 'index.html')
+    const destFile = path.join(config.current.dist, 'index.txt')
 
     // Options for rendering text
     const buildOpt = {
@@ -38,16 +36,16 @@ module.exports = function buildText (done) {
 
     // Determine which elements to include
     const includeOpt = {
-      images: userConfig.data.text.images,
+      images: config.user.text.images,
       include: {
-        topNav: userConfig.data.text.include.topNav,
-        banner: userConfig.data.text.include.banner,
-        salutation: userConfig.data.text.include.salutation,
+        topNav: config.user.text.include.topNav,
+        banner: config.user.text.include.banner,
+        salutation: config.user.text.include.salutation,
         body: true,
-        signoff: userConfig.data.text.include.signoff,
-        social: userConfig.data.text.include.social,
-        bottomNav: userConfig.data.text.include.bottomNav,
-        footer: userConfig.data.text.include.footer,
+        signoff: config.user.text.include.signoff,
+        social: config.user.text.include.social,
+        bottomNav: config.user.text.include.bottomNav,
+        footer: config.user.text.include.footer,
       },
     }
 

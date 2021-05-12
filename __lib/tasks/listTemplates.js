@@ -1,7 +1,7 @@
 'use strict'
 
 /* eslint-disable no-unused-vars */
-const paths = require('../vars/paths.js')
+const config = require('../vars/config.js')
 const { log } = require('../vars/log.js')
 const { msg } = require('../vars/notifications.js')
 const { debug } = require('../vars/debug.js')
@@ -12,6 +12,6 @@ const { debug } = require('../vars/debug.js')
 //
 
 module.exports = async function listTemplates () {
-  log(msg.debug(msg.b('Main template file:\n') + paths.templates.main + '\n'))
-  log(msg.debug(msg.b('Partials:\n') + paths.templates.partials))
+  log(msg.debug(msg.b('Main template file:\n') + config.templates.main + '\n'))
+  log(msg.debug(msg.b('Partials:\n') + config.templates.partials))
 }
