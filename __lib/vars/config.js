@@ -1,7 +1,7 @@
 'use strict'
 
 /* eslint-disable no-unused-vars */
-const fs = require('fs')
+const fs = require('fs-extra')
 const path = require('path')
 const yaml = require('js-yaml')
 
@@ -159,7 +159,7 @@ config.theme = themeJSON[0]
 config.current.templates = {}
 
 config.current.templates.array = getFiles(
-  config.current.path + '/',
+  config.current.path + path.sep,
   config.user.files.templateExt
 )
 config.current.templates.list = config.current.templates.array
@@ -179,9 +179,10 @@ config.current.templates.partials = config.current.templates.array
   .join('\n')
 
 // Create temporary JSON file of config data
-// config.json = path.join(config.current.temp, 'config.json')
-// fs.writeFileSync(config.json, JSON.stringify(config, null, 2));
-// debug(msg.b('Configuration written to temporary file:\n' + config.json));
+fs.mkdirsSync(config.current.temp)
+config.json = path.join(config.current.temp, 'config.json')
+fs.writeFileSync(config.json, JSON.stringify(config, null, 2))
+debug(msg.b('Configuration written to temporary file:\n') + config.json)
 
 module.exports = {
   config,
