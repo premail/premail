@@ -46,6 +46,7 @@
     "js-yaml": "^4.1.0",
     "minimist": "^1.2.5",
     "mjml": "^4.9.3",
+    "node-sass-json-importer": "^4.3.0",
     "npm": "^7.8.0",
     "plugin-error": "^1.0.1",
     "prettier": "^2.2.1",
