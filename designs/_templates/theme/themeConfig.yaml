@@ -3,13 +3,16 @@
 #
 # Settings here affect the theme within this design's directory only.
 #
+
+# SYNTAX NOTES
+#
 # Color values:
-# Quote all values to account for pound signs. Use hex (3- or 6-digits; MJML
-# will render it in 6 digits) or RGB formats. Do not use RGBA values or CSS
-# color keywords, as these are not universally supported. Also note that some
-# email clients will attempt to invert colors when the user has set a preference
-# for dark mode. You have limited control over what these inverted colors will
-# be, though workarounds exist. Resources:
+# Use CSS color keywords, RGB format, or hex format. If using the latter, be
+# sure to quote the value to allow for the pound sign. You can use either 3- or
+# 6-digit hex values; MJML will automatically convert them. Do not use RGBA.
+# Also note that some email clients will attempt to invert colors when the user
+# has set a preference for dark mode. You have limited control over what these
+# inverted colors will be, though workarounds exist. Resources:
 # https://www.litmus.com/blog/background-colors-html-email/
 # https://www.hteumeuleu.com/2021/fixing-gmail-dark-mode-css-blend-modes/
 #
@@ -24,6 +27,9 @@
 colors:
   # primary: Used for buttons, navigation menus, and social media icons.
   primary: '#800080'
+  # links: Used for links within text. This does not affect the link color in
+  # buttons or navigation items.
+  links: '#800080'
 
 # Fonts
 fonts:

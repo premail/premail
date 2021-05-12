@@ -5,6 +5,9 @@
  * Don't include anything that can't be inlined (like link-hover styles).
  *
  */
+
+@import 'designs/_templates/theme/sass/config.json';
+
 .body {
   margin: 0;
   padding: 0 8px;
@@ -36,6 +39,7 @@ p {
   margin: 0;
 }
 a {
+  color: $color;
   font-weight: bold;
   text-decoration: underline;
 }
