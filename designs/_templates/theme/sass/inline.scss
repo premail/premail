@@ -6,7 +6,7 @@
  *
  */
 
-@import 'designs/_templates/theme/sass/config.json';
+// @use 'themeConfig.json' as config;
 
 .body {
   margin: 0;
@@ -39,7 +39,6 @@ p {
   margin: 0;
 }
 a {
-  color: $color;
   font-weight: bold;
   text-decoration: underline;
 }

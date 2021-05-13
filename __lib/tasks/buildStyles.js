@@ -21,34 +21,14 @@ const { themeVars } = require('../functions/themeVars.js')
 // Build CSS files from Sass source files.
 //
 
-// log(config.theme.colors)
-
-// const themeVal = {}
-// for (const setting in config.theme) {
-//   const configVal = setting.replace(/\./g, '_')
-//   log(configVal)
-//   // Object.assign(themeVal, file)
-// }
-
-// Object.keys(config.theme).forEach(key => {
-//   const configVal = JSON.stringify(key, null, 2)
-//   log(configVal)
-// })
-
 module.exports = function buildStyles (done) {
   src(config.current.theme.path + config.current.theme.sassDir + '/**/*.scss')
-    // Replace config placeholders with values
-    // .pipe(replace(/config\(.*\)/g, config.theme.colors.links))
-    // .pipe(postcss([postcssReplace({
-    //   data: {value: '/*# sourceMappingURL'},
-    //   pattern: '(?:\\/\\/\\#\\ sourceMappingURL)'
-    // })]))
-
     // Render CSS
     .pipe(
       sass({
         fiber: Fiber,
         outputStyle: 'compressed',
+        includePaths: config.current.theme.temp,
         importer: sassImporter(),
       }).on('error', e.sassError)
     )
