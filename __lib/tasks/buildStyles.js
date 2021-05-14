@@ -2,7 +2,7 @@
 
 /* eslint-disable no-unused-vars */
 const { src, dest } = require('gulp')
-const replace = require('gulp-replace')
+const fs = require('fs-extra')
 const path = require('path')
 const sass = require('gulp-sass')
 const sassImporter = require('node-sass-json-importer')
@@ -22,6 +22,12 @@ const { themeVars } = require('../functions/themeVars.js')
 //
 
 module.exports = function buildStyles (done) {
+  // @TODO: Convert this to gulp
+  // Create temporary JSON file of double-quoted theme config
+  fs.mkdirsSync(config.current.theme.temp)
+  const themeConfig = path.join(config.current.theme.temp, 'themeConfig.json')
+  fs.writeFileSync(themeConfig, JSON.stringify(config.theme, null, 2))
+
   src(config.current.theme.path + config.current.theme.sassDir + '/**/*.scss')
     // Render CSS
     .pipe(

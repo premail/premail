@@ -6,7 +6,7 @@
  *
  */
 
-// @use 'themeConfig.json' as config;
+@import 'themeConfig.json';
 
 .body {
   margin: 0;
@@ -39,6 +39,7 @@ p {
   margin: 0;
 }
 a {
+  color: map-get($colors, 'primary');
   font-weight: bold;
   text-decoration: underline;
 }

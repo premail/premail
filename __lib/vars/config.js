@@ -124,17 +124,14 @@ config.current.theme = {
 }
 
 // Load theme config from YAML file.
-const themeJSON = yaml.loadAll(
-  fs.readFileSync(path.join(config.current.theme.path, 'themeConfig.yaml'), {
+const themeYAML = fs.readFileSync(
+  path.join(config.current.theme.path, 'themeConfig.yaml'),
+  {
     encoding: 'utf-8',
-  })
+  }
 )
+const themeJSON = yaml.loadAll(themeYAML)
 config.theme = themeJSON[0]
-
-// Create temporary JSON file of theme config
-fs.mkdirsSync(config.current.theme.temp)
-const themeConfig = path.join(config.current.theme.temp, 'themeConfig.json')
-fs.writeFileSync(themeConfig, JSON.stringify(config.theme, null, 2))
 
 // @TODO New feature that would get the list of current designs and emails
 // based on directory names, and prompt the user to select one, rather than

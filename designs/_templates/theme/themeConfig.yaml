@@ -86,10 +86,10 @@ fonts:
 
       # The name of your custom font
       name: Example Custom Font
-
       # Valid URI pointing to a CSS file that loads web font(s). For an example,
       # here's Google Fonts' file for Sans Serif Pro:
       # https://fonts.googleapis.com/css2?family=Source+Sans+Pro&amp;display=swap
       # You'll probably want to include references to bold and italics variants
       # as well.
-      href: https://example.com/font.css
+      # @TODO: Figure out how to include a URL without breaking Sass importer
+      # href: https://example.com/font.css
