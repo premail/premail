@@ -17,11 +17,12 @@ const { log } = require('../vars/log.js')
 //
 
 module.exports = function themeVars (done) {
-  // @TODO: Convert this to gulp
-  // Create temporary JSON file of double-quoted theme config
+  // Create temporary JSON file of theme config
+  // @TODO: Convert this to fs async functions, without fs-extra
   fs.mkdirsSync(config.current.theme.temp)
-  const themeConfig = path.join(config.current.theme.temp, 'themeConfig.json')
-  fs.writeFileSync(themeConfig, JSON.stringify(config.theme, null, 2))
+  const themeFile = path.join(config.current.theme.temp, 'themeConfig.json')
+  fs.writeFileSync(themeFile, JSON.stringify(config.theme, null, 2))
+  debug(msg.b('Theme configuration written to temporary file:\n') + themeFile)
 
   // Web font
   config.theme.fonts.web = false

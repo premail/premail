@@ -180,11 +180,12 @@ config.current.templates.partials = config.current.templates.array
   .split(',')
   .join('\n')
 
-// Create temporary JSON file of config data
+// Create temporary JSON file of config
+// @TODO: Convert this to fs async functions, without fs-extra
 fs.mkdirsSync(config.current.temp)
-config.json = path.join(config.current.temp, 'config.json')
-fs.writeFileSync(config.json, JSON.stringify(config, null, 2))
-debug(msg.b('Configuration written to temporary file:\n') + config.json)
+const configFile = path.join(config.current.temp, 'config.json')
+fs.writeFileSync(configFile, JSON.stringify(config, null, 2))
+debug(msg.b('Build configuration written to temporary file:\n') + configFile)
 
 module.exports = {
   config,
