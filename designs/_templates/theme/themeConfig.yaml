@@ -6,9 +6,15 @@
 
 # SYNTAX NOTES
 #
+# Any values that include CSS-reserved characters such as periods, commas,
+# slashes or colons need to be quoted twice, "'Like this.'" An example is the
+# custom font URL.
+#
+# Any values that include the pound sign (#), such as hexidecimal color values,
+# need to be single-quoted, '#Likethis'.
+#
 # Color values:
-# Use CSS color keywords, RGB format, or hex format. If using the latter, be
-# sure to quote the value to allow for the pound sign. You can use either 3- or
+# Use CSS color keywords, RGB format, or hex format. You can use either 3- or
 # 6-digit hex values; MJML will automatically convert them. Do not use RGBA.
 # Also note that some email clients will attempt to invert colors when the user
 # has set a preference for dark mode. You have limited control over what these
@@ -91,5 +97,4 @@ fonts:
       # https://fonts.googleapis.com/css2?family=Source+Sans+Pro&amp;display=swap
       # You'll probably want to include references to bold and italics variants
       # as well.
-      # @TODO: Figure out how to include a URL without breaking Sass importer
-      # href: https://example.com/font.css
+      href: "'https://example.com/font.css'"

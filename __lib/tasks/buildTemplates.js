@@ -10,11 +10,10 @@ const fileinclude = require('gulp-file-include')
 
 const e = require('../functions/e.js')
 const { config } = require('../vars/config.js')
-const getFiles = require('../functions/getFiles.js')
-const projectPath = require('../functions/projectPath.js')
 const { log } = require('../vars/log.js')
 const { msg } = require('../vars/notifications.js')
 const { debug } = require('../vars/debug.js')
+const themeVars = require('../functions/themeVars.js')
 /* eslint-enable no-unused-vars */
 
 //
@@ -22,6 +21,9 @@ const { debug } = require('../vars/debug.js')
 //
 
 module.exports = function buildTemplates (done) {
+  // Load calculated theme variables
+  themeVars(done)
+
   // Load templates
   const templates = []
   for (const template of config.current.templates.array) {
