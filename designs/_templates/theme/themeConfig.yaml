@@ -6,7 +6,7 @@
 
 # SYNTAX NOTES
 #
-# Any values that include CSS-reserved characters such as periods, commas,
+# Any values that include CSS-reserved selectors such as periods, commas,
 # slashes or colons need to be quoted twice, "'Like this.'" An example is the
 # custom font URL.
 #
