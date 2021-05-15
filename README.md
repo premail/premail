@@ -229,7 +229,11 @@ configuration and files being processed.
 │   ├── buildHTML
 │   ├── buildText
 │   └── cleanTemp
-├── watch            Watch design and configuration files and rebuild (formatted, with comments) as necessary.
+├─┬ watch            Watch design and configuration files and rebuild (formatted, with comments) as necessary.
+│ └─┬ <parallel>
+│   ├── watchStyles
+│   ├── watchHTML
+│   └── watchText
 ├─┬ clean            Remove all generated and temporary files from the current design or email.
 │ └─┬ <parallel>
 │   ├── cleanTemp
