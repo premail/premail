@@ -104,7 +104,7 @@ text:
     # line-height: As in CSS, set to unitless values that multiply the font
     # size. For instance, if your default font size is 18px, a line-height of
     # 1 would set it to 18px as well; a setting of 1.5 would set it to 27px.
-    line-height: 1.5
+    line-height: 2
   # links: Color for links within text. This does not affect the link color in
   # buttons or navigation items.
   # links: '#800080'
