@@ -17,14 +17,12 @@ const taskDir = './__lib/tasks/'
 const showConfig = require(taskDir + 'showConfig.js')
 const cleanGen = require(taskDir + 'cleanGen.js')
 const buildStyles = require(taskDir + 'buildStyles.js')
-const watchStyles = require(taskDir + 'watchStyles.js')
+const watchEmail = require(taskDir + 'watchEmail.js')
 const buildTemplates = require(taskDir + 'buildTemplates.js')
 const listTemplates = require(taskDir + 'listTemplates.js')
 const formatTemplates = require(taskDir + 'formatTemplates.js')
 const buildHTML = require(taskDir + 'buildHTML.js')
-const watchHTML = require(taskDir + 'watchHTML.js')
 const buildText = require(taskDir + 'buildText.js')
-const watchText = require(taskDir + 'watchText.js')
 const cleanTemp = require(taskDir + 'cleanTemp.js')
 
 // Sets
@@ -44,9 +42,9 @@ exports.build = exports.default
 exports.build.description =
   'Render a complete HTML email based on design and email templates.\n                                  Options:\n                                    --prod: Render production files (minified, no comments).\n                                    -d:     Specify design folder to use. (Default: _templates)\n                                    -e:     Specify email folder to render.'
 
-exports.watch = parallel(watchStyles, watchHTML, watchText)
+exports.watch = watchEmail
 exports.watch.description =
-  'Watch both design and template files and rebuild (formatted, with comments) as necessary.'
+  'Watch design and configuration files and rebuild (formatted, with comments) as necessary.'
 
 exports.clean = parallel(cleanTemp, cleanGen)
 exports.clean.description =
@@ -63,16 +61,6 @@ exports.buildHTML = buildHTML
 exports.buildHTML.description = 'Build HTML files from MJML templates.'
 exports.buildText = buildText
 exports.buildText.description = 'Generate a plain-text version of the email.'
-
-// Watch
-exports.watchStyles = watchStyles
-exports.watchStyles.description = 'Watch Sass and rebuild CSS files on changes.'
-exports.watchHTML = watchHTML
-exports.watchHTML.description =
-  'Watch templates and rebuild HTML files on changes.'
-exports.watchText = watchText
-exports.watchText.description =
-  'Watch rendered HTML file and rebuild plain-text version on changes.'
 
 // Format
 exports.formatTemplates = formatTemplates

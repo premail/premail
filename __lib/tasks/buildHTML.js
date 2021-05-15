@@ -47,14 +47,14 @@ module.exports = function buildHTML (done) {
       )
     )
     .on('error', e.mjmlError)
-    .on('finish', function (source) {
+    .on('end', function (source) {
       debug(msg.b('HTML source:\n') + sourceFile)
     })
 
     // Write file
     .pipe(dest(path.dirname(destFile)))
-    .on('finish', function (source) {
-      log(msg.info(msg.b('HTML version saved:\n') + destFile))
+    .on('end', function (source) {
+      log(msg.info(msg.b('HTML file saved:\n') + destFile))
       if (prod) {
         log(
           msg.warn(

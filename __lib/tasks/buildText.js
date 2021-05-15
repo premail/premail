@@ -82,7 +82,7 @@ module.exports = function buildText (done) {
 
       // Write file
       .pipe(
-        dest(path.dirname(destFile)).on('finish', function (source) {
+        dest(path.dirname(destFile)).on('end', function (source) {
           log(msg.info(msg.b('Plain-text version saved:\n') + destFile))
         })
       )
