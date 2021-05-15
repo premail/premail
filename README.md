@@ -229,11 +229,7 @@ configuration and files being processed.
 │   ├── buildHTML
 │   ├── buildText
 │   └── cleanTemp
-├─┬ watch            Watch both design and template files and rebuild (formatted, with comments) as necessary.
-│ └─┬ <parallel>
-│   ├── watchStyles
-│   ├── watchHTML
-│   └── watchText
+├── watch            Watch design and configuration files and rebuild (formatted, with comments) as necessary.
 ├─┬ clean            Remove all generated and temporary files from the current design or email.
 │ └─┬ <parallel>
 │   ├── cleanTemp
@@ -242,9 +238,6 @@ configuration and files being processed.
 ├── buildTemplates   Build MJML templates from Handlebars templates.
 ├── buildHTML        Build HTML files from MJML templates.
 ├── buildText        Generate a plain-text version of the email.
-├── watchStyles      Watch Sass and rebuild CSS files on changes.
-├── watchHTML        Watch templates and rebuild HTML files on changes.
-├── watchText        Watch rendered HTML file and rebuild plain-text version on changes.
 ├── formatTemplates  Format MJML templates with Prettier.
 ├── cleanTemp        Remove temporary files from the current design or email.
 ├── cleanGen         Remove generated files from the current design or email.
