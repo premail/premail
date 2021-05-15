@@ -17,8 +17,9 @@ const buildText = require('../tasks/buildText.js')
 //
 // Watch design and configuration files and rebuild as necessary.
 //
-module.exports = function watchEmail (done) {
-  // Trigger style rebuild.
+
+// Trigger style rebuild.
+function watchStyles (done) {
   watch(
     [config.current.theme.path + config.current.theme.sassDir + '/**/*.scss'],
     {
@@ -29,8 +30,10 @@ module.exports = function watchEmail (done) {
     buildTemplates(done)
     log(msg.info('Styles rebuilt.'))
   })
+}
 
-  // Trigger template rebuild.
+// Trigger HTML rebuild.
+function watchHTML (done) {
   watch([config.current.path + '/**/*.' + config.user.files.templateExt]).on(
     'change',
     function (path, stats) {
@@ -38,12 +41,20 @@ module.exports = function watchEmail (done) {
       log(msg.info('HTML rebuilt.'))
     }
   )
+}
 
-  // Trigger text rebuild.
+// Trigger text rebuild.
+function watchText (done) {
   if (config.user.text.generate) {
     watch(['./**/*.html']).on('change', function (path, stats) {
       buildText(done)
       log(msg.info('HTML rebuilt.'))
     })
   }
+}
+
+module.exports = {
+  watchStyles,
+  watchHTML,
+  watchText,
 }

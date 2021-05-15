@@ -17,7 +17,7 @@ const taskDir = './__lib/tasks/'
 const showConfig = require(taskDir + 'showConfig.js')
 const cleanGen = require(taskDir + 'cleanGen.js')
 const buildStyles = require(taskDir + 'buildStyles.js')
-const watchEmail = require(taskDir + 'watchEmail.js')
+const { watchStyles, watchHTML, watchText } = require(taskDir + 'watchEmail.js')
 const buildTemplates = require(taskDir + 'buildTemplates.js')
 const listTemplates = require(taskDir + 'listTemplates.js')
 const formatTemplates = require(taskDir + 'formatTemplates.js')
@@ -42,7 +42,7 @@ exports.build = exports.default
 exports.build.description =
   'Render a complete HTML email based on design and email templates.\n                                  Options:\n                                    --prod: Render production files (minified, no comments).\n                                    -d:     Specify design folder to use. (Default: _templates)\n                                    -e:     Specify email folder to render.'
 
-exports.watch = watchEmail
+exports.watch = parallel(watchStyles, watchHTML, watchText)
 exports.watch.description =
   'Watch design and configuration files and rebuild (formatted, with comments) as necessary.'
 
