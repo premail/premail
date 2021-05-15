@@ -6,9 +6,9 @@
 
 # SYNTAX NOTES
 #
-# Any values that include CSS-reserved selectors such as periods, commas,
-# slashes or colons need to be quoted twice, "'Like this.'" An example is the
-# custom font URL.
+# Values that include CSS-reserved selectors such as periods, commas, slashes or
+# colons will error unless they are quoted twice, "'Like this.'" An example is
+# the custom font URL.
 #
 # Any values that include the pound sign (#), such as hexidecimal color values,
 # need to be single-quoted, '#Likethis'.
@@ -28,22 +28,16 @@
 # https://us4.campaign-archive.com/?u=00194e641f365c79871912856&id=1b0c8bc3ba&e=d274356b59
 # https://email.uplers.com/blog/em-or-px-how-to-code-your-emails-right/
 
-# Colors
+# COLOR BRANDING
 # See "Color values" at the top of this document.
 colors:
-  # primary: Used for buttons, navigation menus, and social media icons.
+  # primary: Color for buttons, navigation menus, and social media icons.
   primary: '#800080'
-  # links: Used for links within text. This does not affect the link color in
-  # buttons or navigation items.
-  links: '#800080'
+  # secondary: Color for headline text.
+  secondary: '#666f9f'
 
-# Fonts
+# FONT SETTINGS
 fonts:
-  default:
-    # size: See "Font sizes" at the top of this document.
-    size: 18px
-    # color: See "Color values" at the top of this document.
-    color: '#666'
   stack:
     # Base options:
     #   'sans'
@@ -98,3 +92,26 @@ fonts:
       # You'll probably want to include references to bold and italics variants
       # as well.
       href: "'https://example.com/font.css'"
+
+# TEXT STYLES
+text:
+  # default: Styles for body text, when not otherwise styled.
+  default:
+    # size: See "Font sizes" at the top of this document.
+    size: 18px
+    # color: See "Color values" at the top of this document.
+    color: '#666'
+    # line-height: As in CSS, set to unitless values that multiply the font
+    # size. For instance, if your default font size is 18px, a line-height of
+    # 1 would set it to 18px as well; a setting of 1.5 would set it to 27px.
+    line-height: 1.5
+  # links: Color for links within text. This does not affect the link color in
+  # buttons or navigation items.
+  # links: '#800080'
+  # # email-bg: Background color for the overall email. Note that some email
+  # # clients will override this with white.
+  # email-bg: white
+  # # container-bg: Background color for the content container.
+  # container-bg: purple
+  # # text: Default color for text unless overridden on particular kinds of text.
+  # text: '#666f9f'

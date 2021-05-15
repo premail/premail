@@ -30,8 +30,8 @@
   <mj-all
     margin="0"
     padding="0"
-    font-size="{{theme.fonts.default.size}}"
-    color="{{theme.fonts.default.color}}"
+    font-size="{{theme.text.default.size}}"
+    color="{{theme.text.default.color}}"
     font-family="
     {{~#eq theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}}
     {{~#eq theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}}
@@ -79,7 +79,7 @@
 
   <!-- Typography -->
 
-  <mj-class name="text" padding="18px 0" font-size="{{theme.fonts.default.size}}" line-height="32px" />
+  <mj-class name="text" padding="18px 0" font-size="{{theme.text.default.size}}" line-height="{{theme.text.default.line-height}}" />
 
   <mj-class name="text--salutation" padding="18px 0 0" />
 
