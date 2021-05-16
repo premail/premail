@@ -13,7 +13,7 @@ const { config } = require('../vars/config.js')
 const { log } = require('../vars/log.js')
 const { msg } = require('../vars/notifications.js')
 const { debug } = require('../vars/debug.js')
-const themeVars = require('../functions/themeVars.js')
+const themeVars = require('../vars/theme.js')
 /* eslint-enable no-unused-vars */
 
 //
