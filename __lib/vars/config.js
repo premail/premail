@@ -1,10 +1,11 @@
 'use strict'
 
 /* eslint-disable no-unused-vars */
-const fs = require('fs-extra')
+const fs = require('fs')
 const path = require('path')
 const yaml = require('js-yaml')
 
+const e = require('../functions/e.js')
 const { arg } = require('../functions/arg.js')
 const projectPath = require('../functions/projectPath.js')
 const getFiles = require('../functions/getFiles.js')
@@ -181,11 +182,20 @@ config.current.templates.partials = config.current.templates.array
   .join('\n')
 
 // Create temporary JSON file of config
-// @TODO: Convert this to fs async functions, without fs-extra
-fs.mkdirsSync(config.current.temp)
 const configFile = path.join(config.current.temp, 'config.json')
-fs.writeFileSync(configFile, JSON.stringify(config, null, 2))
-debug(msg.b('Build configuration written to temporary file:\n') + configFile)
+
+fs.mkdirSync(config.current.temp, { recursive: true }, err => {
+  if (err) {
+    e.handleError(err, 'fs-mkdir')
+  }
+})
+
+fs.writeFile(configFile, JSON.stringify(config, null, 2), function (err) {
+  if (err) {
+    e.handleError(err, 'fs-writeFile')
+  }
+  debug(msg.b('Build configuration written to temporary file:\n') + configFile)
+})
 
 module.exports = {
   config,

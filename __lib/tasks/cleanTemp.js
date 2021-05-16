@@ -18,7 +18,7 @@ module.exports = function cleanTemp (done) {
 
   const deletedFilePaths = [config.current.emailTemp, config.current.designTemp]
 
-  del.sync(deletedFilePaths)
+  del(deletedFilePaths)
 
   debug(deletedFilePaths.join('\n'))
 

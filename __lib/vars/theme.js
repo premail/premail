@@ -2,10 +2,11 @@
 
 /* eslint-disable no-unused-vars */
 const { src, dest } = require('gulp')
-const fs = require('fs-extra')
+const fs = require('fs')
 const path = require('path')
 const yaml = require('js-yaml')
 
+const e = require('../functions/e.js')
 const { config } = require('../vars/config.js')
 const { debug } = require('../vars/debug.js')
 const { msg } = require('../vars/notifications.js')
@@ -18,11 +19,22 @@ const { log } = require('../vars/log.js')
 
 module.exports = function themeVars (done) {
   // Create temporary JSON file of theme config
-  // @TODO: Convert this to fs async functions, without fs-extra
-  fs.mkdirsSync(config.current.theme.temp)
   const themeFile = path.join(config.current.theme.temp, 'themeConfig.json')
-  fs.writeFileSync(themeFile, JSON.stringify(config.theme, null, 2))
-  debug(msg.b('Theme configuration written to temporary file:\n') + themeFile)
+
+  fs.mkdirSync(config.current.theme.temp, { recursive: true }, err => {
+    if (err) {
+      e.handleError(err, 'fs-mkdir')
+    }
+  })
+
+  fs.writeFile(themeFile, JSON.stringify(config.theme, null, 2), function (
+    err
+  ) {
+    if (err) {
+      e.handleError(err, 'fs-writeFile')
+    }
+    debug(msg.b('Theme configuration written to temporary file:\n') + themeFile)
+  })
 
   // Web font
   config.theme.fonts.web = false
