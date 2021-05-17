@@ -1,7 +1,6 @@
 'use strict'
 
 /* eslint-disable no-unused-vars */
-const fs = require('fs-extra')
 const path = require('path')
 const yaml = require('js-yaml')
 
