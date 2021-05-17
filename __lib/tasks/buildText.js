@@ -20,11 +20,12 @@ const { debug } = require('../vars/debug.js')
 // Build a plain-text version of the HTML file.
 //
 
-module.exports = function buildText (done) {
-  if (config.user.text.generate) {
-    const sourceFile = path.join(config.current.dist, 'index.html')
-    const destFile = path.join(config.current.dist, 'index.txt')
+module.exports = function buildText () {
+  // Set source and destination
+  const sourceFile = path.join(config.current.dist, 'index.html')
+  const destFile = path.join(config.current.dist, 'index.txt')
 
+  if (config.user.text.generate) {
     // Options for rendering text
     const buildOpt = {
       baseElement: [],
@@ -68,27 +69,28 @@ module.exports = function buildText (done) {
     }
 
     // Render plain text
-    src(sourceFile)
-      .pipe(html2txt(buildOpt).on('error', e.textError))
+    return (
+      src(sourceFile)
+        .pipe(html2txt(buildOpt))
+        .on('error', e.textError)
 
-      // Remove hard-coded mobile navigation menu characters inserted by
-      // MJML, which will otherwise show up in the generated plain-text.
-      // Currently html-to-text does not give us a way to skip elements
-      // based on selectors.
-      //
-      // @see:
-      // https://github.com/html-to-text/node-html-to-text/issues/159
-      .pipe(replace('☰ ⊗\n', ''))
+        // Remove hard-coded mobile navigation menu characters inserted by
+        // MJML, which will otherwise show up in the generated plain-text.
+        // Currently html-to-text does not give us a way to skip elements
+        // based on selectors.
+        //
+        // @see:
+        // https://github.com/html-to-text/node-html-to-text/issues/159
+        .pipe(replace('☰ ⊗\n', ''))
 
-      // Write file
-      .pipe(
-        dest(path.dirname(destFile)).on('end', function (source) {
+        // Write file
+        .pipe(dest(path.dirname(destFile)))
+        .on('end', function (source) {
           log(msg.info(msg.b('Plain-text version saved:\n') + destFile))
         })
-      )
+    )
   } else {
     log(msg.info('Plain-text generation turned off.'))
+    return src(sourceFile)
   }
-
-  done()
 }
