@@ -13,7 +13,6 @@ const { config } = require('../vars/config.js')
 const { log } = require('../vars/log.js')
 const { msg } = require('../vars/notifications.js')
 const { debug } = require('../vars/debug.js')
-const themeVars = require('../vars/theme.js')
 /* eslint-enable no-unused-vars */
 
 //
@@ -21,9 +20,6 @@ const themeVars = require('../vars/theme.js')
 //
 
 module.exports = function buildTemplates (done) {
-  // Load calculated theme variables
-  themeVars(done)
-
   // Load templates
   const templates = []
   for (const template of config.current.templates.array) {
@@ -40,6 +36,9 @@ module.exports = function buildTemplates (done) {
         .data(config)
     )
     .on('error', e.hbError)
+    .on('end', function () {
+      debug('Templates rendered.')
+    })
 
     // Process file includes
     .pipe(
@@ -52,6 +51,9 @@ module.exports = function buildTemplates (done) {
       })
     )
     .on('error', e.includeError)
+    .on('end', function () {
+      debug('Template file includes processed.')
+    })
 
     // Set destination and write files
     .pipe(

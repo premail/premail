@@ -2,6 +2,7 @@
 
 /* eslint-disable no-unused-vars */
 const { src, dest } = require('gulp')
+const gulpFn = require('gulp-fn')
 const path = require('path')
 const sass = require('gulp-sass')
 const sassImporter = require('node-sass-json-importer')
@@ -12,36 +13,32 @@ const { config } = require('../vars/config.js')
 const { log } = require('../vars/log.js')
 const { msg } = require('../vars/notifications.js')
 const { debug } = require('../vars/debug.js')
-const themeVars = require('../vars/theme.js')
 /* eslint-enable no-unused-vars */
 
 //
 // Build CSS files from Sass source files.
 //
 
-module.exports = function buildStyles (done) {
-  // Load calculated theme variables
-  themeVars(done)
-
-  src(config.current.theme.path + config.current.theme.sassDir + '/**/*.scss')
-    // Render CSS
-    .pipe(
-      sass({
-        outputStyle: 'compressed',
-        includePaths: config.current.theme.temp,
-        importer: sassImporter(),
-      }).on('error', e.sassError)
-    )
-
-    // Write files
-    .pipe(dest(config.current.theme.temp + config.current.theme.sassDir))
-    .on('end', function () {
-      debug(
-        msg.b('CSS files written to:\n') +
-          config.current.theme.temp +
-          config.current.theme.sassDir
+module.exports = function buildStyles () {
+  return (
+    src(config.current.theme.path + config.current.theme.sassDir + '/**/*.scss')
+      // Render CSS
+      .pipe(
+        sass({
+          outputStyle: 'compressed',
+          includePaths: config.current.theme.temp,
+          importer: sassImporter(),
+        }).on('error', e.sassError)
       )
-    })
 
-  done()
+      // Write files
+      .pipe(dest(config.current.theme.temp + config.current.theme.sassDir))
+      .on('end', function () {
+        debug(
+          msg.b('CSS files written to:\n') +
+            config.current.theme.temp +
+            config.current.theme.sassDir
+        )
+      })
+  )
 }

@@ -20,19 +20,29 @@ const buildText = require('../tasks/buildText.js')
 //
 
 // Trigger style rebuild.
-function watchStyles () {
-  return watch(
+module.exports = function watchEmail (done) {
+  watch(
     [config.current.theme.path + config.current.theme.sassDir + '/**/*.scss'],
-    buildStyles
-    // {
-    //   delay: 200, // default
-    // },
-    // function () {
-    //   buildStyles(done)
-    //   buildTemplates(done)
-    //   log(msg.info('Styles rebuilt.'))
-    // }
+    { delay: 500 },
+    function rebuild (done) {
+      buildStyles(done)
+      log(msg.info('Styles rebuilt.'))
+      done()
+    }
   )
+
+  // return watch(
+  //   [config.current.theme.path + config.current.theme.sassDir + '/**/*.scss'],
+  //   buildStyles
+  // {
+  //   delay: 200, // default
+  // },
+  // function () {
+  //   buildStyles(done)
+  //   buildTemplates(done)
+  //   log(msg.info('Styles rebuilt.'))
+  // }
+  // )
 }
 
 // Trigger HTML rebuild.
@@ -56,9 +66,9 @@ function watchStyles () {
 // }
 // }
 
-module.exports = function watchEmail () {
-  series(
-    log(msg.info('\n⌚ ' + msg.b('WATCHING') + ' ⌚\n')),
-    parallel(watchStyles)
-  )
-}
+// module.exports = function watchEmail () {
+//   series(
+//     // log(msg.info('\n⌚ ' + msg.b('WATCHING') + ' ⌚\n')),
+//     parallel(watchStyles)
+//   )
+// }

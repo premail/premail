@@ -134,6 +134,80 @@ const themeYAML = fs.readFileSync(
 const themeJSON = yaml.loadAll(themeYAML)
 config.theme = themeJSON[0]
 
+// Create temporary JSON file of theme config
+const themeFile = path.join(config.current.theme.temp, 'themeConfig.json')
+
+fs.mkdirSync(config.current.theme.temp, { recursive: true }, err => {
+  if (err) {
+    e.handleError(err, 'fs-mkdir')
+  }
+})
+
+fs.writeFile(themeFile, JSON.stringify(config.theme, null, 2), function (err) {
+  if (err) {
+    e.handleError(err, 'fs-writeFile')
+  }
+  debug(msg.b('Theme configuration written to temporary file:\n') + themeFile)
+})
+
+// Calculating internal-only (not included in config file) theme settings.
+if (config.theme.fonts) {
+  // Web font
+  config.theme.fonts.web = false
+  if (
+    config.theme.fonts.stack.google.enabled ||
+    config.theme.fonts.stack.custom.enabled
+  ) {
+    config.theme.fonts.web = true
+  }
+
+  // Google Font URI
+  if (config.theme.fonts.stack.google.enabled) {
+    const weights = []
+    let specs
+
+    if (config.theme.fonts.stack.google.italics) {
+      specs = 'ital,wght@'
+
+      for (let weight of config.theme.fonts.stack.google.weights) {
+        weight = '0,' + weight
+        weights.push(weight)
+      }
+
+      for (let weight of config.theme.fonts.stack.google.weights) {
+        weight = '1,' + weight
+        weights.push(weight)
+      }
+    } else {
+      specs = 'wght@'
+
+      for (const weight of config.theme.fonts.stack.google.weights) {
+        weights.push(weight)
+      }
+    }
+
+    specs += weights.reduce(
+      (s, x, i) => s + (i > 0 ? ';' : '') + (x == null ? '' : x),
+      ''
+    )
+
+    config.theme.fonts.stack.google.href =
+      'https://fonts.googleapis.com/css2?family=' +
+      config.theme.fonts.stack.google.name.replace(/\s/g, '+') +
+      ':' +
+      specs +
+      '&amp;display=swap'
+  }
+
+  // Custom Font URI
+  if (config.theme.fonts.stack.custom.enabled) {
+    config.theme.fonts.stack.custom.href = config.theme.fonts.stack.custom.href.replace(
+      /'/g,
+      ''
+    )
+  }
+}
+
 // @TODO New feature that would get the list of current designs and emails
 // based on directory names, and prompt the user to select one, rather than
 // only relying on passing arguments via the command-line.
