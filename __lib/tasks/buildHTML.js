@@ -21,48 +21,49 @@ const { debug } = require('../vars/debug.js')
 // Build HTML files from MJML source files.
 //
 
-module.exports = function buildHTML (done) {
+module.exports = function buildHTML () {
+  // Set source and destination
   const sourceFile = path.join(config.current.temp, config.current.mainTemplate)
   const destFile = path.join(config.current.dist, 'index.html')
 
   // Render HTML
-  src(sourceFile)
-    .pipe(
-      gulpif(
-        prod,
-        // Production
-        mjml(mjmlEngine, {
-          validationLevel: 'strict',
-          fileExt: config.user.files.templateExt,
-          beautify: false,
-          minify: true,
-          keepComments: false,
-        }),
-        // Development
-        mjml(mjmlEngine, {
-          validationLevel: 'strict',
-          fileExt: config.user.files.templateExt,
-          beautify: true,
-        })
-      )
-    )
-    .on('error', e.mjmlError)
-    .on('end', function (source) {
-      debug(msg.b('HTML source:\n') + sourceFile)
-    })
-
-    // Write file
-    .pipe(dest(path.dirname(destFile)))
-    .on('end', function (source) {
-      log(msg.info(msg.b('HTML file saved:\n') + destFile))
-      if (prod) {
-        log(
-          msg.warn(
-            msg.b('Production:') + ' Minified with HTML comments stripped.'
-          )
+  return (
+    src(sourceFile)
+      .pipe(
+        gulpif(
+          prod,
+          // Production
+          mjml(mjmlEngine, {
+            validationLevel: 'strict',
+            fileExt: config.user.files.templateExt,
+            beautify: false,
+            minify: true,
+            keepComments: false,
+          }),
+          // Development
+          mjml(mjmlEngine, {
+            validationLevel: 'strict',
+            fileExt: config.user.files.templateExt,
+            beautify: true,
+          })
         )
-      }
-    })
+      )
+      .on('error', e.mjmlError)
+      .on('end', function (source) {
+        debug(msg.b('HTML source:\n') + sourceFile)
+      })
 
-  done()
+      // Write file
+      .pipe(dest(path.dirname(destFile)))
+      .on('end', function (source) {
+        log(msg.info(msg.b('HTML file saved:\n') + destFile))
+        if (prod) {
+          log(
+            msg.warn(
+              msg.b('Production:') + ' Minified with HTML comments stripped.'
+            )
+          )
+        }
+      })
+  )
 }
