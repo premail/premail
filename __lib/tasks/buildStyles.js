@@ -5,7 +5,6 @@ const { src, dest } = require('gulp')
 const path = require('path')
 const sass = require('gulp-sass')
 const sassImporter = require('node-sass-json-importer')
-const Fiber = require('fibers')
 sass.compiler = require('sass')
 
 const e = require('../functions/e.js')
@@ -28,7 +27,6 @@ module.exports = function buildStyles (done) {
     // Render CSS
     .pipe(
       sass({
-        fiber: Fiber,
         outputStyle: 'compressed',
         includePaths: config.current.theme.temp,
         importer: sassImporter(),
