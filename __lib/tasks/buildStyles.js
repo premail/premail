@@ -2,7 +2,6 @@
 
 /* eslint-disable no-unused-vars */
 const { src, dest } = require('gulp')
-const gulpFn = require('gulp-fn')
 const path = require('path')
 const sass = require('gulp-sass')
 const sassImporter = require('node-sass-json-importer')
