@@ -7,6 +7,10 @@
 LICENSE*
 LICENSE*.*
 
+# Temporary files
+.tmp/
+*.tmp
+
 # Builds
 dist
 

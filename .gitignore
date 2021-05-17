@@ -12,6 +12,8 @@ Temporary Items
 *~
 *.swp
 *.swo
+.tmp
+*.tmp
 
 # Folder view configuration files
 .DS_Store
