@@ -6,13 +6,11 @@ const path = require('path')
 const yaml = require('js-yaml')
 
 const e = require('../functions/e.js')
-const { arg } = require('../functions/arg.js')
 const projectPath = require('../functions/projectPath.js')
 const getFiles = require('../functions/getFiles.js')
 
-const { log } = require('../vars/log.js')
-const { msg } = require('../vars/notifications.js')
-const { debug } = require('../vars/debug.js')
+const { flags } = require('../vars/flags.js')
+const { log, msg, debug } = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */
 
 //
@@ -44,17 +42,17 @@ config.user = userJSON[0]
 const templateDotExt = path.extname(config.user.files.template)
 config.user.files.templateExt = templateDotExt.replace('.', '')
 
-// Get arguments from command line
+// Set current folders based on CLI flags, if any are set.
 let currentDesign = config.user.folders.design.default
 
-if (arg.d) {
-  currentDesign = arg.d
+if (flags.d) {
+  currentDesign = flags.d
 }
 
 let currentEmail = ''
 
-if (arg.e) {
-  currentEmail = arg.e
+if (flags.e) {
+  currentEmail = flags.e
 }
 
 // Set paths for current directories.

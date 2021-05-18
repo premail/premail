@@ -5,9 +5,7 @@ const path = require('path')
 const yaml = require('js-yaml')
 
 const { config } = require('../vars/config.js')
-const { log } = require('../vars/log.js')
-const { debug } = require('../vars/debug.js')
-const { msg } = require('../vars/notifications.js')
+const { log, msg, debug } = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */
 
 //

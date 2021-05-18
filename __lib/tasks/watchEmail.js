@@ -6,8 +6,7 @@ const { watch, series, parallel } = require('gulp')
 
 const { config } = require('../vars/config.js')
 const e = require('../functions/e.js')
-const { log } = require('../vars/log.js')
-const { msg } = require('../vars/notifications.js')
+const { log, msg, debug } = require('../vars/notify.js')
 
 const buildStyles = require('../tasks/buildStyles.js')
 const buildTemplates = require('../tasks/buildTemplates.js')

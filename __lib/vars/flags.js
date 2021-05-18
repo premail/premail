@@ -5,33 +5,33 @@ const minimist = require('minimist')
 /* eslint-enable no-unused-vars */
 
 //
-// Process arguments from the command-line.
+// Process flags from the command-line.
 //
 
-const arg = (argList => {
-  const arg = {}
-  let a
+const flags = (flagList => {
+  const flags = {}
+  let f
   let opt
   let thisOpt
   let curOpt
-  for (a = 0; a < argList.length; a++) {
-    thisOpt = argList[a].trim()
+  for (f = 0; f < flagList.length; f++) {
+    thisOpt = flagList[f].trim()
     opt = thisOpt.replace(/^-+/, '')
 
     if (opt === thisOpt) {
       // argument value
-      if (curOpt) arg[curOpt] = opt
+      if (curOpt) flags[curOpt] = opt
       curOpt = null
     } else {
       // argument name
       curOpt = opt
-      arg[curOpt] = true
+      flags[curOpt] = true
     }
   }
 
-  return arg
+  return flags
 })(process.argv)
 
 module.exports = {
-  arg,
+  flags,
 }

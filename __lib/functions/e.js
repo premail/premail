@@ -5,8 +5,7 @@ const PluginError = require('plugin-error')
 const sass = require('gulp-sass')
 require('pretty-error').start()
 
-const { log } = require('../vars/log.js')
-const { msg } = require('../vars/notifications.js')
+const { log, msg, debug } = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */
 
 function handleError (error, pluginName) {

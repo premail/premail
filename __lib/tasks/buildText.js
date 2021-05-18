@@ -9,11 +9,9 @@ const replace = require('gulp-replace')
 const html2txt = require('gulp-html2txt')
 
 const e = require('../functions/e.js')
+const { flags } = require('../vars/flags.js')
 const { config } = require('../vars/config.js')
-const { log } = require('../vars/log.js')
-const { msg } = require('../vars/notifications.js')
-const { prod } = require('../vars/prod.js')
-const { debug } = require('../vars/debug.js')
+const { log, msg, debug } = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */
 
 //

@@ -2,9 +2,7 @@
 
 /* eslint-disable no-unused-vars */
 const config = require('../vars/config.js')
-const { log } = require('../vars/log.js')
-const { msg } = require('../vars/notifications.js')
-const { debug } = require('../vars/debug.js')
+const { log, msg, debug } = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */
 
 //

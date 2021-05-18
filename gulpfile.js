@@ -2,10 +2,6 @@
 
 /* eslint-disable no-unused-vars */
 const { series, parallel } = require('gulp')
-
-const { log } = require('./__lib/vars/log.js')
-const { msg } = require('./__lib/vars/notifications.js')
-const { debug } = require('./__lib/vars/debug.js')
 /* eslint-enable no-unused-vars */
 
 //
@@ -95,3 +91,7 @@ exports.showConfig.description =
 exports.listTemplates = listTemplates
 exports.listTemplates.description =
   'List all templates that will be processed. Useful for debugging.'
+exports.test = async function () {
+  console.log('\n\nTest.\n\n')
+}
+exports.test.description = 'Run an empty gulp function for testing.'

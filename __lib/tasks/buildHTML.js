@@ -11,10 +11,8 @@ const mjmlEngine = require('mjml')
 
 const e = require('../functions/e.js')
 const { config } = require('../vars/config.js')
-const { log } = require('../vars/log.js')
-const { msg } = require('../vars/notifications.js')
-const { prod } = require('../vars/prod.js')
-const { debug } = require('../vars/debug.js')
+const { flags } = require('../vars/flags.js')
+const { log, msg, debug } = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */
 
 //
@@ -31,7 +29,7 @@ module.exports = function buildHTML () {
     src(sourceFile)
       .pipe(
         gulpif(
-          prod,
+          flags.prod,
           // Production
           mjml(mjmlEngine, {
             validationLevel: 'strict',
@@ -57,7 +55,7 @@ module.exports = function buildHTML () {
       .pipe(dest(path.dirname(destFile)))
       .on('end', function (source) {
         log(msg.info(msg.b('HTML file saved:\n') + destFile))
-        if (prod) {
+        if (flags.prod) {
           log(
             msg.warn(
               msg.b('Production:') + ' Minified with HTML comments stripped.'
