@@ -27,31 +27,19 @@
 <mj-attributes>
   <!-- Applied to all elements -->
 
-  <mj-all
-    margin="0"
-    padding="0"
-    font-size="{{theme.text.default.size}}"
-    color="{{theme.text.default.color}}"
-    font-family="
-    {{~#eq theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}}
-    {{~#eq theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}}
-    {{~#eq theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}}
-    "
-    {{!--
-      Background on these Outlook-specific tags:
-      https://www.hteumeuleu.com/2019/today-i-learned-about-mso-generic-font-family/
-      --}}
-    mso-generic-font-family="
-    {{~#eq theme.fonts.stack.base 'serif'}}roman{{/eq}}
-    {{~#eq theme.fonts.stack.base 'sans'}}swiss{{/eq}}
-    {{~#eq theme.fonts.stack.base 'mono'}}swiss{{/eq}}
-    "
-    mso-font-alt="
-    {{~#eq theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}}
-    {{~#eq theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}}
-    {{~#eq theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}}
-    "
-  />
+  <mj-all margin="0" padding="0" font-size="{{theme.text.default.size}}"
+  color="{{theme.text.default.color}}" font-family=" {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} " {{!--
+  Background on these Outlook-specific tags:
+  https://www.hteumeuleu.com/2019/today-i-learned-about-mso-generic-font-family/
+  --}} mso-generic-font-family=" {{~#eq theme.fonts.stack.base
+  'serif'}}roman{{/eq}} {{~#eq theme.fonts.stack.base 'sans'}}swiss{{/eq}}
+  {{~#eq theme.fonts.stack.base 'mono'}}swiss{{/eq}} " mso-font-alt=" {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} " />
 
   <!-- Structure -->
 
@@ -79,7 +67,12 @@
 
   <!-- Typography -->
 
-  <mj-class name="text" padding="18px 0" font-size="{{theme.text.default.size}}" line-height="{{theme.text.default.line-height}}" />
+  <mj-class
+    name="text"
+    padding="18px 0"
+    font-size="{{theme.text.default.size}}"
+    line-height="{{theme.text.default.line-height}}"
+  />
 
   <mj-class name="text--salutation" padding="18px 0 0" />
 
@@ -172,7 +165,12 @@
 
   <!-- Navigation menus -->
 
-  <mj-class name="nav" padding="16px" background-color="{{theme.colors.primary}}" color="white" />
+  <mj-class
+    name="nav"
+    padding="16px"
+    background-color="{{theme.colors.primary}}"
+    color="white"
+  />
 
   <mj-class name="nav--top" />
 

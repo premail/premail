@@ -72,8 +72,8 @@
       <mj-include path="structure/footer.tpl" />
     </mj-wrapper>
 
-  <!-- Body closure -->
+    <!-- Body closure -->
   </mj-body>
 
-<!-- Root closure -->
+  <!-- Root closure -->
 </mjml>
