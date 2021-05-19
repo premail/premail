@@ -6,7 +6,7 @@ const { watch, series, parallel } = require('gulp')
 
 const { config } = require('../vars/config.js')
 const e = require('../functions/e.js')
-const { log, msg, debug } = require('../vars/notify.js')
+const notify = require('../vars/notify.js')
 
 const buildStyles = require('../tasks/buildStyles.js')
 const buildTemplates = require('../tasks/buildTemplates.js')
@@ -25,7 +25,7 @@ module.exports = function watchEmail (done) {
     { delay: 500 },
     function rebuild (done) {
       buildStyles(done)
-      log(msg.info('Styles rebuilt.'))
+      notify.info('Styles rebuilt.')
       done()
     }
   )
@@ -39,7 +39,7 @@ module.exports = function watchEmail (done) {
   // function () {
   //   buildStyles(done)
   //   buildTemplates(done)
-  //   log(msg.info('Styles rebuilt.'))
+  //   notify.info('Styles rebuilt.')
   // }
   // )
 }
@@ -50,7 +50,7 @@ module.exports = function watchEmail (done) {
 //   'change',
 //   function (path, stats) {
 //     buildHTML(done)
-//     log(msg.info('HTML rebuilt.'))
+//     notify.info('HTML rebuilt.')
 //   }
 // )
 // }
@@ -60,14 +60,14 @@ module.exports = function watchEmail (done) {
 // if (config.user.text.generate) {
 //   watch(['./**/*.html']).on('change', function (path, stats) {
 //     buildText(done)
-//     log(msg.info('HTML rebuilt.'))
+//     notify.info('HTML rebuilt.')
 //   })
 // }
 // }
 
 // module.exports = function watchEmail () {
 //   series(
-//     // log(msg.info('\n⌚ ' + msg.b('WATCHING') + ' ⌚\n')),
+//     // notify.info('\n⌚ ' + 'WATCHING' + ' ⌚\n'),
 //     parallel(watchStyles)
 //   )
 // }

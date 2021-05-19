@@ -12,7 +12,7 @@ const mjmlEngine = require('mjml')
 const e = require('../functions/e.js')
 const { config } = require('../vars/config.js')
 const { flags } = require('../vars/flags.js')
-const { log, msg, debug } = require('../vars/notify.js')
+const notify = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */
 
 //
@@ -48,19 +48,15 @@ module.exports = function buildHTML () {
       )
       .on('error', e.mjmlError)
       .on('end', function (source) {
-        debug(msg.b('HTML source:\n') + sourceFile)
+        notify.debug(sourceFile, 'HTML source:')
       })
 
       // Write file
       .pipe(dest(path.dirname(destFile)))
       .on('end', function (source) {
-        log(msg.info(msg.b('HTML file saved:\n') + destFile))
+        notify.info(destFile, 'HTML file saved:')
         if (flags.prod) {
-          log(
-            msg.warn(
-              msg.b('Production:') + ' Minified with HTML comments stripped.'
-            )
-          )
+          notify.warn('Minified with HTML comments stripped', 'Production:')
         }
       })
   )

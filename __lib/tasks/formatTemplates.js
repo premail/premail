@@ -4,7 +4,7 @@
 const exec = require('child_process').exec
 const e = require('../functions/e.js')
 const { config } = require('../vars/config.js')
-const { log, msg, debug } = require('../vars/notify.js')
+const notify = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */
 
 //
@@ -26,7 +26,7 @@ module.exports = function formatTemplates (done) {
     if (error) {
       e.handleError(error, 'prettier')
     } else {
-      debug(msg.b('Templates formatted:\n') + stdout)
+      notify.debug(stdout, 'Templates formatted:')
     }
   })
   done()

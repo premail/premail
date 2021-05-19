@@ -10,7 +10,7 @@ const projectPath = require('../functions/projectPath.js')
 const getFiles = require('../functions/getFiles.js')
 
 const { flags } = require('../vars/flags.js')
-const { log, msg, debug } = require('../vars/notify.js')
+const notify = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */
 
 //
@@ -145,7 +145,7 @@ fs.writeFile(themeFile, JSON.stringify(config.theme, null, 2), function (err) {
   if (err) {
     e.handleError(err, 'fs-writeFile')
   }
-  debug(msg.b('Theme configuration written to temporary file:\n') + themeFile)
+  notify.debug(themeFile, 'Theme configuration written to temporary file:')
 })
 
 // Calculating internal-only (not included in config file) theme settings.
@@ -266,7 +266,7 @@ fs.writeFile(configFile, JSON.stringify(config, null, 2), function (err) {
   if (err) {
     e.handleError(err, 'fs-writeFile')
   }
-  debug(msg.b('Build configuration written to temporary file:\n') + configFile)
+  notify.debug(configFile, 'Build configuration written to temporary file:')
 })
 
 module.exports = {

@@ -10,7 +10,7 @@ const fileinclude = require('gulp-file-include')
 
 const e = require('../functions/e.js')
 const { config } = require('../vars/config.js')
-const { log, msg, debug } = require('../vars/notify.js')
+const notify = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */
 
 //
@@ -36,7 +36,7 @@ module.exports = function buildTemplates () {
       )
       .on('error', e.hbError)
       .on('end', function () {
-        debug('Templates rendered.')
+        notify.debug('Templates rendered.')
       })
 
       // Process file includes
@@ -51,7 +51,7 @@ module.exports = function buildTemplates () {
       )
       .on('error', e.includeError)
       .on('end', function () {
-        debug('Template file includes processed.')
+        notify.debug('Template file includes processed.')
       })
 
       // Set destination and write files
@@ -62,13 +62,16 @@ module.exports = function buildTemplates () {
             .replace(path.basename, '')
             .replace(path.extname, '')
           path.dirname += subPath
-          debug('Processed template file: ' + path.basename + path.extname)
+          notify.debug(
+            'Processed template file: ' + path.basename + path.extname
+          )
         })
       )
       .pipe(dest(config.current.temp))
       .on('end', function () {
-        debug(
-          msg.b('Created temporary template files at: ') + config.current.temp
+        notify.debug(
+          config.current.temp,
+          'Created temporary template files at:'
         )
       })
   )

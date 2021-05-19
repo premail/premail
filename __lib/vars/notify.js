@@ -1,7 +1,7 @@
 'use strict'
 
 /* eslint-disable no-unused-vars */
-const chalk = require('chalk')
+const colors = require('ansi-colors')
 const { flags } = require('../vars/flags.js')
 /* eslint-enable no-unused-vars */
 
@@ -9,33 +9,58 @@ const { flags } = require('../vars/flags.js')
 // Set notifications
 //
 
-// Standard logging function.
-const log = console.log
+// Set message styles
+const { symbols } = colors
 
-// Notification formats
-const msg = {
-  error: chalk.bgRed.bold.white,
-  errorText: chalk.yellow,
-  warn: chalk.bgYellow.black,
-  warnText: chalk.yellow,
-  info: chalk.hex('#37fd38'),
-  debug: chalk.keyword('aqua'),
-  b: chalk.bold,
+function error (message, title = null) {
+  let messageFormatted = '\n ' + symbols.cross
+  if (title) {
+    messageFormatted += ' ' + colors.bold(title) + ' \n'
+  }
+  messageFormatted += ' ' + message + ' \n'
+  return console.log(colors.bgRed(colors.white(messageFormatted)))
 }
 
-// Shorten call to debug notifications
-let debug = function () {
-  return ''
+function warn (message, title = null) {
+  let messageFormatted = '\n ' + symbols.warning
+  if (title) {
+    messageFormatted += ' ' + colors.bold(title) + ' \n'
+  }
+  messageFormatted += ' ' + message + ' \n'
+  return console.log(colors.bgYellow(colors.black(messageFormatted)))
 }
 
-if (flags.debug) {
-  debug = function (message) {
-    return log(msg.debug(message))
+function info (message, title = null) {
+  let messageFormatted = '\n ' + symbols.check
+  if (title) {
+    messageFormatted += ' ' + colors.bold(title) + ' \n'
+  }
+  messageFormatted += ' ' + message + ' \n'
+
+  return console.log(colors.bgGreen(colors.white(messageFormatted)))
+}
+
+function debug (message, title = null) {
+  if (flags.debug) {
+    let messageFormatted = '\n ' + symbols.info
+    if (title) {
+      messageFormatted += ' ' + colors.bold(title) + ' \n'
+    }
+    messageFormatted += ' ' + message + ' \n'
+    return console.log(colors.cyan(messageFormatted))
+  } else {
+    return null
   }
 }
 
+function plain (message) {
+  return console.log(colors.unstyle(message))
+}
+
 module.exports = {
-  log,
-  msg,
+  error,
+  warn,
+  info,
   debug,
+  plain,
 }

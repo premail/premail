@@ -11,7 +11,7 @@ const html2txt = require('gulp-html2txt')
 const e = require('../functions/e.js')
 const { flags } = require('../vars/flags.js')
 const { config } = require('../vars/config.js')
-const { log, msg, debug } = require('../vars/notify.js')
+const notify = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */
 
 //
@@ -58,11 +58,11 @@ module.exports = function buildText () {
       }
     })
 
-    if (debug) {
-      debug(msg.b('Plain-text source:\n') + sourceFile)
-      debug(
-        msg.b('\nPlain-text options configuration:\n') +
-          JSON.stringify(includeOpt, null, 2).replace(/["{},]/g, '')
+    if (flags.debug) {
+      notify.debug(sourceFile, 'Plain-text source:')
+      notify.debug(
+        JSON.stringify(includeOpt, null, 2).replace(/["{},]/g, ''),
+        'Plain-text options configuration:'
       )
     }
 
@@ -84,11 +84,11 @@ module.exports = function buildText () {
         // Write file
         .pipe(dest(path.dirname(destFile)))
         .on('end', function (source) {
-          log(msg.info(msg.b('Plain-text version saved:\n') + destFile))
+          notify.info(destFile, 'Plain-text version saved:')
         })
     )
   } else {
-    log(msg.info('Plain-text generation turned off.'))
+    notify.info('Plain-text generation turned off.')
     return src(sourceFile)
   }
 }

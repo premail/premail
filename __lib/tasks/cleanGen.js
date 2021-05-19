@@ -4,7 +4,7 @@
 const del = require('del')
 
 const { config } = require('../vars/config.js')
-const { log, msg, debug } = require('../vars/notify.js')
+const notify = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */
 
 //
@@ -12,13 +12,13 @@ const { log, msg, debug } = require('../vars/notify.js')
 //
 
 module.exports = function cleanGen (done) {
-  log(msg.warn('Deleting generated files...'))
+  notify.warn('Removing generated files...')
 
   const deletedFilePaths = [config.current.dist + '/*']
 
-  del.sync(deletedFilePaths)
+  del(deletedFilePaths)
 
-  debug(deletedFilePaths.join('\n'))
+  notify.debug(deletedFilePaths.join('\n'))
 
   done()
 }

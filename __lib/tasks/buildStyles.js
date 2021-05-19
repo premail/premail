@@ -9,7 +9,7 @@ sass.compiler = require('sass')
 
 const e = require('../functions/e.js')
 const { config } = require('../vars/config.js')
-const { log, msg, debug } = require('../vars/notify.js')
+const notify = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */
 
 //
@@ -31,10 +31,9 @@ module.exports = function buildStyles () {
       // Write files
       .pipe(dest(config.current.theme.temp + config.current.theme.sassDir))
       .on('end', function () {
-        debug(
-          msg.b('CSS files written to:\n') +
-            config.current.theme.temp +
-            config.current.theme.sassDir
+        notify.debug(
+          config.current.theme.temp + config.current.theme.sassDir,
+          'CSS files written to:'
         )
       })
   )
