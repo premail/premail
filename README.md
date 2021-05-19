@@ -200,10 +200,9 @@ configuration and files being processed.
 <!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && gulp --tasks | grep -Po "[├│└].*|^[\s].*" && echo '```\n<'!'-- '-'->') --><!-- -->
 ```
 ├─┬ default          Render a complete HTML email based on design and email templates.
-                                  Options:
-                                    --prod: Render production files (minified, no comments).
-                                    -d:     Specify design folder to use. (Default: _templates)
-                                    -e:     Specify email folder to render.
+│ │     -d           …Specify design folder to use. (Default: _templates)
+│ │     -e           …Specify email folder to render.
+│ │ --prod           …Render production files (minified, no comments).
 │ └─┬ <series>
 │   ├── showConfig
 │   ├── cleanTemp
@@ -215,10 +214,9 @@ configuration and files being processed.
 │   ├── buildText
 │   └── cleanTemp
 ├─┬ build            Render a complete HTML email based on design and email templates.
-                                  Options:
-                                    --prod: Render production files (minified, no comments).
-                                    -d:     Specify design folder to use. (Default: _templates)
-                                    -e:     Specify email folder to render.
+│ │     -d           …Specify design folder to use. (Default: _templates)
+│ │     -e           …Specify email folder to render.
+│ │ --prod           …Render production files (minified, no comments).
 │ └─┬ <series>
 │   ├── showConfig
 │   ├── cleanTemp
@@ -230,10 +228,8 @@ configuration and files being processed.
 │   ├── buildText
 │   └── cleanTemp
 ├─┬ watch            Watch design and configuration files and rebuild (formatted, with comments) as necessary.
-│ └─┬ <parallel>
-│   ├── watchStyles
-│   ├── watchHTML
-│   └── watchText
+│ └─┬ <series>
+│   └── watchEmail
 ├─┬ clean            Remove all generated and temporary files from the current design or email.
 │ └─┬ <parallel>
 │   ├── cleanTemp
@@ -246,7 +242,8 @@ configuration and files being processed.
 ├── cleanTemp        Remove temporary files from the current design or email.
 ├── cleanGen         Remove generated files from the current design or email.
 ├── showConfig       Display the current configuration being used when rendering your email files.
-└── listTemplates    List all templates that will be processed. Useful for debugging.
+├── listTemplates    List all templates that will be processed. Useful for debugging.
+└── test             Run an empty gulp function for testing.
 ```
 <!-- --><!-- /markdown-exec -->
 <!-- prettier-ignore-end -->
