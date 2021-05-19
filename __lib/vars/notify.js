@@ -15,10 +15,11 @@ const { symbols } = colors
 function error (message, title = null) {
   let messageFormatted = '\n ' + symbols.cross
   if (title) {
-    messageFormatted += ' ' + colors.bold(title) + ' \n'
+    messageFormatted +=
+      ' ' + colors.bgRed.white.bold(' ' + title + ' ') + ' \n   '
   }
   messageFormatted += ' ' + message + ' \n'
-  return console.log(colors.bgRed(colors.white(messageFormatted)))
+  return console.log(colors.red.bold(messageFormatted))
 }
 
 function warn (message, title = null) {
@@ -27,17 +28,17 @@ function warn (message, title = null) {
     messageFormatted += ' ' + colors.bold(title) + ' \n'
   }
   messageFormatted += ' ' + message + ' \n'
-  return console.log(colors.bgYellow(colors.black(messageFormatted)))
+  return console.log(colors.bgYellow.black(messageFormatted))
 }
 
 function info (message, title = null) {
-  let messageFormatted = '\n ' + symbols.check
+  let messageFormatted = '\n' + symbols.check
   if (title) {
     messageFormatted += ' ' + colors.bold(title) + ' \n'
   }
-  messageFormatted += ' ' + message + ' \n'
+  messageFormatted += '  ' + message + '\n'
 
-  return console.log(colors.bgGreen(colors.white(messageFormatted)))
+  return console.log(colors.green.greenBright(messageFormatted))
 }
 
 function debug (message, title = null) {
