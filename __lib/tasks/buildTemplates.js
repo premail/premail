@@ -36,6 +36,16 @@ module.exports = function buildTemplates () {
       )
       .on('error', e.hbError)
       .on('end', function () {
+        // Warn if both Google Font and custom web font are enabled.
+        if (
+          config.theme.fonts.stack.google.enabled &&
+          config.theme.fonts.stack.custom.enabled
+        ) {
+          notify.warn(
+            'You have enabled both a Google web font and a custom web font. MJML will only render the first provided web font.',
+            'Multiple web fonts enabled:'
+          )
+        }
         notify.debug('Templates rendered.')
       })
 

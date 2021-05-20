@@ -183,19 +183,11 @@ if (config.theme.fonts) {
     )
 
     config.theme.fonts.stack.google.href =
-      'https://fonts.googleapis.com/css2?family=' +
+      "'https://fonts.googleapis.com/css2?family=" +
       config.theme.fonts.stack.google.name.replace(/\s/g, '+') +
       ':' +
       specs +
-      '&amp;display=swap'
-  }
-
-  // Custom Font URI
-  if (config.theme.fonts.stack.custom.enabled) {
-    config.theme.fonts.stack.custom.href = config.theme.fonts.stack.custom.href.replace(
-      /'/g,
-      ''
-    )
+      "&amp;display=swap'"
   }
 }
 

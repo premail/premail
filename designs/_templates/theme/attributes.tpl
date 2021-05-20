@@ -6,12 +6,12 @@
 {{#if theme.fonts.stack.google.enabled}}
 <mj-font
   name="{{theme.fonts.stack.google.name}}"
-  href="{{{theme.fonts.stack.google.href}}}"
+  href={{{theme.fonts.stack.google.href}}}
 />
 {{/if}} {{#if theme.fonts.stack.custom.enabled}}
 <mj-font
   name="{{theme.fonts.stack.custom.name}}"
-  href="{{{theme.fonts.stack.custom.href}}}"
+  href={{{theme.fonts.stack.custom.href}}}
 />
 {{/if}} {{/if}}
 
