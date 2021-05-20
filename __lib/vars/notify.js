@@ -19,7 +19,11 @@ function error (message, title = null) {
       ' ' + colors.bgRed.white.bold(' ' + title + ' ') + ' \n   '
   }
   messageFormatted += ' ' + message + ' \n'
-  return console.log(colors.red.bold(messageFormatted))
+  if (title) {
+    return console.log(colors.red(messageFormatted))
+  } else {
+    return console.log(colors.red.bold(messageFormatted))
+  }
 }
 
 function warn (message, title = null) {
