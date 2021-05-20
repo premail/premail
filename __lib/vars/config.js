@@ -8,6 +8,7 @@ const yaml = require('js-yaml')
 const e = require('../functions/e.js')
 const projectPath = require('../functions/projectPath.js')
 const getFiles = require('../functions/getFiles.js')
+const dataJSONFile = require('../functions/dataJSONFile.js')
 
 const { flags } = require('../vars/flags.js')
 const notify = require('../vars/notify.js')
@@ -133,20 +134,12 @@ const themeJSON = yaml.loadAll(themeYAML)
 config.theme = themeJSON[0]
 
 // Create temporary JSON file of theme config
-const themeFile = path.join(config.current.theme.temp, 'themeConfig.json')
-
-fs.mkdirSync(config.current.theme.temp, { recursive: true }, err => {
-  if (err) {
-    e.handleError(err, 'fs-mkdir')
-  }
-})
-
-fs.writeFile(themeFile, JSON.stringify(config.theme, null, 2), function (err) {
-  if (err) {
-    e.handleError(err, 'fs-writeFile')
-  }
-  notify.debug(themeFile, 'Theme configuration written to temporary file:')
-})
+dataJSONFile(
+  config.theme,
+  config.current.theme.temp,
+  'themeConfig.json',
+  'Temporary theme configuration'
+)
 
 // Calculating internal-only (not included in config file) theme settings.
 if (config.theme.fonts) {
@@ -253,21 +246,13 @@ config.current.templates.partials = config.current.templates.array
   .split(',')
   .join('\n')
 
-// Create temporary JSON file of config
-const configFile = path.join(config.current.temp, 'config.json')
-
-fs.mkdirSync(config.current.temp, { recursive: true }, err => {
-  if (err) {
-    e.handleError(err, 'fs-mkdir')
-  }
-})
-
-fs.writeFile(configFile, JSON.stringify(config, null, 2), function (err) {
-  if (err) {
-    e.handleError(err, 'fs-writeFile')
-  }
-  notify.debug(configFile, 'Build configuration written to temporary file:')
-})
+// Create temporary JSON file of overall config
+dataJSONFile(
+  config,
+  config.current.temp,
+  'config.json',
+  'Temporary build configuration'
+)
 
 module.exports = {
   config,
