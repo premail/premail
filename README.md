@@ -64,7 +64,18 @@ provider's system.
 ## Requirements
 
 You need to have at least [Node](https://nodejs.org/en/download/) 10.23.2. This
-tool uses
+tool has been tested up to Node 16.x, but **if you want to be able to use the
+`watch` function you need to stay at
+[Node 12.x or below](https://github.com/nodejs/Release#release-schedule)**
+because of a
+[limitation in gulp](https://github.com/gulpjs/glob-watcher/issues/55). (This
+means you'll see an unfortunate number of depreciation warnings upon
+installation.) If you don't need to use `watch`, you can run Node LTS. I
+recommend using [n](https://github.com/tj/n) or
+[nvm](https://github.com/nvm-sh/nvm) if you're managing multiple versions of
+Node.
+
+This tool uses
 [Gulp](https://gulpjs.com/docs/en/getting-started/quick-start) 4.0.2+ and
 [MJML](https://github.com/mjmlio/mjml/releases) 4.9.3+, but these are installed
 automatically during setup, so it's only important to check these if you already
