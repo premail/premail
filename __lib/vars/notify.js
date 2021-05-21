@@ -62,6 +62,14 @@ function debug (message, title = null) {
   }
 }
 
+function watch (message) {
+  return console.log(
+    '\n ⌚ ' +
+      colors.bgGreen.black.bold(' ' + message.toUpperCase() + ' ') +
+      ' ⌚\n'
+  )
+}
+
 function plain (message) {
   return console.log(colors.unstyle(message))
 }
@@ -71,6 +79,7 @@ module.exports = {
   warn,
   info,
   debug,
+  watch,
   plain,
   colors,
 }

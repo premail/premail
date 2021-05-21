@@ -19,55 +19,52 @@ const buildText = require('../tasks/buildText.js')
 //
 
 // Trigger style rebuild.
-module.exports = function watchEmail (done) {
+function watchStyles (done) {
   watch(
     [config.current.theme.path + config.current.theme.sassDir + '/**/*.scss'],
     { delay: 500 },
     function rebuild (done) {
       buildStyles(done)
+      buildTemplates(done)
       notify.info('Styles rebuilt.')
       done()
     }
   )
-
-  // return watch(
-  //   [config.current.theme.path + config.current.theme.sassDir + '/**/*.scss'],
-  //   buildStyles
-  // {
-  //   delay: 200, // default
-  // },
-  // function () {
-  //   buildStyles(done)
-  //   buildTemplates(done)
-  //   notify.info('Styles rebuilt.')
-  // }
-  // )
 }
 
 // Trigger HTML rebuild.
 // function watchHTML (done) {
-// watch([config.current.path + '/**/*.' + config.user.files.templateExt]).on(
-//   'change',
-//   function (path, stats) {
-//     buildHTML(done)
-//     notify.info('HTML rebuilt.')
-//   }
-// )
+//   watch(
+//     [config.current.path + '/**/*.' + config.user.files.templateExt],
+//     { delay: 500 },
+//     function rebuild (done) {
+//       buildHTML(done)
+//       notify.info('HTML rebuilt.')
+//       done()
+//     }
+//   )
 // }
 
 // Trigger text rebuild.
 // function watchText (done) {
-// if (config.user.text.generate) {
-//   watch(['./**/*.html']).on('change', function (path, stats) {
-//     buildText(done)
-//     notify.info('HTML rebuilt.')
-//   })
-// }
+//   if (config.user.text.generate) {
+//     watch(
+//       [config.current.path + '/**/*.html'],
+//       { delay: 500 },
+//       function rebuild (done) {
+//         buildText(done)
+//         notify.info('Plain-text version rebuilt.')
+//         done()
+//       }
+//     )
+//   }
 // }
 
-// module.exports = function watchEmail () {
-//   series(
-//     // notify.info('\n⌚ ' + 'WATCHING' + ' ⌚\n'),
-//     parallel(watchStyles)
-//   )
-// }
+module.exports = function watchEmail (done) {
+  // series(
+  // notify.watch('watching')
+  // parallel(
+  watchStyles(done)
+  // )
+  // )
+}
