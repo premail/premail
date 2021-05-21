@@ -39,6 +39,9 @@
   {{~#eq theme.fonts.stack.base 'mono'}}swiss{{/eq}} " mso-font-alt=" {{~#eq
   theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
   theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} " ico-font-family="{{#if theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
   theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} " />
 
   <!-- Structure -->
