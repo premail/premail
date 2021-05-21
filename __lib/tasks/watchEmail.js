@@ -18,53 +18,42 @@ const buildText = require('../tasks/buildText.js')
 // Watch design and configuration files and rebuild as necessary.
 //
 
-// Trigger style rebuild.
-function watchStyles (done) {
+module.exports = function watchEmail (done) {
+  notify.watch('watching')
+
+  // Trigger style rebuild.
   watch(
     [config.current.theme.path + config.current.theme.sassDir + '/**/*.scss'],
     { delay: 500 },
-    function rebuild (done) {
+    function styleRebuild (done) {
       buildStyles(done)
       buildTemplates(done)
       notify.info('Styles rebuilt.')
       done()
     }
   )
-}
 
-// Trigger HTML rebuild.
-// function watchHTML (done) {
-//   watch(
-//     [config.current.path + '/**/*.' + config.user.files.templateExt],
-//     { delay: 500 },
-//     function rebuild (done) {
-//       buildHTML(done)
-//       notify.info('HTML rebuilt.')
-//       done()
-//     }
-//   )
-// }
+  // Trigger HTML rebuild.
+  watch(
+    [config.current.path + '/**/*.' + config.user.files.templateExt],
+    { delay: 500 },
+    function htmlRebuild (done) {
+      buildHTML(done)
+      notify.info('HTML rebuilt.')
+      done()
+    }
+  )
 
-// Trigger text rebuild.
-// function watchText (done) {
-//   if (config.user.text.generate) {
-//     watch(
-//       [config.current.path + '/**/*.html'],
-//       { delay: 500 },
-//       function rebuild (done) {
-//         buildText(done)
-//         notify.info('Plain-text version rebuilt.')
-//         done()
-//       }
-//     )
-//   }
-// }
-
-module.exports = function watchEmail (done) {
-  // series(
-  // notify.watch('watching')
-  // parallel(
-  watchStyles(done)
-  // )
-  // )
+  // Trigger text rebuild.
+  if (config.user.text.generate) {
+    watch(
+      [config.current.path + '/**/*.html'],
+      { delay: 500 },
+      function textRebuild (done) {
+        buildText(done)
+        notify.info('Plain-text version rebuilt.')
+        done()
+      }
+    )
+  }
 }
