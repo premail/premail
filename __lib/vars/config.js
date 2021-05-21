@@ -133,14 +133,6 @@ const themeYAML = fs.readFileSync(
 const themeJSON = yaml.loadAll(themeYAML)
 config.theme = themeJSON[0]
 
-// Create temporary JSON file of theme config
-dataJSONFile(
-  config.theme,
-  config.current.theme.temp,
-  'themeConfig.json',
-  'Temporary theme configuration'
-)
-
 // Calculating internal-only (not included in config file) theme settings.
 if (config.theme.fonts) {
   // Web font
@@ -237,6 +229,14 @@ config.current.templates.partials = config.current.templates.array
   .toString()
   .split(',')
   .join('\n')
+
+// Create temporary JSON file of theme config
+dataJSONFile(
+  config.theme,
+  config.current.theme.temp,
+  'themeConfig.json',
+  'Temporary theme configuration'
+)
 
 // Create temporary JSON file of overall config
 dataJSONFile(
