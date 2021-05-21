@@ -135,6 +135,9 @@ config.theme = themeJSON[0]
 
 // Calculating internal-only (not included in config file) theme settings.
 if (config.theme.fonts) {
+  // Font stack
+  config.theme.fonts.stack.first = ''
+
   // Web font
   config.theme.fonts.web = false
   if (
@@ -144,8 +147,14 @@ if (config.theme.fonts) {
     config.theme.fonts.web = true
   }
 
+  // Custom Font URI
+  if (config.theme.fonts.stack.custom.enabled) {
+    config.theme.fonts.stack.first = config.theme.fonts.stack.custom.name
+  }
+
   // Google Font URI
   if (config.theme.fonts.stack.google.enabled) {
+    config.theme.fonts.stack.first = config.theme.fonts.stack.google.name
     const weights = []
     let specs
 

@@ -28,7 +28,7 @@
   <!-- Applied to all elements -->
 
   <mj-all margin="0" padding="0" font-size="{{theme.text.default.size}}"
-  color="{{theme.text.default.color}}" font-family=" {{~#eq
+  color="{{theme.text.default.color}}" font-family="{{#if theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
   theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
   theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
   theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} " {{!--
