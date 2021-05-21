@@ -46,7 +46,11 @@ files:
 # 3. Email-building options
 text:
   # Whether or not to generate a plain-text version. The subsequent options only
-  # apply if this is set to "true".
+  # apply if this is set to "true". Note that while only a small portion of
+  # recipients will see the text version, it appears to lower the risk of your
+  # email being interpreted as spam. Resources:
+  # https://www.litmus.com/blog/best-practices-for-plain-text-emails-a-look-at-why-theyre-important/
+  # https://www.indiehackers.com/post/10-tips-for-better-email-deliverability-0f73b1fbee
   generate: true
 
   # When set to true, images are replaced by URLs to the image file in the
