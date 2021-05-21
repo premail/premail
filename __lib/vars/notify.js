@@ -29,10 +29,14 @@ function error (message, title = null) {
 function warn (message, title = null) {
   let messageFormatted = '\n ' + symbols.warning
   if (title) {
-    messageFormatted += ' ' + colors.bold(title) + ' \n'
+    messageFormatted += ' ' + colors.bgYellow.black.bold(title) + ' \n'
   }
   messageFormatted += ' ' + message + ' \n'
-  return console.log(colors.bgYellow.black(messageFormatted))
+  if (title) {
+    return console.log(colors.yellow(messageFormatted))
+  } else {
+    return console.log(colors.bgYellow.black(messageFormatted))
+  }
 }
 
 function info (message, title = null) {
@@ -68,4 +72,5 @@ module.exports = {
   info,
   debug,
   plain,
+  colors,
 }

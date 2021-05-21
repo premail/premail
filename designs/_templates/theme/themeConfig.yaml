@@ -90,7 +90,7 @@ fonts:
       # here's Google Fonts' file for Sans Serif Pro:
       # https://fonts.googleapis.com/css2?family=Source+Sans+Pro&amp;display=swap
       # You'll probably want to include references to bold and italics variants
-      # as well.
+      # as well. Be sure to double-quote the URI, as in the example provided.
       href: "'https://example.com/font.css'"
 
 # TEXT STYLES

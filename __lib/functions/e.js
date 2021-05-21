@@ -27,8 +27,22 @@ const sassError = function logError (error) {
     'gulp-sass',
     error.messageFormatted
   ).toString()
-  notify.error(`${message}`, 'Sass processing error:')
-  this.emit('end')
+  if (
+    message.includes('themeConfig.json') &&
+    message.includes('Error: expected')
+  ) {
+    notify.warn(
+      'Sass variable import choked on the theme configuration. Did you make sure to double quote anything with CSS-reserved selectors like URLs?' +
+        notify.colors.bold(` "'https://example.com/'" `) +
+        'See the "SYNTAX NOTES" section at the top of your themeConfig.yaml file.',
+      'Style import error:'
+    )
+    notify.error(`${message}`, 'Sass processing error:')
+    this.emit('end')
+  } else {
+    notify.error(`${message}`, 'Sass processing error:')
+    this.emit('end')
+  }
 }
 
 // Handlebars
