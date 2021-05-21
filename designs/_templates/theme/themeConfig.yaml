@@ -8,7 +8,8 @@
 #
 # Values that include CSS-reserved selectors such as periods, commas, slashes or
 # colons will error unless they are quoted twice, "'Like this.'" An example is
-# the custom font URL.
+# the custom font URL. More information:
+# https://github.com/pmowrer/node-sass-json-importer#importing-strings
 #
 # Any values that include the pound sign (#), such as hexidecimal color values,
 # need to be single-quoted, '#Likethis'.
