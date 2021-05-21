@@ -21,21 +21,25 @@ const notify = require('../vars/notify.js')
 const config = {}
 config.__base = projectPath(__dirname, '../../')
 config.__lib = path.join(config.__base, '__lib')
-config.__temp = '/.tmp'
+config.__temp = path.sep + '.tmp'
+config.file = {
+  user: path.join(config.__base, 'config.yaml'),
+  theme: 'themeConfig.yaml',
+}
 
 // Load internal config from ./__lib/config/ directory.
-config.internal = {}
-config.internal.__dir = path.join(config.__lib, 'config')
-config.internal.__list = getFiles(config.internal.__dir, 'yaml')
+config.file.internal = {}
+config.file.internal.__dir = path.join(config.__lib, 'config')
+config.file.internal.__list = getFiles(config.file.internal.__dir, 'yaml')
 
-for (const setting of config.internal.__list) {
+for (const setting of config.file.internal.__list) {
   const file = yaml.loadAll(fs.readFileSync(setting, { encoding: 'utf-8' }))
-  Object.assign(config.internal, file[0])
+  Object.assign(config.file.internal, file[0])
 }
 
 // Load user config from YAML file.
 const userJSON = yaml.loadAll(
-  fs.readFileSync('./config.yaml', { encoding: 'utf-8' })
+  fs.readFileSync(config.file.user, { encoding: 'utf-8' })
 )
 config.user = userJSON[0]
 
@@ -120,12 +124,12 @@ config.current.theme = {
     config.user.folders.theme.dir
   ),
   sassDir: '/sass',
-  css: Object.assign(config.internal.css),
+  css: Object.assign(config.file.internal.css),
 }
 
 // Load theme config from YAML file.
 const themeYAML = fs.readFileSync(
-  path.join(config.current.theme.path, 'themeConfig.yaml'),
+  path.join(config.current.theme.path, config.file.theme),
   {
     encoding: 'utf-8',
   }
