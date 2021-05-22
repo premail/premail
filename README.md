@@ -8,6 +8,12 @@ The templates included are
 One `index.html` file will be rendered, ready to import into your emailer of
 choice. [See example.](https://rootwork.github.io/mjml-quickstart/_templates/index.html)
 
+---
+
+**Development of a more useful and interesting version of this tool is happening over at the [v2.0.0 branch](https://github.com/rootwork/mjml-quickstart/tree/v2.0.0).**
+
+---
+
 <!-- The following section, from "ts" to "te", is an automatically-generated
   table of contents, updated whenever this file changes. Do not edit within
   this section. -->
