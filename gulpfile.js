@@ -44,13 +44,10 @@ exports.build.flags = {
 }
 
 exports.watch = series(
-  // cleanTemp,
-  // buildStyles,
-  // buildTemplates,
-  // parallel(
-  //   buildHTML,
-  //   buildText
-  // ),
+  cleanTemp,
+  buildStyles,
+  buildTemplates,
+  parallel(buildHTML, buildText),
   watchEmail
 )
 exports.watch.description =
