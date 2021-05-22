@@ -23,7 +23,7 @@ module.exports = function buildStyles () {
       .pipe(
         sass({
           outputStyle: 'compressed',
-          includePaths: config.current.theme.temp,
+          // includePaths: config.current.theme.temp,
           importer: sassImporter(),
         }).on('error', e.sassError)
       )

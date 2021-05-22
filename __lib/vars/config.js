@@ -8,7 +8,6 @@ const yaml = require('js-yaml')
 const e = require('../functions/e.js')
 const projectPath = require('../functions/projectPath.js')
 const getFiles = require('../functions/getFiles.js')
-const dataJSONFile = require('../functions/dataJSONFile.js')
 
 const { flags } = require('../vars/flags.js')
 const notify = require('../vars/notify.js')
@@ -242,22 +241,6 @@ config.current.templates.partials = config.current.templates.array
   .toString()
   .split(',')
   .join('\n')
-
-// Create temporary JSON file of theme config
-dataJSONFile(
-  config.theme,
-  config.current.theme.temp,
-  'themeConfig.json',
-  'Temporary theme configuration'
-)
-
-// Create temporary JSON file of overall config
-dataJSONFile(
-  config,
-  config.current.temp,
-  'config.json',
-  'Temporary build configuration'
-)
 
 module.exports = {
   config,

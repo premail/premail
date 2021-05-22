@@ -16,13 +16,13 @@
 {{/if}} {{/if}}
 
 <!-- To change inlined CSS styles, edit `inline.scss` -->
-<mj-style inline="inline">@@include('{{internal.css.inline}}')</mj-style>
+<mj-style inline="inline">@@include('{{file.internal.css.inline}}')</mj-style>
 
 <!-- To change pseudo CSS styles, edit `pseudo.scss` -->
-<mj-style>@@include('{{internal.css.pseudo}}')</mj-style>
+<mj-style>@@include('{{file.internal.css.pseudo}}')</mj-style>
 
 <!-- To change Gmail-specific CSS styles, edit `gmail.scss` -->
-<mj-style>@@include('{{internal.css.gmail}}')</mj-style>
+<mj-style>@@include('{{file.internal.css.gmail}}')</mj-style>
 
 <mj-attributes>
   <!-- Applied to all elements -->

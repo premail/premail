@@ -27,10 +27,7 @@ const sassError = function logError (error) {
     'gulp-sass',
     error.messageFormatted
   ).toString()
-  if (
-    message.includes('themeConfig.json') &&
-    message.includes('Error: expected')
-  ) {
+  if (message.includes('theme.js') && message.includes('Error: expected')) {
     notify.warn(
       'Sass variable import choked on the theme configuration. Did you make sure to double quote anything with CSS-reserved selectors like URLs?' +
         notify.colors.bold(` "'https://example.com/'" `) +
