@@ -1,14 +1,19 @@
 {{#if theme.fonts.web}}
 <!-- `mj-font` element needs to be outside `mj-attributes`
          @see: https://documentation.mjml.io/#mj-font
-    -->
 
+      The HREF values in the font element are unquoted, and ignored by Prettier,
+      in order to allow for the double-quoting that JSON-to-Sass variables
+      require.
+    -->
 {{#if theme.fonts.stack.google.enabled}}
+<!-- prettier-ignore -->
 <mj-font
   name="{{theme.fonts.stack.google.name}}"
   href={{{theme.fonts.stack.google.href}}}
 />
 {{/if}} {{#if theme.fonts.stack.custom.enabled}}
+<!-- prettier-ignore -->
 <mj-font
   name="{{theme.fonts.stack.custom.name}}"
   href={{{theme.fonts.stack.custom.href}}}
@@ -28,7 +33,8 @@
   <!-- Applied to all elements -->
 
   <mj-all margin="0" padding="0" font-size="{{theme.text.default.size}}"
-  color="{{theme.text.default.color}}" font-family="{{#if theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  color="{{theme.text.default.color}}" font-family="{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
   theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
   theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
   theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} " {{!--
@@ -39,9 +45,10 @@
   {{~#eq theme.fonts.stack.base 'mono'}}swiss{{/eq}} " mso-font-alt=" {{~#eq
   theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
   theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
-  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} " ico-font-family="{{#if theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
-  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
-  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} "
+  ico-font-family="{{#if theme.fonts.stack.first}}'{{theme.fonts.stack.first}}',
+  {{/if}} {{~#eq theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}}
+  {{~#eq theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
   theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} " />
 
   <!-- Structure -->
