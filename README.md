@@ -240,6 +240,12 @@ configuration and files being processed.
 │   └── cleanTemp
 ├─┬ watch            Watch design and configuration files and rebuild (formatted, with comments) as necessary.
 │ └─┬ <series>
+│   ├── cleanTemp
+│   ├── buildStyles
+│   ├── buildTemplates
+│   ├─┬ <parallel>
+│   │ ├── buildHTML
+│   │ └── buildText
 │   └── watchEmail
 ├─┬ clean            Remove all generated and temporary files from the current design or email.
 │ └─┬ <parallel>
