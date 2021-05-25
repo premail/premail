@@ -108,7 +108,7 @@ function styles () {
         })
       )
       .on('end', function () {
-        notify.debug(JSON.stringify(memory.styles, null, 2))
+        notify.json(memory.styles)
       })
 
     // Write files
@@ -205,10 +205,12 @@ function email () {
       .pipe(html2txt(textBuild.options))
       .on('error', e.textError)
       .on('end', function (source) {
-        notify.debug(
-          JSON.stringify(textBuild.include, null, 2).replace(/["{},]/g, ''),
-          'Plain-text version built. Options configured:'
-        )
+        if (flags.debug) {
+          notify.json(
+            textBuild.include,
+            'Plain-text version built. Options configured:'
+          )
+        }
       })
       // Remove hard-coded mobile navigation menu characters inserted by
       // MJML, which will otherwise show up in the generated plain-text.

@@ -62,6 +62,16 @@ function debug (message, title = null) {
   }
 }
 
+function json (object, title = null) {
+  let objectFormatted = '\n '
+  if (title) {
+    objectFormatted += symbols.info + ' ' + colors.bold(title) + ' \n'
+  }
+  objectFormatted +=
+    ' ' + JSON.stringify(object, null, 2).replace(/["{},]/g, '') + ' \n'
+  return console.log(colors.cyan(objectFormatted))
+}
+
 function watch (message) {
   return console.log(
     '\n ⌚ ' +
@@ -82,4 +92,5 @@ module.exports = {
   watch,
   plain,
   colors,
+  json,
 }

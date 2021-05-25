@@ -6,6 +6,7 @@ const yaml = require('js-yaml')
 
 const { config } = require('../vars/config.js')
 const notify = require('../vars/notify.js')
+const { flags } = require('../vars/flags.js')
 /* eslint-enable no-unused-vars */
 
 //
@@ -13,23 +14,18 @@ const notify = require('../vars/notify.js')
 //
 
 module.exports = function showConfig (done) {
-  // Uncomment the following line to include internal configuration
-  // notify.debug(
-  //   JSON.stringify(config.internal, null, 2).replace(/[\"{},]/g, ''),
-  //   'Internal configuration:'
-  // )
+  if (flags.debug) {
+    // Uncomment the following line to include internal configuration
+    // notify.json(config.file.internal, 'Internal configuration:')
 
-  // User-defined configuration
-  notify.debug(
-    JSON.stringify(config.user, null, 2).replace(/["{},]/g, ''),
-    'Build configuration:'
-  )
+    // User-defined configuration
+    notify.json(config.user, 'Build configuration:')
 
-  // Theme configuration
-  notify.debug(
-    JSON.stringify(config.theme, null, 2).replace(/["{},[\]]/g, ''),
-    'Theme configuration:'
-  )
+    // Theme configuration
+    notify.json(config.theme, 'Theme configuration:')
 
-  done()
+    done()
+  } else {
+    done()
+  }
 }
