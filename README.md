@@ -216,32 +216,26 @@ configuration and files being processed.
 │ │ --prod           …Render production files (minified, no comments).
 │ └─┬ <series>
 │   ├── showConfig
-│   ├── clean.temporary
 │   ├── clean.generated
 │   ├── build.styles
-│   ├── build.email
-│   └── clean.temporary
+│   └── build.email
 ├─┬ build            Render a complete HTML email based on design and email templates.
 │ │     -d           …Specify design folder to use. (Default: _templates)
 │ │     -e           …Specify email folder to render.
 │ │ --prod           …Render production files (minified, no comments).
 │ └─┬ <series>
 │   ├── showConfig
-│   ├── clean.temporary
 │   ├── clean.generated
 │   ├── build.styles
-│   ├── build.email
-│   └── clean.temporary
+│   └── build.email
 ├─┬ watch            Watch design and configuration files and rebuild (formatted, with comments) as necessary.
 │ └─┬ <series>
-│   ├── clean.temporary
 │   ├── build.styles
 │   ├── build.email
 │   └── watchEmail
-├── formatTemplates  Format MJML templates with Prettier.
-├─┬ clean            Remove generated and temporary files from the current design or email.
+├── formatTemplates  Format templates with Prettier.
+├─┬ clean            Remove generated files from the current design or email.
 │ └─┬ <parallel>
-│   ├── clean.temporary
 │   └── clean.generated
 ├── showConfig       Display the current configuration being used when rendering your email files.
 ├── listTemplates    List all templates that will be processed. Useful for debugging.
