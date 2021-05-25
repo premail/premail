@@ -1,4 +1,15 @@
-{{!-- Intro to file --}}
+{{!-- INTRODUCTION TO THIS FILE index.hbs is a mix of Handlebars and MJML
+template languages. Ideally, you should not need to edit it. This file contains
+includes of MJML partials (files ending in .mjml, in the `content` and
+`structure` directories) and includes of Handlebars partials -- which in this
+case consist of the CSS rendered from the .scss files in the `theme` directory.
+It also inserts values from both the theme and email configuration YAML files.
+The intention is that for your email design, you'll be able to change the
+settings you need simply by altering the values in `theme/themeConfig.yaml` and,
+if necessary, the Sass (CSS) in that same directory. For the content of your
+email, you'll alter the files in the `content` directory and, if necessary, in
+the `structure` directory. After building your email, the result will be output
+to the `dist` directory. --}}
 <mjml lang="{{user.language.default}}">
   <!-- Head declaration -->
 
@@ -28,16 +39,14 @@
     />
     {{/if}} {{/if}}
 
-    <!-- To change inlined CSS styles, edit `inline.scss` -->
-    <mj-style inline="inline"
-      >@@include('{{file.internal.css.inline}}')</mj-style
-    >
+    <!-- To change inlined CSS styles, edit `theme/inline.scss` -->
+    <mj-style inline="inline">{{> inline.css}}</mj-style>
 
-    <!-- To change pseudo CSS styles, edit `pseudo.scss` -->
-    <mj-style>@@include('{{file.internal.css.pseudo}}')</mj-style>
+    <!-- To change pseudo CSS styles, edit `theme/pseudo.scss` -->
+    <mj-style>{{> pseudo.css}}</mj-style>
 
-    <!-- To change Gmail-specific CSS styles, edit `gmail.scss` -->
-    <mj-style>@@include('{{file.internal.css.gmail}}')</mj-style>
+    <!-- To change Gmail-specific CSS styles, edit `theme/gmail.scss` -->
+    <mj-style>{{> gmail.css}}</mj-style>
 
     <mj-attributes>
       <!-- Applied to all elements -->

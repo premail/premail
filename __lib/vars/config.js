@@ -122,7 +122,6 @@ config.current.theme = {
     config.__temp,
     config.user.folders.theme.dir
   ),
-  sassDir: '/sass',
   css: Object.assign(config.file.internal.css),
 }
 
@@ -224,7 +223,7 @@ config.current.templates = {}
 
 config.current.templates.array = getFiles(
   config.current.path + path.sep,
-  config.user.files.templateExt
+  'mjml'
 )
 config.current.templates.list = config.current.templates.array
   .toString()

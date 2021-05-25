@@ -15,7 +15,7 @@ module.exports = function formatTemplates (done) {
   const command =
     'prettier --config .prettierrc.yaml -w "' +
     config.current.path +
-    '/**/*.{tpl,mjml}"'
+    '/**/*.{hbs,mjml}"'
 
   // While modern-node's `format` should be able to handle this formatting,
   // it doesn't seem to look at Prettier config files:

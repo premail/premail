@@ -11,8 +11,6 @@ const sassImporter = require('node-sass-json-importer')
 sass.compiler = require('sass')
 const hb = require('gulp-hb')
 const helpers = require('handlebars-helpers')(['comparison'])
-// const fileinclude = require('gulp-file-include')
-// const rename = require('gulp-rename')
 const mjml = require('gulp-mjml')
 const mjmlEngine = require('mjml')
 const html2txt = require('gulp-html2txt')
@@ -24,109 +22,94 @@ const notify = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */
 
 //
-// Set up necessary variables
+// Set up variables needed across the build.
 //
 
-// Create for holding objects in memory
-const memory = {
-  styles: {},
-}
-
-// Set styles source
-const sourceStyles =
-  config.current.theme.path + config.current.theme.sassDir + '/**/*.scss'
+// Create object to hold rendered CSS
+const styleObj = {}
 
 // Set destinations
 const destHTML = path.join(config.current.dist, 'index.html')
 const destText = path.join(config.current.dist, 'index.txt')
 
-// Options for rendering text
-const textBuild = {
-  status: false,
-}
-if (config.user.text.generate) {
-  textBuild.status = true
-  textBuild.options = {
-    baseElement: [],
-    tables: true,
-    tags: {
-      img: {},
-    },
-  }
-
-  // Determine which elements to include in plain text
-  textBuild.include = {
-    images: config.user.text.images,
-    partials: {
-      topNav: config.user.text.include.topNav,
-      banner: config.user.text.include.banner,
-      salutation: config.user.text.include.salutation,
-      body: true,
-      signoff: config.user.text.include.signoff,
-      social: config.user.text.include.social,
-      bottomNav: config.user.text.include.bottomNav,
-      footer: config.user.text.include.footer,
-    },
-  }
-
-  if (!textBuild.include.images) {
-    textBuild.options.tags.img.format = 'skip'
-  }
-
-  Object.keys(textBuild.include.partials).forEach(key => {
-    if (textBuild.include.partials[key]) {
-      textBuild.options.baseElement.push('div.component-' + key)
-    }
-  })
-}
-
 //
 // Build CSS files from Sass source files.
 //
+
 function styles () {
+  // Set styles source
+  const sourceStyles = config.current.theme.path + '/**/*.scss'
+
   return (
     src(sourceStyles)
       // Render CSS
       .pipe(
         sass({
           outputStyle: 'compressed',
-          // includePaths: config.current.theme.temp,
           importer: sassImporter(),
         }).on('error', e.sassError)
       )
 
-      // Save file contents to memory
+      // Save CSS styles as an object we'll use as Handlebars partials
       .pipe(
         tap(function (file) {
-          memory.styles[path.basename(file.path)] = file.contents.toString()
+          styleObj[path.basename(file.path)] = file.contents.toString()
         })
       )
-      .on('end', function () {
-        notify.json(memory.styles)
-      })
-
-    // Write files
-    // .pipe(dest(config.current.theme.temp + config.current.theme.sassDir))
-    // .on('end', function () {
-    //   notify.debug(
-    //     config.current.theme.temp + config.current.theme.sassDir,
-    //     'CSS files written to:'
-    //   )
-    // })
   )
 }
 
 //
-// Render templates through Handlebars into email-ready HTML and plain-text
+// Render templates through Handlebars into email-ready HTML and plain-text.
 //
 function email () {
+  // Options for rendering text
+  const textBuild = {
+    status: false,
+  }
+  if (config.user.text.generate) {
+    textBuild.status = true
+    textBuild.options = {
+      baseElement: [],
+      tables: true,
+      tags: {
+        img: {},
+      },
+    }
+
+    // Determine which elements to include in plain text
+    textBuild.include = {
+      images: config.user.text.images,
+      partials: {
+        topNav: config.user.text.include.topNav,
+        banner: config.user.text.include.banner,
+        salutation: config.user.text.include.salutation,
+        body: true,
+        signoff: config.user.text.include.signoff,
+        social: config.user.text.include.social,
+        bottomNav: config.user.text.include.bottomNav,
+        footer: config.user.text.include.footer,
+      },
+    }
+
+    if (!textBuild.include.images) {
+      textBuild.options.tags.img.format = 'skip'
+    }
+
+    Object.keys(textBuild.include.partials).forEach(key => {
+      if (textBuild.include.partials[key]) {
+        textBuild.options.baseElement.push('div.component-' + key)
+      }
+    })
+  }
+
+  // Process Handlebars data
   let stream = src(config.current.templates.main)
-    // Process Handlebars data
     .pipe(
-      hb()
-        .partials()
-        .helpers(helpers)
-        .data(config)
+      hb() // For details on build, insert { debug: true }
+        .partials(styleObj) // CSS styles from the styles() function
+        .helpers(helpers) // Handlebars helpers from 'require' at the top
+        .data(config) // Data source
     )
     .on('error', e.hbError)
     .on('end', function () {
@@ -142,15 +125,6 @@ function email () {
       }
       notify.debug('Handlebars processing complete')
     })
-
-  // Process file includes
-  // .pipe(replace("@@include('inline.css')", memory.styles['inline.css']))
-  // .pipe(replace("@@include('gmail.css')", memory.styles['gmail.css']))
-  // .pipe(replace("@@include('pseudo.css')", memory.styles['pseudo.css']))
-  // .on('error', e.includeError)
-  // .on('end', function () {
-  //   notify.debug('Template file includes processed.')
-  // })
 
   // Render MJML into HTML
   if (flags.prod) {
