@@ -44,7 +44,6 @@
     "gulp-tap": "^2.0.0",
     "handlebars-helpers": "^0.10.0",
     "js-yaml": "^4.1.0",
-    "lazypipe": "^1.0.2",
     "merge-stream": "^2.0.0",
     "minimist": "^1.2.5",
     "mjml": "^4.9.3",

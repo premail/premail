@@ -11,26 +11,20 @@ const { series, parallel } = require('gulp')
 const taskDir = './__lib/tasks/'
 
 const showConfig = require(taskDir + 'showConfig.js')
-const cleanGen = require(taskDir + 'cleanGen.js')
+const clean = require(taskDir + 'clean.js')
 const build = require(taskDir + 'build.js')
-
-const buildStyles = require(taskDir + 'buildStyles.js')
 const watchEmail = require(taskDir + 'watchEmail.js')
-const buildTemplates = require(taskDir + 'buildTemplates.js')
 const listTemplates = require(taskDir + 'listTemplates.js')
 const formatTemplates = require(taskDir + 'formatTemplates.js')
-const buildHTML = require(taskDir + 'buildHTML.js')
-const buildText = require(taskDir + 'buildText.js')
-const cleanTemp = require(taskDir + 'cleanTemp.js')
 
 // Sets
 exports.default = series(
   showConfig,
-  cleanTemp,
-  cleanGen,
+  clean.temporary,
+  clean.generated,
   build.styles,
   build.email,
-  cleanTemp
+  clean.temporary
 )
 
 exports.build = exports.default
@@ -42,43 +36,19 @@ exports.build.flags = {
   '    -e': 'Specify email folder to render.',
 }
 
-exports.watch = series(
-  cleanTemp,
-  buildStyles,
-  buildTemplates,
-  parallel(buildHTML, buildText),
-  watchEmail
-)
+// Watch
+exports.watch = series(clean.temporary, build.styles, build.email, watchEmail)
 exports.watch.description =
   'Watch design and configuration files and rebuild (formatted, with comments) as necessary.'
-
-exports.clean = parallel(cleanTemp, cleanGen)
-exports.clean.description =
-  'Remove all generated and temporary files from the current design or email.'
-
-// Build
-exports.buildStyles = buildStyles
-exports.buildStyles.description =
-  'Build CSS files from Sass files in the "theme" folder.'
-exports.buildTemplates = buildTemplates
-exports.buildTemplates.description =
-  'Build MJML templates from Handlebars templates.'
-exports.buildHTML = buildHTML
-exports.buildHTML.description = 'Build HTML files from MJML templates.'
-exports.buildText = buildText
-exports.buildText.description = 'Generate a plain-text version of the email.'
 
 // Format
 exports.formatTemplates = formatTemplates
 exports.formatTemplates.description = 'Format MJML templates with Prettier.'
 
 // Clean
-exports.cleanTemp = cleanTemp
-exports.cleanTemp.description =
-  'Remove temporary files from the current design or email.'
-exports.cleanGen = cleanGen
-exports.cleanGen.description =
-  'Remove generated files from the current design or email.'
+exports.clean = parallel(clean.temporary, clean.generated)
+exports.clean.description =
+  'Remove generated and temporary files from the current design or email.'
 
 // Debug
 exports.showConfig = showConfig

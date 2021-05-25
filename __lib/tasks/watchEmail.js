@@ -8,11 +8,7 @@ const path = require('path')
 const { config } = require('../vars/config.js')
 const e = require('../functions/e.js')
 const notify = require('../vars/notify.js')
-
-const buildStyles = require('../tasks/buildStyles.js')
-const buildTemplates = require('../tasks/buildTemplates.js')
-const buildHTML = require('../tasks/buildHTML.js')
-const buildText = require('../tasks/buildText.js')
+const build = require('../tasks/build.js')
 /* eslint-enable no-unused-vars */
 
 //
@@ -41,34 +37,20 @@ module.exports = function watchEmail (done) {
     [paths.configBuild, paths.configTheme, paths.style],
     { delay: 500 },
     function styleRebuild (done) {
-      buildStyles(done)
-      buildTemplates(done) // @TODO: Erroring on file-include
+      build.styles()
       notify.info('Styles rebuilt.')
       done()
     }
   )
 
-  // Trigger HTML rebuild.
+  // Trigger email rebuild.
   watch(
     [paths.configBuild, paths.configTheme, paths.templates],
     { delay: 500 },
-    function htmlRebuild (done) {
-      buildHTML(done)
-      notify.info('HTML rebuilt.')
+    function emailRebuild (done) {
+      build.email()
+      notify.info('Email rebuilt.')
       done()
     }
   )
-
-  // Trigger text rebuild.
-  if (config.user.text.generate) {
-    watch(
-      [paths.configBuild, paths.html],
-      { delay: 500 },
-      function textRebuild (done) {
-        buildText(done)
-        notify.info('Plain-text version rebuilt.')
-        done()
-      }
-    )
-  }
 }

@@ -8,17 +8,26 @@ const notify = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */
 
 //
-// Clean temporary files and directories.
+// Clean generated files and directories.
 //
 
-module.exports = function cleanTemp (done) {
-  notify.warn('Removing temporary files...')
-
-  const deletedFilePaths = [config.current.emailTemp, config.current.designTemp]
-
+function generated (done) {
+  notify.warn('Removing generated files...')
+  const deletedFilePaths = [config.current.dist + '/*']
   del(deletedFilePaths)
-
   notify.debug(deletedFilePaths.join('\n'))
-
   done()
+}
+
+function temporary (done) {
+  notify.warn('Removing temporary files...')
+  const deletedFilePaths = [config.current.emailTemp, config.current.designTemp]
+  del(deletedFilePaths)
+  notify.debug(deletedFilePaths.join('\n'))
+  done()
+}
+
+module.exports = {
+  generated,
+  temporary,
 }
