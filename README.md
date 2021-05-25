@@ -216,48 +216,33 @@ configuration and files being processed.
 │ │ --prod           …Render production files (minified, no comments).
 │ └─┬ <series>
 │   ├── showConfig
-│   ├── cleanTemp
-│   ├── cleanGen
-│   ├── buildStyles
-│   ├── formatTemplates
-│   ├── buildTemplates
-│   ├── buildHTML
-│   ├── buildText
-│   └── cleanTemp
+│   ├── temporary
+│   ├── generated
+│   ├── styles
+│   ├── email
+│   └── temporary
 ├─┬ build            Render a complete HTML email based on design and email templates.
 │ │     -d           …Specify design folder to use. (Default: _templates)
 │ │     -e           …Specify email folder to render.
 │ │ --prod           …Render production files (minified, no comments).
 │ └─┬ <series>
 │   ├── showConfig
-│   ├── cleanTemp
-│   ├── cleanGen
-│   ├── buildStyles
-│   ├── formatTemplates
-│   ├── buildTemplates
-│   ├── buildHTML
-│   ├── buildText
-│   └── cleanTemp
+│   ├── temporary
+│   ├── generated
+│   ├── styles
+│   ├── email
+│   └── temporary
 ├─┬ watch            Watch design and configuration files and rebuild (formatted, with comments) as necessary.
 │ └─┬ <series>
-│   ├── cleanTemp
-│   ├── buildStyles
-│   ├── buildTemplates
-│   ├─┬ <parallel>
-│   │ ├── buildHTML
-│   │ └── buildText
+│   ├── temporary
+│   ├── styles
+│   ├── email
 │   └── watchEmail
-├─┬ clean            Remove all generated and temporary files from the current design or email.
-│ └─┬ <parallel>
-│   ├── cleanTemp
-│   └── cleanGen
-├── buildStyles      Build CSS files from Sass files in the "theme" folder.
-├── buildTemplates   Build MJML templates from Handlebars templates.
-├── buildHTML        Build HTML files from MJML templates.
-├── buildText        Generate a plain-text version of the email.
 ├── formatTemplates  Format MJML templates with Prettier.
-├── cleanTemp        Remove temporary files from the current design or email.
-├── cleanGen         Remove generated files from the current design or email.
+├─┬ clean            Remove generated and temporary files from the current design or email.
+│ └─┬ <parallel>
+│   ├── temporary
+│   └── generated
 ├── showConfig       Display the current configuration being used when rendering your email files.
 ├── listTemplates    List all templates that will be processed. Useful for debugging.
 └── test             Run an empty gulp function for testing.
