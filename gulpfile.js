@@ -12,6 +12,8 @@ const taskDir = './__lib/tasks/'
 
 const showConfig = require(taskDir + 'showConfig.js')
 const cleanGen = require(taskDir + 'cleanGen.js')
+const build = require(taskDir + 'build.js')
+
 const buildStyles = require(taskDir + 'buildStyles.js')
 const watchEmail = require(taskDir + 'watchEmail.js')
 const buildTemplates = require(taskDir + 'buildTemplates.js')
@@ -26,11 +28,8 @@ exports.default = series(
   showConfig,
   cleanTemp,
   cleanGen,
-  buildStyles,
-  formatTemplates,
-  buildTemplates,
-  buildHTML,
-  buildText,
+  build.styles,
+  build.email,
   cleanTemp
 )
 

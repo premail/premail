@@ -56,12 +56,6 @@
           .mj-outlook-group-fix { width:100% !important; }
         </style>
         <![endif]-->
-  <!--[if !mso]><!-->
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,900;1,400;1,900&amp;display=swap" rel="stylesheet" type="text/css">
-  <style type="text/css">
-    @import url(https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,900;1,400;1,900&amp;display=swap);
-  </style>
-  <!--<![endif]-->
   <style type="text/css">
     @media only screen and (min-width:480px) {
       .mj-column-per-40 {
@@ -150,14 +144,7 @@
     }
   </style>
   <style type="text/css">
-    a[x-apple-data-detectors] {
-      color: inherit !important;
-      text-decoration: none !important;
-      font-size: inherit !important;
-      font-family: inherit !important;
-      font-weight: inherit !important;
-      line-height: inherit !important
-    }
+    @@include('{{file.internal.css.pseudo}}')@@include('{{file.internal.css.gmail}}')
   </style>
   <!-- Title -->
   <!-- Attributes -->
@@ -168,6 +155,7 @@
       in order to allow for the double-quoting that JSON-to-Sass variables
       require. -->
   <!-- prettier-ignore -->
+  <!-- prettier-ignore -->
   <!-- To change inlined CSS styles, edit `inline.scss` -->
   <!-- To change pseudo CSS styles, edit `pseudo.scss` -->
   <!-- To change Gmail-specific CSS styles, edit `gmail.scss` -->
@@ -177,12 +165,13 @@
 <body style="word-spacing:normal;background-color:white;">
   <div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;"> This is the preview text for email clients. No more than 90 characters suggested; some clients display as few as 35 characters.
     <!-- More information on preview text: https://www.litmus.com/blog/the-ultimate-guide-to-preview-text-support/ -->
+    {{#if user.nitpick.previewPad}}{{{internal.nitpick.previewPad}}}{{/if}}
   </div>
-  <div class="body" style="margin: 0; padding: 0 8px; background-color: white;">
+  <div class="body" style="background-color:white;">
     <!-- Top navigation -->
-    <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="component-topNav-outlook nav-outlook nav--top-outlook" style="width:600px;" width="600" bgcolor="#800080" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
-    <div class="component-topNav nav nav--top" style="background:#800080;background-color:#800080;margin:0px auto;max-width:600px;">
-      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#800080;background-color:#800080;width:100%;">
+    <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="component-topNav-outlook nav-outlook nav--top-outlook" style="width:600px;" width="600" bgcolor="{{theme.colors.primary}}" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+    <div class="component-topNav nav nav--top" style="background:{{theme.colors.primary}};background-color:{{theme.colors.primary}};margin:0px auto;max-width:600px;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:{{theme.colors.primary}};background-color:{{theme.colors.primary}};width:100%;">
         <tbody>
           <tr>
             <td style="direction:ltr;font-size:0px;padding:16px;text-align:center;">
@@ -206,8 +195,8 @@
                                             <tbody>
                                               <tr>
                                                 <td style="width:75px;">
-                                                  <a href="#" target="_blank" style="color: purple; font-weight: bold; text-decoration: underline;">
-                                                    <img alt="MJML" height="24" src="https://mjml.io/assets/img/logo-white-small.png" style="border:0;display:block;outline:none;text-decoration:none;height:24px;width:100%;font-size:18px;" width="75">
+                                                  <a href="#" target="_blank">
+                                                    <img alt="MJML" height="24" src="https://mjml.io/assets/img/logo-white-small.png" style="border:0;display:block;outline:none;text-decoration:none;height:24px;width:100%;font-size:{{theme.text.default.size}};" width="75">
                                                   </a>
                                                 </td>
                                               </tr>
@@ -233,22 +222,36 @@
                                       <tr>
                                         <td align="center" style="font-size:0px;padding:16px 0;word-break:break-word;">
                                           <!--[if !mso><!-->
-                                          <input type="checkbox" id="cdf82db70ca9ac7b" class="mj-menu-checkbox" style="display:none !important; max-height:0; visibility:hidden;">
+                                          <input type="checkbox" id="874f57f5e5599c02" class="mj-menu-checkbox" style="display:none !important; max-height:0; visibility:hidden;">
                                           <!--<![endif]-->
                                           <div class="mj-menu-trigger" style="display:none;max-height:0px;max-width:0px;font-size:0px;overflow:hidden;">
-                                            <label for="cdf82db70ca9ac7b" class="mj-menu-label" style="display:block;cursor:pointer;mso-hide:all;-moz-user-select:none;user-select:none;color:white;font-size:30px;font-family:'Source Sans Pro',
-   ;text-transform:uppercase;text-decoration:none;line-height:30px;padding:10px;" align="center">
+                                            <label for="874f57f5e5599c02" class="mj-menu-label" style="display:block;cursor:pointer;mso-hide:all;-moz-user-select:none;user-select:none;color:white;font-size:30px;font-family:{{#if theme.fonts.stack.first}}'{{theme.fonts.stack.first}}',
+  {{/if}} {{~#eq theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}}
+  {{~#eq theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;text-transform:uppercase;text-decoration:none;line-height:30px;padding:10px;" align="center">
                                               <span class="mj-menu-icon-open" style="mso-hide:all;"> &#9776; </span>
                                               <span class="mj-menu-icon-close" style="display:none;mso-hide:all;"> &#8855; </span>
                                             </label>
                                           </div>
                                           <div class="mj-inline-links" style>
                                             <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0" align="center"><tr><td style="padding:0 16px;" class="" ><![endif]-->
-                                            <a class="mj-link" href="https://mjml.io/#" target="_blank" style="display: inline-block; color: white; font-family: 'Source Sans Pro',; font-size: 16px; font-weight: bold; line-height: 22px; text-decoration: none; text-transform: uppercase; padding: 0 16px;"> Blog </a>
+                                            <a class="mj-link" href="https://mjml.io/#" target="_blank" style="display:inline-block;color:white;font-family:{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;font-size:16px;font-weight:bold;line-height:22px;text-decoration:none;text-transform:uppercase;padding:0 16px;"> Blog </a>
                                             <!--[if mso | IE]></td><td style="padding:0 16px;" class="" ><![endif]-->
-                                            <a class="mj-link" href="https://mjml.io/#" target="_blank" style="display: inline-block; color: white; font-family: 'Source Sans Pro',; font-size: 16px; font-weight: bold; line-height: 22px; text-decoration: none; text-transform: uppercase; padding: 0 16px;"> Press </a>
+                                            <a class="mj-link" href="https://mjml.io/#" target="_blank" style="display:inline-block;color:white;font-family:{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;font-size:16px;font-weight:bold;line-height:22px;text-decoration:none;text-transform:uppercase;padding:0 16px;"> Press </a>
                                             <!--[if mso | IE]></td><td style="padding:0 16px;" class="" ><![endif]-->
-                                            <a class="mj-link" href="https://mjml.io/#" target="_blank" style="display: inline-block; color: white; font-family: 'Source Sans Pro',; font-size: 16px; font-weight: bold; line-height: 22px; text-decoration: none; text-transform: uppercase; padding: 0 16px;"> Share </a>
+                                            <a class="mj-link" href="https://mjml.io/#" target="_blank" style="display:inline-block;color:white;font-family:{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;font-size:16px;font-weight:bold;line-height:22px;text-decoration:none;text-transform:uppercase;padding:0 16px;"> Share </a>
                                             <!--[if mso | IE]></td></tr></table><![endif]-->
                                           </div>
                                         </td>
@@ -280,11 +283,7 @@
         <tbody>
           <tr>
             <td style="direction:ltr;font-size:0px;padding:0;text-align:center;">
-              <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><![endif]-->
-              <!-- A banner image, also known as a "hero image". For Retina display, the width
-     and height set below should each be half the actual size of the image in
-     pixels. -->
-              <!--[if mso | IE]><tr><td class="" width="600px" ><table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0;font-size:0;mso-line-height-rule:exactly;"><v:image style="border:0;height:400px;mso-position-horizontal:center;position:absolute;top:0;width:600px;z-index:-3;" src="https://picsum.photos/1200/800" xmlns:v="urn:schemas-microsoft-com:vml" /><![endif]-->
+              <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" width="600px" ><table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0;font-size:0;mso-line-height-rule:exactly;"><v:image style="border:0;height:400px;mso-position-horizontal:center;position:absolute;top:0;width:600px;z-index:-3;" src="https://picsum.photos/1200/800" xmlns:v="urn:schemas-microsoft-com:vml" /><![endif]-->
               <div style="margin:0 auto;max-width:600px;">
                 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
                   <tr style="vertical-align:top;">
@@ -297,7 +296,11 @@
                               <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;margin:0px;">
                                 <tr>
                                   <td align="center" style="font-size:0px;padding:0;word-break:break-word;">
-                                    <div style="font-family:'Source Sans Pro',  ;font-size:48px;font-weight:bold;line-height:1;text-align:center;color:white;">Hero image title</div>
+                                    <div style="font-family:{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;font-size:48px;font-weight:bold;line-height:1;text-align:center;color:white;">Hero image title</div>
                                   </td>
                                 </tr>
                               </table>
@@ -326,9 +329,9 @@
                                     <tbody>
                                       <tr>
                                         <td align="center" style="background:white;font-size:0px;padding:0;word-break:break-word;">
-                                          <p style="border-top: solid 2px #800080; font-size: 1px; margin: 0px auto; width: 100%;">
+                                          <p style="border-top:solid 2px {{theme.colors.primary}};font-size:1px;margin:0px auto;width:100%;">
                                           </p>
-                                          <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:solid 2px #800080;font-size:1px;margin:0px auto;width:600px;" role="presentation" width="600px" ><tr><td style="height:0;line-height:0;"> &nbsp;
+                                          <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:solid 2px {{theme.colors.primary}};font-size:1px;margin:0px auto;width:600px;" role="presentation" width="600px" ><tr><td style="height:0;line-height:0;"> &nbsp;
 </td></tr></table><![endif]-->
                                         </td>
                                       </tr>
@@ -375,8 +378,12 @@
                                     <tbody>
                                       <tr>
                                         <td align="left" style="font-size:0px;padding:18px 0 0;word-break:break-word;">
-                                          <div style="font-family:'Source Sans Pro',  ;font-size:18px;line-height:2;text-align:left;color:#666666;">
-                                            <p style="margin: 0 0 18px;">Dear $[FNAME|friend]$,</p>
+                                          <div style="font-family:{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;font-size:{{theme.text.default.size}};line-height:{{theme.text.default.line-height}};text-align:left;color:{{theme.text.default.color}};">
+                                            <p>Dear $[FNAME|friend]$,</p>
                                           </div>
                                         </td>
                                       </tr>
@@ -423,14 +430,18 @@
                                     <tbody>
                                       <tr>
                                         <td align="left" style="font-size:0px;padding:18px 0;word-break:break-word;">
-                                          <div style="font-family:'Source Sans Pro',  ;font-size:18px;line-height:2;text-align:left;color:#666666;">
-                                            <p style="margin: 0 0 18px;">
+                                          <div style="font-family:{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;font-size:{{theme.text.default.size}};line-height:{{theme.text.default.line-height}};text-align:left;color:{{theme.text.default.color}};">
+                                            <p>
                                               <b>Morbi fermentum est venenatis ex facilisis</b>, quis bibendum lacus faucibus. Pellentesque vulputate auctor libero, ac maximus lacus mollis.
                                             </p>
-                                            <h1 style="margin: 0; padding: 18px 0; font-size: 36px; line-height: 32px; font-weight: bold;">Headline</h1>
-                                            <p style="margin: 0 0 18px;"> In at risus consectetur, fringilla nisl nec, consectetur mauris. Ut sed ultricies ante. Aliquam vestibulum pretium ligula sit amet pretium. </p>
-                                            <h2 style="margin: 0; padding: 18px 0; font-size: 28px; line-height: 32px; font-weight: bold;">Subheading</h2>
-                                            <p style="margin: 0 0 18px;">
+                                            <h1>Headline</h1>
+                                            <p> In at risus consectetur, fringilla nisl nec, consectetur mauris. Ut sed ultricies ante. Aliquam vestibulum pretium ligula sit amet pretium. </p>
+                                            <h2>Subheading</h2>
+                                            <p>
                                               <i>Donec eu turpis nec erat auctor</i> euismod imperdiet vel urna. Suspendisse in urna iaculis, mattis metus luctus, egestas libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras finibus arcu a sapien dictum mattis a et tellus.
                                             </p>
                                           </div>
@@ -440,8 +451,12 @@
                                         <td align="center" vertical-align="middle" class="button" style="font-size:0px;padding:0 18px 18px;word-break:break-word;">
                                           <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
                                             <tr>
-                                              <td align="center" bgcolor="#800080" role="presentation" style="border:none;border-radius:8px;cursor:auto;mso-padding-alt:10px 25px;background:#800080;" valign="middle">
-                                                <a href="#" style="display: inline-block; background: #800080; color: white; font-family: 'Source Sans Pro',; font-size: 18px; font-weight: bold; line-height: 120%; margin: 0; text-decoration: none; text-transform: none; padding: 10px 25px; mso-padding-alt: 0px; border-radius: 8px;" target="_blank"> Take action </a>
+                                              <td align="center" bgcolor="{{theme.colors.primary}}" role="presentation" style="border:none;border-radius:8px;cursor:auto;mso-padding-alt:10px 25px;background:{{theme.colors.primary}};" valign="middle">
+                                                <a href="#" style="display:inline-block;background:{{theme.colors.primary}};color:white;font-family:{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;font-size:{{theme.text.default.size}};font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:8px;" target="_blank"> Take action </a>
                                               </td>
                                             </tr>
                                           </table>
@@ -476,8 +491,12 @@
                                     <tbody>
                                       <tr>
                                         <td align="left" style="font-size:0px;padding:0;word-break:break-word;">
-                                          <div style="font-family:'Source Sans Pro',  ;font-size:18px;line-height:1;text-align:left;color:#666666;">
-                                            <h2 style="margin: 0; font-size: 28px; line-height: 32px; font-weight: bold; padding: 18px; align: center; vertical-align: middle;">An illustrative picture</h2>
+                                          <div style="font-family:{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;font-size:{{theme.text.default.size}};line-height:1;text-align:left;color:{{theme.text.default.color}};">
+                                            <h2>An illustrative picture</h2>
                                           </div>
                                         </td>
                                       </tr>
@@ -487,8 +506,8 @@
                                             <tbody>
                                               <tr>
                                                 <td style="width:236px;">
-                                                  <a href="#" target="_blank" style="color: purple; font-weight: bold; text-decoration: underline;">
-                                                    <img alt height="auto" src="https://picsum.photos/600/300" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:18px;" width="236">
+                                                  <a href="#" target="_blank">
+                                                    <img alt height="auto" src="https://picsum.photos/600/300" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:{{theme.text.default.size}};" width="236">
                                                   </a>
                                                 </td>
                                               </tr>
@@ -500,8 +519,12 @@
                                         <td align="center" vertical-align="middle" class="button button--ghost" style="font-size:0px;padding:0 18px 18px;word-break:break-word;">
                                           <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
                                             <tr>
-                                              <td align="center" bgcolor="white" role="presentation" style="border:#800080 2px solid;border-radius:8px;cursor:auto;mso-padding-alt:10px 25px;background:white;" valign="middle">
-                                                <a href="#" style="display: inline-block; background: white; color: #800080; font-family: 'Source Sans Pro',; font-size: 18px; font-weight: bold; line-height: 120%; margin: 0; text-decoration: none; text-transform: none; padding: 10px 25px; mso-padding-alt: 0px; border-radius: 8px;" target="_blank"> Find out more </a>
+                                              <td align="center" bgcolor="white" role="presentation" style="border:{{theme.colors.primary}} 2px solid;border-radius:8px;cursor:auto;mso-padding-alt:10px 25px;background:white;" valign="middle">
+                                                <a href="#" style="display:inline-block;background:white;color:{{theme.colors.primary}};font-family:{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;font-size:{{theme.text.default.size}};font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:8px;" target="_blank"> Find out more </a>
                                               </td>
                                             </tr>
                                           </table>
@@ -524,8 +547,12 @@
                                     <tbody>
                                       <tr>
                                         <td align="left" style="font-size:0px;padding:18px 0;word-break:break-word;">
-                                          <div style="font-family:'Source Sans Pro',  ;font-size:18px;line-height:2;text-align:left;color:#666666;">
-                                            <p style="margin: 0 0 18px;"> Suspendisse lacinia, diam in malesuada fermentum, urna odio gravida tellus, a dictum mi lectus quis elit. In hac habitasse platea dictumst. Integer tempor lorem sit amet leo maximus feugiat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas posuere nunc in rhoncus pellentesque. Nulla quis aliquam quam, vel vestibulum ligula. Fusce fringilla, elit in aliquam pretium, sapien erat luctus sem, et finibus neque quam ut dolor. Aenean non dictum nibh. </p>
+                                          <div style="font-family:{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;font-size:{{theme.text.default.size}};line-height:{{theme.text.default.line-height}};text-align:left;color:{{theme.text.default.color}};">
+                                            <p> Suspendisse lacinia, diam in malesuada fermentum, urna odio gravida tellus, a dictum mi lectus quis elit. In hac habitasse platea dictumst. Integer tempor lorem sit amet leo maximus feugiat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas posuere nunc in rhoncus pellentesque. Nulla quis aliquam quam, vel vestibulum ligula. Fusce fringilla, elit in aliquam pretium, sapien erat luctus sem, et finibus neque quam ut dolor. Aenean non dictum nibh. </p>
                                           </div>
                                         </td>
                                       </tr>
@@ -558,8 +585,12 @@
                                     <tbody>
                                       <tr>
                                         <td align="left" style="font-size:0px;padding:18px 0;word-break:break-word;">
-                                          <div style="font-family:'Source Sans Pro',  ;font-size:18px;line-height:2;text-align:left;color:#666666;">
-                                            <p style="margin: 0 0 18px;"> Suspendisse lacinia, diam in malesuada fermentum, urna odio gravida tellus, a dictum mi lectus quis elit. In hac habitasse platea dictumst. Integer tempor lorem sit amet leo maximus feugiat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas posuere nunc in rhoncus pellentesque. Nulla quis aliquam quam, vel vestibulum ligula. Fusce fringilla, elit in aliquam pretium, sapien erat luctus sem, et finibus neque quam ut dolor. Aenean non dictum nibh. </p>
+                                          <div style="font-family:{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;font-size:{{theme.text.default.size}};line-height:{{theme.text.default.line-height}};text-align:left;color:{{theme.text.default.color}};">
+                                            <p> Suspendisse lacinia, diam in malesuada fermentum, urna odio gravida tellus, a dictum mi lectus quis elit. In hac habitasse platea dictumst. Integer tempor lorem sit amet leo maximus feugiat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas posuere nunc in rhoncus pellentesque. Nulla quis aliquam quam, vel vestibulum ligula. Fusce fringilla, elit in aliquam pretium, sapien erat luctus sem, et finibus neque quam ut dolor. Aenean non dictum nibh. </p>
                                           </div>
                                         </td>
                                       </tr>
@@ -580,8 +611,12 @@
                                     <tbody>
                                       <tr>
                                         <td align="left" style="font-size:0px;padding:0;word-break:break-word;">
-                                          <div style="font-family:'Source Sans Pro',  ;font-size:18px;line-height:1;text-align:left;color:#666666;">
-                                            <h2 style="margin: 0; font-size: 28px; line-height: 32px; font-weight: bold; padding: 18px; align: center; vertical-align: middle;">An image worth 999 words</h2>
+                                          <div style="font-family:{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;font-size:{{theme.text.default.size}};line-height:1;text-align:left;color:{{theme.text.default.color}};">
+                                            <h2>An image worth 999 words</h2>
                                           </div>
                                         </td>
                                       </tr>
@@ -591,8 +626,8 @@
                                             <tbody>
                                               <tr>
                                                 <td style="width:236px;">
-                                                  <a href="#" target="_blank" style="color: purple; font-weight: bold; text-decoration: underline;">
-                                                    <img alt height="auto" src="https://picsum.photos/600/500" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:18px;" width="236">
+                                                  <a href="#" target="_blank">
+                                                    <img alt height="auto" src="https://picsum.photos/600/500" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:{{theme.text.default.size}};" width="236">
                                                   </a>
                                                 </td>
                                               </tr>
@@ -604,8 +639,12 @@
                                         <td align="center" vertical-align="middle" class="button button--ghost" style="font-size:0px;padding:0 18px 18px;word-break:break-word;">
                                           <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
                                             <tr>
-                                              <td align="center" bgcolor="white" role="presentation" style="border:#800080 2px solid;border-radius:8px;cursor:auto;mso-padding-alt:10px 25px;background:white;" valign="middle">
-                                                <a href="#" style="display: inline-block; background: white; color: #800080; font-family: 'Source Sans Pro',; font-size: 18px; font-weight: bold; line-height: 120%; margin: 0; text-decoration: none; text-transform: none; padding: 10px 25px; mso-padding-alt: 0px; border-radius: 8px;" target="_blank"> Add your thoughts </a>
+                                              <td align="center" bgcolor="white" role="presentation" style="border:{{theme.colors.primary}} 2px solid;border-radius:8px;cursor:auto;mso-padding-alt:10px 25px;background:white;" valign="middle">
+                                                <a href="#" style="display:inline-block;background:white;color:{{theme.colors.primary}};font-family:{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;font-size:{{theme.text.default.size}};font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:8px;" target="_blank"> Add your thoughts </a>
                                               </td>
                                             </tr>
                                           </table>
@@ -660,7 +699,11 @@
             acceptable. -->
                                       <tr>
                                         <td align="left" style="font-size:0px;padding:18px 0;word-break:break-word;">
-                                          <div style="font-family:'Source Sans Pro',  ;font-size:18px;line-height:24px;text-align:left;color:#666666;"><img src="https://picsum.photos/75/100" width="75" height="100" alt style="
+                                          <div style="font-family:{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;font-size:{{theme.text.default.size}};line-height:24px;text-align:left;color:{{theme.text.default.color}};"><img src="https://picsum.photos/75/100" width="75" height="100" alt style="
           border: 0;
           outline: none;
           text-decoration: none;
@@ -712,9 +755,9 @@
                                     <tbody>
                                       <tr>
                                         <td align="center" style="font-size:0px;padding:0;padding-bottom:16px;word-break:break-word;">
-                                          <p style="border-top: dashed 1px #800080; font-size: 1px; margin: 0px auto; width: 100%;">
+                                          <p style="border-top:dashed 1px {{theme.colors.primary}};font-size:1px;margin:0px auto;width:100%;">
                                           </p>
-                                          <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:dashed 1px #800080;font-size:1px;margin:0px auto;width:600px;" role="presentation" width="600px" ><tr><td style="height:0;line-height:0;"> &nbsp;
+                                          <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:dashed 1px {{theme.colors.primary}};font-size:1px;margin:0px auto;width:600px;" role="presentation" width="600px" ><tr><td style="height:0;line-height:0;"> &nbsp;
 </td></tr></table><![endif]-->
                                         </td>
                                       </tr>
@@ -751,10 +794,10 @@
                                           <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float:none;display:inline-table;">
                                             <tr>
                                               <td style="padding:16px;vertical-align:middle;">
-                                                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#800080;border-radius:6px;width:48px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:{{theme.colors.primary}};border-radius:6px;width:48px;">
                                                   <tr>
                                                     <td style="font-size:0;height:48px;vertical-align:middle;width:48px;">
-                                                      <a href="https://facebook.com/#" target="_blank" style="color: purple; font-weight: bold; text-decoration: underline;">
+                                                      <a href="https://facebook.com/#" target="_blank">
                                                         <img alt="Follow us on Facebook" height="48" src="https://www.mailjet.com/images/theme/v1/icons/ico-social/facebook.png" style="border-radius:6px;display:block;" width="48">
                                                       </a>
                                                     </td>
@@ -767,10 +810,10 @@
                                           <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float:none;display:inline-table;">
                                             <tr>
                                               <td style="padding:16px;vertical-align:middle;">
-                                                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#800080;border-radius:6px;width:48px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:{{theme.colors.primary}};border-radius:6px;width:48px;">
                                                   <tr>
                                                     <td style="font-size:0;height:48px;vertical-align:middle;width:48px;">
-                                                      <a href="https://instagram.com/#" target="_blank" style="color: purple; font-weight: bold; text-decoration: underline;">
+                                                      <a href="https://instagram.com/#" target="_blank">
                                                         <img alt="Follow us on Instagram" height="48" src="https://www.mailjet.com/images/theme/v1/icons/ico-social/instagram.png" style="border-radius:6px;display:block;" width="48">
                                                       </a>
                                                     </td>
@@ -783,10 +826,10 @@
                                           <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float:none;display:inline-table;">
                                             <tr>
                                               <td style="padding:16px;vertical-align:middle;">
-                                                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#800080;border-radius:6px;width:48px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:{{theme.colors.primary}};border-radius:6px;width:48px;">
                                                   <tr>
                                                     <td style="font-size:0;height:48px;vertical-align:middle;width:48px;">
-                                                      <a href="https://youtube.com/#" target="_blank" style="color: purple; font-weight: bold; text-decoration: underline;">
+                                                      <a href="https://youtube.com/#" target="_blank">
                                                         <img alt="Watch our videos on YouTube" height="48" src="https://www.mailjet.com/images/theme/v1/icons/ico-social/youtube.png" style="border-radius:6px;display:block;" width="48">
                                                       </a>
                                                     </td>
@@ -799,10 +842,10 @@
                                           <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float:none;display:inline-table;">
                                             <tr>
                                               <td style="padding:16px;vertical-align:middle;">
-                                                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#800080;border-radius:6px;width:48px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:{{theme.colors.primary}};border-radius:6px;width:48px;">
                                                   <tr>
                                                     <td style="font-size:0;height:48px;vertical-align:middle;width:48px;">
-                                                      <a href="https://twitter.com/#" target="_blank" style="color: purple; font-weight: bold; text-decoration: underline;">
+                                                      <a href="https://twitter.com/#" target="_blank">
                                                         <img alt="Follow us on Twitter" height="48" src="https://www.mailjet.com/images/theme/v1/icons/ico-social/twitter.png" style="border-radius:6px;display:block;" width="48">
                                                       </a>
                                                     </td>
@@ -815,10 +858,10 @@
                                           <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float:none;display:inline-table;">
                                             <tr>
                                               <td style="padding:16px;vertical-align:middle;">
-                                                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#800080;border-radius:6px;width:48px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:{{theme.colors.primary}};border-radius:6px;width:48px;">
                                                   <tr>
                                                     <td style="font-size:0;height:48px;vertical-align:middle;width:48px;">
-                                                      <a href="https://linkedin.com/#" target="_blank" style="color: purple; font-weight: bold; text-decoration: underline;">
+                                                      <a href="https://linkedin.com/#" target="_blank">
                                                         <img alt="Follow us on LinkedIn" height="48" src="https://www.mailjet.com/images/theme/v1/icons/ico-social/linkedin.png" style="border-radius:6px;display:block;" width="48">
                                                       </a>
                                                     </td>
@@ -851,9 +894,9 @@
     </div>
     <!--[if mso | IE]></td></tr></table><![endif]-->
     <!-- Bottom navigation -->
-    <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="component-bottomNav-outlook nav-outlook nav--bottom-outlook" style="width:600px;" width="600" bgcolor="#800080" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
-    <div class="component-bottomNav nav nav--bottom" style="background:#800080;background-color:#800080;margin:0px auto;max-width:600px;">
-      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#800080;background-color:#800080;width:100%;">
+    <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="component-bottomNav-outlook nav-outlook nav--bottom-outlook" style="width:600px;" width="600" bgcolor="{{theme.colors.primary}}" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+    <div class="component-bottomNav nav nav--bottom" style="background:{{theme.colors.primary}};background-color:{{theme.colors.primary}};margin:0px auto;max-width:600px;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:{{theme.colors.primary}};background-color:{{theme.colors.primary}};width:100%;">
         <tbody>
           <tr>
             <td style="direction:ltr;font-size:0px;padding:16px;text-align:center;">
@@ -874,24 +917,42 @@
                                       <tr>
                                         <td align="center" style="font-size:0px;padding:4px 0;word-break:break-word;">
                                           <!--[if !mso><!-->
-                                          <input type="checkbox" id="22cc824ad8588a21" class="mj-menu-checkbox" style="display:none !important; max-height:0; visibility:hidden;">
+                                          <input type="checkbox" id="022274c4d060ffb3" class="mj-menu-checkbox" style="display:none !important; max-height:0; visibility:hidden;">
                                           <!--<![endif]-->
                                           <div class="mj-menu-trigger" style="display:none;max-height:0px;max-width:0px;font-size:0px;overflow:hidden;">
-                                            <label for="22cc824ad8588a21" class="mj-menu-label" style="display:block;cursor:pointer;mso-hide:all;-moz-user-select:none;user-select:none;color:white;font-size:30px;font-family:'Source Sans Pro',
-   ;text-transform:uppercase;text-decoration:none;line-height:30px;padding:10px;" align="center">
+                                            <label for="022274c4d060ffb3" class="mj-menu-label" style="display:block;cursor:pointer;mso-hide:all;-moz-user-select:none;user-select:none;color:white;font-size:30px;font-family:{{#if theme.fonts.stack.first}}'{{theme.fonts.stack.first}}',
+  {{/if}} {{~#eq theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}}
+  {{~#eq theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;text-transform:uppercase;text-decoration:none;line-height:30px;padding:10px;" align="center">
                                               <span class="mj-menu-icon-open" style="mso-hide:all;"> &#9776; </span>
                                               <span class="mj-menu-icon-close" style="display:none;mso-hide:all;"> &#8855; </span>
                                             </label>
                                           </div>
                                           <div class="mj-inline-links" style>
                                             <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0" align="center"><tr><td style="padding:0 16px;" class="" ><![endif]-->
-                                            <a class="mj-link" href="https://mjml.io/#" target="_blank" style="display: inline-block; color: white; font-family: 'Source Sans Pro',; font-size: 16px; font-weight: bold; line-height: 22px; text-decoration: none; text-transform: uppercase; padding: 0 16px;"> Website </a>
+                                            <a class="mj-link" href="https://mjml.io/#" target="_blank" style="display:inline-block;color:white;font-family:{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;font-size:16px;font-weight:bold;line-height:22px;text-decoration:none;text-transform:uppercase;padding:0 16px;"> Website </a>
                                             <!--[if mso | IE]></td><td style="padding:0 16px;" class="" ><![endif]-->
-                                            <a class="mj-link" href="https://mjml.io/#" target="_blank" style="display: inline-block; color: white; font-family: 'Source Sans Pro',; font-size: 16px; font-weight: bold; line-height: 22px; text-decoration: none; text-transform: uppercase; padding: 0 16px;"> Shop </a>
+                                            <a class="mj-link" href="https://mjml.io/#" target="_blank" style="display:inline-block;color:white;font-family:{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;font-size:16px;font-weight:bold;line-height:22px;text-decoration:none;text-transform:uppercase;padding:0 16px;"> Shop </a>
                                             <!--[if mso | IE]></td><td style="padding:0 16px;" class="" ><![endif]-->
-                                            <a class="mj-link" href="https://mjml.io/#" target="_blank" style="display: inline-block; color: white; font-family: 'Source Sans Pro',; font-size: 16px; font-weight: bold; line-height: 22px; text-decoration: none; text-transform: uppercase; padding: 0 16px;"> Careers </a>
+                                            <a class="mj-link" href="https://mjml.io/#" target="_blank" style="display:inline-block;color:white;font-family:{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;font-size:16px;font-weight:bold;line-height:22px;text-decoration:none;text-transform:uppercase;padding:0 16px;"> Careers </a>
                                             <!--[if mso | IE]></td><td style="padding:0 16px;" class="" ><![endif]-->
-                                            <a class="mj-link" href="https://mjml.io/#" target="_blank" style="display: inline-block; color: white; font-family: 'Source Sans Pro',; font-size: 16px; font-weight: bold; line-height: 22px; text-decoration: none; text-transform: uppercase; padding: 0 16px;"> Contact </a>
+                                            <a class="mj-link" href="https://mjml.io/#" target="_blank" style="display:inline-block;color:white;font-family:{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;font-size:16px;font-weight:bold;line-height:22px;text-decoration:none;text-transform:uppercase;padding:0 16px;"> Contact </a>
                                             <!--[if mso | IE]></td></tr></table><![endif]-->
                                           </div>
                                         </td>
@@ -939,12 +1000,20 @@
                                     <tbody>
                                       <tr>
                                         <td align="left" style="font-size:0px;padding:12px 0;word-break:break-word;">
-                                          <div style="font-family:'Source Sans Pro',  ;font-size:11px;line-height:11px;text-align:left;color:#666666;">This email was sent to you because you signed up on our website or purchased something from us recently. Not interested? <a href="#" style="color: purple; font-weight: bold; text-decoration: underline;">Unsubscribe</a> or <a href="$[LI:UNSUBSCRIBE]$" style="color: purple; font-weight: bold; text-decoration: underline;">manage your preferences</a>.</div>
+                                          <div style="font-family:{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;font-size:11px;line-height:11px;text-align:left;color:{{theme.text.default.color}};">This email was sent to you because you signed up on our website or purchased something from us recently. Not interested? <a href="#">Unsubscribe</a> or <a href="$[LI:UNSUBSCRIBE]$">manage your preferences</a>.</div>
                                         </td>
                                       </tr>
                                       <tr>
                                         <td align="left" style="font-size:0px;padding:12px 0;word-break:break-word;">
-                                          <div style="font-family:'Source Sans Pro',  ;font-size:11px;line-height:11px;text-align:left;color:#666666;"><a href="#" style="color: purple; font-weight: bold; text-decoration: underline;">Friendly Co.</a>, 123 Main Street, Anywhere, US 33333</div>
+                                          <div style="font-family:{{#if
+  theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
+  theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
+  theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} ;font-size:11px;line-height:11px;text-align:left;color:{{theme.text.default.color}};"><a href="#">Friendly Co.</a>, 123 Main Street, Anywhere, US 33333</div>
                                         </td>
                                       </tr>
                                     </tbody>
