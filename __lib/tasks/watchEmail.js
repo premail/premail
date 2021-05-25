@@ -22,33 +22,29 @@ module.exports = function watchEmail (done) {
     configBuild: config.file.user,
     configTheme: config.current.theme.path + path.sep + config.file.theme,
     style: config.current.theme.path + '/**/*.scss',
-    templates: config.current.path + '/**/*.' + config.user.files.templateExt,
+    template: config.current.path + '/**/*.' + config.user.files.templateExt,
+    partials: config.current.path + '/**/*.mjml',
     html: config.current.path + '/**/*.html',
   }
 
   notify.debug(
-    `\nBuild config: ${paths.configBuild}\nTheme config: ${paths.configTheme}\nStyles:       ${paths.style}\nTemplates:    ${paths.templates}\nHTML:         ${paths.html}`,
+    `\nBuild config: ${paths.configBuild}\nTheme config: ${paths.configTheme}\nStyles:       ${paths.style}\nTemplate:    ${paths.template}\nPartials:     ${paths.partials}\nHTML:         ${paths.html}`,
     'Watching these paths:'
-  )
-
-  // Trigger style rebuild.
-  watch(
-    [paths.configBuild, paths.configTheme, paths.style],
-    { delay: 500 },
-    function styleRebuild (done) {
-      build.styles()
-      notify.info('Styles rebuilt.')
-      done()
-    }
   )
 
   // Trigger email rebuild.
   watch(
-    [paths.configBuild, paths.configTheme, paths.templates],
-    { delay: 500 },
-    function emailRebuild (done) {
+    [
+      paths.configBuild,
+      paths.configTheme,
+      paths.style,
+      paths.template,
+      paths.partials,
+    ],
+    function styleRebuild (done) {
+      build.styles()
+      notify.info('Styles rebuilt.')
       build.email()
-      notify.info('Email rebuilt.')
       done()
     }
   )
