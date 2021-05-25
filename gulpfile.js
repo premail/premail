@@ -18,20 +18,12 @@ const listTemplates = require(taskDir + 'listTemplates.js')
 const formatTemplates = require(taskDir + 'formatTemplates.js')
 
 // Tell gulp tasks to use display names instead of function names
-clean.temporary.displayName = 'clean.temporary'
 clean.generated.displayName = 'clean.generated'
 build.styles.displayName = 'build.styles'
 build.email.displayName = 'build.email'
 
 // Sets
-exports.default = series(
-  showConfig,
-  clean.temporary,
-  clean.generated,
-  build.styles,
-  build.email
-  // clean.temporary
-)
+exports.default = series(showConfig, clean.generated, build.styles, build.email)
 
 exports.build = exports.default
 exports.build.description =
@@ -43,18 +35,18 @@ exports.build.flags = {
 }
 
 // Watch
-exports.watch = series(clean.temporary, build.styles, build.email, watchEmail)
+exports.watch = series(build.styles, build.email, watchEmail)
 exports.watch.description =
   'Watch design and configuration files and rebuild (formatted, with comments) as necessary.'
 
 // Format
 exports.formatTemplates = formatTemplates
-exports.formatTemplates.description = 'Format MJML templates with Prettier.'
+exports.formatTemplates.description = 'Format templates with Prettier.'
 
 // Clean
-exports.clean = parallel(clean.temporary, clean.generated)
+exports.clean = parallel(clean.generated)
 exports.clean.description =
-  'Remove generated and temporary files from the current design or email.'
+  'Remove generated files from the current design or email.'
 
 // Debug
 exports.showConfig = showConfig

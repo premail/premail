@@ -19,15 +19,6 @@ function generated (done) {
   done()
 }
 
-function temporary (done) {
-  notify.warn('Removing temporary files...')
-  const deletedFilePaths = [config.current.emailTemp, config.current.designTemp]
-  del(deletedFilePaths)
-  notify.debug(deletedFilePaths.join('\n'))
-  done()
-}
-
 module.exports = {
   generated,
-  temporary,
 }

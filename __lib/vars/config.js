@@ -20,7 +20,6 @@ const notify = require('../vars/notify.js')
 const config = {}
 config.__base = projectPath(__dirname, '../../')
 config.__lib = path.join(config.__base, '__lib')
-config.__temp = path.sep + '.tmp'
 config.file = {
   user: path.join(config.__base, 'config.yaml'),
   theme: 'themeConfig.yaml',
@@ -62,18 +61,6 @@ if (flags.e) {
 // Set paths for current directories.
 config.current = {
   mainTemplate: config.user.files.template,
-  emailTemp: path.join(
-    config.__base,
-    config.user.folders.email.name,
-    currentEmail,
-    config.__temp
-  ),
-  designTemp: path.join(
-    config.__base,
-    config.user.folders.design.name,
-    currentDesign,
-    config.__temp
-  ),
 }
 
 if (currentEmail) {
@@ -83,7 +70,6 @@ if (currentEmail) {
     config.user.folders.email.name,
     currentEmail
   )
-  config.current.temp = config.current.emailTemp
   config.current.dist = projectPath(
     config.__base,
     config.user.folders.email.name,
@@ -97,7 +83,6 @@ if (currentEmail) {
     config.user.folders.design.name,
     currentDesign
   )
-  config.current.temp = config.current.designTemp
   config.current.dist = projectPath(
     config.__base,
     config.user.folders.design.name,
@@ -113,13 +98,6 @@ config.current.theme = {
     config.__base,
     config.user.folders.design.name,
     currentDesign,
-    config.user.folders.theme.dir
-  ),
-  temp: path.join(
-    config.__base,
-    config.user.folders.design.name,
-    currentDesign,
-    config.__temp,
     config.user.folders.theme.dir
   ),
   css: Object.assign(config.file.internal.css),
