@@ -216,33 +216,33 @@ configuration and files being processed.
 │ │ --prod           …Render production files (minified, no comments).
 │ └─┬ <series>
 │   ├── showConfig
-│   ├── temporary
-│   ├── generated
-│   ├── styles
-│   ├── email
-│   └── temporary
+│   ├── clean.temporary
+│   ├── clean.generated
+│   ├── build.styles
+│   ├── build.email
+│   └── clean.temporary
 ├─┬ build            Render a complete HTML email based on design and email templates.
 │ │     -d           …Specify design folder to use. (Default: _templates)
 │ │     -e           …Specify email folder to render.
 │ │ --prod           …Render production files (minified, no comments).
 │ └─┬ <series>
 │   ├── showConfig
-│   ├── temporary
-│   ├── generated
-│   ├── styles
-│   ├── email
-│   └── temporary
+│   ├── clean.temporary
+│   ├── clean.generated
+│   ├── build.styles
+│   ├── build.email
+│   └── clean.temporary
 ├─┬ watch            Watch design and configuration files and rebuild (formatted, with comments) as necessary.
 │ └─┬ <series>
-│   ├── temporary
-│   ├── styles
-│   ├── email
+│   ├── clean.temporary
+│   ├── build.styles
+│   ├── build.email
 │   └── watchEmail
 ├── formatTemplates  Format MJML templates with Prettier.
 ├─┬ clean            Remove generated and temporary files from the current design or email.
 │ └─┬ <parallel>
-│   ├── temporary
-│   └── generated
+│   ├── clean.temporary
+│   └── clean.generated
 ├── showConfig       Display the current configuration being used when rendering your email files.
 ├── listTemplates    List all templates that will be processed. Useful for debugging.
 └── test             Run an empty gulp function for testing.

@@ -17,6 +17,12 @@ const watchEmail = require(taskDir + 'watchEmail.js')
 const listTemplates = require(taskDir + 'listTemplates.js')
 const formatTemplates = require(taskDir + 'formatTemplates.js')
 
+// Tell gulp tasks to use display names instead of function names
+clean.temporary.displayName = 'clean.temporary'
+clean.generated.displayName = 'clean.generated'
+build.styles.displayName = 'build.styles'
+build.email.displayName = 'build.email'
+
 // Sets
 exports.default = series(
   showConfig,
