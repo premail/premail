@@ -19,7 +19,7 @@ overrides:
   - files:
       - '*.html'
       - '*.mjml'
-      - '*.tpl'
+      - '*.hbs'
     options:
       parser: html
       htmlWhitespaceSensitivity: strict

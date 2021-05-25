@@ -29,8 +29,8 @@ exports.default = series(
   clean.temporary,
   clean.generated,
   build.styles,
-  build.email,
-  clean.temporary
+  build.email
+  // clean.temporary
 )
 
 exports.build = exports.default

@@ -40,7 +40,7 @@ folders:
 # 2. Files and file types
 files:
   # Name of the main template file
-  template: index.tpl
+  template: index.hbs
 
 # @TODO: This should really go in an email-specific config file.
 # 3. Email-building options

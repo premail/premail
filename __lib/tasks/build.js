@@ -32,12 +32,6 @@ const memory = {
   styles: {},
 }
 
-// Set templates source
-const templates = []
-for (const template of config.current.templates.array) {
-  templates.push(template)
-}
-
 // Set styles source
 const sourceStyles =
   config.current.theme.path + config.current.theme.sassDir + '/**/*.scss'
@@ -130,7 +124,7 @@ function email () {
     // Process Handlebars data
     .pipe(
       hb()
-        .partials(config.current.templates.partials)
+        .partials()
         .helpers(helpers)
         .data(config)
     )
