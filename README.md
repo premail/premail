@@ -38,7 +38,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Tue May 25 23:54:52 UTC 2021 -->
+<!-- Added by: runner, at: Wed May 26 21:50:22 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
