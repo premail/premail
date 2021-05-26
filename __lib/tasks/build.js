@@ -78,46 +78,6 @@ function styles () {
 // Render templates through Handlebars into email-ready HTML and plain-text.
 //
 function email () {
-  // Options for rendering text
-  const textBuild = {
-    status: false,
-  }
-  if (config.user.text.generate) {
-    textBuild.status = true
-    textBuild.options = {
-      baseElement: [],
-      tables: true,
-      tags: {
-        img: {},
-      },
-    }
-
-    // Determine which elements to include in plain text
-    textBuild.include = {
-      images: config.user.text.images,
-      partials: {
-        topNav: config.user.text.include.topNav,
-        banner: config.user.text.include.banner,
-        salutation: config.user.text.include.salutation,
-        body: true,
-        signoff: config.user.text.include.signoff,
-        social: config.user.text.include.social,
-        bottomNav: config.user.text.include.bottomNav,
-        footer: config.user.text.include.footer,
-      },
-    }
-
-    if (!textBuild.include.images) {
-      textBuild.options.tags.img.format = 'skip'
-    }
-
-    Object.keys(textBuild.include.partials).forEach(key => {
-      if (textBuild.include.partials[key]) {
-        textBuild.options.baseElement.push('div.component-' + key)
-      }
-    })
-  }
-
   // Process Handlebars data
   let stream = src(config.current.templates.main)
     .pipe(
@@ -195,6 +155,46 @@ function email () {
         notify.warn('Minified with HTML comments stripped', 'Production:')
       }
     })
+
+  // Options for rendering text
+  const textBuild = {
+    status: false,
+  }
+  if (config.user.text.generate) {
+    textBuild.status = true
+    textBuild.options = {
+      baseElement: [],
+      tables: true,
+      tags: {
+        img: {},
+      },
+    }
+
+    // Determine which elements to include in plain text
+    textBuild.include = {
+      images: config.user.text.images,
+      partials: {
+        topNav: config.user.text.include.topNav,
+        banner: config.user.text.include.banner,
+        salutation: config.user.text.include.salutation,
+        body: true,
+        signoff: config.user.text.include.signoff,
+        social: config.user.text.include.social,
+        bottomNav: config.user.text.include.bottomNav,
+        footer: config.user.text.include.footer,
+      },
+    }
+
+    if (!textBuild.include.images) {
+      textBuild.options.tags.img.format = 'skip'
+    }
+
+    Object.keys(textBuild.include.partials).forEach(key => {
+      if (textBuild.include.partials[key]) {
+        textBuild.options.baseElement.push('div.component-' + key)
+      }
+    })
+  }
 
   // Write plain-text version
   if (textBuild.status) {
