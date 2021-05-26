@@ -8,6 +8,7 @@ const tap = require('gulp-tap')
 const replace = require('gulp-replace')
 const sass = require('gulp-sass')
 const sassImporter = require('node-sass-json-importer')
+const Fiber = require('fibers')
 sass.compiler = require('sass')
 const hb = require('gulp-hb')
 const helpers = require('handlebars-helpers')(['comparison'])
@@ -45,6 +46,7 @@ function styles () {
       // Render CSS
       .pipe(
         sass({
+          fiber: Fiber,
           outputStyle: 'compressed',
           importer: sassImporter(),
         }).on('error', e.sassError)
