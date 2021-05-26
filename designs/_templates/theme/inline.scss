@@ -6,10 +6,8 @@
  *
  */
 
-// This line imports the theme configuration for use as Sass variables. The path
-// is automatically calculated; the file name should be the same as the
-// configuration file in the theme folder, with '.json' instead of '.yaml'
-@import './__lib/vars/theme.js';
+// Import theme configuration values for use as Sass variables.
+@import '~/theme.js';
 
 .body {
   margin: 0;

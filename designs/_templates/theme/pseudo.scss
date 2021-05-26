@@ -14,6 +14,10 @@
  * link's color on hover, make sure it still works in the context of buttons,
  * navigation menus, the footer, headings/subheadings, social icons, etc.).
  */
+
+// Import theme configuration values for use as Sass variables.
+@import '~/theme.js';
+
 @mixin is-on {
   &:hover,
   &:active,

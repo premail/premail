@@ -10,6 +10,10 @@
  * Resources:
  * https://www.litmus.com/blog/update-banning-blue-links-on-ios-devices-2/
  */
+
+// Import theme configuration values for use as Sass variables.
+@import '~/theme.js';
+
 a[x-apple-data-detectors] {
   color: inherit !important;
   text-decoration: none !important;
