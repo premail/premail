@@ -163,9 +163,9 @@ function email () {
   }
 
   // Apply typographical enhancements
-  if (config.user.nitpick.improveTypography) {
+  if (config.user.details.improveTypography) {
     const enhanceOpts = {
-      disable: ['hyphenate', 'ligatures'],
+      disable: config.file.internal.details.disableTypeEnhance,
     }
     const enhance = transform(function (filename) {
       return map(function (chunk, next) {

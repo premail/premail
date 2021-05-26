@@ -78,8 +78,8 @@ language:
   # https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
   default: en
 
-# 4. Nitpicky Options
-nitpick:
+# 4. Fine-grained detail settings
+details:
   # improveTypography: When set to true, uses Typeset to apply transformations
   # to the text for typographically-improved HTML. This will apply to both your
   # HTML version and (if generating) your plain-text version. The following
