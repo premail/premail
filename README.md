@@ -211,25 +211,28 @@ configuration and files being processed.
 <!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && gulp --tasks | grep -Po "[├│└].*|^[\s].*" && echo '```\n<'!'-- '-'->') --><!-- -->
 ```
 ├─┬ default          Render a complete HTML email based on design and email templates.
-│ │     -d           …Specify design folder to use. (Default: _templates)
-│ │     -e           …Specify email folder to render.
-│ │ --prod           …Render production files (minified, no comments).
+│ │      -d          …Specify design folder to use. (Default: _templates)
+│ │      -e          …Specify email folder to render.
+│ │  --prod          …Render production files (minified, no comments).
+│ │ --debug          …Display details about configuration and settings.
 │ └─┬ <series>
 │   ├── showConfig
 │   ├── clean.generated
 │   ├── build.styles
 │   └── build.email
 ├─┬ build            Render a complete HTML email based on design and email templates.
-│ │     -d           …Specify design folder to use. (Default: _templates)
-│ │     -e           …Specify email folder to render.
-│ │ --prod           …Render production files (minified, no comments).
+│ │      -d          …Specify design folder to use. (Default: _templates)
+│ │      -e          …Specify email folder to render.
+│ │  --prod          …Render production files (minified, no comments).
+│ │ --debug          …Display details about configuration and settings.
 │ └─┬ <series>
 │   ├── showConfig
 │   ├── clean.generated
 │   ├── build.styles
 │   └── build.email
-├─┬ watch            Watch design and configuration files and rebuild (formatted, with comments) as necessary.
+├─┬ watch            Watch design and configuration files and rebuild (formatted, with comments) as necessary. Flags from `gulp build` can also be used.
 │ └─┬ <series>
+│   ├── showConfig
 │   ├── build.styles
 │   ├── build.email
 │   └── watchEmail
@@ -237,8 +240,8 @@ configuration and files being processed.
 ├─┬ clean            Remove generated files from the current design or email.
 │ └─┬ <parallel>
 │   └── clean.generated
-├── showConfig       Display the current configuration being used when rendering your email files.
-├── listTemplates    List all templates that will be processed. Useful for debugging.
+├── showConfig       Display the current configuration being used when rendering your email files. Use with --debug
+├── listTemplates    List all templates that will be processed. Use with --debug
 └── test             Run an empty gulp function for testing.
 ```
 <!-- --><!-- /markdown-exec -->
