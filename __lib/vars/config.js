@@ -100,7 +100,6 @@ config.current.theme = {
     currentDesign,
     config.user.folders.theme.dir
   ),
-  css: Object.assign(config.file.internal.css),
 }
 
 // Load theme config from YAML file.
