@@ -14,6 +14,9 @@ const hb = require('gulp-hb')
 const helpers = require('handlebars-helpers')(['comparison'])
 const mjml = require('gulp-mjml')
 const mjmlEngine = require('mjml')
+const typeset = require('typeset')
+const transform = require('vinyl-transform')
+const map = require('map-stream')
 const html2txt = require('gulp-html2txt')
 
 const e = require('../functions/e.js')
@@ -157,6 +160,20 @@ function email () {
       .on('end', function (source) {
         notify.debug('MJML processing complete')
       })
+  }
+
+  // Apply typographical enhancements
+  if (config.user.nitpick.improveTypography) {
+    const enhanceOpts = {
+      disable: ['hyphenate', 'ligatures'],
+    }
+    const enhance = transform(function (filename) {
+      return map(function (chunk, next) {
+        return next(null, typeset(chunk, enhanceOpts))
+      })
+    })
+    stream = stream.pipe(enhance)
+    notify.debug('Typographical enhancements performed with Typeset')
   }
 
   // Write HTML version

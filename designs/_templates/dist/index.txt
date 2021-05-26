@@ -10,14 +10,14 @@ lacus faucibus. Pellentesque vulputate auctor libero, ac
 maximus lacus mollis.
 
 
-HEADLINE
+A HEADLINE “WITH A QUOTE”
 
 In at risus consectetur, fringilla nisl nec, consectetur
 mauris. Ut sed ultricies ante. Aliquam vestibulum pretium
 ligula sit amet pretium.
 
 
-SUBHEADING
+“A QUOTED SUBHEADING”
 
 Donec eu turpis nec erat auctor euismod imperdiet vel urna.
 Suspendisse in urna iaculis, mattis metus luctus, egestas

@@ -80,6 +80,16 @@ language:
 
 # 4. Nitpicky Options
 nitpick:
+  # improveTypography: When set to true, uses Typeset to apply transformations
+  # to the text for typographically-improved HTML. This will apply to both your
+  # HTML version and (if generating) your plain-text version. The following
+  # transformations are performed: hanging punctuation, optical margin
+  # alignment, punctuation substitution, small caps. The following
+  # transformations are NOT performed: soft-hyphen insertion, ligatures. For
+  # details about the transformations, see:
+  # https://github.com/davidmerfield/typeset#readme
+  improveTypography: true
+
   # previewPad: When set to true, appends spaces to the preview or preheader
   # text you enter to ensure that the rest of the content of your email isn't
   # pulled up into the preview. Resources:
