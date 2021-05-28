@@ -30,8 +30,10 @@ const notify = require('../vars/notify.js')
 // Set up variables needed across the build.
 //
 
-// Create object to hold rendered CSS
-const styleObj = {}
+// Create in-memory container for rendered files
+const rendered = {}
+rendered.styles = {}
+rendered.partials = {}
 
 // Set destinations
 const destHTML = path.join(config.current.dist, 'index.html')
@@ -66,10 +68,10 @@ function styles () {
         }).on('error', e.sassError)
       )
 
-      // Save CSS styles as an object we'll use as Handlebars partials
+      // Save rendered CSS to memory
       .pipe(
         tap(function (file) {
-          styleObj[path.basename(file.path)] = file.contents.toString()
+          rendered.styles[path.basename(file.path)] = file.contents.toString()
         })
       )
   )
@@ -87,13 +89,37 @@ function email (cb) {
     )
     cb()
   } else {
+    let stream = src(config.current.templates.all)
+      // Load partials into memory
+      .pipe(
+        tap(function (file) {
+          const ext = path.extname(file.path)
+          if (ext === '.mjml') {
+            rendered.partials[
+              path.basename(file.path)
+            ] = file.contents.toString()
+          }
+        })
+      )
+      .on('finish', function () {
+        notify.json({
+          // Rendered files
+          ...rendered.styles,
+          ...rendered.partials,
+        })
+      })
+
     // Process Handlebars data
-    let stream = src(config.current.templates.main)
+    stream = stream
       .pipe(
         hb() // For details on build, insert { debug: true }
-          .partials(styleObj) // CSS styles from the styles() function
-          .helpers(helpers) // Handlebars helpers from 'require' at the top
-          .data(config) // Data source
+          .partials({
+            // Rendered files
+            ...rendered.styles,
+            ...rendered.partials,
+          })
+          .helpers(helpers) // Handlebars helpers from 'require' at top
+          .data(config) // Data, which for Handlebars are config values
       )
       .on('error', e.hbError)
       .on('end', function () {
@@ -109,6 +135,9 @@ function email (cb) {
         }
         notify.debug('Handlebars processing complete')
       })
+      .pipe(dest(path.dirname(destHTML)))
+
+    // return stream
 
     // Render MJML into HTML
     if (flags.prod) {
@@ -212,7 +241,7 @@ function email (cb) {
         .on('error', e.textError)
         .on('end', function (source) {
           if (flags.debug) {
-            notify.json(
+            notify.unjson(
               textBuild.include,
               'Plain-text version built. Options configured:'
             )

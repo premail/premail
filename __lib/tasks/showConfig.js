@@ -16,13 +16,13 @@ const { flags } = require('../vars/flags.js')
 module.exports = function showConfig (done) {
   if (flags.debug) {
     // Uncomment the following line to include internal configuration
-    // notify.json(config.file.internal, 'Internal configuration:')
+    // notify.unjson(config.file.internal, 'Internal configuration:')
 
     // User-defined configuration
-    notify.json(config.user, 'Build configuration:')
+    notify.unjson(config.user, 'Build configuration:')
 
     // Theme configuration
-    notify.json(config.theme, 'Theme configuration:')
+    notify.unjson(config.theme, 'Theme configuration:')
 
     done()
   } else {

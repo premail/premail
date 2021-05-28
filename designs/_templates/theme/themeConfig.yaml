@@ -52,6 +52,7 @@ fonts:
     # https://markdotto.com/2018/02/07/github-system-fonts/#the-stack
     # https://www.digitalocean.com/community/tutorials/css-system-font-stack
     # https://css-tricks.com/snippets/css/system-font-stack/
+    # https://whistlr.info/2020/system-font/
     # https://systemfontstack.com
     #
     # If you don't enable 'google' or 'custom', below, these will be the only

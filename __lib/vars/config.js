@@ -210,13 +210,10 @@ config.current.templates.main = path.join(
   config.current.path,
   config.current.mainTemplate
 )
-config.current.templates.partials = config.current.templates.array
-  .filter(function (value) {
-    return value !== config.current.templates.main
-  })
-  .toString()
-  .split(',')
-  .join('\n')
+config.current.templates.all = [
+  config.current.templates.main,
+  ...config.current.templates.array,
+]
 
 module.exports = {
   config,

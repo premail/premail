@@ -50,13 +50,6 @@ const hbError = function logError (error) {
   this.emit('end')
 }
 
-// File-include
-const includeError = function logError (error) {
-  const message = new PluginError('gulp-file-include', error.message).toString()
-  notify.error(`${message}`, 'File-include processing error:')
-  this.emit('end')
-}
-
 // MJML
 const mjmlError = function logError (error) {
   const message = new PluginError('gulp-mjml', error.message).toString()
@@ -77,7 +70,6 @@ module.exports = {
   handleError,
   sassError,
   hbError,
-  includeError,
   mjmlError,
   textError,
 }

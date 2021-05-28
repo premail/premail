@@ -67,6 +67,15 @@ function json (object, title = null) {
   if (title) {
     objectFormatted += symbols.info + ' ' + colors.bold(title) + ' \n'
   }
+  objectFormatted += ' ' + JSON.stringify(object, null, 2) + ' \n'
+  return console.log(colors.green(objectFormatted))
+}
+
+function unjson (object, title = null) {
+  let objectFormatted = '\n '
+  if (title) {
+    objectFormatted += symbols.info + ' ' + colors.bold(title) + ' \n'
+  }
   objectFormatted +=
     ' ' + JSON.stringify(object, null, 2).replace(/["{},]/g, '') + ' \n'
   return console.log(colors.cyan(objectFormatted))
@@ -92,5 +101,6 @@ module.exports = {
   watch,
   plain,
   colors,
+  unjson,
   json,
 }
