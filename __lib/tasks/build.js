@@ -16,6 +16,7 @@ const helpers = require('handlebars-helpers')(['comparison'])
 const mjml = require('gulp-mjml')
 const mjmlEngine = require('mjml')
 const typeset = require('typeset')
+const { removeWidows } = require('string-remove-widows')
 const transform = require('vinyl-transform')
 const map = require('map-stream')
 const html2txt = require('gulp-html2txt')
@@ -163,15 +164,32 @@ function email (cb) {
 
     // Apply typographical enhancements
     if (config.user.details.improveTypography) {
-      const enhanceOpts = {
+      const typesetOpts = {
         disable: config.file.internal.details.disableTypeEnhance,
       }
-      const enhance = transform(function (filename) {
+      const typesetGo = transform(function (filename) {
         return map(function (chunk, next) {
-          return next(null, typeset(chunk, enhanceOpts))
+          return next(null, typeset(chunk, typesetOpts))
         })
       })
-      stream = stream.pipe(enhance)
+      const removeWidowsOpts = {
+        removeWidowPreventionMeasures: false,
+        convertEntities: true,
+        targetLanguage: 'html',
+        hyphens: true, // replace space with nbsp in front of dash
+        minWordCount: 8, // if there are fewer words than this in chunk, skip
+        minCharCount: 40, // if there are fewer characters than this in chunk, skip
+      }
+      const removeWidowsGo = tap(function (file) {
+        const removeWidowsResult = removeWidows(
+          file.contents.toString(),
+          removeWidowsOpts
+        )
+        file.contents = Buffer.from(removeWidowsResult.res)
+      })
+
+      stream = stream.pipe(typesetGo).pipe(removeWidowsGo)
+
       notify.debug('Typographical enhancements performed with Typeset')
     }
 
