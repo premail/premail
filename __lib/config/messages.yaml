@@ -1,0 +1,8 @@
+# Notification messages displayed at various points in the build.
+messages:
+  templateMissing:
+    title: 'Main template file cannot be found'
+    body: 'Check the filename specified in your `config.yaml` file.'
+  multipleWebFonts:
+    title: 'Multiple web fonts enabled:'
+    body: 'You have enabled both a Google web font and a custom web font. MJML will only render the first provided web font.'

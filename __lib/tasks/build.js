@@ -85,8 +85,8 @@ function email (cb) {
   // Check to make sure template file exists
   if (!fs.existsSync(config.current.templates.main)) {
     notify.error(
-      'Check the filename specified in your `config.yaml` file.',
-      'Main template file cannot be found'
+      config.file.internal.messages.templateMissing.body,
+      config.file.internal.messages.templateMissing.title
     )
     cb()
   } else {
@@ -124,8 +124,8 @@ function email (cb) {
           config.theme.fonts.stack.custom.enabled
         ) {
           notify.warn(
-            'You have enabled both a Google web font and a custom web font. MJML will only render the first provided web font.',
-            'Multiple web fonts enabled:'
+            config.file.internal.messages.multipleWebFonts.body,
+            config.file.internal.messages.multipleWebFonts.title
           )
         }
         notify.debug('Handlebars processing complete')
