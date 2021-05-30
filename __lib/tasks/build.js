@@ -89,7 +89,8 @@ function email (cb) {
     )
     cb()
   } else {
-    let stream = src(config.current.templates.all)
+    // @TODO: Load config.current.templates.all without confusing MJML.
+    let stream = src(config.current.templates.main)
       // Load partials into memory
       .pipe(
         tap(function (file) {
@@ -101,13 +102,6 @@ function email (cb) {
           }
         })
       )
-      .on('finish', function () {
-        notify.json({
-          // Rendered files
-          ...rendered.styles,
-          ...rendered.partials,
-        })
-      })
 
     // Process Handlebars data
     stream = stream
@@ -116,7 +110,7 @@ function email (cb) {
           .partials({
             // Rendered files
             ...rendered.styles,
-            ...rendered.partials,
+            // ...rendered.partials,
           })
           .helpers(helpers) // Handlebars helpers from 'require' at top
           .data(config) // Data, which for Handlebars are config values
@@ -135,9 +129,6 @@ function email (cb) {
         }
         notify.debug('Handlebars processing complete')
       })
-      .pipe(dest(path.dirname(destHTML)))
-
-    // return stream
 
     // Render MJML into HTML
     if (flags.prod) {
