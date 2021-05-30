@@ -7,3 +7,12 @@ details:
   disableTypeEnhance:
     - hyphenate
     - ligatures
+
+  # Controls options on widow-removal.
+  removeWidowOpts:
+    removeWidowPreventionMeasures: false
+    convertEntities: true
+    targetLanguage: html
+    hyphens: true # replace space with nbsp in front of dash
+    minWordCount: 8 # if there are fewer words than this in chunk, skip
+    minCharCount: 40 # if there are fewer characters than this in chunk, skip

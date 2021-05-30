@@ -172,14 +172,7 @@ function email (cb) {
           return next(null, typeset(chunk, typesetOpts))
         })
       })
-      const removeWidowsOpts = {
-        removeWidowPreventionMeasures: false,
-        convertEntities: true,
-        targetLanguage: 'html',
-        hyphens: true, // replace space with nbsp in front of dash
-        minWordCount: 8, // if there are fewer words than this in chunk, skip
-        minCharCount: 40, // if there are fewer characters than this in chunk, skip
-      }
+      const removeWidowsOpts = config.file.internal.details.removeWidowOpts
       const removeWidowsGo = tap(function (file) {
         const removeWidowsResult = removeWidows(
           file.contents.toString(),
