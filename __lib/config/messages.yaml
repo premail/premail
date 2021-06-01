@@ -1,5 +1,15 @@
 # Notification messages displayed at various points in the build.
+# Bodies are required; titles are optional.
 messages:
+  completeHandlebars:
+    body: 'Handlebars processing complete'
+  completeMJML:
+    body: 'MJML processing complete'
+  completeTypography:
+    body: 'Typographical enhancements performed with Typeset'
+  productionBuild:
+    title: 'Production:'
+    body: 'Minified with HTML comments stripped'
   templateMissing:
     title: 'Main template file cannot be found'
     body: 'Check the filename specified in your `config.yaml` file.'

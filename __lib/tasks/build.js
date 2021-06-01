@@ -128,7 +128,11 @@ function email (cb) {
             config.file.internal.messages.multipleWebFonts.title
           )
         }
-        notify.debug('Handlebars processing complete')
+        // Notify that Handlebars processing is complete.
+        notify.debug(
+          config.file.internal.messages.completeHandlebars.body,
+          config.file.internal.messages.completeHandlebars.title
+        )
       })
 
     // Render MJML into HTML
@@ -145,7 +149,10 @@ function email (cb) {
         )
         .on('error', e.mjmlError)
         .on('end', function (source) {
-          notify.debug('MJML processing complete')
+          notify.debug(
+            config.file.internal.messages.completeMJML.body,
+            config.file.internal.messages.completeMJML.title
+          )
         })
     } else {
       stream = stream
@@ -158,7 +165,10 @@ function email (cb) {
         )
         .on('error', e.mjmlError)
         .on('end', function (source) {
-          notify.debug('MJML processing complete')
+          notify.debug(
+            config.file.internal.messages.completeMJML.body,
+            config.file.internal.messages.completeMJML.title
+          )
         })
     }
 
@@ -183,7 +193,10 @@ function email (cb) {
 
       stream = stream.pipe(typesetGo).pipe(removeWidowsGo)
 
-      notify.debug('Typographical enhancements performed with Typeset')
+      notify.debug(
+        config.file.internal.messages.completeTypography.body,
+        config.file.internal.messages.completeTypography.title
+      )
     }
 
     // Write HTML version
@@ -192,7 +205,10 @@ function email (cb) {
       .on('end', function (source) {
         notify.info(destHTML, 'HTML file saved:')
         if (flags.prod) {
-          notify.warn('Minified with HTML comments stripped', 'Production:')
+          notify.warn(
+            config.file.internal.messages.productionBuild.body,
+            config.file.internal.messages.productionBuild.title
+          )
         }
       })
 
