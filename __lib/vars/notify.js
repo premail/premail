@@ -12,54 +12,117 @@ const { flags } = require('../vars/flags.js')
 // Set message styles
 const { symbols } = colors
 
-function error (message, title = null) {
-  let messageFormatted = '\n ' + symbols.cross
-  if (title) {
-    messageFormatted +=
-      ' ' + colors.bgRed.white.bold(' ' + title + ' ') + ' \n   '
-  }
-  messageFormatted += ' ' + message + ' \n'
-  if (title) {
-    return console.log(colors.red(messageFormatted))
-  } else {
-    return console.log(colors.red.bold(messageFormatted))
-  }
-}
+// Format messages
+function msg (type, message, title = null) {
+  let symbolFormat
+  let titleFormat
+  let messageFormat
 
-function warn (message, title = null) {
-  let messageFormatted = '\n ' + symbols.warning
-  if (title) {
-    messageFormatted += ' ' + colors.bgYellow.black.bold(title) + ' \n'
-  }
-  messageFormatted += ' ' + message + ' \n'
-  if (title) {
-    return console.log(colors.yellow(messageFormatted))
-  } else {
-    return console.log(colors.bgYellow.black(messageFormatted))
-  }
-}
-
-function info (message, title = null) {
-  let messageFormatted = '\n' + symbols.check
-  if (title) {
-    messageFormatted += ' ' + colors.bold(title) + ' \n'
-  }
-  messageFormatted += '  ' + message + '\n'
-
-  return console.log(colors.green.greenBright(messageFormatted))
-}
-
-function debug (message, title = null) {
-  if (flags.debug) {
-    let messageFormatted = '\n ' + symbols.info
-    if (title) {
-      messageFormatted += ' ' + colors.bold(title) + ' \n'
+  // Format message objects
+  if (typeof message === 'object' && message.constructor === Object) {
+    const messageArray = Object.values(message)
+    if (messageArray[1]) {
+      title = messageArray[0]
+      message = messageArray[1]
+    } else {
+      message = messageArray[0]
     }
-    messageFormatted += ' ' + message + ' \n'
-    return console.log(colors.cyan(messageFormatted))
-  } else {
-    return null
   }
+
+  // Theme notification types
+  switch (type) {
+    case 'error':
+      symbolFormat = '\n ' + symbols.cross
+      if (title) {
+        titleFormat = console.log(
+          ' ' + colors.bgRed.white.bold(symbolFormat + ' ' + title + ' ') + ' '
+        )
+        messageFormat = console.log(colors.red('   ' + message))
+      } else {
+        titleFormat = null
+        messageFormat = console.log(
+          ' ' + colors.red.bold(symbolFormat + ' ' + message) + ' \n'
+        )
+      }
+      break
+    case 'warn':
+      symbolFormat = '\n ' + symbols.warning
+      if (title) {
+        titleFormat = console.log(
+          ' ' +
+            colors.bgYellow.black.bold(symbolFormat + ' ' + title + ' ') +
+            ' '
+        )
+        messageFormat = console.log(colors.yellow('   ' + message))
+      } else {
+        titleFormat = null
+        messageFormat = console.log(
+          ' ' + colors.bgYellow.black(symbolFormat + ' ' + message) + ' \n'
+        )
+      }
+      break
+    case 'info':
+      symbolFormat = '\n ' + symbols.check
+      if (title) {
+        titleFormat = console.log(
+          ' ' +
+            colors.green.greenBright.bold(symbolFormat + ' ' + title + ' ') +
+            ' '
+        )
+        messageFormat = console.log(colors.green.greenBright('   ' + message))
+      } else {
+        titleFormat = null
+        messageFormat = console.log(
+          ' ' + colors.green.greenBright(symbolFormat + ' ' + message) + ' \n'
+        )
+      }
+      break
+    case 'debug':
+      if (flags.debug) {
+        symbolFormat = '\n ' + symbols.info
+        if (title) {
+          titleFormat = console.log(
+            ' ' + colors.cyan.bold(symbolFormat + ' ' + title + ' ') + ' '
+          )
+          messageFormat = console.log(colors.cyan('   ' + message))
+        } else {
+          titleFormat = null
+          messageFormat = console.log(
+            ' ' + colors.cyan.bold(symbolFormat + ' ' + message) + ' \n'
+          )
+        }
+      } else {
+        return null
+      }
+      break
+    default:
+      console.log(
+        '\n\x1b[1;41;37mERROR: Notification type not recognized.\x1b[0m'
+      )
+      if (typeof type === 'object' && type.constructor === Object) {
+        console.log(
+          '\x1b[31mSupplied value-by-reference was: "' +
+            Object.keys(type) +
+            '"\x1b[0m\n'
+        )
+      } else {
+        console.log('\x1b[31mSupplied value was: "' + type + '"\x1b[0m\n')
+      }
+  }
+
+  return [titleFormat, messageFormat]
+}
+
+function watch (message) {
+  return console.log(
+    '\n ⌚ ' +
+      colors.bgGreen.black.bold(' ' + message.toUpperCase() + ' ') +
+      ' ⌚\n'
+  )
+}
+
+function plain (message) {
+  return console.log(colors.unstyle(message))
 }
 
 function json (object, title = null) {
@@ -81,26 +144,11 @@ function unjson (object, title = null) {
   return console.log(colors.cyan(objectFormatted))
 }
 
-function watch (message) {
-  return console.log(
-    '\n ⌚ ' +
-      colors.bgGreen.black.bold(' ' + message.toUpperCase() + ' ') +
-      ' ⌚\n'
-  )
-}
-
-function plain (message) {
-  return console.log(colors.unstyle(message))
-}
-
 module.exports = {
-  error,
-  warn,
-  info,
-  debug,
+  msg,
   watch,
   plain,
-  colors,
-  unjson,
   json,
+  unjson,
+  colors,
 }

@@ -84,10 +84,7 @@ function styles () {
 function email (cb) {
   // Check to make sure template file exists
   if (!fs.existsSync(config.current.templates.main)) {
-    notify.error(
-      config.file.internal.messages.templateMissing.body,
-      config.file.internal.messages.templateMissing.title
-    )
+    notify.msg('error', config.file.internal.messages.templateMissing)
     cb()
   } else {
     // @TODO: Load config.current.templates.all without confusing MJML.
@@ -123,16 +120,10 @@ function email (cb) {
           config.theme.fonts.stack.google.enabled &&
           config.theme.fonts.stack.custom.enabled
         ) {
-          notify.warn(
-            config.file.internal.messages.multipleWebFonts.body,
-            config.file.internal.messages.multipleWebFonts.title
-          )
+          notify.msg('warn', config.file.internal.messages.multipleWebFonts)
         }
         // Notify that Handlebars processing is complete.
-        notify.debug(
-          config.file.internal.messages.completeHandlebars.body,
-          config.file.internal.messages.completeHandlebars.title
-        )
+        notify.msg('debug', config.file.internal.messages.completeHandlebars)
       })
 
     // Render MJML into HTML
@@ -149,10 +140,7 @@ function email (cb) {
         )
         .on('error', e.mjmlError)
         .on('end', function (source) {
-          notify.debug(
-            config.file.internal.messages.completeMJML.body,
-            config.file.internal.messages.completeMJML.title
-          )
+          notify.msg('debug', config.file.internal.messages.completeMJML)
         })
     } else {
       stream = stream
@@ -165,10 +153,7 @@ function email (cb) {
         )
         .on('error', e.mjmlError)
         .on('end', function (source) {
-          notify.debug(
-            config.file.internal.messages.completeMJML.body,
-            config.file.internal.messages.completeMJML.title
-          )
+          notify.msg('debug', config.file.internal.messages.completeMJML)
         })
     }
 
@@ -193,22 +178,16 @@ function email (cb) {
 
       stream = stream.pipe(typesetGo).pipe(removeWidowsGo)
 
-      notify.debug(
-        config.file.internal.messages.completeTypography.body,
-        config.file.internal.messages.completeTypography.title
-      )
+      notify.msg('debug', config.file.internal.messages.completeTypography)
     }
 
     // Write HTML version
     stream = stream
       .pipe(dest(path.dirname(destHTML)))
       .on('end', function (source) {
-        notify.info(destHTML, 'HTML file saved:')
+        notify.msg('info', destHTML, 'HTML file saved:')
         if (flags.prod) {
-          notify.warn(
-            config.file.internal.messages.productionBuild.body,
-            config.file.internal.messages.productionBuild.title
-          )
+          notify.msg('warn', config.file.internal.messages.productionBuild)
         }
       })
 
@@ -275,10 +254,10 @@ function email (cb) {
         .pipe(replace('☰ ⊗\n', ''))
         .pipe(dest(path.dirname(destText)))
         .on('end', function (source) {
-          notify.info(destText, 'Plain-text version saved:')
+          notify.msg('info', destText, 'Plain-text version saved:')
         })
     } else {
-      notify.info('Plain-text generation turned off.')
+      notify.msg('info', config.file.internal.messages.plaintextOff)
     }
 
     return stream

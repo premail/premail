@@ -1,6 +1,8 @@
 # Notification messages displayed at various points in the build.
 # Bodies are required; titles are optional.
 messages:
+  cleaning:
+    body: 'Removing generated files...'
   completeHandlebars:
     body: 'Handlebars processing complete'
   completeMJML:
@@ -16,3 +18,5 @@ messages:
   multipleWebFonts:
     title: 'Multiple web fonts enabled:'
     body: 'You have enabled both a Google web font and a custom web font. MJML will only render the first provided web font.'
+  plaintextOff:
+    body: 'Plain-text generation turned off.'

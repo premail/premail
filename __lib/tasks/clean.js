@@ -12,10 +12,10 @@ const notify = require('../vars/notify.js')
 //
 
 function generated (done) {
-  notify.warn('Removing generated files...')
+  notify.msg('warn', config.file.internal.messages.cleaning)
   const deletedFilePaths = [config.current.dist + '/*']
   del(deletedFilePaths)
-  notify.debug(deletedFilePaths.join('\n'))
+  notify.msg('debug', deletedFilePaths.join('\n'))
   done()
 }
 

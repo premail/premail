@@ -10,7 +10,6 @@ const projectPath = require('../functions/projectPath.js')
 const getFiles = require('../functions/getFiles.js')
 
 const { flags } = require('../vars/flags.js')
-const notify = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */
 
 //

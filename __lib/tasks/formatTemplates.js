@@ -26,7 +26,7 @@ module.exports = function formatTemplates (done) {
     if (error) {
       e.handleError(error, 'prettier')
     } else {
-      notify.debug(stdout, 'Templates formatted:')
+      notify.msg('debug', stdout, 'Templates formatted:')
     }
   })
   done()

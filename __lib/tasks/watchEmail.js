@@ -27,7 +27,8 @@ module.exports = function watchEmail (done) {
     html: config.current.path + '/**/*.html',
   }
 
-  notify.debug(
+  notify.msg(
+    'debug',
     `\nBuild config: ${paths.configBuild}\nTheme config: ${paths.configTheme}\nStyles:       ${paths.style}\nTemplate:    ${paths.template}\nPartials:     ${paths.partials}\nHTML:         ${paths.html}`,
     'Watching these paths:'
   )
@@ -43,7 +44,7 @@ module.exports = function watchEmail (done) {
     ],
     function styleRebuild (done) {
       build.styles()
-      notify.info('Styles rebuilt.')
+      notify.msg('info', 'Styles rebuilt.')
       build.email()
       done()
     }

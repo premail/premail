@@ -10,6 +10,6 @@ const notify = require('../vars/notify.js')
 //
 
 module.exports = async function listTemplates () {
-  notify.debug(config.current.templates.main, 'Main template file:')
-  notify.debug(config.current.templates.list, 'Partials:')
+  notify.msg('debug', config.current.templates.main, 'Main template file:')
+  notify.msg('debug', config.current.templates.list, 'Partials:')
 }
