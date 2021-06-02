@@ -2,6 +2,7 @@
 
 /* eslint-disable no-unused-vars */
 const { src, dest } = require('gulp')
+const { pipeline } = require('stream')
 const fs = require('fs')
 const path = require('path')
 const mergeStream = require('merge-stream')
@@ -48,33 +49,35 @@ function styles () {
   // Set styles source
   const sourceStyles = config.current.theme.path + '/**/*.scss'
 
-  return (
-    src(sourceStyles)
-      // Render CSS
-      .pipe(
-        sass({
-          fiber: Fiber,
-          outputStyle: 'compressed',
-          importer: sassImporter({
-            resolver: function (dir, url) {
-              return url.startsWith('~/')
-                ? path.resolve(
-                    dir,
-                    path.join(config.__lib, 'vars'),
-                    url.substr(2)
-                  )
-                : path.resolve(dir, url)
-            },
-          }),
-        }).on('error', e.sassError)
-      )
+  return pipeline(
+    src(sourceStyles),
 
-      // Save rendered CSS to memory
-      .pipe(
-        tap(function (file) {
-          rendered.styles[path.basename(file.path)] = file.contents.toString()
-        })
-      )
+    // Render CSS
+    sass({
+      fiber: Fiber,
+      outputStyle: 'compressed',
+      importer: sassImporter({
+        resolver: function (dir, url) {
+          return url.startsWith('~/')
+            ? path.resolve(dir, path.join(config.__lib, 'vars'), url.substr(2))
+            : path.resolve(dir, url)
+        },
+      }),
+    }),
+
+    // Save rendered CSS to memory
+    tap(function (file) {
+      rendered.styles[path.basename(file.path)] = file.contents.toString()
+    }),
+
+    err => {
+      if (err) {
+        e.e(err, 'sass')
+        process.exit(1)
+      } else {
+        notify.msg('info', 'Styles built.')
+      }
+    }
   )
 }
 
