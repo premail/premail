@@ -2,47 +2,35 @@
 
 /* eslint-disable no-unused-vars */
 const PluginError = require('plugin-error')
-const sass = require('gulp-sass')
 require('pretty-error').start()
 
 const notify = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */
 
-function handleError (error, pluginName) {
-  // Ensure a pluginName is passed.
-  if (!pluginName) {
-    return notify.msg(
-      'error',
-      'The handleError function must include a pluginName.'
-    )
+// General error-handling function.
+// @TODO: Incorporate other error types into this one, accommodating
+// .on('error')
+function e (err, type = null) {
+  const error = err.message
 
-    // General errors
-  } else {
-    pluginName = pluginName.charAt(0).toUpperCase() + pluginName.slice(1)
-    const message = new PluginError(pluginName, error.message).toString()
-    return notify.msg('error', `\n${message}\n`)
-  }
-}
-
-// sass.logError
-const sassError = function logError (error) {
-  const message = new PluginError(
-    'gulp-sass',
-    error.messageFormatted
-  ).toString()
-  if (message.includes('theme.js') && message.includes('Error: expected')) {
-    notify.msg(
-      'warn',
-      'Sass variable import choked on the theme configuration. Did you make sure to double quote anything with CSS-reserved selectors like URLs?' +
-        notify.colors.bold(` "'https://example.com/'" `) +
-        'See the "SYNTAX NOTES" section at the top of your themeConfig.yaml file.',
-      'Style import error:'
-    )
-    notify.msg('error', `${message}`, 'Sass processing error:')
-    this.emit('end')
-  } else {
-    notify.msg('error', `${message}`, 'Sass processing error:')
-    this.emit('end')
+  switch (type) {
+    case 'sass':
+      // Handle YAML-to-JSON parsing errors.
+      if (error.includes('theme.js') && error.includes('Error: expected')) {
+        return notify.msg(
+          'warn',
+          'Sass variable import choked on the theme configuration. Did you make sure to double quote anything with CSS-reserved selectors like URLs?' +
+            notify.colors.bold(` "'https://example.com/'" `) +
+            'See the "SYNTAX NOTES" section at the top of your themeConfig.yaml file.',
+          'Sass processing error:'
+        )
+      } else {
+        return notify.msg('error', error, 'Sass processing error:')
+      }
+    case 'prettier':
+      return notify.msg('error', error, 'Prettier error:')
+    default:
+      return notify.msg('error', error, 'Error:')
   }
 }
 
@@ -71,8 +59,7 @@ const textError = function logError (error) {
 }
 
 module.exports = {
-  handleError,
-  sassError,
+  e,
   hbError,
   mjmlError,
   textError,

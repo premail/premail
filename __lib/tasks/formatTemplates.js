@@ -22,9 +22,9 @@ module.exports = function formatTemplates (done) {
   // https://github.com/sheerun/modern-node/issues/12
   //
   // So we call Prettier directly.
-  exec(command, function (error, stdout, stderr) {
-    if (error) {
-      e.handleError(error, 'prettier')
+  exec(command, function (err, stdout, stderr) {
+    if (err) {
+      e.e(err, 'prettier')
     } else {
       notify.msg('debug', stdout, 'Templates formatted:')
     }
