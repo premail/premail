@@ -95,6 +95,15 @@ function msg (type, message, title = null) {
         return null
       }
       break
+    case 'plain':
+      if (title) {
+        titleFormat = console.log(colors.white.bold(title))
+        messageFormat = console.log(colors.white(message))
+      } else {
+        titleFormat = null
+        messageFormat = console.log(colors.white(message))
+      }
+      break
     default:
       console.log(
         '\n\x1b[1;41;37mERROR: Notification type not recognized.\x1b[0m'
@@ -121,10 +130,6 @@ function watch (message) {
   )
 }
 
-function plain (message) {
-  return console.log(colors.unstyle(message))
-}
-
 function json (object, title = null) {
   let objectFormatted = '\n '
   if (title) {
@@ -147,7 +152,6 @@ function unjson (object, title = null) {
 module.exports = {
   msg,
   watch,
-  plain,
   json,
   unjson,
   colors,
