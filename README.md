@@ -114,7 +114,7 @@ controlled per-email:
   last two words of a paragraph with
   [string-remove-widows](https://codsen.com/os/string-remove-widows).
 - [Padding preview/preheader text](https://www.goodemailcode.com/email-code/preheader)
-  to prevent things like navigation menu items from being included.
+  to prevent things like navigation menu items from being included there.
 - Feel free to
   [make suggestions for more enhancements!](https://github.com/rootwork/mjml-quickstart/issues)
 
