@@ -26,6 +26,7 @@ build.text.displayName = 'build.text'
 // Sets
 exports.default = series(
   showConfig,
+  formatTemplates,
   clean.generated,
   build.styles,
   build.email,
@@ -43,7 +44,13 @@ exports.build.flags = {
 }
 
 // Watch
-exports.watch = series(showConfig, build.styles, build.email, watchEmail)
+exports.watch = series(
+  showConfig,
+  formatTemplates,
+  build.styles,
+  build.email,
+  watchEmail
+)
 exports.watch.description =
   'Watch design and configuration files and rebuild (formatted, with comments) as necessary. Flags from `gulp build` can also be used.'
 
