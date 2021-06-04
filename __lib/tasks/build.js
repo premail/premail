@@ -223,7 +223,8 @@ function text (cb) {
     if (!fs.existsSync(destHTML)) {
       notify.msg(
         'error',
-        'Plain-text version requires HTML version to be created first.'
+        'HTML version not found and must be created first.',
+        'Plain-text version not created'
       )
       cb()
     } else {
