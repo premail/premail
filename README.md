@@ -25,8 +25,10 @@ version, ready to import into your emailer of choice.
 <!--ts-->
 * [MJML Quickstart](#mjml-quickstart)
 * [Overview](#overview)
-   * [Requirements](#requirements)
+* [Features](#features)
 * [Setup](#setup)
+   * [Requirements](#requirements)
+   * [Installation](#installation)
 * [Usage](#usage)
    * [Setting options](#setting-options)
    * [Creating a new design](#creating-a-new-design)
@@ -38,7 +40,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Fri Jun  4 01:08:45 UTC 2021 -->
+<!-- Added by: runner, at: Fri Jun  4 23:10:49 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
