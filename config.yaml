@@ -63,6 +63,7 @@ text:
     topNav: true
     banner: true
     salutation: true
+    body: true
     signoff: true
     social: true
     bottomNav: true

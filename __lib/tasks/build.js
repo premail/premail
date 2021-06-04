@@ -208,17 +208,6 @@ function text (cb) {
   }
 
   if (config.user.text.generate) {
-    // Plain-text options
-    textBuild.status = true
-    textBuild.options = {
-      baseElement: [],
-      selectors: [{ selector: 'div.mj-menu-trigger', format: 'skip' }],
-      tables: true,
-      tags: {
-        img: {},
-      },
-    }
-
     // Check to make sure HTML version exists
     if (!fs.existsSync(destHTML)) {
       notify.msg(
@@ -230,27 +219,28 @@ function text (cb) {
     } else {
       let stream = src(destHTML)
 
-      // Determine which elements to include in plain text
+      // Plain-text options
+      textBuild.status = true
+      textBuild.options = config.file.internal.textBuild.options
+      textBuild.options.baseElement = []
       textBuild.include = {
-        images: config.user.text.images,
-        partials: {
-          topNav: config.user.text.include.topNav,
-          banner: config.user.text.include.banner,
-          salutation: config.user.text.include.salutation,
-          body: true,
-          signoff: config.user.text.include.signoff,
-          social: config.user.text.include.social,
-          bottomNav: config.user.text.include.bottomNav,
-          footer: config.user.text.include.footer,
-        },
+        images: {},
+        partials: {},
       }
 
-      if (!textBuild.include.images) {
-        textBuild.options.tags.img.format = 'skip'
+      // Include image URIs if requested
+      if (config.user.text.images) {
+        textBuild.include.images = true
+        delete textBuild.options.tags.img
+      } else {
+        textBuild.include.images = false
       }
 
-      Object.keys(textBuild.include.partials).forEach(key => {
-        if (textBuild.include.partials[key]) {
+      // Override default partial includes with user config, if set, and name
+      // base elements
+      Object.keys(config.user.text.include).forEach(key => {
+        Object.assign(textBuild.include.partials, config.user.text.include)
+        if (config.user.text.include[key] === true) {
           textBuild.options.baseElement.push('div.component-' + key)
         }
       })
