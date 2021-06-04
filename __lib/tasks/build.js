@@ -130,6 +130,9 @@ function email (cb) {
         notify.msg('debug', config.file.internal.messages.completeHandlebars)
       })
 
+    // Uncomment the next line to write the rendered template to disk.
+    // stream = stream.pipe(dest(path.dirname(destHTML)))
+
     // Render MJML into HTML
     if (flags.prod) {
       stream = stream
