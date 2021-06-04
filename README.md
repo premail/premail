@@ -7,11 +7,11 @@
 [![Code format: Prettier](https://img.shields.io/badge/code_format-prettier-blue.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 A quick-start setup for those writing email code in [MJML](https://mjml.io/),
-the email templating language, using Node and Gulp.
+the email templating language, with lots of command-line helper tools using Node
+and Gulp.
 
-The templates included are
-[valid](https://mjml.io/documentation/#validating-mjml) under
-[MJML version 4](https://github.com/mjmlio/mjml/releases).
+Email templates are all [valid](https://mjml.io/documentation/#validating-mjml)
+under [MJML version 4](https://github.com/mjmlio/mjml/releases).
 
 One `index.html` file will be rendered, as well as (optionally) a plain-text
 version, ready to import into your emailer of choice.
@@ -55,11 +55,68 @@ Mailchimp, Constant Contact, etc.
 
 This project gives you a structure and workflow in which you can create
 different email designs in MJML, then create individual emails based on those
-designs. The resulting `index.html` file (and plain-text `index.txt` file, if
-you've chosen the text option) is optimized to render correctly in
+designs from the command-line. Even if you're not a command-line wizard, the
+tools included will make creating and managing the code files for your emails
+vastly simpler.
+
+When you're done, you'll have an `index.html` file (and plain-text `index.txt`
+file, if you've chosen the text option) that is optimized to render correctly in
 [the vast majority of email systems and clients](https://mjml.io/faq#email-clients).
-When you're done, just drop the code from the file into your email service
-provider's system.
+Then just drop the code from the file into your email service provider's system.
+
+# Features
+
+- MJML-standard bulletproof code that will look its best across all email
+  clients.
+
+- Component-based templates that allow you to separate out things that don't
+  often change (navigation menus, social media links, unsubscribe text) and
+  things that will usually change (a header or banner, preheader text, and the
+  main body of the email).
+
+- You can create multiple designs, and each time you create a new email you can
+  choose from among your existing designs. This allows you to keep the structure
+  of the design and the content of the email separate, and reduces errors.
+
+- As you're creating a design or crafting a new email, you can use a `watch`
+  task to automatically recompile the result.
+
+- Within each design, the CSS (created in [Sass files](https://sass-lang.com/))
+  is automatically inlined in the HTML, thanks to MJML. Additionally, stub files
+  exist for including pseudo-CSS styles (such as hover states) for email clients
+  that support them, as well as styles specifically targeting Gmail.
+
+- A plain-text version of your email is optionally created, and (we humbly
+  argue) MJML Quickstart does a much better job than most email services at
+  rendering it. While only a small number of your recipients will see the
+  plain-text version,
+  [they are important for email deliverability](https://www.litmus.com/blog/best-practices-for-plain-text-emails-a-look-at-why-theyre-important/).
+  Within the plain-text version options, you can easily control whether certain
+  elements like navigation or header/banner areas are included.
+
+- Configuration files are written in [YAML](https://blog.stackpath.com/yaml/),
+  making them easy to read, and comments -- with links to relevant resources --
+  are included throughout.
+
+- Perfectly structured for including in a git repo -- don't rely on your email
+  service provider to keep an archive of your past emails! And
+  [Prettier](https://prettier.io/) is included to automatically clean up
+  template formatting for easier file-diffing.
+
+When it comes to the content of your emails, optional enhancements can be
+controlled per-email:
+
+- Transforming quotes, apostrophes, and dashes to their correct typographical
+  versions with [Typeset](https://github.com/davidmerfield/typeset#readme).
+- Preventing widows by automatically including a non-breaking space between the
+  last two words of a paragraph with
+  [string-remove-widows](https://codsen.com/os/string-remove-widows).
+- [Padding preview/preheader text](https://www.goodemailcode.com/email-code/preheader)
+  to prevent things like navigation menu items from being included.
+- Feel free to
+  [make suggestions for more enhancements!](https://github.com/rootwork/mjml-quickstart/issues)
+
+# Setup
 
 ## Requirements
 
@@ -75,22 +132,22 @@ recommend using [n](https://github.com/tj/n) or
 [nvm](https://github.com/nvm-sh/nvm) if you're managing multiple versions of
 Node.
 
-This tool uses
-[Gulp](https://gulpjs.com/docs/en/getting-started/quick-start) 4.0.2+ and
-[MJML](https://github.com/mjmlio/mjml/releases) 4.9.3+, but these are installed
-automatically during setup, so it's only important to check these if you already
-have them installed.
+This tool uses [Gulp](https://gulpjs.com/docs/en/getting-started/quick-start)
+4.0.2+ and [MJML](https://github.com/mjmlio/mjml/releases) 4.9.3+, but these are
+installed automatically during setup, so it's only important to check these if
+you already have them installed.
 
-# Setup
+## Installation
 
 - Go to the [Releases](https://github.com/rootwork/mjml-quickstart/releases)
   page and grab the most recent stable version. Alternatively, you can simply
   fork this repo and clone it locally.
-- Remove the `.github` folder if you are using your own GitHub repo and don't
-  want [GitHub Actions](https://docs.github.com/en/actions) running on it.
 - Install with `npm i`
 - MJML has [plugins](https://documentation.mjml.io/#applications-and-plugins)
-  for Visual Studio Code, Atom, and Sublime Text 3.
+  for Visual Studio Code, Atom, and Sublime Text 3 and 4.
+- If you plan to use a GitHub repo yourself and don't want the included
+  [GitHub Actions](https://docs.github.com/en/actions) to run, just remove the
+  `.github` directory.
 
 # Usage
 
@@ -103,12 +160,10 @@ Look at the [`config.yaml`](config.yaml) file at the root of the project.
 
 Here you'll find options for setting the names of your `designs` and `emails`
 directories, which will hold individual designs and emails, respectively. You
-can also change the name of the master template file, and what types of files
-(`.tpl`, by default) the tool processes as templates.
+can also change the name of the master template file (`index.hbs`, by default).
 
 Under "Email-building options," you'll see preferences you can set on the
-rendered emails: Whether to generate a plain-text version, and options on what
-to include in that version.
+rendered emails such as whether to generate a plain-text version.
 
 ## Creating a new design
 
@@ -130,7 +185,7 @@ cd postmodern
 
 Within each design directory, you'll find the following:
 
-- `index.tpl`: This file includes all the component files. You shouldn't
+- `index.hbs`: This file includes all the component files. You shouldn't
   normally need to edit this unless you are re-ordering the structure or
   changing the `lang` value.
 - `content`: This directory holds files that will _always_ change in each email
@@ -139,7 +194,8 @@ Within each design directory, you'll find the following:
   email -- top and bottom navigation menus, social media links, and the footer
   area.
 - `theme`: This directory contains the CSS attributes that, ideally, _will not_
-  change from project to project.
+  change from project to project, and a `themeConfig.yaml` file controlling
+  options specific to this theme.
 - `dist`: This directory contains the output `index.html` (and optionally a
   plain-text `index.txt` file) for you to use.
 
@@ -147,7 +203,7 @@ In your console, run `gulp watch` with the `-d` option, followed by the
 directory name of your design. Using the example above with a design named
 "postmodern", you'd run `gulp watch -d postmodern`.
 
-This will watch for any changes in any `index.tpl` files (including any
+This will watch for any changes in any `index.hbs` files (including any MJML
 partials referenced with `<mj-include>`), and re-render the `index` files in
 unminified form in the `dist` subdirectory of your design. You can leave a web
 browser open to this page.
@@ -173,15 +229,16 @@ upload them somewhere and use the full URLs as references to the hosted images.
 
 Once the production email is rendered, you can:
 
-- import directly (as HTML) into your emailer of choice
-- share the `index` files with colleagues
-- upload the file as part of a repo and use something like
-  [GitHub Pages](https://pages.github.com/) to view/share it in a browser; for
+- Copy the code from `index.html` into your emailer of choice; all the code and
+  styles are included!
+- Use the `index.txt` plain-text version, if you've chosen to have one created,
+  in the appropriate place provided by your emailer.
+- Share the `index` files with colleagues.
+- Upload the file as part of a repo and use something like
+  [GitHub Pages](https://pages.github.com/) to view/share it in a browser -- for
   instance
   [here's the rendered file](https://rootwork.github.io/mjml-quickstart/designs/_templates/dist/index.html)
-  from the sample templates
-- use the `index.txt` plain-text version, if you've chosen to have one created,
-  in the appropriate place provided by your emailer
+  from the sample templates.
 
 ## Automatic code formatting and linting
 
@@ -217,6 +274,7 @@ configuration and files being processed.
 │ │ --debug          …Display details about configuration and settings.
 │ └─┬ <series>
 │   ├── showConfig
+│   ├── formatTemplates
 │   ├── clean.generated
 │   ├── build.styles
 │   ├── build.email
@@ -228,6 +286,7 @@ configuration and files being processed.
 │ │ --debug          …Display details about configuration and settings.
 │ └─┬ <series>
 │   ├── showConfig
+│   ├── formatTemplates
 │   ├── clean.generated
 │   ├── build.styles
 │   ├── build.email
@@ -235,6 +294,7 @@ configuration and files being processed.
 ├─┬ watch            Watch design and configuration files and rebuild (formatted, with comments) as necessary. Flags from `gulp build` can also be used.
 │ └─┬ <series>
 │   ├── showConfig
+│   ├── formatTemplates
 │   ├── build.styles
 │   ├── build.email
 │   └── watchEmail
