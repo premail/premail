@@ -21,9 +21,16 @@ const formatTemplates = require(taskDir + 'formatTemplates.js')
 clean.generated.displayName = 'clean.generated'
 build.styles.displayName = 'build.styles'
 build.email.displayName = 'build.email'
+build.text.displayName = 'build.text'
 
 // Sets
-exports.default = series(showConfig, clean.generated, build.styles, build.email)
+exports.default = series(
+  showConfig,
+  clean.generated,
+  build.styles,
+  build.email,
+  build.text
+)
 
 exports.build = exports.default
 exports.build.description =

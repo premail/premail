@@ -5,9 +5,8 @@ const { src, dest } = require('gulp')
 const { pipeline } = require('stream')
 const fs = require('fs')
 const path = require('path')
-const mergeStream = require('merge-stream')
 const tap = require('gulp-tap')
-const replace = require('gulp-replace')
+const rename = require('gulp-rename')
 const sass = require('gulp-sass')
 const sassImporter = require('node-sass-json-importer')
 const Fiber = require('fibers')
@@ -20,7 +19,7 @@ const typeset = require('typeset')
 const { removeWidows } = require('string-remove-widows')
 const transform = require('vinyl-transform')
 const map = require('map-stream')
-const html2txt = require('gulp-html2txt')
+const { htmlToText } = require('html-to-text')
 
 const e = require('../functions/e.js')
 const { config } = require('../vars/config.js')
@@ -38,8 +37,10 @@ rendered.styles = {}
 rendered.partials = {}
 
 // Set destinations
-const destHTML = path.join(config.current.dist, 'index.html')
-const destText = path.join(config.current.dist, 'index.txt')
+const fileHTML = 'index.html'
+const fileText = 'index.txt'
+const destHTML = path.join(config.current.dist, fileHTML)
+const destText = path.join(config.current.dist, fileText)
 
 //
 // Build CSS files from Sass source files.
@@ -82,7 +83,7 @@ function styles () {
 }
 
 //
-// Render templates through Handlebars into email-ready HTML and plain-text.
+// Render templates through Handlebars into email-ready HTML.
 //
 function email (cb) {
   // Check to make sure template file exists
@@ -194,19 +195,39 @@ function email (cb) {
         }
       })
 
-    // Options for rendering text
-    const textBuild = {
-      status: false,
+    return stream
+  }
+}
+
+//
+// Render optional plain-text version.
+//
+function text (cb) {
+  const textBuild = {
+    status: false,
+  }
+
+  if (config.user.text.generate) {
+    // Plain-text options
+    textBuild.status = true
+    textBuild.options = {
+      baseElement: [],
+      selectors: [{ selector: 'div.mj-menu-trigger', format: 'skip' }],
+      tables: true,
+      tags: {
+        img: {},
+      },
     }
-    if (config.user.text.generate) {
-      textBuild.status = true
-      textBuild.options = {
-        baseElement: [],
-        tables: true,
-        tags: {
-          img: {},
-        },
-      }
+
+    // Check to make sure HTML version exists
+    if (!fs.existsSync(destHTML)) {
+      notify.msg(
+        'error',
+        'Plain-text version requires HTML version to be created first.'
+      )
+      cb()
+    } else {
+      let stream = src(destHTML)
 
       // Determine which elements to include in plain text
       textBuild.include = {
@@ -232,14 +253,18 @@ function email (cb) {
           textBuild.options.baseElement.push('div.component-' + key)
         }
       })
-    }
 
-    // Write plain-text version
-    if (textBuild.status) {
+      // Plain-text conversion
       stream = stream
-        .pipe(html2txt(textBuild.options))
+        .pipe(
+          tap(function (file) {
+            file.contents = Buffer.from(
+              htmlToText(file.contents.toString(), textBuild.options)
+            )
+          })
+        )
         .on('error', e.textError)
-        .on('end', function (source) {
+        .on('finish', function (source) {
           if (flags.debug) {
             notify.unjson(
               textBuild.include,
@@ -247,27 +272,24 @@ function email (cb) {
             )
           }
         })
-        // Remove hard-coded mobile navigation menu characters inserted by
-        // MJML, which will otherwise show up in the generated plain-text.
-        // Currently html-to-text does not give us a way to skip elements
-        // based on selectors.
-        //
-        // @see:
-        // https://github.com/html-to-text/node-html-to-text/issues/159
-        .pipe(replace('☰ ⊗\n', ''))
+
+        // Write plain-text file
+        .pipe(rename(fileText))
         .pipe(dest(path.dirname(destText)))
         .on('end', function (source) {
           notify.msg('info', destText, 'Plain-text version saved:')
         })
-    } else {
-      notify.msg('info', config.file.internal.messages.plaintextOff)
-    }
 
-    return stream
+      return stream
+    }
+  } else {
+    notify.msg('info', config.file.internal.messages.plaintextOff)
+    cb()
   }
 }
 
 module.exports = {
   styles,
   email,
+  text,
 }
