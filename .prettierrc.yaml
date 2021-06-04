@@ -6,6 +6,7 @@ useTabs: false
 semi: false
 singleQuote: true
 bracketSpacing: true
+proseWrap: always # Tell Prettier to wrap Markdown files at the printWidth.
 
 # Because our templates are a mix of Handlebars and MJML, and because
 # Prettier doesn't process Handlebars includes correctly, we use regular ol'
