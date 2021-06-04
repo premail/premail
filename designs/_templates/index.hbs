@@ -64,22 +64,23 @@
       <mj-all margin="0" padding="0" font-size="{{theme.text.default.size}}"
       color="{{theme.text.default.color}}" font-family="{{#if
       theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
-      theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
-      theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
-      theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} " {{!--
-      Background on these Outlook-specific tags:
+      theme.fonts.stack.base 'serif'}}{{file.internal.fonts.serif}}{{/eq}}
+      {{~#eq theme.fonts.stack.base 'sans'}}{{file.internal.fonts.sans}}{{/eq}}
+      {{~#eq theme.fonts.stack.base 'mono'}}{{file.internal.fonts.mono}}{{/eq}}
+      " {{!-- Background on these Outlook-specific tags:
       https://www.hteumeuleu.com/2019/today-i-learned-about-mso-generic-font-family/
       --}} mso-generic-font-family=" {{~#eq theme.fonts.stack.base
       'serif'}}roman{{/eq}} {{~#eq theme.fonts.stack.base 'sans'}}swiss{{/eq}}
       {{~#eq theme.fonts.stack.base 'mono'}}swiss{{/eq}} " mso-font-alt=" {{~#eq
-      theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
-      theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
-      theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} "
-      ico-font-family="{{#if
+      theme.fonts.stack.base 'serif'}}{{file.internal.fonts.serif}}{{/eq}}
+      {{~#eq theme.fonts.stack.base 'sans'}}{{file.internal.fonts.sans}}{{/eq}}
+      {{~#eq theme.fonts.stack.base 'mono'}}{{file.internal.fonts.mono}}{{/eq}}
+      " ico-font-family="{{#if
       theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
-      theme.fonts.stack.base 'serif'}}{{internal.fonts.serif}}{{/eq}} {{~#eq
-      theme.fonts.stack.base 'sans'}}{{internal.fonts.sans}}{{/eq}} {{~#eq
-      theme.fonts.stack.base 'mono'}}{{internal.fonts.mono}}{{/eq}} " />
+      theme.fonts.stack.base 'serif'}}{{file.internal.fonts.serif}}{{/eq}}
+      {{~#eq theme.fonts.stack.base 'sans'}}{{file.internal.fonts.sans}}{{/eq}}
+      {{~#eq theme.fonts.stack.base 'mono'}}{{file.internal.fonts.mono}}{{/eq}}
+      " />
 
       <!-- Structure -->
 
