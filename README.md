@@ -219,7 +219,8 @@ configuration and files being processed.
 │   ├── showConfig
 │   ├── clean.generated
 │   ├── build.styles
-│   └── build.email
+│   ├── build.email
+│   └── build.text
 ├─┬ build            Render a complete HTML email based on design and email templates.
 │ │      -d          …Specify design folder to use. (Default: _templates)
 │ │      -e          …Specify email folder to render.
@@ -229,7 +230,8 @@ configuration and files being processed.
 │   ├── showConfig
 │   ├── clean.generated
 │   ├── build.styles
-│   └── build.email
+│   ├── build.email
+│   └── build.text
 ├─┬ watch            Watch design and configuration files and rebuild (formatted, with comments) as necessary. Flags from `gulp build` can also be used.
 │ └─┬ <series>
 │   ├── showConfig
