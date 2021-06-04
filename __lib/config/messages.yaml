@@ -17,6 +17,8 @@ messages:
     body: 'Check the filename specified in your `config.yaml` file.'
   multipleWebFonts:
     title: 'Multiple web fonts enabled:'
-    body: 'You have enabled both a Google web font and a custom web font. MJML will only render the first provided web font.'
+    body:
+      'You have enabled both a Google web font and a custom web font. MJML will
+      only render the first provided web font.'
   plaintextOff:
     body: 'Plain-text generation turned off.'
