@@ -109,7 +109,8 @@ When it comes to the content of your emails, optional enhancements can be
 controlled per-email:
 
 - Transforming quotes, apostrophes, and dashes to their correct typographical
-  versions with [Typeset](https://github.com/davidmerfield/typeset#readme).
+  versions; optical character alignment; and true small-caps formatting with
+  [Typeset](https://github.com/davidmerfield/typeset#readme).
 - Preventing widows by automatically including a non-breaking space between the
   last two words of a paragraph with
   [string-remove-widows](https://codsen.com/os/string-remove-widows).
