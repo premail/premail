@@ -12,9 +12,9 @@ maximus lacus mollis.
 
 A HEADLINE “WITH A QUOTE”
 
-In at risus consectetur, fringilla nisl nec, consectetur
-mauris. Ut sed ultricies ante. Aliquam vestibulum pretium
-ligula sit amet pretium. 
+In at risus SEDA consectetur, fringilla nisl nec,
+consectetur mauris. Ut sed ultricies ante. Aliquam
+vestibulum pretium ligula sit amet pretium. 
 
 
 “A QUOTED SUBHEADING”
