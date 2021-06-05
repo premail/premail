@@ -7,8 +7,6 @@ messages:
     body: 'Handlebars processing complete'
   completeMJML:
     body: 'MJML processing complete'
-  completeTypography:
-    body: 'Typographical enhancements performed with Typeset'
   productionBuild:
     title: 'Production:'
     body: 'Minified with HTML comments stripped'

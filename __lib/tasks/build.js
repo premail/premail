@@ -42,6 +42,36 @@ const fileText = 'index.txt'
 const destHTML = path.join(config.current.dist, fileHTML)
 const destText = path.join(config.current.dist, fileText)
 
+// Set typographical options
+const typographyOpts = {
+  // Widow removal
+  removeWidows: {
+    status: config.user.details.typography.removeWidows,
+    options: config.file.internal.details.removeWidowOpts,
+  },
+  // Configurable Typeset options
+  typeset: {
+    hyphenate: false,
+    hangingPunctuation: config.user.details.typography.hangPunctuation,
+    ligatures: false,
+    punctuation: config.user.details.typography.improveDashAndEllip,
+    quotes: config.user.details.typography.improveQuoteAndApostrophe,
+    smallCaps: config.user.details.typography.enableSmallCaps,
+  },
+  // Typeset options requiring CSS styling
+  typesetCSS: {
+    opticallyAlignLetters: config.user.details.typography.opticallyAlignLetters,
+    enableSmallCaps: config.user.details.typography.enableSmallCaps,
+  },
+  // Generate array of Typeset features to disable
+  typesetDisable: [],
+}
+Object.keys(typographyOpts.typeset).forEach(key => {
+  if (!typographyOpts.typeset[key]) {
+    typographyOpts.typesetDisable.push(key)
+  }
+})
+
 //
 // Build CSS files from Sass source files.
 //
@@ -165,27 +195,39 @@ function email (cb) {
     }
 
     // Apply typographical enhancements
-    if (config.user.details.improveTypography) {
-      const typesetOpts = {
-        disable: config.file.internal.details.disableTypeEnhance,
-      }
-      const typesetGo = transform(function (filename) {
-        return map(function (chunk, next) {
-          return next(null, typeset(chunk, typesetOpts))
-        })
-      })
-      const removeWidowsOpts = config.file.internal.details.removeWidowOpts
-      const removeWidowsGo = tap(function (file) {
-        const removeWidowsResult = removeWidows(
-          file.contents.toString(),
-          removeWidowsOpts
+    const typesetGo = transform(function (filename) {
+      return map(function (chunk, next) {
+        return next(
+          null,
+          typeset(chunk, { disable: typographyOpts.typesetDisable })
         )
-        file.contents = Buffer.from(removeWidowsResult.res)
       })
+    })
 
-      stream = stream.pipe(typesetGo).pipe(removeWidowsGo)
+    stream = stream.pipe(typesetGo)
 
-      notify.msg('debug', config.file.internal.messages.completeTypography)
+    const removeWidowsGo = tap(function (file) {
+      const removeWidowsResult = removeWidows(
+        file.contents.toString(),
+        typographyOpts.removeWidows.options
+      )
+      file.contents = Buffer.from(removeWidowsResult.res)
+    })
+
+    if (typographyOpts.removeWidows.status) {
+      stream = stream.pipe(removeWidowsGo)
+    }
+
+    if (flags.debug) {
+      typographyOpts.display = Object.assign(
+        typographyOpts.typeset,
+        typographyOpts.typesetCSS
+      )
+      typographyOpts.display.removeWidows = typographyOpts.removeWidows.status
+      notify.unjson(
+        typographyOpts.display,
+        'Typographical enhancements performed:'
+      )
     }
 
     // Write HTML version

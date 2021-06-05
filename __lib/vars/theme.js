@@ -15,9 +15,11 @@ const theme = config.theme
 const colors = theme.colors
 const fonts = theme.fonts
 const text = theme.text
+const typography = config.user.details.typography
 
 module.exports = {
   colors,
   fonts,
   text,
+  typography,
 }

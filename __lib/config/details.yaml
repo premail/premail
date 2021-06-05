@@ -7,11 +7,6 @@ details:
     &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
     &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;'
 
-  # Controls what options are disabled when applying typographic enhancements.
-  disableTypeEnhance:
-    - hyphenate
-    - ligatures
-
   # Controls options on widow-removal.
   removeWidowOpts:
     removeWidowPreventionMeasures: false

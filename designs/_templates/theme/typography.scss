@@ -1,0 +1,75 @@
+/* TYPOGRAPHIC ENHANCEMENT STYLES
+ *
+ * These styles will ONLY be seen by email clients that can handle an included
+ * (not inlined) stylesheet. This limitation will be improved in future
+ * releases.
+ *
+ * The styles here are required by some of the typographical enhancements
+ * enabled in your `config.yaml` file. For more information, see:
+ * https://github.com/davidmerfield/typeset#css
+ */
+
+// Import theme configuration values for use as Sass variables.
+@import '~/theme.js';
+
+// @TODO: Move these into inline.scss once we are able to run typographic
+// enhancements on the content before it is handed over to the templates.
+@if map-get($typography, 'enableSmallCaps') {
+  .small-caps {
+    font-variant: small-caps;
+  }
+}
+
+@if map-get($typography, 'opticallyAlignLetters') {
+  .pull-T,
+  .pull-V,
+  .pull-W,
+  .pull-Y {
+    margin-left: -0.07em;
+  }
+  .push-T,
+  .push-V,
+  .push-W,
+  .push-Y {
+    margin-right: 0.07em;
+  }
+  .pull-O,
+  .pull-C,
+  .pull-o,
+  .pull-c {
+    margin-left: -0.04em;
+  }
+  .push-O,
+  .push-C,
+  .push-o,
+  .push-c {
+    margin-right: 0.04em;
+  }
+  .pull-A {
+    margin-left: -0.03em;
+  }
+  .push-A {
+    margin-right: 0.03em;
+  }
+}
+
+@if map-get($typography, 'hangPunctuation') {
+  .pull-single {
+    margin-left: -0.27em;
+  }
+  .push-single {
+    margin-right: 0.27em;
+  }
+  .pull-double,
+  .push-double,
+  .pull-single,
+  .push-single {
+    display: inline-block;
+  }
+  .pull-double {
+    margin-left: -0.46em;
+  }
+  .push-double {
+    margin-right: 0.46em;
+  }
+}
