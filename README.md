@@ -114,6 +114,9 @@ controlled per-email:
 - Preventing widows by automatically including a non-breaking space between the
   last two words of a paragraph with
   [string-remove-widows](https://codsen.com/os/string-remove-widows).
+- Enforcing
+  [proper image `alt` tags](https://support.siteimprove.com/hc/en-gb/articles/115000013031-Accessibility-Image-Alt-text-best-practices)
+  and making sure the supplied text doesn't break email code parsers.
 - [Padding preview/preheader text](https://www.goodemailcode.com/email-code/preheader)
   to prevent things like navigation menu items from being included there.
 - Feel free to
