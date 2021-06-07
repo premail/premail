@@ -114,6 +114,21 @@ details:
     # https://codsen.com/os/string-remove-widows
     removeWidows: true
 
+  # enforceImageAlt: When set to true, image tags will be required to have "alt"
+  # tags, and ones that conform to accessibility and HTML guidelines. Alt tags
+  # are important for recipients who have images turned off (including, by
+  # default, all Gmail users), screen readers, and deliverability. An image that
+  # has no alt text defined will be given an empty alt tag, which is the correct
+  # method for images that are purely decorative. Resources:
+  # https://davidwalsh.name/accessibility-tip-empty-alt-attributes
+  # https://www.w3.org/WAI/tutorials/images/decorative/
+  # https://accessibleweb.com/question-answer/when-should-i-use-a-null-or-empty-alt-tag/
+  # https://support.siteimprove.com/hc/en-gb/articles/115000013031-Accessibility-Image-Alt-text-best-practices
+  #
+  # For more information about the filters applied using this tool, see
+  # https://codsen.com/os/html-img-alt
+  enforceImageAlt: true
+
   # previewPad: When set to true, appends spaces to the preview or preheader
   # text you enter to ensure that the rest of the content of your email isn't
   # pulled up into the preview. Resources:

@@ -17,6 +17,7 @@ const mjml = require('gulp-mjml')
 const mjmlEngine = require('mjml')
 const typeset = require('typeset')
 const { removeWidows } = require('string-remove-widows')
+const { alts } = require('html-img-alt')
 const transform = require('vinyl-transform')
 const map = require('map-stream')
 const { htmlToText } = require('html-to-text')
@@ -228,6 +229,16 @@ function email (cb) {
         typographyOpts.display,
         'Typographical enhancements performed:'
       )
+    }
+
+    // Enforce proper image alt tags
+    const enforceImageAltGo = tap(function (file) {
+      const enforceImageAltResult = alts(file.contents.toString())
+      file.contents = Buffer.from(enforceImageAltResult)
+    })
+
+    if (config.user.details.enforceImageAlt) {
+      stream = stream.pipe(enforceImageAltGo)
     }
 
     // Write HTML version
