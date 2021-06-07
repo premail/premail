@@ -43,6 +43,11 @@ exports.build.flags = {
   '--debug': 'Display details about configuration and settings.',
 }
 
+// Provide one-off versions of build tasks
+exports.buildStyles = build.styles
+exports.buildEmail = build.email
+exports.buildText = build.text
+
 // Watch
 exports.watch = series(
   showConfig,
