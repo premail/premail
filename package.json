@@ -41,6 +41,7 @@
     "gulp-sass": "^4.1.0",
     "gulp-tap": "^2.0.0",
     "handlebars-helpers": "^0.10.0",
+    "html-crush": "^4.2.0",
     "html-img-alt": "^2.1.0",
     "html-to-text": "github:html-to-text/node-html-to-text#selectors",
     "js-yaml": "^4.1.0",

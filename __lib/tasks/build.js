@@ -18,6 +18,7 @@ const mjmlEngine = require('mjml')
 const typeset = require('typeset')
 const { removeWidows } = require('string-remove-widows')
 const { alts } = require('html-img-alt')
+const { crush } = require('html-crush')
 const transform = require('vinyl-transform')
 const map = require('map-stream')
 const { htmlToText } = require('html-to-text')
@@ -195,6 +196,18 @@ function email (cb) {
         })
     }
 
+    // Give production output a little extra minification
+    if (flags.prod) {
+      stream = stream.pipe(
+        tap(function (file) {
+          const crushResult = crush(file.contents.toString(), {
+            removeLineBreaks: true,
+          })
+          file.contents = Buffer.from(crushResult.result)
+        })
+      )
+    }
+
     // Apply typographical enhancements
     const typesetGo = transform(function (filename) {
       return map(function (chunk, next) {
@@ -207,17 +220,17 @@ function email (cb) {
 
     stream = stream.pipe(typesetGo)
 
-    const removeWidowsGo = tap(function (file) {
-      const removeWidowsResult = removeWidows(
-        file.contents.toString(),
-        typographyOpts.removeWidows.options
-      )
-      file.contents = Buffer.from(removeWidowsResult.res)
-    })
+    // const removeWidowsGo = tap(function (file) {
+    //   const removeWidowsResult = removeWidows(
+    //     file.contents.toString(),
+    //     typographyOpts.removeWidows.options
+    //   )
+    //   file.contents = Buffer.from(removeWidowsResult.res)
+    // })
 
-    if (typographyOpts.removeWidows.status) {
-      stream = stream.pipe(removeWidowsGo)
-    }
+    // if (typographyOpts.removeWidows.status) {
+    //   stream = stream.pipe(removeWidowsGo)
+    // }
 
     if (flags.debug) {
       typographyOpts.display = Object.assign(
@@ -232,14 +245,12 @@ function email (cb) {
     }
 
     // Enforce proper image alt tags
-    const enforceImageAltGo = tap(function (file) {
-      const enforceImageAltResult = alts(file.contents.toString())
-      file.contents = Buffer.from(enforceImageAltResult)
-    })
-
-    if (config.user.details.enforceImageAlt) {
-      stream = stream.pipe(enforceImageAltGo)
-    }
+    stream = stream.pipe(
+      tap(function (file) {
+        const enforceImageAltResult = alts(file.contents.toString())
+        file.contents = Buffer.from(enforceImageAltResult)
+      })
+    )
 
     // Write HTML version
     stream = stream

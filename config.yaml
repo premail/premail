@@ -112,7 +112,8 @@ details:
     # between the last two words in a paragraph to ensure that at least two
     # words will appear on a line. See
     # https://codsen.com/os/string-remove-widows
-    removeWidows: true
+    # removeWidows: true
+    ## TEMPORARILY DISABLED
 
   # enforceImageAlt: When set to true, image tags will be required to have "alt"
   # tags, and ones that conform to accessibility and HTML guidelines. Alt tags

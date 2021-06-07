@@ -69,7 +69,7 @@ Then just drop the code from the file into your email service provider's system.
 # Features
 
 - MJML-standard bulletproof code that will look its best across all email
-  clients.
+  clients, reduced to the smallest possible size.
 
 - Component-based templates that allow you to separate out things that don't
   often change (navigation menus, social media links, unsubscribe text) and
@@ -113,7 +113,8 @@ controlled per-email:
   [Typeset](https://github.com/davidmerfield/typeset#readme).
 - Preventing widows by automatically including a non-breaking space between the
   last two words of a paragraph with
-  [string-remove-widows](https://codsen.com/os/string-remove-widows).
+  [string-remove-widows](https://codsen.com/os/string-remove-widows)
+  (temporarily disabled until a future release).
 - Enforcing
   [proper image `alt` tags](https://support.siteimprove.com/hc/en-gb/articles/115000013031-Accessibility-Image-Alt-text-best-practices)
   and making sure the supplied text doesn't break email code parsers.
