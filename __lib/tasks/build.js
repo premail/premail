@@ -16,9 +16,11 @@ const helpers = require('handlebars-helpers')(['comparison'])
 const mjml = require('gulp-mjml')
 const mjmlEngine = require('mjml')
 const typeset = require('typeset')
+const { stripHtml } = require('string-strip-html')
 const { removeWidows } = require('string-remove-widows')
 const { alts } = require('html-img-alt')
 const { crush } = require('html-crush')
+const { det } = require('detergent')
 const transform = require('vinyl-transform')
 const map = require('map-stream')
 const { htmlToText } = require('html-to-text')
@@ -114,20 +116,33 @@ function styles () {
 }
 
 //
-// Load MJML partials into memory.
+// Preprocess content partials
 //
-function loadPartials () {
+function preprocess () {
   return pipeline(
     src(config.current.templates.array),
+
     tap(function (file) {
-      rendered.partials[path.basename(file.path)] = file.contents.toString()
+      // Load partials
+      let partial = file.contents.toString()
+
+      // Run detergent.io
+      partial = det(partial, {
+        removeLineBreaks: true,
+        stripHtml: false,
+      }).res
+
+      // Save to object
+      rendered.partials[path.basename(file.path)] = partial
     }),
+
+    // Error handling
     err => {
       if (err) {
         e.e(err)
         process.exit(1)
       } else {
-        notify.msg('debug', 'MJML partials loaded.')
+        notify.msg('debug', 'Preprocessing complete.')
       }
     }
   )
@@ -226,18 +241,6 @@ function email (cb) {
     })
 
     stream = stream.pipe(typesetGo)
-
-    // const removeWidowsGo = tap(function (file) {
-    //   const removeWidowsResult = removeWidows(
-    //     file.contents.toString(),
-    //     typographyOpts.removeWidows.options
-    //   )
-    //   file.contents = Buffer.from(removeWidowsResult.res)
-    // })
-
-    // if (typographyOpts.removeWidows.status) {
-    //   stream = stream.pipe(removeWidowsGo)
-    // }
 
     if (flags.debug) {
       typographyOpts.display = Object.assign(
@@ -354,7 +357,7 @@ function text (cb) {
 }
 
 module.exports = {
-  loadPartials,
+  preprocess,
   styles,
   email,
   text,

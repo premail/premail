@@ -28,7 +28,7 @@ exports.default = series(
   showConfig,
   formatTemplates,
   clean.generated,
-  build.loadPartials,
+  build.preprocess,
   build.styles,
   build.email,
   build.text
@@ -53,8 +53,10 @@ exports.buildText = build.text
 exports.watch = series(
   showConfig,
   formatTemplates,
+  build.preprocess,
   build.styles,
   build.email,
+  build.text,
   watchEmail
 )
 exports.watch.description =

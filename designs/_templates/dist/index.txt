@@ -27,7 +27,6 @@ sapien dictum mattis a et tellus.
 Take action
 
 AN ILLUSTRATIVE PICTURE
-
 Find out more
 
 Suspendisse lacinia, diam in malesuada fermentum, urna odio
@@ -50,8 +49,7 @@ quam, vel vestibulum ligula. Fusce fringilla, elit in
 aliquam pretium, sapien erat luctus sem, et finibus neque
 quam ut dolor. Aenean non dictum nibh.
 
-AN IMAGE WORTH 999 WORDS
-
+AN IMAGE WORTH 999 WORDS
 Add your thoughts
 
 Thank You,
