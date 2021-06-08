@@ -25,7 +25,7 @@
 
   <mj-head>
     <!-- Title -->
-    <mj-include path="content/title.mjml" />
+    <mj-title>{{> title.mjml}}</mj-title>
 
     {{#if theme.fonts.web}}
     <!-- `mj-font` element needs to be outside `mj-attributes`
@@ -238,7 +238,7 @@
     </mj-attributes>
 
     <!-- Preview text -->
-    <mj-include path="content/preview.mjml" />
+    <mj-preview>{{> preview.mjml}}</mj-preview>
   </mj-head>
 
   <!-- Email body start -->
@@ -250,13 +250,13 @@
       css-class="component-topNav nav nav--top"
       mj-class="component-topNav nav nav--top"
     >
-      <mj-include path="structure/topNav.mjml" />
+      {{> topNav.mjml}}
     </mj-wrapper>
 
     <!-- Hero or header area -->
 
     <mj-wrapper css-class="component-banner" mj-class="component-banner">
-      <mj-include path="content/banner.mjml" />
+      {{> banner.mjml}}
     </mj-wrapper>
 
     <!-- Salutation, aka "Dear friend," -->
@@ -265,25 +265,25 @@
       css-class="component-salutation"
       mj-class="component-salutation"
     >
-      <mj-include path="content/salutation.mjml" />
+      {{> salutation.mjml}}
     </mj-wrapper>
 
     <!-- Primary content -->
 
     <mj-wrapper css-class="component-body" mj-class="component-body">
-      <mj-include path="content/body.mjml" />
+      {{> body.mjml}}
     </mj-wrapper>
 
     <!-- Sign-off, signature or closing -->
 
     <mj-wrapper css-class="component-signoff" mj-class="component-signoff">
-      <mj-include path="content/signoff.mjml" />
+      {{> signoff.mjml}}
     </mj-wrapper>
 
     <!-- Social links -->
 
     <mj-wrapper css-class="component-social" mj-class="component-social">
-      <mj-include path="structure/social.mjml" />
+      {{> social.mjml}}
     </mj-wrapper>
 
     <!-- Bottom navigation -->
@@ -292,13 +292,13 @@
       css-class="component-bottomNav nav nav--bottom"
       mj-class="component-bottomNav nav nav--bottom"
     >
-      <mj-include path="structure/bottomNav.mjml" />
+      {{> bottomNav.mjml}}
     </mj-wrapper>
 
     <!-- Footer -->
 
     <mj-wrapper css-class="component-footer" mj-class="component-footer">
-      <mj-include path="structure/footer.mjml" />
+      {{> footer.mjml}}
     </mj-wrapper>
 
     <!-- Body closure -->

@@ -77,7 +77,6 @@ Object.keys(typographyOpts.typeset).forEach(key => {
 //
 // Build CSS files from Sass source files.
 //
-
 function styles () {
   // Set styles source
   const sourceStyles = config.current.theme.path + '/**/*.scss'
@@ -115,6 +114,26 @@ function styles () {
 }
 
 //
+// Load MJML partials into memory.
+//
+function loadPartials () {
+  return pipeline(
+    src(config.current.templates.array),
+    tap(function (file) {
+      rendered.partials[path.basename(file.path)] = file.contents.toString()
+    }),
+    err => {
+      if (err) {
+        e.e(err)
+        process.exit(1)
+      } else {
+        notify.msg('debug', 'MJML partials loaded.')
+      }
+    }
+  )
+}
+
+//
 // Render templates through Handlebars into email-ready HTML.
 //
 function email (cb) {
@@ -123,19 +142,7 @@ function email (cb) {
     notify.msg('error', config.file.internal.messages.templateMissing)
     cb()
   } else {
-    // @TODO: Load config.current.templates.all without confusing MJML.
     let stream = src(config.current.templates.main)
-      // Load partials into memory
-      .pipe(
-        tap(function (file) {
-          const ext = path.extname(file.path)
-          if (ext === '.mjml') {
-            rendered.partials[
-              path.basename(file.path)
-            ] = file.contents.toString()
-          }
-        })
-      )
 
     // Process Handlebars data
     stream = stream
@@ -144,7 +151,7 @@ function email (cb) {
           .partials({
             // Rendered files
             ...rendered.styles,
-            // ...rendered.partials,
+            ...rendered.partials,
           })
           .helpers(helpers) // Handlebars helpers from 'require' at top
           .data(config) // Data, which for Handlebars are config values
@@ -347,6 +354,7 @@ function text (cb) {
 }
 
 module.exports = {
+  loadPartials,
   styles,
   email,
   text,

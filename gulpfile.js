@@ -28,6 +28,7 @@ exports.default = series(
   showConfig,
   formatTemplates,
   clean.generated,
+  build.loadPartials,
   build.styles,
   build.email,
   build.text
