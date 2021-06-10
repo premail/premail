@@ -35,46 +35,19 @@ const notify = require('../vars/notify.js')
 // Set up variables needed across the build.
 //
 
-// Create in-memory container for rendered files
-const rendered = {}
-rendered.styles = {}
-rendered.partials = {}
+// Create in-memory container for files as they are built
+const built = {
+  styles: {},
+  partials: {},
+  html: {},
+  posthtml: {},
+}
 
 // Set destinations
 const fileHTML = 'index.html'
 const fileText = 'index.txt'
 const destHTML = path.join(config.current.dist, fileHTML)
 const destText = path.join(config.current.dist, fileText)
-
-// Set typographical options
-const typographyOpts = {
-  // Widow removal
-  removeWidows: {
-    status: config.user.details.typography.removeWidows,
-    options: config.file.internal.details.removeWidowOpts,
-  },
-  // Configurable Typeset options
-  typeset: {
-    hyphenate: false,
-    hangingPunctuation: config.user.details.typography.hangPunctuation,
-    ligatures: false,
-    punctuation: config.user.details.typography.improveDashAndEllip,
-    quotes: config.user.details.typography.improveQuoteAndApostrophe,
-    smallCaps: config.user.details.typography.enableSmallCaps,
-  },
-  // Typeset options requiring CSS styling
-  typesetCSS: {
-    opticallyAlignLetters: config.user.details.typography.opticallyAlignLetters,
-    enableSmallCaps: config.user.details.typography.enableSmallCaps,
-  },
-  // Generate array of Typeset features to disable
-  typesetDisable: [],
-}
-Object.keys(typographyOpts.typeset).forEach(key => {
-  if (!typographyOpts.typeset[key]) {
-    typographyOpts.typesetDisable.push(key)
-  }
-})
 
 //
 // Build CSS files from Sass source files.
@@ -86,7 +59,7 @@ function styles () {
   return pipeline(
     src(sourceStyles),
 
-    // Render CSS
+    // Build CSS
     sass({
       fiber: Fiber,
       outputStyle: 'compressed',
@@ -99,9 +72,9 @@ function styles () {
       }),
     }),
 
-    // Save rendered CSS to memory
+    // Save built CSS to memory
     tap(function (file) {
-      rendered.styles[path.basename(file.path)] = file.contents.toString()
+      built.styles[path.basename(file.path)] = file.contents.toString()
     }),
 
     err => {
@@ -116,9 +89,9 @@ function styles () {
 }
 
 //
-// Preprocess content partials
+// Prerender content partials
 //
-function preprocess () {
+function prerender () {
   return pipeline(
     src(config.current.templates.array),
 
@@ -133,7 +106,7 @@ function preprocess () {
       }).res
 
       // Save to object
-      rendered.partials[path.basename(file.path)] = partial
+      built.partials[path.basename(file.path)] = partial
     }),
 
     // Error handling
@@ -142,21 +115,36 @@ function preprocess () {
         e.e(err)
         process.exit(1)
       } else {
-        notify.msg('debug', 'Preprocessing complete.')
+        notify.msg('debug', 'Prerendering content complete.')
       }
     }
   )
 }
 
 //
-// Render templates through Handlebars into email-ready HTML.
+// Render MJML templates from Handlebars data
 //
-function email (cb) {
+function render (cb) {
+  // HTML build options
+  const htmlBuild = {
+    options: config.file.internal.htmlBuild.options,
+  }
+
+  if (flags.prod) {
+    htmlBuild.options.beautify = false
+    htmlBuild.options.minify = true
+    htmlBuild.options.keepComments = false
+  }
+
   // Check to make sure template file exists
   if (!fs.existsSync(config.current.templates.main)) {
     notify.msg('error', config.file.internal.messages.templateMissing)
     cb()
   } else {
+    // @TODO: Rewrite using pipeline() instead of .pipe, as with the other
+    // tasks. Main blocker on this right now is gulp-hb, which only works with
+    // .pipe -- thus Handlebars would need to be implemented directly, e.g.
+    // manually registering partials and using gulp-tap to process files.
     let stream = src(config.current.templates.main)
 
     // Process Handlebars data
@@ -164,9 +152,9 @@ function email (cb) {
       .pipe(
         hb() // For details on build, insert { debug: true }
           .partials({
-            // Rendered files
-            ...rendered.styles,
-            ...rendered.partials,
+            // Anything used as a Handlebars include is a partial
+            ...built.styles,
+            ...built.partials,
           })
           .helpers(helpers) // Handlebars helpers from 'require' at top
           .data(config) // Data, which for Handlebars are config values
@@ -187,97 +175,142 @@ function email (cb) {
     // Uncomment the next line to write the rendered template to disk.
     // stream = stream.pipe(dest(path.dirname(destHTML)))
 
-    // Render MJML into HTML
-    if (flags.prod) {
-      stream = stream
-        .pipe(
-          mjml(mjmlEngine, {
-            validationLevel: 'strict',
-            fileExt: config.user.files.templateExt,
-            beautify: false,
-            minify: true,
-            keepComments: false,
-          })
-        )
-        .on('error', e.mjmlError)
-        .on('end', function (source) {
-          notify.msg('debug', config.file.internal.messages.completeMJML)
-        })
-    } else {
-      stream = stream
-        .pipe(
-          mjml(mjmlEngine, {
-            validationLevel: 'strict',
-            fileExt: config.user.files.templateExt,
-            beautify: true,
-          })
-        )
-        .on('error', e.mjmlError)
-        .on('end', function (source) {
-          notify.msg('debug', config.file.internal.messages.completeMJML)
-        })
-    }
+    // Build HTML version
+    stream = stream
+      .pipe(mjml(mjmlEngine, htmlBuild.options))
+      .on('error', e.mjmlError)
+      .on('end', function (source) {
+        notify.msg('debug', config.file.internal.messages.completeMJML)
+      })
 
     // Give production output a little extra minification
-    if (flags.prod) {
-      stream = stream.pipe(
-        tap(function (file) {
+    stream = stream.pipe(
+      tap(function (file) {
+        if (flags.prod) {
           const crushResult = crush(file.contents.toString(), {
             removeLineBreaks: true,
           })
           file.contents = Buffer.from(crushResult.result)
-        })
-      )
-    }
-
-    // Apply typographical enhancements
-    const typesetGo = transform(function (filename) {
-      return map(function (chunk, next) {
-        return next(
-          null,
-          typeset(chunk, { disable: typographyOpts.typesetDisable })
-        )
-      })
-    })
-
-    stream = stream.pipe(typesetGo)
-
-    if (flags.debug) {
-      typographyOpts.display = Object.assign(
-        typographyOpts.typeset,
-        typographyOpts.typesetCSS
-      )
-      typographyOpts.display.removeWidows = typographyOpts.removeWidows.status
-      notify.unjson(
-        typographyOpts.display,
-        'Typographical enhancements performed:'
-      )
-    }
-
-    // Enforce proper image alt tags
-    stream = stream.pipe(
-      tap(function (file) {
-        const enforceImageAltResult = alts(file.contents.toString())
-        file.contents = Buffer.from(enforceImageAltResult)
+        }
       })
     )
 
-    // Write HTML version
-    stream = stream
-      .pipe(dest(path.dirname(destHTML)))
-      .on('end', function (source) {
-        notify.msg('info', destHTML, 'HTML file saved:')
-        if (flags.prod) {
-          notify.msg('warn', config.file.internal.messages.productionBuild)
-        }
+    // Save to object
+    stream = stream.pipe(
+      tap(function (file) {
+        built.html[path.basename(file.path)] = file.contents.toString('utf8')
       })
+    )
 
     return stream
   }
 }
 
 //
-// Render optional plain-text version.
+// Postrender content (applies to HTML version only)
+//
+function postrender (cb) {
+  // Typographical enhancement options
+  const typographyOpts = {
+    // Widow removal
+    removeWidows: {
+      status: config.user.details.typography.removeWidows,
+      options: config.file.internal.details.removeWidowOpts,
+    },
+    // Configurable Typeset options
+    typeset: {
+      hyphenate: false,
+      hangingPunctuation: config.user.details.typography.hangPunctuation,
+      ligatures: false,
+      punctuation: config.user.details.typography.improveDashAndEllip,
+      quotes: config.user.details.typography.improveQuoteAndApostrophe,
+      smallCaps: config.user.details.typography.enableSmallCaps,
+    },
+    // Typeset options requiring CSS styling
+    typesetCSS: {
+      opticallyAlignLetters:
+        config.user.details.typography.opticallyAlignLetters,
+      enableSmallCaps: config.user.details.typography.enableSmallCaps,
+    },
+    // Generate array of Typeset features to disable
+    typesetDisable: [],
+  }
+  Object.keys(typographyOpts.typeset).forEach(key => {
+    if (!typographyOpts.typeset[key]) {
+      typographyOpts.typesetDisable.push(key)
+    }
+  })
+
+  // Create object to display configured options
+  typographyOpts.display = Object.assign(
+    typographyOpts.typeset,
+    typographyOpts.typesetCSS
+  )
+  typographyOpts.display.removeWidows = typographyOpts.removeWidows.status
+
+  return pipeline(
+    src(built.html),
+
+    // Apply typographical enhancements
+    transform(function (filename) {
+      return map(function (chunk, next) {
+        return next(
+          null,
+          typeset(chunk, { disable: typographyOpts.typesetDisable })
+        )
+      })
+    }),
+
+    // if (flags.debug) {
+    //   notify.unjson(
+    //     typographyOpts.display,
+    //     'Typographical enhancements performed:'
+    //   ),
+    // }
+
+    tap(function (file) {
+      // Enforce proper image alt tags
+      const enforceImageAltResult = alts(file.contents.toString())
+      file.contents = Buffer.from(enforceImageAltResult)
+
+      // Save to object
+      built.posthtml[path.basename(file.path)] = file.contents.toString()
+    }),
+
+    // Error handling
+    err => {
+      if (err) {
+        e.e(err)
+        process.exit(1)
+      } else {
+        notify.msg('debug', 'Rendering HTML complete.')
+      }
+    }
+  )
+}
+
+//
+// Write HTML version
+//
+function html (cb) {
+  return pipeline(
+    src(built.html),
+    dest(path.dirname(destHTML)),
+
+    // Error handling
+    err => {
+      if (err) {
+        e.e(err)
+        process.exit(1)
+      } else {
+        notify.msg('debug', 'Writing HTML complete.')
+      }
+    }
+  )
+}
+
+//
+// Build optional plain-text version.
 //
 function text (cb) {
   const textBuild = {
@@ -285,80 +318,68 @@ function text (cb) {
   }
 
   if (config.user.text.generate) {
-    // Check to make sure HTML version exists
-    if (!fs.existsSync(destHTML)) {
-      notify.msg(
-        'error',
-        'HTML version not found and must be created first.',
-        'Plain-text version not created'
-      )
-      cb()
-    } else {
-      let stream = src(destHTML)
-
-      // Plain-text options
-      textBuild.status = true
-      textBuild.options = config.file.internal.textBuild.options
-      textBuild.options.baseElement = []
-      textBuild.include = {
-        images: {},
-        partials: {},
-      }
-
-      // Include image URIs if requested
-      if (config.user.text.images) {
-        textBuild.include.images = true
-        delete textBuild.options.tags.img
-      } else {
-        textBuild.include.images = false
-      }
-
-      // Override default partial includes with user config, if set, and name
-      // base elements
-      Object.keys(config.user.text.include).forEach(key => {
-        Object.assign(textBuild.include.partials, config.user.text.include)
-        if (config.user.text.include[key] === true) {
-          textBuild.options.baseElement.push('div.component-' + key)
-        }
-      })
-
-      // Plain-text conversion
-      stream = stream
-        .pipe(
-          tap(function (file) {
-            file.contents = Buffer.from(
-              htmlToText(file.contents.toString(), textBuild.options)
-            )
-          })
-        )
-        .on('error', e.textError)
-        .on('finish', function (source) {
-          if (flags.debug) {
-            notify.unjson(
-              textBuild.include,
-              'Plain-text version built. Options configured:'
-            )
-          }
-        })
-
-        // Write plain-text file
-        .pipe(rename(fileText))
-        .pipe(dest(path.dirname(destText)))
-        .on('end', function (source) {
-          notify.msg('info', destText, 'Plain-text version saved:')
-        })
-
-      return stream
+    // Plain-text build options
+    textBuild.status = true
+    textBuild.options = config.file.internal.textBuild.options
+    textBuild.options.baseElement = []
+    textBuild.include = {
+      images: {},
+      partials: {},
     }
+
+    // Include image URIs if requested
+    if (config.user.text.images) {
+      textBuild.include.images = true
+      delete textBuild.options.tags.img
+    } else {
+      textBuild.include.images = false
+    }
+
+    // Override default partial includes with user config, if set, and name
+    // base elements
+    Object.keys(config.user.text.include).forEach(key => {
+      Object.assign(textBuild.include.partials, config.user.text.include)
+      if (config.user.text.include[key] === true) {
+        textBuild.options.baseElement.push('div.component-' + key)
+      }
+    })
+
+    return pipeline(
+      // Build from rendered HTML, not postrendered HTML
+      src(built.html),
+
+      tap(function (file) {
+        // Plain-text conversion
+        file.contents = Buffer.from(
+          htmlToText(file.contents.toString(), textBuild.options)
+        )
+      }),
+
+      // Write plain-text file
+      rename(fileText),
+      dest(path.dirname(destText)),
+
+      // Error handling
+      err => {
+        if (err) {
+          e.e(err)
+          process.exit(1)
+        } else {
+          notify.msg('debug', 'Writing plain-text complete.')
+        }
+      }
+    )
   } else {
     notify.msg('info', config.file.internal.messages.plaintextOff)
-    cb()
+    process.exit(1)
   }
 }
 
 module.exports = {
-  preprocess,
+  prerender,
   styles,
-  email,
+  render,
+  postrender,
+  html,
   text,
 }

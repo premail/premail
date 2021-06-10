@@ -19,19 +19,24 @@ const formatTemplates = require(taskDir + 'formatTemplates.js')
 
 // Tell gulp tasks to use display names instead of function names
 clean.generated.displayName = 'clean.generated'
-build.styles.displayName = 'build.styles'
-build.email.displayName = 'build.email'
-build.text.displayName = 'build.text'
+// build.styles.displayName = 'build.styles'
+// build.html.displayName = 'build.email'
+// build.text.displayName = 'build.text'
 
 // Sets
 exports.default = series(
   showConfig,
   formatTemplates,
   clean.generated,
-  build.preprocess,
-  build.styles,
-  build.email,
-  build.text
+  parallel(build.prerender, build.styles),
+  build.render,
+  parallel(
+    series(
+      // build.postrender,
+      build.html
+    )
+    // build.text
+  )
 )
 
 exports.build = exports.default
@@ -45,18 +50,17 @@ exports.build.flags = {
 }
 
 // Provide one-off versions of build tasks
-exports.buildStyles = build.styles
-exports.buildEmail = build.email
-exports.buildText = build.text
+// exports.buildStyles = build.styles
+// exports.buildEmail = build.email
+// exports.buildText = build.text
 
 // Watch
 exports.watch = series(
   showConfig,
   formatTemplates,
-  build.preprocess,
-  build.styles,
-  build.email,
-  build.text,
+  parallel(build.prerender, build.styles),
+  build.render,
+  parallel(series(build.postrender, build.html), build.text),
   watchEmail
 )
 exports.watch.description =
@@ -67,7 +71,7 @@ exports.formatTemplates = formatTemplates
 exports.formatTemplates.description = 'Format templates with Prettier.'
 
 // Clean
-exports.clean = parallel(clean.generated)
+exports.clean = clean.generated
 exports.clean.description =
   'Remove generated files from the current design or email.'
 
