@@ -4,12 +4,12 @@ messages:
   cleaning:
     body: 'Removing generated files...'
   completeHandlebars:
-    body: 'Handlebars processing complete'
+    body: 'Handlebars processing finished.'
   completeMJML:
-    body: 'MJML processing complete'
+    body: 'MJML processing finished.'
   productionBuild:
     title: 'Production:'
-    body: 'Minified with HTML comments stripped'
+    body: 'Minified with HTML comments stripped.'
   templateMissing:
     title: 'Main template file cannot be found'
     body: 'Check the filename specified in your `config.yaml` file.'

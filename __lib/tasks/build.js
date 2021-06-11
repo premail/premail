@@ -248,6 +248,7 @@ function render (cb) {
         // Add in the Handlebars data (config)
         const processedTemplate = format(config)
         file.contents = Buffer.from(processedTemplate, 'utf-8')
+        notify.msg('debug', config.file.internal.messages.completeHandlebars)
       }),
 
       // Uncomment the next line to write the rendered template to disk.
@@ -255,6 +256,9 @@ function render (cb) {
 
       // Compile MJML into HTML
       mjml(mjmlEngine, htmlBuild.options),
+      tap(function (file) {
+        notify.msg('debug', config.file.internal.messages.completeMJML)
+      }),
 
       // Enforce proper image alt tags
       tap(function (file) {
