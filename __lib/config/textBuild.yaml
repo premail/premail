@@ -1,10 +1,6 @@
 # Default plain-text build configuration
 textBuild:
   options:
-    selectors:
-      - # Skip mobile navigation container
-        selector: 'div.mj-menu-trigger'
-        format: 'skip'
     tables: true
     tags:
       img:

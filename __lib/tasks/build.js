@@ -197,6 +197,18 @@ function render (cb) {
       partials: {},
     }
 
+    // Load user-configurable CSS selectors to skip
+    if (config.user.text.skipSelectors) {
+      textBuild.options.selectors = []
+      config.user.text.skipSelectors.forEach(element => {
+        const obj = {
+          selector: element,
+          format: 'skip',
+        }
+        textBuild.options.selectors.push(obj)
+      })
+    }
+
     // Include image URIs if requested
     if (config.user.text.images) {
       textBuild.include.images = true

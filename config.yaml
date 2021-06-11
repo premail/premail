@@ -69,6 +69,13 @@ text:
     bottomNav: true
     footer: true
 
+  # Optionally provide a list of CSS selectors to remove from the text version.
+  # One selector per line; most CSS selectors and combinators supported.
+  # For more information about syntax, see
+  # https://github.com/html-to-text/node-html-to-text#selectors
+  skipSelectors:
+    - div.mj-menu-trigger # Remove the mobile navigation container and icons
+
 # 3. Language
 language:
   # Sets the default language wrapping each email. This must be set to a valid
