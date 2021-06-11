@@ -245,8 +245,8 @@ function render (cb) {
         const format = Handlebars.compile(contents, {
           strict: true,
         })
-        // Add in the Handlebars data (config)
-        const processedTemplate = format(config)
+        // Add in the Handlebars data (config) and helpers
+        const processedTemplate = format(config, helpers)
         file.contents = Buffer.from(processedTemplate, 'utf-8')
         notify.msg('debug', config.file.internal.messages.completeHandlebars)
       }),
