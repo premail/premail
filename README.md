@@ -110,11 +110,8 @@ controlled per-email:
 
 - Transforming quotes, apostrophes, and dashes to their correct typographical
   versions; optical character alignment; and true small-caps formatting with
+  [Detergent](https://codsen.com/os/detergent) and
   [Typeset](https://github.com/davidmerfield/typeset#readme).
-- Preventing widows by automatically including a non-breaking space between the
-  last two words of a paragraph with
-  [string-remove-widows](https://codsen.com/os/string-remove-widows)
-  (temporarily disabled until a future release).
 - Enforcing
   [proper image `alt` tags](https://support.siteimprove.com/hc/en-gb/articles/115000013031-Accessibility-Image-Alt-text-best-practices)
   and making sure the supplied text doesn't break email code parsers.
@@ -238,10 +235,10 @@ Once the production email is rendered, you can:
 
 - Copy the code from `index.html` into your emailer of choice; all the code and
   styles are included!
-- Use the `index.txt` plain-text version, if you've chosen to have one created,
-  in the appropriate place provided by your emailer.
-- Share the `index` files with colleagues.
-- Upload the file as part of a repo and use something like
+- Copy the `index.txt` plain-text version, if you've chosen to have one created,
+  into the appropriate place provided by your emailer.
+- Share these files with colleagues.
+- Upload the files as part of a repo and use something like
   [GitHub Pages](https://pages.github.com/) to view/share it in a browser -- for
   instance
   [here's the rendered file](https://rootwork.github.io/mjml-quickstart/designs/_templates/dist/index.html)
@@ -283,9 +280,10 @@ configuration and files being processed.
 │   ├── showConfig
 │   ├── formatTemplates
 │   ├── clean.generated
-│   ├── build.styles
-│   ├── build.email
-│   └── build.text
+│   ├─┬ <parallel>
+│   │ ├── build.content
+│   │ └── build.styles
+│   └── build.render
 ├─┬ build            Render a complete HTML email based on design and email templates.
 │ │      -d          …Specify design folder to use. (Default: _templates)
 │ │      -e          …Specify email folder to render.
@@ -295,20 +293,24 @@ configuration and files being processed.
 │   ├── showConfig
 │   ├── formatTemplates
 │   ├── clean.generated
-│   ├── build.styles
-│   ├── build.email
-│   └── build.text
+│   ├─┬ <parallel>
+│   │ ├── build.content
+│   │ └── build.styles
+│   └── build.render
+├── build.content
+├── build.styles
+├── build.render
 ├─┬ watch            Watch design and configuration files and rebuild (formatted, with comments) as necessary. Flags from `gulp build` can also be used.
 │ └─┬ <series>
 │   ├── showConfig
 │   ├── formatTemplates
-│   ├── build.styles
-│   ├── build.email
+│   ├─┬ <parallel>
+│   │ ├── build.content
+│   │ └── build.styles
+│   ├── build.render
 │   └── watchEmail
 ├── formatTemplates  Format templates with Prettier.
-├─┬ clean            Remove generated files from the current design or email.
-│ └─┬ <parallel>
-│   └── clean.generated
+├── clean.generated  Remove generated files from the current design or email.
 ├── showConfig       Display the current configuration being used when rendering your email files. Use with --debug
 ├── listTemplates    List all templates that will be processed. Use with --debug
 └── test             Run an empty gulp function for testing.
