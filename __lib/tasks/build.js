@@ -261,12 +261,10 @@ function render (cb) {
         file.contents = Buffer.from(alts(file.contents.toString()))
       }),
 
-      // Give production HTML a little extra minification
+      // Give production HTML a little extra minification (mostly around CSS)
       tap(function (file) {
         if (flags.prod) {
-          const crushResult = crush(file.contents.toString(), {
-            removeLineBreaks: true,
-          })
+          const crushResult = crush(file.contents.toString())
           file.contents = Buffer.from(crushResult.result)
         }
       }),
@@ -275,16 +273,18 @@ function render (cb) {
       rename(htmlBuild.file),
       dest(config.current.dist),
 
-      // @TODO: Create this as its own pipeline?
       // Plain-text conversion
-      tap(function (file) {
-        file.contents = Buffer.from(
-          htmlToText(file.contents.toString(), textBuild.options)
-        )
-      }),
-      rename(textBuild.file),
+      gulpif(
+        textBuild.status,
+        tap(function (file) {
+          file.contents = Buffer.from(
+            htmlToText(file.contents.toString(), textBuild.options)
+          )
+        })
+      ),
 
       // Write plain-text file
+      gulpif(textBuild.status, rename(textBuild.file)),
       gulpif(textBuild.status, dest(config.current.dist)),
 
       // Error handling

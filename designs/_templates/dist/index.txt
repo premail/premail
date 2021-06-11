@@ -5,8 +5,8 @@ Hero image title
 
 Dear $[FNAME|friend]$,
 
-Morbi fermentum est venenatis ex facilisis, quis bibendum
-lacus faucibus. Pellentesque vulputate auctor libero, ac
+Morbi fermentum — est venenatis ex facilisis, quis bibendum
+lacus faucibus. Pellentesque … vulputate auctor libero, ac
 maximus lacus mollis.
 
 
@@ -49,7 +49,7 @@ quam, vel vestibulum ligula. Fusce fringilla, elit in
 aliquam pretium, sapien erat luctus sem, et finibus neque
 quam ut dolor. Aenean non dictum nibh.
 
-AN IMAGE WORTH 999 WORDS
+AN IMAGE WORTH 999 WORDS
 Add your thoughts
 
 Thank You,
