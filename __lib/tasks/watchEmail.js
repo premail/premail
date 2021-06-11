@@ -44,7 +44,7 @@ module.exports = function watchEmail (done) {
     ],
     function styleRebuild (done) {
       build.styles()
-      notify.msg('info', 'Styles rebuilt.')
+      notify.msg('success', 'Styles rebuilt.')
       build.email()
       done()
     }

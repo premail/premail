@@ -61,7 +61,7 @@ function msg (type, message, title = null) {
         )
       }
       break
-    case 'info':
+    case 'success':
       symbolFormat = '\n ' + symbols.check
       if (title) {
         titleFormat = console.log(
@@ -74,6 +74,20 @@ function msg (type, message, title = null) {
         titleFormat = null
         messageFormat = console.log(
           ' ' + colors.green.greenBright(symbolFormat + ' ' + message) + ' \n'
+        )
+      }
+      break
+    case 'info':
+      symbolFormat = '\n ' + symbols.info
+      if (title) {
+        titleFormat = console.log(
+          ' ' + colors.cyan.bold(symbolFormat + ' ' + title + ' ') + ' '
+        )
+        messageFormat = console.log(colors.cyan('   ' + message))
+      } else {
+        titleFormat = null
+        messageFormat = console.log(
+          ' ' + colors.cyan(symbolFormat + ' ' + message) + ' \n'
         )
       }
       break

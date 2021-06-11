@@ -55,7 +55,6 @@
     "prettier": "^2.2.1",
     "pretty-error": "^3.0.3",
     "sass": "^1.32.8",
-    "string-remove-widows": "^2.1.0",
     "string-strip-html": "^8.3.0",
     "typeset": "^0.3.1",
     "vinyl-transform": "^1.0.0"

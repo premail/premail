@@ -19,4 +19,5 @@ messages:
       'You have enabled both a Google web font and a custom web font. MJML will
       only render the first provided web font.'
   plaintextOff:
-    body: 'Plain-text generation turned off.'
+    title: 'Plain-text generation turned off.'
+    body: 'Plain-text version will not be generated.'

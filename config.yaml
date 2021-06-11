@@ -51,7 +51,7 @@ text:
   # email being interpreted as spam. Resources:
   # https://www.litmus.com/blog/best-practices-for-plain-text-emails-a-look-at-why-theyre-important/
   # https://www.indiehackers.com/post/10-tips-for-better-email-deliverability-0f73b1fbee
-  generate: true
+  generate: false
 
   # When set to true, images are replaced by URLs to the image file in the
   # plaintext version. Set to false to omit these images completely. Any tags
@@ -84,13 +84,15 @@ details:
   # Typography settings apply to both your HTML version and (if generating) your
   # plain-text version.
   typography:
-    # improveQuoteAndApostrophe: Replaces instances of straight quotes and
+    # convertQuoteAndApostrophe: Replaces instances of straight quotes and
     # apostrophes (actually tick marks) with their curly equivalents.
-    improveQuoteAndApostrophe: true
-    # improveDashAndEllip: Replaces instances of em-dashes, en-dashes, and
-    # ellipses with their true typographical equivalents. For details, see
-    # https://github.com/davidmerfield/Typeset/blob/master/src/punctuation.js
-    improveDashAndEllip: true
+    convertQuoteAndApostrophe: true
+    # convertDash: Replaces instances of em-dashes and en-dashes, with their
+    # true typographical equivalents.
+    convertDash: true
+    # convertEllip: Replaces instances of three dots (...) with the HTML
+    # ellipsis character.
+    convertEllip: true
     # hangPunctuation: When punctuation (such as quotes) begins a line, move
     # them beyond the margin so that the first letter aligns with the margin.
     # See https://en.wikipedia.org/wiki/Hanging_punctuation
@@ -105,15 +107,6 @@ details:
     # back to regular-height caps when it isn't. See
     # https://en.wikipedia.org/wiki/Small_caps
     enableSmallCaps: true
-    # removeWidows: Technically, a widow is a single line "left over" on a
-    # paragraph that's been wrapped to another column. But on the web, where
-    # columns are less common, "widow" more often refers to a single word
-    # wrapped onto a line by itself. This tool inserts a non-breaking space
-    # between the last two words in a paragraph to ensure that at least two
-    # words will appear on a line. See
-    # https://codsen.com/os/string-remove-widows
-    # removeWidows: true
-    ## TEMPORARILY DISABLED
 
   # enforceImageAlt: When set to true, image tags will be required to have "alt"
   # tags, and ones that conform to accessibility and HTML guidelines. Alt tags
