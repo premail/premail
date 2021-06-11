@@ -44,8 +44,7 @@ const built = {
 // Set destinations
 // const fileHTML = 'index.html'
 // const fileText = 'index.txt'
-// const destHTML = path.join(config.current.dist, fileHTML)
-// const destText = path.join(config.current.dist, fileText)
+// const pathDist = config.current.dist
 
 //
 // Build CSS files from Sass source files.
@@ -168,7 +167,7 @@ function render (cb) {
       }),
 
       // Uncomment the next line to write the rendered template to disk.
-      // dest(path.dirname(destHTML)),
+      // dest(pathDist),
 
       // Error handling
       err => {
