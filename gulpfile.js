@@ -19,24 +19,17 @@ const formatTemplates = require(taskDir + 'formatTemplates.js')
 
 // Tell gulp tasks to use display names instead of function names
 clean.generated.displayName = 'clean.generated'
-// build.styles.displayName = 'build.styles'
-// build.html.displayName = 'build.email'
-// build.text.displayName = 'build.text'
+build.content.displayName = 'build.content'
+build.styles.displayName = 'build.styles'
+build.render.displayName = 'build.render'
 
 // Sets
 exports.default = series(
   showConfig,
   formatTemplates,
   clean.generated,
-  parallel(build.prerender, build.styles),
-  build.render,
-  parallel(
-    series(
-      // build.postrender,
-      build.html
-    )
-    // build.text
-  )
+  parallel(build.content, build.styles),
+  build.render
 )
 
 exports.build = exports.default
@@ -50,17 +43,16 @@ exports.build.flags = {
 }
 
 // Provide one-off versions of build tasks
-// exports.buildStyles = build.styles
-// exports.buildEmail = build.email
-// exports.buildText = build.text
+exports.buildContent = build.content
+exports.buildStyles = build.styles
+exports.buildRender = build.render
 
 // Watch
 exports.watch = series(
   showConfig,
   formatTemplates,
-  parallel(build.prerender, build.styles),
+  parallel(build.content, build.styles),
   build.render,
-  parallel(series(build.postrender, build.html), build.text),
   watchEmail
 )
 exports.watch.description =

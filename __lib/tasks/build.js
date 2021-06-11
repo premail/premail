@@ -38,9 +38,7 @@ const notify = require('../vars/notify.js')
 // Create in-memory container for files as they are built
 const built = {
   styles: {},
-  partials: {},
-  html: {},
-  posthtml: {},
+  content: {},
 }
 
 // Set destinations
@@ -89,24 +87,24 @@ function styles () {
 }
 
 //
-// Prerender content partials
+// Preprocess content
 //
-function prerender () {
+function content () {
   return pipeline(
     src(config.current.templates.array),
 
     tap(function (file) {
       // Load partials
-      let partial = file.contents.toString()
+      let content = file.contents.toString()
 
       // Run detergent.io
-      partial = det(partial, {
+      content = det(content, {
         removeLineBreaks: true,
         stripHtml: false,
       }).res
 
       // Save to object
-      built.partials[path.basename(file.path)] = partial
+      built.content[path.basename(file.path)] = content
     }),
 
     // Error handling
@@ -147,14 +145,16 @@ function render (cb) {
     // manually registering partials and using gulp-tap to process files.
     let stream = src(config.current.templates.main)
 
+    //
     // Process Handlebars data
+    //
     stream = stream
       .pipe(
         hb() // For details on build, insert { debug: true }
           .partials({
             // Anything used as a Handlebars include is a partial
             ...built.styles,
-            ...built.partials,
+            ...built.content,
           })
           .helpers(helpers) // Handlebars helpers from 'require' at top
           .data(config) // Data, which for Handlebars are config values
@@ -175,7 +175,9 @@ function render (cb) {
     // Uncomment the next line to write the rendered template to disk.
     // stream = stream.pipe(dest(path.dirname(destHTML)))
 
-    // Build HTML version
+    //
+    // Render MJML in HTML
+    //
     stream = stream
       .pipe(mjml(mjmlEngine, htmlBuild.options))
       .on('error', e.mjmlError)
@@ -183,7 +185,61 @@ function render (cb) {
         notify.msg('debug', config.file.internal.messages.completeMJML)
       })
 
-    // Give production output a little extra minification
+    //
+    // Render optional plain-text version
+    //
+    const textBuild = {
+      status: false,
+    }
+
+    if (config.user.text.generate) {
+      // Plain-text build options
+      textBuild.status = true
+      textBuild.options = config.file.internal.textBuild.options
+      textBuild.options.baseElement = []
+      textBuild.include = {
+        images: {},
+        partials: {},
+      }
+
+      // Include image URIs if requested
+      if (config.user.text.images) {
+        textBuild.include.images = true
+        delete textBuild.options.tags.img
+      } else {
+        textBuild.include.images = false
+      }
+
+      // Override default partial includes with user config, if set, and name
+      // base elements
+      Object.keys(config.user.text.include).forEach(key => {
+        Object.assign(textBuild.include.partials, config.user.text.include)
+        if (config.user.text.include[key] === true) {
+          textBuild.options.baseElement.push('div.component-' + key)
+        }
+      })
+
+      // Plain-text conversion
+      stream = stream
+        .pipe(
+          tap(function (file) {
+            file.contents = Buffer.from(
+              htmlToText(file.contents.toString(), textBuild.options)
+            )
+          })
+        )
+
+        // Write plain-text file
+        .pipe(rename(fileText))
+        .pipe(dest(path.dirname(destText)))
+    } else {
+      notify.msg('info', config.file.internal.messages.plaintextOff)
+      process.exit(1)
+    }
+
+    stream = stream.pipe(rename(fileText)).pipe(dest(path.dirname(destHTML)))
+
+    // Give HTML production output a little extra minification
     stream = stream.pipe(
       tap(function (file) {
         if (flags.prod) {
@@ -192,13 +248,6 @@ function render (cb) {
           })
           file.contents = Buffer.from(crushResult.result)
         }
-      })
-    )
-
-    // Save to object
-    stream = stream.pipe(
-      tap(function (file) {
-        built.html[path.basename(file.path)] = file.contents.toString('utf8')
       })
     )
 
@@ -376,8 +425,8 @@ function text (cb) {
 }
 
 module.exports = {
-  prerender,
   styles,
+  content,
   render,
   postrender,
   html,
