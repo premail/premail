@@ -44,7 +44,7 @@
     "handlebars-helpers": "^0.10.0",
     "html-crush": "^4.2.0",
     "html-img-alt": "^2.1.0",
-    "html-to-text": "github:html-to-text/node-html-to-text#selectors",
+    "html-to-text": "^8.0.0",
     "js-yaml": "^4.1.0",
     "map-stream": "0.0.7",
     "mjml": "^4.9.3",
