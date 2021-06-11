@@ -42,8 +42,10 @@ const built = {
 }
 
 // Set destinations
-const fileHTML = 'index.html'
-const destHTML = path.join(config.current.dist, fileHTML)
+// const fileHTML = 'index.html'
+// const fileText = 'index.txt'
+// const destHTML = path.join(config.current.dist, fileHTML)
+// const destText = path.join(config.current.dist, fileText)
 
 //
 // Build CSS files from Sass source files.
@@ -111,7 +113,7 @@ function content () {
         e.e(err)
         process.exit(1)
       } else {
-        notify.msg('debug', 'Content processing complete.')
+        notify.msg('info', 'Content processing complete.')
       }
     }
   )
@@ -132,6 +134,14 @@ function render (cb) {
     htmlBuild.options.keepComments = false
   }
 
+  // Warn if both Google Font and custom web font are enabled.
+  if (
+    config.theme.fonts.stack.google.enabled &&
+    config.theme.fonts.stack.custom.enabled
+  ) {
+    notify.msg('warn', config.file.internal.messages.multipleWebFonts)
+  }
+
   // Check to make sure template file exists
   if (!fs.existsSync(config.current.templates.main)) {
     notify.msg('error', config.file.internal.messages.templateMissing)
@@ -146,6 +156,7 @@ function render (cb) {
     return pipeline(
       src(config.current.templates.main),
 
+      // Process Handlebars data
       tap(function (file, t) {
         const contents = file.contents.toString()
         const format = Handlebars.compile(contents, {
@@ -156,7 +167,8 @@ function render (cb) {
         file.contents = Buffer.from(processedTemplate, 'utf-8')
       }),
 
-      dest(path.dirname(destHTML)),
+      // Uncomment the next line to write the rendered template to disk.
+      // dest(path.dirname(destHTML)),
 
       // Error handling
       err => {
@@ -164,7 +176,7 @@ function render (cb) {
           e.e(err)
           process.exit(1)
         } else {
-          notify.msg('debug', 'Rendering complete.')
+          notify.msg('info', 'Rendering complete.')
         }
       }
     )
