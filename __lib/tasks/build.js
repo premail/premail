@@ -130,25 +130,28 @@ function content () {
   return pipeline(
     src(config.current.templates.array),
 
-    // tap(function (file) {
-    //   // Load partials
-    //   let content = file.contents.toString()
+    // Typographic enhancements: Detergent
+    tap(function (file) {
+      const results = det(file.contents.toString(), typographyOpts.detergent)
+      file.contents = Buffer.from(results.res)
+    }),
 
-    //   // Run detergent.io
-    //   content = det(content, typographyOpts.detergent).res
+    // Typographic enhancements: Typeset
+    tap(function (file) {
+      transform(function (filename) {
+        return map(function (chunk, next) {
+          return next(
+            null,
+            typeset(chunk, { disable: typographyOpts.typesetDisable })
+          )
+        })
+      })
+    }),
 
-    //   // Run typeset
-    //   transform(function (filename) {
-    //     return map(function (chunk, next) {
-    //       return next(
-    //         null,
-    //         typeset(chunk, { disable: typographyOpts.typesetDisable })
-    //       )
-    //     })
-    //   }),
-    //     // Save to object
-    //     (built.content[path.basename(file.path)] = content)
-    // }),
+    // Save built content to memory
+    tap(function (file) {
+      built.content[path.basename(file.path)] = file.contents.toString()
+    }),
 
     // Error handling
     err => {
