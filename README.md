@@ -40,7 +40,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Mon Jun  7 23:55:02 UTC 2021 -->
+<!-- Added by: runner, at: Fri Jun 11 23:55:48 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
