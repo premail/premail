@@ -238,7 +238,10 @@
     </mj-attributes>
 
     <!-- Preview text -->
-    <mj-preview>{{> preview.mjml}}</mj-preview>
+    <mj-preview>
+      {{> preview.mjml}} {{#if user.details.previewPad}}
+      {{{file.internal.details.previewPad}}} {{/if}}
+    </mj-preview>
   </mj-head>
 
   <!-- Email body start -->
