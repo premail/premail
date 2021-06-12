@@ -199,7 +199,7 @@ config.current.templates = {}
 
 config.current.templates.array = getFiles(
   config.current.path + path.sep,
-  'mjml'
+  config.user.files.templateExt
 )
 config.current.templates.list = config.current.templates.array
   .toString()

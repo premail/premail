@@ -1,23 +1,21 @@
 <!--
 
-  ABOUT THIS FILE
+ABOUT THIS FILE
 
-  index.hbs is a mix of Handlebars and MJML template languages. Ideally, you
-  should not need to edit it. This file contains includes of MJML partials
-  (files ending in .mjml, in the `content` and `structure` directories) and
-  includes of Handlebars partials, which in this case consist of the CSS
-  rendered from the .scss files in the `theme` directory.
+index.hbs is a mix of Handlebars and MJML template languages. Ideally, you
+should not need to edit it. This file contains includes of MJML partials
+(files in the `content` and `structure` directories) and includes of Handlebars partials, which in this case consist of the CSS rendered from the .scss files in the `theme` directory.
 
-  index.hbs also inserts values from both the theme and email configuration YAML
-  files.
+index.hbs also inserts values from both the theme and email configuration YAML
+files.
 
-  The intention is that for your email design, you'll be able to change the
-  settings you need simply by altering the values in `theme/themeConfig.yaml`
-  and, if necessary, the Sass (CSS) in that same directory. For the content of
-  your email, you'll alter the files in the `content` directory and, if
-  necessary, in the `structure` directory.
+The intention is that for your email design, you'll be able to change the
+settings you need simply by altering the values in `theme/themeConfig.yaml`
+and, if necessary, the Sass (CSS) in that same directory. For the content of
+your email, you'll alter the files in the `content` directory and, if
+necessary, in the `structure` directory.
 
-  After building your email, the result will be output to the `dist` directory.
+After building your email, the result will be output to the `dist` directory.
 
 -->
 <mjml lang="{{user.language.default}}">
@@ -25,7 +23,7 @@
 
   <mj-head>
     <!-- Title -->
-    <mj-title>{{> title.mjml}}</mj-title>
+    <mj-title>{{> title.hbs}}</mj-title>
 
     {{#if theme.fonts.web}}
     <!-- `mj-font` element needs to be outside `mj-attributes`
@@ -239,7 +237,7 @@
 
     <!-- Preview text -->
     <mj-preview>
-      {{> preview.mjml}} {{#if user.details.previewPad}}
+      {{> preview.hbs}} {{#if user.details.previewPad}}
       {{{file.internal.details.previewPad}}} {{/if}}
     </mj-preview>
   </mj-head>
@@ -253,13 +251,13 @@
       css-class="component-topNav nav nav--top"
       mj-class="component-topNav nav nav--top"
     >
-      {{> topNav.mjml}}
+      {{> topNav.hbs}}
     </mj-wrapper>
 
     <!-- Hero or header area -->
 
     <mj-wrapper css-class="component-banner" mj-class="component-banner">
-      {{> banner.mjml}}
+      {{> banner.hbs}}
     </mj-wrapper>
 
     <!-- Salutation, aka "Dear friend," -->
@@ -268,25 +266,25 @@
       css-class="component-salutation"
       mj-class="component-salutation"
     >
-      {{> salutation.mjml}}
+      {{> salutation.hbs}}
     </mj-wrapper>
 
     <!-- Primary content -->
 
     <mj-wrapper css-class="component-body" mj-class="component-body">
-      {{> body.mjml}}
+      {{> body.hbs}}
     </mj-wrapper>
 
     <!-- Sign-off, signature or closing -->
 
     <mj-wrapper css-class="component-signoff" mj-class="component-signoff">
-      {{> signoff.mjml}}
+      {{> signoff.hbs}}
     </mj-wrapper>
 
     <!-- Social links -->
 
     <mj-wrapper css-class="component-social" mj-class="component-social">
-      {{> social.mjml}}
+      {{> social.hbs}}
     </mj-wrapper>
 
     <!-- Bottom navigation -->
@@ -295,13 +293,13 @@
       css-class="component-bottomNav nav nav--bottom"
       mj-class="component-bottomNav nav nav--bottom"
     >
-      {{> bottomNav.mjml}}
+      {{> bottomNav.hbs}}
     </mj-wrapper>
 
     <!-- Footer -->
 
     <mj-wrapper css-class="component-footer" mj-class="component-footer">
-      {{> footer.mjml}}
+      {{> footer.hbs}}
     </mj-wrapper>
 
     <!-- Body closure -->
