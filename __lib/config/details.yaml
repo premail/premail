@@ -6,15 +6,3 @@ details:
     &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
     &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
     &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;'
-
-  # Controls options on widow-removal.
-  removeWidowOpts:
-    removeWidowPreventionMeasures: false
-    convertEntities: true
-    targetLanguage: html
-    ignore: # ignore templating code
-      - heads: '{{'
-        tails: '}}'
-    hyphens: true # replace space with nbsp in front of dash
-    minWordCount: 8 # if there are fewer words than this in string, skip
-    minCharCount: 40 # if there are fewer characters than this in string, skip
