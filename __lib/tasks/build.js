@@ -138,14 +138,10 @@ function content () {
 
     // Typographic enhancements: Typeset
     tap(function (file) {
-      transform(function (filename) {
-        return map(function (chunk, next) {
-          return next(
-            null,
-            typeset(chunk, { disable: typographyOpts.typesetDisable })
-          )
-        })
+      const results = typeset(file.contents.toString(), {
+        disable: typographyOpts.typesetDisable,
       })
+      file.contents = Buffer.from(results)
     }),
 
     // Save built content to memory
