@@ -82,45 +82,6 @@ function styles () {
 // Preprocess content
 //
 function content () {
-  // Set typographical options
-  const typographyOpts = {
-    // Detergent.io
-    detergent: {
-      useXHTML: false,
-      removeLineBreaks: true,
-      stripHtml: false,
-      removeWidows: false, // Introduces issues with CSS code
-      convertDashes: config.user.details.typography.convertDash,
-      convertApostrophes:
-        config.user.details.typography.convertQuoteAndApostrophe,
-      convertDotsToEllipsis: config.user.details.typography.convertEllip,
-    },
-    // Configurable Typeset options
-    typeset: {
-      hyphenate: false, // Generates too many edge cases
-      ligatures: false, // Unreliable
-      punctuation: false, // Handled by Detergent
-      quotes: false, // Handled by Detergent
-      spaces: false, // Unnecessary
-      hangingPunctuation: config.user.details.typography.hangPunctuation,
-      smallCaps: config.user.details.typography.enableSmallCaps,
-    },
-    // Typeset options requiring CSS styling
-    typesetCSS: {
-      enableSmallCaps: config.user.details.typography.enableSmallCaps,
-      hangingPunctuation: config.user.details.typography.hangPunctuation,
-      opticallyAlignLetters:
-        config.user.details.typography.opticallyAlignLetters,
-    },
-    // Generate array of Typeset features to disable
-    typesetDisable: [],
-  }
-  Object.keys(typographyOpts.typeset).forEach(key => {
-    if (!typographyOpts.typeset[key]) {
-      typographyOpts.typesetDisable.push(key)
-    }
-  })
-
   if (flags.debug) {
     notify.unjson(
       config.user.details.typography,
@@ -128,19 +89,50 @@ function content () {
     )
   }
 
+  // Set typography options based on configuration
+  config.file.internal.details.typography.detergent.options.convertDashes =
+    config.user.details.typography.convertDash
+  config.file.internal.details.typography.detergent.options.convertApostrophes =
+    config.user.details.typography.convertQuoteAndApostrophe
+  config.file.internal.details.typography.detergent.options.convertDotsToEllipsis =
+    config.user.details.typography.convertEllip
+  config.file.internal.details.typography.typeset.options.hangingPunctuation =
+    config.user.details.typography.hangPunctuation
+  config.file.internal.details.typography.typeset.options.smallCaps =
+    config.user.details.typography.enableSmallCaps
+  config.file.internal.details.typography.typeset.css.enableSmallCaps =
+    config.user.details.typography.enableSmallCaps
+  config.file.internal.details.typography.typeset.css.hangingPunctuation =
+    config.user.details.typography.hangPunctuation
+  config.file.internal.details.typography.typeset.css.opticallyAlignLetters =
+    config.user.details.typography.opticallyAlignLetters
+
+  // Disable applicable Typeset options
+  const typesetDisable = []
+  Object.keys(config.file.internal.details.typography.typeset.options).forEach(
+    key => {
+      if (!config.file.internal.details.typography.typeset.options[key]) {
+        typesetDisable.push(key)
+      }
+    }
+  )
+
   return pipeline(
     src(config.current.templates.array),
 
     // Typographic enhancements: Detergent
     tap(function (file) {
-      const results = det(file.contents.toString(), typographyOpts.detergent)
+      const results = det(
+        file.contents.toString(),
+        config.file.internal.details.typography.detergent.options
+      )
       file.contents = Buffer.from(results.res)
     }),
 
     // Typographic enhancements: Typeset
     tap(function (file) {
       const results = typeset(file.contents.toString(), {
-        disable: typographyOpts.typesetDisable,
+        disable: typesetDisable,
       })
       file.contents = Buffer.from(results)
     }),

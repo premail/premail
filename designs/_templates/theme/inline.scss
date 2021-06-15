@@ -56,6 +56,7 @@ a {
 @if map-get($typography, 'enableSmallCaps') {
   .small-caps {
     font-variant: small-caps;
+    font-size: 95%; // Fallback when font-variant isn't processed.
   }
 }
 
