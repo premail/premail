@@ -21,6 +21,9 @@ overrides:
       - '*.html'
       - '*.mjml'
       - '*.hbs'
+
+    # Source for these options:
+    # https://github.com/ikatyang/angular-html-parser/tree/master/packages/angular-html-parser#api
     options:
       parser: html
       htmlWhitespaceSensitivity: strict
