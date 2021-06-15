@@ -86,6 +86,7 @@ function content () {
   const typographyOpts = {
     // Detergent.io
     detergent: {
+      useXHTML: false,
       removeLineBreaks: true,
       stripHtml: false,
       removeWidows: false, // Introduces issues with CSS code
