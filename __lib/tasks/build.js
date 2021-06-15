@@ -163,6 +163,7 @@ function render (cb) {
     file: 'index.html',
     options: config.file.internal.htmlBuild.options,
   }
+  htmlBuild.options.fileExt = config.user.files.templateExt
   const textBuild = {
     file: 'index.txt',
     status: false,

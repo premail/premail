@@ -2,7 +2,6 @@
 htmlBuild:
   options:
     validationLevel: 'strict'
-    fileExt: config.user.files.templateExt
     beautify: true # Production changes to false
     # Production adds:
     # minify: true
