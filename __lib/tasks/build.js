@@ -161,9 +161,8 @@ function render (cb) {
   // Default build options
   const htmlBuild = {
     file: 'index.html',
-    options: config.file.internal.htmlBuild.options,
+    options: config.file.internal.htmlBuild.options.dev,
   }
-  htmlBuild.options.fileExt = config.user.files.templateExt
   const textBuild = {
     file: 'index.txt',
     status: false,
@@ -171,11 +170,12 @@ function render (cb) {
 
   // Set production options
   if (flags.prod) {
-    htmlBuild.options.beautify = false
-    htmlBuild.options.minify = true
-    htmlBuild.options.keepComments = false
+    htmlBuild.options = config.file.internal.htmlBuild.options.prod
     notify.msg('info', config.file.internal.messages.productionBuild)
   }
+
+  // Set template extension
+  htmlBuild.options.fileExt = config.user.files.templateExt
 
   // Set text build options
   if (config.user.text.generate) {

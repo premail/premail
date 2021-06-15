@@ -1,8 +1,11 @@
 # Default HTML build configuration
 htmlBuild:
   options:
-    validationLevel: 'strict'
-    beautify: true # Production changes to false
-    # Production adds:
-    # minify: true
-    # keepComments: false
+    dev:
+      validationLevel: 'strict'
+      beautify: true
+    prod:
+      validationLevel: 'strict'
+      beautify: false
+      minify: true
+      keepComments: false
