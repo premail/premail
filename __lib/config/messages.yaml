@@ -7,6 +7,11 @@ messages:
     body: 'Handlebars processing finished.'
   completeMJML:
     body: 'MJML processing finished.'
+  voidTags:
+    body:
+      'MJML self-closing (singleton) elements like <mj-image src="a.jpg" /> can
+      create problems with HTML parsers. Instead, use a closing tag like this:
+      <mj-image src="a.jpg"></mj-image>'
   productionBuild:
     title: 'Production:'
     body: 'Minified with HTML comments stripped.'

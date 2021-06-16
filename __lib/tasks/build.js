@@ -29,6 +29,7 @@ const e = require('../functions/e.js')
 const { config } = require('../vars/config.js')
 const { flags } = require('../vars/flags.js')
 const notify = require('../vars/notify.js')
+const { findOccurrences } = require('../functions/findOccurrences.js')
 /* eslint-enable no-unused-vars */
 
 //
@@ -119,6 +120,22 @@ function content () {
 
   return pipeline(
     src(config.current.templates.array),
+
+    // Check for void/singleton elements in partials and warn
+    tap(function (file) {
+      const contents = file.contents.toString()
+      const filename = path.basename(file.path)
+
+      if (filename !== config.user.files.template) {
+        findOccurrences(/\/>/gim, contents).forEach(result =>
+          notify.msg(
+            'warn',
+            config.file.internal.messages.voidTags,
+            `Warning: ${filename} contains void element at ${result.lineNumber}:${result.column}`
+          )
+        )
+      }
+    }),
 
     // Typographic enhancements: Detergent
     tap(function (file) {
