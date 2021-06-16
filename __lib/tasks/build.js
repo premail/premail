@@ -129,7 +129,7 @@ function content () {
       if (filename !== config.user.files.template) {
         findOccurrences(/\/>/gim, contents).forEach(result =>
           notify.msg(
-            'error',
+            'warn',
             config.file.internal.messages.voidTags,
             `${filename} contains void element at ${result.lineNumber}:${result.column}`
           )
