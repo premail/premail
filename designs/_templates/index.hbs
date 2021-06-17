@@ -36,9 +36,9 @@ After building your email, the result will be output to the `dist` directory.
 
   <mj-head>
     <!-- Title -->
+    {{#if partials.title}}
     <mj-title>{{> title.hbs}}</mj-title>
-
-    {{#if theme.fonts.web}}
+    {{/if}} {{#if theme.fonts.web}}
     <!-- `mj-font` element needs to be outside `mj-attributes`
              @see: https://documentation.mjml.io/#mj-font
 
@@ -61,13 +61,19 @@ After building your email, the result will be output to the `dist` directory.
     {{/if}} {{/if}}
 
     <!-- To change inlined CSS styles, edit `theme/inline.scss` -->
+    {{#if partials.inline}}
     <mj-style inline="inline">{{> inline.css}}</mj-style>
+    {{/if}}
 
     <!-- To change pseudo CSS styles, edit `theme/pseudo.scss` -->
+    {{#if partials.pseudo}}
     <mj-style>{{> pseudo.css}}</mj-style>
+    {{/if}}
 
     <!-- To change Gmail-specific CSS styles, edit `theme/gmail.scss` -->
+    {{#if partials.gmail}}
     <mj-style>{{> gmail.css}}</mj-style>
+    {{/if}}
 
     <mj-attributes>
       <!-- Applied to all elements -->
@@ -246,10 +252,12 @@ After building your email, the result will be output to the `dist` directory.
     </mj-attributes>
 
     <!-- Preview text -->
+    {{#if partials.preview}}
     <mj-preview>
       {{> preview.hbs}} {{#if user.details.previewPad}}
       {{{file.internal.details.previewPad}}} {{/if}}
     </mj-preview>
+    {{/if}}
   </mj-head>
 
   <!-- Email body start -->
@@ -257,60 +265,76 @@ After building your email, the result will be output to the `dist` directory.
   <mj-body css-class="body" background-color="white">
     <!-- Top navigation -->
 
+    {{#if partials.topNav}}
     <mj-wrapper
       css-class="component-topNav nav nav--top"
       mj-class="component-topNav nav nav--top"
     >
       {{> topNav.hbs}}
     </mj-wrapper>
+    {{/if}}
 
     <!-- Hero or header area -->
 
+    {{#if partials.banner}}
     <mj-wrapper css-class="component-banner" mj-class="component-banner">
       {{> banner.hbs}}
     </mj-wrapper>
+    {{/if}}
 
     <!-- Salutation, aka "Dear friend," -->
 
+    {{#if partials.salutation}}
     <mj-wrapper
       css-class="component-salutation"
       mj-class="component-salutation"
     >
       {{> salutation.hbs}}
     </mj-wrapper>
+    {{/if}}
 
     <!-- Primary content -->
 
+    {{#if partials.body}}
     <mj-wrapper css-class="component-body" mj-class="component-body">
       {{> body.hbs}}
     </mj-wrapper>
+    {{/if}}
 
     <!-- Sign-off, signature or closing -->
 
+    {{#if partials.signoff}}
     <mj-wrapper css-class="component-signoff" mj-class="component-signoff">
       {{> signoff.hbs}}
     </mj-wrapper>
+    {{/if}}
 
     <!-- Social links -->
 
+    {{#if partials.social}}
     <mj-wrapper css-class="component-social" mj-class="component-social">
       {{> social.hbs}}
     </mj-wrapper>
+    {{/if}}
 
     <!-- Bottom navigation -->
 
+    {{#if partials.bottomNav}}
     <mj-wrapper
       css-class="component-bottomNav nav nav--bottom"
       mj-class="component-bottomNav nav nav--bottom"
     >
       {{> bottomNav.hbs}}
     </mj-wrapper>
+    {{/if}}
 
     <!-- Footer -->
 
+    {{#if partials.footer}}
     <mj-wrapper css-class="component-footer" mj-class="component-footer">
       {{> footer.hbs}}
     </mj-wrapper>
+    {{/if}}
 
     <!-- Body closure -->
   </mj-body>
