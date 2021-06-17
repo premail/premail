@@ -75,6 +75,11 @@ After building your email, the result will be output to the `dist` directory.
     <mj-style>{{> gmail.css}}</mj-style>
     {{/if}}
 
+    <!-- To change print CSS styles, edit `theme/print.scss` -->
+    {{#if partials.print}}
+    <mj-style>{{> print.css}}</mj-style>
+    {{/if}}
+
     <mj-attributes>
       <!-- Applied to all elements -->
 

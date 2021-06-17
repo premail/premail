@@ -158,18 +158,91 @@
       font-weight: inherit !important;
       line-height: inherit !important
     }
+
+    @media print {
+      html {
+        width: 100% !important;
+        margin: 0 !important
+      }
+
+      body {
+        max-width: 100% !important;
+        margin: 2cm !important
+      }
+
+      *,
+      *:before,
+      *:after,
+      *:first-letter,
+      p:first-line,
+      div:first-line,
+      blockquote:first-line,
+      li:first-line {
+        box-shadow: none !important;
+        text-shadow: none !important
+      }
+
+      a,
+      a:visited {
+        text-decoration: underline !important
+      }
+
+      a[href]:after {
+        content: " ("attr(href) ")" !important
+      }
+
+      a[href^="#"]:after {
+        content: "" !important
+      }
+
+      a:after>img {
+        content: ""
+      }
+
+      abbr[title]:after {
+        content: " ("attr(title) ")" !important
+      }
+
+      pre {
+        white-space: pre-wrap !important
+      }
+
+      pre,
+      blockquote {
+        page-break-inside: avoid !important
+      }
+
+      img {
+        page-break-inside: avoid !important
+      }
+
+      p,
+      h1,
+      h2,
+      h3,
+      h4 {
+        orphans: 3 !important;
+        widows: 3 !important
+      }
+
+      h2,
+      h3 {
+        page-break-after: avoid !important
+      }
+    }
   </style>
   <!-- Title -->
   <!-- `mj-font` element needs to be outside `mj-attributes`
              @see: https://documentation.mjml.io/#mj-font
 
-          The HREF values in the font element are unquoted, and ignored by Prettier,
+          HREF values in the font element are unquoted, and ignored by Prettier,
           in order to allow for the double-quoting that JSON-to-Sass variables
           require. -->
   <!-- prettier-ignore -->
   <!-- To change inlined CSS styles, edit `theme/inline.scss` -->
   <!-- To change pseudo CSS styles, edit `theme/pseudo.scss` -->
   <!-- To change Gmail-specific CSS styles, edit `theme/gmail.scss` -->
+  <!-- To change print CSS styles, edit `theme/print.scss` -->
   <!-- Preview text -->
 </head>
 
@@ -230,10 +303,10 @@
                                       <tr>
                                         <td align="center" style="font-size:0px;padding:16px 0;word-break:break-word;">
                                           <!--[if !mso><!-->
-                                          <input type="checkbox" id="82ce74dbadf0b1dd" class="mj-menu-checkbox" style="display:none !important; max-height:0; visibility:hidden;">
+                                          <input type="checkbox" id="456be4990af125ab" class="mj-menu-checkbox" style="display:none !important; max-height:0; visibility:hidden;">
                                           <!--<![endif]-->
                                           <div class="mj-menu-trigger" style="display:none;max-height:0px;max-width:0px;font-size:0px;overflow:hidden;">
-                                            <label for="82ce74dbadf0b1dd" class="mj-menu-label" style="display:block;cursor:pointer;mso-hide:all;-moz-user-select:none;user-select:none;color:white;font-size:30px;font-family:'Source Sans Pro', Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Liberation Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
+                                            <label for="456be4990af125ab" class="mj-menu-label" style="display:block;cursor:pointer;mso-hide:all;-moz-user-select:none;user-select:none;color:white;font-size:30px;font-family:'Source Sans Pro', Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Liberation Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
       ;text-transform:uppercase;text-decoration:none;line-height:30px;padding:10px;" align="center">
                                               <span class="mj-menu-icon-open" style="mso-hide:all;"> &#9776; </span>
                                               <span class="mj-menu-icon-close" style="display:none;mso-hide:all;"> &#8855; </span>
@@ -859,10 +932,10 @@
                                       <tr>
                                         <td align="center" style="font-size:0px;padding:4px 0;word-break:break-word;">
                                           <!--[if !mso><!-->
-                                          <input type="checkbox" id="aac0185c8f419bc4" class="mj-menu-checkbox" style="display:none !important; max-height:0; visibility:hidden;">
+                                          <input type="checkbox" id="b71d813ab24d3e26" class="mj-menu-checkbox" style="display:none !important; max-height:0; visibility:hidden;">
                                           <!--<![endif]-->
                                           <div class="mj-menu-trigger" style="display:none;max-height:0px;max-width:0px;font-size:0px;overflow:hidden;">
-                                            <label for="aac0185c8f419bc4" class="mj-menu-label" style="display:block;cursor:pointer;mso-hide:all;-moz-user-select:none;user-select:none;color:white;font-size:30px;font-family:'Source Sans Pro', Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Liberation Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
+                                            <label for="b71d813ab24d3e26" class="mj-menu-label" style="display:block;cursor:pointer;mso-hide:all;-moz-user-select:none;user-select:none;color:white;font-size:30px;font-family:'Source Sans Pro', Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Liberation Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
       ;text-transform:uppercase;text-decoration:none;line-height:30px;padding:10px;" align="center">
                                               <span class="mj-menu-icon-open" style="mso-hide:all;"> &#9776; </span>
                                               <span class="mj-menu-icon-close" style="display:none;mso-hide:all;"> &#8855; </span>

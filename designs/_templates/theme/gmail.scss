@@ -9,6 +9,9 @@
  *
  * Resources:
  * https://www.litmus.com/blog/update-banning-blue-links-on-ios-devices-2/
+ *
+ * In order to override the inlined styles, all styles below need to include the
+ * !important flag, so be sure to test!
  */
 
 // Import theme configuration values for use as Sass variables.
