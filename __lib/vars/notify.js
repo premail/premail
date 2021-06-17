@@ -2,6 +2,7 @@
 
 /* eslint-disable no-unused-vars */
 const colors = require('ansi-colors')
+const prioritizedColor = require('ansi-colors-prioritized')
 const { flags } = require('../vars/flags.js')
 /* eslint-enable no-unused-vars */
 
@@ -11,6 +12,9 @@ const { flags } = require('../vars/flags.js')
 
 // Set message styles
 const { symbols } = colors
+
+// Provide fallback colors for 'bright' versions
+const greenBright = prioritizedColor(colors.greenBright, colors.green)
 
 // Format messages
 function msg (type, message, title = null) {
@@ -65,15 +69,13 @@ function msg (type, message, title = null) {
       symbolFormat = '\n ' + symbols.check
       if (title) {
         titleFormat = console.log(
-          ' ' +
-            colors.green.greenBright.bold(symbolFormat + ' ' + title + ' ') +
-            ' '
+          ' ' + colors.bold(greenBright(symbolFormat + ' ' + title + ' ')) + ' '
         )
-        messageFormat = console.log(colors.green.greenBright('   ' + message))
+        messageFormat = console.log(greenBright('   ' + message))
       } else {
         titleFormat = null
         messageFormat = console.log(
-          ' ' + colors.green.greenBright(symbolFormat + ' ' + message) + ' \n'
+          ' ' + greenBright(symbolFormat + ' ' + message) + ' \n'
         )
       }
       break

@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "ansi-colors": "^4.1.1",
+    "ansi-colors-prioritized": "^0.1.2",
     "del": "^6.0.0",
     "detergent": "^7.1.0",
     "fancy-log": "^1.3.3",
