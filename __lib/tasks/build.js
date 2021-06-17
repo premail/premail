@@ -65,7 +65,11 @@ function styles () {
 
     // Save built CSS to memory
     tap(function (file) {
-      built.styles[path.basename(file.path)] = file.contents.toString()
+      const contents = file.contents.toString()
+      built.styles[path.basename(file.path)] = contents
+      config.partials[
+        path.basename(file.path, path.extname(file.path))
+      ] = contents
     }),
 
     err => {
@@ -156,7 +160,11 @@ function content () {
 
     // Save built content to memory
     tap(function (file) {
-      built.content[path.basename(file.path)] = file.contents.toString()
+      const contents = file.contents.toString()
+      built.content[path.basename(file.path)] = contents
+      config.partials[
+        path.basename(file.path, path.extname(file.path))
+      ] = contents
     }),
 
     // Error handling

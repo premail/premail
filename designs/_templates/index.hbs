@@ -4,10 +4,23 @@ ABOUT THIS FILE
 
 index.hbs is a mix of Handlebars and MJML template languages. Ideally, you
 should not need to edit it. This file contains includes of MJML partials
-(files in the `content` and `structure` directories) and includes of Handlebars partials, which in this case consist of the CSS rendered from the .scss files in the `theme` directory.
+(files in the `content` and `structure` directories) and includes of Handlebars
+partials, which in this case consist of the CSS rendered from the .scss files in
+the `theme` directory.
+
+Partials can be included using the Handlebars partial syntax with the filename
+(regardless of containing folder):
+{{> body.hbs}}
+or they can be included using the Handlebars data syntax using the `partials`
+object, without the filename extension:
+{{partials.body}}
+You can test for the presence of a partial with:
+{{#if partials.body}} {{/if}}
+Note that partials are already escaped in prerendering, so trying to use
+Handlebars' "triple-slash" safe string syntax will have no effect.
 
 index.hbs also inserts values from both the theme and email configuration YAML
-files.
+files using the data syntax and the `user` and `theme` objects.
 
 The intention is that for your email design, you'll be able to change the
 settings you need simply by altering the values in `theme/themeConfig.yaml`
@@ -29,7 +42,7 @@ After building your email, the result will be output to the `dist` directory.
     <!-- `mj-font` element needs to be outside `mj-attributes`
              @see: https://documentation.mjml.io/#mj-font
 
-          The HREF values in the font element are unquoted, and ignored by Prettier,
+          HREF values in the font element are unquoted, and ignored by Prettier,
           in order to allow for the double-quoting that JSON-to-Sass variables
           require.
         -->

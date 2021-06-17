@@ -214,6 +214,9 @@ config.current.templates.all = [
   ...config.current.templates.array,
 ]
 
+// Create a container for rendered partials
+config.partials = {}
+
 module.exports = {
   config,
 }
