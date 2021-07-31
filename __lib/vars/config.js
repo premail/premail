@@ -40,9 +40,13 @@ const userJSON = yaml.loadAll(
 )
 config.user = userJSON[0]
 
-// Set template extension.
+// Save template filename parts.
 const templateDotExt = path.extname(config.user.files.template)
 config.user.files.templateExt = templateDotExt.replace('.', '')
+const templateFilename = path.basename(
+  config.user.files.template,
+  path.extname(config.user.files.template)
+)
 
 // Set current folders based on CLI flags, if any are set.
 let currentDesign = config.user.folders.design.default
@@ -213,6 +217,12 @@ config.current.templates.all = [
   config.current.templates.main,
   ...config.current.templates.array,
 ]
+
+// Define intermediate rendered template -- post-Handlebars, pre-MJML
+config.current.templates.int = path.join(
+  config.current.dist,
+  `${templateFilename}.mjml`
+)
 
 // Create a container for rendered partials
 config.partials = {}

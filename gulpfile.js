@@ -36,9 +36,11 @@ exports.build = exports.default
 exports.build.description =
   'Render a complete HTML email based on design and email templates.'
 exports.build.flags = {
-  ' --prod': 'Render production files (minified, no comments).',
   '     -d': 'Specify design folder to use. (Default: _templates)',
   '     -e': 'Specify email folder to render.',
+  ' --prod': 'Render production files (minified, no comments).',
+  ' --temp':
+    'Include intermediate rendered template (post-Handlebars, pre-MJML) in output.',
   '--debug': 'Display details about configuration and settings.',
 }
 

@@ -252,7 +252,7 @@ function render (cb) {
     notify.msg('warn', config.file.internal.messages.multipleWebFonts)
   }
 
-  // Check to make sure template file exists
+  // Be sure source template exists.
   if (!fs.existsSync(config.current.templates.main)) {
     notify.msg('error', config.file.internal.messages.templateMissing)
     cb()
@@ -278,8 +278,18 @@ function render (cb) {
         notify.msg('debug', config.file.internal.messages.completeHandlebars)
       }),
 
-      // Uncomment the next line to write the rendered template to disk.
-      // dest(config.current.dist),
+      // Write the intermediate rendered template to disk if requested.
+      tap(function (file) {
+        if (flags.temp) {
+          const templateIntermediate = file.contents.toString()
+          fs.writeFileSync(config.current.templates.int, templateIntermediate)
+          notify.msg(
+            'info',
+            config.current.templates.int,
+            'Rendered MJML template written to disk:'
+          )
+        }
+      }),
 
       // Compile MJML into HTML
       mjml(mjmlEngine, htmlBuild.options),
