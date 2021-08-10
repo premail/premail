@@ -216,6 +216,10 @@ If you don't want to continuously watch your files, use `gulp build`, or just
 `gulp` instead. Again using the "postmodern" example, that would be
 `gulp build -d postmodern`. This will create the `index` files and then stop.
 
+If you need to troubleshoot the rendered template (that is, after the Handlebars
+data has been inserted, but before the MJML-to-HTML transpiling) append `--temp`
+to a command and it will include an `index.mjml` file in the output.
+
 ## Creating a new email from an existing design
 
 Instructions TK.
@@ -275,6 +279,7 @@ configuration and files being processed.
 │ │      -d          …Specify design folder to use. (Default: _templates)
 │ │      -e          …Specify email folder to render.
 │ │  --prod          …Render production files (minified, no comments).
+│ │  --temp          …Include intermediate rendered template (post-Handlebars, pre-MJML) in output.
 │ │ --debug          …Display details about configuration and settings.
 │ └─┬ <series>
 │   ├── showConfig
@@ -288,6 +293,7 @@ configuration and files being processed.
 │ │      -d          …Specify design folder to use. (Default: _templates)
 │ │      -e          …Specify email folder to render.
 │ │  --prod          …Render production files (minified, no comments).
+│ │  --temp          …Include intermediate rendered template (post-Handlebars, pre-MJML) in output.
 │ │ --debug          …Display details about configuration and settings.
 │ └─┬ <series>
 │   ├── showConfig
