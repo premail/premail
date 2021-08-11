@@ -361,10 +361,6 @@ configuration and files being processed.
   over which we have no control. The options `mjml` is warning us about will be
   moved to `mjml-cli` once we're given a way to do that.
 
-- The `signoff.mjml` template, used for a signature or closing with a person's
-  image, uses a regular `<img>` tag with inline styles. This will be moved to a
-  custom component in a future release.
-
 # Thanks and Sponsorships
 
 Work funded in part by [Multi-Etch, LLC](https://www.multietch.com/).
