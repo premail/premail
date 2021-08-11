@@ -32,6 +32,17 @@ const notify = require('../vars/notify.js')
 const { findOccurrences } = require('../functions/findOccurrences.js')
 /* eslint-enable no-unused-vars */
 
+// Register custom MJML components
+const { registerComponent } = require('mjml-core')
+const MjSignoff = require('../mjml/MjSignoff.js').default
+registerComponent(MjSignoff)
+const { registerDependencies } = require('mjml-validator')
+registerDependencies({
+  'mj-signoff': [],
+  'mj-body': ['mj-signoff'],
+  'mj-wrapper': ['mj-signoff'],
+})
+
 //
 // Create in-memory container for files as they are built
 //

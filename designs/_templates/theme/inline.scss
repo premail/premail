@@ -36,8 +36,14 @@ h2 {
 p {
   margin: 0 0 18px;
 }
-.salutation p {
-  margin: 0;
+.component-salutation,
+.component-signoff {
+  p {
+    margin: 0;
+  }
+}
+.component-signoff div {
+  margin: 0 0 18px;
 }
 a {
   color: map-get($colors, 'primary');

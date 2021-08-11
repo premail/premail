@@ -248,6 +248,36 @@ Once the production email is rendered, you can:
   [here's the rendered file](https://rootwork.github.io/mjml-quickstart/designs/_templates/dist/index.html)
   from the sample templates.
 
+## Custom components
+
+mjml-quickstart includes an
+[MJML custom component](https://documentation.mjml.io/#creating-a-component) for
+the "signoff" section at the bottom of your email content. It is used in the
+`content/signoff.hbs` template and allows you to easily include an image
+alongside your signature such as a photo or logo, which is a common best
+practice in many types of emails.
+
+Available options for this component include:
+
+- `section-padding`: default `10px 0`
+- `section-align`: default `left`
+- `background-color`: default `transparent`
+- `image-position`: default `left`
+- `image-padding`: default `0`
+- `image-src`: default `null`
+- `image-width`: default `null`
+- `image-height`: default `null`
+- `image-alt`: default `null`
+- `text-column-padding`: default `0 10px`
+
+The content within the element itself is placed in the text column, alongside
+the image. The default `content/signoff.hbs` template includes CSS class hooks
+to allow you to change the spacing around the signoff elements independently
+from the rest of your content's text.
+
+Alternatively, if you are not using an image in your signoff you could use the
+core `<mj-section>` and `<mj-text>` components directly.
+
 ## Automatic code formatting and linting
 
 mjml-quickstart includes
