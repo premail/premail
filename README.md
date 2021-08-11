@@ -34,13 +34,14 @@ version, ready to import into your emailer of choice.
    * [Creating a new design](#creating-a-new-design)
    * [Creating a new email from an existing design](#creating-a-new-email-from-an-existing-design)
    * [Rendering the email for production](#rendering-the-email-for-production)
+   * [Custom components](#custom-components)
    * [Automatic code formatting and linting](#automatic-code-formatting-and-linting)
 * [Full list of options](#full-list-of-options)
 * [Known issues](#known-issues)
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Wed Aug 11 00:20:13 UTC 2021 -->
+<!-- Added by: runner, at: Wed Aug 11 00:24:35 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
