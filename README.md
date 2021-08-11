@@ -253,9 +253,9 @@ Once the production email is rendered, you can:
 
 mjml-quickstart includes an
 [MJML custom component](https://documentation.mjml.io/#creating-a-component) for
-the "signoff" section at the bottom of your email content. It is used in the
-`content/signoff.hbs` template and allows you to easily include an image
-alongside your signature such as a photo or logo, which is a common best
+the "signoff" section at the bottom of your email content, `<mj-signoff>`. It is
+used in the `content/signoff.hbs` template and allows you to easily include an
+image alongside your signature such as a photo or logo, which is a common best
 practice in many types of emails.
 
 Available options for this component include:
