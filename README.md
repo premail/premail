@@ -138,9 +138,9 @@ recommend using [n](https://github.com/tj/n) or
 Node.
 
 This tool uses [Gulp](https://gulpjs.com/docs/en/getting-started/quick-start)
-4.0.2+ and [MJML](https://github.com/mjmlio/mjml/releases) 4.9.3+, but these are
-installed automatically during setup, so it's only important to check these if
-you already have them installed.
+4.0.2+ and [MJML](https://github.com/mjmlio/mjml/releases) 4.10.2+, but these
+are installed automatically during setup, so it's only important to check these
+if you already have them installed.
 
 ## Installation
 
