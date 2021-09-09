@@ -128,8 +128,7 @@ controlled per-email:
 You need to have at least [Node](https://nodejs.org/en/download/) 12.x. This
 tool has been tested up to 16.x and appears to work, with the caveat that **if
 you want to be able to use the `watch` function you need to stay at
-[Node 12.x or below](https://github.com/nodejs/Release#release-schedule)**
-because of a
+[Node 12.x](https://github.com/nodejs/Release#release-schedule)** because of a
 [limitation in gulp](https://github.com/gulpjs/glob-watcher/issues/55). (This
 means you'll see an unfortunate number of depreciation warnings upon
 installation.) If you don't need to use `watch`, you can run Node LTS. I
