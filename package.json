@@ -42,7 +42,6 @@
     "gulp-sass": "^5.0.0",
     "gulp-tap": "^2.0.0",
     "handlebars": "^4.7.7",
-    "handlebars-helpers": "^0.10.0",
     "html-crush": "^4.2.0",
     "html-img-alt": "^2.1.0",
     "html-to-text": "^8.0.0",

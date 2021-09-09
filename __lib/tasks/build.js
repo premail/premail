@@ -12,7 +12,6 @@ const sass = require('gulp-sass')(require('sass'))
 const sassImporter = require('node-sass-json-importer')
 const Fiber = require('fibers') // Depreciated in Node 16
 const Handlebars = require('handlebars')
-const helpers = require('handlebars-helpers')(['comparison'])
 const mjml = require('gulp-mjml')
 const mjmlEngine = require('mjml')
 const { det } = require('detergent')
@@ -273,6 +272,15 @@ function render (cb) {
       Handlebars.registerPartial(`${key}`, partials[key])
     }
 
+    // #eq Handlebars helper
+    Handlebars.registerHelper('eq', function (a, b, opts) {
+      if (a === b) {
+        return opts.fn(this)
+      } else {
+        return opts.inverse(this)
+      }
+    })
+
     return pipeline(
       src(config.current.templates.main),
 
@@ -282,8 +290,8 @@ function render (cb) {
         const format = Handlebars.compile(contents, {
           strict: true,
         })
-        // Add in the Handlebars data (config) and helpers
-        const processedTemplate = format(config, helpers)
+        // Add in the Handlebars data (config)
+        const processedTemplate = format(config)
         file.contents = Buffer.from(processedTemplate, 'utf-8')
         notify.msg('debug', config.file.internal.messages.completeHandlebars)
       }),
