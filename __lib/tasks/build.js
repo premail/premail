@@ -22,6 +22,7 @@ const typeset = require('typeset')
 const transform = require('vinyl-transform')
 const map = require('map-stream')
 const { htmlToText } = require('html-to-text')
+const filesize = require('filesize')
 
 const e = require('../functions/e.js')
 const { config } = require('../vars/config.js')
@@ -325,6 +326,21 @@ function render (cb) {
         if (flags.prod) {
           const crushResult = crush(file.contents.toString())
           file.contents = Buffer.from(crushResult.result)
+        }
+      }),
+
+      // Measure size of HTML version
+      tap(function (file) {
+        const size = Number(Buffer.byteLength(file.contents.toString(), 'utf8'))
+        const renderedSize = filesize(size)
+        if (size < Number('100000')) {
+          notify.msg('info', `Email file size is ${renderedSize}`)
+        } else {
+          notify.msg(
+            'warn',
+            'Gmail is known to clip emails with a file size larger than 100 kB\n   For more information, see:\n   https://github.com/hteumeuleu/email-bugs/issues/41',
+            `Large email file size: ${renderedSize}`
+          )
         }
       }),
 

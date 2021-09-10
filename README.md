@@ -70,7 +70,10 @@ Then just drop the code from the file into your email service provider's system.
 # Features
 
 - MJML-standard bulletproof code that will look its best across all email
-  clients, reduced to the smallest possible size.
+  clients, reduced to the smallest possible size. CSS is inlined and HTML is
+  minified as with all MJML, but we also add some extra checks, for instance, to
+  make sure emojis are properly escaped and the file size doesn't hit Gmail's
+  clipping limit.
 
 - Component-based templates that allow you to separate out things that don't
   often change (navigation menus, social media links, unsubscribe text) and
