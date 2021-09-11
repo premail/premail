@@ -202,13 +202,14 @@ Within each design directory, you'll find the following:
 - `theme`: In order to render bulletproof email code, MJML sets some styles
   directly on elements, and uses inlined CSS on others. To make it easier to
   quickly create a new design, or slightly alter an existing one, look at
-  `themeConfig.yaml` in this folder. Here are all the most common styles for a
-  design, which we then map automatically to the appropriate locations in MJML
-  and CSS. If there are styles you want to add or change that you don't find
-  listed in `themeConfig.yaml`, your next stop should be the included CSS files
-  in this directory -- they are extensively commented to guide you. If the
-  styles aren't in the CSS, as a last stop look at the `index.hbs` file in the
-  root design directory to see what MJML is setting directly.
+  [`themeConfig.yaml`](designs/_templates/theme/themeConfig.yaml) in this
+  folder. Here are all the most common styles for a design, which we then map
+  automatically to the appropriate locations in MJML and CSS. If there are
+  styles you want to add or change that you don't find listed in
+  `themeConfig.yaml`, your next stop should be the included CSS files in this
+  directory -- they are extensively commented to guide you. If the styles aren't
+  in the CSS, as a last stop look at the `index.hbs` file in the root design
+  directory to see what MJML is setting directly.
 - `dist`: This directory contains the output `index.html` (and optionally a
   plain-text `index.txt` file) for you to use.
 
