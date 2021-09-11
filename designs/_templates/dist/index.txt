@@ -6,8 +6,8 @@ Hero image title
 Dear $[FNAME|friend]$,
 
 Morbi fermentum — est venenatis ex facilisis, quis bibendum
-lacus faucibus. Pellentesque … vulputate auctor libero, ac
-maximus lacus mollis.
+lacus faucibus. An inline link. Pellentesque … vulputate
+auctor libero, ac maximus lacus mollis.
 
 Some emojis: ✏ ❤ 👍🏽 💃🏽 🐿
 

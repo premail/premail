@@ -23,11 +23,91 @@
 # https://www.litmus.com/blog/background-colors-html-email/
 # https://www.hteumeuleu.com/2021/fixing-gmail-dark-mode-css-blend-modes/
 #
-# Font sizes:
-# Set in pixels. Email clients render ems at vastly different sizes; 1em can
-# vary from as small as 12px to as large as 17px. Resources:
+# Size values:
+# MJML only supports sizes set in pixels. This is largely due to the wide
+# variety in email client interpretation of values such as "1em", which can
+# range from 12px to 17px. Resources:
 # https://us4.campaign-archive.com/?u=00194e641f365c79871912856&id=1b0c8bc3ba&e=d274356b59
 # https://email.uplers.com/blog/em-or-px-how-to-code-your-emails-right/
+
+# PAGE SETTINGS
+page:
+  # center: If you want your email to be aligned to the default for your
+  # language (left-aligned, for LTR languages like English), set this to false.
+  # Note that this may break some advanced aspects of MJML like background
+  # images, so use with care. Details:
+  # https://github.com/mjmlio/mjml/issues/2283#issuecomment-863021249
+  center: true
+  # background-image: Note that this must point to an Internet-accessible image
+  # (not a local file). It will be repeated across the background of the email.
+  # Be sure to double-quote the URI, as in the example provided.
+  # background-image: "'https://www.toptal.com/designers/subtlepatterns/patterns/moroccan-flower.png'"
+  # background-color: Background color for the overall email, and fallback if
+  # a background image is set but a client refuses to load it. See "Color
+  # values" at the top of this document.
+  background-color: '#fff'
+
+# SECTION SETTINGS
+sections:
+  # main: Settings here will apply to the following sections, if they exist:
+  # - salutation
+  # - body
+  # - signoff
+  main:
+    # background-color: See "Color values" at the top of this document.
+    background-color: '#fff'
+    # horizontal-padding: See "Size values" at the top of this document.
+    horizontal-padding: 18px
+
+  salutation:
+    # padding: See "Size values" at the top of this document.
+    padding:
+      top: 18px
+      bottom: 0px
+
+  body:
+    # padding: See "Size values" at the top of this document.
+    padding:
+      top: 0px
+      bottom: 0px
+
+  signoff:
+    # padding: See "Size values" at the top of this document.
+    padding:
+      top: 0px
+      bottom: 18px
+
+  topNav:
+
+  banner:
+
+  social:
+    # background-color: See "Color values" at the top of this document.
+    background-color: '#fff'
+    # horizontal-padding: See "Size values" at the top of this document.
+    horizontal-padding: 0px
+    # vertical-padding: See "Size values" at the top of this document.
+    vertical-padding: 0px
+    # top-border: Appears between the social icons and email content.
+    top-border:
+      # include: Set to false to omit the border.
+      include: true
+      # vertical-padding: See "Size values" at the top of this document.
+      vertical-padding: 0px
+      # border-width: See "Size values" at the top of this document.
+      border-width: 1px
+      # border-style: Any valid CSS border-style value may be used.
+      border-style: dashed
+
+  bottomNav:
+
+  footer:
+    # background-color: See "Color values" at the top of this document.
+    background-color: '#fff'
+    # horizontal-padding: See "Size values" at the top of this document.
+    horizontal-padding: 18px
+    # vertical-padding: See "Size values" at the top of this document.
+    vertical-padding: 18px
 
 # COLOR BRANDING
 # See "Color values" at the top of this document.
@@ -69,27 +149,23 @@ fonts:
       # https://www.litmus.com/blog/the-ultimate-guide-to-web-fonts/
       # https://css-tricks.com/kinda-can-use-custom-fonts-html-emails/
       enabled: true
-
-      # The name of the Google Font. Capitalization and spaces count!
+      # name: The name of the Google Font. Capitalization and spaces count!
       name: Source Sans Pro
-
-      # The font weight(s) you want to use (enter in ascending order):
+      # weights: The font weight(s) you want to use (enter in ascending order):
       weights:
         - 400
         - 900
-
-      # Whether to include an italic variant for each weight
+      # italics: Whether to include an italic variant for each weight
       italics: true
 
     custom:
       # custom: If enabled, choose a non-Google web font, or use an
       # already-crafted URI pointing to a font-loading CSS file.
       enabled: false
-
-      # The name of your custom font
+      # name: The name of your custom font
       name: Example Custom Font
-      # Valid URI pointing to a CSS file that loads web font(s). For an example,
-      # here's Google Fonts' file for Sans Serif Pro:
+      # href: Valid URI pointing to a CSS file that loads web font(s). For an
+      # example, here's Google Fonts' file for Sans Serif Pro:
       # https://fonts.googleapis.com/css2?family=Source+Sans+Pro&amp;display=swap
       # You'll probably want to include references to bold and italics variants
       # as well. Be sure to double-quote the URI, as in the example provided.
@@ -99,21 +175,134 @@ fonts:
 text:
   # default: Styles for body text, when not otherwise styled.
   default:
-    # size: See "Font sizes" at the top of this document.
-    size: 18px
     # color: See "Color values" at the top of this document.
     color: '#666'
+    # size: See "Size values" at the top of this document.
+    size: 18px
     # line-height: As in CSS, set to unitless values that multiply the font
     # size. For instance, if your default font size is 18px, a line-height of
     # 1 would set it to 18px as well; a setting of 1.5 would set it to 27px.
-    line-height: 2
-  # links: Color for links within text. This does not affect the link color in
-  # buttons or navigation items.
-  # links: '#800080'
-  # # email-bg: Background color for the overall email. Note that some email
-  # # clients will override this with white.
-  # email-bg: white
-  # # container-bg: Background color for the content container.
-  # container-bg: purple
-  # # text: Default color for text unless overridden on particular kinds of text.
-  # text: '#666f9f'
+    line-height: 1.8
+    # vertical-padding: If unset, this will be equal to the font size.
+    vertical-padding:
+
+# INLINE LINK STYLES
+# These styles do not affect buttons or navigation item links.
+links:
+  # color: By default links will use "primary" from "Color Branding", above.
+  # Set this value to override that color. See "Color values" at the top of this
+  # document.
+  color: ''
+  # weight: Any valid CSS font-weight value may be used.
+  weight: bold
+  # decoration: Any valid CSS text-decoration value may be used.
+  decoration: underline
+
+# BUTTON STYLES
+# To learn about MJML's button settings, see:
+# https://documentation.mjml.io/#mj-button
+# Be sure to use both the mj-class and css-class attributes as specified.
+buttons:
+  # primary: Use mj-class="button" css-class="button"
+  primary:
+    # height: Explicitly set the button's height. If unset, the button will
+    # be large enough to contain its content (text and padding). See "Size
+    # values" at the top of this document.
+    height:
+    # width: Explicitly set the button's width. If unset, the button will
+    # be large enough to contain its content (text and padding). Note this can
+    # cause the button to overflow its container! See "Size values" at the top
+    # of this document.
+    width:
+    # align: Horizontal alignment of the button itself.
+    # Valid values: left/right/center
+    align: center
+    # button-padding: The padding between the button and surrounding content.
+    # See "Size values" at the top of this document.
+    button-padding:
+      top: 9px
+      bottom: 27px
+      left: 18px
+      right: 18px
+    # content-padding: The padding inside the button itself, around the text.
+    # Value is a string in the form "vertical horizontal", e.g. "10px 5px" or
+    # "top right bottom left", e.g. "0px 10px 20px 10px". Also see "Size values"
+    # at the top of this document.
+    content-padding: 9px 36px
+    # corner-radius: See "Size values" at the top of this document.
+    corner-radius: 9px
+    # background-color: By default this will use "primary" from "Color Branding"
+    # above. Set this value to override that color. See "Color values" at the
+    # top of this document.
+    background-color:
+    # text-color: See "Color values" at the top of this document.
+    text-color: '#fff'
+    # weight: Any valid CSS font-weight value may be used.
+    weight: bold
+    # style: Any valid CSS font-style value may be used.
+    style: normal
+    # decoration: underline/overline/none
+    decoration: none
+    # text-size: See "Size values" at the top of this document.
+    text-size: 22px
+    # line-height: As in CSS, set to unitless values that multiply the font
+    # size. For instance, if your default font size is 18px, a line-height of
+    # 1 would set it to 18px as well; a setting of 1.5 would set it to 27px.
+    # Only apparent in multi-line buttons.
+    line-height: 1
+
+  # secondary: Use both
+  # mj-class="button button--secondary" css-class="button button--secondary"
+  # for inheritance of styles from the primary button. You can also use only
+  # mj-class="button--secondary" css-class="button--secondary"
+  # but note that it will still inherit some MJML button default properties.
+  secondary:
+    height:
+    width:
+    align:
+    button-padding:
+      top:
+      bottom:
+      left:
+      right:
+    content-padding:
+    corner-radius:
+    # background-color: By default this will use "secondary" from "Color Branding"
+    # above. Set this value to override that color.
+    background-color:
+    text-color:
+    weight:
+    style:
+    decoration:
+    text-size:
+    line-height:
+
+  # ghost: The default style of the ghost button simply inverts the colors of
+  # the primary button. Use both
+  # mj-class="button button--ghost" css-class="button button--ghost"
+  # for inheritance of styles from the primary button. You can also use only
+  # mj-class="button--ghost" css-class="button--ghost"
+  # but note that it will still inherit some MJML button default properties.
+  ghost:
+    height:
+    width:
+    align:
+    button-padding:
+      top:
+      bottom:
+      left:
+      right:
+    content-padding:
+    corner-radius:
+    border-color:
+    # border-width: See "Size values" at the top of this document.
+    border-width: 2px
+    # border-style: Any valid CSS border-style value may be used.
+    border-style: solid
+    background-color:
+    text-color:
+    weight:
+    style:
+    decoration:
+    text-size:
+    line-height:

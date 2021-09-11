@@ -9,11 +9,39 @@
 // Import theme configuration values for use as Sass variables.
 @import '~/theme.js';
 
+// Note that MJML sets some values, like background color, directly on
+// <mj-body> in index.hbs
 .body {
-  margin: 0;
   padding: 0 8px;
-  background-color: white;
 }
+
+@if map-get($page, 'center') {
+  .body {
+    margin: 0;
+  }
+} @else {
+  .body {
+    text-align: left;
+  }
+  .component-topNav,
+  .component-banner,
+  .component-salutation,
+  .component-body,
+  .component-signoff,
+  .component-social,
+  .component-bottomNav,
+  .component-footer {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+@if map-has-key($page, 'background-image') {
+  .body {
+    background-image: url(map-get($page, 'background-image'));
+  }
+}
+
 h1 {
   margin: 0;
   padding: 18px 0;
@@ -34,21 +62,25 @@ h2 {
   vertical-align: middle;
 }
 p {
-  margin: 0 0 18px;
-}
-.component-salutation,
-.component-signoff {
-  p {
-    margin: 0;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  @if map-has-key($text, 'vertical-padding') {
+    margin-bottom: map-get($text, 'vertical-padding');
+  } @else {
+    margin-bottom: map-get($text, 'size');
   }
 }
-.component-signoff div {
-  margin: 0 0 18px;
+.signoff__name p {
+  margin: 0;
 }
 a {
+  font-weight: map-get($links, 'weight');
+  text-decoration: map-get($links, 'decoration');
   color: map-get($colors, 'primary');
-  font-weight: bold;
-  text-decoration: underline;
+  @if map-has-key($links, 'color') {
+    color: map-get($links, 'color');
+  }
 }
 
 /* TYPOGRAPHIC ENHANCEMENT STYLES
