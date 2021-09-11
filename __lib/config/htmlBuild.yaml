@@ -1,11 +1,14 @@
 # Default HTML build configuration
 htmlBuild:
-  options:
+  mjml:
     dev:
       validationLevel: 'strict'
-      beautify: true
     prod:
       validationLevel: 'strict'
-      beautify: false
-      minify: true
       keepComments: false
+  crush:
+    removeIndentations: true
+    removeLineBreaks: true
+    lineLengthLimit: 500
+    removeHTMLComments: 0
+    removeCSSComments: true

@@ -12,8 +12,7 @@ const sass = require('gulp-sass')(require('sass'))
 const sassImporter = require('node-sass-json-importer')
 const Fiber = require('fibers') // Depreciated in Node 16
 const Handlebars = require('handlebars')
-const mjml = require('gulp-mjml')
-const mjmlEngine = require('mjml')
+const mjml = require('mjml')
 const { det } = require('detergent')
 const { stripHtml } = require('string-strip-html')
 const { alts } = require('html-img-alt')
@@ -196,7 +195,8 @@ function render (cb) {
   // Default build options
   const htmlBuild = {
     file: 'index.html',
-    options: config.file.internal.htmlBuild.options.dev,
+    mjml: config.file.internal.htmlBuild.mjml.dev,
+    crush: config.file.internal.htmlBuild.crush,
   }
   const textBuild = {
     file: 'index.txt',
@@ -205,12 +205,12 @@ function render (cb) {
 
   // Set production options
   if (flags.prod) {
-    htmlBuild.options = config.file.internal.htmlBuild.options.prod
+    htmlBuild.mjml = config.file.internal.htmlBuild.mjml.prod
     notify.msg('info', config.file.internal.messages.productionBuild)
   }
 
   // Set template extension
-  htmlBuild.options.fileExt = config.user.files.templateExt
+  htmlBuild.mjml.fileExt = config.user.files.templateExt
 
   // Set text build options
   if (config.user.text.generate) {
@@ -311,8 +311,9 @@ function render (cb) {
       }),
 
       // Compile MJML into HTML
-      mjml(mjmlEngine, htmlBuild.options),
       tap(function (file) {
+        const render = mjml(file.contents.toString(), htmlBuild.mjml)
+        file.contents = Buffer.from(render.html)
         notify.msg('debug', config.file.internal.messages.completeMJML)
       }),
 
@@ -321,26 +322,29 @@ function render (cb) {
         file.contents = Buffer.from(alts(file.contents.toString()))
       }),
 
-      // Give production HTML a little extra minification (mostly around CSS)
+      // Filter and measure the HTML file
       tap(function (file) {
-        if (flags.prod) {
-          const crushResult = crush(file.contents.toString())
-          file.contents = Buffer.from(crushResult.result)
-        }
-      }),
-
-      // Measure size of HTML version
-      tap(function (file) {
-        const size = Number(Buffer.byteLength(file.contents.toString(), 'utf8'))
+        const minified = crush(file.contents.toString(), htmlBuild.crush)
+        const size = Number(
+          Buffer.byteLength(Buffer.from(minified.result), 'utf8')
+        )
         const renderedSize = filesize(size)
+
         if (size < Number('100000')) {
-          notify.msg('info', `Email file size is ${renderedSize}`)
+          notify.msg('info', `Email file size is ${renderedSize} (minified).`)
         } else {
           notify.msg(
             'warn',
             'Gmail is known to clip emails with a file size larger than 100 kB\n   For more information, see:\n   https://github.com/hteumeuleu/email-bugs/issues/41',
-            `Large email file size: ${renderedSize}`
+            `Large email file size: ${renderedSize} (minified).`
           )
+        }
+
+        if (flags.prod) {
+          file.contents = Buffer.from(minified.result)
+        } else {
+          // @TODO: Create a prettier (or prettier-like) filter on the dev
+          // version of the HTML file.
         }
       }),
 
