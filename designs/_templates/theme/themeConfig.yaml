@@ -192,7 +192,7 @@ links:
   # color: By default links will use "primary" from "Color Branding", above.
   # Set this value to override that color. See "Color values" at the top of this
   # document.
-  color: ''
+  color:
   # weight: Any valid CSS font-weight value may be used.
   weight: bold
   # decoration: Any valid CSS text-decoration value may be used.
