@@ -193,16 +193,22 @@ cd postmodern
 Within each design directory, you'll find the following:
 
 - `index.hbs`: This file includes all the component files. You shouldn't
-  normally need to edit this unless you are re-ordering the structure or
-  changing the `lang` value.
+  normally need to edit this unless you are re-ordering the structure.
 - `content`: This directory holds files that will _always_ change in each email
   -- the title, preview text, header/hero area and main body.
 - `structure`: This directory holds files that may _sometimes_ change in each
   email -- top and bottom navigation menus, social media links, and the footer
   area.
-- `theme`: This directory contains the CSS attributes that, ideally, _will not_
-  change from project to project, and a `themeConfig.yaml` file controlling
-  options specific to this theme.
+- `theme`: In order to render bulletproof email code, MJML sets some styles
+  directly on elements, and uses inlined CSS on others. To make it easier to
+  quickly create a new design, or slightly alter an existing one, look at
+  `themeConfig.yaml` in this folder. Here are all the most common styles for a
+  design, which we then map automatically to the appropriate locations in MJML
+  and CSS. If there are styles you want to add or change that you don't find
+  listed in `themeConfig.yaml`, your next stop should be the included CSS files
+  in this directory -- they are extensively commented to guide you. If the
+  styles aren't in the CSS, as a last stop look at the `index.hbs` file in the
+  root design directory to see what MJML is setting directly.
 - `dist`: This directory contains the output `index.html` (and optionally a
   plain-text `index.txt` file) for you to use.
 
