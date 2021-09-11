@@ -366,9 +366,8 @@ configuration and files being processed.
 
 # Known issues
 
-- [Gulp output includes MJML depreciation notices](https://github.com/mjmlio/mjml/issues/2205)
-  over which we have no control. The options `mjml` is warning us about will be
-  moved to `mjml-cli` once we're given a way to do that.
+- None currently! If you have one to report,
+  [head over here](https://github.com/rootwork/mjml-quickstart/issues/new)
 
 # Thanks and Sponsorships
 
