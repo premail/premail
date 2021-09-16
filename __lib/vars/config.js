@@ -8,7 +8,9 @@ const yaml = require('js-yaml')
 const e = require('../functions/e.js')
 const projectPath = require('../functions/projectPath.js')
 const getFiles = require('../functions/getFiles.js')
+const validate = require('../functions/validate.js')
 
+const notify = require('../vars/notify.js')
 const { flags } = require('../vars/flags.js')
 /* eslint-enable no-unused-vars */
 
@@ -39,6 +41,11 @@ const userJSON = yaml.loadAll(
   fs.readFileSync(config.file.user, { encoding: 'utf-8' })
 )
 config.user = userJSON[0]
+
+// Validate user config
+validate('ascii', config.user.folders, 'config.yaml directory configuration')
+validate('ascii', config.user.files, 'config.yaml files configuration')
+validate('ascii', config.user.language, 'config.yaml language configuration')
 
 // Save template filename parts.
 const templateDotExt = path.extname(config.user.files.template)
@@ -114,6 +121,30 @@ const themeYAML = fs.readFileSync(
 )
 const themeJSON = yaml.loadAll(themeYAML)
 config.theme = themeJSON[0]
+
+// Validate theme config
+validate(
+  'size',
+  config.theme.sections.main['horizontal-padding'],
+  'theme sections (main)'
+)
+validate(
+  'size',
+  config.theme.sections.salutation.padding,
+  'theme sections (salutation)'
+)
+validate('size', config.theme.sections.body.padding, 'theme sections (body)')
+validate(
+  'size',
+  config.theme.sections.signoff.padding,
+  'theme sections (signoff)'
+)
+validate('oneof', config.theme.fonts.stack.base, 'theme font stack', [
+  'sans',
+  'serif',
+  'mono',
+])
+validate('url', config.theme.fonts.stack.custom.href, 'theme font stack')
 
 // Calculating internal-only (not included in config file) theme settings.
 if (config.theme.fonts) {
