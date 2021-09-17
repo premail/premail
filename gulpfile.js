@@ -10,7 +10,7 @@ const { series, parallel } = require('gulp')
 
 const taskDir = './__lib/tasks/'
 
-const showConfig = require(taskDir + 'showConfig.js')
+const loadConfig = require(taskDir + 'loadConfig.js')
 const clean = require(taskDir + 'clean.js')
 const build = require(taskDir + 'build.js')
 const watchEmail = require(taskDir + 'watchEmail.js')
@@ -25,7 +25,7 @@ build.render.displayName = 'build.render'
 
 // Sets
 exports.default = series(
-  showConfig,
+  loadConfig,
   formatTemplates,
   clean.generated,
   parallel(build.content, build.styles),
@@ -51,7 +51,7 @@ exports.buildRender = build.render
 
 // Watch
 exports.watch = series(
-  showConfig,
+  loadConfig,
   formatTemplates,
   parallel(build.content, build.styles),
   build.render,
@@ -70,9 +70,9 @@ exports.clean.description =
   'Remove generated files from the current design or email.'
 
 // Debug
-exports.showConfig = showConfig
-exports.showConfig.description =
-  'Display the current configuration being used when rendering your email files. Use with --debug'
+exports.loadConfig = loadConfig
+exports.loadConfig.description =
+  'Load the current configuration being used to render your email. To print to the console, use with --debug'
 exports.listTemplates = listTemplates
 exports.listTemplates.description =
   'List all templates that will be processed. Use with --debug'
