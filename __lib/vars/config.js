@@ -204,30 +204,6 @@ if (config.theme.fonts) {
   }
 }
 
-// @TODO New feature that would get the list of current designs and emails
-// based on directory names, and prompt the user to select one, rather than
-// only relying on passing arguments via the command-line.
-//
-// Nice example:
-// https://github.com/kraftvaerk/generator-rammevaerk/blob/master/app/index.js
-//
-// const prompt = require('prompt-sync')({ sigint: true });
-//
-// Acquire directory information
-// const getDirectories = srcPath =>
-//   fs.readdirSync(srcPath)
-//     .filter(file => fs.lstatSync(path.join(srcPath, file)).isDirectory())
-//
-// Get list of designs by directory name
-// const designList = getDirectories(config.user.folders.design.path);
-//
-// Get list of emails by directory name
-// const emailList = getDirectories(config.user.folders.email.name);
-//
-// Prompt user (example code)
-// const name = prompt('What is your name? ');
-// console.log(`Hey there ${name}`);
-
 // Set current template paths
 config.current.templates = {}
 
