@@ -25,7 +25,7 @@ function iterate (type, selector, subject, opt) {
       iterate(type, selector[k], subject, opt)
     } else if (typeof selector[k] === 'number') {
       selector[k] = selector[k] + ''
-      iterate(type, selector[k], subject, opt)
+      scan(type, selector[k], subject, opt)
     } else {
       scan(type, selector[k], subject, opt)
     }
