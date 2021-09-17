@@ -41,39 +41,53 @@ function scan (type, selector, subject, opt) {
       case 'size':
         return v.matches(selector, /px$/gm)
           ? null
-          : notify.msg(
-              'error',
-              `Value: ${selector}`,
-              `MJML requires all sizes to be in pixels. Check ${subject}`
-            )
+          : (() => {
+              throw notify.msg(
+                'error',
+                `Value: ${selector}`,
+                `MJML requires all sizes to be in pixels. Check ${subject}`
+              )
+            })()
       case 'ascii':
         return v.isAscii(selector)
           ? null
-          : notify.msg(
-              'error',
-              `${selector}`,
-              `Non-ASCII characters detected in ${subject}`
-            )
+          : (() => {
+              throw notify.msg(
+                'error',
+                `${selector}`,
+                `Non-ASCII characters detected in ${subject}`
+              )
+            })()
       case 'oneof':
         return v.isIn(selector, opt)
           ? null
-          : notify.msg(
-              'error',
-              `Set to '${selector}', but must be one of ${opt}`,
-              `Invalid setting in ${subject}`
-            )
+          : (() => {
+              throw notify.msg(
+                'error',
+                `Set to '${selector}', but must be one of ${opt}`,
+                `Invalid setting in ${subject}`
+              )
+            })()
       case 'url':
         return (
           v.matches(selector, /(^')(.*)('$)/gm)
             ? null
-            : notify.msg(
-                'error',
-                `${selector}`,
-                `URL value must be double quoted in ${subject}`
-              ),
+            : (() => {
+                throw notify.msg(
+                  'error',
+                  `${selector}`,
+                  `URL value must be double quoted in ${subject}`
+                )
+              })(),
           v.isURL(unquoted)
             ? null
-            : notify.msg('error', `${unquoted}`, `Invalid URL in ${subject}`)
+            : (() => {
+                throw notify.msg(
+                  'error',
+                  `${unquoted}`,
+                  `Invalid URL in ${subject}`
+                )
+              })()
         )
       default:
         return notify.msg(
