@@ -182,7 +182,7 @@ text:
     # line-height: As in CSS, set to unitless values that multiply the font
     # size. For instance, if your default font size is 18px, a line-height of
     # 1 would set it to 18px as well; a setting of 1.5 would set it to 27px.
-    line-height: 1.8
+    line-height: '1.8'
     # vertical-padding: If unset, this will be equal to the font size.
     vertical-padding:
 
