@@ -38,14 +38,14 @@ page:
   # images, so use with care. Details:
   # https://github.com/mjmlio/mjml/issues/2283#issuecomment-863021249
   center: true
-  # background-image: Note that this must point to an Internet-accessible image
+  # backgroundImage: Note that this must point to an Internet-accessible image
   # (not a local file). It will be repeated across the background of the email.
   # Be sure to double-quote the URI, as in the example provided.
-  # background-image: "'https://www.toptal.com/designers/subtlepatterns/patterns/moroccan-flower.png'"
-  # background-color: Background color for the overall email, and fallback if
+  # backgroundImage: "'https://www.toptal.com/designers/subtlepatterns/patterns/moroccan-flower.png'"
+  # backgroundColor: Background color for the overall email, and fallback if
   # a background image is set but a client refuses to load it. See "Color
   # values" at the top of this document.
-  background-color: '#fff'
+  backgroundColor: '#fff'
 
 # SECTION SETTINGS
 sections:
@@ -54,10 +54,10 @@ sections:
   # - body
   # - signoff
   main:
-    # background-color: See "Color values" at the top of this document.
-    background-color: '#fff'
-    # horizontal-padding: See "Size values" at the top of this document.
-    horizontal-padding: 18px
+    # backgroundColor: See "Color values" at the top of this document.
+    backgroundColor: '#fff'
+    # horizontalPadding: See "Size values" at the top of this document.
+    horizontalPadding: 18px
 
   salutation:
     # padding: See "Size values" at the top of this document.
@@ -82,32 +82,32 @@ sections:
   banner:
 
   social:
-    # background-color: See "Color values" at the top of this document.
-    background-color: '#fff'
-    # horizontal-padding: See "Size values" at the top of this document.
-    horizontal-padding: 0px
-    # vertical-padding: See "Size values" at the top of this document.
-    vertical-padding: 0px
-    # top-border: Appears between the social icons and email content.
-    top-border:
+    # backgroundColor: See "Color values" at the top of this document.
+    backgroundColor: '#fff'
+    # horizontalPadding: See "Size values" at the top of this document.
+    horizontalPadding: 0px
+    # verticalPadding: See "Size values" at the top of this document.
+    verticalPadding: 0px
+    # topBorder: Appears between the social icons and email content.
+    topBorder:
       # include: Set to false to omit the border.
       include: true
-      # vertical-padding: See "Size values" at the top of this document.
-      vertical-padding: 0px
-      # border-width: See "Size values" at the top of this document.
-      border-width: 1px
-      # border-style: Any valid CSS border-style value may be used.
-      border-style: dashed
+      # verticalPadding: See "Size values" at the top of this document.
+      verticalPadding: 0px
+      # borderWidth: See "Size values" at the top of this document.
+      borderWidth: 1px
+      # borderStyle: Any valid CSS border-style value may be used.
+      borderStyle: dashed
 
   bottomNav:
 
   footer:
-    # background-color: See "Color values" at the top of this document.
-    background-color: '#fff'
-    # horizontal-padding: See "Size values" at the top of this document.
-    horizontal-padding: 18px
-    # vertical-padding: See "Size values" at the top of this document.
-    vertical-padding: 18px
+    # backgroundColor: See "Color values" at the top of this document.
+    backgroundColor: '#fff'
+    # horizontalPadding: See "Size values" at the top of this document.
+    horizontalPadding: 18px
+    # verticalPadding: See "Size values" at the top of this document.
+    verticalPadding: 18px
 
 # COLOR BRANDING
 # See "Color values" at the top of this document.
@@ -179,12 +179,12 @@ text:
     color: '#666'
     # size: See "Size values" at the top of this document.
     size: 18px
-    # line-height: As in CSS, set to unitless values that multiply the font
+    # lineHeight: As in CSS, set to unitless values that multiply the font
     # size. For instance, if your default font size is 18px, a line-height of
     # 1 would set it to 18px as well; a setting of 1.5 would set it to 27px.
-    line-height: '1.8'
-    # vertical-padding: If unset, this will be equal to the font size.
-    vertical-padding:
+    lineHeight: '1.8'
+    # verticalPadding: If unset, this will be equal to the font size.
+    verticalPadding:
 
 # INLINE LINK STYLES
 # These styles do not affect buttons or navigation item links.
@@ -217,39 +217,39 @@ buttons:
     # align: Horizontal alignment of the button itself.
     # Valid values: left/right/center
     align: center
-    # button-padding: The padding between the button and surrounding content.
+    # buttonPadding: The padding between the button and surrounding content.
     # See "Size values" at the top of this document.
-    button-padding:
+    buttonPadding:
       top: 9px
       bottom: 27px
       left: 18px
       right: 18px
-    # content-padding: The padding inside the button itself, around the text.
+    # contentPadding: The padding inside the button itself, around the text.
     # Value is a string in the form "vertical horizontal", e.g. "10px 5px" or
     # "top right bottom left", e.g. "0px 10px 20px 10px". Also see "Size values"
     # at the top of this document.
-    content-padding: 9px 36px
-    # corner-radius: See "Size values" at the top of this document.
-    corner-radius: 9px
-    # background-color: By default this will use "primary" from "Color Branding"
+    contentPadding: 9px 36px
+    # cornerRadius: See "Size values" at the top of this document.
+    cornerRadius: 9px
+    # backgroundColor: By default this will use "primary" from "Color Branding"
     # above. Set this value to override that color. See "Color values" at the
     # top of this document.
-    background-color:
-    # text-color: See "Color values" at the top of this document.
-    text-color: '#fff'
+    backgroundColor:
+    # textColor: See "Color values" at the top of this document.
+    textColor: '#fff'
     # weight: Any valid CSS font-weight value may be used.
     weight: bold
     # style: Any valid CSS font-style value may be used.
     style: normal
     # decoration: underline/overline/none
     decoration: none
-    # text-size: See "Size values" at the top of this document.
-    text-size: 22px
-    # line-height: As in CSS, set to unitless values that multiply the font
+    # textSize: See "Size values" at the top of this document.
+    textSize: 22px
+    # lineHeight: As in CSS, set to unitless values that multiply the font
     # size. For instance, if your default font size is 18px, a line-height of
     # 1 would set it to 18px as well; a setting of 1.5 would set it to 27px.
     # Only apparent in multi-line buttons.
-    line-height: 1
+    lineHeight: '1'
 
   # secondary: Use both
   # mj-class="button button--secondary" css-class="button button--secondary"
@@ -260,22 +260,22 @@ buttons:
     height:
     width:
     align:
-    button-padding:
+    buttonPadding:
       top:
       bottom:
       left:
       right:
-    content-padding:
-    corner-radius:
-    # background-color: By default this will use "secondary" from "Color Branding"
+    contentPadding:
+    cornerRadius:
+    # backgroundColor: By default this will use "secondary" from "Color Branding"
     # above. Set this value to override that color.
-    background-color:
-    text-color:
+    backgroundColor:
+    textColor:
     weight:
     style:
     decoration:
-    text-size:
-    line-height:
+    textSize:
+    lineHeight:
 
   # ghost: The default style of the ghost button simply inverts the colors of
   # the primary button. Use both
@@ -287,22 +287,22 @@ buttons:
     height:
     width:
     align:
-    button-padding:
+    buttonPadding:
       top:
       bottom:
       left:
       right:
-    content-padding:
-    corner-radius:
-    border-color:
-    # border-width: See "Size values" at the top of this document.
-    border-width: 2px
-    # border-style: Any valid CSS border-style value may be used.
-    border-style: solid
-    background-color:
-    text-color:
+    contentPadding:
+    cornerRadius:
+    borderColor:
+    # borderWidth: See "Size values" at the top of this document.
+    borderWidth: 2px
+    # borderStyle: Any valid CSS border-style value may be used.
+    borderStyle: solid
+    backgroundColor:
+    textColor:
     weight:
     style:
     decoration:
-    text-size:
-    line-height:
+    textSize:
+    lineHeight:

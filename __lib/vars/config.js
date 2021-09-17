@@ -124,7 +124,7 @@ config.theme = themeJSON[0]
 // Validate theme config
 validate(
   'size',
-  config.theme.sections.main['horizontal-padding'],
+  config.theme.sections.main.horizontalPadding,
   'theme sections (main)'
 )
 validate(

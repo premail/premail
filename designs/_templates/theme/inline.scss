@@ -36,9 +36,9 @@
   }
 }
 
-@if map-has-key($page, 'background-image') {
+@if map-has-key($page, 'backgroundImage') {
   .body {
-    background-image: url(map-get($page, 'background-image'));
+    background-image: url(map-get($page, 'backgroundImage'));
   }
 }
 
@@ -65,8 +65,8 @@ p {
   margin-top: 0;
   margin-left: 0;
   margin-right: 0;
-  @if map-has-key($text, 'vertical-padding') {
-    margin-bottom: map-get($text, 'vertical-padding');
+  @if map-has-key($text, 'verticalPadding') {
+    margin-bottom: map-get($text, 'verticalPadding');
   } @else {
     margin-bottom: map-get($text, 'size');
   }

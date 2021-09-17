@@ -135,7 +135,7 @@ After building your email, the result will be output to the `dist` directory.
         name="text"
         padding="0"
         font-size="{{theme.text.default.size}}"
-        line-height="{{theme.text.default.line-height}}"
+        line-height="{{theme.text.default.lineHeight}}"
       />
 
       <mj-class
@@ -156,94 +156,93 @@ After building your email, the result will be output to the `dist` directory.
       height="{{theme.buttons.primary.height}}" {{/if}} {{#if
       theme.buttons.primary.width}} width="{{theme.buttons.primary.width}}"
       {{/if}} align="{{theme.buttons.primary.align}}"
-      padding-top="{{theme.buttons.primary.button-padding.top}}"
-      padding-left="{{theme.buttons.primary.button-padding.left}}"
-      padding-right="{{theme.buttons.primary.button-padding.right}}"
-      padding-bottom="{{theme.buttons.primary.button-padding.bottom}}" {{#if
-      theme.buttons.primary.background-color}}
-      background-color="{{theme.buttons.primary.background-color}}" {{else}}
+      padding-top="{{theme.buttons.primary.buttonPadding.top}}"
+      padding-left="{{theme.buttons.primary.buttonPadding.left}}"
+      padding-right="{{theme.buttons.primary.buttonPadding.right}}"
+      padding-bottom="{{theme.buttons.primary.buttonPadding.bottom}}" {{#if
+      theme.buttons.primary.backgroundColor}}
+      background-color="{{theme.buttons.primary.backgroundColor}}" {{else}}
       background-color="{{theme.colors.primary}}" {{/if}}
-      color="{{theme.buttons.primary.text-color}}"
-      font-size="{{theme.buttons.primary.text-size}}"
-      line-height="{{theme.buttons.primary.line-height}}"
+      color="{{theme.buttons.primary.textColor}}"
+      font-size="{{theme.buttons.primary.textSize}}"
+      line-height="{{theme.buttons.primary.lineHeight}}"
       font-weight="{{theme.buttons.primary.weight}}"
       font-style="{{theme.buttons.primary.style}}"
       text-decoration="{{theme.buttons.primary.decoration}}"
-      border-radius="{{theme.buttons.primary.corner-radius}}"
-      inner-padding="{{theme.buttons.primary.content-padding}}" /> <mj-class
+      border-radius="{{theme.buttons.primary.cornerRadius}}"
+      inner-padding="{{theme.buttons.primary.contentPadding}}" /> <mj-class
       name="button--secondary" {{#if theme.buttons.secondary.height}}
       height="{{theme.buttons.secondary.height}}" {{/if}} {{#if
       theme.buttons.secondary.width}} width="{{theme.buttons.secondary.width}}"
       {{/if}} {{#if theme.buttons.secondary.align}}
       align="{{theme.buttons.secondary.align}}" {{/if}} {{#if
-      theme.buttons.secondary.button-padding.top}}
-      padding-top="{{theme.buttons.secondary.button-padding.top}}" {{/if}} {{#if
-      theme.buttons.secondary.button-padding.left}}
-      padding-left="{{theme.buttons.secondary.button-padding.left}}" {{/if}}
-      {{#if theme.buttons.secondary.button-padding.right}}
-      padding-right="{{theme.buttons.secondary.button-padding.right}}" {{/if}}
-      {{#if theme.buttons.secondary.button-padding.bottom}}
-      padding-bottom="{{theme.buttons.secondary.button-padding.bottom}}" {{/if}}
-      {{#if theme.buttons.secondary.background-color}}
-      background-color="{{theme.buttons.secondary.background-color}}" {{else}}
+      theme.buttons.secondary.buttonPadding.top}}
+      padding-top="{{theme.buttons.secondary.buttonPadding.top}}" {{/if}} {{#if
+      theme.buttons.secondary.buttonPadding.left}}
+      padding-left="{{theme.buttons.secondary.buttonPadding.left}}" {{/if}}
+      {{#if theme.buttons.secondary.buttonPadding.right}}
+      padding-right="{{theme.buttons.secondary.buttonPadding.right}}" {{/if}}
+      {{#if theme.buttons.secondary.buttonPadding.bottom}}
+      padding-bottom="{{theme.buttons.secondary.buttonPadding.bottom}}" {{/if}}
+      {{#if theme.buttons.secondary.backgroundColor}}
+      background-color="{{theme.buttons.secondary.backgroundColor}}" {{else}}
       background-color="{{theme.colors.secondary}}" {{/if}} {{#if
-      theme.buttons.secondary.text-color}}
-      color="{{theme.buttons.secondary.text-color}}" {{/if}} {{#if
-      theme.buttons.secondary.text-size}}
-      font-size="{{theme.buttons.secondary.text-size}}" {{/if}} {{#if
-      theme.buttons.secondary.line-height}}
-      line-height="{{theme.buttons.secondary.line-height}}" {{/if}} {{#if
+      theme.buttons.secondary.textColor}}
+      color="{{theme.buttons.secondary.textColor}}" {{/if}} {{#if
+      theme.buttons.secondary.textSize}}
+      font-size="{{theme.buttons.secondary.textSize}}" {{/if}} {{#if
+      theme.buttons.secondary.lineHeight}}
+      line-height="{{theme.buttons.secondary.lineHeight}}" {{/if}} {{#if
       theme.buttons.secondary.weight}}
       font-weight="{{theme.buttons.secondary.weight}}" {{/if}} {{#if
       theme.buttons.secondary.style}}
       font-style="{{theme.buttons.secondary.style}}" {{/if}} {{#if
       theme.buttons.secondary.decoration}}
       text-decoration="{{theme.buttons.secondary.decoration}}" {{/if}} {{#if
-      theme.buttons.secondary.content-padding}}
-      inner-padding="{{theme.buttons.secondary.content-padding}}" {{/if}} {{#if
-      theme.buttons.secondary.corner-radius}}
-      border-radius="{{theme.buttons.secondary.corner-radius}}" {{/if}} />
+      theme.buttons.secondary.contentPadding}}
+      inner-padding="{{theme.buttons.secondary.contentPadding}}" {{/if}} {{#if
+      theme.buttons.secondary.cornerRadius}}
+      border-radius="{{theme.buttons.secondary.cornerRadius}}" {{/if}} />
       <mj-class name="button--ghost" {{#if theme.buttons.ghost.height}}
       height="{{theme.buttons.ghost.height}}" {{/if}} {{#if
       theme.buttons.ghost.width}} width="{{theme.buttons.ghost.width}}" {{/if}}
       {{#if theme.buttons.ghost.align}} align="{{theme.buttons.ghost.align}}"
-      {{/if}} {{#if theme.buttons.ghost.button-padding.top}}
-      padding-top="{{theme.buttons.ghost.button-padding.top}}" {{/if}} {{#if
-      theme.buttons.ghost.button-padding.left}}
-      padding-left="{{theme.buttons.ghost.button-padding.left}}" {{/if}} {{#if
-      theme.buttons.ghost.button-padding.right}}
-      padding-right="{{theme.buttons.ghost.button-padding.right}}" {{/if}} {{#if
-      theme.buttons.ghost.button-padding.bottom}}
-      padding-bottom="{{theme.buttons.ghost.button-padding.bottom}}" {{/if}}
-      {{#if theme.buttons.ghost.background-color}}
-      background-color="{{theme.buttons.ghost.background-color}}" {{else}}
-      background-color="{{theme.buttons.primary.text-color}}" {{/if}} {{#if
-      theme.buttons.ghost.text-color}}
-      color="{{theme.buttons.ghost.text-color}}" {{else}} {{#if
-      theme.buttons.primary.background-color}}
-      color="{{theme.buttons.primary.background-color}}" {{else}}
+      {{/if}} {{#if theme.buttons.ghost.buttonPadding.top}}
+      padding-top="{{theme.buttons.ghost.buttonPadding.top}}" {{/if}} {{#if
+      theme.buttons.ghost.buttonPadding.left}}
+      padding-left="{{theme.buttons.ghost.buttonPadding.left}}" {{/if}} {{#if
+      theme.buttons.ghost.buttonPadding.right}}
+      padding-right="{{theme.buttons.ghost.buttonPadding.right}}" {{/if}} {{#if
+      theme.buttons.ghost.buttonPadding.bottom}}
+      padding-bottom="{{theme.buttons.ghost.buttonPadding.bottom}}" {{/if}}
+      {{#if theme.buttons.ghost.backgroundColor}}
+      background-color="{{theme.buttons.ghost.backgroundColor}}" {{else}}
+      background-color="{{theme.buttons.primary.textColor}}" {{/if}} {{#if
+      theme.buttons.ghost.textColor}} color="{{theme.buttons.ghost.textColor}}"
+      {{else}} {{#if theme.buttons.primary.backgroundColor}}
+      color="{{theme.buttons.primary.backgroundColor}}" {{else}}
       color="{{theme.colors.primary}}" {{/if}} {{/if}} {{#if
-      theme.buttons.ghost.text-size}}
-      font-size="{{theme.buttons.ghost.text-size}}" {{/if}} {{#if
-      theme.buttons.ghost.line-height}}
-      line-height="{{theme.buttons.ghost.line-height}}" {{/if}} {{#if
+      theme.buttons.ghost.textSize}}
+      font-size="{{theme.buttons.ghost.textSize}}" {{/if}} {{#if
+      theme.buttons.ghost.lineHeight}}
+      line-height="{{theme.buttons.ghost.lineHeight}}" {{/if}} {{#if
       theme.buttons.ghost.weight}} font-weight="{{theme.buttons.ghost.weight}}"
       {{/if}} {{#if theme.buttons.ghost.style}}
       font-style="{{theme.buttons.ghost.style}}" {{/if}} {{#if
       theme.buttons.ghost.decoration}}
       text-decoration="{{theme.buttons.ghost.decoration}}" {{/if}} {{#if
-      theme.buttons.ghost.corner-radius}} {{#if
-      theme.buttons.ghost.content-padding}}
-      inner-padding="{{theme.buttons.ghost.content-padding}}" {{/if}}
-      border-radius="{{theme.buttons.ghost.corner-radius}}" {{/if}} border="
-      {{#if theme.buttons.ghost.border-color}}
-      {{theme.buttons.ghost.border-color}} {{else}} {{#if
-      theme.buttons.primary.background-color}}
-      {{theme.buttons.primary.background-color}} {{else}}
+      theme.buttons.ghost.cornerRadius}} {{#if
+      theme.buttons.ghost.contentPadding}}
+      inner-padding="{{theme.buttons.ghost.contentPadding}}" {{/if}}
+      border-radius="{{theme.buttons.ghost.cornerRadius}}" {{/if}} border="
+      {{#if theme.buttons.ghost.borderColor}}
+      {{theme.buttons.ghost.borderColor}} {{else}} {{#if
+      theme.buttons.primary.backgroundColor}}
+      {{theme.buttons.primary.backgroundColor}} {{else}}
       {{theme.colors.primary}} {{/if}} {{/if}} {{#if
-      theme.buttons.ghost.border-width}} {{theme.buttons.ghost.border-width}}
-      {{/if}} {{#if theme.buttons.ghost.border-style}}
-      {{theme.buttons.ghost.border-style}} {{/if}} " />
+      theme.buttons.ghost.borderWidth}} {{theme.buttons.ghost.borderWidth}}
+      {{/if}} {{#if theme.buttons.ghost.borderStyle}}
+      {{theme.buttons.ghost.borderStyle}} {{/if}} " />
 
       <!-- Images -->
 
@@ -285,10 +284,10 @@ After building your email, the result will be output to the `dist` directory.
 
       <mj-class
         name="social__border-top"
-        padding-top="{{theme.sections.social.top-border.vertical-padding}}"
-        padding-bottom="{{theme.sections.social.top-border.vertical-padding}}"
-        border-width="{{theme.sections.social.top-border.border-width}}"
-        border-style="{{theme.sections.social.top-border.border-style}}"
+        padding-top="{{theme.sections.social.topBorder.verticalPadding}}"
+        padding-bottom="{{theme.sections.social.topBorder.verticalPadding}}"
+        border-width="{{theme.sections.social.topBorder.borderWidth}}"
+        border-style="{{theme.sections.social.topBorder.borderStyle}}"
         border-color="{{theme.colors.primary}}"
       />
 
@@ -346,7 +345,7 @@ After building your email, the result will be output to the `dist` directory.
   </mj-head>
 
   <!-- Email body start -->
-  <mj-body css-class="body" background-color="{{theme.page.background-color}}">
+  <mj-body css-class="body" background-color="{{theme.page.backgroundColor}}">
     <!-- Top navigation -->
 
     {{#if partials.topNav}}
@@ -372,9 +371,9 @@ After building your email, the result will be output to the `dist` directory.
     <mj-wrapper
       css-class="component-salutation"
       mj-class="component-salutation"
-      background-color="{{theme.sections.main.background-color}}"
-      padding-left="{{theme.sections.main.horizontal-padding}}"
-      padding-right="{{theme.sections.main.horizontal-padding}}"
+      background-color="{{theme.sections.main.backgroundColor}}"
+      padding-left="{{theme.sections.main.horizontalPadding}}"
+      padding-right="{{theme.sections.main.horizontalPadding}}"
     >
       <mj-section>
         <mj-column mj-class="column salutation__column">
@@ -392,9 +391,9 @@ After building your email, the result will be output to the `dist` directory.
     <mj-wrapper
       css-class="component-body"
       mj-class="component-body"
-      background-color="{{theme.sections.main.background-color}}"
-      padding-left="{{theme.sections.main.horizontal-padding}}"
-      padding-right="{{theme.sections.main.horizontal-padding}}"
+      background-color="{{theme.sections.main.backgroundColor}}"
+      padding-left="{{theme.sections.main.horizontalPadding}}"
+      padding-right="{{theme.sections.main.horizontalPadding}}"
       padding-top="{{theme.sections.body.padding.top}}"
       padding-bottom="{{theme.sections.body.padding.bottom}}"
     >
@@ -408,9 +407,9 @@ After building your email, the result will be output to the `dist` directory.
     <mj-wrapper
       css-class="component-signoff"
       mj-class="component-signoff"
-      background-color="{{theme.sections.main.background-color}}"
-      padding-left="{{theme.sections.main.horizontal-padding}}"
-      padding-right="{{theme.sections.main.horizontal-padding}}"
+      background-color="{{theme.sections.main.backgroundColor}}"
+      padding-left="{{theme.sections.main.horizontalPadding}}"
+      padding-right="{{theme.sections.main.horizontalPadding}}"
       padding-top="{{theme.sections.signoff.padding.top}}"
       padding-bottom="{{theme.sections.signoff.padding.bottom}}"
     >
@@ -424,13 +423,13 @@ After building your email, the result will be output to the `dist` directory.
     <mj-wrapper
       css-class="component-social"
       mj-class="component-social"
-      background-color="{{theme.sections.social.background-color}}"
-      padding-left="{{theme.sections.social.horizontal-padding}}"
-      padding-right="{{theme.sections.social.horizontal-padding}}"
-      padding-top="{{theme.sections.social.vertical-padding}}"
-      padding-bottom="{{theme.sections.social.vertical-padding}}"
+      background-color="{{theme.sections.social.backgroundColor}}"
+      padding-left="{{theme.sections.social.horizontalPadding}}"
+      padding-right="{{theme.sections.social.horizontalPadding}}"
+      padding-top="{{theme.sections.social.verticalPadding}}"
+      padding-bottom="{{theme.sections.social.verticalPadding}}"
     >
-      {{#if theme.sections.social.top-border.include}}
+      {{#if theme.sections.social.topBorder.include}}
       <mj-section>
         <mj-column>
           <mj-divider mj-class="social__border-top"></mj-divider>
@@ -457,11 +456,11 @@ After building your email, the result will be output to the `dist` directory.
     <mj-wrapper
       css-class="component-footer"
       mj-class="component-footer"
-      background-color="{{theme.sections.footer.background-color}}"
-      padding-left="{{theme.sections.footer.horizontal-padding}}"
-      padding-right="{{theme.sections.footer.horizontal-padding}}"
-      padding-top="{{theme.sections.footer.vertical-padding}}"
-      padding-bottom="{{theme.sections.footer.vertical-padding}}"
+      background-color="{{theme.sections.footer.backgroundColor}}"
+      padding-left="{{theme.sections.footer.horizontalPadding}}"
+      padding-right="{{theme.sections.footer.horizontalPadding}}"
+      padding-top="{{theme.sections.footer.verticalPadding}}"
+      padding-bottom="{{theme.sections.footer.verticalPadding}}"
     >
       {{> footer.hbs}}
     </mj-wrapper>
