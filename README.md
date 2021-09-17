@@ -322,7 +322,7 @@ configuration and files being processed.
 │ │  --temp          …Include intermediate rendered template (post-Handlebars, pre-MJML) in output.
 │ │ --debug          …Display details about configuration and settings.
 │ └─┬ <series>
-│   ├── showConfig
+│   ├── loadConfig
 │   ├── formatTemplates
 │   ├── clean.generated
 │   ├─┬ <parallel>
@@ -336,7 +336,7 @@ configuration and files being processed.
 │ │  --temp          …Include intermediate rendered template (post-Handlebars, pre-MJML) in output.
 │ │ --debug          …Display details about configuration and settings.
 │ └─┬ <series>
-│   ├── showConfig
+│   ├── loadConfig
 │   ├── formatTemplates
 │   ├── clean.generated
 │   ├─┬ <parallel>
@@ -348,7 +348,7 @@ configuration and files being processed.
 ├── build.render
 ├─┬ watch            Watch design and configuration files and rebuild (formatted, with comments) as necessary. Flags from `gulp build` can also be used.
 │ └─┬ <series>
-│   ├── showConfig
+│   ├── loadConfig
 │   ├── formatTemplates
 │   ├─┬ <parallel>
 │   │ ├── build.content
@@ -357,7 +357,7 @@ configuration and files being processed.
 │   └── watchEmail
 ├── formatTemplates  Format templates with Prettier.
 ├── clean.generated  Remove generated files from the current design or email.
-├── showConfig       Display the current configuration being used when rendering your email files. Use with --debug
+├── loadConfig       Load the current configuration being used to render your email. To print to the console, use with --debug
 ├── listTemplates    List all templates that will be processed. Use with --debug
 └── test             Run an empty gulp function for testing.
 ```
