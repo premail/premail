@@ -11,7 +11,7 @@ module.exports = function validate (type, selector, subject, opt) {
   if (typeof selector === 'object' && selector.constructor === Object) {
     iterate(type, selector, subject, opt)
   } else {
-    process(type, selector, subject, opt)
+    scan(type, selector, subject, opt)
   }
 }
 
@@ -27,13 +27,13 @@ function iterate (type, selector, subject, opt) {
       selector[k] = selector[k] + ''
       iterate(type, selector[k], subject, opt)
     } else {
-      process(type, selector[k], subject, opt)
+      scan(type, selector[k], subject, opt)
     }
   }
 }
 
-// Provide validation for strings.
-function process (type, selector, subject, opt) {
+// Process validation of strings and notify on failures.
+function scan (type, selector, subject, opt) {
   if (selector !== null) {
     const unquoted = v.trim(selector, "'")
 
