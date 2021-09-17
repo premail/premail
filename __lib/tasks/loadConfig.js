@@ -37,7 +37,7 @@ module.exports = function loadConfig (done) {
     config.theme.sections.signoff.padding,
     'theme sections (signoff)'
   )
-  validate('oneof', config.theme.fonts.stack.base, 'theme font stack', [
+  validate('oneOf', config.theme.fonts.stack.base, 'theme font stack', [
     'sans',
     'serif',
     'mono',

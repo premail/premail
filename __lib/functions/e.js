@@ -10,7 +10,7 @@ const notify = require('../vars/notify.js')
 // General error-handling function.
 // @TODO: Incorporate other error types into this one, accommodating
 // .on('error')
-function e (err, type = null) {
+function e (err, type = null, subtype = null) {
   const error = err.message
 
   switch (type) {
@@ -29,6 +29,11 @@ function e (err, type = null) {
       }
     case 'prettier':
       return notify.msg('error', error, 'Prettier error:')
+    case 'validation':
+      return (
+        notify.msg('error', error + '\n', `${subtype} validation error:`),
+        process.exit(1)
+      )
     default:
       return notify.msg('error', error, 'Error:')
   }
