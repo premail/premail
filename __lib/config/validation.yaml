@@ -21,6 +21,25 @@ validationRules:
       - config.theme.sections.footer.verticalPadding
       - config.theme.text.default.size
       - config.theme.text.default.verticalPadding
+      - config.theme.buttons.primary.height
+      - config.theme.buttons.primary.width
+      - config.theme.buttons.primary.buttonPadding
+      - config.theme.buttons.primary.contentPadding
+      - config.theme.buttons.primary.cornerRadius
+      - config.theme.buttons.primary.textSize
+      - config.theme.buttons.secondary.height
+      - config.theme.buttons.secondary.width
+      - config.theme.buttons.secondary.buttonPadding
+      - config.theme.buttons.secondary.contentPadding
+      - config.theme.buttons.secondary.cornerRadius
+      - config.theme.buttons.secondary.textSize
+      - config.theme.buttons.ghost.height
+      - config.theme.buttons.ghost.width
+      - config.theme.buttons.ghost.buttonPadding
+      - config.theme.buttons.ghost.contentPadding
+      - config.theme.buttons.ghost.cornerRadius
+      - config.theme.buttons.ghost.borderWidth
+      - config.theme.buttons.ghost.textSize
   - type: oneOf
     file: themeConfig.yaml
     selectors:
@@ -32,4 +51,5 @@ validationRules:
   - type: url
     file: themeConfig.yaml
     selectors:
+      - config.theme.page.backgroundImage
       - config.theme.fonts.stack.custom.href
