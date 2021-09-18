@@ -18,14 +18,10 @@ module.exports = function loadConfig (done) {
   const validationRules = config.file.internal.validationRules
   for (const i in validationRules) {
     const type = validationRules[i].type
-    const value = validationRules[i].selector
-      .replace(/^config\./gm, '')
-      .split('.')
-      .reduce((a, b) => a[b], config)
-    const location = validationRules[i].selector.replace(/^config\..*?\./gm, '')
+    const selector = validationRules[i].selector
     const subject = validationRules[i].subject
     const opt = validationRules[i].opt || null
-    validate(type, value, location, subject, opt)
+    validate(type, selector, subject, opt)
   }
 
   // Display config when supplied with --debug

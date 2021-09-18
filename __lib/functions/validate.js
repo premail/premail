@@ -3,11 +3,18 @@
 /* eslint-disable no-unused-vars */
 const v = require('validator')
 
+const { config } = require('../vars/config.js')
 const e = require('../functions/e.js')
 const notify = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */
 
-module.exports = function validate (type, value, location, subject, opt) {
+module.exports = function validate (type, selector, subject, opt) {
+  const value = selector
+    .replace(/^config\./gm, '')
+    .split('.')
+    .reduce((a, b) => a[b], config)
+  const location = selector.replace(/^config\..*?\./gm, '')
+
   checkType(type, value, location, subject, opt)
 }
 
