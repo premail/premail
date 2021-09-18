@@ -17,11 +17,19 @@ module.exports = function loadConfig (done) {
   // Run validation rules on config
   const validationRules = config.file.internal.validationRules
   for (const i in validationRules) {
+    let selector = validationRules[i].selector
     const type = validationRules[i].type
-    const selector = validationRules[i].selector
     const subject = validationRules[i].subject
     const opt = validationRules[i].opt || null
-    validate(type, selector, subject, opt)
+
+    if (Array.isArray(selector)) {
+      for (const j in selector) {
+        selector = validationRules[i].selector[j]
+        validate(type, selector, subject, opt)
+      }
+    } else {
+      validate(type, selector, subject, opt)
+    }
   }
 
   // Display config when supplied with --debug

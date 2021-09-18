@@ -10,16 +10,11 @@ validationRules:
     selector: config.user.language
     subject: config.yaml language configuration
   - type: size
-    selector: config.theme.sections.main.horizontalPadding
-    subject: themeConfig.yaml
-  - type: size
-    selector: config.theme.sections.salutation.padding
-    subject: themeConfig.yaml
-  - type: size
-    selector: config.theme.sections.body.padding
-    subject: themeConfig.yaml
-  - type: size
-    selector: config.theme.sections.signoff.padding
+    selector:
+      - config.theme.sections.main.horizontalPadding
+      - config.theme.sections.salutation.padding
+      - config.theme.sections.body.padding
+      - config.theme.sections.signoff.padding
     subject: themeConfig.yaml
   - type: oneOf
     selector: config.theme.fonts.stack.base
