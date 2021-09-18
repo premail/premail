@@ -48,57 +48,61 @@ function iterate (type, value, location, file, opt) {
 
 // Process validation of strings and notify on failures.
 function scan (type, value, location, file, opt) {
-  const unquoted = v.trim(value, "'")
-  let err
+  if (value !== null) {
+    const unquoted = v.trim(value, "'")
+    let err
 
-  switch (type) {
-    // Size: Must be in pixels.
-    case 'size':
-      err = {
-        message: `MJML requires all sizes to be in pixels. Check ${file}\n   ${location}: ${value}`,
-        type: 'validation',
-        subtype: 'Size',
-      }
-      return v.matches(value, /px$/gm) ? null : e.e(err, err.type, err.subtype)
-    // ASCII: Strings that are restricted to ASCII characters.
-    case 'ascii':
-      err = {
-        message: `Non-ASCII characters detected in ${file}:\n   ${location}: ${value}`,
-        type: 'validation',
-        subtype: 'ASCII',
-      }
-      return v.isAscii(value) ? null : e.e(err, err.type, err.subtype)
-    // oneOf: Only certain strings are valid.
-    case 'oneOf':
-      err = {
-        message: `Invalid setting in ${file}\n   ${location} set to '${value}', but must be one of: ${opt}`,
-        type: 'validation',
-        subtype: 'One-of',
-      }
-      return v.isIn(value, opt) ? null : e.e(err, err.type, err.subtype)
-    // url: Validate URLs/URIs and ensure they're double-quoted.
-    case 'url':
-      err = {
-        type: 'validation',
-        subtype: 'URL',
-        quote: {
-          message: `URL value must be double quoted in ${file}\n   ${location}: ${value}`,
-        },
-        url: {
-          message: `Invalid URL in ${file}\n   ${location}: ${unquoted}`,
-        },
-      }
-      return (
-        v.matches(value, /(^')(.*)('$)/gm)
+    switch (type) {
+      // Size: Must be in pixels.
+      case 'size':
+        err = {
+          message: `MJML requires all sizes to be in pixels. Check ${file}\n   ${location}: ${value}`,
+          type: 'validation',
+          subtype: 'Size',
+        }
+        return v.matches(value, /px$/gm)
           ? null
-          : e.e(err.quote, err.type, err.subtype),
-        v.isURL(unquoted) ? null : e.e(err.url, err.type, err.subtype)
-      )
-    // Display an error if an unrecognized validation is requested.
-    default:
-      err = {
-        message: `Validation type not recognized\n   Requested validation type: ${type}`,
-      }
-      throw e.e(err)
+          : e.e(err, err.type, err.subtype)
+      // ASCII: Strings that are restricted to ASCII characters.
+      case 'ascii':
+        err = {
+          message: `Non-ASCII characters detected in ${file}:\n   ${location}: ${value}`,
+          type: 'validation',
+          subtype: 'ASCII',
+        }
+        return v.isAscii(value) ? null : e.e(err, err.type, err.subtype)
+      // oneOf: Only certain strings are valid.
+      case 'oneOf':
+        err = {
+          message: `Invalid setting in ${file}\n   ${location} set to '${value}', but must be one of: ${opt}`,
+          type: 'validation',
+          subtype: 'One-of',
+        }
+        return v.isIn(value, opt) ? null : e.e(err, err.type, err.subtype)
+      // url: Validate URLs/URIs and ensure they're double-quoted.
+      case 'url':
+        err = {
+          type: 'validation',
+          subtype: 'URL',
+          quote: {
+            message: `URL value must be double quoted in ${file}\n   ${location}: ${value}`,
+          },
+          url: {
+            message: `Invalid URL in ${file}\n   ${location}: ${unquoted}`,
+          },
+        }
+        return (
+          v.matches(value, /(^')(.*)('$)/gm)
+            ? null
+            : e.e(err.quote, err.type, err.subtype),
+          v.isURL(unquoted) ? null : e.e(err.url, err.type, err.subtype)
+        )
+      // Display an error if an unrecognized validation is requested.
+      default:
+        err = {
+          message: `Validation type not recognized\n   Requested validation type: ${type}`,
+        }
+        throw e.e(err)
+    }
   }
 }
