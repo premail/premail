@@ -1,28 +1,35 @@
 # Validation rules
 validationRules:
   - type: ascii
-    selector: config.user.folders
-    subject: config.yaml directory configuration
-  - type: ascii
-    selector: config.user.files
-    subject: config.yaml files configuration
-  - type: ascii
-    selector: config.user.language
-    subject: config.yaml language configuration
+    file: config.yaml
+    selectors:
+      - config.user.folders
+      - config.user.files
+      - config.user.language
   - type: size
-    selector:
+    file: themeConfig.yaml
+    selectors:
       - config.theme.sections.main.horizontalPadding
       - config.theme.sections.salutation.padding
       - config.theme.sections.body.padding
       - config.theme.sections.signoff.padding
-    subject: themeConfig.yaml
+      - config.theme.sections.social.horizontalPadding
+      - config.theme.sections.social.verticalPadding
+      - config.theme.sections.social.topBorder.verticalPadding
+      - config.theme.sections.social.topBorder.borderWidth
+      - config.theme.sections.footer.horizontalPadding
+      - config.theme.sections.footer.verticalPadding
+      - config.theme.text.default.size
+      - config.theme.text.default.verticalPadding
   - type: oneOf
-    selector: config.theme.fonts.stack.base
-    subject: themeConfig.yaml
+    file: themeConfig.yaml
+    selectors:
+      - config.theme.fonts.stack.base
     opt:
       - sans
       - serif
       - mono
   - type: url
-    selector: config.theme.fonts.stack.custom.href
-    subject: themeConfig.yaml
+    file: themeConfig.yaml
+    selectors:
+      - config.theme.fonts.stack.custom.href
