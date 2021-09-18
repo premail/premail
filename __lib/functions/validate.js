@@ -15,7 +15,7 @@ module.exports = function validate (type, selector, file, opt) {
     .reduce((a, b) => a[b], config)
   const location = selector.replace(/^config\..*?\./gm, '')
 
-  if (value !== null) {
+  if (value !== null && typeof value !== 'undefined') {
     checkType(type, value, location, file, opt)
   }
 }
@@ -48,7 +48,7 @@ function iterate (type, value, location, file, opt) {
 
 // Process validation of strings and notify on failures.
 function scan (type, value, location, file, opt) {
-  if (value !== null) {
+  if (value !== null && typeof value !== 'undefined') {
     const unquoted = v.trim(value, "'")
     let err
 
