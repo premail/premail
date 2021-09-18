@@ -1,0 +1,33 @@
+# Validation rules
+validationRules:
+  - type: ascii
+    selector: config.user.folders
+    subject: config.yaml directory configuration
+  - type: ascii
+    selector: config.user.files
+    subject: config.yaml files configuration
+  - type: ascii
+    selector: config.user.language
+    subject: config.yaml language configuration
+  - type: size
+    selector: config.theme.sections.main.horizontalPadding
+    subject: themeConfig.yaml
+  - type: size
+    selector: config.theme.sections.salutation.padding
+    subject: themeConfig.yaml
+  - type: size
+    selector: config.theme.sections.body.padding
+    subject: themeConfig.yaml
+  - type: size
+    selector: config.theme.sections.signoff.padding
+    subject: themeConfig.yaml
+  - type: oneOf
+    selector: config.theme.fonts.stack.base
+    subject: themeConfig.yaml
+    opt:
+      - sans
+      - serif
+      - mono
+  - type: url
+    selector: config.theme.fonts.stack.custom.href
+    subject: themeConfig.yaml

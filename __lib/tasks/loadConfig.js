@@ -13,36 +13,20 @@ const { flags } = require('../vars/flags.js')
 //
 // Validate and display configuration as necessary.
 //
-
 module.exports = function loadConfig (done) {
-  // Validate user config
-  validate('ascii', config.user.folders, 'config.yaml directory configuration')
-  validate('ascii', config.user.files, 'config.yaml files configuration')
-  validate('ascii', config.user.language, 'config.yaml language configuration')
-
-  // Validate theme config
-  validate(
-    'size',
-    config.theme.sections.main.horizontalPadding,
-    'theme sections (main)'
-  )
-  validate(
-    'size',
-    config.theme.sections.salutation.padding,
-    'theme sections (salutation)'
-  )
-  validate('size', config.theme.sections.body.padding, 'theme sections (body)')
-  validate(
-    'size',
-    config.theme.sections.signoff.padding,
-    'theme sections (signoff)'
-  )
-  validate('oneOf', config.theme.fonts.stack.base, 'theme font stack', [
-    'sans',
-    'serif',
-    'mono',
-  ])
-  validate('url', config.theme.fonts.stack.custom.href, 'theme font stack')
+  // Run validation rules on config
+  const validationRules = config.file.internal.validationRules
+  for (const i in validationRules) {
+    const type = validationRules[i].type
+    const value = validationRules[i].selector
+      .replace(/^config\./gm, '')
+      .split('.')
+      .reduce((a, b) => a[b], config)
+    const location = validationRules[i].selector.replace(/^config\..*?\./gm, '')
+    const subject = validationRules[i].subject
+    const opt = validationRules[i].opt || null
+    validate(type, value, location, subject, opt)
+  }
 
   // Display config when supplied with --debug
   if (flags.debug) {
