@@ -19,17 +19,16 @@ module.exports = function loadConfig (done) {
   for (const i in validationRules) {
     const selectors = validationRules[i].selectors
     const type = validationRules[i].type
-    const file = validationRules[i].file
     const opt = validationRules[i].opt || null
 
     if (Array.isArray(selectors)) {
       for (const j in selectors) {
         const selector = validationRules[i].selectors[j]
-        validate(type, selector, file, opt)
+        validate(type, selector, opt)
       }
     } else {
       const selector = selectors
-      validate(type, selector, file, opt)
+      validate(type, selector, opt)
     }
   }
 

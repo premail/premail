@@ -1,13 +1,11 @@
 # Validation rules
 validationRules:
   - type: ascii
-    file: config.yaml
     selectors:
       - config.user.folders
       - config.user.files
       - config.user.language
   - type: size
-    file: themeConfig.yaml
     selectors:
       - config.theme.sections.main.horizontalPadding
       - config.theme.sections.salutation.padding
@@ -41,7 +39,6 @@ validationRules:
       - config.theme.buttons.ghost.borderWidth
       - config.theme.buttons.ghost.textSize
   - type: oneOf
-    file: themeConfig.yaml
     selectors:
       - config.theme.fonts.stack.base
     opt:
@@ -49,7 +46,6 @@ validationRules:
       - serif
       - mono
   - type: url
-    file: themeConfig.yaml
     selectors:
       - config.theme.page.backgroundImage
       - config.theme.fonts.stack.custom.href

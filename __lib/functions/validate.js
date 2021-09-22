@@ -2,13 +2,14 @@
 
 /* eslint-disable no-unused-vars */
 const v = require('validator')
+const path = require('path')
 
 const { config } = require('../vars/config.js')
 const e = require('../functions/e.js')
 const notify = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */
 
-module.exports = function validate (type, selector, file, opt) {
+module.exports = function validate (type, selector, opt) {
   const value = selector
     .replace(/^config\./gm, '')
     .split('.')
@@ -16,7 +17,13 @@ module.exports = function validate (type, selector, file, opt) {
   const location = selector.replace(/^config\..*?\./gm, '')
 
   if (value !== null && typeof value !== 'undefined') {
-    checkType(type, value, location, file, opt)
+    if (selector.includes('config.user')) {
+      const file = path.basename(config.file.user)
+      checkType(type, value, location, file, opt)
+    } else if (selector.includes('config.theme')) {
+      const file = path.basename(config.file.theme)
+      checkType(type, value, location, file, opt)
+    }
   }
 }
 
