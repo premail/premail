@@ -78,7 +78,7 @@ function scan (type, value, location, file, opt) {
           subtype: 'ASCII',
         }
         return v.isAscii(value) ? null : e.e(err, err.type, err.subtype)
-      // oneOf: Only certain strings are valid.
+      // oneOf: Only strings provided in the 'opt' array are valid.
       case 'oneOf':
         err = {
           message: `Invalid setting in ${file}\n   ${location} set to '${value}', but must be one of: ${opt}`,

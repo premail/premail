@@ -1,4 +1,9 @@
 # Validation rules
+# Available types:
+# - ascii (checks that string has only ASCII characters)
+# - size (checks that string has 'px' and no other CSS length unit)
+# - oneOf (checks that string is in provided 'opt' array of strings)
+# - url (checks that string is a valid URL and double-quoted)
 validationRules:
   - type: ascii
     selectors:
