@@ -60,6 +60,14 @@ function scan (type, value, location, file, opt) {
     let err
 
     switch (type) {
+      // ASCII: Strings that are restricted to ASCII characters.
+      case 'ascii':
+        err = {
+          message: `Non-ASCII characters detected in ${file}:\n   ${location}: ${value}`,
+          type: 'validation',
+          subtype: 'ASCII',
+        }
+        return v.isAscii(value) ? null : e.e(err, err.type, err.subtype)
       // Size: Must be in pixels.
       case 'size':
         err = {
@@ -70,14 +78,6 @@ function scan (type, value, location, file, opt) {
         return v.matches(value, /px$/gm)
           ? null
           : e.e(err, err.type, err.subtype)
-      // ASCII: Strings that are restricted to ASCII characters.
-      case 'ascii':
-        err = {
-          message: `Non-ASCII characters detected in ${file}:\n   ${location}: ${value}`,
-          type: 'validation',
-          subtype: 'ASCII',
-        }
-        return v.isAscii(value) ? null : e.e(err, err.type, err.subtype)
       // oneOf: Only strings provided in the 'opt' array are valid.
       case 'oneOf':
         err = {

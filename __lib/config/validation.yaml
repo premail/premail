@@ -1,8 +1,8 @@
 # Validation rules
 # Available types:
 # - ascii (checks that string has only ASCII characters)
-# - size (checks that string has 'px' and no other CSS length unit)
 # - oneOf (checks that string is in provided 'opt' array of strings)
+# - size (checks that string has 'px' and no other CSS length unit)
 # - url (checks that string is a valid URL and double-quoted)
 validationRules:
   - type: ascii
@@ -10,6 +10,13 @@ validationRules:
       - config.user.folders
       - config.user.files
       - config.user.language
+  - type: oneOf
+    selectors:
+      - config.theme.fonts.stack.base
+    opt:
+      - sans
+      - serif
+      - mono
   - type: size
     selectors:
       - config.theme.sections.main.horizontalPadding
@@ -43,13 +50,6 @@ validationRules:
       - config.theme.buttons.ghost.cornerRadius
       - config.theme.buttons.ghost.borderWidth
       - config.theme.buttons.ghost.textSize
-  - type: oneOf
-    selectors:
-      - config.theme.fonts.stack.base
-    opt:
-      - sans
-      - serif
-      - mono
   - type: url
     selectors:
       - config.theme.page.backgroundImage
