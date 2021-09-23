@@ -222,7 +222,7 @@ var MjLi = /*#__PURE__*/ (function (_BodyComponent) {
               width: this.getAttribute('gutter'),
               style: 'gutterWrap',
             }),
-            '\n      >\n        &nbsp;\n      </td>\n      <td\n        '
+            '\n      ></td>\n      <td\n        '
           )
           .concat(
             this.htmlAttributes({
