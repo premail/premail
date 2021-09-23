@@ -100,10 +100,6 @@ details:
     # convertEllip: Replaces instances of three dots (...) with the HTML
     # ellipsis character.
     convertEllip: true
-    # hangPunctuation: When punctuation (such as quotes) begins a line, move
-    # them beyond the margin so that the first letter aligns with the margin.
-    # See https://en.wikipedia.org/wiki/Hanging_punctuation
-    hangPunctuation: true
     # opticallyAlignLetters: For certain letters, pull or push them to optically
     # align with the margins. See
     # https://en.wikipedia.org/wiki/Optical_margin_alignment

@@ -18,11 +18,11 @@ details:
         punctuation: false # Handled by Detergent
         quotes: false # Handled by Detergent
         spaces: false # Unnecessary
-        hangingPunctuation: true
+        hangingPunctuation: false # Disabling until a fix can be determined, #38
         smallCaps: true
       css: # Settings requiring CSS styling
         enableSmallCaps: true
-        hangingPunctuation: true
+        hangingPunctuation: false # Disabling until a fix can be determined, #38
         opticallyAlignLetters: true
 
   # Appended to the preview text if enabled.
