@@ -44,7 +44,7 @@ const MjList = require('../mjml/MjList.js').default
 registerComponent(MjList)
 registerDependencies({
   'mj-list': ['mj-li'],
-  'mj-section': ['mj-list'],
+  'mj-column': ['mj-list'],
 })
 const MjLi = require('../mjml/MjLi.js').default
 registerComponent(MjLi)

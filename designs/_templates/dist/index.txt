@@ -6,11 +6,33 @@ Hero image title
 Dear $[FNAME|friend]$,
 
 Morbi fermentum — est venenatis ex facilisis, quis bibendum
-lacus faucibus. An inline link. Pellentesque … vulputate
-auctor libero, ac maximus lacus mollis.
+lacus faucibus. An inline link.
 
-Some emojis: ✏ ❤ 👍🏽 💃🏽 🐿
+Some emojis, to show that they’re properly encoded: ✏ ❤ 👍🏽
+💃🏽 🐿
 
+Some emphasized text… Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id
+est laborum.
+
+A LIST
+
+An example of the custom “mj-list” and “mj-li” tags:
+•       List item one. Lorem ipsum dolor sit amet, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+•       List item two, customized bullet color and bottom padding.
+•       List item three.
+—       List item four, customized bullet, font color, and left
+        padding. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui
+        officia deserunt mollit anim id est laborum.
+•       List item five.
+•       List item six.
+•       List item seven, customized bullet size and gutter size. Ut
+        enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat.
+Lists can be followed by text paragraphs, as usual.
 
 A HEADLINE “WITH A QUOTE”
 

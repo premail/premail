@@ -47,6 +47,7 @@
         .mj-column-per-40 { width:40% !important; max-width: 40%; }
 .mj-column-per-60 { width:60% !important; max-width: 60%; }
 .mj-column-per-100 { width:100% !important; max-width: 100%; }
+.mj-column-px-NaN { width:NaNNaN% !important; max-width: NaNNaN%; }
 .mj-column-per-50 { width:50% !important; max-width: 50%; }
 .mj-column-px-75 { width:75px !important; max-width: 75px; }
       }
@@ -55,6 +56,7 @@
       .moz-text-html .mj-column-per-40 { width:40% !important; max-width: 40%; }
 .moz-text-html .mj-column-per-60 { width:60% !important; max-width: 60%; }
 .moz-text-html .mj-column-per-100 { width:100% !important; max-width: 100%; }
+.moz-text-html .mj-column-px-NaN { width:NaNNaN% !important; max-width: NaNNaN%; }
 .moz-text-html .mj-column-per-50 { width:50% !important; max-width: 50%; }
 .moz-text-html .mj-column-px-75 { width:75px !important; max-width: 75px; }
     </style>
@@ -95,6 +97,9 @@
 <!-- To change pseudo CSS styles, edit `theme/pseudo.scss` -->
 <!-- To change Gmail-specific CSS styles, edit `theme/gmail.scss` -->
 <!-- To change print CSS styles, edit `theme/print.scss` -->
+<!-- Custom HTML attributes. -->
+<!-- See https://github.com/mjmlio/mjml/blob/master/packages/mjml-head-html-attributes/README.md for more about this tag. -->
+<!-- Custom style attributes. -->
 <!-- Preview text -->
       </head>
       <body style="word-spacing:normal;background-color:#ffffff;">
@@ -189,12 +194,12 @@
       
     <!--[if !mso><!-->
     
-        <input type="checkbox" id="2368356b5aea17d3" class="mj-menu-checkbox" style="display:none !important; max-height:0; visibility:hidden;">
+        <input type="checkbox" id="0b3a275ea4c957c2" class="mj-menu-checkbox" style="display:none !important; max-height:0; visibility:hidden;">
       
     <!--<![endif]-->
   
       <div class="mj-menu-trigger" style="display:none;max-height:0px;max-width:0px;font-size:0px;overflow:hidden;">
-        <label for="2368356b5aea17d3" class="mj-menu-label" style="display:block;cursor:pointer;mso-hide:all;-moz-user-select:none;user-select:none;color:white;font-size:30px;font-family:'Source Sans Pro', Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Liberation Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
+        <label for="0b3a275ea4c957c2" class="mj-menu-label" style="display:block;cursor:pointer;mso-hide:all;-moz-user-select:none;user-select:none;color:white;font-size:30px;font-family:'Source Sans Pro', Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Liberation Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
       ;text-transform:uppercase;text-decoration:none;line-height:30px;padding:10px;" align="center">
           <span class="mj-menu-icon-open" style="mso-hide:all;">
             &#9776;
@@ -491,7 +496,273 @@
                 <td align="left" style="font-size:0px;padding:0;word-break:break-word;">
                   
       <div style="font-family:'Source Sans Pro', Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Liberation Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
-      ;font-size:18px;line-height:1.8;text-align:left;color:#666666;"><p style="margin-top: 0; margin-left: 0; margin-right: 0;"> <b>Morbi fermentum &mdash; est venenatis ex facilisis</b>, quis bibendum lacus faucibus. <a href="#" style="font-weight: bold; text-decoration: underline; color: purple;">An inline link.</a> Pellentesque &hellip; vulputate auctor libero, ac maximus lacus mollis. </p> <p style="margin-top: 0; margin-left: 0; margin-right: 0;">Some emojis: &#x270F; &#x2764; &#x1F44D;&#x1F3FD; &#x1F483;&#x1F3FD; &#x1F43F;</p> <h1 style="margin: 0; padding: 18px 0; font-size: 36px; line-height: 32px; font-weight: bold;">A headline<span class="push-double" style="display: inline-block; margin-right: .46em;"></span> <span class="pull-double" style="display: inline-block; margin-left: -0.46em;">&ldquo;</span>with a quote&rdquo;</h1> <p style="margin-top: 0; margin-left: 0; margin-right: 0;"> In at risus <span class="small-caps" style="font-variant: small-caps; font-size: 95%;">SEDA</span> consectetur, fringilla nisl nec, consectetur mauris. Ut sed ultricies ante. Aliquam vestibulum pretium ligula sit amet pretium. </p> <h2 style="margin: 0; padding: 18px 0; font-size: 28px; line-height: 32px; font-weight: bold;"><span class="pull-double" style="display: inline-block; margin-left: -0.46em;">&ldquo;</span>A quoted subheading&rdquo;</h2> <p style="margin-top: 0; margin-left: 0; margin-right: 0;"> <i>Donec eu turpis nec erat auctor</i> euismod imperdiet vel urna. Suspendisse in urna iaculis, mattis metus luctus, egestas libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras finibus arcu a sapien dictum mattis a et tellus. </p></div>
+      ;font-size:18px;line-height:1.8;text-align:left;color:#666666;"><p style="margin-top: 0; margin-left: 0; margin-right: 0;"> <b>Morbi fermentum &mdash; est venenatis ex facilisis</b>, quis bibendum lacus faucibus. <a href="#" style="font-weight: bold; text-decoration: underline; color: purple;">An inline link.</a></p> <p style="margin-top: 0; margin-left: 0; margin-right: 0;">Some emojis, to show that they&rsquo;re properly encoded: &#x270F; &#x2764; &#x1F44D;&#x1F3FD; &#x1F483;&#x1F3FD; &#x1F43F;</p> <p style="margin-top: 0; margin-left: 0; margin-right: 0;"><em>Some emphasized text&hellip;</em> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+    
+                </td>
+              </tr>
+            
+        </tbody>
+      </table>
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]></td></tr></table></td></tr><tr><td class="" width="600px" ><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:564px;" width="564" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+    
+      
+      <div style="margin:0px auto;max-width:564px;">
+        
+        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+          <tbody>
+            <tr>
+              <td style="direction:ltr;font-size:0px;padding:0;text-align:center;">
+                <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:564px;" ><![endif]-->
+            
+      <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+        
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+        <tbody>
+          <tr>
+            <td style="vertical-align:top;padding:0;">
+              
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" style width="100%">
+        <tbody>
+          
+              <tr>
+                <td align="left" style="font-size:0px;padding:0;word-break:break-word;">
+                  
+      <div style="font-family:'Source Sans Pro', Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Liberation Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
+      ;font-size:18px;line-height:1.8;text-align:left;color:#666666;"><h1 style="margin: 0; padding: 18px 0; font-size: 36px; line-height: 32px; font-weight: bold;">A list</h1> <p style="margin-top: 0; margin-left: 0; margin-right: 0;">An example of the custom<span class="push-double" style="display: inline-block; margin-right: .46em;"> <span class="pull-double" style="display: inline-block; margin-left: -0.46em;">&ldquo;</span>mj-list&rdquo; and<span class="push-double" style="display: inline-block; margin-right: .46em;"> <span class="pull-double" style="display: inline-block; margin-left: -0.46em;">&ldquo;</span>mj-li&rdquo; tags:</span></span></p></div>
+    
+                </td>
+              </tr>
+            
+              <tr>
+                <td align="left" style="font-size:0px;padding:0;word-break:break-word;">
+                  
+      <div class="mj-column-px-NaN mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+        
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+        <tbody>
+          <tr>
+            <td style="vertical-align:top;padding:0;">
+              
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" style width="100%">
+        <tbody>
+          
+              <tr>
+                <td align="left" vertical-align="top" style="font-size:0px;padding:0;word-break:break-word;">
+                  
+      <table class="list-item undefined" role="presentation" border="0" cellpadding="0" cellspacing="0" style="color:#666666;font-family:'Source Sans Pro', Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Liberation Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
+      ;font-size:18px;margin:0;margin-bottom:5px;text-align:left;vertical-align:top;"><tr>
+        <td class="list-item--bullet" style="color:;font-size:;line-height:18px;vertical-align:top;">
+          &#8226;
+        </td>
+      <td class="list-item--gutter" width="5px" style="width:5px;">
+        &nbsp;
+      </td>
+      <td class="list-item--text" role="listitem" style="vertical-align:top;">
+        List item one. Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </td>
+      </tr></table>
+      
+                </td>
+              </tr>
+            
+              <tr>
+                <td align="left" vertical-align="top" style="font-size:0px;padding:0;padding-bottom:20px;word-break:break-word;">
+                  
+      <table class="list-item undefined" role="presentation" border="0" cellpadding="0" cellspacing="0" style="color:#666666;font-family:'Source Sans Pro', Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Liberation Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
+      ;font-size:18px;margin:0;margin-bottom:20px;text-align:left;vertical-align:top;"><tr>
+        <td class="list-item--bullet" style="color:red;font-size:;line-height:18px;vertical-align:top;">
+          &#8226;
+        </td>
+      <td class="list-item--gutter" width="5px" style="width:5px;">
+        &nbsp;
+      </td>
+      <td class="list-item--text" role="listitem" style="vertical-align:top;">
+        List item two, customized bullet color and bottom padding.
+      </td>
+      </tr></table>
+      
+                </td>
+              </tr>
+            
+              <tr>
+                <td align="left" vertical-align="top" style="font-size:0px;padding:0;word-break:break-word;">
+                  
+      <table class="list-item undefined" role="presentation" border="0" cellpadding="0" cellspacing="0" style="color:#666666;font-family:'Source Sans Pro', Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Liberation Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
+      ;font-size:18px;margin:0;margin-bottom:5px;text-align:left;vertical-align:top;"><tr>
+        <td class="list-item--bullet" style="color:;font-size:;line-height:18px;vertical-align:top;">
+          &#8226;
+        </td>
+      <td class="list-item--gutter" width="5px" style="width:5px;">
+        &nbsp;
+      </td>
+      <td class="list-item--text" role="listitem" style="vertical-align:top;">
+        List item three.
+      </td>
+      </tr></table>
+      
+                </td>
+              </tr>
+            
+              <tr>
+                <td align="left" vertical-align="top" style="font-size:0px;padding:0;padding-left:40px;word-break:break-word;">
+                  
+      <table class="list-item undefined" role="presentation" border="0" cellpadding="0" cellspacing="0" style="color:blue;font-family:'Source Sans Pro', Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Liberation Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
+      ;font-size:18px;margin:0;margin-bottom:5px;margin-left:40px;text-align:left;vertical-align:top;"><tr>
+        <td class="list-item--bullet" style="color:;font-size:;line-height:18px;vertical-align:top;">
+          —
+        </td>
+      <td class="list-item--gutter" width="5px" style="width:5px;">
+        &nbsp;
+      </td>
+      <td class="list-item--text" role="listitem" style="vertical-align:top;">
+        List item four, customized bullet, font color, and left padding. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </td>
+      </tr></table>
+      
+                </td>
+              </tr>
+            
+              <tr>
+                <td align="left" vertical-align="top" style="font-size:0px;padding:0;word-break:break-word;">
+                  
+      <table class="list-item undefined" role="presentation" border="0" cellpadding="0" cellspacing="0" style="color:#666666;font-family:'Source Sans Pro', Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Liberation Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
+      ;font-size:18px;margin:0;margin-bottom:5px;text-align:left;vertical-align:top;"><tr>
+        <td class="list-item--bullet" style="color:;font-size:;line-height:18px;vertical-align:top;">
+          &#8226;
+        </td>
+      <td class="list-item--gutter" width="5px" style="width:5px;">
+        &nbsp;
+      </td>
+      <td class="list-item--text" role="listitem" style="vertical-align:top;">
+        List item five.
+      </td>
+      </tr></table>
+      
+                </td>
+              </tr>
+            
+              <tr>
+                <td align="left" vertical-align="top" style="font-size:0px;padding:0;word-break:break-word;">
+                  
+      <table class="list-item undefined" role="presentation" border="0" cellpadding="0" cellspacing="0" style="color:#666666;font-family:'Source Sans Pro', Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Liberation Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
+      ;font-size:18px;margin:0;margin-bottom:5px;text-align:left;vertical-align:top;"><tr>
+        <td class="list-item--bullet" style="color:;font-size:;line-height:18px;vertical-align:top;">
+          &#8226;
+        </td>
+      <td class="list-item--gutter" width="5px" style="width:5px;">
+        &nbsp;
+      </td>
+      <td class="list-item--text" role="listitem" style="vertical-align:top;">
+        List item six.
+      </td>
+      </tr></table>
+      
+                </td>
+              </tr>
+            
+              <tr>
+                <td align="left" vertical-align="top" style="font-size:0px;padding:0;word-break:break-word;">
+                  
+      <table class="list-item undefined" role="presentation" border="0" cellpadding="0" cellspacing="0" style="color:#666666;font-family:'Source Sans Pro', Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Liberation Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
+      ;font-size:18px;margin:0;margin-bottom:20px;text-align:left;vertical-align:top;"><tr>
+        <td class="list-item--bullet" style="color:;font-size:25px;line-height:18px;vertical-align:top;">
+          &#8226;
+        </td>
+      <td class="list-item--gutter" width="20px" style="width:20px;">
+        &nbsp;
+      </td>
+      <td class="list-item--text" role="listitem" style="vertical-align:top;">
+        List item seven, customized bullet size and gutter size. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </td>
+      </tr></table>
+      
+                </td>
+              </tr>
+            
+        </tbody>
+      </table>
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      </div>
+    
+                </td>
+              </tr>
+            
+              <tr>
+                <td align="left" style="font-size:0px;padding:0;word-break:break-word;">
+                  
+      <div style="font-family:'Source Sans Pro', Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Liberation Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
+      ;font-size:18px;line-height:1.8;text-align:left;color:#666666;"><p style="margin-top: 0; margin-left: 0; margin-right: 0;">Lists can be followed by text paragraphs, as usual.</p></div>
+    
+                </td>
+              </tr>
+            
+        </tbody>
+      </table>
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]></td></tr></table></td></tr><tr><td class="" width="600px" ><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:564px;" width="564" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+    
+      
+      <div style="margin:0px auto;max-width:564px;">
+        
+        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+          <tbody>
+            <tr>
+              <td style="direction:ltr;font-size:0px;padding:0;text-align:center;">
+                <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:564px;" ><![endif]-->
+            
+      <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+        
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+        <tbody>
+          <tr>
+            <td style="vertical-align:top;padding:0;">
+              
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" style width="100%">
+        <tbody>
+          
+              <tr>
+                <td align="left" style="font-size:0px;padding:0;word-break:break-word;">
+                  
+      <div style="font-family:'Source Sans Pro', Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Liberation Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
+      ;font-size:18px;line-height:1.8;text-align:left;color:#666666;"><h1 style="margin: 0; padding: 18px 0; font-size: 36px; line-height: 32px; font-weight: bold;">A headline<span class="push-double" style="display: inline-block; margin-right: .46em;"> <span class="pull-double" style="display: inline-block; margin-left: -0.46em;">&ldquo;</span>with a quote&rdquo;</span></h1> <p style="margin-top: 0; margin-left: 0; margin-right: 0;"> In at risus <span class="small-caps" style="font-variant: small-caps; font-size: 95%;">SEDA</span> consectetur, fringilla nisl nec, consectetur mauris. Ut sed ultricies ante. Aliquam vestibulum pretium ligula sit amet pretium. </p> <h2 style="margin: 0; padding: 18px 0; font-size: 28px; line-height: 32px; font-weight: bold;"><span class="pull-double" style="display: inline-block; margin-left: -0.46em;">&ldquo;</span>A quoted subheading&rdquo;</h2> <p style="margin-top: 0; margin-left: 0; margin-right: 0;"> <i>Donec eu turpis nec erat auctor</i> euismod imperdiet vel urna. Suspendisse in urna iaculis, mattis metus luctus, egestas libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras finibus arcu a sapien dictum mattis a et tellus. </p></div>
     
                 </td>
               </tr>
@@ -1178,12 +1449,12 @@
       
     <!--[if !mso><!-->
     
-        <input type="checkbox" id="0810495d0c4f19da" class="mj-menu-checkbox" style="display:none !important; max-height:0; visibility:hidden;">
+        <input type="checkbox" id="f66f738be4877237" class="mj-menu-checkbox" style="display:none !important; max-height:0; visibility:hidden;">
       
     <!--<![endif]-->
   
       <div class="mj-menu-trigger" style="display:none;max-height:0px;max-width:0px;font-size:0px;overflow:hidden;">
-        <label for="0810495d0c4f19da" class="mj-menu-label" style="display:block;cursor:pointer;mso-hide:all;-moz-user-select:none;user-select:none;color:white;font-size:30px;font-family:'Source Sans Pro', Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Liberation Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
+        <label for="f66f738be4877237" class="mj-menu-label" style="display:block;cursor:pointer;mso-hide:all;-moz-user-select:none;user-select:none;color:white;font-size:30px;font-family:'Source Sans Pro', Source Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Liberation Sans, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol
       ;text-transform:uppercase;text-decoration:none;line-height:30px;padding:10px;" align="center">
           <span class="mj-menu-icon-open" style="mso-hide:all;">
             &#9776;

@@ -87,6 +87,15 @@ After building your email, the result will be output to the `dist` directory.
     <mj-style>{{> print.css}}</mj-style>
     {{/if}}
 
+    <!-- Custom HTML attributes. -->
+    <!-- See https://github.com/mjmlio/mjml/blob/master/packages/mjml-head-html-attributes/README.md for more about this tag. -->
+    <mj-html-attributes>
+      <mj-selector path=".custom div">
+        <mj-html-attribute name="data-id">42</mj-html-attribute>
+      </mj-selector>
+    </mj-html-attributes>
+
+    <!-- Custom style attributes. -->
     <mj-attributes>
       <!-- Applied to all elements -->
 
