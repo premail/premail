@@ -32,13 +32,25 @@ const { findOccurrences } = require('../functions/findOccurrences.js')
 
 // Register custom MJML components
 const { registerComponent } = require('mjml-core')
+const { registerDependencies } = require('mjml-validator')
 const MjSignoff = require('../mjml/MjSignoff.js').default
 registerComponent(MjSignoff)
-const { registerDependencies } = require('mjml-validator')
 registerDependencies({
   'mj-signoff': [],
   'mj-body': ['mj-signoff'],
   'mj-wrapper': ['mj-signoff'],
+})
+const MjList = require('../mjml/MjList.js').default
+registerComponent(MjList)
+registerDependencies({
+  'mj-list': ['mj-li'],
+  'mj-section': ['mj-list'],
+})
+const MjLi = require('../mjml/MjLi.js').default
+registerComponent(MjLi)
+registerDependencies({
+  'mj-li': [],
+  'mj-list': ['mj-li'],
 })
 
 //

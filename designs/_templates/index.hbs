@@ -150,6 +150,14 @@ After building your email, the result will be output to the `dist` directory.
         line-height="11px"
       />
 
+      <!-- Lists -->
+      <mj-class name="list" color="purple" />
+
+      <mj-class name="mj-li" color="green" {{#if
+      theme.text.default.verticalPadding}}
+      padding-bottom="{{theme.text.default.verticalPadding}}" {{else}}
+      padding-bottom="{{theme.text.default.size}}" {{/if}} />
+
       <!-- Buttons -->
 
       <mj-class name="button" {{#if theme.buttons.primary.height}}
