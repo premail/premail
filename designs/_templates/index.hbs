@@ -90,8 +90,8 @@ After building your email, the result will be output to the `dist` directory.
     <!-- Custom HTML attributes. -->
     <!-- See https://github.com/mjmlio/mjml/blob/master/packages/mjml-head-html-attributes/README.md for more about this tag. -->
     <mj-html-attributes>
-      <mj-selector path=".custom div">
-        <mj-html-attribute name="data-id">42</mj-html-attribute>
+      <mj-selector path=".list-item">
+        <mj-html-attribute name="data-id">list-item</mj-html-attribute>
       </mj-selector>
     </mj-html-attributes>
 
@@ -140,12 +140,7 @@ After building your email, the result will be output to the `dist` directory.
 
       <!-- Typography -->
 
-      <mj-class
-        name="text"
-        padding="0"
-        font-size="{{theme.text.default.size}}"
-        line-height="{{theme.text.default.lineHeight}}"
-      />
+      <mj-class name="text" padding="0" />
 
       <mj-class
         name="text--salutation"
@@ -160,12 +155,7 @@ After building your email, the result will be output to the `dist` directory.
       />
 
       <!-- Lists -->
-      <mj-class name="list" color="purple" />
-
-      <mj-class name="mj-li" color="green" {{#if
-      theme.text.default.verticalPadding}}
-      padding-bottom="{{theme.text.default.verticalPadding}}" {{else}}
-      padding-bottom="{{theme.text.default.size}}" {{/if}} />
+      <mj-class name="list" padding="0" />
 
       <!-- Buttons -->
 

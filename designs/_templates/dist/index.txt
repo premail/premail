@@ -20,18 +20,19 @@ A LIST
 An example of the custom “mj-list” and “mj-li” tags:
 •      List item one. Lorem ipsum dolor sit amet, sed do eiusmod
        tempor incididunt ut labore et dolore magna aliqua.
-•      List item two, customized bullet color and bottom padding.
+•      List item two, customized font color.
 •      List item three.
-—      List item four, customized bullet, font color, and left
+—      List item four, customized bullet, bullet color, and left
        padding. Duis aute irure dolor in reprehenderit in voluptate
        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
        sint occaecat cupidatat non proident, sunt in culpa qui
        officia deserunt mollit anim id est laborum.
-•      List item five.
+•      List item five, custom gutter size.
 •      List item six.
-•      List item seven, customized bullet size and gutter size. Ut
-       enim ad minim veniam, quis nostrud exercitation ullamco
-       laboris nisi ut aliquip ex ea commodo consequat.
+•      List item seven, customized text color, bullet font size and
+       bullet line height. Ut enim ad minim veniam, quis nostrud
+       exercitation ullamco laboris nisi ut aliquip ex ea commodo
+       consequat.
 Lists can be followed by text paragraphs, as usual.
 
 A HEADLINE “WITH A QUOTE”

@@ -28,7 +28,8 @@ exports.default = series(
   loadConfig,
   formatTemplates,
   clean.generated,
-  parallel(build.content, build.styles),
+  build.styles,
+  build.content,
   build.render
 )
 
@@ -53,7 +54,8 @@ exports.buildRender = build.render
 exports.watch = series(
   loadConfig,
   formatTemplates,
-  parallel(build.content, build.styles),
+  build.styles,
+  build.content,
   build.render,
   watchEmail
 )

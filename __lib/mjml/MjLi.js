@@ -158,35 +158,37 @@ var MjLi = /*#__PURE__*/ (function (_BodyComponent) {
             'container-background-color': this.getAttribute(
               'container-background-color'
             ),
+            'margin-left': this.getAttribute('padding-left'),
+            'margin-right': this.getAttribute('padding-right'),
+            'vertical-align': this.getAttribute('vertical-align'),
+          },
+          tdWrap: {
+            'vertical-align': this.getAttribute('vertical-align'),
+          },
+          bulletWrap: {
+            color: this.getAttribute('bullet-color'),
+            'font-family': this.getAttribute('font-family'),
+            'font-size': this.getAttribute('bullet-font-size'),
+            'font-style': this.getAttribute('font-style'),
+            'font-weight': this.getAttribute('font-weight'),
+            'letter-spacing': this.getAttribute('letter-spacing'),
+            'line-height': this.getAttribute('bullet-line-height'),
+            'text-align': this.getAttribute('align'),
+          },
+          gutterWrap: {
+            width: this.getAttribute('gutter'),
+          },
+          textWrap: {
+            color: this.getAttribute('text-color'),
             'font-family': this.getAttribute('font-family'),
             'font-size': this.getAttribute('font-size'),
             'font-style': this.getAttribute('font-style'),
             'font-weight': this.getAttribute('font-weight'),
             'letter-spacing': this.getAttribute('letter-spacing'),
             'line-height': this.getAttribute('line-height'),
-            margin: this.getAttribute('padding'),
-            'margin-bottom':
-              this.getAttribute('padding-bottom') ||
-              this.getAttribute('gutter'),
-            'margin-left': this.getAttribute('padding-left'),
-            'margin-right': this.getAttribute('padding-right'),
-            'margin-top': this.getAttribute('padding-top'),
-            'text-align': this.getAttribute('align'),
             'text-decoration': this.getAttribute('text-decoration'),
             'text-transform': this.getAttribute('text-transform'),
-            'vertical-align': this.getAttribute('vertical-align'),
-          },
-          bulletWrap: {
-            color: this.getAttribute('bullet-color'),
-            'font-size': this.getAttribute('bullet-size'),
-            'line-height': this.getAttribute('font-size'),
-            'vertical-align': this.getAttribute('vertical-align'),
-          },
-          gutterWrap: {
-            width: this.getAttribute('gutter'),
-          },
-          textWrap: {
-            'vertical-align': this.getAttribute('vertical-align'),
+            'text-align': this.getAttribute('align'),
           },
         }
       },
@@ -195,7 +197,6 @@ var MjLi = /*#__PURE__*/ (function (_BodyComponent) {
       key: 'render',
       value: function render () {
         var bullet = this.getAttribute('bullet')
-        var gutter = this.getAttribute('gutter')
         return '\n      <table\n        '
           .concat(
             this.htmlAttributes({
@@ -210,19 +211,43 @@ var MjLi = /*#__PURE__*/ (function (_BodyComponent) {
           )
           .concat(
             this.htmlAttributes({
+              class: 'list-item--td',
+              style: 'tdWrap',
+            }),
+            '\n        >\n          <p\n            '
+          )
+          .concat(
+            this.htmlAttributes({
               class: 'list-item--bullet',
               style: 'bulletWrap',
             }),
-            '\n        >\n          '
+            '\n          >\n            '
           )
-          .concat(bullet, '\n        </td>\n      <td\n        ')
+          .concat(
+            bullet,
+            '\n          </p>\n        </td>\n        <td\n          '
+          )
+          .concat(
+            this.htmlAttributes({
+              class: 'list-item--td',
+              style: 'tdWrap',
+            }),
+            '\n        >\n          <p\n          '
+          )
           .concat(
             this.htmlAttributes({
               class: 'list-item--gutter',
               width: this.getAttribute('gutter'),
               style: 'gutterWrap',
             }),
-            '\n      ></td>\n      <td\n        '
+            '\n          ></p>\n        </td>\n        <td\n          '
+          )
+          .concat(
+            this.htmlAttributes({
+              class: 'list-item--td',
+              style: 'tdWrap',
+            }),
+            '\n        >\n          <p\n            '
           )
           .concat(
             this.htmlAttributes({
@@ -230,11 +255,11 @@ var MjLi = /*#__PURE__*/ (function (_BodyComponent) {
               role: 'listitem',
               style: 'textWrap',
             }),
-            '\n      >\n        '
+            '\n          >\n            '
           )
           .concat(
             this.getContent(),
-            '\n      </td>\n      </tr></table>\n      '
+            '\n          </p>\n        </td>\n      </tr></table>\n      '
           )
       },
     },
@@ -255,11 +280,11 @@ _defineProperty(MjLi, 'dependencies', {
 })
 
 _defineProperty(MjLi, 'allowedAttributes', {
-  align: 'enum(left,right,center,justify)',
   'background-color': 'color',
   bullet: 'string',
   'bullet-color': 'color',
-  'bullet-size': 'unit(px)',
+  'bullet-font-size': 'unit(px)',
+  'bullet-line-height': 'unit(px,%,)',
   color: 'color',
   'container-background-color': 'color',
   'font-family': 'string',
@@ -269,24 +294,24 @@ _defineProperty(MjLi, 'allowedAttributes', {
   gutter: 'unit(px)',
   'letter-spacing': 'unitWithNegative(px,em)',
   'line-height': 'unit(px,%,)',
-  'padding-bottom': 'unit(px,%)',
   'padding-left': 'unit(px,%)',
   'padding-right': 'unit(px,%)',
-  'padding-top': 'unit(px,%)',
-  padding: 'unit(px,%){1,4}',
+  'text-align': 'enum(left,right,center,justify)',
+  'text-color': 'color',
   'text-decoration': 'string',
   'text-transform': 'string',
   'vertical-align': 'enum(top,bottom,middle)',
 })
 
 _defineProperty(MjLi, 'defaultAttributes', {
-  align: 'left',
   bullet: '&#8226;',
   'bullet-color': '',
-  'bullet-size': '',
-  color: '#000000',
+  'bullet-font-size': '',
+  color: '',
   'font-family': 'Ubuntu, Helvetica, Arial, sans-serif',
   'font-size': '13px',
   gutter: '5px',
+  'line-height': '',
+  'text-align': 'left',
   'vertical-align': 'top',
 })

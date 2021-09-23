@@ -70,6 +70,8 @@ p {
   } @else {
     margin-bottom: map-get($text, 'size');
   }
+  font-size: map-get($text, 'size');
+  line-height: map-get($text, 'lineHeight');
 }
 .signoff__name p {
   margin: 0;
@@ -81,6 +83,28 @@ a {
   @if map-has-key($links, 'color') {
     color: map-get($links, 'color');
   }
+}
+
+/* LIST COMPONENTS
+ *
+ * Rather than using <ul> and <li> elements, which render unpredictably in
+ * email clients, use <mj-list> and <mj-li> elements, then style with the
+ * classes below.
+ */
+
+.list {
+}
+
+.list-item {
+}
+
+.list-item--bullet {
+}
+
+.list-item--gutter {
+}
+
+.list-item--text {
 }
 
 /* TYPOGRAPHIC ENHANCEMENT STYLES
