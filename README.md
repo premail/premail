@@ -260,12 +260,72 @@ Once the production email is rendered, you can:
 
 ## Custom components
 
-mjml-quickstart includes an
-[MJML custom component](https://documentation.mjml.io/#creating-a-component) for
-the "signoff" section at the bottom of your email content, `<mj-signoff>`. It is
-used in the `content/signoff.hbs` template and allows you to easily include an
-image alongside your signature such as a photo or logo, which is a common best
-practice in many types of emails.
+mjml-quickstart includes some
+[MJML custom components](https://documentation.mjml.io/#creating-a-component)
+for common use cases.
+
+### mj-list and mj-li
+
+`<ul>` and `<li>` HTML elements can be used in HTML emails, but getting them to
+render consistently
+[takes a little work](https://www.litmus.com/blog/the-ultimate-guide-to-bulleted-lists-in-html-email/).
+Included in mjml-quickstart is a shortcut for these elements.
+
+`<mj-list>` replaces `<ul>`. Use it alongside
+[`<mj-text>`](https://documentation.mjml.io/#mj-text) within
+[`<mj-column>`](https://documentation.mjml.io/#mj-column). It takes the
+following options:
+
+- `background-color`
+- `border`
+- `border-bottom`
+- `border-left`
+- `border-radius`
+- `border-right`
+- `border-top`
+- `direction`: default `ltr`
+- `inner-background-color`
+- `padding-bottom`
+- `padding-left`
+- `padding-right`
+- `padding-top`
+- `padding`
+- `vertical-align`: default `top`
+- `width`
+
+`<mj-li>` replaces `<li>`. Use it inside `<mj-list></mj-list>`. It takes the
+following options:
+
+- `background-color`
+- `bullet-color`
+- `color`: (applies to both bullet marker and text)
+- `font-family`: default `Ubuntu, Helvetica, Arial, sans-serif` (from
+  [`<mj-text>`](https://documentation.mjml.io/#mj-text))
+- `font-size`: default `13px` (from
+  [`<mj-text>`](https://documentation.mjml.io/#mj-text))
+- `font-style`:
+- `font-weight`:
+- `gutter`: the distance between the bullet marker and the text
+- `letter-spacing`
+- `line-height`
+- `padding-left`
+- `padding-right`
+- `text-align`: default `left`
+- `text-color`
+- `text-decoration`
+- `text-transform`
+- `vertical-align`: default `top`
+
+An example of this can be found in the default design's
+[`content/body.hbs`](designs/_templates/content/body.hbs) template.
+
+### mj-signoff
+
+Designed for the sign-off or signature section at the bottom of your email
+content, `<mj-signoff>` is used in the
+[`content/signoff.hbs`](designs/_templates/content/signoff.hbs) template and
+allows you to easily include an image alongside your signature such as a photo
+or logo, which is a common best practice in many types of emails.
 
 Available options for this component include:
 
@@ -285,8 +345,8 @@ the image. The default `content/signoff.hbs` template includes CSS class hooks
 to allow you to change the spacing around the signoff elements independently
 from the rest of your content's text.
 
-Alternatively, if you are not using an image in your signoff you could use the
-core `<mj-section>` and `<mj-text>` components directly.
+If you are not using an image in your sign-off, you can simply use the default
+`<mj-text>` element in this template.
 
 ## Automatic code formatting and linting
 

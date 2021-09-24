@@ -151,44 +151,42 @@ var MjLi = /*#__PURE__*/ (function (_BodyComponent) {
     {
       key: 'getStyles',
       value: function getStyles () {
+        var textColor =
+          this.getAttribute('text-color') || this.getAttribute('color')
         return {
-          liWrap: {
+          ulStyle: {
             'background-color': this.getAttribute('background-color'),
             color: this.getAttribute('color'),
-            'container-background-color': this.getAttribute(
-              'container-background-color'
-            ),
-            'margin-left': this.getAttribute('padding-left'),
-            'margin-right': this.getAttribute('padding-right'),
-            'vertical-align': this.getAttribute('vertical-align'),
-          },
-          tdWrap: {
-            'vertical-align': this.getAttribute('vertical-align'),
-          },
-          bulletWrap: {
-            color: this.getAttribute('bullet-color'),
-            'font-family': this.getAttribute('font-family'),
-            'font-size': this.getAttribute('bullet-font-size'),
-            'font-style': this.getAttribute('font-style'),
-            'font-weight': this.getAttribute('font-weight'),
-            'letter-spacing': this.getAttribute('letter-spacing'),
-            'line-height': this.getAttribute('bullet-line-height'),
-            'text-align': this.getAttribute('align'),
-          },
-          gutterWrap: {
-            width: this.getAttribute('gutter'),
-          },
-          textWrap: {
-            color: this.getAttribute('text-color'),
             'font-family': this.getAttribute('font-family'),
             'font-size': this.getAttribute('font-size'),
             'font-style': this.getAttribute('font-style'),
             'font-weight': this.getAttribute('font-weight'),
             'letter-spacing': this.getAttribute('letter-spacing'),
             'line-height': this.getAttribute('line-height'),
+            'margin-top': '0',
+            'margin-left': this.getAttribute('padding-left'),
+            'margin-right': this.getAttribute('padding-right'),
+            'margin-bottom': '0',
+            padding: '0',
             'text-decoration': this.getAttribute('text-decoration'),
             'text-transform': this.getAttribute('text-transform'),
             'text-align': this.getAttribute('align'),
+          },
+          liStyle: {
+            color: this.getAttribute('bullet-color'),
+            margin: '0',
+            padding: '0',
+            'padding-left': this.getAttribute('gutter'),
+            'text-decoration': this.getAttribute('text-decoration'),
+            'text-transform': this.getAttribute('text-transform'),
+            'text-align': this.getAttribute('align'),
+          },
+          textWrap: {
+            color: textColor,
+            'letter-spacing': this.getAttribute('letter-spacing'),
+            'text-decoration': this.getAttribute('text-decoration'),
+            'text-transform': this.getAttribute('text-transform'),
+            'text-align': this.getAttribute('text-align'),
           },
         }
       },
@@ -196,70 +194,39 @@ var MjLi = /*#__PURE__*/ (function (_BodyComponent) {
     {
       key: 'render',
       value: function render () {
-        var bullet = this.getAttribute('bullet')
-        return '\n      <table\n        '
+        var itemClass = 'list-item'
+
+        if (this.getAttribute('css-class')) {
+          itemClass += ' '.concat(this.getAttribute('css-class'))
+        }
+
+        return '\n      <ul\n        '
           .concat(
             this.htmlAttributes({
-              class: 'list-item '.concat(this.getAttribute('css-class')),
-              role: 'presentation',
-              border: '0',
-              cellpadding: '0',
-              cellspacing: '0',
-              style: 'liWrap',
+              class: 'list-item-wrap',
+              align: this.getAttribute('text-align'),
+              type: 'disc',
+              style: 'ulStyle',
             }),
-            '\n      ><tr>\n        <td\n          '
+            '\n      >\n        <li\n          '
           )
           .concat(
             this.htmlAttributes({
-              class: 'list-item--td',
-              style: 'tdWrap',
+              class: ''.concat(itemClass),
+              style: 'liStyle',
             }),
-            '\n        >\n          <p\n            '
-          )
-          .concat(
-            this.htmlAttributes({
-              class: 'list-item--bullet',
-              style: 'bulletWrap',
-            }),
-            '\n          >\n            '
-          )
-          .concat(
-            bullet,
-            '\n          </p>\n        </td>\n        <td\n          '
-          )
-          .concat(
-            this.htmlAttributes({
-              class: 'list-item--td',
-              style: 'tdWrap',
-            }),
-            '\n        >\n          <p\n          '
-          )
-          .concat(
-            this.htmlAttributes({
-              class: 'list-item--gutter',
-              width: this.getAttribute('gutter'),
-              style: 'gutterWrap',
-            }),
-            '\n          ></p>\n        </td>\n        <td\n          '
-          )
-          .concat(
-            this.htmlAttributes({
-              class: 'list-item--td',
-              style: 'tdWrap',
-            }),
-            '\n        >\n          <p\n            '
+            '\n        >\n          <span\n            '
           )
           .concat(
             this.htmlAttributes({
               class: 'list-item--text',
-              role: 'listitem',
               style: 'textWrap',
             }),
             '\n          >\n            '
           )
           .concat(
             this.getContent(),
-            '\n          </p>\n        </td>\n      </tr></table>\n      '
+            '\n          </span>\n        </li>\n      </ul>\n      '
           )
       },
     },
@@ -283,10 +250,7 @@ _defineProperty(MjLi, 'allowedAttributes', {
   'background-color': 'color',
   bullet: 'string',
   'bullet-color': 'color',
-  'bullet-font-size': 'unit(px)',
-  'bullet-line-height': 'unit(px,%,)',
   color: 'color',
-  'container-background-color': 'color',
   'font-family': 'string',
   'font-size': 'unit(px)',
   'font-style': 'string',
@@ -306,7 +270,6 @@ _defineProperty(MjLi, 'allowedAttributes', {
 _defineProperty(MjLi, 'defaultAttributes', {
   bullet: '&#8226;',
   'bullet-color': '',
-  'bullet-font-size': '',
   color: '',
   'font-family': 'Ubuntu, Helvetica, Arial, sans-serif',
   'font-size': '13px',

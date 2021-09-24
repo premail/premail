@@ -65,10 +65,9 @@ p {
   margin-top: 0;
   margin-left: 0;
   margin-right: 0;
+  margin-bottom: map-get($text, 'size');
   @if map-has-key($text, 'verticalPadding') {
     margin-bottom: map-get($text, 'verticalPadding');
-  } @else {
-    margin-bottom: map-get($text, 'size');
   }
   font-size: map-get($text, 'size');
   line-height: map-get($text, 'lineHeight');
@@ -93,15 +92,23 @@ a {
  */
 
 .list {
+  margin-bottom: map-get($text, 'size') !important;
+  @if map-has-key($text, 'verticalPadding') {
+    margin-bottom: map-get($text, 'verticalPadding') !important;
+  }
+  font-size: map-get($text, 'size');
+  line-height: map-get($text, 'lineHeight');
+}
+
+.list-item-wrap {
+  margin-left: 25px;
 }
 
 .list-item {
-}
-
-.list-item--bullet {
-}
-
-.list-item--gutter {
+  margin-bottom: map-get($text, 'size') !important;
+  @if map-has-key($text, 'verticalPadding') {
+    margin-bottom: map-get($text, 'verticalPadding') !important;
+  }
 }
 
 .list-item--text {

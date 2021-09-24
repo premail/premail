@@ -149,36 +149,32 @@ var MjList = /*#__PURE__*/ (function (_BodyComponent) {
 
   _createClass(MjList, [
     {
-      key: 'getStyles',
-      value: function getStyles () {
-        return {
-          text: {
-            color: this.getAttribute('color'),
-            'font-family': this.getAttribute('font-family'),
-            'font-size': this.getAttribute('font-size'),
-            'font-style': this.getAttribute('font-style'),
-            'font-weight': this.getAttribute('font-weight'),
-            'letter-spacing': this.getAttribute('letter-spacing'),
-            'line-height': this.getAttribute('line-height'),
-            'text-align': this.getAttribute('align'),
-            'text-decoration': this.getAttribute('text-decoration'),
-            'text-transform': this.getAttribute('text-transform'),
-          },
-        }
-      },
-    },
-    {
       key: 'render',
       value: function render () {
         return this.renderMJML(
-          '\n        <mj-column\n          '
+          '\n      <mj-column\n        css-class="list"\n        '
             .concat(
               this.htmlAttributes({
-                'mj-class': 'list',
-                class: 'list '.concat(this.getAttribute('css-class')),
-                style: 'text',
+                'background-color': this.getAttribute('background-color'),
+                border: this.getAttribute('border'),
+                'border-bottom': this.getAttribute('border-bottom'),
+                'border-left': this.getAttribute('border-left'),
+                'border-radius': this.getAttribute('border-radius'),
+                'border-right': this.getAttribute('border-right'),
+                'border-top': this.getAttribute('border-top'),
+                direction: this.getAttribute('direction'),
+                'inner-background-color': this.getAttribute(
+                  'inner-background-color'
+                ),
+                'padding-bottom': this.getAttribute('padding-bottom'),
+                'padding-left': this.getAttribute('padding-left'),
+                'padding-right': this.getAttribute('padding-right'),
+                'padding-top': this.getAttribute('padding-top'),
+                padding: this.getAttribute('padding'),
+                'vertical-align': this.getAttribute('vertical-align'),
+                width: this.getAttribute('width'),
               }),
-              '\n        >\n          '
+              '\n      >\n        '
             )
             .concat(
               this.renderChildren(this.props.children, {
@@ -187,7 +183,7 @@ var MjList = /*#__PURE__*/ (function (_BodyComponent) {
                   return component.render
                 },
               }),
-              '\n        </mj-column>\n    '
+              '\n      </mj-column>\n      '
             )
         )
       },
@@ -207,31 +203,25 @@ _defineProperty(MjList, 'dependencies', {
 })
 
 _defineProperty(MjList, 'allowedAttributes', {
-  align: 'enum(left,right,center,justify)',
   'background-color': 'color',
-  color: 'color',
-  'container-background-color': 'color',
-  'font-family': 'string',
-  'font-size': 'unit(px)',
-  'font-style': 'string',
-  'font-weight': 'string',
-  'letter-spacing': 'unitWithNegative(px,em)',
-  'line-height': 'unit(px,%,)',
+  border: 'string',
+  'border-bottom': 'string',
+  'border-left': 'string',
+  'border-radius': 'unit(px,%){1,4}',
+  'border-right': 'string',
+  'border-top': 'string',
+  direction: 'enum(ltr,rtl)',
+  'inner-background-color': 'color',
   'padding-bottom': 'unit(px,%)',
   'padding-left': 'unit(px,%)',
   'padding-right': 'unit(px,%)',
   'padding-top': 'unit(px,%)',
   padding: 'unit(px,%){1,4}',
-  'text-decoration': 'string',
-  'text-transform': 'string',
   'vertical-align': 'enum(top,bottom,middle)',
+  width: 'unit(px,%)',
 })
 
 _defineProperty(MjList, 'defaultAttributes', {
-  align: 'left',
-  color: '#000000',
-  'font-family': 'Ubuntu, Helvetica, Arial, sans-serif',
-  'font-size': '13px',
-  'line-height': '1',
-  padding: '10px 25px',
+  direction: 'ltr',
+  'vertical-align': 'top',
 })
