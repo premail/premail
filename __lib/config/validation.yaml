@@ -31,6 +31,10 @@ validationRules:
       - config.theme.sections.footer.verticalPadding
       - config.theme.text.default.size
       - config.theme.text.default.verticalPadding
+      - config.theme.lists.leftPadding
+      - config.theme.lists.listBottomPadding
+      - config.theme.lists.itemBottomPadding
+      - config.theme.lists.fontSize
       - config.theme.buttons.primary.height
       - config.theme.buttons.primary.width
       - config.theme.buttons.primary.buttonPadding

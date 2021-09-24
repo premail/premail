@@ -92,22 +92,25 @@ a {
  */
 
 .list {
-  margin-bottom: map-get($text, 'size') !important;
-  @if map-has-key($text, 'verticalPadding') {
-    margin-bottom: map-get($text, 'verticalPadding') !important;
-  }
-  font-size: map-get($text, 'size');
-  line-height: map-get($text, 'lineHeight');
+  padding-bottom: map-get($lists, 'listBottomPadding');
 }
 
 .list-item-wrap {
-  margin-left: 25px;
+  margin-left: map-get($lists, 'leftPadding');
+  font-size: map-get($text, 'size') !important;
+  @if map-has-key($lists, 'fontSize') {
+    font-size: map-get($lists, 'fontSize') !important;
+  }
+  line-height: map-get($text, 'lineHeight') !important;
+  @if map-has-key($lists, 'lineHeight') {
+    line-height: map-get($lists, 'lineHeight') !important;
+  }
 }
 
 .list-item {
-  margin-bottom: map-get($text, 'size') !important;
-  @if map-has-key($text, 'verticalPadding') {
-    margin-bottom: map-get($text, 'verticalPadding') !important;
+  margin-bottom: map-get($lists, 'listBottomPadding') !important;
+  @if map-has-key($lists, 'itemBottomPadding') {
+    margin-bottom: map-get($lists, 'itemBottomPadding') !important;
   }
 }
 

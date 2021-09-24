@@ -17,6 +17,7 @@ const colors = theme.colors
 const fonts = theme.fonts
 const text = theme.text.default
 const links = theme.links
+const lists = theme.lists
 const typography = config.user.details.typography
 
 module.exports = {
@@ -25,5 +26,6 @@ module.exports = {
   fonts,
   text,
   links,
+  lists,
   typography,
 }

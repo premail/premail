@@ -198,6 +198,25 @@ links:
   # decoration: Any valid CSS text-decoration value may be used.
   decoration: underline
 
+# LIST STYLES
+# These styles only apply to lists created with the <mj-list> and <mj-li>
+# components (see README). They can be overridden by individual component
+# settings.
+lists:
+  # leftPadding: The default amount by which lists will be padded from the left
+  # margin. If you set this to 0, the bullets in the list may overflow their
+  # containers.
+  leftPadding: 25px
+  # listBottomPadding: To match paragraph styles, set this to the same value as
+  # text.default.verticalPadding or text.default.size.
+  listBottomPadding: 18px
+  # itemBottomPadding: If not set, this will match listBottomPadding.
+  itemBottomPadding:
+  # fontSize: If not set, this will match text.default.size.
+  fontSize:
+  # lineHeight: If not set, this will match text.default.lineHeight.
+  lineHeight:
+
 # BUTTON STYLES
 # To learn about MJML's button settings, see:
 # https://documentation.mjml.io/#mj-button
