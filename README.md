@@ -278,45 +278,49 @@ Included in mjml-quickstart is a shortcut for these elements.
 [`<mj-column>`](https://documentation.mjml.io/#mj-column). It takes the
 following options:
 
-- `background-color`
-- `border`
-- `border-bottom`
-- `border-left`
-- `border-radius`
-- `border-right`
-- `border-top`
-- `direction`: default `ltr`
-- `inner-background-color`
-- `padding-bottom`
-- `padding-left`
-- `padding-right`
-- `padding-top`
-- `padding`
-- `vertical-align`: default `top`
-- `width`
+| option                   | unit                                                                       | details                                                                      | default value                  |
+| ------------------------ | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------ |
+| `background-color`       | color                                                                      | Applies to entire list                                                       | none                           |
+| `border`                 | string ([border](https://developer.mozilla.org/en-US/docs/Web/CSS/border)) | Applies to entire list                                                       | none                           |
+| `border-top`             | string ([border](https://developer.mozilla.org/en-US/docs/Web/CSS/border)) | Applies to entire list                                                       | none                           |
+| `border-right`           | string ([border](https://developer.mozilla.org/en-US/docs/Web/CSS/border)) | Applies to entire list                                                       | none                           |
+| `border-bottom`          | string ([border](https://developer.mozilla.org/en-US/docs/Web/CSS/border)) | Applies to entire list                                                       | none                           |
+| `border-left`            | string ([border](https://developer.mozilla.org/en-US/docs/Web/CSS/border)) | Applies to entire list                                                       | none                           |
+| `border-radius`          | pixels                                                                     | Applies to entire list                                                       | none                           |
+| `direction`              | `ltr|rtl`                                                                  | [Language direction](https://www.w3.org/International/questions/qa-html-dir) | `ltr`                          |
+| `inner-background-color` | color                                                                      | Applies to entire list                                                       | none                           |
+| `padding`                | pixels                                                                     | Applies to entire list                                                       | none                           |
+| `padding-top`            | pixels                                                                     | Applies to entire list                                                       | none                           |
+| `padding-right`          | pixels                                                                     | Applies to entire list                                                       | none                           |
+| `padding-bottom`         | pixels                                                                     | Applies to entire list                                                       | none                           |
+| `padding-left`           | pixels                                                                     | Applies to entire list                                                       | none                           |
+| `vertical-align`         | `top|middle|bottom`                                                        | Applies to entire list                                                       | `top`                          |
+| `width`                  | pixels                                                                     | Applies to entire list                                                       | none (full width of container) |
 
 `<mj-li>` replaces `<li>`. Use it inside `<mj-list></mj-list>`. It takes the
 following options:
 
-- `background-color`
-- `bullet-color`
-- `color`: (applies to both bullet marker and text)
-- `font-family`: default `Ubuntu, Helvetica, Arial, sans-serif` (from
-  [`<mj-text>`](https://documentation.mjml.io/#mj-text))
-- `font-size`: default `13px` (from
-  [`<mj-text>`](https://documentation.mjml.io/#mj-text))
-- `font-style`:
-- `font-weight`:
-- `gutter`: the distance between the bullet marker and the text
-- `letter-spacing`
-- `line-height`
-- `padding-left`
-- `padding-right`
-- `text-align`: default `left`
-- `text-color`
-- `text-decoration`
-- `text-transform`
-- `vertical-align`: default `top`
+| option             | unit   | details                                | default value                                |
+| ------------------ | ------ | -------------------------------------- | -------------------------------------------- |
+| `color`            | color  | Applies to both bullet marker and text | none (inherited from parent text style)      |
+| `bullet-color`     | color  | Applies to bullet marker only          | none (inherited from `color`)                |
+| `text-color`       | color  | Applies to text only                   | none (inherited from `color`)                |
+| `background-color` | color  | Applies to list item                   | none                                         |
+| `font-family`      | string | Applies to list item                   | `Ubuntu, Helvetica, Arial, sans-serif` (from |
+
+[`<mj-text>`](https://documentation.mjml.io/#mj-text)) `font-size` | pixels |
+Applies to list item | `13px` (from
+[`<mj-text>`](https://documentation.mjml.io/#mj-text)) `font-style` | string |
+Applies to list item | none `font-weight` | string | Applies to list item | none
+`gutter` | pixels | Distance between bullet marker and text | default set in
+`themeConfig.yaml` `letter-spacing` | pixels (negative allowed) | Applies to
+list item | none `line-height` | number, pixels or percentage | Applies to list
+item | none `padding-right` | pixels | Applies to list item | none
+`padding-left` | pixels | Applies to list item | none `text-align` |
+`left|center|right|justify` | Applies to list item | `left` `text-decoration` |
+string | Applies to list item | none `text-transform` | string | Applies to list
+item | none `vertical-align` | `top|middle|bottom` | Applies to list item |
+`top`
 
 An example of this can be found in the default design's
 [`content/body.hbs`](designs/_templates/content/body.hbs) template.
@@ -331,21 +335,23 @@ or logo, which is a common best practice in many types of emails.
 
 Available options for this component include:
 
-- `closing`: optional string (e.g. `Thank you,`), no default.
-- `name`: optional string (e.g. `John Q. Public`), no default.
-- `title`: optional string (e.g. `Wild and Crazy Guy`), no default.
-- `title2`: optional string (e.g. `ACME Corp.`), no default.
-- `title3`: optional string (e.g. `(202) 555-1212`), no default.
-- `section-padding`: units in pixels, default `10px 0`
-- `section-align`: alignment, default `left`
-- `background-color`: color, no default
-- `image-position`: alignment, default `left`
-- `image-padding`: units in pixels, no default
-- `image-src`: URL, no default
-- `image-width`: units in pixels, no default
-- `image-height`: units in pixels, no default
-- `image-alt`: string, no default
-- `text-column-padding`: default `0 10px`
+| option                | unit                | details                                                                                                                                                                                                                                                                                                                                                                                                                                         | default value |
+| --------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| `closing`             | string              | Optional closing, e.g. `Thank you,`                                                                                                                                                                                                                                                                                                                                                                                                             | none          |
+| `name`                | string              | Optional name, e.g. `John Q. Public`                                                                                                                                                                                                                                                                                                                                                                                                            | none          |
+| `title`               | string              | Optional title, e.g. `Wild and Crazy Guy`                                                                                                                                                                                                                                                                                                                                                                                                       | none          |
+| `title2`              | string              | Optional title line two, e.g. `ACME Corp.`                                                                                                                                                                                                                                                                                                                                                                                                      | none          |
+| `title3`              | string              | Optional title line three, e.g. `(202) 555-1212`                                                                                                                                                                                                                                                                                                                                                                                                | none          |
+| `section-padding`     | pixels              | Applies to entire element                                                                                                                                                                                                                                                                                                                                                                                                                       | `10px 0`      |
+| `section-align`       | `left|center|right` | Alignment of element as a whole                                                                                                                                                                                                                                                                                                                                                                                                                 | `left`        |
+| `background-color`    | color               | Applies to entire element                                                                                                                                                                                                                                                                                                                                                                                                                       | none          |
+| `image-position`      | `left|right`        | Where the image should appear relative to the text                                                                                                                                                                                                                                                                                                                                                                                              | `left`        |
+| `image-padding`       | pixels              | Applies only to the image column                                                                                                                                                                                                                                                                                                                                                                                                                | none          |
+| `image-src`           | URL                 | Location of image                                                                                                                                                                                                                                                                                                                                                                                                                               | none          |
+| `image-width`         | pixels              | Width of image                                                                                                                                                                                                                                                                                                                                                                                                                                  | none          |
+| `image-height`        | pixels              | Height of image                                                                                                                                                                                                                                                                                                                                                                                                                                 | none          |
+| `image-alt`           | string              | Alternative text for image (you may legitimately wish to leave this blank; see [the spec for graphical representation](https://html.spec.whatwg.org/multipage/images.html#a-graphical-representation-of-some-of-the-surrounding-text), [decorative images](https://html.spec.whatwg.org/multipage/images.html#a-purely-decorative-image-that-doesn't-add-any-information) and [example 2 here](https://webaim.org/techniques/alttext/#context)) | none          |
+| `text-column-padding` | pixels              | Applies only to the text column                                                                                                                                                                                                                                                                                                                                                                                                                 | `0 10px`      |
 
 Strings cannot contain HTML elements, however any content within the element
 itself is placed in the text column below the optional strings, and there are
