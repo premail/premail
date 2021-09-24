@@ -6,9 +6,14 @@
 [![Code style: JS Standard](https://img.shields.io/badge/code_style-standard-blue.svg?style=flat-square)](https://standardjs.com)
 [![Code format: Prettier](https://img.shields.io/badge/code_format-prettier-blue.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-A quick-start setup for those writing email code in [MJML](https://mjml.io/),
-the email templating language, with lots of command-line helper tools using Node
-and Gulp.
+[MJML](https://mjml.io/) is a markup language for writing bulletproof HTML
+emails. It consciously does not incorporate a build process. This is one such
+build process.
+
+MJML Quickstart uses Handlebars for templating, Sass for styling, and Gulp (4)
+and Node for processing. You don't need to deal with any of those things
+directly, beyond running a command in the terminal. Everything is defined in
+MJML templates and YAML configuration files.
 
 Email templates are all [valid](https://mjml.io/documentation/#validating-mjml)
 under [MJML version 4](https://github.com/mjmlio/mjml/releases).
@@ -60,9 +65,8 @@ Mailchimp, Constant Contact, etc.
 
 This project gives you a structure and workflow in which you can create
 different email designs in MJML, then create individual emails based on those
-designs from the command-line. Even if you're not a command-line wizard, the
-tools included will make creating and managing the code files for your emails
-vastly simpler.
+designs from the command-line. The tools included will make creating and
+managing the code files for your emails vastly simpler.
 
 When you're done, you'll have an `index.html` file (and plain-text `index.txt`
 file, if you've chosen the text option) that is optimized to render correctly in
@@ -71,7 +75,7 @@ Then just drop the code from the file into your email service provider's system.
 
 # Features
 
-- MJML-standard bulletproof code that will look its best across all email
+- MJMLv4-standard bulletproof code that will look its best across all email
   clients, reduced to the smallest possible size. CSS is inlined and HTML is
   minified as with all MJML, but we also add some extra checks, for instance, to
   make sure emojis are properly escaped and the file size doesn't hit Gmail's
@@ -122,17 +126,20 @@ controlled per-email:
   [proper image `alt` tags](https://support.siteimprove.com/hc/en-gb/articles/115000013031-Accessibility-Image-Alt-text-best-practices)
   and making sure the supplied text doesn't break email code parsers.
 - [Padding preview/preheader text](https://www.goodemailcode.com/email-code/preheader)
-  to prevent things like navigation menu items from being included there.
-- Feel free to
-  [make suggestions for more enhancements!](https://github.com/rootwork/mjml-quickstart/issues)
+  to prevent things like navigation menu items from being visible in a
+  recipient's inbox.
+
+Feel free to
+[make suggestions for more enhancements!](https://github.com/rootwork/mjml-quickstart/issues)
 
 # Setup
 
 ## Requirements
 
-You need to have at least [Node](https://nodejs.org/en/download/) 12.x. This
-tool has been tested up to 16.x and appears to work, with the caveat that **if
-you want to be able to use the `watch` function you need to stay at
+You need to have at least [Node](https://nodejs.org/en/download/) 12.x.
+
+MJML Quickstart has been tested up to 16.x and appears to work, with the caveat
+that **if you want to be able to use the `watch` function you need to stay at
 [Node 12.x](https://github.com/nodejs/Release#release-schedule)** because of a
 [limitation in gulp](https://github.com/gulpjs/glob-watcher/issues/55). (This
 means you'll see an unfortunate number of depreciation warnings upon
@@ -140,11 +147,6 @@ installation.) If you don't need to use `watch`, you can run Node LTS. I
 recommend using [n](https://github.com/tj/n) or
 [nvm](https://github.com/nvm-sh/nvm) if you're managing multiple versions of
 Node.
-
-This tool uses [Gulp](https://gulpjs.com/docs/en/getting-started/quick-start)
-4.0.2+ and [MJML](https://github.com/mjmlio/mjml/releases) 4.10.2+, but these
-are installed automatically during setup, so it's only important to check these
-if you already have them installed.
 
 ## Installation
 
@@ -262,7 +264,7 @@ Once the production email is rendered, you can:
 
 ## Custom components
 
-mjml-quickstart includes some
+MJML Quickstart includes some
 [MJML custom components](https://documentation.mjml.io/#creating-a-component)
 for common use cases.
 
@@ -310,7 +312,7 @@ following options:
 | `font-size`        | pixels                               | Applies to list item                    | `13px` (from [`<mj-text>`](https://documentation.mjml.io/#mj-text))                                 |
 | `font-style`       | string                               | Applies to list item                    | none                                                                                                |
 | `font-weight`      | string                               | Applies to list item                    | none                                                                                                |
-| `gutter`           | pixels                               | Distance between bullet marker and text | default set in `themeConfig.yaml`                                                                   |
+| `gutter`           | pixels                               | Distance between bullet marker and text | default set in [`themeConfig.yaml`](designs/_templates/theme/themeConfig.yaml)                      |
 | `letter-spacing`   | pixels (negative allowed)            | Applies to list item                    | none                                                                                                |
 | `line-height`      | number, pixels or percentage         | Applies to list item                    | none                                                                                                |
 | `padding-right`    | pixels                               | Applies to list item                    | none                                                                                                |
@@ -365,7 +367,7 @@ If you are not using an image in your sign-off, you can simply use the default
 
 ## Automatic code formatting and linting
 
-mjml-quickstart includes
+MJML Quickstart includes
 [sheerun/modern-node](https://github.com/sheerun/modern-node), which formats and
 lints code using [Prettier](https://prettier.io/). This will warn you about
 errors in the HTML, Sass or CSS syntax of your designs or emails, and
