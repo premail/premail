@@ -203,6 +203,7 @@ var MjLi = /*#__PURE__*/ (function (_BodyComponent) {
         return '\n      <ul\n        '
           .concat(
             this.htmlAttributes({
+              role: 'presentation',
               class: 'list-item-wrap',
               align: this.getAttribute('text-align'),
               type: 'disc',
@@ -212,6 +213,7 @@ var MjLi = /*#__PURE__*/ (function (_BodyComponent) {
           )
           .concat(
             this.htmlAttributes({
+              role: 'list-item',
               class: ''.concat(itemClass),
               style: 'liStyle',
             }),
@@ -219,7 +221,7 @@ var MjLi = /*#__PURE__*/ (function (_BodyComponent) {
           )
           .concat(
             this.htmlAttributes({
-              class: 'list-item--text',
+              class: 'list-item__text',
               style: 'textWrap',
             }),
             '\n          >\n            '
@@ -268,13 +270,8 @@ _defineProperty(MjLi, 'allowedAttributes', {
 })
 
 _defineProperty(MjLi, 'defaultAttributes', {
-  bullet: '&#8226;',
-  'bullet-color': '',
-  color: '',
   'font-family': 'Ubuntu, Helvetica, Arial, sans-serif',
   'font-size': '13px',
-  gutter: '5px',
-  'line-height': '',
   'text-align': 'left',
   'vertical-align': 'top',
 })

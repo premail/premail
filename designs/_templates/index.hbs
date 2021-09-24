@@ -90,8 +90,11 @@ After building your email, the result will be output to the `dist` directory.
     <!-- Custom HTML attributes. -->
     <!-- See https://github.com/mjmlio/mjml/blob/master/packages/mjml-head-html-attributes/README.md for more about this tag. -->
     <mj-html-attributes>
-      <mj-selector path=".list-item">
-        <mj-html-attribute name="data-id">list-item</mj-html-attribute>
+      <mj-selector path=".list table table">
+        <mj-html-attribute name="role">list</mj-html-attribute>
+      </mj-selector>
+      <mj-selector path=".list table table > tbody">
+        <mj-html-attribute name="role">presentation</mj-html-attribute>
       </mj-selector>
     </mj-html-attributes>
 
