@@ -174,6 +174,13 @@ if (config.theme.fonts) {
   }
 }
 
+if (config.theme.head) {
+  config.theme.head.array = ''
+  for (const i of config.theme.head) {
+    config.theme.head.array += i.html
+  }
+}
+
 // Set current template paths
 config.current.templates = {}
 

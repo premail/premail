@@ -347,3 +347,12 @@ signoff:
   # title3BottomPadding: If not set, this will match
   # text.default.verticalPadding (if set) or text.default.size.
   title3BottomPadding: 0
+
+# CUSTOM HEAD ELEMENTS
+# HTML is inserted verbatim into the <head> of the email document. Use the
+# optional "description" element to describe the reason for the HTML.
+head:
+  # - html: <meta name="example" content="example" />
+  #   description: An example.
+  # - html: <meta name="Generator" content="Microsoft Word 15 (filtered medium)" />
+  #   description: Necessary for custom list markers. See https://www.litmus.com/blog/the-ultimate-guide-to-bulleted-lists-in-html-email/

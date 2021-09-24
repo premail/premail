@@ -45,27 +45,36 @@ After building your email, the result will be output to the `dist` directory.
     <!-- Title -->
     {{#if partials.title}}
     <mj-title>{{> title.hbs}}</mj-title>
-    {{/if}} {{#if theme.fonts.web}}
-    <!-- `mj-font` element needs to be outside `mj-attributes`
-             @see: https://documentation.mjml.io/#mj-font
+    {{/if}}
 
-          HREF values in the font element are unquoted, and ignored by Prettier,
-          in order to allow for the double-quoting that JSON-to-Sass variables
-          require.
-        -->
+    <!-- Custom head elements -->
+    {{#if theme.head}}
+    <mj-raw>{{{theme.head.array}}}</mj-raw>
+    {{/if}}
+
+    <!-- Web fonts -->
+    {{#if theme.fonts.web}}
+    <!-- HREF values in the font element are unquoted, and ignored by Prettier,
+         in order to allow for the double-quoting that JSON-to-Sass variables
+         require. -->
+    <!-- Google fonts -->
     {{#if theme.fonts.stack.google.enabled}}
     <!-- prettier-ignore -->
     <mj-font
-      name="{{theme.fonts.stack.google.name}}"
-      href={{{theme.fonts.stack.google.href}}}
-    />
-    {{/if}} {{#if theme.fonts.stack.custom.enabled}}
+        name="{{theme.fonts.stack.google.name}}"
+        href={{{theme.fonts.stack.google.href}}}
+      />
+    {{/if}}
+    <!-- Custom fonts -->
+    {{#if theme.fonts.stack.custom.enabled}}
     <!-- prettier-ignore -->
     <mj-font
-      name="{{theme.fonts.stack.custom.name}}"
-      href={{{theme.fonts.stack.custom.href}}}
-    />
-    {{/if}} {{/if}}
+        name="{{theme.fonts.stack.custom.name}}"
+        href={{{theme.fonts.stack.custom.href}}}
+      />
+    {{/if}}
+    <!-- End of web fonts -->
+    {{/if}}
 
     <!-- To change inlined CSS styles, edit `theme/inline.scss` -->
     {{#if partials.inline}}
@@ -88,7 +97,6 @@ After building your email, the result will be output to the `dist` directory.
     {{/if}}
 
     <!-- Custom HTML attributes. -->
-    <!-- See https://github.com/mjmlio/mjml/blob/master/packages/mjml-head-html-attributes/README.md for more about this tag. -->
     <mj-html-attributes>
       <mj-selector path=".list table table">
         <mj-html-attribute name="role">list</mj-html-attribute>
