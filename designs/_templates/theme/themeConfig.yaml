@@ -325,3 +325,25 @@ buttons:
     decoration:
     textSize:
     lineHeight:
+
+# SIGNOFF STYLES
+# These styles only apply to the <mj-signoff> component (see README).
+signoff:
+  # lineHeight: Applies to all text elements in the sign-off. You will probably
+  # want to set this to '1' so that the top of the text aligns with the image.
+  lineHeight: '1'
+  # closingBottomPadding: If not set, this will match
+  # text.default.verticalPadding (if set) or text.default.size.
+  closingBottomPadding:
+  # nameBottomPadding: If not set, this will match
+  # text.default.verticalPadding (if set) or text.default.size.
+  nameBottomPadding: 0
+  # titleBottomPadding: If not set, this will match
+  # text.default.verticalPadding (if set) or text.default.size.
+  titleBottomPadding: 0
+  # title2BottomPadding: If not set, this will match
+  # text.default.verticalPadding (if set) or text.default.size.
+  title2BottomPadding: 0
+  # title3BottomPadding: If not set, this will match
+  # text.default.verticalPadding (if set) or text.default.size.
+  title3BottomPadding: 0

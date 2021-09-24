@@ -18,6 +18,7 @@ const fonts = theme.fonts
 const text = theme.text.default
 const links = theme.links
 const lists = theme.lists
+const signoff = theme.signoff
 const typography = config.user.details.typography
 
 module.exports = {
@@ -27,5 +28,6 @@ module.exports = {
   text,
   links,
   lists,
+  signoff,
   typography,
 }

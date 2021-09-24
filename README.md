@@ -331,24 +331,33 @@ or logo, which is a common best practice in many types of emails.
 
 Available options for this component include:
 
-- `section-padding`: default `10px 0`
-- `section-align`: default `left`
-- `background-color`: default `transparent`
-- `image-position`: default `left`
-- `image-padding`: default `0`
-- `image-src`: default `null`
-- `image-width`: default `null`
-- `image-height`: default `null`
-- `image-alt`: default `null`
+- `closing`: optional string (e.g. `Thank you,`), no default.
+- `name`: optional string (e.g. `John Q. Public`), no default.
+- `title`: optional string (e.g. `Wild and Crazy Guy`), no default.
+- `title2`: optional string (e.g. `ACME Corp.`), no default.
+- `title3`: optional string (e.g. `(202) 555-1212`), no default.
+- `section-padding`: units in pixels, default `10px 0`
+- `section-align`: alignment, default `left`
+- `background-color`: color, no default
+- `image-position`: alignment, default `left`
+- `image-padding`: units in pixels, no default
+- `image-src`: URL, no default
+- `image-width`: units in pixels, no default
+- `image-height`: units in pixels, no default
+- `image-alt`: string, no default
 - `text-column-padding`: default `0 10px`
 
-The content within the element itself is placed in the text column, alongside
-the image. The default `content/signoff.hbs` template includes CSS class hooks
-to allow you to change the spacing around the signoff elements independently
-from the rest of your content's text.
+Strings cannot contain HTML elements, however any content within the element
+itself is placed in the text column below the optional strings, and there are
+styling options in the theming configuration. The default `content/signoff.hbs`
+template demonstrates each of these.
+
+As an alternative to this component, you can use the
+[`<mj-group>`](https://documentation.mjml.io/#mj-group) element, but note its
+warning for iOS 9.
 
 If you are not using an image in your sign-off, you can simply use the default
-`<mj-text>` element in this template.
+`<mj-text>` element in the `content/signoff.hbs` template.
 
 ## Automatic code formatting and linting
 

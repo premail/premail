@@ -72,9 +72,6 @@ p {
   font-size: map-get($text, 'size');
   line-height: map-get($text, 'lineHeight');
 }
-.signoff__name p {
-  margin: 0;
-}
 a {
   font-weight: map-get($links, 'weight');
   text-decoration: map-get($links, 'decoration');
@@ -115,6 +112,48 @@ a {
 }
 
 .list-item__text {
+}
+
+/* SIGNOFF COMPONENT
+ *
+ * Styles applied when using the <mj-signoff> custom component.
+ */
+
+.signoff__text p {
+  line-height: map-get($signoff, 'lineHeight');
+}
+
+.signoff__closing {
+  @if map-has-key($signoff, 'closingBottomPadding') {
+    margin-bottom: map-get($signoff, 'closingBottomPadding');
+  }
+}
+
+.signoff__name {
+  @if map-has-key($signoff, 'nameBottomPadding') {
+    margin-bottom: map-get($signoff, 'nameBottomPadding');
+  }
+}
+
+.signoff__title {
+  @if map-has-key($signoff, 'titleBottomPadding') {
+    margin-bottom: map-get($signoff, 'titleBottomPadding');
+  }
+}
+
+.signoff__title2 {
+  @if map-has-key($signoff, 'title2BottomPadding') {
+    margin-bottom: map-get($signoff, 'title2BottomPadding');
+  }
+}
+
+.signoff__title3 {
+  @if map-has-key($signoff, 'title3BottomPadding') {
+    margin-bottom: map-get($signoff, 'title3BottomPadding');
+  }
+}
+
+.signoff__custom {
 }
 
 /* TYPOGRAPHIC ENHANCEMENT STYLES

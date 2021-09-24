@@ -180,7 +180,7 @@ var MjSignoff = /*#__PURE__*/ (function (_BodyComponent) {
     {
       key: 'renderText',
       value: function renderText () {
-        return '\n      <mj-column\n        css-class="column signoff__text"\n        '
+        var textContent = '\n      <mj-column\n        css-class="column signoff__text"\n        '
           .concat(
             this.htmlAttributes({
               'background-color': this.getAttribute('background-color'),
@@ -191,12 +191,49 @@ var MjSignoff = /*#__PURE__*/ (function (_BodyComponent) {
             this.htmlAttributes({
               padding: this.getAttribute('text-column-padding'),
             }),
-            '\n        >\n          '
+            '\n        >\n      '
           )
-          .concat(
-            this.getContent(),
-            '\n        </mj-text>\n      </mj-column>\n    '
+
+        if (this.getAttribute('closing')) {
+          textContent += '<p class="signoff__closing">'.concat(
+            this.getAttribute('closing'),
+            '</p>'
           )
+        }
+
+        if (this.getAttribute('name')) {
+          textContent += '<p class="signoff__name">'.concat(
+            this.getAttribute('name'),
+            '</p>'
+          )
+        }
+
+        if (this.getAttribute('title')) {
+          textContent += '<p class="signoff__title">'.concat(
+            this.getAttribute('title'),
+            '</p>'
+          )
+        }
+
+        if (this.getAttribute('title2')) {
+          textContent += '<p class="signoff__title2">'.concat(
+            this.getAttribute('title2'),
+            '</p>'
+          )
+        }
+
+        if (this.getAttribute('title3')) {
+          textContent += '<p class="signoff__title3">'.concat(
+            this.getAttribute('title3'),
+            '</p>'
+          )
+        }
+
+        textContent += '\n        <div class="signoff__custom">\n          '.concat(
+          this.getContent(),
+          '\n        </div>\n        </mj-text>\n      </mj-column>\n    '
+        )
+        return textContent
       },
     },
     {
@@ -237,6 +274,11 @@ _defineProperty(MjSignoff, 'dependencies', {
 })
 
 _defineProperty(MjSignoff, 'allowedAttributes', {
+  closing: 'string',
+  name: 'string',
+  title: 'string',
+  title2: 'string',
+  title3: 'string',
   'section-padding': 'unit(px){4}',
   'section-align': 'enum(left,center,right)',
   'background-color': 'color',
@@ -252,12 +294,7 @@ _defineProperty(MjSignoff, 'allowedAttributes', {
 _defineProperty(MjSignoff, 'defaultAttributes', {
   'section-padding': '10px 0',
   'section-align': 'left',
-  'background-color': 'transparent',
   'image-position': 'left',
-  'image-padding': 0,
-  'image-src': null,
-  'image-width': null,
-  'image-height': null,
-  'image-alt': null,
+  'image-padding': '0',
   'text-column-padding': '0 10px',
 })
