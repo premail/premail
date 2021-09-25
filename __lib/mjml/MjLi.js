@@ -142,9 +142,33 @@ var MjLi = /*#__PURE__*/ (function (_BodyComponent) {
   var _super = _createSuper(MjLi)
 
   function MjLi () {
+    var _this
+
     _classCallCheck(this, MjLi)
 
-    return _super.apply(this, arguments)
+    for (
+      var _len = arguments.length, args = new Array(_len), _key = 0;
+      _key < _len;
+      _key++
+    ) {
+      args[_key] = arguments[_key]
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args))
+
+    _defineProperty(_assertThisInitialized(_this), 'headStyle', function () {
+      return '\n    @list list-item--custom {\n      mso-level-number-format: bullet;\n      mso-level-text: '
+        .concat(
+          _this.getAttribute('bullet'),
+          ";\n    }\n    @media screen and ( -webkit-min-device-pixel-ratio:0 ) {\n      .list-item--custom { list-style: none; }\n      .list-item--custom:before {\n        content: '"
+        )
+        .concat(
+          _this.getAttribute('bullet'),
+          '\';\n        margin-left: -10px;\n      }\n      .list-item--custom span {\n        padding-left: 5px;\n      }\n      [class="x_custom"] { list-style: initial !important; }\n      [data-outlook-cycle] .list-item--custom { list-style: initial !important; }\n  '
+        )
+    })
+
+    return _this
   }
 
   _createClass(MjLi, [
@@ -195,9 +219,15 @@ var MjLi = /*#__PURE__*/ (function (_BodyComponent) {
       key: 'render',
       value: function render () {
         var itemClass = 'list-item'
+        var bulletStyle = ''
 
         if (this.getAttribute('css-class')) {
           itemClass += ' '.concat(this.getAttribute('css-class'))
+        }
+
+        if (this.getAttribute('bullet')) {
+          itemClass += ' list-item--custom'
+          bulletStyle += "'mso-list': 'list-item--custom',"
         }
 
         return '\n      <ul\n        '
@@ -215,7 +245,7 @@ var MjLi = /*#__PURE__*/ (function (_BodyComponent) {
             this.htmlAttributes({
               role: 'list-item',
               class: ''.concat(itemClass),
-              style: 'liStyle',
+              style: 'liStyle '.concat(bulletStyle),
             }),
             '\n        >\n          <span\n            '
           )

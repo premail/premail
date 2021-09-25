@@ -354,5 +354,8 @@ signoff:
 head:
   # - html: <meta name="example" content="example" />
   #   description: An example.
-  # - html: <meta name="Generator" content="Microsoft Word 15 (filtered medium)" />
-  #   description: Necessary for custom list markers. See https://www.litmus.com/blog/the-ultimate-guide-to-bulleted-lists-in-html-email/
+  - html:
+      <meta name="Generator" content="Microsoft Word 15 (filtered medium)" />
+    description:
+      Necessary for custom list markers. See
+      https://www.litmus.com/blog/the-ultimate-guide-to-bulleted-lists-in-html-email/
