@@ -31,7 +31,7 @@
     "mjml to html",
     "sass"
   ],
-  "author": "Ivan Boothe <ivan@rootwork.org> (https://rootwork.org/)",
+  "author": "Ivan Boothe <npm@rootwork.org> (https://rootwork.org/)",
   "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/premail/premail/issues"
