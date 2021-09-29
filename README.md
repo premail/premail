@@ -273,11 +273,11 @@ Premail includes some
 [MJML custom components](https://documentation.mjml.io/#creating-a-component)
 for common use cases.
 
-[MJML List](https://github.com/premail/mjml-list/) and
+[MJML Bullet List](https://github.com/premail/mjml-bullet-list) and
 [MJML Signoff](https://github.com/premail/mjml-signoff/) are also available
 independently from Premail.
 
-### MJML List
+### MJML Bullet List
 
 `<ul>` and `<li>` HTML elements can be used in HTML emails, but getting them to
 render consistently
