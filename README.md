@@ -6,11 +6,11 @@ The templates included are
 [MJML version 4](https://github.com/mjmlio/mjml/releases).
 
 One `index.html` file will be rendered, ready to import into your emailer of
-choice. [See example.](https://rootwork.github.io/mjml-quickstart/_templates/index.html)
+choice. [See example.](https://github.com/premail/premail/blob/main/_templates/index.html)
 
 ---
 
-**Development of a more useful and interesting version of this tool is happening over at the [v2.0.0 branch](https://github.com/rootwork/mjml-quickstart/tree/v2.0.0).**
+**Development of a more useful and interesting version of this tool is happening over at the [v2.0.0 branch](https://github.com/premail/premail/tree/v2.0.0).**
 
 ---
 
@@ -58,7 +58,7 @@ extra tools for Sublime Text 3 users.
 
 # Setup
 
-* Go to the [Releases](https://github.com/rootwork/mjml-quickstart/releases)
+* Go to the [Releases](https://github.com/premail/premail/releases)
 page and grab the most recent stable version. Alternatively, you can simply fork
 this repo and clone it locally.
 * Remove the `.github` folder if you don't want to use
@@ -139,7 +139,7 @@ Once the production email is rendered, you can:
 * share the `index.html` file with colleagues
 * upload the file as part of a repo and use something like
 [GitHub Pages](https://pages.github.com/) to view/share it in a browser; for instance
-[here's the rendered file](https://rootwork.github.io/mjml-quickstart/_templates/index.html)
+[here's the rendered file](https://github.com/premail/premail/blob/main/_templates/index.html)
 from the sample templates
 
 ### Sublime Text 3 users
