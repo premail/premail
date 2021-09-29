@@ -1,7 +1,7 @@
 {
-  "name": "mjml-quickstart",
+  "name": "premail",
   "version": "2.0.0",
-  "description": "A quick-start setup for those writing email code in MJML, the email templating language.",
+  "description": " An easy-to-use build system for MJML, the email templating language, based on Gulp and Handlebars.",
   "main": "gulpfile.js",
   "scripts": {
     "test": "modern test",
@@ -12,16 +12,29 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rootwork/mjml-quickstart.git"
+    "url": "git+https://github.com/premail/premail.git"
   },
-  "homepage": "https://github.com/rootwork/mjml-quickstart#readme",
+  "homepage": "https://premail.dev",
   "keywords": [
-    "mjml"
+    "email",
+    "email generator",
+    "email marketing",
+    "email templates",
+    "email templating",
+    "gulp",
+    "gulp 4",
+    "handlebars",
+    "mjml",
+    "mjml 4",
+    "mjml framework",
+    "mjml template",
+    "mjml to html",
+    "sass"
   ],
   "author": "Ivan Boothe <ivan@rootwork.org> (https://rootwork.org/)",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/rootwork/mjml-quickstart/issues"
+    "url": "https://github.com/premail/premail/issues"
   },
   "funding": {
     "type": "github",

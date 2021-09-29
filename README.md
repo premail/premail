@@ -1,26 +1,31 @@
-# MJML Quickstart
+# Premail
 
-![Checks](https://img.shields.io/github/checks-status/rootwork/mjml-quickstart/main.svg?style=flat-square)
+![Checks](https://img.shields.io/github/checks-status/premail/premail/main.svg?style=flat-square)
 [![Node ^12.22.1](https://img.shields.io/badge/node-%5E12.22.1-brightgreen.svg?style=flat-square)](https://nodejs.org/en/download/)
 [![MJML 4.0+ valid](https://img.shields.io/badge/mjml-4%2B-brightgreen.svg?style=flat-square)](https://github.com/mjmlio/mjml/releases)
 [![Code style: JS Standard](https://img.shields.io/badge/code_style-standard-blue.svg?style=flat-square)](https://standardjs.com)
 [![Code format: Prettier](https://img.shields.io/badge/code_format-prettier-blue.svg?style=flat-square)](https://github.com/prettier/prettier)
 
+An easy-to-use build system for MJML, the email templating language, based on
+Gulp and Handlebars.
+
+---
+
 [MJML](https://mjml.io/) is a markup language for writing bulletproof HTML
 emails. It consciously does not incorporate a build process. This is one such
 build process.
 
-MJML Quickstart uses Handlebars for templating, Sass for styling, and Gulp (4)
-and Node for processing. You don't need to deal with any of those things
-directly, beyond running a command in the terminal. Everything is defined in
-MJML templates and YAML configuration files.
+Premail uses Gulp (4) and Node for its build, Handlebars for templating, and
+Sass for styling. You don't need to deal with any of those things directly,
+beyond running a command in the terminal. Everything is defined in MJML
+templates and YAML configuration files.
 
 Email templates are all [valid](https://mjml.io/documentation/#validating-mjml)
 under [MJML version 4](https://github.com/mjmlio/mjml/releases).
 
 One `index.html` file will be rendered, as well as (optionally) a plain-text
 version, ready to import into your emailer of choice.
-[See an example of the default layout.](https://rootwork.github.io/mjml-quickstart/designs/_templates/index.html)
+[See an example of the default layout.](https://github.com/premail/premail/blob/v2.0.0/designs/_templates/dist/index.html)
 
 <!-- The following section, from "ts" to "te", is an automatically-generated
   table of contents, updated whenever this file changes. Do not edit within
@@ -99,9 +104,9 @@ Then just drop the code from the file into your email service provider's system.
   that support them, as well as styles specifically targeting Gmail.
 
 - A plain-text version of your email is optionally created, and (we humbly
-  argue) MJML Quickstart does a much better job than most email services at
-  rendering it. While only a small number of your recipients will see the
-  plain-text version,
+  argue) Premail does a much better job than most email services at rendering
+  it. While only a small number of your recipients will see the plain-text
+  version,
   [they are important for email deliverability](https://www.litmus.com/blog/best-practices-for-plain-text-emails-a-look-at-why-theyre-important/).
   Within the plain-text version options, you can easily control whether certain
   elements like navigation or header/banner areas are included.
@@ -130,7 +135,7 @@ controlled per-email:
   recipient's inbox.
 
 Feel free to
-[make suggestions for more enhancements!](https://github.com/rootwork/mjml-quickstart/issues)
+[make suggestions for more enhancements!](https://github.com/premail/premail/issues)
 
 # Setup
 
@@ -138,8 +143,8 @@ Feel free to
 
 You need to have at least [Node](https://nodejs.org/en/download/) 12.x.
 
-MJML Quickstart has been tested up to 16.x and appears to work, with the caveat
-that **if you want to be able to use the `watch` function you need to stay at
+Premail has been tested up to 16.x and appears to work, with the caveat that
+**if you want to be able to use the `watch` function you need to stay at
 [Node 12.x](https://github.com/nodejs/Release#release-schedule)** because of a
 [limitation in gulp](https://github.com/gulpjs/glob-watcher/issues/55). (This
 means you'll see an unfortunate number of depreciation warnings upon
@@ -150,9 +155,9 @@ Node.
 
 ## Installation
 
-- Go to the [Releases](https://github.com/rootwork/mjml-quickstart/releases)
-  page and grab the most recent stable version. Alternatively, you can simply
-  fork this repo and clone it locally.
+- Go to the [Releases](https://github.com/premail/premail/releases) page and
+  grab the most recent stable version. Alternatively, you can simply fork this
+  repo and clone it locally.
 - Install with `npm i`
 - MJML has [plugins](https://documentation.mjml.io/#applications-and-plugins)
   for Visual Studio Code, Atom, and Sublime Text 3 and 4.
@@ -259,21 +264,25 @@ Once the production email is rendered, you can:
 - Upload the files as part of a repo and use something like
   [GitHub Pages](https://pages.github.com/) to view/share it in a browser -- for
   instance
-  [here's the rendered file](https://rootwork.github.io/mjml-quickstart/designs/_templates/dist/index.html)
+  [here's the rendered file](https://github.com/premail/premail/blob/v2.0.0/designs/_templates/dist/index.html)
   from the sample templates.
 
 ## Custom components
 
-MJML Quickstart includes some
+Premail includes some
 [MJML custom components](https://documentation.mjml.io/#creating-a-component)
 for common use cases.
+
+[MJML List](https://github.com/premail/mjml-list/) and
+[MJML Signoff](https://github.com/premail/mjml-signoff/) are also available
+independently from Premail.
 
 ### mj-list and mj-li
 
 `<ul>` and `<li>` HTML elements can be used in HTML emails, but getting them to
 render consistently
 [takes a little work](https://www.litmus.com/blog/the-ultimate-guide-to-bulleted-lists-in-html-email/).
-Included in mjml-quickstart is a shortcut for these elements.
+Included in premail is a shortcut for these elements.
 
 **`<mj-list>`** replaces `<ul>`. Use it alongside
 [`<mj-text>`](https://documentation.mjml.io/#mj-text) within
@@ -367,11 +376,10 @@ If you are not using an image in your sign-off, you can simply use the default
 
 ## Automatic code formatting and linting
 
-MJML Quickstart includes
-[sheerun/modern-node](https://github.com/sheerun/modern-node), which formats and
-lints code using [Prettier](https://prettier.io/). This will warn you about
-errors in the HTML, Sass or CSS syntax of your designs or emails, and
-auto-format your files on every build and git commit.
+Premail includes [sheerun/modern-node](https://github.com/sheerun/modern-node),
+which formats and lints code using [Prettier](https://prettier.io/). This will
+warn you about errors in the HTML, Sass or CSS syntax of your designs or emails,
+and auto-format your files on every build and git commit.
 
 It will not attempt to format or lint files in the `dist` directories.
 
@@ -444,14 +452,14 @@ configuration and files being processed.
 # Known issues
 
 - None currently! If you have one to report,
-  [head over here](https://github.com/rootwork/mjml-quickstart/issues/new)
+  [head over here](https://github.com/premail/premail/issues/new)
 
 # Thanks and Sponsorships
 
 Work funded in part by [Multi-Etch, LLC](https://www.multietch.com/).
 
-**Consider [sponsoring me](https://github.com/sponsors/rootwork) and have your
-name or logo included here!**
+**Consider [sponsoring rootwork](https://github.com/sponsors/rootwork),
+premail's developer, and have your name or logo included here!**
 
 Built with original inspiration from
 [dalefish/mjml-boilerplate-win](https://github.com/dalefish/mjml-boilerplate-win).
