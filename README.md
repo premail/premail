@@ -33,7 +33,7 @@ choice. [See example.](https://github.com/premail/premail/blob/main/_templates/i
 * [Thanks](#thanks)
 * [License](#license)
 
-<!-- Added by: runner, at: Sat May 22 02:57:55 UTC 2021 -->
+<!-- Added by: runner, at: Wed Sep 29 19:49:20 UTC 2021 -->
 
 <!--te-->
 
