@@ -277,7 +277,7 @@ for common use cases.
 [MJML Signoff](https://github.com/premail/mjml-signoff/) are also available
 independently from Premail.
 
-### mj-list and mj-li
+### MJML List
 
 `<ul>` and `<li>` HTML elements can be used in HTML emails, but getting them to
 render consistently
@@ -334,7 +334,7 @@ following options:
 An example of this can be found in the default design's
 [`content/body.hbs`](designs/_templates/content/body.hbs) template.
 
-### mj-signoff
+### MJML Signoff
 
 Designed for the sign-off or signature section at the bottom of your email
 content, `<mj-signoff>` is used in the
