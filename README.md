@@ -33,7 +33,7 @@ version, ready to import into your emailer of choice.
 <!-- prettier-ignore-start -->
 
 <!--ts-->
-* [MJML Quickstart](#mjml-quickstart)
+* [Premail](#premail)
 * [Overview](#overview)
 * [Features](#features)
 * [Setup](#setup)
@@ -53,7 +53,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Fri Sep 24 22:52:59 UTC 2021 -->
+<!-- Added by: runner, at: Wed Sep 29 19:45:59 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
