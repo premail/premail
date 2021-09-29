@@ -45,7 +45,7 @@ version, ready to import into your emailer of choice.
    * [Creating a new email from an existing design](#creating-a-new-email-from-an-existing-design)
    * [Rendering the email for production](#rendering-the-email-for-production)
    * [Custom components](#custom-components)
-      * [MJML List](#mjml-list)
+      * [MJML Bullet List](#mjml-bullet-list)
       * [MJML Signoff](#mjml-signoff)
    * [Automatic code formatting and linting](#automatic-code-formatting-and-linting)
 * [Full list of options](#full-list-of-options)
@@ -53,7 +53,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Wed Sep 29 19:51:26 UTC 2021 -->
+<!-- Added by: runner, at: Wed Sep 29 21:20:07 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
