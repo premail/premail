@@ -60,6 +60,8 @@
     "js-yaml": "^4.1.0",
     "map-stream": "0.0.7",
     "mjml": "^4.10.3",
+    "mjml-bullet-list": "^1.0.0",
+    "mjml-signoff": "^1.0.0",
     "mri": "^1.1.6",
     "node-sass-json-importer": "^4.3.0",
     "npm": "^6.14.14",
@@ -69,6 +71,7 @@
     "sass": "^1.39.0",
     "string-strip-html": "^8.3.0",
     "typeset": "^0.3.1",
+    "validator": "^13.6.0",
     "vinyl-transform": "^1.0.0"
   },
   "devDependencies": {
