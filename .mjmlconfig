@@ -1,0 +1,6 @@
+{
+  "packages": [
+    "mjml-bullet-list/lib/index.js",
+    "mjml-signoff/lib/index.js"
+  ]
+}
