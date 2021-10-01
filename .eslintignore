@@ -14,9 +14,6 @@ LICENSE*.*
 # Builds
 dist
 
-# Imported MJML components
-__lib/mjml/
-
 # Package files, since these will be auto-generated
 package.json
 package*.json
