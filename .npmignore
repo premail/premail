@@ -1,0 +1,117 @@
+# https://npm.github.io/publishing-pkgs-docs/publishing/the-npmignore-file.html
+
+# Environment variables
+.env
+.env.test
+
+# Trash
+$RECYCLE.BIN/
+.Trashes
+Network Trash Folder
+.Trash-*
+.nfs*
+
+# Temporary files
+.TemporaryItems
+Temporary Items
+.fuse_hidden*
+*~
+*.swp
+*.swo
+.tmp
+*.tmp
+
+# Folder view configuration files
+.DS_Store
+.AppleDouble
+.LSOverride
+Desktop.ini
+.directory
+
+# Thumbnail cache files
+._*
+Thumbs.db
+ehthumbs.db
+
+# Folder view configuration files
+.DS_Store
+.AppleDouble
+.LSOverride
+Desktop.ini
+.AppleDesktop
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.VolumeIcon.icns
+.AppleDB
+.apdisk
+
+# Sass caches and maps
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+# Cache files for Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# Sublime Text Package Control-specific files
+Package Control.last-run
+Package Control.ca-list
+Package Control.ca-bundle
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Bower dependency directory (https://bower.io/)
+bower_components
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# TypeScript v1 declaration files
+typings/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build output
+.nuxt
+
+# Ignore IDE configuration files
+.idea/
+.vscode/
