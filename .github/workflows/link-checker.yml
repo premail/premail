@@ -1,6 +1,4 @@
 name: Link checker
-# Note this does NOT check links in the dotfiles themselves, only in other (e.g.
-# Markdown) files.
 
 on:
   push:
