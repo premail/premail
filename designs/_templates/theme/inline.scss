@@ -70,6 +70,7 @@ p {
     margin-bottom: map-get($text, 'verticalPadding');
   }
   font-size: map-get($text, 'size');
+  mso-line-height-rule: exactly;
   line-height: map-get($text, 'lineHeight');
 }
 a {
@@ -98,6 +99,7 @@ a {
   @if map-has-key($lists, 'fontSize') {
     font-size: map-get($lists, 'fontSize') !important;
   }
+  mso-line-height-rule: exactly;
   line-height: map-get($text, 'lineHeight') !important;
   @if map-has-key($lists, 'lineHeight') {
     line-height: map-get($lists, 'lineHeight') !important;
@@ -120,6 +122,7 @@ a {
  */
 
 .signoff__text p {
+  mso-line-height-rule: exactly;
   line-height: map-get($signoff, 'lineHeight');
 }
 
