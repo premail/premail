@@ -4,7 +4,7 @@
   "description": " An easy-to-use build system for MJML, the email templating language, based on Gulp and Handlebars.",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "modern test",
+    "test": "modern test --coverage --coverageReporters='text'",
     "format": "modern format && gulp formatTemplates",
     "lint": "modern lint",
     "precommit": "modern precommit",
