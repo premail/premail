@@ -11,32 +11,32 @@ const { series, parallel } = require('gulp')
 const taskDir = './__lib/tasks/'
 
 const loadConfig = require(taskDir + 'loadConfig.js')
-const clean = require(taskDir + 'clean.js')
-const build = require(taskDir + 'build.js')
+const cleanGenerated = require(taskDir + 'clean.js')
+const buildProject = require(taskDir + 'build.js')
 const watchEmail = require(taskDir + 'watchEmail.js')
 const listTemplates = require(taskDir + 'listTemplates.js')
 const formatTemplates = require(taskDir + 'formatTemplates.js')
 
 // Tell gulp tasks to use display names instead of function names
-clean.generated.displayName = 'clean.generated'
-build.content.displayName = 'build.content'
-build.styles.displayName = 'build.styles'
-build.render.displayName = 'build.render'
+cleanGenerated.generated.displayName = 'cleanGenerated.generated'
+buildProject.content.displayName = 'build.content'
+buildProject.styles.displayName = 'build.styles'
+buildProject.render.displayName = 'build.render'
 
 // Sets
 exports.default = series(
   loadConfig,
   formatTemplates,
-  clean.generated,
-  build.styles,
-  build.content,
-  build.render
+  cleanGenerated.generated,
+  buildProject.styles,
+  buildProject.content,
+  buildProject.render
 )
 
-exports.build = exports.default
-exports.build.description =
+exports.buildProject = exports.default
+exports.buildProject.description =
   'Render a complete HTML email based on design and email templates.'
-exports.build.flags = {
+exports.buildProject.flags = {
   '     -d': 'Specify design folder to use. (Default: _templates)',
   '     -e': 'Specify email folder to render.',
   ' --prod': 'Render production files (minified, no comments).',
@@ -46,17 +46,17 @@ exports.build.flags = {
 }
 
 // Provide one-off versions of build tasks
-exports.buildContent = build.content
-exports.buildStyles = build.styles
-exports.buildRender = build.render
+exports.buildContent = buildProject.content
+exports.buildStyles = buildProject.styles
+exports.buildRender = buildProject.render
 
 // Watch
 exports.watch = series(
   loadConfig,
   formatTemplates,
-  build.styles,
-  build.content,
-  build.render,
+  buildProject.styles,
+  buildProject.content,
+  buildProject.render,
   watchEmail
 )
 exports.watch.description =
@@ -67,8 +67,8 @@ exports.formatTemplates = formatTemplates
 exports.formatTemplates.description = 'Format templates with Prettier.'
 
 // Clean
-exports.clean = clean.generated
-exports.clean.description =
+exports.cleanGenerated = cleanGenerated.generated
+exports.cleanGenerated.description =
   'Remove generated files from the current design or email.'
 
 // Debug
@@ -82,3 +82,21 @@ exports.test = async function () {
   console.log('\n\nTest.\n\n')
 }
 exports.test.description = 'Run an empty gulp function for testing.'
+
+// Exports
+const build = exports.buildProject
+const watch = exports.watch
+const format = exports.formatTemplates
+const clean = exports.cleanGenerated
+const load = exports.loadConfig
+const list = exports.listTemplates
+const test = exports.test
+module.exports = {
+  build,
+  watch,
+  format,
+  clean,
+  load,
+  list,
+  test,
+}
