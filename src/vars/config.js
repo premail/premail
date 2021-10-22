@@ -18,15 +18,15 @@ const { flags } = require('../vars/flags.js')
 
 const config = {}
 config.__base = projectPath(__dirname, '../../')
-config.__lib = path.join(config.__base, '__lib')
+config.src = path.join(config.__base, 'src')
 config.file = {
   user: path.join(config.__base, 'config.yaml'),
   theme: 'themeConfig.yaml',
 }
 
-// Load internal config from ./__lib/config/ directory.
+// Load internal config from ./src/config/ directory.
 config.file.internal = {}
-config.file.internal.__dir = path.join(config.__lib, 'config')
+config.file.internal.__dir = path.join(config.src, 'config')
 config.file.internal.__list = getFiles(config.file.internal.__dir, 'yaml')
 
 for (const setting of config.file.internal.__list) {

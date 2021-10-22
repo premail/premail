@@ -8,7 +8,7 @@ const { series, parallel } = require('gulp')
 // Tasks
 //
 
-const taskDir = './__lib/tasks/'
+const taskDir = './src/tasks/'
 
 const loadConfig = require(taskDir + 'loadConfig.js')
 const clean = require(taskDir + 'clean.js')

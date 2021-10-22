@@ -55,7 +55,7 @@ function styles () {
       importer: sassImporter({
         resolver: function (dir, url) {
           return url.startsWith('~/')
-            ? path.resolve(dir, path.join(config.__lib, 'vars'), url.substr(2))
+            ? path.resolve(dir, path.join(config.src, 'vars'), url.substr(2))
             : path.resolve(dir, url)
         },
       }),
