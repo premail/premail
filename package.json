@@ -2,7 +2,7 @@
   "name": "premail",
   "version": "2.0.0",
   "description": " An easy-to-use build system for MJML, the email templating language, based on Gulp and Handlebars.",
-  "main": "gulpfile.js",
+  "main": "index.js",
   "scripts": {
     "start": "gulp build",
     "test": "modern test --coverage --coverageReporters='text'",
