@@ -7,9 +7,6 @@ const { hideBin } = require('yargs/helpers')
 
 const tasks = require('./gulpfile.js')
 
-const taskDir = './src/tasks/'
-const init = require(taskDir + 'init.js')
-
 /* eslint-disable no-unused-vars */
 const argv =
   // .scriptName("premail")
@@ -43,34 +40,34 @@ const argv =
   // })
 
   yargs(hideBin(process.argv))
+    // General settings
+    .showHelpOnFail(false, 'Use --help for available options')
     .usage('Usage: $0 <command> [options]')
+    // .example(
+    //   "$0 -w 5 -h 6",
+    //   "Returns the area (30) by multiplying the width with the height."
+    // )
 
+    // Build
     .command(['build', '$0'], 'Build your email', yargs => {
       console.log('Running build command')
     })
-    .example('$0 build')
 
+    // Init
     .command('init', 'Initialize an email project', yargs => {
-      init.create()
+      tasks.init()
     })
-    .example('$0 init')
 
-    .help('h')
+    // Destroy (hidden)
+    .command('destroy', false, yargs => {
+      tasks.destroy()
+    })
 
+    // Aliases
     .alias('h', 'help')
     .alias('v', 'version')
 
+    // Help
+    .help('h')
     .epilog('https://premail.dev').argv
 /* eslint-enable no-unused-vars */
-
-// Exports
-module.exports = {
-  build: tasks.build,
-  watch: tasks.watch,
-  format: tasks.format,
-  clean: tasks.clean,
-  load: tasks.load,
-  list: tasks.list,
-  test: tasks.test,
-  init: init,
-}

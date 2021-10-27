@@ -9,7 +9,7 @@ const notify = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */
 
 //
-// Create project structure
+// Destroy project structure
 //
 
 const dirs = {
@@ -28,14 +28,14 @@ const dirs = {
 }
 
 function structure () {
-  notify.msg('info', 'Creating directories')
+  notify.msg('info', 'Destroying directories')
   for (const i in dirs) {
     try {
-      if (!fs.existsSync(dirs[i])) {
-        fs.mkdirSync(dirs[i])
-        notify.msg('debug', `Created directory '${dirs[i]}'`)
+      if (fs.existsSync(dirs[i])) {
+        fs.rmdirSync(dirs[i], { recursive: true })
+        notify.msg('debug', `Destroyed directory '${dirs[i]}'`)
       } else {
-        notify.msg('debug', `Directory '${dirs[i]}' exists; skipping`)
+        notify.msg('debug', `Directory '${dirs[i]}' does not exist; skipping`)
       }
     } catch (err) {
       notify.msg('error', err)
