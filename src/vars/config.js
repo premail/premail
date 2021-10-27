@@ -98,6 +98,27 @@ config.current.theme = {
   ),
 }
 
+// Initial project configuration
+config.init = {
+  templates: path.join(config.src, 'templates'),
+}
+
+// Scaffolding
+config.init.dirs = {
+  designDir: config.user.folders.design.name,
+  designDefault: path.join(
+    config.user.folders.design.name,
+    config.user.folders.design.default
+  ),
+  themeDir: path.join(
+    config.user.folders.design.name,
+    config.user.folders.design.default,
+    config.user.folders.theme.dir
+  ),
+  emailDir: config.user.folders.email.name,
+  outputDir: config.user.folders.output.dir,
+}
+
 module.exports = {
   config,
 }

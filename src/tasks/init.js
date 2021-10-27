@@ -12,20 +12,7 @@ const notify = require('../vars/notify.js')
 // Create project structure
 //
 
-const dirs = {
-  designDir: config.user.folders.design.name,
-  designDefault: path.join(
-    config.user.folders.design.name,
-    config.user.folders.design.default
-  ),
-  themeDir: path.join(
-    config.user.folders.design.name,
-    config.user.folders.design.default,
-    config.user.folders.theme.dir
-  ),
-  emailDir: config.user.folders.email.name,
-  outputDir: config.user.folders.output.dir,
-}
+const dirs = config.init.dirs
 
 function structure () {
   notify.msg('info', 'Creating directories')
@@ -40,6 +27,13 @@ function structure () {
     } catch (err) {
       notify.msg('error', err)
     }
+  }
+
+  notify.msg('info', 'Creating files')
+  try {
+    fs.copySync(config.init.templates, dirs.designDefault)
+  } catch (err) {
+    notify.msg('error', err)
   }
 }
 
