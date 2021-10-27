@@ -99,9 +99,9 @@ config.current.theme = {
 }
 
 // Initial project configuration
-config.init = {
-  templates: path.join(config.src, 'templates'),
-}
+config.init = {}
+config.init.example = path.join(config.src, 'example')
+config.init.templates = path.join(config.init.example, 'designs', '_default')
 
 // Scaffolding
 config.init.dirs = {
