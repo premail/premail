@@ -1,7 +1,7 @@
 'use strict'
 
 /* eslint-disable no-unused-vars */
-const fs = require('fs')
+const fs = require('fs-extra')
 const path = require('path')
 /* eslint-enable no-unused-vars */
 

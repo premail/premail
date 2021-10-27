@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 const { src, dest } = require('gulp')
 const { pipeline } = require('stream')
-const fs = require('fs')
+const fs = require('fs-extra')
 const path = require('path')
 const gulpif = require('gulp-if')
 const tap = require('gulp-tap')
