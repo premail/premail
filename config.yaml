@@ -23,7 +23,7 @@ folders:
     name: designs
 
     # If no design is specified, default to this directory
-    default: _templates
+    default: _default
 
   theme:
     # Subdirectory of designs in which settings for styling are kept
@@ -34,7 +34,7 @@ folders:
     name: emails
 
   output:
-    # Subdirectory of emails in which to export HTML code
+    # Subdirectory of each email folder in which to export HTML code
     dir: dist
 
 # 2. Files and file types
