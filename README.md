@@ -183,7 +183,7 @@ rendered emails such as whether to generate a plain-text version.
 
 ## Creating a new design
 
-(This is out of date.)
+(This is out of date. Expect an update soon.)
 
 Look in the `designs` subdirectory. This will hold each of the designs
 (structure and styling) for your emails. For instance, you might have a
