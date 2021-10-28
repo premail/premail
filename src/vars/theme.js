@@ -6,11 +6,24 @@ const path = require('path')
 const yaml = require('js-yaml')
 
 const { config } = require('../vars/config.js')
+const { user } = require('../vars/config.js')
 /* eslint-enable no-unused-vars */
 
 //
 // Set up theme configuration
 //
+
+config.file.theme = 'themeConfig.yaml'
+
+config.current.theme = {
+  name: config.user.folders.theme.dir,
+  path: path.join(
+    config.user.__base,
+    config.user.folders.design.name,
+    config.current.design,
+    config.user.folders.theme.dir
+  ),
+}
 
 // Load theme config from YAML file.
 const themeYAML = fs.readFileSync(
@@ -88,21 +101,19 @@ if (config.theme.head) {
   }
 }
 
-// Create a theme-only export for use in importing values to Sass
-const theme = config.theme
-
 // Because we can't access nested objects in the Sass files, we need to define
 // and export each object in turn.
-const page = theme.page
-const colors = theme.colors
-const fonts = theme.fonts
-const text = theme.text.default
-const links = theme.links
-const lists = theme.lists
-const signoff = theme.signoff
+const page = config.theme.page
+const colors = config.theme.colors
+const fonts = config.theme.fonts
+const text = config.theme.text.default
+const links = config.theme.links
+const lists = config.theme.lists
+const signoff = config.theme.signoff
 const typography = config.user.details.typography
 
 module.exports = {
+  config,
   page,
   colors,
   fonts,

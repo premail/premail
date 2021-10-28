@@ -6,6 +6,8 @@ const yaml = require('js-yaml')
 
 const validate = require('../functions/validate.js')
 const { config } = require('../vars/config.js')
+const { user } = require('../vars/user.js')
+const { theme } = require('../vars/theme.js')
 const notify = require('../vars/notify.js')
 const { flags } = require('../vars/flags.js')
 /* eslint-enable no-unused-vars */

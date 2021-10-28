@@ -18,7 +18,7 @@ const argv =
 
     // Build
     .command(['build', '$0'], 'Build your email', yargs => {
-      console.log('Running build command')
+      tasks.build()
     })
 
     // Init

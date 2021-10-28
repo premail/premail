@@ -5,6 +5,8 @@ const v = require('validator')
 const path = require('path')
 
 const { config } = require('../vars/config.js')
+const { user } = require('../vars/user.js')
+const { theme } = require('../vars/theme.js')
 const e = require('../functions/e.js')
 const notify = require('../vars/notify.js')
 /* eslint-enable no-unused-vars */

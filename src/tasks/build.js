@@ -25,6 +25,8 @@ const filesize = require('filesize')
 
 const e = require('../functions/e.js')
 const { config } = require('../vars/config.js')
+const { user } = require('../vars/user.js')
+const { theme } = require('../vars/theme.js')
 const { flags } = require('../vars/flags.js')
 const notify = require('../vars/notify.js')
 const { findOccurrences } = require('../functions/findOccurrences.js')
