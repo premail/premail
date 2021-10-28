@@ -5,7 +5,7 @@ const v = require('validator')
 const path = require('path')
 
 const { config } = require('../vars/config.js')
-const { user } = require('../vars/user.js')
+const { current } = require('../vars/current.js')
 const { theme } = require('../vars/theme.js')
 const e = require('../functions/e.js')
 const notify = require('../vars/notify.js')

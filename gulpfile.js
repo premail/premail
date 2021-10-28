@@ -90,7 +90,7 @@ exports.test.description = 'Run an empty gulp function for testing.'
 // Exports
 //
 
-// Private functions are called directly. Public tasks export the definitions
+// Non-gulp functions are called directly. Public tasks export the definitions
 // registered above.
 module.exports = {
   init: init.structure,

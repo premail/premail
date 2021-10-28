@@ -6,7 +6,7 @@ const yaml = require('js-yaml')
 
 const validate = require('../functions/validate.js')
 const { config } = require('../vars/config.js')
-const { user } = require('../vars/user.js')
+const { current } = require('../vars/current.js')
 const { theme } = require('../vars/theme.js')
 const notify = require('../vars/notify.js')
 const { flags } = require('../vars/flags.js')
@@ -39,11 +39,15 @@ module.exports = function loadConfig (done) {
     // Uncomment the following line to include internal configuration
     // notify.unjson(config.file.internal, 'Internal configuration:')
 
-    // User-defined configuration (./config.yaml)
-    notify.unjson(config.user, 'Build configuration:')
+    // User-defined configuration (config.yaml)
+    if (config.user) {
+      notify.unjson(config.user, 'Build configuration:')
+    }
 
-    // Theme configuration (./designs/<designName>/theme/themeConfig.yaml)
-    notify.unjson(config.theme, 'Theme configuration:')
+    // Theme configuration (themeConfig.yaml)
+    if (config.theme) {
+      notify.unjson(config.theme, 'Theme configuration:')
+    }
 
     done()
   } else {

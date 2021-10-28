@@ -25,7 +25,7 @@ const filesize = require('filesize')
 
 const e = require('../functions/e.js')
 const { config } = require('../vars/config.js')
-const { user } = require('../vars/user.js')
+const { current } = require('../vars/current.js')
 const { theme } = require('../vars/theme.js')
 const { flags } = require('../vars/flags.js')
 const notify = require('../vars/notify.js')
@@ -57,7 +57,7 @@ function styles () {
       importer: sassImporter({
         resolver: function (dir, url) {
           return url.startsWith('~/')
-            ? path.resolve(dir, path.join(config.src, 'vars'), url.substr(2))
+            ? path.resolve(path.join(config.src, 'vars'), url.substr(2))
             : path.resolve(dir, url)
         },
       }),
