@@ -16,6 +16,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Copy file
         run: |
+          git pull
           cp README.md ./src/example/README.md
       - name: Autocommit the changes
         uses: stefanzweifel/git-auto-commit-action@v4
