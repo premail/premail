@@ -23,8 +23,6 @@ function structure () {
       if (fs.existsSync(dirs[i])) {
         fs.rmdirSync(dirs[i], { recursive: true })
         notify.msg('debug', `Destroyed directory '${dirs[i]}'`)
-      } else {
-        notify.msg('debug', `Directory '${dirs[i]}' does not exist; skipping`)
       }
     } catch (err) {
       notify.msg('error', err)
