@@ -14,7 +14,7 @@ const notify = require('../vars/notify.js')
 //
 
 // Iterate over and destroy premail directories.
-function structure () {
+function destroyStructure () {
   const dirs = config.init.dirs
 
   notify.msg('warn', 'Destroying directories ')
@@ -33,7 +33,7 @@ function structure () {
 // Enable passing of --yes to this command to bypass confirmation.
 prompts.override(require('yargs').argv)
 
-// Ensure user really wants to destroy data.
+// Confirm ensure user really wants to destroy data.
 function confirm () {
   ;(async () => {
     const questions = [
@@ -62,11 +62,16 @@ function confirm () {
     const response = await prompts(questions, { onCancel })
 
     if (response.yes) {
-      structure()
+      destroyStructure()
     }
   })()
 }
 
+// Align function name with init function.
+function structure () {
+  confirm()
+}
+
 module.exports = {
-  confirm,
+  structure,
 }

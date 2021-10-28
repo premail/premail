@@ -94,7 +94,7 @@ exports.test.description = 'Run an empty gulp function for testing.'
 // registered above.
 module.exports = {
   init: init.structure,
-  destroy: destroy.confirm,
+  destroy: destroy.structure,
   build: exports.build,
   watch: exports.watch,
   format: exports.formatTemplates,
