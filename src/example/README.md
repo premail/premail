@@ -53,7 +53,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Wed Sep 29 21:20:07 UTC 2021 -->
+<!-- Added by: runner, at: Thu Oct 28 18:41:27 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -182,6 +182,8 @@ Under "Email-building options," you'll see preferences you can set on the
 rendered emails such as whether to generate a plain-text version.
 
 ## Creating a new design
+
+(This is out of date. Expect an update soon. 10/28/2021.)
 
 Look in the `designs` subdirectory. This will hold each of the designs
 (structure and styling) for your emails. For instance, you might have a
