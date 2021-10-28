@@ -43,6 +43,7 @@ const argv =
     // General settings
     .showHelpOnFail(false, 'Use --help for available options')
     .usage('Usage: $0 <command> [options]')
+    .default('build')
     // .example(
     //   "$0 -w 5 -h 6",
     //   "Returns the area (30) by multiplying the width with the height."
