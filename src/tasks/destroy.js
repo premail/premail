@@ -13,16 +13,21 @@ const notify = require('../vars/notify.js')
 // Destroy project structure
 //
 
-// Iterate over and destroy premail directories.
+// Iterate over and destroy items matching `init` structure.
 function destroyStructure () {
-  const dirs = config.init.dirs
+  const path = fs.readdirSync(config.init)
 
-  notify.msg('warn', 'Destroying directories ')
-  for (const i in dirs) {
+  notify.msg('warn', 'Destroying project ')
+  for (const i in path) {
+    const item = path[i]
     try {
-      if (fs.existsSync(dirs[i])) {
-        fs.rmdirSync(dirs[i], { recursive: true })
-        notify.msg('debug', `Destroyed directory '${dirs[i]}'`)
+      if (fs.existsSync(item)) {
+        if (fs.lstatSync(item).isDirectory()) {
+          fs.rmdirSync(item, { recursive: true })
+        } else {
+          fs.unlinkSync(item)
+        }
+        notify.msg('debug', `Destroyed '${item}'`)
       }
     } catch (err) {
       notify.msg('error', err)

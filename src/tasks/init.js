@@ -12,26 +12,13 @@ const notify = require('../vars/notify.js')
 // Create project structure
 //
 
-const dirs = config.init.dirs
+const source = config.init
+const dest = '.'
 
 function structure () {
-  notify.msg('info', 'Creating directories')
-  for (const i in dirs) {
-    try {
-      if (!fs.existsSync(dirs[i])) {
-        fs.mkdirSync(dirs[i])
-        notify.msg('debug', `Created directory '${dirs[i]}'`)
-      } else {
-        notify.msg('debug', `Directory '${dirs[i]}' exists; skipping`)
-      }
-    } catch (err) {
-      notify.msg('error', err)
-    }
-  }
-
-  notify.msg('info', 'Creating files')
   try {
-    fs.copySync(config.init.templates, dirs.designDefault)
+    fs.copySync(source, dest)
+    notify.msg('success', 'premail project initialized!')
   } catch (err) {
     notify.msg('error', err)
   }
