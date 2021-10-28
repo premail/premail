@@ -183,6 +183,8 @@ rendered emails such as whether to generate a plain-text version.
 
 ## Creating a new design
 
+(This is out of date.)
+
 Look in the `designs` subdirectory. This will hold each of the designs
 (structure and styling) for your emails. For instance, you might have a
 newsletter design, a welcome message design, and a special holiday design.
