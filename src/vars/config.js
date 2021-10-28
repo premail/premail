@@ -19,8 +19,9 @@ const { flags } = require('../vars/flags.js')
 const config = {}
 config.__base = projectPath(__dirname, '../../')
 config.src = path.join(config.__base, 'src')
+config.init = path.join(config.src, 'example')
 config.file = {
-  user: path.join(config.__base, 'config.yaml'),
+  user: path.join(config.init, 'config.yaml'),
   theme: 'themeConfig.yaml',
 }
 
@@ -97,9 +98,6 @@ config.current.theme = {
     config.user.folders.theme.dir
   ),
 }
-
-// Initial project configuration
-config.init = path.join(config.src, 'example')
 
 module.exports = {
   config,
