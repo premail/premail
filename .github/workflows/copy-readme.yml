@@ -15,10 +15,8 @@ jobs:
       - name: Checkout the repo
         uses: actions/checkout@v2
       - name: Copy file
-        uses: canastro/copy-file-action@master
-        with:
-          source: './README.md'
-          target: './src/example/README.md'
+        run: |
+          cp README.md ./src/example/README.md
       - name: Autocommit the changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
