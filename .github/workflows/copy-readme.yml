@@ -1,0 +1,20 @@
+name: Copy readme to example directory
+
+on:
+  push:
+    branches:
+      - '**'
+    paths:
+      - 'README.md'
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: copy file
+        uses: canastro/copy-file-action@master
+        with:
+          source: './README.md'
+          target: './src/example/README.md'
