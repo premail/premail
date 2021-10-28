@@ -1,10 +1,9 @@
-name: Markdown table of contents generator
+name: Update readme
 
 on:
   push:
     branches:
       - '**'
-    # Note the files also need to be explicitly set in 'run', further down.
     paths:
       - 'README.md'
 
@@ -15,14 +14,16 @@ jobs:
     steps:
       - name: Checkout the repo
         uses: actions/checkout@v2
-      - name: Update the table of contents
-        # List files in this step.
+      - name: Update table of contents
         run: |
           curl https://raw.githubusercontent.com/ekalinin/github-markdown-toc/master/gh-md-toc -o gh-md-toc
           chmod a+x gh-md-toc
           ./gh-md-toc --insert --no-backup README.md
           rm ./gh-md-toc
+      - name: Copy the file to the example directory
+        run: |
+          cp README.md ./src/example/README.md
       - name: Autocommit the changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Automated Markdown TOC update
+          commit_message: Automated readme update
