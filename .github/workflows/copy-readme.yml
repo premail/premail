@@ -12,9 +12,14 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: copy file
+      - name: Checkout the repo
+        uses: actions/checkout@v2
+      - name: Copy file
         uses: canastro/copy-file-action@master
         with:
           source: './README.md'
           target: './src/example/README.md'
+      - name: Autocommit the changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: README.md changed; updating example directory
