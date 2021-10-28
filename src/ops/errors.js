@@ -4,7 +4,7 @@
 const PluginError = require('plugin-error')
 require('pretty-error').start()
 
-const notify = require('../vars/notify.js')
+const notify = require('../ops/notifications.js')
 /* eslint-enable no-unused-vars */
 
 // General error-handling function.

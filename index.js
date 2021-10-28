@@ -26,9 +26,19 @@ const argv =
       tasks.init()
     })
 
-    // Destroy (hidden)
+    // Destroy
     .command('destroy', 'Destroy an email project', yargs => {
       tasks.destroy()
+    })
+
+    // Display configuration
+    .command('config', 'List current configuration', yargs => {
+      tasks.load()
+    })
+
+    // Run test command (hidden)
+    .command('test', false, yargs => {
+      tasks.test()
     })
 
     // Aliases

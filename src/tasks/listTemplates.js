@@ -1,8 +1,8 @@
 'use strict'
 
 /* eslint-disable no-unused-vars */
-const { config } = require('../vars/config.js')
-const notify = require('../vars/notify.js')
+const { config } = require('../config/setup.js')
+const notify = require('../ops/notifications.js')
 /* eslint-enable no-unused-vars */
 
 //

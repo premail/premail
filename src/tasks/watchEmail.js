@@ -5,9 +5,9 @@ const { watch, series, parallel } = require('gulp')
 const path = require('path')
 // https://www.npmjs.com/package/gulp-changed
 
-const { config } = require('../vars/config.js')
-const e = require('../functions/e.js')
-const notify = require('../vars/notify.js')
+const { config } = require('../config/setup.js')
+const e = require('../ops/errors.js')
+const notify = require('../ops/notifications.js')
 const build = require('../tasks/build.js')
 /* eslint-enable no-unused-vars */
 

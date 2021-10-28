@@ -23,13 +23,15 @@ const map = require('map-stream')
 const { htmlToText } = require('html-to-text')
 const filesize = require('filesize')
 
-const e = require('../functions/e.js')
-const { config } = require('../vars/config.js')
-const { current } = require('../vars/current.js')
-const { theme } = require('../vars/theme.js')
-const { flags } = require('../vars/flags.js')
-const notify = require('../vars/notify.js')
-const { findOccurrences } = require('../functions/findOccurrences.js')
+const e = require('../ops/errors.js')
+const { config } = require('../config/setup.js')
+const { current } = require('../config/current.js')
+const { templates } = require('../config/templates.js')
+const { theme } = require('../config/theme.js')
+const { sassImport } = require('../config/sassImport.js')
+const { flags } = require('../ops/flags.js')
+const notify = require('../ops/notifications.js')
+const { findOccurrences } = require('../helpers/findOccurrences.js')
 /* eslint-enable no-unused-vars */
 
 //
@@ -57,7 +59,7 @@ function styles () {
       importer: sassImporter({
         resolver: function (dir, url) {
           return url.startsWith('~/')
-            ? path.resolve(path.join(config.src, 'vars'), url.substr(2))
+            ? path.resolve(path.join(config.src, 'config'), url.substr(2))
             : path.resolve(dir, url)
         },
       }),

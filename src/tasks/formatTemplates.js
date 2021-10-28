@@ -2,9 +2,9 @@
 
 /* eslint-disable no-unused-vars */
 const exec = require('child_process').exec
-const e = require('../functions/e.js')
-const { config } = require('../vars/config.js')
-const notify = require('../vars/notify.js')
+const e = require('../ops/errors.js')
+const { config } = require('../config/setup.js')
+const notify = require('../ops/notifications.js')
 /* eslint-enable no-unused-vars */
 
 //

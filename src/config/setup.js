@@ -5,12 +5,12 @@ const fs = require('fs-extra')
 const path = require('path')
 const yaml = require('js-yaml')
 
-const projectPath = require('../functions/projectPath.js')
-const getFiles = require('../functions/getFiles.js')
+const projectPath = require('../helpers/projectPath.js')
+const getFiles = require('../helpers/getFiles.js')
 /* eslint-enable no-unused-vars */
 
 //
-// Set up configuration
+// Set up internal configuration
 //
 
 const config = {}
@@ -19,7 +19,7 @@ config.src = path.join(config.__base, 'src')
 config.init = path.join(config.src, 'example')
 config.file = {}
 config.file.internal = {}
-config.file.internal.__dir = path.join(config.src, 'config')
+config.file.internal.__dir = path.join(config.src, 'settings')
 config.file.internal.__list = getFiles(config.file.internal.__dir, 'yaml')
 
 for (const setting of config.file.internal.__list) {

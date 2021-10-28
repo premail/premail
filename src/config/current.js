@@ -5,15 +5,15 @@ const fs = require('fs-extra')
 const path = require('path')
 const yaml = require('js-yaml')
 
-const projectPath = require('../functions/projectPath.js')
-const getFiles = require('../functions/getFiles.js')
+const projectPath = require('../helpers/projectPath.js')
+const getFiles = require('../helpers/getFiles.js')
 
-const { config } = require('../vars/config.js')
-const { flags } = require('../vars/flags.js')
+const { config } = require('../config/setup.js')
+const { flags } = require('../ops/flags.js')
 /* eslint-enable no-unused-vars */
 
 //
-// Load current paths based on user and theme settings
+// Load current paths based on settings
 //
 
 // Load user settings
@@ -57,8 +57,8 @@ if (fs.existsSync(config.file.user)) {
     )
   } else {
     config.current.name = config.current.design
-    config.current.path = projectPath(
-      config.__base,
+    config.current.path = path.join(
+      config.user.__base,
       config.user.folders.design.name,
       config.current.design
     )
@@ -68,31 +68,6 @@ if (fs.existsSync(config.file.user)) {
       config.current.design,
       config.user.folders.output.dir
     )
-  }
-
-  // Load theme settings
-  config.file.theme = 'themeConfig.yaml'
-
-  if (fs.existsSync(config.file.theme)) {
-    config.current.theme = {
-      name: config.user.folders.theme.dir,
-      path: path.join(
-        config.user.__base,
-        config.user.folders.design.name,
-        config.current.design,
-        config.user.folders.theme.dir
-      ),
-    }
-
-    // Load theme config from YAML file.
-    const themeYAML = fs.readFileSync(
-      path.join(config.current.theme.path, config.file.theme),
-      {
-        encoding: 'utf-8',
-      }
-    )
-    const themeJSON = yaml.loadAll(themeYAML)
-    config.theme = themeJSON[0]
   }
 }
 

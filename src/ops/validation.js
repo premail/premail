@@ -4,11 +4,12 @@
 const v = require('validator')
 const path = require('path')
 
-const { config } = require('../vars/config.js')
-const { current } = require('../vars/current.js')
-const { theme } = require('../vars/theme.js')
-const e = require('../functions/e.js')
-const notify = require('../vars/notify.js')
+const { config } = require('../config/setup.js')
+const { current } = require('../config/current.js')
+const { theme } = require('../config/theme.js')
+const { sassImport } = require('../config/sassImport.js')
+const e = require('../ops/errors.js')
+const notify = require('../ops/notifications.js')
 /* eslint-enable no-unused-vars */
 
 module.exports = function validate (type, selector, opt) {

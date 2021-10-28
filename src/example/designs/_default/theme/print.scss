@@ -34,8 +34,8 @@
  * !important flag, so be sure to test!
  */
 
-// Import theme configuration values for use as Sass variables.
-@import '~/theme.js';
+// Import Sass variables from premail.
+@import '~/sassImport.js';
 
 @media print {
   html {

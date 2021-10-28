@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 const colors = require('ansi-colors')
 const prioritizedColor = require('ansi-colors-prioritized')
-const { flags } = require('../vars/flags.js')
+const { flags } = require('../ops/flags.js')
 /* eslint-enable no-unused-vars */
 
 //
