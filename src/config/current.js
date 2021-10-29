@@ -5,7 +5,6 @@ const fs = require('fs-extra')
 const path = require('path')
 const yaml = require('js-yaml')
 
-const projectPath = require('../helpers/projectPath.js')
 const getFiles = require('../helpers/getFiles.js')
 
 const { config } = require('../config/setup.js')
@@ -44,13 +43,13 @@ if (fs.existsSync(config.file.user)) {
 
   if (config.current.email) {
     config.current.name = config.current.email
-    config.current.path = projectPath(
-      config.__base,
+    config.current.path = path.join(
+      config.user.__base,
       config.user.folders.email.name,
       config.current.email
     )
-    config.current.dist = projectPath(
-      config.__base,
+    config.current.dist = path.join(
+      config.user.__base,
       config.user.folders.email.name,
       config.current.design,
       config.user.folders.output.dir
@@ -62,8 +61,8 @@ if (fs.existsSync(config.file.user)) {
       config.user.folders.design.name,
       config.current.design
     )
-    config.current.dist = projectPath(
-      config.__base,
+    config.current.dist = path.join(
+      config.user.__base,
       config.user.folders.design.name,
       config.current.design,
       config.user.folders.output.dir
