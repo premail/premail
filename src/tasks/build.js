@@ -132,7 +132,10 @@ function content () {
       const contents = file.contents.toString()
       const filename = path.basename(file.path)
 
-      if (filename !== config.user.files.template) {
+      if (
+        filename !== config.user.files.template &&
+        !config.current.templates.theme.includes(filename)
+      ) {
         findOccurrences(/\/>/gim, contents).forEach(result =>
           notify.msg(
             'warn',

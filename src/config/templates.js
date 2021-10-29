@@ -43,6 +43,17 @@ if (fs.existsSync(config.file.user)) {
     ...config.current.templates.array,
   ]
 
+  if (fs.existsSync(config.current.theme.file)) {
+    const themeTemplates = getFiles(
+      config.current.theme.path + path.sep,
+      config.user.files.templateExt
+    )
+
+    config.current.templates.theme = themeTemplates.map(item => {
+      return path.basename(item)
+    })
+  }
+
   // Define intermediate rendered template -- post-Handlebars, pre-MJML
   config.current.templates.int = path.join(
     config.current.dist,
