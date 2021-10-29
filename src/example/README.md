@@ -55,7 +55,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Fri Oct 29 02:41:43 UTC 2021 -->
+<!-- Added by: runner, at: Fri Oct 29 02:42:43 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -419,9 +419,6 @@ If you want to format your template files separately (for instance while you're
 working on them), run `premail format`. This is run automatically during builds.
 
 # Full list of options
-
-Append `--debug` to any command to see additional output on your current
-configuration and files being processed.
 
 `premail -h`
 
