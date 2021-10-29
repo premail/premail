@@ -15,10 +15,9 @@ Gulp and Handlebars.
 emails. It consciously does not incorporate a build process. This is one such
 build process.
 
-Premail uses Gulp (4) and Node for its build, Handlebars for templating, and
-Sass for styling. You don't need to deal with any of those things directly,
-beyond running a command in the terminal. Everything is defined in MJML
-templates and YAML configuration files.
+Premail is component-based, and uses Handlebars for templating. Settings are
+defined in YAML configuration files, and theming happens in a theme
+configuration file as well as (optionally) Sass files.
 
 Email templates are all [valid](https://mjml.io/documentation/#validating-mjml)
 under [MJML version 4](https://github.com/mjmlio/mjml/releases).
@@ -68,10 +67,9 @@ comfortable with HTML code, MJML will likely be much faster for you than any
 drag-and-drop visual editor provided by an email service provider like
 Mailchimp, Constant Contact, etc.
 
-This project gives you a structure and workflow in which you can create
-different email designs in MJML, then create individual emails based on those
-designs from the command-line. The tools included will make creating and
-managing the code files for your emails vastly simpler.
+Using Premail, you can create different email designs in MJML, then use your
+library of designs to create individual emails. Premail will make creating and
+managing the code for these emails vastly simpler.
 
 When you're done, you'll have an `index.html` file (and plain-text `index.txt`
 file, if you've chosen the text option) that is optimized to render correctly in
@@ -103,10 +101,9 @@ Then just drop the code from the file into your email service provider's system.
   exist for including pseudo-CSS styles (such as hover states) for email clients
   that support them, as well as styles specifically targeting Gmail.
 
-- A plain-text version of your email is optionally created, and (we humbly
-  argue) Premail does a much better job than most email services at rendering
-  it. While only a small number of your recipients will see the plain-text
-  version,
+- A plain-text version of your email is optionally created, and Premail does a
+  much better job than most email services at rendering it. While only a small
+  number of your recipients will see the plain-text version,
   [they are important for email deliverability](https://www.litmus.com/blog/best-practices-for-plain-text-emails-a-look-at-why-theyre-important/).
   Within the plain-text version options, you can easily control whether certain
   elements like navigation or header/banner areas are included.
@@ -141,7 +138,8 @@ Feel free to
 
 ## Requirements
 
-You need to have at least [Node](https://nodejs.org/en/download/) 12.x.
+Internally, Premail uses Node with Gulp to process files. You'll need to have at
+least [Node](https://nodejs.org/en/download/) 12.x installed.
 
 Premail has been tested up to 16.x and appears to work, with the caveat that
 **if you want to be able to use the `watch` function you need to stay at
@@ -155,19 +153,21 @@ Node.
 
 ## Installation
 
-- Go to the [Releases](https://github.com/premail/premail/releases) page and
-  grab the most recent stable version. Alternatively, you can simply fork this
-  repo and clone it locally.
-- Install with `npm i`
-- MJML has [plugins](https://documentation.mjml.io/#applications-and-plugins)
-  for Visual Studio Code, Atom, and Sublime Text 3 and 4.
-- If you plan to use a GitHub repo yourself and don't want the included
-  [GitHub Actions](https://docs.github.com/en/actions) to run, just remove the
-  `.github` directory.
+`npm install -g premail`
+
+That's it!
+
+If you already have a node-based build process and want to integrate Premail
+into it, you can install it locally with `npm install premail --save-dev`. You
+are also free to fork this repo and alter it to fit your needs.
+
+MJML has [plugins](https://documentation.mjml.io/#applications-and-plugins) for
+Visual Studio Code, Atom, and Sublime Text 3 and 4 that will help with things
+like syntax highlighting.
 
 # Usage
 
-Run `gulp --tasks` if you want to see all of the options quickly, or skip down
+Run `premail --help` if you want to see all of the options quickly, or skip down
 to the [full list of options](#full-list-of-options).
 
 ## Setting options
@@ -181,61 +181,87 @@ can also change the name of the master template file (`index.hbs`, by default).
 Under "Email-building options," you'll see preferences you can set on the
 rendered emails such as whether to generate a plain-text version.
 
-## Creating a new design
-
-(This is out of date. Expect an update soon. 10/28/2021.)
+## Exploring a design
 
 Look in the `designs` subdirectory. This will hold each of the designs
 (structure and styling) for your emails. For instance, you might have a
 newsletter design, a welcome message design, and a special holiday design.
 
-The `_templates` directory holds an example design. You can choose to use this
+The `_default` directory holds an example design. You can choose to use this
 design and modify it, or write your own.
+
+Within each design directory, you'll find that an individual design is made up
+of both markup and theme settings.
+
+### Markup
+
+Markup files are primarily
+[MJML code](https://documentation.mjml.io/#components), with Handlebars used for
+templating. When your project is compiled, the Handlebars processing comes
+first, and so these files have the `.hbs` Handlebars extension. In most cases,
+though, all you'll need to know is MJML.
+
+- `index.hbs`: This is the master file that loads each of the components
+  (`content` and `structure`) for your email. Usually, you won't need to edit
+  this file unless you want to re-order the components themselves.
+- `content`: This directory holds files that will _always_ change in each email
+  -- the title, preview text, header/hero area and main body.
+- `structure`: This directory holds files that may _sometimes_ change in each
+  email -- top and bottom navigation menus, social media links, and the footer
+  area. Depending on how you prefer to create your designs, you might opt to
+  never change these components in a given design.
+
+### Theme
+
+The `theme` subdirectory contains two sets of files: Configuration and styles.
+
+- `theme/themeConfig.yaml` controls settings for your design's theme. In order
+  to render bulletproof email code, MJML sets some styles directly on elements,
+  and uses inlined CSS on others. To make it easier to quickly create a new
+  design, or slightly alter an existing one, this file lists the most common
+  styles for a design, which are then mapped automatically to the appropriate
+  locations in MJML and CSS. If there are styles you want to add or change that
+  aren't listed here, your next step should be the Sass files.
+- `*.scss` files are [Sass files](https://sass-lang.com/guide) that make
+  individual changes to CSS. If you're not familiar with Sass, the `scss` syntax
+  used here is
+  [a superset of CSS](https://sass-lang.com/documentation/syntax#scss) -- so any
+  valid CSS can be placed in these files. If you peruse them, you'll see that
+  they use Sass to import variables from your theme configuration, but you can
+  ignore or overwrite these styles if you wish. The Sass files are heavily
+  commented to make it clear which styles they control.
+- `*.hbs` files are Handlebars files with MJML markup that load settings from
+  `themeConfig.yaml` into MJML itself. If you have a style that you can't seem
+  to change, check these files. They are included in the `index.hbs` file
+  automatically.
+
+Finally, note that some attributes must be set on `<mj-wrapper>` elements for
+each component directly in the `index.hbs` file. In every case, these are
+loading settings from `themeConfig.yaml`, so it should be easiest to change
+styles there -- but if you need to alter or add something like a CSS class, take
+a look at what's being defined in `index.hbs`.
+
+### Creating a new design
 
 If you're starting out for the first time and want to create a new design with
 the name "postmodern", for instance, you'd do the following in your console:
 
 ```sh
-cd designs
-cp -r _templates postmodern
-cd postmodern
+premail new design postmodern
 ```
 
-Within each design directory, you'll find the following:
-
-- `index.hbs`: This file includes all the component files. You shouldn't
-  normally need to edit this unless you are re-ordering the structure.
-- `content`: This directory holds files that will _always_ change in each email
-  -- the title, preview text, header/hero area and main body.
-- `structure`: This directory holds files that may _sometimes_ change in each
-  email -- top and bottom navigation menus, social media links, and the footer
-  area.
-- `theme`: In order to render bulletproof email code, MJML sets some styles
-  directly on elements, and uses inlined CSS on others. To make it easier to
-  quickly create a new design, or slightly alter an existing one, look at
-  [`themeConfig.yaml`](designs/_templates/theme/themeConfig.yaml) in this
-  folder. Here are all the most common styles for a design, which we then map
-  automatically to the appropriate locations in MJML and CSS. If there are
-  styles you want to add or change that you don't find listed in
-  `themeConfig.yaml`, your next stop should be the included CSS files in this
-  directory -- they are extensively commented to guide you. If the styles aren't
-  in the CSS, as a last stop look at the `index.hbs` file in the root design
-  directory to see what MJML is setting directly.
-- `dist`: This directory contains the output `index.html` (and optionally a
-  plain-text `index.txt` file) for you to use.
-
-In your console, run `gulp watch` with the `-d` option, followed by the
+In your console, run `premail watch` with the `-d` option, followed by the
 directory name of your design. Using the example above with a design named
-"postmodern", you'd run `gulp watch -d postmodern`.
+"postmodern", you'd run `premail watch -d postmodern`.
 
-This will watch for any changes in any `index.hbs` files (including any MJML
-partials referenced with `<mj-include>`), and re-render the `index` files in
-unminified form in the `dist` subdirectory of your design. You can leave a web
-browser open to this page.
+This will watch for any changes in any configuration files, template files
+(including any MJML partials referenced with `<mj-include>`) or Sass files, and
+re-render the `dist` subdirectory of your design. You can leave a web browser
+open to this page.
 
-If you don't want to continuously watch your files, use `gulp build`, or just
-`gulp` instead. Again using the "postmodern" example, that would be
-`gulp build -d postmodern`. This will create the `index` files and then stop.
+If you don't want to continuously watch your files, use `premail build`, or just
+`premail` instead. Again using the "postmodern" example, that would be
+`premail build -d postmodern`. This will render the email and then stop.
 
 If you need to troubleshoot the rendered template (that is, after the Handlebars
 data has been inserted, but before the MJML-to-HTML transpiling) append `--temp`
@@ -248,9 +274,10 @@ Instructions TK.
 ## Rendering the email for production
 
 In your console, append `--prod`, e.g. with a design named "postmodern," you'd
-use `gulp build -d postmodern --prod`. This will render `index.html`
+use `premail build -d postmodern --prod`. This will render `index.html`
 [in minified form](https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md#minify-and-beautify-the-output-html)
-in the `dist` subdirectory.
+in the `dist` subdirectory, and (if you've chosen to have one created),
+`index.txt`.
 
 Images can be included locally while you're drafting the email, but MJML doesn't
 do anything magical in terms of hosting these images -- you'll still have to
@@ -269,7 +296,7 @@ Once the production email is rendered, you can:
   [here's the rendered file](https://github.com/premail/premail/blob/v2.0.0/designs/_templates/dist/index.html)
   from the sample templates.
 
-## Custom components
+# Custom MJML components
 
 Premail includes some
 [MJML custom components](https://documentation.mjml.io/#creating-a-component)
@@ -279,7 +306,7 @@ for common use cases.
 [MJML Signoff](https://github.com/premail/mjml-signoff/) are also available
 independently from Premail.
 
-### MJML Bullet List
+## MJML Bullet List
 
 `<ul>` and `<li>` HTML elements can be used in HTML emails, but getting them to
 render consistently
@@ -334,15 +361,15 @@ following options:
 | `vertical-align`   | `top`, `middle`, `bottom`            | Applies to list item                    | `top`                                                                                               |
 
 An example of this can be found in the default design's
-[`content/body.hbs`](designs/_templates/content/body.hbs) template.
+[`content/body.hbs`](src/example/designs/_default/content/body.hbs) template.
 
-### MJML Signoff
+## MJML Signoff
 
 Designed for the sign-off or signature section at the bottom of your email
 content, `<mj-signoff>` is used in the
-[`content/signoff.hbs`](designs/_templates/content/signoff.hbs) template and
-allows you to easily include an image alongside your signature such as a photo
-or logo, which is a common best practice in many types of emails.
+[`content/signoff.hbs`](src/example/designs/_default/content/signoff.hbs)
+template and allows you to easily include an image alongside your signature such
+as a photo or logo, which is a common best practice in many types of emails.
 
 Available options for this component include:
 
@@ -380,27 +407,23 @@ If you are not using an image in your sign-off, you can simply use the default
 
 Premail includes [sheerun/modern-node](https://github.com/sheerun/modern-node),
 which formats and lints code using [Prettier](https://prettier.io/). This will
-warn you about errors in the HTML, Sass or CSS syntax of your designs or emails,
-and auto-format your files on every build and git commit.
+warn you about errors in the HTML or CSS syntax of your designs or emails, and
+auto-format your files on every build and git commit.
 
-It will not attempt to format or lint files in the `dist` directories.
+It will not attempt to lint or format files in `dist` directories.
 
 If you want to format your template files separately (for instance while you're
-working on them), run `gulp formatTemplates`. This is run automatically during
-builds.
-
-If you don't want the linting and formatting on commits, remove the `precommit`
-hook in [package.json](package.json).
+working on them), run `premail format`. This is run automatically during builds.
 
 # Full list of options
 
 Append `--debug` to any command to see additional output on your current
 configuration and files being processed.
 
-`gulp --tasks`
+`premail --help`
 
 <!-- prettier-ignore-start -->
-<!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && gulp --tasks | grep -Po "[├│└].*|^[\s].*" && echo '```\n<'!'-- '-'->') --><!-- -->
+<!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && premail -h | grep -Po "[├│└].*|^[\s].*" && echo '```\n<'!'-- '-'->') --><!-- -->
 ```
 ├─┬ default          Render a complete HTML email based on design and email templates.
 │ │      -d          …Specify design folder to use. (Default: _templates)
