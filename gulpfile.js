@@ -37,16 +37,6 @@ exports.default = series(
 
 // Build
 exports.build = exports.default
-exports.build.description =
-  'Render a complete HTML email based on design and email templates.'
-exports.build.flags = {
-  '     -d': 'Specify design folder to use. (Default: _templates)',
-  '     -e': 'Specify email folder to render.',
-  ' --prod': 'Render production files (minified, no comments).',
-  ' --temp':
-    'Include intermediate rendered template (post-Handlebars, pre-MJML) in output.',
-  '--debug': 'Display details about configuration and settings.',
-}
 
 // Provide one-off versions of build tasks
 exports.buildContent = build.content
@@ -62,17 +52,12 @@ exports.watch = series(
   build.render,
   watchEmail
 )
-exports.watch.description =
-  'Watch design and configuration files and rebuild (formatted, with comments) as necessary. Flags from `gulp build` can also be used.'
 
 // Format
 exports.formatTemplates = formatTemplates
-exports.formatTemplates.description = 'Format templates with Prettier.'
 
 // Clean
 exports.clean = clean.generated
-exports.clean.description =
-  'Remove generated files from the current design or email.'
 
 // Debug
 exports.loadConfig = loadConfig
@@ -84,7 +69,6 @@ exports.listTemplates.description =
 exports.test = async function () {
   console.log('\n\nTest.\n\n')
 }
-exports.test.description = 'Run an empty gulp function for testing.'
 
 //
 // Exports
