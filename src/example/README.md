@@ -55,7 +55,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Fri Oct 29 01:35:04 UTC 2021 -->
+<!-- Added by: runner, at: Fri Oct 29 02:33:37 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -170,8 +170,8 @@ like syntax highlighting.
 
 # Usage
 
-Run `premail --help` if you want to see all of the options quickly, or skip down
-to the [full list of options](#full-list-of-options).
+Run `premail -h` if you want to see all of the options quickly, or skip down to
+the [full list of options](#full-list-of-options).
 
 ## Setting options
 
@@ -423,7 +423,7 @@ working on them), run `premail format`. This is run automatically during builds.
 Append `--debug` to any command to see additional output on your current
 configuration and files being processed.
 
-`premail --help`
+`premail -h`
 
 <!-- prettier-ignore-start -->
 <!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && premail -h && echo '```\n<'!'-- '-'->') --><!-- -->
@@ -432,10 +432,23 @@ Usage: premail <command> [options]
 
 Commands:
   premail build    Build your email                                    [default]
+  premail watch    Watch design and configuration files and rebuild as necessary
+  premail format   Format templates with Prettier
+  premail clean    Remove generated files from the current design or email
   premail init     Initialize an email project
   premail destroy  Destroy an email project
 
-Options:
+Build and watch options:
+  -d, --design  Specify design directory to use   [string] [default: "_default"]
+  -e, --email   Specify email directory to render                       [string]
+  -p, --prod    Render production files (minified, no comments)        [boolean]
+
+Development options:
+      --temp   Include intermediate rendered template (post-Handlebars,
+               pre-MJML) in output                                     [boolean]
+      --debug  Display details about configuration and settings        [boolean]
+
+More information:
   -h, --help     Show help                                             [boolean]
   -v, --version  Show version number                                   [boolean]
 
