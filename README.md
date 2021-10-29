@@ -420,9 +420,6 @@ working on them), run `premail format`. This is run automatically during builds.
 
 # Full list of options
 
-Append `--debug` to any command to see additional output on your current
-configuration and files being processed.
-
 `premail -h`
 
 <!-- prettier-ignore-start -->
