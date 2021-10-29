@@ -1,0 +1,139 @@
+/* PRINT STYLES
+ *
+ * These are styles that only get applied when a recipient prints the email
+ * from their email client.
+ *
+ * Below we set print styles in the most conservative way possible -- just
+ * making sure things don't break. However, you might want to add to them to do
+ * things like use serif rather than sans-serif fonts (better for print),
+ * adjusting the font size, or hiding elements (such as navigation).
+ *
+ * Email clients, of course, vary in how well they implement these, and some
+ * might set their own print styles on top of what is defined in the email
+ * itself. Outlook is the only major platform that currently has no support.
+ * For an updated list of clients and their support for the @media rule (which
+ * is what we use for print stylesheets) see:
+ * https://caniuse.email/#css-media-queries
+ * https://www.caniemail.com/features/css-at-media/
+ *
+ * Many people do still print out emails, especially for things like invitations
+ * or coupons, although this depends to some extent on your audience
+ * demographic. There are surprisingly few guides on working with this; the only
+ * comprehensive one is the following archived version of a (since removed)
+ * blog from Campaign Monitor:
+ *
+ * https://web.archive.org/web/20210226031105/https://www.campaignmonitor.com/blog/email-marketing/can-i-include-a-print-styleshe/
+ *
+ * More resources on print stylesheets in general:
+ * https://www.jotform.com/blog/css-perfect-print-stylesheet-98272/
+ * https://www.smashingmagazine.com/2018/05/print-stylesheets-in-2018/
+ * https://designshack.net/articles/css/6-thinks-i-learned-about-print-stylesheets-from-html5-boilerplate/
+ * https://www.jegsworks.com/lessons/web-2/html/step-mediaprint.htm
+ *
+ * In order to override the inlined styles, all styles below need to include the
+ * !important flag, so be sure to test!
+ */
+
+// Import Sass variables from premail.
+@import '~/sassImport.js';
+
+@media print {
+  html {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  body {
+    max-width: 100% !important;
+    margin: 2cm !important;
+  }
+
+  /*
+   * @page can also be used here to control things like left/right settings or
+   * first-page styles, but its support is limited.
+   *
+   * Resources:
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/@page
+   */
+
+  *,
+  *:before,
+  *:after,
+  *:first-letter,
+  p:first-line,
+  div:first-line,
+  blockquote:first-line,
+  li:first-line {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    /*
+     * Optionally set all text to black by uncommenting the last line below.
+     * Note you'll want to override this for anything on a dark background, such
+     * as a button or navigation, unless you also set those elements to have a
+     * transparent background.
+     */
+    // color: #000 !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline !important;
+  }
+  a[href]:after {
+    content: ' (' attr(href) ')' !important;
+  }
+  // Don't show links that are fragment identifiers
+  a[href^='#']:after {
+    content: '' !important;
+  }
+  // Don't mess with link-wrapped images
+  a:after > img {
+    content: '';
+  }
+
+  abbr[title]:after {
+    content: ' (' attr(title) ')' !important;
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    page-break-inside: avoid !important;
+  }
+
+  img {
+    page-break-inside: avoid !important;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4 {
+    orphans: 3 !important;
+    widows: 3 !important;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid !important;
+  }
+}
+
+/*
+   * Printing Data Tables
+   *
+   * You are unlikely to be including actual data tables (tabular data) in your
+   * email because these don't display well at narrow screen widths. But if you
+   * do find yourself doing this, you can improve the printing of them by using
+   * the following rules. Make sure to target the data tables only (and not all
+   * the tables necessary for positioning elements in the email) with a class.
+   *
+   * table.data-table { display: table; width: 100%; max-width: 100%; }
+   * .data-table thead { display: table-header-group; }
+   * .data-table tr { display: table-row; page-break-inside: avoid; }
+   * .data-table td { display: table-cell; }
+   */

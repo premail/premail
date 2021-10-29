@@ -1,0 +1,33 @@
+<!--
+
+ABOUT THIS FILE
+
+fonts.hbs is a mix of Handlebars and MJML template languages, and controls
+MJML's inclusion of custom fonts. Generally it will be easier to change these
+settings directly in your themeConfig.yaml file, but the markup is included
+here for clarity.
+
+-->
+
+{{#if theme.fonts.web}}
+<!-- HREF values in the font element are unquoted, and ignored by Prettier,
+         in order to allow for the double-quoting that JSON-to-Sass variables
+         require. -->
+<!-- Google fonts -->
+{{#if theme.fonts.stack.google.enabled}}
+<!-- prettier-ignore -->
+<mj-font
+            name="{{theme.fonts.stack.google.name}}"
+            href={{{theme.fonts.stack.google.href}}}
+          />
+{{/if}}
+<!-- Custom fonts -->
+{{#if theme.fonts.stack.custom.enabled}}
+<!-- prettier-ignore -->
+<mj-font
+            name="{{theme.fonts.stack.custom.name}}"
+            href={{{theme.fonts.stack.custom.href}}}
+          />
+{{/if}}
+<!-- End of web fonts -->
+{{/if}}

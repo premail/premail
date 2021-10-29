@@ -1,0 +1,46 @@
+/* PSEUDO-CLASS STYLES
+ *
+ * WARNING: Pseudo-classes in CSS are for states like "hover", "active" and
+ * "focus". Only a some email recipients will see these. Consequently, you
+ * should only use these styles for progressive enhancement; ensure usability
+ * and readability even when these styles are not applied.
+ *
+ * Resources:
+ * https://www.campaignmonitor.com/css/selectors/hover/
+ * https://www.emailonacid.com/blog/article/email-development/using-pseudo-elements-to-progressively-enhance-your-emails/
+ *
+ * In order to override the inlined styles, all styles below need to include the
+ * !important flag, so be sure to test in all contexts (e.g. if you change a
+ * link's color on hover, make sure it still works in the context of buttons,
+ * navigation menus, the footer, headings/subheadings, social icons, etc.).
+ */
+
+// Import Sass variables from premail.
+@import '~/sassImport.js';
+
+@mixin is-on {
+  &:hover,
+  &:active,
+  &:focus {
+    @content;
+  }
+}
+
+a {
+  @include is-on {
+  }
+}
+.button a {
+  @include is-on {
+  }
+}
+.button--ghost table a {
+  @include is-on {
+  }
+}
+.nav a {
+  @include is-on {
+  }
+}
+.social a:focus {
+}

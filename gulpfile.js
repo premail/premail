@@ -8,8 +8,10 @@ const { series, parallel } = require('gulp')
 // Tasks
 //
 
-const taskDir = './__lib/tasks/'
+const taskDir = './src/tasks/'
 
+const init = require(taskDir + 'init.js')
+const destroy = require(taskDir + 'destroy.js')
 const loadConfig = require(taskDir + 'loadConfig.js')
 const clean = require(taskDir + 'clean.js')
 const build = require(taskDir + 'build.js')
@@ -33,6 +35,7 @@ exports.default = series(
   build.render
 )
 
+// Build
 exports.build = exports.default
 exports.build.description =
   'Render a complete HTML email based on design and email templates.'
@@ -82,3 +85,21 @@ exports.test = async function () {
   console.log('\n\nTest.\n\n')
 }
 exports.test.description = 'Run an empty gulp function for testing.'
+
+//
+// Exports
+//
+
+// Non-gulp functions are called directly. Public tasks export the definitions
+// registered above.
+module.exports = {
+  init: init.structure,
+  destroy: destroy.structure,
+  build: exports.build,
+  watch: exports.watch,
+  format: exports.formatTemplates,
+  clean: exports.clean,
+  load: exports.loadConfig,
+  list: exports.listTemplates,
+  test: exports.test,
+}

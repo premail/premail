@@ -1,0 +1,133 @@
+#
+# PREMAIL CONFIGURATION
+#
+# This file is formatted in YAML -- indentation and whitespace is important!
+#
+# If you're not familiar with YAML, there are lots of guides and many
+# implementations out there. Here are some examples:
+# https://blog.stackpath.com/yaml/
+# https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes
+# https://yaml.org
+#
+# tl;dr: You can edit things on the right side of colons (:) but not on the
+# left. Don't change the indentation or spacing.
+#
+# For design configuration, see themeConfig.yaml inside individual design
+# directories.
+#
+
+# 1. Folders
+folders:
+  design:
+    # Name of the folder for designs
+    name: designs
+
+    # If no design is specified, default to this directory
+    default: _default
+
+  theme:
+    # Subdirectory of designs in which settings for styling are kept
+    dir: theme
+
+  email:
+    # Name of the folder for individual emails
+    name: emails
+
+  output:
+    # Subdirectory of each email folder in which to export HTML code
+    dir: dist
+
+# 2. Files and file types
+files:
+  # Name of the main template file
+  template: index.hbs
+
+# @TODO: This should really go in an email-specific config file.
+# 3. Email-building options
+text:
+  # Whether or not to generate a plain-text version. The subsequent options only
+  # apply if this is set to "true". Note that while only a small portion of
+  # recipients will see the text version, it appears to lower the risk of your
+  # email being interpreted as spam. Resources:
+  # https://www.litmus.com/blog/best-practices-for-plain-text-emails-a-look-at-why-theyre-important/
+  # https://www.indiehackers.com/post/10-tips-for-better-email-deliverability-0f73b1fbee
+  generate: true
+
+  # When set to true, images are replaced by URLs to the image file in the
+  # plaintext version. Set to false to omit these images completely. Any tags
+  # wrapping the images (such as link tags) will be unaffected.
+  images: false
+
+  # Whether to include the following elements in the plain-text version.
+  include:
+    topNav: true
+    banner: true
+    salutation: true
+    body: true
+    signoff: true
+    social: true
+    bottomNav: true
+    footer: true
+
+  # Optionally provide a list of CSS selectors to remove from the text version.
+  # One selector per line; most CSS selectors and combinators supported.
+  # For more information about syntax, see
+  # https://github.com/html-to-text/node-html-to-text#selectors
+  skipSelectors:
+    - div.mj-menu-trigger # Remove the mobile navigation container and icons
+
+# 3. Language
+language:
+  # Sets the default language wrapping each email. This must be set to a valid
+  # lanugage tag to inform assistive devices like screen readers. If you have
+  # multilingual emails, you can include `lang` attributes in wrapping <div>
+  # tags. Resources:
+  # https://github.com/hteumeuleu/email-guidelines#lang
+  # https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
+  default: en
+
+# 4. Fine-grained detail settings
+details:
+  # Typography settings apply to both your HTML version and (if generating) your
+  # plain-text version.
+  typography:
+    # convertQuoteAndApostrophe: Replaces instances of straight quotes and
+    # apostrophes (actually tick marks) with their curly equivalents.
+    convertQuoteAndApostrophe: true
+    # convertDash: Replaces instances of em-dashes and en-dashes, with their
+    # true typographical equivalents.
+    convertDash: true
+    # convertEllip: Replaces instances of three dots (...) with the HTML
+    # ellipsis character.
+    convertEllip: true
+    # opticallyAlignLetters: For certain letters, pull or push them to optically
+    # align with the margins. See
+    # https://en.wikipedia.org/wiki/Optical_margin_alignment
+    opticallyAlignLetters: true
+    # enableSmallCaps: When an acronym or initialism is encountered, it will be
+    # rendered in small-caps instead of regular-height caps. Uses the CSS
+    # font-variant property, which is respected in most email clients, and falls
+    # back to regular-height caps when it isn't. See
+    # https://en.wikipedia.org/wiki/Small_caps
+    enableSmallCaps: true
+
+  # enforceImageAlt: When set to true, image tags will be required to have "alt"
+  # tags, and ones that conform to accessibility and HTML guidelines. Alt tags
+  # are important for recipients who have images turned off (including, by
+  # default, all Gmail users), screen readers, and deliverability. An image that
+  # has no alt text defined will be given an empty alt tag, which is the correct
+  # method for images that are purely decorative. Resources:
+  # https://davidwalsh.name/accessibility-tip-empty-alt-attributes
+  # https://www.w3.org/WAI/tutorials/images/decorative/
+  # https://accessibleweb.com/question-answer/when-should-i-use-a-null-or-empty-alt-tag/
+  # https://support.siteimprove.com/hc/en-gb/articles/115000013031-Accessibility-Image-Alt-text-best-practices
+  #
+  # For more information about the filters applied using this tool, see
+  # https://codsen.com/os/html-img-alt
+  enforceImageAlt: true
+
+  # previewPad: When set to true, appends spaces to the preview or preheader
+  # text you enter to ensure that the rest of the content of your email isn't
+  # pulled up into the preview. Resources:
+  # https://www.goodemailcode.com/email-code/preheader
+  previewPad: true
