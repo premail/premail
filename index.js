@@ -31,11 +31,6 @@ const argv =
       tasks.destroy()
     })
 
-    // Display configuration
-    .command('config', 'List current configuration', yargs => {
-      tasks.load()
-    })
-
     // Run test command (hidden)
     .command('test', false, yargs => {
       tasks.test()
