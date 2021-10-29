@@ -438,15 +438,15 @@ Commands:
   premail init     Initialize an email project
   premail destroy  Destroy an email project
 
-Build and watch options:
+Email project build and watch:
   -d, --design  Specify design directory to use   [string] [default: "_default"]
   -e, --email   Specify email directory to render                       [string]
   -p, --prod    Render production files (minified, no comments)        [boolean]
+      --debug   Append to any command to see verbose details           [boolean]
 
-Development options:
-      --temp   Include intermediate rendered template (post-Handlebars,
-               pre-MJML) in output                                     [boolean]
-      --debug  Display details about configuration and settings        [boolean]
+Design development:
+      --temp  Include intermediate rendered template (post-Handlebars, pre-MJML)
+              in output                                                [boolean]
 
 More information:
   -h, --help     Show help                                             [boolean]

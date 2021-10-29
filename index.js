@@ -55,7 +55,7 @@ yargs(hideBin(process.argv))
 
   // Options
 
-  .group(['d', 'e', 'p'], 'Build and watch options:')
+  .group(['d', 'e', 'p', 'debug'], 'Email project build and watch:')
 
   .option('d', {
     alias: 'design',
@@ -76,16 +76,16 @@ yargs(hideBin(process.argv))
     type: 'boolean',
   })
 
-  .group(['temp', 'debug'], 'Development options:')
+  .option('debug', {
+    describe: 'Append to any command to see verbose details',
+    type: 'boolean',
+  })
+
+  .group(['temp'], 'Design development:')
 
   .option('temp', {
     describe:
       'Include intermediate rendered template (post-Handlebars, pre-MJML) in output',
-    type: 'boolean',
-  })
-
-  .option('debug', {
-    describe: 'Display details about configuration and settings',
     type: 'boolean',
   })
 
