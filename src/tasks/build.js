@@ -368,7 +368,7 @@ function render (cb) {
           e.e(err)
           process.exit(1)
         } else {
-          notify.msg('success', 'Rendering complete.')
+          notify.msg('success', `Rendering complete at ${config.current.dist}`)
         }
       }
     )
