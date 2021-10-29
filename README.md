@@ -40,19 +40,22 @@ version, ready to import into your emailer of choice.
    * [Installation](#installation)
 * [Usage](#usage)
    * [Setting options](#setting-options)
-   * [Creating a new design](#creating-a-new-design)
+   * [Exploring a design](#exploring-a-design)
+      * [Markup](#markup)
+      * [Theme](#theme)
+      * [Creating a new design](#creating-a-new-design)
    * [Creating a new email from an existing design](#creating-a-new-email-from-an-existing-design)
    * [Rendering the email for production](#rendering-the-email-for-production)
-   * [Custom components](#custom-components)
-      * [MJML Bullet List](#mjml-bullet-list)
-      * [MJML Signoff](#mjml-signoff)
+* [Custom MJML components](#custom-mjml-components)
+   * [MJML Bullet List](#mjml-bullet-list)
+   * [MJML Signoff](#mjml-signoff)
    * [Automatic code formatting and linting](#automatic-code-formatting-and-linting)
 * [Full list of options](#full-list-of-options)
 * [Known issues](#known-issues)
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Fri Oct 29 00:53:15 UTC 2021 -->
+<!-- Added by: runner, at: Fri Oct 29 01:25:24 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
