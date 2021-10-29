@@ -55,7 +55,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Fri Oct 29 01:29:03 UTC 2021 -->
+<!-- Added by: runner, at: Fri Oct 29 01:35:04 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -426,53 +426,20 @@ configuration and files being processed.
 `premail --help`
 
 <!-- prettier-ignore-start -->
-<!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && premail -h | grep -Po "[├│└].*|^[\s].*" && echo '```\n<'!'-- '-'->') --><!-- -->
+<!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && premail -h && echo '```\n<'!'-- '-'->') --><!-- -->
 ```
-├─┬ default          Render a complete HTML email based on design and email templates.
-│ │      -d          …Specify design folder to use. (Default: _templates)
-│ │      -e          …Specify email folder to render.
-│ │  --prod          …Render production files (minified, no comments).
-│ │  --temp          …Include intermediate rendered template (post-Handlebars, pre-MJML) in output.
-│ │ --debug          …Display details about configuration and settings.
-│ └─┬ <series>
-│   ├── loadConfig
-│   ├── formatTemplates
-│   ├── clean.generated
-│   ├─┬ <parallel>
-│   │ ├── build.content
-│   │ └── build.styles
-│   └── build.render
-├─┬ build            Render a complete HTML email based on design and email templates.
-│ │      -d          …Specify design folder to use. (Default: _templates)
-│ │      -e          …Specify email folder to render.
-│ │  --prod          …Render production files (minified, no comments).
-│ │  --temp          …Include intermediate rendered template (post-Handlebars, pre-MJML) in output.
-│ │ --debug          …Display details about configuration and settings.
-│ └─┬ <series>
-│   ├── loadConfig
-│   ├── formatTemplates
-│   ├── clean.generated
-│   ├─┬ <parallel>
-│   │ ├── build.content
-│   │ └── build.styles
-│   └── build.render
-├── build.content
-├── build.styles
-├── build.render
-├─┬ watch            Watch design and configuration files and rebuild (formatted, with comments) as necessary. Flags from `gulp build` can also be used.
-│ └─┬ <series>
-│   ├── loadConfig
-│   ├── formatTemplates
-│   ├─┬ <parallel>
-│   │ ├── build.content
-│   │ └── build.styles
-│   ├── build.render
-│   └── watchEmail
-├── formatTemplates  Format templates with Prettier.
-├── clean.generated  Remove generated files from the current design or email.
-├── loadConfig       Load the current configuration being used to render your email. To print to the console, use with --debug
-├── listTemplates    List all templates that will be processed. Use with --debug
-└── test             Run an empty gulp function for testing.
+Usage: premail <command> [options]
+
+Commands:
+  premail build    Build your email                                    [default]
+  premail init     Initialize an email project
+  premail destroy  Destroy an email project
+
+Options:
+  -h, --help     Show help                                             [boolean]
+  -v, --version  Show version number                                   [boolean]
+
+Additional documentation: https://premail.dev
 ```
 <!-- --><!-- /markdown-exec -->
 <!-- prettier-ignore-end -->
