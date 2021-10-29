@@ -99,4 +99,6 @@ yargs(hideBin(process.argv))
 
   .epilogue('Additional documentation: https://premail.dev')
 
+  // End
+
   .parse()
