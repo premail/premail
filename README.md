@@ -18,13 +18,16 @@
 <div align="center">
 <br />
 
-[![Project license](https://img.shields.io/github/license/premail/premail.svg?style=flat-square)](LICENSE)
+[![License: GPL-3.0](https://img.shields.io/github/license/premail/premail?color=blue&style=flat-square)](LICENSE)
 [![Pull Requests welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/premail/premail/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
+
 ![Checks](https://img.shields.io/github/checks-status/premail/premail/main.svg?style=flat-square)
 [![Node ^12.22.1](https://img.shields.io/badge/node-%5E12.22.1-brightgreen.svg?style=flat-square)](https://nodejs.org/en/download/)
 [![MJML 4.0+ valid](https://img.shields.io/badge/mjml-4%2B-brightgreen.svg?style=flat-square)](https://github.com/mjmlio/mjml/releases)
 [![Code style: JS Standard](https://img.shields.io/badge/code_style-standard-blue.svg?style=flat-square)](https://standardjs.com)
 [![Code format: Prettier](https://img.shields.io/badge/code_format-prettier-blue.svg?style=flat-square)](https://github.com/prettier/prettier)
+
+[![Twitter: @premaildev](https://img.shields.io/badge/Twitter-%40premaildev-%231da1f2?style=flat-square)](https://twitter.com/premaildev)
 [![Coded with love by premail](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-premail-ff1414.svg?style=flat-square)](https://github.com/premail)
 
 **Premail is an easy-to-use build system for MJML, the email templating
