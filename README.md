@@ -6,8 +6,8 @@
 [![Code style: JS Standard](https://img.shields.io/badge/code_style-standard-blue.svg?style=flat-square)](https://standardjs.com)
 [![Code format: Prettier](https://img.shields.io/badge/code_format-prettier-blue.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-An easy-to-use build system for MJML, the email templating language, based on
-Gulp and Handlebars.
+Premail is an easy-to-use build system for MJML, the email templating language,
+based on Gulp and Handlebars.
 
 ---
 
