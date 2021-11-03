@@ -1,10 +1,33 @@
-# ![Premail](images/logo.svg)
+<h1 align="center">
+  <a href="https://github.com/premail/premail">
+    <img src="docs/images/logo.svg" alt="Premail" width="235" height="100">
+  </a>
+</h1>
 
+<div align="center">
+  Premail
+  <br />
+  <!-- <a href="#about"><strong>Explore the screenshots »</strong></a>
+  <br />
+  <br /> -->
+  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
+  ·
+  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=enhancement&template=02_FEATURE_REQUEST.md&title=feat%3A+">Request a Feature</a>
+  .
+  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=question&template=04_SUPPORT_QUESTION.md&title=support%3A+">Ask a Question</a>
+</div>
+
+<div align="center">
+<br />
+
+[![Project license](https://img.shields.io/github/license/premail/premail.svg?style=flat-square)](LICENSE)
+[![Pull Requests welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/premail/premail/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
 ![Checks](https://img.shields.io/github/checks-status/premail/premail/main.svg?style=flat-square)
 [![Node ^12.22.1](https://img.shields.io/badge/node-%5E12.22.1-brightgreen.svg?style=flat-square)](https://nodejs.org/en/download/)
 [![MJML 4.0+ valid](https://img.shields.io/badge/mjml-4%2B-brightgreen.svg?style=flat-square)](https://github.com/mjmlio/mjml/releases)
 [![Code style: JS Standard](https://img.shields.io/badge/code_style-standard-blue.svg?style=flat-square)](https://standardjs.com)
 [![Code format: Prettier](https://img.shields.io/badge/code_format-prettier-blue.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![Coded with love by premail](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-premail-ff1414.svg?style=flat-square)](https://github.com/premail)
 
 Premail is an easy-to-use build system for MJML, the email templating language,
 based on Gulp and Handlebars.
@@ -453,17 +476,61 @@ Additional documentation: https://premail.dev
 <!-- --><!-- /markdown-exec -->
 <!-- prettier-ignore-end -->
 
-# Known issues
+# Roadmap
 
-- None currently! If you have one to report,
-  [head over here](https://github.com/premail/premail/issues/new)
+See the [open issues](https://github.com/premail/premail/issues) for a list of
+proposed features (and known issues).
+
+- [Top Feature Requests](https://github.com/premail/premail/issues?q=label%3Aenhancement+is%3Aopen+sort%3Areactions-%2B1-desc)
+  (Add your votes using the 👍 reaction)
+- [Top Bugs](https://github.com/premail/premail/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Areactions-%2B1-desc)
+  (Add your votes using the 👍 reaction)
+- [Newest Bugs](https://github.com/premail/premail/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
+
+# Support
+
+Reach out to the maintainer at one of the following places:
+
+- [GitHub issues](https://github.com/premail/premail/issues/new?assignees=&labels=question&template=04_SUPPORT_QUESTION.md&title=support%3A+)
+- Contact options listed on [this GitHub profile](https://github.com/premail)
+
+# Project assistance
+
+If you want to say **thank you** or/and support active development of Premail:
+
+- Add a [GitHub Star](https://github.com/premail/premail) to the project.
+- Tweet about the Premail (@premaildev on Twitter).
+- Consider [sponsoring rootwork](https://github.com/sponsors/rootwork),
+  Premail's developer, and have [your name or logo included
+  here]((#thanks-and-sponsorships)!
+- Write interesting articles about the project on [Dev.to](https://dev.to/),
+  [Medium](https://medium.com/) or your personal blog.
+
+Together, we can make Premail **better**!
+
+## Contributing
+
+First off, thanks for taking the time to contribute! Contributions are what make
+the open-source community such an amazing place to learn, inspire, and create.
+Any contributions you make will benefit everybody else and are **greatly
+appreciated**.
+
+Please read [our contribution guidelines](docs/CONTRIBUTING.md), and thank you
+for being involved!
+
+## Security
+
+Premail is provided **"as is"** without any **warranty**. Use at your own risk.
+
+_For more information and to report security issues, please refer to our
+[security documentation](docs/SECURITY.md)._
 
 # Thanks and Sponsorships
 
 Work funded in part by [Multi-Etch, LLC](https://www.multietch.com/).
 
 **Consider [sponsoring rootwork](https://github.com/sponsors/rootwork),
-premail's developer, and have your name or logo included here!**
+Premail's developer, and have your name or logo included here!**
 
 Built with original inspiration from
 [dalefish/mjml-boilerplate-win](https://github.com/dalefish/mjml-boilerplate-win).
@@ -474,4 +541,6 @@ email-HTML darkness.
 
 # License
 
-GPLv3. See [LICENSE](LICENSE).
+This project is licensed under the **GNU General Public License v3**.
+
+See [LICENSE](LICENSE) for more information.
