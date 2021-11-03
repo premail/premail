@@ -27,8 +27,8 @@
 [![Code format: Prettier](https://img.shields.io/badge/code_format-prettier-blue.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![Coded with love by premail](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-premail-ff1414.svg?style=flat-square)](https://github.com/premail)
 
-Premail is an easy-to-use build system for MJML, the email templating language,
-based on Gulp and Handlebars.
+**Premail is an easy-to-use build system for MJML, the email templating
+language, based on Gulp and Handlebars.**
 
 </div>
 
@@ -483,7 +483,7 @@ Additional documentation: https://premail.dev
 # Roadmap
 
 See the [open issues](https://github.com/premail/premail/issues) for a list of
-proposed features (and known issues).
+proposed features and known issues.
 
 - [Top Feature Requests](https://github.com/premail/premail/issues?q=label%3Aenhancement+is%3Aopen+sort%3Areactions-%2B1-desc)
   (Add your votes using the 👍 reaction)
@@ -500,17 +500,16 @@ Reach out to the maintainer at one of the following places:
 
 # Project assistance
 
-If you want to say **thank you** or/and support active development of Premail:
+If you want to say **thank you** and/or support active development of Premail:
 
 - Add a [GitHub Star](https://github.com/premail/premail) to the project.
-- Tweet about the Premail (@premaildev on Twitter).
+- Tweet about the Premail ([@premaildev](https://twitter.com/premaildev) on
+  Twitter).
 - Consider [sponsoring rootwork](https://github.com/sponsors/rootwork),
-  Premail's developer, and have [your name or logo included
-  here]((#thanks-and-sponsorships)!
-- Write interesting articles about the project on [Dev.to](https://dev.to/),
-  [Medium](https://medium.com/) or your personal blog.
-
-Together, we can make Premail **better**!
+  Premail's developer, and have
+  [your name or logo included here](#thanks-and-sponsorships)!
+- Blog about the project. We love reviews, and are eager to hear ways we could
+  make things even better.
 
 ## Contributing
 
@@ -524,7 +523,8 @@ for being involved!
 
 ## Security
 
-Premail is provided **"as is"** without any **warranty**. Use at your own risk.
+Legalese: Premail is provided **"as is"** without any warranty. Use at your own
+risk.
 
 _For more information and to report security issues, please refer to our
 [security documentation](docs/SECURITY.md)._
