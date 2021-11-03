@@ -1,4 +1,4 @@
-# Premail
+# ![Premail](images/logo.svg)
 
 ![Checks](https://img.shields.io/github/checks-status/premail/premail/main.svg?style=flat-square)
 [![Node ^12.22.1](https://img.shields.io/badge/node-%5E12.22.1-brightgreen.svg?style=flat-square)](https://nodejs.org/en/download/)
@@ -32,7 +32,6 @@ version, ready to import into your emailer of choice.
 <!-- prettier-ignore-start -->
 
 <!--ts-->
-* [Premail](#premail)
 * [Overview](#overview)
 * [Features](#features)
 * [Setup](#setup)
@@ -55,7 +54,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Fri Oct 29 02:42:43 UTC 2021 -->
+<!-- Added by: runner, at: Wed Nov  3 23:27:21 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
