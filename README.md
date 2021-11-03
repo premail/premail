@@ -1,4 +1,4 @@
-# Premail
+# ![Premail](images/logo.svg)
 
 ![Checks](https://img.shields.io/github/checks-status/premail/premail/main.svg?style=flat-square)
 [![Node ^12.22.1](https://img.shields.io/badge/node-%5E12.22.1-brightgreen.svg?style=flat-square)](https://nodejs.org/en/download/)
