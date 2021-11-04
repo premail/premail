@@ -1,10 +1,10 @@
 ---
 - name: 'beginner-friendly'
-  color: 629829
+  color: 2da44e
   description:
     'Good first issue for people wanting to contribute to this project.'
 - name: 'help-wanted'
-  color: 629829
+  color: 2da44e
   description:
     'We need some extra helping hands or expertise in order to resolve this!'
 
@@ -35,10 +35,10 @@
     introducing new features.'
 
 - name: 'dependencies'
-  color: 777777
+  color: 555555
   description: 'Change in project dependencies.'
 - name: 'maintenance'
-  color: 777777
+  color: 555555
   description: 'Generic maintenance tasks.'
 
 - name: 'documentation'
