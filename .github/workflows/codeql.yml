@@ -3,6 +3,8 @@ name: CodeQL
 
 on:
   push:
+    branches:
+      - '**'
   pull_request:
   schedule:
     - cron: '30 1 * * 0'
