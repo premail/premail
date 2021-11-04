@@ -71,7 +71,7 @@ use a version newer than 12.x you will be unable to use the `watch` functions.
 
 ## Project structure walk-through
 
-- [`index.js`](./index.js) uses [yargs](https://yargs.js.org) to pass tasks and
+- [`index.js`](/index.js) uses [yargs](https://yargs.js.org) to pass tasks and
   other functions to the `premail` command.
 - [`gulpfile.js`](./gulpfile.js) defines tasks for [gulp](https://gulpjs.com/).
   Some functions run outside of gulp.
