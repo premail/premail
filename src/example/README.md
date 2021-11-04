@@ -51,12 +51,15 @@ One `index.html` file will be rendered, as well as (optionally) a plain-text
 version, ready to import into your emailer of choice.
 [See an example of the default layout.](https://github.com/premail/premail/blob/v2.0.0/src/example/designs/_default/dist/index.html)
 
+<h2>Table of contents</h2>
+
 <!-- The following section, from "ts" to "te", is an automatically-generated
   table of contents, updated whenever this file changes. Do not edit within
   this section. -->
 <!-- prettier-ignore-start -->
 
 <!--ts-->
+   * [Table of contents](#table-of-contents)
 * [Overview](#overview)
 * [Features](#features)
 * [Setup](#setup)
@@ -83,7 +86,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Thu Nov  4 00:00:36 UTC 2021 -->
+<!-- Added by: runner, at: Thu Nov  4 00:01:53 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->

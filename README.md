@@ -59,6 +59,7 @@ version, ready to import into your emailer of choice.
 <!-- prettier-ignore-start -->
 
 <!--ts-->
+   * [Table of contents](#table-of-contents)
 * [Overview](#overview)
 * [Features](#features)
 * [Setup](#setup)
@@ -85,7 +86,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Thu Nov  4 00:00:36 UTC 2021 -->
+<!-- Added by: runner, at: Thu Nov  4 00:01:53 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
