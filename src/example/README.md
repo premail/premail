@@ -12,9 +12,9 @@
   <br />
   <a href="https://github.com/premail/premail/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
   &bullet;
-  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=enhancement&template=02_FEATURE_REQUEST.md&title=feat%3A+">Request a Feature</a>
+  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=new-feature&template=02_FEATURE_REQUEST.md&title=feat%3A+">Request a Feature</a>
   &bullet;
-  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=question&template=04_SUPPORT_QUESTION.md&title=support%3A+">Ask a Question</a>
+  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=support-question&template=04_SUPPORT_QUESTION.md&title=support%3A+">Ask a Question</a>
 </div>
 
 <div align="center">
@@ -85,7 +85,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Thu Nov  4 01:54:44 UTC 2021 -->
+<!-- Added by: runner, at: Thu Nov  4 01:59:59 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -493,7 +493,7 @@ proposed features and known issues, and
 [projects](https://github.com/premail/premail/projects?query=is%3Aopen+sort%3Aupdated-desc)
 to see them grouped by major release.
 
-- [Top Feature Requests](https://github.com/premail/premail/issues?q=label%3Aenhancement+is%3Aopen+sort%3Areactions-%2B1-desc)
+- [Top Feature Requests](https://github.com/premail/premail/issues?q=label%3Anew-feature+is%3Aopen+sort%3Areactions-%2B1-desc)
   (Add your votes using the 👍 reaction)
 - [Top Bugs](https://github.com/premail/premail/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Areactions-%2B1-desc)
   (Add your votes using the 👍 reaction)
