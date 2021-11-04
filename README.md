@@ -6,10 +6,10 @@
 
 <div align="center">
   <strong>Premail is an easy-to-use build system for MJML, the email templating
-  language, based on Gulp and Handlebars.</strong>
+  language, based on Gulp and Handlebars.</strong><br />
   <!-- <a href="#about"><strong>Explore the screenshots »</strong></a>
-  <br />
   <br /> -->
+  <br />
   <a href="https://github.com/premail/premail/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
   &bullet;
   <a href="https://github.com/premail/premail/issues/new?assignees=&labels=enhancement&template=02_FEATURE_REQUEST.md&title=feat%3A+">Request a Feature</a>
