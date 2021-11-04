@@ -1,86 +1,86 @@
 ---
-- name: 'breaking-change'
-  color: ee0701
-  description:
-    'A change that changes the API or breaks backward compatibility for users.'
-- name: 'bugfix'
-  color: ee0701
-  description:
-    'Inconsistencies or issues which will cause a problem for users or
-    implementors.'
-- name: 'documentation'
-  color: 0052cc
-  description: 'Solely about the documentation of the project.'
-- name: 'refactor'
-  color: 1d76db
-  description:
-    'Updating code to be simpler, easier to understand or more efficient; not
-    introducing new features.'
-- name: 'performance'
-  color: 1d76db
-  description:
-    'Improving performance of the project, not introducing new features.'
-- name: 'new-feature'
-  color: 0e8a16
-  description: 'New features or options.'
-- name: 'maintenance'
-  color: 2af79e
-  description: 'Generic maintenance tasks.'
-- name: 'ci'
-  color: 1d76db
-  description: 'Work that improves the continuous integration.'
-- name: 'dependencies'
-  color: 1d76db
-  description: 'Change in project dependencies.'
-
-- name: 'in-progress'
-  color: fbca04
-  description: 'Issue is currently being worked on by a developer.'
-- name: 'stale'
-  color: fef2c0
-  description: 'No activity for quite some time.'
-- name: 'no-stale'
-  color: fef2c0
-  description: 'This is exempt from the stale bot.'
-
-- name: 'security'
-  color: ee0701
-  description: 'Addressing a vulnerability or security risk in this project.'
-- name: 'incomplete'
-  color: fef2c0
-  description: 'Missing information.'
-- name: 'invalid'
-  color: fef2c0
-  description:
-    "This is off-topic, spam, or otherwise doesn't apply to this project."
-
 - name: 'beginner-friendly'
-  color: 0e8a16
+  color: 629829
   description:
     'Good first issue for people wanting to contribute to this project.'
 - name: 'help-wanted'
-  color: 0e8a16
+  color: 629829
   description:
     'We need some extra helping hands or expertise in order to resolve this!'
 
+- name: 'bug'
+  color: b82c17
+  description:
+    'Inconsistencies or issues which will cause a problem for users or
+    implementors.'
+- name: 'security'
+  color: b80083
+  description: 'Addressing a vulnerability or security risk in this project.'
+
+- name: 'new-feature'
+  color: 7f00ff
+  description: 'New features or options.'
+
+- name: 'developer'
+  color: efc33e
+  description: 'Work that improves the developer experience.'
+- name: 'performance'
+  color: efc33e
+  description:
+    'Improving performance of the project, not introducing new features.'
+- name: 'refactor'
+  color: efc33e
+  description:
+    'Updating code to be simpler, easier to understand or more efficient; not
+    introducing new features.'
+
+- name: 'dependencies'
+  color: 777777
+  description: 'Change in project dependencies.'
+- name: 'maintenance'
+  color: 777777
+  description: 'Generic maintenance tasks.'
+
+- name: 'documentation'
+  color: 0000ff
+  description: 'Solely about the documentation of the project.'
+
+- name: 'stale'
+  color: cdcdcd
+  description: 'No activity for quite some time.'
+- name: 'no-stale'
+  color: cdcdcd
+  description: 'This is exempt from the stale bot.'
+- name: 'incomplete'
+  color: cdcdcd
+  description: 'Missing information.'
+- name: 'invalid'
+  color: cdcdcd
+  description:
+    "Won't fix: This is off-topic, spam, or otherwise doesn't apply to this
+    project."
+
 - name: 'priority-critical'
-  color: ee0701
+  color: b80083
   description: 'Must be addressed as soon as possible.'
 - name: 'priority-high'
-  color: b60205
+  color: ff0000
   description:
     'After critical issues are fixed, these should be dealt with before any
     further issues.'
 - name: 'priority-medium'
-  color: 0e8a16
+  color: ff8000
   description: 'This issue may be useful, and needs some attention.'
 - name: 'priority-low'
-  color: e4ea8a
+  color: f2f0d8
   description: 'Nice addition, maybe... someday...'
+- name: 'postponed'
+  color: 00cccc
+  description: 'Planning to address, but blocked by another issue or project.'
 
-- name: 'major'
-  color: b60205
-  description: 'This PR causes a major bump in the version number.'
-- name: 'minor'
-  color: 0e8a16
-  description: 'This PR causes a minor bump in the version number.'
+- name: 'version-major'
+  color: 000000
+  description: 'This will cause a major bump in the version number.'
+- name: 'version-minor'
+  color: 000000
+  description: 'This will cause a minor bump in the version number.'
