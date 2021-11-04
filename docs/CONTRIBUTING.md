@@ -75,7 +75,8 @@ use a version newer than 12.x you will be unable to use the `watch` functions.
   other functions to the `premail` command.
 - [`gulpfile.js`](/gulpfile.js) defines tasks for [gulp](https://gulpjs.com/).
   Some functions run outside of gulp.
-- [`.mjmlconfig`](/.mjmlconfig) defines the custom MJML components we use.
+- [`.mjmlconfig`](/.mjmlconfig) defines the custom
+  [MJML components](https://github.com/premail/mjml-custom-component) we use.
 - Other root-level dot-files should be self-explanatory.
 - [`src`](/src) contains the program itself.
   - [`config`](/src/config) functions load and process configuration from
