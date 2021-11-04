@@ -73,26 +73,26 @@ use a version newer than 12.x you will be unable to use the `watch` functions.
 
 - [`index.js`](/index.js) uses [yargs](https://yargs.js.org) to pass tasks and
   other functions to the `premail` command.
-- [`gulpfile.js`](./gulpfile.js) defines tasks for [gulp](https://gulpjs.com/).
+- [`gulpfile.js`](/gulpfile.js) defines tasks for [gulp](https://gulpjs.com/).
   Some functions run outside of gulp.
-- [`.mjmlconfig`](./.mjmlconfig) defines the custom MJML components we use.
+- [`.mjmlconfig`](/.mjmlconfig) defines the custom MJML components we use.
 - Other root-level dot-files should be self-explanatory.
-- [`src`](./src) contains the program itself.
-  - [`config`](./src/config) functions load and process configuration from
+- [`src`](/src) contains the program itself.
+  - [`config`](/src/config) functions load and process configuration from
     command-line, internal, and user-facing file sources.
-  - [`example`](./src/example) contains the scaffolding of a Premail project
-    that is created with `premail init`. For more information about how this
+  - [`example`](/src/example) contains the scaffolding of a Premail project that
+    is created with `premail init`. For more information about how this
     structure operates, see Premail's end-user
-    [usage documentation](./README.md#usage).
-  - [`helpers`](./src/helpers) are small utility functions, usually from other
+    [usage documentation](/README.md#usage).
+  - [`helpers`](/src/helpers) are small utility functions, usually from other
     sources.
-  - [`ops`](./src/ops) are a kind of catch-all internal function category: error
+  - [`ops`](/src/ops) are a kind of catch-all internal function category: error
     handling, command-line flags, console notification and variable validation.
-  - [`settings`](./src/settings) are internal default settings for Premail,
+  - [`settings`](/src/settings) are internal default settings for Premail,
     stored in YAML format.
-  - [`tasks`](./src/tasks) correspond to `premail` commands. Some of these are
+  - [`tasks`](/src/tasks) correspond to `premail` commands. Some of these are
     gulp tasks, and some are pure Node functions.
-- [`README.md`](./README.md) and [docs](./docs) contain project documentation.
+- [`README.md`](/README.md) and [docs](/docs) contain project documentation.
 
 ## Code style and syntax
 
@@ -118,9 +118,9 @@ should clean up and format various language files appropriately:
   [node-sass-json-importer](https://github.com/pmowrer/node-sass-json-importer)
   (which does, in fact, work with Dart Sass) to import variables from
   configuration files into the Sass files. See
-  [`src/config/sassImport.js`](./src/config/sassImport.js) and the `sass()`
-  function in [`src/tasks/build.js`](./src/tasks/build.js) for the
+  [`src/config/sassImport.js`](/src/config/sassImport.js) and the `sass()`
+  function in [`src/tasks/build.js`](/src/tasks/build.js) for the
   implementation.
 - YAML and Markdown files are wrapped when possible at 80 characters. This is
   enforced with Prettier.
-- Indents are 2 spaces, enforced with [`.editorconfig`](./.editorconfig).
+- Indents are 2 spaces, enforced with [`.editorconfig`](/.editorconfig).
