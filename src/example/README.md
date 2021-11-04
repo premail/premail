@@ -85,7 +85,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Thu Nov  4 02:37:32 UTC 2021 -->
+<!-- Added by: runner, at: Thu Nov  4 02:41:14 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -539,7 +539,7 @@ _For more information and to report security issues, please refer to our
 
 # Thanks and Sponsorships
 
-<a href="https://www.multietch.com/"><img src="docs/images/sponsors/multietch.jpg" alt="Multi-Etch" width="50" height="50" align="left"></a>Work
+<a href="https://www.multietch.com/"><img src="docs/images/sponsors/multietch.jpg" alt="Multi-Etch" width="75" height="75" align="left"></a>Work
 funded in part by <a href="https://www.multietch.com/">Multi-Etch,
 LLC</a>.<br />
 
