@@ -90,6 +90,8 @@ version, ready to import into your emailer of choice.
 <!--te-->
 <!-- prettier-ignore-end -->
 
+---
+
 # Overview
 
 If you're here, you are probably already familiar with MJML, but if not you
