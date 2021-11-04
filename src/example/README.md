@@ -85,7 +85,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Thu Nov  4 02:03:27 UTC 2021 -->
+<!-- Added by: runner, at: Thu Nov  4 02:33:45 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -511,7 +511,7 @@ Reach out to the maintainer at one of the following places:
 If you want to say **thank you** and/or support active development of Premail:
 
 - 🌟 Add a [GitHub Star](https://github.com/premail/premail) to the project.
-- Tweet about the Premail ([@premaildev](https://twitter.com/premaildev) on
+- Tweet about Premail ([@premaildev](https://twitter.com/premaildev) on
   Twitter).
 - Consider [sponsoring rootwork](https://github.com/sponsors/rootwork),
   Premail's developer, and have
@@ -539,10 +539,16 @@ _For more information and to report security issues, please refer to our
 
 # Thanks and Sponsorships
 
-Work funded in part by [Multi-Etch, LLC](https://www.multietch.com/).
+<img src="docs/images/sponsors/multietch.jpg" alt="Multi-Etch" width="75" height="75" align="left">Work
+funded in part by [Multi-Etch, LLC](https://www.multietch.com/).
 
 **Consider [sponsoring rootwork](https://github.com/sponsors/rootwork),
 Premail's developer, and have your name or logo included here!**
+
+<!-- The following section is automatically-generated. Do not edit. -->
+<!-- prettier-ignore-start -->
+<!-- sponsors --><!-- sponsors -->
+<!-- prettier-ignore-end -->
 
 Built with original inspiration from
 [dalefish/mjml-boilerplate-win](https://github.com/dalefish/mjml-boilerplate-win).
