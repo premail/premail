@@ -85,7 +85,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Thu Nov  4 00:03:54 UTC 2021 -->
+<!-- Added by: runner, at: Thu Nov  4 01:54:44 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -489,7 +489,9 @@ Additional documentation: https://premail.dev
 # Roadmap
 
 See the [open issues](https://github.com/premail/premail/issues) for a list of
-proposed features and known issues.
+proposed features and known issues, and
+[projects](https://github.com/premail/premail/projects?query=is%3Aopen+sort%3Aupdated-desc)
+to see them grouped by major release.
 
 - [Top Feature Requests](https://github.com/premail/premail/issues?q=label%3Aenhancement+is%3Aopen+sort%3Areactions-%2B1-desc)
   (Add your votes using the 👍 reaction)
