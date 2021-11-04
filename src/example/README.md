@@ -5,6 +5,8 @@
 </h1>
 
 <div align="center">
+  <strong>Premail is an easy-to-use build system for MJML, the email templating
+  language, based on Gulp and Handlebars.</strong>
   <!-- <a href="#about"><strong>Explore the screenshots »</strong></a>
   <br />
   <br /> -->
@@ -29,9 +31,6 @@
 
 [![Twitter: @premaildev](https://img.shields.io/badge/Twitter-%40premaildev-%231da1f2?style=flat-square)](https://twitter.com/premaildev)
 [![Coded with love by premail](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-premail-ff1414.svg?style=flat-square)](https://github.com/premail)
-
-**Premail is an easy-to-use build system for MJML, the email templating
-language, based on Gulp and Handlebars.**
 
 </div>
 
@@ -84,7 +83,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Wed Nov  3 23:58:23 UTC 2021 -->
+<!-- Added by: runner, at: Thu Nov  4 00:00:05 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
