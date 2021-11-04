@@ -1,4 +1,4 @@
-# Contributing
+# Contributing to Premail
 
 **Thank you** for taking the time to contribute!
 

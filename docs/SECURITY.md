@@ -1,4 +1,4 @@
-# Security Policy
+# Premail Security Policy
 
 ## Reporting a Vulnerability
 
