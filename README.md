@@ -493,11 +493,11 @@ proposed features and known issues, and
 [projects](https://github.com/premail/premail/projects?query=is%3Aopen+sort%3Aupdated-desc)
 to see them grouped by major release.
 
-- [Top Feature Requests](https://github.com/premail/premail/issues?q=label%3Anew-feature+is%3Aopen+sort%3Areactions-%2B1-desc)
+- [Top feature requests](https://github.com/premail/premail/issues?q=label%3Anew-feature+is%3Aopen+sort%3Areactions-%2B1-desc)
   (Add your votes using the 👍 reaction)
-- [Top Bugs](https://github.com/premail/premail/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Areactions-%2B1-desc)
+- [Top bugs](https://github.com/premail/premail/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Areactions-%2B1-desc)
   (Add your votes using the 👍 reaction)
-- [Newest Bugs](https://github.com/premail/premail/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
+- [Newest bugs](https://github.com/premail/premail/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
 
 # Support
 
