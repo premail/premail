@@ -14,8 +14,8 @@
 - name: 'refactor'
   color: 1d76db
   description:
-    'Updating the code with simpler, easier to understand or more efficient
-    syntax or methods, but not introducing new features.'
+    'Updating code to be simpler, easier to understand or more efficient; not
+    introducing new features.'
 - name: 'performance'
   color: 1d76db
   description:
