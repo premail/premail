@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://github.com/premail/premail">
-    <img src="docs/images/logo.svg" alt="Premail" width="235" height="100">
+    <img src="docs/images/logo.svg" alt="Premail" width="500" height="250">
   </a>
 </h1>
 
