@@ -7,6 +7,10 @@
   color: 2da44e
   description:
     'We need some extra helping hands or expertise in order to resolve this!'
+- name: 'support-question'
+  color: 80ff00
+  description:
+    'Requests for help on how to use the project, or general questions.'
 
 - name: 'bug'
   color: b82c17
