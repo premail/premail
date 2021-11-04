@@ -85,7 +85,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Thu Nov  4 02:35:12 UTC 2021 -->
+<!-- Added by: runner, at: Thu Nov  4 02:37:32 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -539,8 +539,9 @@ _For more information and to report security issues, please refer to our
 
 # Thanks and Sponsorships
 
-<img src="docs/images/sponsors/multietch.jpg" alt="Multi-Etch" width="75" height="75" align="left">Work
-funded in part by [Multi-Etch, LLC](https://www.multietch.com/).
+<a href="https://www.multietch.com/"><img src="docs/images/sponsors/multietch.jpg" alt="Multi-Etch" width="50" height="50" align="left"></a>Work
+funded in part by <a href="https://www.multietch.com/">Multi-Etch,
+LLC</a>.<br />
 
 **Consider [sponsoring rootwork](https://github.com/sponsors/rootwork),
 Premail's developer, and have your name or logo included here!**
