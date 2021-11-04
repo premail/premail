@@ -510,7 +510,7 @@ Reach out to the maintainer at one of the following places:
 
 If you want to say **thank you** and/or support active development of Premail:
 
-- Add a [GitHub Star](https://github.com/premail/premail) to the project.
+- 🌟 Add a [GitHub Star](https://github.com/premail/premail) to the project.
 - Tweet about the Premail ([@premaildev](https://twitter.com/premaildev) on
   Twitter).
 - Consider [sponsoring rootwork](https://github.com/sponsors/rootwork),
