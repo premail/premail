@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://github.com/premail/premail">
-    <img src="docs/images/logo.svg" alt="Premail" width="235" height="100">
+    <img src="docs/images/logo.svg" alt="Premail" width="500" height="250">
   </a>
 </h1>
 
@@ -85,7 +85,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Thu Nov  4 02:33:45 UTC 2021 -->
+<!-- Added by: runner, at: Thu Nov  4 02:35:12 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
