@@ -30,6 +30,13 @@ Desktop.ini
 .AppleDB
 .apdisk
 
+# Production files
+build/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
 # Dependency subdirectories
 node_modules/
 jspm_packages/
@@ -37,6 +44,7 @@ bower_components/
 
 # Caches
 .cache
+.cache-loader
 ._*
 Thumbs.db
 ehthumbs.db
@@ -67,6 +75,9 @@ Package Control.ca-list
 Package Control.ca-bundle
 
 # COMPONENT-SPECIFIC
+
+# Docusaurus
+.docusaurus
 
 # Optional REPL history
 .node_repl_history
