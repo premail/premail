@@ -20,7 +20,7 @@
 <div align="center">
 <br />
 
-[![License: GPL-3.0](https://img.shields.io/github/license/premail/premail?color=blue&style=flat-square)](LICENSE)
+[![License: AGPL-3.0](https://img.shields.io/github/license/premail/premail?color=blue&style=flat-square)](LICENSE)
 [![Pull Requests welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/premail/premail/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
 
 ![Checks](https://img.shields.io/github/checks-status/premail/premail/main.svg?style=flat-square)
