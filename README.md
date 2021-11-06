@@ -162,6 +162,10 @@ for a step-by-step walkthrough.
 
 # Project information
 
+## Documentation
+
+Detailed documentation and guides are available at **<https://premail.dev>**.
+
 ## Roadmap
 
 See the [open issues](https://github.com/premail/premail/issues) for a list of
