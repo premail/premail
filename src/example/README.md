@@ -5,8 +5,7 @@
 </h1>
 
 <div align="center">
-  <strong>Premail is an easy-to-use build system for MJML, the email templating
-  language, based on Gulp and Handlebars.</strong><br />
+  <strong>Premail is an easy-to-use component-based build system for MJML, the email templating language, with Handlebars templating, Sass styles, and extra options.</strong><br />
   <!-- <a href="#about"><strong>Explore the screenshots »</strong></a>
   <br /> -->
   <br />
@@ -51,7 +50,7 @@ One `index.html` file will be rendered, as well as (optionally) a plain-text
 version, ready to import into your emailer of choice.
 
 Read more at
-**[a quick introduction to Premail](https://premail.dev/docs/introduction-to-premail/)**
+**[a quick introduction to Premail](https://premail.dev/docs/introduction-to-premail/)**.
 
 ---
 
@@ -73,7 +72,7 @@ Read more at
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Sat Nov  6 02:54:50 UTC 2021 -->
+<!-- Added by: runner, at: Sat Nov  6 03:01:04 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -177,7 +176,8 @@ to see them grouped by major release.
 
 # Support
 
-**[Ask a support question](https://github.com/premail/premail/issues/new?assignees=&labels=support-question&template=04_SUPPORT_QUESTION.md&title=support%3A+)** on GitHub if you're stuck.
+**[Ask a support question](https://github.com/premail/premail/issues/new?assignees=&labels=support-question&template=04_SUPPORT_QUESTION.md&title=support%3A+)**
+on GitHub if you're stuck.
 
 # Project assistance
 
@@ -187,8 +187,7 @@ If you want to say **thank you** and/or support active development of Premail:
 - Tweet about Premail ([@premaildev](https://twitter.com/premaildev) on
   Twitter).
 - Consider [sponsoring rootwork](https://github.com/sponsors/rootwork),
-  Premail's developer, and have
-  [your name or logo included here](/sponsors/)!
+  Premail's developer, and have [your name or logo included here](/sponsors/)!
 - Blog about the project. We love reviews, and are eager to hear ways we could
   make things even better.
 
@@ -199,8 +198,8 @@ the open-source community such an amazing place to learn, inspire, and create.
 Any contributions you make will benefit everybody else and are **greatly
 appreciated**.
 
-Please read [our contribution guidelines](https://premail.dev/contributing/), and thank you
-for being involved!
+Please read [our contribution guidelines](https://premail.dev/contributing/),
+and thank you for being involved!
 
 ## Security
 
