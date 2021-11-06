@@ -63,18 +63,18 @@ Read more at
 
 <!--ts-->
 * [Features](#features)
-* [Setup](#setup)
-* [Usage](#usage)
-* [Custom MJML components](#custom-mjml-components)
-* [Roadmap](#roadmap)
-* [Support](#support)
-* [Project assistance](#project-assistance)
+   * [Custom MJML components](#custom-mjml-components)
+* [Setup and usage](#setup-and-usage)
+* [Project information](#project-information)
+   * [Roadmap](#roadmap)
+   * [Getting support](#getting-support)
+   * [Helping out](#helping-out)
    * [Contributing](#contributing)
    * [Security](#security)
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Sat Nov  6 03:02:53 UTC 2021 -->
+<!-- Added by: runner, at: Sat Nov  6 03:05:03 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
