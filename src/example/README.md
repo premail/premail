@@ -74,7 +74,7 @@ Read more at
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Sat Nov  6 03:05:03 UTC 2021 -->
+<!-- Added by: runner, at: Sat Nov  6 03:06:30 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -152,10 +152,9 @@ for common use cases:
 
 `npm install -g premail`
 
-That's it!
-
-See [setting up Premail](https://premail.dev/docs/overview/setting-up-premail/)
-for additional details.
+That's it! See
+[setting up Premail](https://premail.dev/docs/overview/setting-up-premail/) for
+additional details.
 
 Run `premail -h` to see all of the available options, then head over to the
 [Premail Usage Guide](https://premail.dev/docs/overview/usage/create-new-premail-project/)
@@ -183,13 +182,14 @@ on GitHub if you're stuck.
 
 ## Helping out
 
-If you want to say **thank you** and/or support active development of Premail:
+If you want to say **thank you** and support active development of Premail:
 
 - 🌟 Add a [GitHub Star](https://github.com/premail/premail) to the project.
 - Tweet about Premail ([@premaildev](https://twitter.com/premaildev) on
   Twitter).
 - Consider [sponsoring rootwork](https://github.com/sponsors/rootwork),
-  Premail's developer, and have [your name or logo included here](/sponsors/)!
+  Premail's developer, and have
+  [your name or logo included here](https://premail.dev/sponsors/)!
 - Blog about the project. We love reviews, and are eager to hear ways we could
   make things even better.
 
