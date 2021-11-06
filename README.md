@@ -61,21 +61,8 @@ version, ready to import into your emailer of choice.
 * [Overview](#overview)
 * [Features](#features)
 * [Setup](#setup)
-   * [Requirements](#requirements)
-   * [Installation](#installation)
 * [Usage](#usage)
-   * [Setting options](#setting-options)
-   * [Exploring a design](#exploring-a-design)
-      * [Markup](#markup)
-      * [Theme](#theme)
-      * [Creating a new design](#creating-a-new-design)
-   * [Creating a new email from an existing design](#creating-a-new-email-from-an-existing-design)
-   * [Rendering the email for production](#rendering-the-email-for-production)
 * [Custom MJML components](#custom-mjml-components)
-   * [MJML Bullet List](#mjml-bullet-list)
-   * [MJML Signoff](#mjml-signoff)
-   * [Automatic code formatting and linting](#automatic-code-formatting-and-linting)
-* [Full list of options](#full-list-of-options)
 * [Roadmap](#roadmap)
 * [Support](#support)
 * [Project assistance](#project-assistance)
@@ -84,7 +71,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Sat Nov  6 01:32:42 UTC 2021 -->
+<!-- Added by: runner, at: Sat Nov  6 02:53:43 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
