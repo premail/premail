@@ -66,6 +66,7 @@ Read more at
    * [Custom MJML components](#custom-mjml-components)
 * [Setup and usage](#setup-and-usage)
 * [Project information](#project-information)
+   * [Documentation](#documentation)
    * [Roadmap](#roadmap)
    * [Getting support](#getting-support)
    * [Helping out](#helping-out)
@@ -74,7 +75,7 @@ Read more at
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Sat Nov  6 03:06:30 UTC 2021 -->
+<!-- Added by: runner, at: Sat Nov  6 03:08:32 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
