@@ -139,31 +139,31 @@ controlled per-email:
 Feel free to
 [make suggestions for more enhancements!](https://github.com/premail/premail/issues/new?assignees=&labels=new-feature&template=02_FEATURE_REQUEST.md&title=feat%3A+)
 
-# Setup
+## Custom MJML components
 
-`npm install -g premail`
-
-That's it!
-
-See [setting up Premail](https://premail.dev/docs/overview/setting-up-premail/)
-for the details.
-
-# Usage
-
-Run `premail -h` to see all of the available options, then head over to the
-[Premail Usage Guide](https://premail.dev/docs/overview/usage/create-new-premail-project/)
-for a step-by-step walkthrough.
-
-# Custom MJML components
-
-Premail includes some
+Premail also includes some
 [MJML custom components](https://documentation.mjml.io/#creating-a-component)
 for common use cases:
 
 - **[MJML Bullet List](https://premail.dev/docs/components/mjml-bullet-list/)**
 - **[MJML Signoff](https://premail.dev/docs/components/mjml-signoff/)**
 
-# Roadmap
+# Setup and usage
+
+`npm install -g premail`
+
+That's it!
+
+See [setting up Premail](https://premail.dev/docs/overview/setting-up-premail/)
+for additional details.
+
+Run `premail -h` to see all of the available options, then head over to the
+[Premail Usage Guide](https://premail.dev/docs/overview/usage/create-new-premail-project/)
+for a step-by-step walkthrough.
+
+# Project information
+
+## Roadmap
 
 See the [open issues](https://github.com/premail/premail/issues) for a list of
 proposed features and known issues, and
@@ -176,12 +176,12 @@ to see them grouped by major release.
   (Add your votes using the 👍 reaction)
 - [Newest bugs](https://github.com/premail/premail/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
 
-# Support
+## Getting support
 
 **[Ask a support question](https://github.com/premail/premail/issues/new?assignees=&labels=support-question&template=04_SUPPORT_QUESTION.md&title=support%3A+)**
 on GitHub if you're stuck.
 
-# Project assistance
+## Helping out
 
 If you want to say **thank you** and/or support active development of Premail:
 
