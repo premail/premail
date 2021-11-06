@@ -20,7 +20,7 @@
 <div align="center">
 <br />
 
-[![License: GPL-3.0](https://img.shields.io/github/license/premail/premail?color=blue&style=flat-square)](LICENSE)
+[![License: AGPL-3.0](https://img.shields.io/github/license/premail/premail?color=blue&style=flat-square)](LICENSE)
 [![Pull Requests welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/premail/premail/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
 
 ![Checks](https://img.shields.io/github/checks-status/premail/premail/main.svg?style=flat-square)
@@ -85,7 +85,7 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Thu Nov  4 02:41:14 UTC 2021 -->
+<!-- Added by: runner, at: Sat Nov  6 01:23:21 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
