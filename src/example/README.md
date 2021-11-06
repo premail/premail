@@ -50,6 +50,9 @@ under [MJML version 4](https://github.com/mjmlio/mjml/releases).
 One `index.html` file will be rendered, as well as (optionally) a plain-text
 version, ready to import into your emailer of choice.
 
+Read more at
+**[a quick introduction to Premail](https://premail.dev/docs/introduction-to-premail/)**
+
 ---
 
 <!-- The following section, from "ts" to "te", is an automatically-generated
@@ -58,7 +61,6 @@ version, ready to import into your emailer of choice.
 <!-- prettier-ignore-start -->
 
 <!--ts-->
-* [Overview](#overview)
 * [Features](#features)
 * [Setup](#setup)
 * [Usage](#usage)
@@ -71,16 +73,12 @@ version, ready to import into your emailer of choice.
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Sat Nov  6 02:53:43 UTC 2021 -->
+<!-- Added by: runner, at: Sat Nov  6 02:54:50 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
 
 ---
-
-# Overview
-
-**[A quick introduction to Premail](https://premail.dev/docs/introduction-to-premail/)**
 
 # Features
 
