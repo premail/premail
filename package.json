@@ -40,7 +40,7 @@
     "sass"
   ],
   "author": "Ivan Boothe <npm@rootwork.org> (https://rootwork.org/)",
-  "license": "GPL-3.0-or-later",
+  "license": "AGPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/premail/premail/issues"
   },
