@@ -1,0 +1,19 @@
+name: Remove unrelated mirrored documentation
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'v2.0.0'
+    paths:
+      - docs/index.js
+      - docs/index.module.css
+
+jobs:
+  dummy:
+    name: Dummy checkout
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repository to the GitHub Actions runner
+      - name: Checkout code
+        uses: actions/checkout@v2
