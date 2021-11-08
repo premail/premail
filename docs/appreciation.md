@@ -38,5 +38,3 @@ email-HTML darkness.
 - [jonathandion/awesome-emails](https://github.com/jonathandion/awesome-emails) for introducing us to MJML in the first place!
 
 **Go give these folks a ★ on GitHub, and consider sponsoring them!**
-
----
