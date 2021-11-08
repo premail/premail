@@ -28,6 +28,7 @@ jobs:
         run: npm ci --ignore-scripts
       - name: Update help output
         run: |
+          npm install premail
           npm run readme
       - name: Generate sponsors
         uses: JamesIves/github-sponsors-readme-action@1.0.5
