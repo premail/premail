@@ -25,6 +25,9 @@ jobs:
           chmod a+x gh-md-toc
           ./gh-md-toc --insert --no-backup README.md
           rm ./gh-md-toc
+      - name: Update help output
+        run: |
+          markdown-exec ./README.md
       - name: Copy the file to the example directory
         run: |
           cp README.md ./src/example/README.md
