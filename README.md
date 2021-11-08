@@ -230,6 +230,9 @@ Premail's developer, and have your name or logo included here!**
 <!-- sponsors --><!-- sponsors -->
 <!-- prettier-ignore-end -->
 
+Premail is built on all sorts of open-source code.
+[Our appreciation to all of these fine projects](docs/appreciation.md)
+
 # License
 
 This project is licensed under the **GNU Affero General Public License v3.0**.

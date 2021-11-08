@@ -1,3 +1,6 @@
 # Premail documentation
 
-All documentation for Premail can be found at <https://premail.dev>
+Documentation for Premail can be found at <https://premail.dev>
+
+Some of the most important documentation is mirrored here in this directory, and
+there's a general overview of Premail in the [project readme](../README.md).
