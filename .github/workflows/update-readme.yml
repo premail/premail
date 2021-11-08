@@ -26,6 +26,8 @@ jobs:
           restore-keys: npm-
       - name: Install Node dependencies
         run: npm ci --ignore-scripts
+      - name: Make local premail executable
+        run: chmod +x ./index.sh
       - name: Update help output
         run: npm run readme
       - name: Generate sponsors

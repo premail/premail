@@ -162,6 +162,7 @@ Head over to the
 for a step-by-step walkthrough, or run `premail -h` to see the full list of
 options:
 
+<!-- The following section is automatically-generated. Do not edit. -->
 <!-- prettier-ignore-start -->
 <!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && ./index.js -h && echo '```\n<'!'-- '-'->') --><!-- -->
 ```
