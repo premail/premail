@@ -13,9 +13,9 @@ jobs:
     name: Delete file
     uses: JesseTG/rm@v1.0.2
     with:
-      path: docs/index.js
+      path: /docs/index.js
   delete_2:
     name: Delete file
     uses: JesseTG/rm@v1.0.2
     with:
-      path: docs/index.module.css
+      path: /docs/index.module.css
