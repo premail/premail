@@ -75,7 +75,7 @@ Read more at
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Sat Nov  6 03:33:55 UTC 2021 -->
+<!-- Added by: runner, at: Mon Nov  8 01:21:04 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -229,6 +229,9 @@ Premail's developer, and have your name or logo included here!**
 <!-- prettier-ignore-start -->
 <!-- sponsors --><!-- sponsors -->
 <!-- prettier-ignore-end -->
+
+Premail is built on all sorts of open-source code.
+[Our appreciation to all of these fine projects](docs/appreciation.md)
 
 # License
 
