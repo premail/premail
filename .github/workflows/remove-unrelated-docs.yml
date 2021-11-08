@@ -3,7 +3,9 @@ name: Remove unrelated mirrored documentation
 
 on:
   push:
-    branches: [main, v2.0.0]
+    branches:
+      - main
+      - v2.0.0
     paths:
       - docs/index.js
       - docs/index.module.css
