@@ -185,6 +185,7 @@ Email project build and watch:
 Design development:
       --temp  Include intermediate rendered template (post-Handlebars, pre-MJML)
               in output                                                [boolean]
+
 More information:
   -h, --help     Show help                                             [boolean]
   -v, --version  Show version number                                   [boolean]

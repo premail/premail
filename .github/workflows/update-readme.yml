@@ -27,7 +27,7 @@ jobs:
       - name: Install Node dependencies
         run: npm ci --ignore-scripts
       - name: Make local premail executable
-        run: chmod +x ./index.sh
+        run: chmod +x index.sh
       - name: Update help output
         run: npm run readme
       - name: Generate sponsors
@@ -42,8 +42,7 @@ jobs:
           ./gh-md-toc --insert --no-backup README.md
           rm ./gh-md-toc
       - name: Copy the file to the example directory
-        run: |
-          cp README.md ./src/example/README.md
+        run: cp README.md ./src/example/README.md
       - name: Autocommit the changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
