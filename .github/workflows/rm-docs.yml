@@ -1,4 +1,4 @@
-name: Remove unrelated mirrored documentation
+name: Remove unrelated mirrored docs
 
 on:
   push:
@@ -11,18 +11,15 @@ on:
 
 jobs:
   checkout:
-    name: Check out repo
+    name: Remove unrelated docs
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-  delete_1:
-    name: Delete file
-    uses: JesseTG/rm@v1.0.2
-    with:
-      path: /docs/index.js
-  delete_2:
-    name: Delete file
-    uses: JesseTG/rm@v1.0.2
-    with:
-      path: /docs/index.module.css
+      - name: Remove files
+        run: |
+          rm docs/index*.*
+      - name: Autocommit the changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Removing unrelated docs
