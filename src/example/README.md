@@ -75,7 +75,7 @@ Read more at
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Mon Nov  8 02:30:54 UTC 2021 -->
+<!-- Added by: runner, at: Mon Nov  8 02:43:25 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -181,6 +181,10 @@ to see them grouped by major release.
 - [Newest bugs](https://github.com/premail/premail/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
 
 ## Getting support
+
+<!-- Note this is replicated at
+     https://premail.dev/docs/support-project-help/
+     so be sure to update it there as well. -->
 
 **[Ask a support question](https://github.com/premail/premail/issues/new?assignees=&labels=support-question&template=04_SUPPORT_QUESTION.md&title=support%3A+)**
 on GitHub if you're stuck.
