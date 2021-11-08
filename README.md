@@ -182,6 +182,10 @@ to see them grouped by major release.
 
 ## Getting support
 
+<!-- Note this is replicated at
+     https://premail.dev/docs/support-project-help/
+     so be sure to update it there as well. -->
+
 **[Ask a support question](https://github.com/premail/premail/issues/new?assignees=&labels=support-question&template=04_SUPPORT_QUESTION.md&title=support%3A+)**
 on GitHub if you're stuck.
 
