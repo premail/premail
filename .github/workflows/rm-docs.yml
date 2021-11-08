@@ -5,9 +5,6 @@ on:
     branches:
       - 'main'
       - 'v2.0.0'
-    paths:
-      - docs/index.js
-      - docs/index.module.css
 
 jobs:
   checkout:
@@ -18,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Remove files
         run: |
-          rm docs/index*.*
+          rm -f docs/index*.* ||:
       - name: Autocommit the changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
