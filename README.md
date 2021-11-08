@@ -163,7 +163,7 @@ for a step-by-step walkthrough, or run `premail -h` to see the full list of
 options:
 
 <!-- prettier-ignore-start -->
-<!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && premail -h && echo '```\n<'!'-- '-'->') --><!-- -->
+<!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && ./index.js -h && echo '```\n<'!'-- '-'->') --><!-- -->
 ```
 Usage: premail <command> [options]
 
