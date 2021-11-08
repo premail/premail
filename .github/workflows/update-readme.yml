@@ -26,6 +26,9 @@ jobs:
           restore-keys: npm-
       - name: Install Node dependencies
         run: npm ci --ignore-scripts
+      - name: Update help output
+        run: |
+          npm run readme
       - name: Generate sponsors
         uses: JamesIves/github-sponsors-readme-action@1.0.5
         with:
@@ -37,9 +40,6 @@ jobs:
           chmod a+x gh-md-toc
           ./gh-md-toc --insert --no-backup README.md
           rm ./gh-md-toc
-      - name: Update help output
-        run: |
-          npm run readme
       - name: Copy the file to the example directory
         run: |
           cp README.md ./src/example/README.md
