@@ -1,5 +1,8 @@
 # Premail Contributor Covenant Code of Conduct
 
+<!-- This document gets mirrored to the Premail repo, so be sure all links are
+     absolute, not relative! -->
+
 ## Our Pledge
 
 In the interest of fostering an open and welcoming environment, we as

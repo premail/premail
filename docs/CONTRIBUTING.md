@@ -1,24 +1,21 @@
 # Contributing to Premail
 
-:::info Thank you for taking the time to contribute
+<!-- This document gets mirrored to the Premail repo, so be sure all links are
+     absolute, not relative! -->
+
+Thank you for taking the time to contribute!
 
 Premail is open-source, and contributions are what make
 the open-source community such an amazing place to learn, inspire, and create.
 Any contributions you make will benefit everybody else and are **greatly
 appreciated**!
 
-:::
-
 When contributing, especially for the first time, consider starting by
 [creating an issue](https://github.com/premail/premail/issues/new) so you can
 get feedback from the maintainers and avoid unncessary work.
 
-:::caution Code of Conduct
-
-Premail has a [code of conduct](/code_of_conduct): Please follow it in all
+**Note:** Premail has a [code of conduct](https://premail.dev/code_of_conduct/). Please follow it in all
 your interactions with the project.
-
-:::
 
 ## Issues and feature requests
 
@@ -53,20 +50,13 @@ Please try to create bug reports that are:
     ```
 
 4. Do your work.
-**[Read the Premail development guide.](/docs/development/setup/)**
+**[Read the Premail development guide.](https://premail.dev/docs/development/setup/)**
 
 5. Commit your changes:
 
     ```sh
     git commit -m 'feat: add amazing_feature'
     ```
-
-:::info Conventional commits
-
-Premail uses [conventional commits](https://www.conventionalcommits.org), so
-please follow the specification in your commit messages.
-
-:::
 
 6. Push to the branch:
 

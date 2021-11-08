@@ -1,5 +1,8 @@
 # Thanks and appreciation
 
+<!-- This document gets mirrored to the Premail repo, so be sure all links are
+     absolute, not relative! -->
+
 🚀 Built with original inspiration from
 [dalefish/mjml-boilerplate-win](https://github.com/dalefish/mjml-boilerplate-win).
 

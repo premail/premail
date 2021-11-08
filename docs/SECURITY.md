@@ -1,11 +1,10 @@
 # Premail Security Policy
 
-:::warning Legalese
+<!-- This document gets mirrored to the Premail repo, so be sure all links are
+     absolute, not relative! -->
 
-Premail is provided **"as is"** without any warranty. Use at your own
-risk.
-
-:::
+**Premail is provided "as is" without any warranty. Use at your own
+risk.**
 
 ## Reporting a Vulnerability
 
