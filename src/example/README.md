@@ -75,7 +75,7 @@ Read more at
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Mon Nov  8 01:21:04 UTC 2021 -->
+<!-- Added by: runner, at: Mon Nov  8 01:24:36 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -205,8 +205,8 @@ the open-source community such an amazing place to learn, inspire, and create.
 Any contributions you make will benefit everybody else and are **greatly
 appreciated**.
 
-Please read [our contribution guidelines](https://premail.dev/contributing/),
-and thank you for being involved!
+Please read [our contribution guidelines](docs/CONTRIBUTING.md), and thank you
+for being involved!
 
 ## Security
 
@@ -214,7 +214,7 @@ Legalese: Premail is provided **"as is"** without any warranty. Use at your own
 risk.
 
 _For more information and to report security issues, please refer to our
-[security documentation](https://premail.dev/security/)._
+[security documentation](docs/SECURITY.md)._
 
 # Thanks and Sponsorships
 
