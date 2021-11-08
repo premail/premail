@@ -10,10 +10,19 @@ on:
       - docs/index.module.css
 
 jobs:
-  dummy:
-    name: Dummy checkout
+  checkout:
+    name: Check out repo
     runs-on: ubuntu-latest
     steps:
-      # Checkout the repository to the GitHub Actions runner
       - name: Checkout code
         uses: actions/checkout@v2
+  delete_1:
+    name: Delete file
+    uses: JesseTG/rm@v1.0.2
+    with:
+      path: /docs/index.js
+  delete_2:
+    name: Delete file
+    uses: JesseTG/rm@v1.0.2
+    with:
+      path: /docs/index.module.css
