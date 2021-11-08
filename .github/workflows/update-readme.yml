@@ -14,6 +14,18 @@ jobs:
     steps:
       - name: Checkout the repo
         uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+      - name: Cache Node dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-
+      - name: Install Node dependencies
+        run: npm ci --ignore-scripts
       - name: Generate sponsors
         uses: JamesIves/github-sponsors-readme-action@1.0.5
         with:
@@ -27,7 +39,7 @@ jobs:
           rm ./gh-md-toc
       - name: Update help output
         run: |
-          markdown-exec ./README.md
+          npm run readme
       - name: Copy the file to the example directory
         run: |
           cp README.md ./src/example/README.md
