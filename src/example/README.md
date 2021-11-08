@@ -75,7 +75,7 @@ Read more at
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Mon Nov  8 02:43:25 UTC 2021 -->
+<!-- Added by: runner, at: Mon Nov  8 22:47:36 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -157,9 +157,44 @@ That's it! See
 [setting up Premail](https://premail.dev/docs/overview/setting-up-premail/) for
 additional details.
 
-Run `premail -h` to see all of the available options, then head over to the
+Head over to the
 [Premail Usage Guide](https://premail.dev/docs/overview/usage/create-new-premail-project/)
-for a step-by-step walkthrough.
+for a step-by-step walkthrough, or run `premail -h` to see the full list of
+options:
+
+<!-- The following section is automatically-generated. Do not edit. -->
+<!-- prettier-ignore-start -->
+<!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && ./index.js -h && echo '```\n<'!'-- '-'->') --><!-- -->
+```
+Usage: index.js <command> [options]
+
+Commands:
+  index.js build    Build your email                                   [default]
+  index.js watch    Watch design and configuration files and rebuild as
+                    necessary
+  index.js format   Format templates with Prettier
+  index.js clean    Remove generated files from the current design or email
+  index.js init     Initialize an email project
+  index.js destroy  Destroy an email project
+
+Email project build and watch:
+  -d, --design  Specify design directory to use   [string] [default: "_default"]
+  -e, --email   Specify email directory to render                       [string]
+  -p, --prod    Render production files (minified, no comments)        [boolean]
+      --debug   Append to any command to see verbose details           [boolean]
+
+Design development:
+      --temp  Include intermediate rendered template (post-Handlebars, pre-MJML)
+              in output                                                [boolean]
+
+More information:
+  -h, --help     Show help                                             [boolean]
+  -v, --version  Show version number                                   [boolean]
+
+Additional documentation: https://premail.dev
+```
+<!-- --><!-- /markdown-exec -->
+<!-- prettier-ignore-end -->
 
 # Project information
 
