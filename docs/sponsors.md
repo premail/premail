@@ -9,5 +9,5 @@
 
 ## Add your name here!
 
-Consider [sponsoring rootwork](https://github.com/sponsors/rootwork),
-Premail's developer, and have your name or logo included here!
+Consider [sponsoring rootwork](https://github.com/sponsors/rootwork), Premail's
+developer, and have your name or logo included here!

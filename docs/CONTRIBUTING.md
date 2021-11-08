@@ -5,17 +5,16 @@
 
 Thank you for taking the time to contribute!
 
-Premail is open-source, and contributions are what make
-the open-source community such an amazing place to learn, inspire, and create.
-Any contributions you make will benefit everybody else and are **greatly
-appreciated**!
+Premail is open-source, and contributions are what make the open-source
+community such an amazing place to learn, inspire, and create. Any contributions
+you make will benefit everybody else and are **greatly appreciated**!
 
 When contributing, especially for the first time, consider starting by
 [creating an issue](https://github.com/premail/premail/issues/new) so you can
 get feedback from the maintainers and avoid unncessary work.
 
-**Note:** Premail has a [code of conduct](https://premail.dev/code_of_conduct/). Please follow it in all
-your interactions with the project.
+**Note:** Premail has a [code of conduct](https://premail.dev/code_of_conduct/).
+Please follow it in all your interactions with the project.
 
 ## Issues and feature requests
 
@@ -45,26 +44,26 @@ Please try to create bug reports that are:
 
 3. Create your feature branch:
 
-    ```sh
-    git checkout -b feat/amazing_feature
-    ```
+   ```sh
+   git checkout -b feat/amazing_feature
+   ```
 
 4. Do your work.
-**[Read the Premail development guide.](https://premail.dev/docs/development/setup/)**
+   **[Read the Premail development guide.](https://premail.dev/docs/development/setup/)**
 
 5. Commit your changes:
 
-    ```sh
-    git commit -m 'feat: add amazing_feature'
-    ```
+   ```sh
+   git commit -m 'feat: add amazing_feature'
+   ```
 
 6. Push to the branch:
 
-    ```sh
-    git push origin feat/amazing_feature
-    ```
+   ```sh
+   git push origin feat/amazing_feature
+   ```
 
 7. [Open a Pull Request](https://github.com/premail/premail/compare?expand=1)
-and wait for feedback.
+   and wait for feedback.
 
 ## 🎉 **Thank you for your contribution!**
