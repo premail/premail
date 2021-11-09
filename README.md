@@ -13,7 +13,7 @@
   &bullet;
   <a href="https://github.com/premail/premail/issues/new?assignees=&labels=new-feature&template=02_FEATURE_REQUEST.md&title=feat%3A+">Request a Feature</a>
   &bullet;
-  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=support-question&template=04_SUPPORT_QUESTION.md&title=support%3A+">Ask a Question</a>
+  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=support-question&template=03_SUPPORT_QUESTION.md&title=support%3A+">Ask a Question</a>
   &bullet;
   <a href="https://premail.dev">Read the Documentation</a>
 </div>
