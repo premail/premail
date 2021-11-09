@@ -10,7 +10,7 @@
 If there are any vulnerabilities in **Premail**, don't hesitate to _report
 them_.
 
-1. Use any of the [contact options](https://github.com/premail/premail#support).
+1. Use any of the [contact options for Premail](https://github.com/premail).
 2. Describe the vulnerability.
 
 - If you have a fix, that is most welcome -- please attach or summarize it in
