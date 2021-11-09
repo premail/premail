@@ -24,7 +24,7 @@ jobs:
             - 'help-wanted'
           stale-issue-message: >
             There hasn't been any activity on this issue recently, and in order
-            to prioritize active issues, it will be marked as stale.
+            to prioritize active issues, it is being marked as stale.
 
             Please make sure to update to the latest version and check if that
             solves the issue. Let us know if that works for you by leaving a 👍
@@ -39,7 +39,7 @@ jobs:
             - 'help-wanted'
           stale-pr-message: >
             There hasn't been any activity on this pull request recently, and in
-            order to prioritize active work, it has been marked as stale.
+            order to prioritize active work, it is being marked as stale.
 
             This PR will be closed and locked in 7 days if no further activity
             occurs.
