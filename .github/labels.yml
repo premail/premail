@@ -85,8 +85,8 @@
   description:
     'We need some extra helping hands or expertise in order to resolve this!'
 
-# Bot
+# Bot (prefixed with "x" so they'll be listed last.)
 
-- name: 'Bot: No Abandonment'
+- name: 'x-Bot: No Abandonment'
   color: cdcdcd
   description: 'This will never be marked abandoned by the status bot.'
