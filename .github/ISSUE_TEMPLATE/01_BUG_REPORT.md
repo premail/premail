@@ -1,20 +1,23 @@
 ---
 name: Bug Report
-about: Create a report to help Premail to improve
+about: Report an issue and help Premail improve
 title: 'bug: '
-labels: 'bug'
+labels: 'Type: Bug'
 assignees: ''
 ---
 
 # Bug Report
 
+<!-- Security note: If you're reporting a vulnerability or other security issue,
+     please see https://premail.dev/security/ for the procedure. -->
+
 **Premail version:**
 
-<!-- Please specify commit or tag version. -->
+<!-- Run `premail -v` and paste the output here. -->
 
 **Current behavior:**
 
-<!-- Describe how the bug manifests. -->
+<!-- Describe how the bug shows up. -->
 
 **Expected behavior:**
 
@@ -34,4 +37,4 @@ insert short code snippets here
 
 **Other information:**
 
-<!-- List any other information that is relevant to your issue. Related issues, suggestions on how to fix, Stack Overflow links, forum links, etc. -->
+<!-- List any other information that is relevant to your issue: Suggestions on fixes, related issues, links to relevant information, etc. -->
