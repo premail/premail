@@ -47,6 +47,9 @@
   description:
     'Outside project scope, off-topic, spam, or otherwise does not apply to this
     project.'
+- name: 'Status: Stale'
+  color: cdcdcd
+  description: 'No recent activity.'
 - name: 'Status: Abandoned'
   color: cdcdcd
   description: 'No activity, considered abandoned.'
