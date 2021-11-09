@@ -1,6 +1,6 @@
 ---
 name: Support Question
-about: Question about how to use this project
+about: Question about how to use Premail
 title: 'support: '
 labels: 'Type: Question'
 assignees: ''
