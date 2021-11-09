@@ -35,7 +35,7 @@
   description: 'Work is underway.'
 - name: 'Status: Update Needed'
   color: e11d21
-  description: 'Needs further information or work before it can be accepted.'
+  description: 'Missing necessary information or review.'
 - name: 'Status: Blocked or Postponed'
   color: 006a74
   description: 'On hold.'
