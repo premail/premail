@@ -28,19 +28,19 @@
 # Status
 
 - name: 'Status: Available'
-  color: cdcdcd
+  color: bee4be
   description: 'Not currently being worked on. Take the lead!'
 - name: 'Status: In Progress'
-  color: cdcdcd
+  color: fef2c0
   description: 'Work is underway.'
 - name: 'Status: Update Needed'
-  color: cdcdcd
+  color: e11d21
   description: 'Needs further information or work before it can be accepted.'
 - name: 'Status: Blocked or Postponed'
-  color: cdcdcd
+  color: 006a74
   description: 'On hold.'
 - name: 'Status: Done'
-  color: cdcdcd
+  color: 000000
   description: 'Completed.'
 - name: "Status: Won't Fix"
   color: cdcdcd
@@ -54,22 +54,22 @@
 # Versions
 
 - name: 'Version: Major'
-  color: 000000
+  color: 84b6eb
   description: 'This will cause a major bump in the version number.'
 - name: 'Version: Minor'
-  color: 000000
+  color: 84b6eb
   description: 'This will cause a minor bump in the version number.'
 
 # Priority
 
 - name: 'Priority: Critical'
-  color: b80083
+  color: e11c20
 - name: 'Priority: High'
-  color: ff0000
+  color: eb6420
 - name: 'Priorty: Medium'
-  color: ff8000
+  color: fbca04
 - name: 'Priority: Low'
-  color: f2f0d8
+  color: 84b6ea
 
 # Welcome
 
