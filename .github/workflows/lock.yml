@@ -16,6 +16,8 @@ jobs:
           github-token: ${{ github.token }}
           issue-lock-inactive-days: '90'
           issue-lock-reason: ''
+          remove-issue-labels: 'Status: Stale'
+          add-issue-labels: 'Status: Abandoned'
           issue-comment: >
             Issue closed and locked due to lack of activity.
 
@@ -23,6 +25,8 @@ jobs:
             to this closed one.
           pr-lock-inactive-days: '30'
           pr-lock-reason: ''
+          remove-pr-labels: 'Status: Stale'
+          add-pr-labels: 'Status: Abandoned'
           pr-comment: >
             Pull Request closed and locked due to lack of activity.
 
