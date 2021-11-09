@@ -76,11 +76,11 @@
 
 # Welcome
 
-- name: 'beginner-friendly'
+- name: 'good first issue'
   color: 2da44e
   description:
-    'Good first issue for people wanting to contribute to this project.'
-- name: 'help-wanted'
+    'Beginner-friendly issue for people wanting to contribute to this project.'
+- name: 'help wanted'
   color: 2da44e
   description:
     'We need some extra helping hands or expertise in order to resolve this!'
