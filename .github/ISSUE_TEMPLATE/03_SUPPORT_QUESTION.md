@@ -8,8 +8,8 @@ assignees: ''
 
 # Support Question
 
-**Premail version:**
+## Premail version
 
 <!-- Run `premail -v` and paste the output here. -->
 
-**Your question:**
+## Your question

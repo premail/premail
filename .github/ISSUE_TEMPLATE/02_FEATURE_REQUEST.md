@@ -8,7 +8,7 @@ assignees: ''
 
 # Feature Request
 
-**Type of feature**
+## Type of feature
 
 - [ ] New functionality
 - [ ] Performance
@@ -16,23 +16,23 @@ assignees: ''
 - [ ] Developer Experience (DX)
 - [ ] Other (please describe):
 
-**Describe the feature**
+## Describe the feature
 
 <!-- A clear and concise description of your feature request. Please note if your request is related to a problem. -->
 
-**Describe preferred solution**
+## Describe preferred solution
 
 <!-- A clear and concise description of what you want to happen. -->
 
-**Describe alternatives**
+## Describe alternatives
 
 <!-- A clear and concise description of any alternative solutions or features you've considered. -->
 
-**Related code**
+## Related code
 
 <!-- If you are able to illustrate this request with an example, please provide it here. -->
 
-**Additional context**
+## Additional context
 
 <!-- List any other information that is relevant to your issue. Use cases, screenshots, related issues, stack traces, links to relevant information, environment information if applicable, etc. -->
 

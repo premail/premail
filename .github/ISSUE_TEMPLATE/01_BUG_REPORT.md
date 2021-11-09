@@ -11,23 +11,23 @@ assignees: ''
 <!-- Security note: If you're reporting a vulnerability or other security issue,
      please see https://premail.dev/security/ for the procedure. -->
 
-**Premail version:**
+## Premail version
 
 <!-- Run `premail -v` and paste the output here. -->
 
-**Current behavior:**
+## Current behavior
 
 <!-- Describe how the bug shows up. -->
 
-**Expected behavior:**
+## Expected behavior
 
 <!-- Describe what you expect the behavior to be without the bug. -->
 
-**Steps to reproduce:**
+## Steps to reproduce
 
 <!-- Explain the steps required to duplicate the issue, especially if you are able to provide a sample application. -->
 
-**Related code:**
+## Related code
 
 <!-- If you are able to illustrate the bug or feature request with an example, please provide it here. -->
 
@@ -35,6 +35,6 @@ assignees: ''
 insert short code snippets here
 ```
 
-**Other information:**
+## Other information
 
 <!-- List any other information that is relevant to your issue: Suggestions on fixes, related issues, links to relevant information, etc. -->
