@@ -11,7 +11,7 @@ templating. When your project is compiled, the Handlebars processing comes
 first, and so these files have the `.hbs` Handlebars extension. In most cases,
 though, all you'll need to know is MJML.
 
-- `index.hbs`: This is the master file that loads each of the components
+- `index.hbs`: This is the primary file that loads each of the components
   (`content` and `structure`) for your email. Usually, you won't need to edit
   this file unless you want to re-order the components themselves.
 - `content`: This directory holds files that will _always_ change in each email
