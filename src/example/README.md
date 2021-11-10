@@ -75,7 +75,7 @@ Read more at
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Tue Nov  9 19:49:29 UTC 2021 -->
+<!-- Added by: runner, at: Wed Nov 10 19:32:33 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -111,7 +111,7 @@ Read more at
   much better job than most email services at rendering it. While only a small
   number of your recipients will see the plain-text version,
   [they are important for email deliverability](https://www.litmus.com/blog/best-practices-for-plain-text-emails-a-look-at-why-theyre-important/).
-  Within the plain-text version options, you can easily control whether certain
+  Within the plain-text version options, you can control whether certain
   elements like navigation or header/banner areas are included.
 
 - Configuration files are written in [YAML](https://blog.stackpath.com/yaml/),
