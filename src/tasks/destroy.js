@@ -17,7 +17,7 @@ const notify = require('../ops/notifications.js')
 function destroyStructure () {
   const path = fs.readdirSync(config.init)
 
-  notify.msg('warn', 'Destroying project ')
+  notify.msg('warn', 'Destroying Premail project ')
   for (const i in path) {
     const item = path[i]
     try {

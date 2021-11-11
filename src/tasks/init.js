@@ -18,7 +18,7 @@ const dest = '.'
 function structure () {
   try {
     fs.copySync(source, dest)
-    notify.msg('success', 'premail project initialized!')
+    notify.msg('success', 'Premail project initialized!')
   } catch (err) {
     notify.msg('error', err)
   }
