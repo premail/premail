@@ -1,3 +1,12 @@
+<!-- NOTE:
+
+     This readme includes documentation from various parts of the Premail
+     documentation site, <https://premail.dev>
+
+     Any updates to this file should be reflected in the corresponding areas
+     of the documentation site as necessary.
+-->
+
 <h1 align="center">
   <a href="https://github.com/premail/premail">
     <img src="https://raw.githubusercontent.com/premail/premail/v2.0.0/docs/images/logo.svg" alt="Premail" width="500" height="250">
@@ -6,16 +15,14 @@
 
 <div align="center">
   <strong>Premail is an easy-to-use component-based build system for MJML, the email templating language, with Handlebars templating, Sass styles, and extra options.</strong><br />
-  <!-- <a href="#about"><strong>Explore the screenshots »</strong></a>
-  <br /> -->
   <br />
+  <a href="https://premail.dev">Read the Documentation</a>
+  &bullet;
   <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
   &bullet;
   <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Feature&template=02_FEATURE_REQUEST.md&title=feat%3A+">Request a Feature</a>
   &bullet;
   <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Question&template=03_SUPPORT_QUESTION.md&title=support%3A+">Ask a Question</a>
-  &bullet;
-  <a href="https://premail.dev">Read the Documentation</a>
 </div>
 
 <div align="center">
