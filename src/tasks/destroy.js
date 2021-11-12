@@ -5,6 +5,7 @@ const fs = require('fs-extra')
 const path = require('path')
 const prompts = require('prompts')
 
+const isDirEmpty = require('../helpers/isDirEmpty.js')
 const { config } = require('../config/setup.js')
 const notify = require('../ops/notifications.js')
 /* eslint-enable no-unused-vars */
@@ -13,9 +14,12 @@ const notify = require('../ops/notifications.js')
 // Destroy project structure
 //
 
+const source = config.init
+const dest = '.'
+
 // Iterate over and destroy items matching `init` structure.
 function destroyStructure () {
-  const path = fs.readdirSync(config.init)
+  const path = fs.readdirSync(source)
 
   notify.msg('warn', 'Destroying Premail project ')
   for (const i in path) {
@@ -27,12 +31,13 @@ function destroyStructure () {
         } else {
           fs.unlinkSync(item)
         }
-        notify.msg('debug', `Destroyed '${item}'`)
+        notify.msg('plain', `Destroyed '${item}'`)
       }
     } catch (err) {
       notify.msg('error', err)
     }
   }
+  notify.msg('success', 'Premail project destroyed.')
 }
 
 // Enable passing of --yes to this command to bypass confirmation.
@@ -72,9 +77,13 @@ function confirm () {
   })()
 }
 
-// Align function name with init function.
 function structure () {
-  confirm()
+  if (isDirEmpty(dest)) {
+    notify.msg('info', 'Directory is already empty.')
+    process.exit(0)
+  } else {
+    confirm()
+  }
 }
 
 module.exports = {
