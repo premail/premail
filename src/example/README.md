@@ -1,3 +1,12 @@
+<!-- NOTE:
+
+     This readme includes documentation from various parts of the Premail
+     documentation site, <https://premail.dev>
+
+     Any updates to this file should be reflected in the corresponding areas
+     of the documentation site as necessary.
+-->
+
 <h1 align="center">
   <a href="https://github.com/premail/premail">
     <img src="https://raw.githubusercontent.com/premail/premail/v2.0.0/docs/images/logo.svg" alt="Premail" width="500" height="250">
