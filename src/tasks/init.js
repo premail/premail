@@ -36,7 +36,7 @@ function createStructure () {
 prompts.override(require('yargs').argv)
 
 // Confirm user really wants to overwrite data if files already exist.
-function confirm () {
+function confirm (message) {
   ;(async () => {
     const questions = [
       {
@@ -48,7 +48,7 @@ function confirm () {
           this.msg = kleur
             .black()
             .bgYellow(
-              ' ⚠ Data already exists in this folder. Continuing may result in overwritten files. Are you sure you want to continue? '
+              ` ⚠ ${message} Continuing may result in overwritten files. Are you sure you want to continue? `
             )
         },
       },
@@ -72,10 +72,12 @@ function confirm () {
 function structure () {
   notify.msg('info', 'Initializing Premail project...')
 
-  if (isDirEmpty(dest)) {
-    createStructure()
+  if (fs.existsSync(config.file.project)) {
+    confirm('A Premail project appears to be already initialized here.')
+  } else if (!isDirEmpty(dest)) {
+    confirm('Data already exists in this folder.')
   } else {
-    confirm()
+    createStructure()
   }
 }
 
