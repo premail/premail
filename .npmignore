@@ -4,6 +4,9 @@
 .env
 .env.test
 
+# GitHub
+.github
+
 # Trash
 $RECYCLE.BIN/
 .Trashes
