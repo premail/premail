@@ -27,7 +27,7 @@ const e = require('../ops/errors.js')
 const { config } = require('../config/setup.js')
 const { current } = require('../config/current.js')
 const { templates } = require('../config/templates.js')
-const { theme } = require('../config/theme.js')
+const { design } = require('../config/design.js')
 const { sassImport } = require('../config/sassImport.js')
 const { flags } = require('../ops/flags.js')
 const notify = require('../ops/notifications.js')
@@ -47,7 +47,7 @@ const built = {
 //
 function styles () {
   // Set styles source
-  const sourceStyles = config.current.theme.path + '/**/*.scss'
+  const sourceStyles = config.current.design.path + '/**/*.scss'
 
   return pipeline(
     src(sourceStyles),
@@ -91,34 +91,34 @@ function styles () {
 function content () {
   if (flags.debug) {
     notify.unjson(
-      config.user.details.typography,
+      config.design.typography,
       'The following typographical enhancements will be performed:'
     )
   }
 
   // Set typography options based on configuration
-  config.file.internal.details.typography.detergent.options.convertDashes =
-    config.user.details.typography.convertDash
-  config.file.internal.details.typography.detergent.options.convertApostrophes =
-    config.user.details.typography.convertQuoteAndApostrophe
-  config.file.internal.details.typography.detergent.options.convertDotsToEllipsis =
-    config.user.details.typography.convertEllip
-  config.file.internal.details.typography.typeset.options.hangingPunctuation =
-    config.user.details.typography.hangPunctuation
-  config.file.internal.details.typography.typeset.options.smallCaps =
-    config.user.details.typography.enableSmallCaps
-  config.file.internal.details.typography.typeset.css.enableSmallCaps =
-    config.user.details.typography.enableSmallCaps
-  config.file.internal.details.typography.typeset.css.hangingPunctuation =
-    config.user.details.typography.hangPunctuation
-  config.file.internal.details.typography.typeset.css.opticallyAlignLetters =
-    config.user.details.typography.opticallyAlignLetters
+  config.file.internal.design.typography.detergent.options.convertDashes =
+    config.project.details.typography.convertDash
+  config.file.internal.design.typography.detergent.options.convertApostrophes =
+    config.project.details.typography.convertQuoteAndApostrophe
+  config.file.internal.design.typography.detergent.options.convertDotsToEllipsis =
+    config.project.details.typography.convertEllip
+  config.file.internal.design.typography.typeset.options.hangingPunctuation =
+    config.project.details.typography.hangPunctuation
+  config.file.internal.design.typography.typeset.options.smallCaps =
+    config.project.details.typography.enableSmallCaps
+  config.file.internal.design.typography.typeset.css.enableSmallCaps =
+    config.project.details.typography.enableSmallCaps
+  config.file.internal.design.typography.typeset.css.hangingPunctuation =
+    config.project.details.typography.hangPunctuation
+  config.file.internal.design.typography.typeset.css.opticallyAlignLetters =
+    config.project.details.typography.opticallyAlignLetters
 
   // Disable applicable Typeset options
   const typesetDisable = []
-  Object.keys(config.file.internal.details.typography.typeset.options).forEach(
+  Object.keys(config.file.internal.design.typography.typeset.options).forEach(
     key => {
-      if (!config.file.internal.details.typography.typeset.options[key]) {
+      if (!config.file.internal.design.typography.typeset.options[key]) {
         typesetDisable.push(key)
       }
     }
@@ -133,8 +133,8 @@ function content () {
       const filename = path.basename(file.path)
 
       if (
-        filename !== config.user.files.template &&
-        !config.current.templates.theme.includes(filename)
+        filename !== config.design.templates.main &&
+        !config.current.templates.design.includes(filename)
       ) {
         findOccurrences(/\/>/gim, contents).forEach(result =>
           notify.msg(
@@ -150,7 +150,7 @@ function content () {
     tap(function (file) {
       const results = det(
         file.contents.toString(),
-        config.file.internal.details.typography.detergent.options
+        config.file.internal.design.typography.detergent.options
       )
       file.contents = Buffer.from(results.res)
     }),
@@ -206,10 +206,10 @@ function render (cb) {
   }
 
   // Set template extension
-  htmlBuild.mjml.fileExt = config.user.files.templateExt
+  htmlBuild.mjml.fileExt = config.project.files.templateExt
 
   // Set text build options
-  if (config.user.text.generate) {
+  if (config.project.text.generate) {
     textBuild.status = true
     textBuild.options = config.file.internal.textBuild.options
     textBuild.options.baseElement = []
@@ -218,10 +218,10 @@ function render (cb) {
       partials: {},
     }
 
-    // Load user-configurable CSS selectors to skip
-    if (config.user.text.skipSelectors) {
+    // Load project-configurable CSS selectors to skip
+    if (config.project.text.skipSelectors) {
       textBuild.options.selectors = []
-      config.user.text.skipSelectors.forEach(element => {
+      config.project.text.skipSelectors.forEach(element => {
         const obj = {
           selector: element,
           format: 'skip',
@@ -231,18 +231,18 @@ function render (cb) {
     }
 
     // Include image URIs if requested
-    if (config.user.text.images) {
+    if (config.project.text.images) {
       textBuild.include.images = true
       delete textBuild.options.tags.img
     } else {
       textBuild.include.images = false
     }
 
-    // Override default partial includes with user config, if set, and name
+    // Override default partial includes with project config, if set, and name
     // base elements
-    Object.keys(config.user.text.include).forEach(key => {
-      Object.assign(textBuild.include.partials, config.user.text.include)
-      if (config.user.text.include[key] === true) {
+    Object.keys(config.project.text.include).forEach(key => {
+      Object.assign(textBuild.include.partials, config.project.text.include)
+      if (config.project.text.include[key] === true) {
         textBuild.options.baseElement.push('div.component-' + key)
       }
     })
@@ -252,8 +252,8 @@ function render (cb) {
 
   // Warn if both Google Font and custom web font are enabled.
   if (
-    config.theme.fonts.stack.google.enabled &&
-    config.theme.fonts.stack.custom.enabled
+    config.design.fonts.stack.google.enabled &&
+    config.design.fonts.stack.custom.enabled
   ) {
     notify.msg('warn', config.file.internal.messages.multipleWebFonts)
   }
@@ -313,9 +313,11 @@ function render (cb) {
         notify.msg('debug', config.file.internal.messages.completeMJML)
       }),
 
-      // Enforce proper image alt tags
+      // Enforce proper image alt tags if set
       tap(function (file) {
-        file.contents = Buffer.from(alts(file.contents.toString()))
+        if (config.design.a11y.enforceImageAlt) {
+          file.contents = Buffer.from(alts(file.contents.toString()))
+        }
       }),
 
       // Filter and measure the HTML file

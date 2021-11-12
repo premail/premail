@@ -19,25 +19,25 @@ module.exports = function watchEmail (done) {
   notify.watch('watching')
 
   const paths = {
-    configBuild: config.file.user,
-    configTheme: config.current.theme.path + path.sep + config.file.theme,
-    style: config.current.theme.path + '/**/*.scss',
-    template: config.current.path + '/**/*.' + config.user.files.templateExt,
+    configProject: config.file.project,
+    configDesign: config.current.design.path + path.sep + config.file.design,
+    style: config.current.design.path + '/**/*.scss',
+    template: config.current.path + '/**/*.' + config.design.templates.ext,
     partials: config.current.path + '/**/*.mjml',
     html: config.current.path + '/**/*.html',
   }
 
   notify.msg(
     'debug',
-    `\nBuild config: ${paths.configBuild}\nTheme config: ${paths.configTheme}\nStyles:       ${paths.style}\nTemplate:    ${paths.template}\nPartials:     ${paths.partials}\nHTML:         ${paths.html}`,
+    `\nProject config: ${paths.configProject}\nDesign config: ${paths.configDesign}\nStyles:       ${paths.style}\nTemplate:    ${paths.template}\nPartials:     ${paths.partials}\nHTML:         ${paths.html}`,
     'Watching these paths:'
   )
 
   // Trigger email rebuild.
   watch(
     [
-      paths.configBuild,
-      paths.configTheme,
+      paths.configProject,
+      paths.configDesign,
       paths.style,
       paths.template,
       paths.partials,

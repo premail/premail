@@ -12,29 +12,29 @@ NOT the same as the "class" attribute that loads CSS!
 For more information on how this operates, see:
 https://documentation.mjml.io/#mj-attributes
 
-Generally this file simply ports settings from `themeConfig.yaml` into MJML.
+Generally this file simply ports settings from `designConfig.yaml` into MJML.
 
 -->
 
 <!-- Set font defaults. Also see `fonts.hbs` in this directory. -->
-<mj-all margin="0" padding="0" font-size="{{theme.text.default.size}}"
-color="{{theme.text.default.color}}" font-family="{{#if
-theme.fonts.stack.first}}'{{theme.fonts.stack.first}}', {{/if}} {{~#eq
-theme.fonts.stack.base 'serif'}}{{file.internal.fonts.serif}}{{/eq}} {{~#eq
-theme.fonts.stack.base 'sans'}}{{file.internal.fonts.sans}}{{/eq}} {{~#eq
-theme.fonts.stack.base 'mono'}}{{file.internal.fonts.mono}}{{/eq}} " {{!--
+<mj-all margin="0" padding="0" font-size="{{design.text.default.size}}"
+color="{{design.text.default.color}}" font-family="{{#if
+design.fonts.stack.first}}'{{design.fonts.stack.first}}', {{/if}} {{~#eq
+design.fonts.stack.base 'serif'}}{{file.internal.fonts.serif}}{{/eq}} {{~#eq
+design.fonts.stack.base 'sans'}}{{file.internal.fonts.sans}}{{/eq}} {{~#eq
+design.fonts.stack.base 'mono'}}{{file.internal.fonts.mono}}{{/eq}} " {{!--
 Background on these Outlook-specific tags:
 https://www.hteumeuleu.com/2019/today-i-learned-about-mso-generic-font-family/
---}} mso-generic-font-family=" {{~#eq theme.fonts.stack.base
-'serif'}}roman{{/eq}} {{~#eq theme.fonts.stack.base 'sans'}}swiss{{/eq}} {{~#eq
-theme.fonts.stack.base 'mono'}}swiss{{/eq}} " mso-font-alt=" {{~#eq
-theme.fonts.stack.base 'serif'}}{{file.internal.fonts.serif}}{{/eq}} {{~#eq
-theme.fonts.stack.base 'sans'}}{{file.internal.fonts.sans}}{{/eq}} {{~#eq
-theme.fonts.stack.base 'mono'}}{{file.internal.fonts.mono}}{{/eq}} "
-ico-font-family="{{#if theme.fonts.stack.first}}'{{theme.fonts.stack.first}}',
-{{/if}} {{~#eq theme.fonts.stack.base
-'serif'}}{{file.internal.fonts.serif}}{{/eq}} {{~#eq theme.fonts.stack.base
-'sans'}}{{file.internal.fonts.sans}}{{/eq}} {{~#eq theme.fonts.stack.base
+--}} mso-generic-font-family=" {{~#eq design.fonts.stack.base
+'serif'}}roman{{/eq}} {{~#eq design.fonts.stack.base 'sans'}}swiss{{/eq}} {{~#eq
+design.fonts.stack.base 'mono'}}swiss{{/eq}} " mso-font-alt=" {{~#eq
+design.fonts.stack.base 'serif'}}{{file.internal.fonts.serif}}{{/eq}} {{~#eq
+design.fonts.stack.base 'sans'}}{{file.internal.fonts.sans}}{{/eq}} {{~#eq
+design.fonts.stack.base 'mono'}}{{file.internal.fonts.mono}}{{/eq}} "
+ico-font-family="{{#if design.fonts.stack.first}}'{{design.fonts.stack.first}}',
+{{/if}} {{~#eq design.fonts.stack.base
+'serif'}}{{file.internal.fonts.serif}}{{/eq}} {{~#eq design.fonts.stack.base
+'sans'}}{{file.internal.fonts.sans}}{{/eq}} {{~#eq design.fonts.stack.base
 'mono'}}{{file.internal.fonts.mono}}{{/eq}} " />
 
 <!-- Structure -->
@@ -61,7 +61,7 @@ ico-font-family="{{#if theme.fonts.stack.first}}'{{theme.fonts.stack.first}}',
 
 <mj-class
   name="text--salutation"
-  padding="{{theme.sections.salutation.padding.top}} 0 {{theme.sections.salutation.padding.bottom}} 0"
+  padding="{{design.sections.salutation.padding.top}} 0 {{design.sections.salutation.padding.bottom}} 0"
 />
 
 <mj-class
@@ -73,93 +73,93 @@ ico-font-family="{{#if theme.fonts.stack.first}}'{{theme.fonts.stack.first}}',
 
 <!-- Buttons -->
 
-<mj-class name="button" {{#if theme.buttons.primary.height}}
-height="{{theme.buttons.primary.height}}" {{/if}} {{#if
-theme.buttons.primary.width}} width="{{theme.buttons.primary.width}}" {{/if}}
-align="{{theme.buttons.primary.align}}"
-padding-top="{{theme.buttons.primary.buttonPadding.top}}"
-padding-left="{{theme.buttons.primary.buttonPadding.left}}"
-padding-right="{{theme.buttons.primary.buttonPadding.right}}"
-padding-bottom="{{theme.buttons.primary.buttonPadding.bottom}}" {{#if
-theme.buttons.primary.backgroundColor}}
-background-color="{{theme.buttons.primary.backgroundColor}}" {{else}}
-background-color="{{theme.colors.primary}}" {{/if}}
-color="{{theme.buttons.primary.textColor}}"
-font-size="{{theme.buttons.primary.textSize}}"
-line-height="{{theme.buttons.primary.lineHeight}}"
-font-weight="{{theme.buttons.primary.weight}}"
-font-style="{{theme.buttons.primary.style}}"
-text-decoration="{{theme.buttons.primary.decoration}}"
-border-radius="{{theme.buttons.primary.cornerRadius}}"
-inner-padding="{{theme.buttons.primary.contentPadding}}" /> <mj-class
-name="button--secondary" {{#if theme.buttons.secondary.height}}
-height="{{theme.buttons.secondary.height}}" {{/if}} {{#if
-theme.buttons.secondary.width}} width="{{theme.buttons.secondary.width}}"
-{{/if}} {{#if theme.buttons.secondary.align}}
-align="{{theme.buttons.secondary.align}}" {{/if}} {{#if
-theme.buttons.secondary.buttonPadding.top}}
-padding-top="{{theme.buttons.secondary.buttonPadding.top}}" {{/if}} {{#if
-theme.buttons.secondary.buttonPadding.left}}
-padding-left="{{theme.buttons.secondary.buttonPadding.left}}" {{/if}} {{#if
-theme.buttons.secondary.buttonPadding.right}}
-padding-right="{{theme.buttons.secondary.buttonPadding.right}}" {{/if}} {{#if
-theme.buttons.secondary.buttonPadding.bottom}}
-padding-bottom="{{theme.buttons.secondary.buttonPadding.bottom}}" {{/if}} {{#if
-theme.buttons.secondary.backgroundColor}}
-background-color="{{theme.buttons.secondary.backgroundColor}}" {{else}}
-background-color="{{theme.colors.secondary}}" {{/if}} {{#if
-theme.buttons.secondary.textColor}}
-color="{{theme.buttons.secondary.textColor}}" {{/if}} {{#if
-theme.buttons.secondary.textSize}}
-font-size="{{theme.buttons.secondary.textSize}}" {{/if}} {{#if
-theme.buttons.secondary.lineHeight}}
-line-height="{{theme.buttons.secondary.lineHeight}}" {{/if}} {{#if
-theme.buttons.secondary.weight}}
-font-weight="{{theme.buttons.secondary.weight}}" {{/if}} {{#if
-theme.buttons.secondary.style}} font-style="{{theme.buttons.secondary.style}}"
-{{/if}} {{#if theme.buttons.secondary.decoration}}
-text-decoration="{{theme.buttons.secondary.decoration}}" {{/if}} {{#if
-theme.buttons.secondary.contentPadding}}
-inner-padding="{{theme.buttons.secondary.contentPadding}}" {{/if}} {{#if
-theme.buttons.secondary.cornerRadius}}
-border-radius="{{theme.buttons.secondary.cornerRadius}}" {{/if}} /> <mj-class
-name="button--ghost" {{#if theme.buttons.ghost.height}}
-height="{{theme.buttons.ghost.height}}" {{/if}} {{#if
-theme.buttons.ghost.width}} width="{{theme.buttons.ghost.width}}" {{/if}} {{#if
-theme.buttons.ghost.align}} align="{{theme.buttons.ghost.align}}" {{/if}} {{#if
-theme.buttons.ghost.buttonPadding.top}}
-padding-top="{{theme.buttons.ghost.buttonPadding.top}}" {{/if}} {{#if
-theme.buttons.ghost.buttonPadding.left}}
-padding-left="{{theme.buttons.ghost.buttonPadding.left}}" {{/if}} {{#if
-theme.buttons.ghost.buttonPadding.right}}
-padding-right="{{theme.buttons.ghost.buttonPadding.right}}" {{/if}} {{#if
-theme.buttons.ghost.buttonPadding.bottom}}
-padding-bottom="{{theme.buttons.ghost.buttonPadding.bottom}}" {{/if}} {{#if
-theme.buttons.ghost.backgroundColor}}
-background-color="{{theme.buttons.ghost.backgroundColor}}" {{else}}
-background-color="{{theme.buttons.primary.textColor}}" {{/if}} {{#if
-theme.buttons.ghost.textColor}} color="{{theme.buttons.ghost.textColor}}"
-{{else}} {{#if theme.buttons.primary.backgroundColor}}
-color="{{theme.buttons.primary.backgroundColor}}" {{else}}
-color="{{theme.colors.primary}}" {{/if}} {{/if}} {{#if
-theme.buttons.ghost.textSize}} font-size="{{theme.buttons.ghost.textSize}}"
-{{/if}} {{#if theme.buttons.ghost.lineHeight}}
-line-height="{{theme.buttons.ghost.lineHeight}}" {{/if}} {{#if
-theme.buttons.ghost.weight}} font-weight="{{theme.buttons.ghost.weight}}"
-{{/if}} {{#if theme.buttons.ghost.style}}
-font-style="{{theme.buttons.ghost.style}}" {{/if}} {{#if
-theme.buttons.ghost.decoration}}
-text-decoration="{{theme.buttons.ghost.decoration}}" {{/if}} {{#if
-theme.buttons.ghost.cornerRadius}} {{#if theme.buttons.ghost.contentPadding}}
-inner-padding="{{theme.buttons.ghost.contentPadding}}" {{/if}}
-border-radius="{{theme.buttons.ghost.cornerRadius}}" {{/if}} border=" {{#if
-theme.buttons.ghost.borderColor}} {{theme.buttons.ghost.borderColor}} {{else}}
-{{#if theme.buttons.primary.backgroundColor}}
-{{theme.buttons.primary.backgroundColor}} {{else}} {{theme.colors.primary}}
-{{/if}} {{/if}} {{#if theme.buttons.ghost.borderWidth}}
-{{theme.buttons.ghost.borderWidth}} {{/if}} {{#if
-theme.buttons.ghost.borderStyle}} {{theme.buttons.ghost.borderStyle}} {{/if}} "
-/>
+<mj-class name="button" {{#if design.buttons.primary.height}}
+height="{{design.buttons.primary.height}}" {{/if}} {{#if
+design.buttons.primary.width}} width="{{design.buttons.primary.width}}" {{/if}}
+align="{{design.buttons.primary.align}}"
+padding-top="{{design.buttons.primary.buttonPadding.top}}"
+padding-left="{{design.buttons.primary.buttonPadding.left}}"
+padding-right="{{design.buttons.primary.buttonPadding.right}}"
+padding-bottom="{{design.buttons.primary.buttonPadding.bottom}}" {{#if
+design.buttons.primary.backgroundColor}}
+background-color="{{design.buttons.primary.backgroundColor}}" {{else}}
+background-color="{{design.colors.primary}}" {{/if}}
+color="{{design.buttons.primary.textColor}}"
+font-size="{{design.buttons.primary.textSize}}"
+line-height="{{design.buttons.primary.lineHeight}}"
+font-weight="{{design.buttons.primary.weight}}"
+font-style="{{design.buttons.primary.style}}"
+text-decoration="{{design.buttons.primary.decoration}}"
+border-radius="{{design.buttons.primary.cornerRadius}}"
+inner-padding="{{design.buttons.primary.contentPadding}}" /> <mj-class
+name="button--secondary" {{#if design.buttons.secondary.height}}
+height="{{design.buttons.secondary.height}}" {{/if}} {{#if
+design.buttons.secondary.width}} width="{{design.buttons.secondary.width}}"
+{{/if}} {{#if design.buttons.secondary.align}}
+align="{{design.buttons.secondary.align}}" {{/if}} {{#if
+design.buttons.secondary.buttonPadding.top}}
+padding-top="{{design.buttons.secondary.buttonPadding.top}}" {{/if}} {{#if
+design.buttons.secondary.buttonPadding.left}}
+padding-left="{{design.buttons.secondary.buttonPadding.left}}" {{/if}} {{#if
+design.buttons.secondary.buttonPadding.right}}
+padding-right="{{design.buttons.secondary.buttonPadding.right}}" {{/if}} {{#if
+design.buttons.secondary.buttonPadding.bottom}}
+padding-bottom="{{design.buttons.secondary.buttonPadding.bottom}}" {{/if}} {{#if
+design.buttons.secondary.backgroundColor}}
+background-color="{{design.buttons.secondary.backgroundColor}}" {{else}}
+background-color="{{design.colors.secondary}}" {{/if}} {{#if
+design.buttons.secondary.textColor}}
+color="{{design.buttons.secondary.textColor}}" {{/if}} {{#if
+design.buttons.secondary.textSize}}
+font-size="{{design.buttons.secondary.textSize}}" {{/if}} {{#if
+design.buttons.secondary.lineHeight}}
+line-height="{{design.buttons.secondary.lineHeight}}" {{/if}} {{#if
+design.buttons.secondary.weight}}
+font-weight="{{design.buttons.secondary.weight}}" {{/if}} {{#if
+design.buttons.secondary.style}} font-style="{{design.buttons.secondary.style}}"
+{{/if}} {{#if design.buttons.secondary.decoration}}
+text-decoration="{{design.buttons.secondary.decoration}}" {{/if}} {{#if
+design.buttons.secondary.contentPadding}}
+inner-padding="{{design.buttons.secondary.contentPadding}}" {{/if}} {{#if
+design.buttons.secondary.cornerRadius}}
+border-radius="{{design.buttons.secondary.cornerRadius}}" {{/if}} /> <mj-class
+name="button--ghost" {{#if design.buttons.ghost.height}}
+height="{{design.buttons.ghost.height}}" {{/if}} {{#if
+design.buttons.ghost.width}} width="{{design.buttons.ghost.width}}" {{/if}}
+{{#if design.buttons.ghost.align}} align="{{design.buttons.ghost.align}}"
+{{/if}} {{#if design.buttons.ghost.buttonPadding.top}}
+padding-top="{{design.buttons.ghost.buttonPadding.top}}" {{/if}} {{#if
+design.buttons.ghost.buttonPadding.left}}
+padding-left="{{design.buttons.ghost.buttonPadding.left}}" {{/if}} {{#if
+design.buttons.ghost.buttonPadding.right}}
+padding-right="{{design.buttons.ghost.buttonPadding.right}}" {{/if}} {{#if
+design.buttons.ghost.buttonPadding.bottom}}
+padding-bottom="{{design.buttons.ghost.buttonPadding.bottom}}" {{/if}} {{#if
+design.buttons.ghost.backgroundColor}}
+background-color="{{design.buttons.ghost.backgroundColor}}" {{else}}
+background-color="{{design.buttons.primary.textColor}}" {{/if}} {{#if
+design.buttons.ghost.textColor}} color="{{design.buttons.ghost.textColor}}"
+{{else}} {{#if design.buttons.primary.backgroundColor}}
+color="{{design.buttons.primary.backgroundColor}}" {{else}}
+color="{{design.colors.primary}}" {{/if}} {{/if}} {{#if
+design.buttons.ghost.textSize}} font-size="{{design.buttons.ghost.textSize}}"
+{{/if}} {{#if design.buttons.ghost.lineHeight}}
+line-height="{{design.buttons.ghost.lineHeight}}" {{/if}} {{#if
+design.buttons.ghost.weight}} font-weight="{{design.buttons.ghost.weight}}"
+{{/if}} {{#if design.buttons.ghost.style}}
+font-style="{{design.buttons.ghost.style}}" {{/if}} {{#if
+design.buttons.ghost.decoration}}
+text-decoration="{{design.buttons.ghost.decoration}}" {{/if}} {{#if
+design.buttons.ghost.cornerRadius}} {{#if design.buttons.ghost.contentPadding}}
+inner-padding="{{design.buttons.ghost.contentPadding}}" {{/if}}
+border-radius="{{design.buttons.ghost.cornerRadius}}" {{/if}} border=" {{#if
+design.buttons.ghost.borderColor}} {{design.buttons.ghost.borderColor}} {{else}}
+{{#if design.buttons.primary.backgroundColor}}
+{{design.buttons.primary.backgroundColor}} {{else}} {{design.colors.primary}}
+{{/if}} {{/if}} {{#if design.buttons.ghost.borderWidth}}
+{{design.buttons.ghost.borderWidth}} {{/if}} {{#if
+design.buttons.ghost.borderStyle}} {{design.buttons.ghost.borderStyle}} {{/if}}
+" />
 
 <!-- Images -->
 
@@ -187,7 +187,7 @@ theme.buttons.ghost.borderStyle}} {{theme.buttons.ghost.borderStyle}} {{/if}} "
 <mj-class
   name="hero-border"
   container-background-color="white"
-  border-color="{{theme.colors.primary}}"
+  border-color="{{design.colors.primary}}"
   border-width="2px"
 />
 
@@ -201,11 +201,11 @@ theme.buttons.ghost.borderStyle}} {{theme.buttons.ghost.borderStyle}} {{/if}} "
 
 <mj-class
   name="social__border-top"
-  padding-top="{{theme.sections.social.topBorder.verticalPadding}}"
-  padding-bottom="{{theme.sections.social.topBorder.verticalPadding}}"
-  border-width="{{theme.sections.social.topBorder.borderWidth}}"
-  border-style="{{theme.sections.social.topBorder.borderStyle}}"
-  border-color="{{theme.colors.primary}}"
+  padding-top="{{design.sections.social.topBorder.verticalPadding}}"
+  padding-bottom="{{design.sections.social.topBorder.verticalPadding}}"
+  border-width="{{design.sections.social.topBorder.borderWidth}}"
+  border-style="{{design.sections.social.topBorder.borderStyle}}"
+  border-color="{{design.colors.primary}}"
 />
 
 <mj-class
@@ -218,7 +218,7 @@ theme.buttons.ghost.borderStyle}} {{theme.buttons.ghost.borderStyle}} {{/if}} "
 <mj-class
   name="social__icon"
   padding="16px"
-  background-color="{{theme.colors.primary}}"
+  background-color="{{design.colors.primary}}"
   border-radius="6px"
 />
 
@@ -227,7 +227,7 @@ theme.buttons.ghost.borderStyle}} {{theme.buttons.ghost.borderStyle}} {{/if}} "
 <mj-class
   name="nav"
   padding="16px"
-  background-color="{{theme.colors.primary}}"
+  background-color="{{design.colors.primary}}"
   color="white"
 />
 

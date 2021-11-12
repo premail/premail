@@ -7,54 +7,54 @@
 validationRules:
   - type: ascii
     selectors:
-      - config.user.folders
-      - config.user.files
-      - config.user.language
+      - config.project.dirs
+      - config.design.templates
+      - config.email.language
   - type: oneOf
     selectors:
-      - config.theme.fonts.stack.base
+      - config.design.fonts.stack.base
     opt:
       - sans
       - serif
       - mono
   - type: size
     selectors:
-      - config.theme.sections.main.horizontalPadding
-      - config.theme.sections.salutation.padding
-      - config.theme.sections.body.padding
-      - config.theme.sections.signoff.padding
-      - config.theme.sections.social.horizontalPadding
-      - config.theme.sections.social.verticalPadding
-      - config.theme.sections.social.topBorder.verticalPadding
-      - config.theme.sections.social.topBorder.borderWidth
-      - config.theme.sections.footer.horizontalPadding
-      - config.theme.sections.footer.verticalPadding
-      - config.theme.text.default.size
-      - config.theme.text.default.verticalPadding
-      - config.theme.lists.leftPadding
-      - config.theme.lists.listBottomPadding
-      - config.theme.lists.itemBottomPadding
-      - config.theme.lists.fontSize
-      - config.theme.buttons.primary.height
-      - config.theme.buttons.primary.width
-      - config.theme.buttons.primary.buttonPadding
-      - config.theme.buttons.primary.contentPadding
-      - config.theme.buttons.primary.cornerRadius
-      - config.theme.buttons.primary.textSize
-      - config.theme.buttons.secondary.height
-      - config.theme.buttons.secondary.width
-      - config.theme.buttons.secondary.buttonPadding
-      - config.theme.buttons.secondary.contentPadding
-      - config.theme.buttons.secondary.cornerRadius
-      - config.theme.buttons.secondary.textSize
-      - config.theme.buttons.ghost.height
-      - config.theme.buttons.ghost.width
-      - config.theme.buttons.ghost.buttonPadding
-      - config.theme.buttons.ghost.contentPadding
-      - config.theme.buttons.ghost.cornerRadius
-      - config.theme.buttons.ghost.borderWidth
-      - config.theme.buttons.ghost.textSize
+      - config.design.sections.main.horizontalPadding
+      - config.design.sections.salutation.padding
+      - config.design.sections.body.padding
+      - config.design.sections.signoff.padding
+      - config.design.sections.social.horizontalPadding
+      - config.design.sections.social.verticalPadding
+      - config.design.sections.social.topBorder.verticalPadding
+      - config.design.sections.social.topBorder.borderWidth
+      - config.design.sections.footer.horizontalPadding
+      - config.design.sections.footer.verticalPadding
+      - config.design.text.default.size
+      - config.design.text.default.verticalPadding
+      - config.design.lists.leftPadding
+      - config.design.lists.listBottomPadding
+      - config.design.lists.itemBottomPadding
+      - config.design.lists.fontSize
+      - config.design.buttons.primary.height
+      - config.design.buttons.primary.width
+      - config.design.buttons.primary.buttonPadding
+      - config.design.buttons.primary.contentPadding
+      - config.design.buttons.primary.cornerRadius
+      - config.design.buttons.primary.textSize
+      - config.design.buttons.secondary.height
+      - config.design.buttons.secondary.width
+      - config.design.buttons.secondary.buttonPadding
+      - config.design.buttons.secondary.contentPadding
+      - config.design.buttons.secondary.cornerRadius
+      - config.design.buttons.secondary.textSize
+      - config.design.buttons.ghost.height
+      - config.design.buttons.ghost.width
+      - config.design.buttons.ghost.buttonPadding
+      - config.design.buttons.ghost.contentPadding
+      - config.design.buttons.ghost.cornerRadius
+      - config.design.buttons.ghost.borderWidth
+      - config.design.buttons.ghost.textSize
   - type: url
     selectors:
-      - config.theme.page.backgroundImage
-      - config.theme.fonts.stack.custom.href
+      - config.design.page.backgroundImage
+      - config.design.fonts.stack.custom.href

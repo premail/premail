@@ -1,0 +1,43 @@
+#
+# PREMAIL CONFIGURATION
+#
+# This file is formatted in YAML -- indentation and whitespace is important!
+#
+# If you're not familiar with YAML, there are lots of guides and many
+# implementations out there. Here are some examples:
+# https://blog.stackpath.com/yaml/
+# https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes
+# https://yaml.org
+#
+# tl;dr: You can edit things on the right side of colons (:) but not on the
+# left. Don't change the indentation or spacing.
+#
+# For email configuration, see the `emailConfig.yaml` file located in each
+# individual email directory.
+#
+# For design configuration, see the `designConfig.yaml` file located in each
+# design's directory.
+#
+
+# Set default directories for this project. These can be overridden in design
+# and email settings.
+dirs:
+  design:
+    # Name of the parent directory containing each individual design
+    name: designs
+
+    # If no design is specified when building, default to this design
+    default: _default
+
+  theme:
+    # Subdirectory of each design where styles are kept
+    dir: theme
+
+  email:
+    # Name of the parent directory containing each individual email
+    name: emails
+
+  output:
+    # When building a project, save files to this subdirectory of the design
+    # or email
+    dir: dist

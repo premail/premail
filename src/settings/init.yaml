@@ -1,7 +1,7 @@
 # Settings loaded for `premail init`
 
-# Default folder structure
-folders:
+# Default directory structure
+dirs:
   design:
     name: designs
     default: _default

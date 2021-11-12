@@ -38,7 +38,7 @@ function destroyStructure () {
 // Enable passing of --yes to this command to bypass confirmation.
 prompts.override(require('yargs').argv)
 
-// Confirm ensure user really wants to destroy data.
+// Confirm user really wants to destroy data.
 function confirm () {
   ;(async () => {
     const questions = [

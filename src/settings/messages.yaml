@@ -19,7 +19,7 @@ messages:
     body: 'Minified with HTML comments stripped.'
   templateMissing:
     title: 'Main template file cannot be found'
-    body: 'Check the filename specified in your `config.yaml` file.'
+    body: 'Check the filename specified in your `premail.yaml` file.'
   multipleWebFonts:
     title: 'Multiple web fonts enabled:'
     body:

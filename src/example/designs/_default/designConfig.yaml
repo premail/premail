@@ -1,7 +1,9 @@
 #
-# THEME CONFIGURATION
+# DESIGN CONFIGURATION
 #
-# Settings here affect the theme within this design's directory only.
+# Settings apply to this design only. For email settings, see the
+# `emailConfig.yaml` file in each individual email directory. For overall
+# settings, see the `premail.yaml` file in your project's home directory.
 #
 
 # SYNTAX NOTES
@@ -29,6 +31,26 @@
 # range from 12px to 17px. Resources:
 # https://us4.campaign-archive.com/?u=00194e641f365c79871912856&id=1b0c8bc3ba&e=d274356b59
 # https://email.uplers.com/blog/em-or-px-how-to-code-your-emails-right/
+
+# DIRECTORY SETTINGS
+# If set, these design directory settings override the project-wide settings
+# in `premail.yaml` in your home project directory.
+#
+# These design directory settings can subsequently be overridden by an email's
+# directory settings in a `emailConfig.yaml` file.
+dirs:
+  theme:
+  # Subdirectory of this design where styles are kept
+  # dir: theme
+
+  output:
+    # When test-building this design, save files to this subdirectory
+    # dir: dist
+
+# TEMPLATE SETTINGS
+templates:
+  # Filename of the main template file in this design.
+  main: index.hbs
 
 # PAGE SETTINGS
 page:
@@ -348,6 +370,54 @@ signoff:
   # text.default.verticalPadding (if set) or text.default.size.
   title3BottomPadding: 0
 
+# TYPOGRAPHY
+# These settings apply to both your HTML version and (if generating) your
+# plain-text version.
+typography:
+  # convertQuoteAndApostrophe: Replaces instances of straight quotes and
+  # apostrophes (actually tick marks) with their curly equivalents.
+  convertQuoteAndApostrophe: true
+  # convertDash: Replaces instances of em-dashes and en-dashes, with their
+  # true typographical equivalents.
+  convertDash: true
+  # convertEllip: Replaces instances of three dots (...) with the HTML
+  # ellipsis character.
+  convertEllip: true
+  # opticallyAlignLetters: For certain letters, pull or push them to optically
+  # align with the margins. See
+  # https://en.wikipedia.org/wiki/Optical_margin_alignment
+  opticallyAlignLetters: true
+  # enableSmallCaps: When an acronym or initialism is encountered, it will be
+  # rendered in small-caps instead of regular-height caps. Uses the CSS
+  # font-variant property, which is respected in most email clients, and falls
+  # back to regular-height caps when it isn't. See
+  # https://en.wikipedia.org/wiki/Small_caps
+  enableSmallCaps: true
+
+# ACCESSIBILITY
+a11y:
+  # enforceImageAlt: When set to true, image tags will be required to have "alt"
+  # tags -- empty tags are valid -- and they will conform to accessibility and
+  # HTML guidelines. Alt tags are important for recipients who have images
+  # turned off (including, by default, all Gmail users), screen readers, and
+  # deliverability.
+  #
+  # An image that has no alt text defined will be given an empty alt tag, which
+  # is the correct method for images that are purely decorative. Because of
+  # this, do not use this as a mechanism to catch empty alt text when it should
+  # be present, because in the case of decorative images empty alt text is
+  # correct.
+  #
+  # Resources:
+  # https://davidwalsh.name/accessibility-tip-empty-alt-attributes
+  # https://www.w3.org/WAI/tutorials/images/decorative/
+  # https://accessibleweb.com/question-answer/when-should-i-use-a-null-or-empty-alt-tag/
+  # https://support.siteimprove.com/hc/en-gb/articles/115000013031-Accessibility-Image-Alt-text-best-practices
+  #
+  # For more information about the filters applied using this tool, see
+  # https://codsen.com/os/html-img-alt
+  enforceImageAlt: true
+
 # CUSTOM HEAD ELEMENTS
 # HTML is inserted verbatim into the <head> of the email document. Use the
 # optional "description" element to describe the reason for the HTML.
@@ -356,3 +426,10 @@ head:
   #   description: An example.
   # - html: <meta name="Generator" content="Microsoft Word 15 (filtered medium)" />
   #   description: Necessary for custom list markers. See https://www.litmus.com/blog/the-ultimate-guide-to-bulleted-lists-in-html-email/
+
+# PREVIEW TEXT PADDING
+# When set to true, appends spaces to the preview or preheader text you enter to
+# ensure that the rest of the content of your email isn't pulled up into the
+# preview. See:
+# https://www.goodemailcode.com/email-code/preheader
+previewPad: true

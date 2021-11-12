@@ -7,27 +7,24 @@ const yaml = require('js-yaml')
 
 const { config } = require('../config/setup.js')
 const { current } = require('../config/current.js')
-const { theme } = require('../config/theme.js')
+const { design } = require('../config/design.js')
 /* eslint-enable no-unused-vars */
 
 //
-// Prepare theme settings for Sass import
+// Prepare design settings for Sass import
 //
 
-if (
-  fs.existsSync(config.file.user) &&
-  fs.existsSync(config.current.theme.file)
-) {
+if (fs.existsSync(config.file.project) && fs.existsSync(config.file.design)) {
   // Because we can't access nested objects in the Sass files, we need to define
   // and export each object in turn.
-  const page = config.theme.page
-  const colors = config.theme.colors
-  const fonts = config.theme.fonts
-  const text = config.theme.text.default
-  const links = config.theme.links
-  const lists = config.theme.lists
-  const signoff = config.theme.signoff
-  const typography = config.user.details.typography
+  const page = config.design.page
+  const colors = config.design.colors
+  const fonts = config.design.fonts
+  const text = config.design.text.default
+  const links = config.design.links
+  const lists = config.design.lists
+  const signoff = config.design.signoff
+  const typography = config.design.typography
 
   module.exports = {
     page,

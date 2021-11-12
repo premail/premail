@@ -6,7 +6,7 @@ const path = require('path')
 
 const { config } = require('../config/setup.js')
 const { current } = require('../config/current.js')
-const { theme } = require('../config/theme.js')
+const { design } = require('../config/design.js')
 const { sassImport } = require('../config/sassImport.js')
 const e = require('../ops/errors.js')
 const notify = require('../ops/notifications.js')
@@ -20,11 +20,11 @@ module.exports = function validate (type, selector, opt) {
   const location = selector.replace(/^config\..*?\./gm, '')
 
   if (value !== null && typeof value !== 'undefined') {
-    if (selector.includes('config.user')) {
-      const file = path.basename(config.file.user)
+    if (selector.includes('config.project')) {
+      const file = path.basename(config.file.project)
       checkType(type, value, location, file, opt)
-    } else if (selector.includes('config.theme')) {
-      const file = path.basename(config.file.theme)
+    } else if (selector.includes('config.design')) {
+      const file = path.basename(config.file.design)
       checkType(type, value, location, file, opt)
     }
   }

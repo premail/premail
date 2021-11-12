@@ -42,7 +42,7 @@ emails. It intentionally doesn't include a build process. This is that build
 process, and it's configurable to meet your needs and catch the edge cases.
 
 Premail is component-based, and uses Handlebars for templating. Settings are
-defined in YAML configuration files, and theming happens in a theme
+defined in YAML configuration files, and theming happens in a design
 configuration file as well as (optionally) Sass files.
 
 Email templates are all [valid](https://mjml.io/documentation/#validating-mjml)

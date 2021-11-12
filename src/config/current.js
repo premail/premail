@@ -12,61 +12,102 @@ const { flags } = require('../ops/flags.js')
 /* eslint-enable no-unused-vars */
 
 //
-// Load current paths based on settings
+// Load current paths for design and email based on settings
 //
 
-// Load user settings
-config.file.user = 'config.yaml'
+config.current = {}
 
-if (fs.existsSync(config.file.user)) {
-  const userJSON = yaml.loadAll(
-    fs.readFileSync(config.file.user, { encoding: 'utf-8' })
+// Load project settings
+config.file.project = 'premail.yaml'
+
+if (fs.existsSync(config.file.project)) {
+  const projectJSON = yaml.loadAll(
+    fs.readFileSync(config.file.project, { encoding: 'utf-8' })
   )
-  config.user = userJSON[0]
-  config.user.__base = '.'
+  config.project = projectJSON[0]
+  config.project.__base = '.'
 
-  config.current = {
-    mainTemplate: config.user.files.template,
-  }
-
-  config.current.design = config.user.folders.design.default
-
+  // Determine design path
+  config.current.design = {}
+  config.current.design.name = config.project.dirs.design.default
   if (flags.d) {
-    config.current.design = flags.d
+    config.current.design.name = flags.d
+  }
+  config.current.design.path = path.join(
+    config.project.__base,
+    config.project.dirs.design.name,
+    config.current.design.name
+  )
+
+  // Load design settings
+  config.file.design = path.join(
+    config.current.design.path,
+    'designConfig.yaml'
+  )
+  if (fs.existsSync(config.file.design)) {
+    const designJSON = yaml.loadAll(
+      fs.readFileSync(config.file.design, { encoding: 'utf-8' })
+    )
+    config.design = designJSON[0]
   }
 
+  // Test if email is set
   config.current.email = ''
-
   if (flags.e) {
     config.current.email = flags.e
   }
 
-  if (config.current.email) {
-    config.current.name = config.current.email
-    config.current.path = path.join(
-      config.user.__base,
-      config.user.folders.email.name,
+  // If no email is set, build based on design
+  if (!config.current.email) {
+    config.current.name = config.current.design
+    config.current.path = config.current.design.path
+
+    // Set output dir
+    if (config.design.dirs.output && config.design.dirs.output.dir) {
+      config.design.dist = path.join(
+        config.current.path,
+        config.design.dirs.output.dir
+      )
+    } else {
+      config.design.dist = path.join(
+        config.current.path,
+        config.project.dirs.output.dir
+      )
+    }
+    config.current.dist = config.design.dist
+
+    // If email is set, build based on email
+  } else {
+    // Load email settings
+    config.file.email = path.join(config.current.email, 'emailConfig.yaml')
+    if (fs.existsSync(config.file.email)) {
+      const emailJSON = yaml.loadAll(
+        fs.readFileSync(config.file.email, { encoding: 'utf-8' })
+      )
+      config.email = emailJSON[0]
+    }
+
+    // Determine email path
+    config.current.email.name = config.current.email
+    config.current.design.path = path.join(
+      config.project.__base,
+      config.project.dirs.email.name,
       config.current.email
     )
-    config.current.dist = path.join(
-      config.user.__base,
-      config.user.folders.email.name,
-      config.current.design,
-      config.user.folders.output.dir
-    )
-  } else {
-    config.current.name = config.current.design
-    config.current.path = path.join(
-      config.user.__base,
-      config.user.folders.design.name,
-      config.current.design
-    )
-    config.current.dist = path.join(
-      config.user.__base,
-      config.user.folders.design.name,
-      config.current.design,
-      config.user.folders.output.dir
-    )
+
+    // Set output dir
+    if (config.email.dirs.output.dir) {
+      config.email.dist = path.join(
+        config.current.path,
+        config.email.dirs.output.dir
+      )
+    } else {
+      config.email.dist = path.join(
+        config.current.path,
+        config.project.dirs.output.dir
+      )
+    }
+    config.current.dist = config.email.dist
   }
 }
 

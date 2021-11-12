@@ -7,7 +7,7 @@ const yaml = require('js-yaml')
 const validate = require('../ops/validation.js')
 const { config } = require('../config/setup.js')
 const { current } = require('../config/current.js')
-const { theme } = require('../config/theme.js')
+const { design } = require('../config/design.js')
 const { sassImport } = require('../config/sassImport.js')
 const notify = require('../ops/notifications.js')
 const { flags } = require('../ops/flags.js')
@@ -40,14 +40,14 @@ module.exports = function loadConfig (done) {
     // Uncomment the following line to include internal configuration
     // notify.unjson(config.file.internal, 'Internal configuration:')
 
-    // User-defined configuration (config.yaml)
-    if (config.user) {
-      notify.unjson(config.user, 'Build configuration:')
+    // Project-defined configuration (premail.yaml)
+    if (config.project) {
+      notify.unjson(config.project, 'Project configuration:')
     }
 
-    // Theme configuration (themeConfig.yaml)
-    if (config.theme) {
-      notify.unjson(config.theme, 'Theme configuration:')
+    // Design configuration (designConfig.yaml)
+    if (config.design) {
+      notify.unjson(config.design, 'Design configuration:')
     }
 
     done()

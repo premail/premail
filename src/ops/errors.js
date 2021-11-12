@@ -16,12 +16,12 @@ function e (err, type = null, subtype = null) {
   switch (type) {
     case 'sass':
       // Handle YAML-to-JSON parsing errors.
-      if (error.includes('theme.js') && error.includes('Error: expected')) {
+      if (error.includes('design.js') && error.includes('Error: expected')) {
         return notify.msg(
           'warn',
-          'Sass variable import choked on the theme configuration. Did you make sure to double quote anything with CSS-reserved selectors like URLs?' +
+          'Sass variable import choked on the design configuration. Did you make sure to double quote anything with CSS-reserved selectors like URLs?' +
             notify.colors.bold(` "'https://example.com/'" `) +
-            'See the "SYNTAX NOTES" section at the top of your themeConfig.yaml file.',
+            'See the "SYNTAX NOTES" section at the top of your designConfig.yaml file.',
           'Sass processing error:'
         )
       } else {
