@@ -13,6 +13,11 @@ const notify = require('../ops/notifications.js')
 /* eslint-enable no-unused-vars */
 
 module.exports = function validate (type, selector, opt) {
+  // If this is an email variable and no email has been set, skip.
+  if (selector.includes('config.email') && !config.current.email) {
+    process.exit(0)
+  }
+
   const value = selector
     .replace(/^config\./gm, '')
     .split('.')
@@ -25,6 +30,9 @@ module.exports = function validate (type, selector, opt) {
       checkType(type, value, location, file, opt)
     } else if (selector.includes('config.design')) {
       const file = path.basename(config.file.design)
+      checkType(type, value, location, file, opt)
+    } else if (selector.includes('config.email')) {
+      const file = path.basename(config.file.email)
       checkType(type, value, location, file, opt)
     }
   }
