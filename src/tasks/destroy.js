@@ -31,7 +31,7 @@ function destroyStructure () {
         } else {
           fs.unlinkSync(item)
         }
-        notify.msg('plain', `Destroyed '${item}'`)
+        notify.msg('plain', `Deleted '${item}'`)
       }
     } catch (err) {
       notify.msg('error', err)
@@ -81,9 +81,16 @@ function structure () {
   if (isDirEmpty(dest)) {
     notify.msg('info', 'Directory is already empty.')
     process.exit(0)
-  } else {
-    confirm()
   }
+  if (!fs.existsSync(config.file.project)) {
+    notify.msg(
+      'error',
+      `${config.file.project} not found.`,
+      "This doesn't appear to be a Premail project directory."
+    )
+    process.exit(0)
+  }
+  confirm()
 }
 
 module.exports = {
