@@ -6,6 +6,7 @@
 
      Any updates to this file should be reflected in the corresponding areas
      of the documentation site as necessary.
+
 -->
 
 <h1 align="center">
@@ -29,7 +30,7 @@
 <div align="center">
 <br />
 
-[![License: AGPL-3.0+](https://img.shields.io/github/license/premail/premail?style=flat-square&color=blue)](LICENSE)
+[![License: AGPL-3.0+](https://img.shields.io/badge/license-%20AGPL-blue?style=flat-square&logo=gnu)](https://github.com/premail/premail/blob/main/LICENSE)
 [![Pull Requests welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/premail/premail/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22%2C%22Status%3A+Available%22+sort%3Aupdated-desc+)
 
 ![Checks](https://img.shields.io/github/checks-status/premail/premail/main.svg?style=flat-square)
@@ -83,7 +84,7 @@ Read more at
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Fri Nov 12 21:58:12 UTC 2021 -->
+<!-- Added by: runner, at: Mon Nov 15 21:12:21 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
