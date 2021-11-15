@@ -6,6 +6,10 @@
     "premail": "./index.js"
   },
   "main": "index.js",
+  "files": [
+    "/docs",
+    "/src"
+  ],
   "scripts": {
     "start": "gulp build",
     "test": "modern test --coverage --coverageReporters='text'",
