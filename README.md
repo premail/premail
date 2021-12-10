@@ -172,18 +172,18 @@ options:
 
 <!-- The following section is automatically-generated. Do not edit. -->
 <!-- prettier-ignore-start -->
-<!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && ./index.js -h && echo '```\n<'!'-- '-'->') --><!-- -->
+<!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && ./index.js -h | sed "s/index\.js/premail/g" && echo '```\n<'!'-- '-'->') --><!-- -->
 ```
-Usage: index.js <command> [options]
+Usage: premail <command> [options]
 
 Commands:
-  index.js build    Build your email                                   [default]
-  index.js watch    Watch design and configuration files and rebuild as
+  premail build    Build your email                                   [default]
+  premail watch    Watch design and configuration files and rebuild as
                     necessary
-  index.js format   Format templates with Prettier
-  index.js clean    Remove generated files from the current design or email
-  index.js init     Initialize an email project
-  index.js destroy  Destroy an email project
+  premail format   Format templates with Prettier
+  premail clean    Remove generated files from the current design or email
+  premail init     Initialize an email project
+  premail destroy  Destroy an email project
 
 Email project build and watch:
   -d, --design  Specify design directory to use   [string] [default: "_default"]
