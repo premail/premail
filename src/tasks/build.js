@@ -89,40 +89,39 @@ function styles () {
 // Preprocess content
 //
 function content () {
+  // Set typography options based on configuration
+  config.typography = {
+    detergent: config.file.internal.typography.detergent,
+    typeset: config.file.internal.typography.typeset,
+  }
+
+  // Override default typography settings with configuration
+  config.typography.detergent.options.convertApostrophes =
+    config.design.typography.convertQuoteAndApostrophe
+  config.typography.detergent.options.convertDashes =
+    config.design.typography.convertDash
+  config.typography.detergent.options.convertDotsToEllipsis =
+    config.design.typography.convertEllip
+  config.typography.typeset.css.opticallyAlignLetters =
+    config.design.typography.opticallyAlignLetters
+  config.typography.typeset.css.enableSmallCaps =
+    config.design.typography.enableSmallCaps
+
+  // Report typographical enhancements
   if (flags.debug) {
     notify.unjson(
-      config.design.typography,
+      config.typography,
       'The following typographical enhancements will be performed:'
     )
   }
 
-  // Set typography options based on configuration
-  config.file.internal.design.typography.detergent.options.convertDashes =
-    config.project.details.typography.convertDash
-  config.file.internal.design.typography.detergent.options.convertApostrophes =
-    config.project.details.typography.convertQuoteAndApostrophe
-  config.file.internal.design.typography.detergent.options.convertDotsToEllipsis =
-    config.project.details.typography.convertEllip
-  config.file.internal.design.typography.typeset.options.hangingPunctuation =
-    config.project.details.typography.hangPunctuation
-  config.file.internal.design.typography.typeset.options.smallCaps =
-    config.project.details.typography.enableSmallCaps
-  config.file.internal.design.typography.typeset.css.enableSmallCaps =
-    config.project.details.typography.enableSmallCaps
-  config.file.internal.design.typography.typeset.css.hangingPunctuation =
-    config.project.details.typography.hangPunctuation
-  config.file.internal.design.typography.typeset.css.opticallyAlignLetters =
-    config.project.details.typography.opticallyAlignLetters
-
   // Disable applicable Typeset options
   const typesetDisable = []
-  Object.keys(config.file.internal.design.typography.typeset.options).forEach(
-    key => {
-      if (!config.file.internal.design.typography.typeset.options[key]) {
-        typesetDisable.push(key)
-      }
+  Object.keys(config.typography.typeset.options).forEach(key => {
+    if (!config.typography.typeset.options[key]) {
+      typesetDisable.push(key)
     }
-  )
+  })
 
   return pipeline(
     src(config.current.templates.array),
@@ -150,7 +149,7 @@ function content () {
     tap(function (file) {
       const results = det(
         file.contents.toString(),
-        config.file.internal.design.typography.detergent.options
+        config.typography.detergent.options
       )
       file.contents = Buffer.from(results.res)
     }),

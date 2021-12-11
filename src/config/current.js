@@ -48,7 +48,9 @@ if (fs.existsSync(config.file.project)) {
     const designJSON = yaml.loadAll(
       fs.readFileSync(config.file.design, { encoding: 'utf-8' })
     )
-    config.design = designJSON[0]
+    config.design = { ...config.file.internal.design, ...designJSON[0] }
+  } else {
+    config.design = { ...config.file.internal.design }
   }
 
   // Test if email is set
