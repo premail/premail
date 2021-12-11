@@ -133,7 +133,7 @@ function content () {
 
       if (
         filename !== config.design.templates.main &&
-        !config.current.templates.design.includes(filename)
+        !config.current.templates.names.includes(filename)
       ) {
         findOccurrences(/\/>/gim, contents).forEach(result =>
           notify.msg(
