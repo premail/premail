@@ -52,13 +52,14 @@ if (fs.existsSync(config.file.project)) {
   }
 
   // Test if email is set
-  config.current.email = ''
+  config.current.email = {}
+  config.current.email.name = ''
   if (flags.e) {
-    config.current.email = flags.e
+    config.current.email.name = flags.e
   }
 
   // If no email is set, build based on design
-  if (!config.current.email) {
+  if (!config.current.email.name) {
     config.current.name = config.current.design
     config.current.path = config.current.design.path
 
@@ -78,8 +79,17 @@ if (fs.existsSync(config.file.project)) {
 
     // If email is set, build based on email
   } else {
+    // Set email path
+    config.current.email.path = path.join(
+      config.project.__base,
+      config.project.dirs.email.name,
+      config.current.email.name
+    )
+    config.current.name = config.current.email.name
+    config.current.path = config.current.email.path
+
     // Load email settings
-    config.file.email = path.join(config.current.email, 'emailConfig.yaml')
+    config.file.email = path.join(config.current.email.path, 'emailConfig.yaml')
     if (fs.existsSync(config.file.email)) {
       const emailJSON = yaml.loadAll(
         fs.readFileSync(config.file.email, { encoding: 'utf-8' })
@@ -87,16 +97,8 @@ if (fs.existsSync(config.file.project)) {
       config.email = emailJSON[0]
     }
 
-    // Determine email path
-    config.current.email.name = config.current.email
-    config.current.design.path = path.join(
-      config.project.__base,
-      config.project.dirs.email.name,
-      config.current.email
-    )
-
     // Set output dir
-    if (config.email.dirs.output.dir) {
+    if (config.email.dirs.output) {
       config.email.dist = path.join(
         config.current.path,
         config.email.dirs.output.dir
