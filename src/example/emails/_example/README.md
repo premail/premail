@@ -30,13 +30,13 @@ likely to change with each email:
   image, that appears just after the top navigation in an email. Full-width
   images can also be used within the body, of course.
 - `salutation.hbs` [optional] is the opening of the email, such as "Dear
-  Samantha,"
+  friend,"
 - `body.hbs` is the main content of the email, in which you can use any
-  [MJML body components](https://documentation.mjml.io/#standard-body-components).
-  In most cases you'll need to use
-  [`<mj-section>`](https://documentation.mjml.io/#mj-section) and
-  [`<mj-column>`](https://documentation.mjml.io/#mj-column) components around
-  individual content items, as demonstrated in the example file.
+  [MJML body components](https://documentation.mjml.io/#standard-body-components)
+  other than `<mj-wrapper>`, as it already wraps the body content. In most cases
+  you'll need to use [`<mj-section>`](https://documentation.mjml.io/#mj-section)
+  and [`<mj-column>`](https://documentation.mjml.io/#mj-column) components
+  around individual content items, as demonstrated in the example file.
 - `signoff.hbs` is the closing text of your email that could include a name,
   title, portrait image and other information.
 
