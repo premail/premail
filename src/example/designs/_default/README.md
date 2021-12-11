@@ -22,11 +22,16 @@ though, all you'll need to know is MJML.
   MJML and CSS. If there are styles you want to add or change that aren't listed
   here, your next step should be the Sass files in `theme`.
 - `content`: This directory holds files that will _always_ change in each email
-  -- the title, preview text, header/hero area and main body.
-- `structure`: This directory holds files that may _sometimes_ change in each
-  email -- top and bottom navigation menus, social media links, and the footer
-  area. Depending on how you prefer to create your designs, you might opt to
-  never change these components in a given design.
+  -- the title, preview text, header/hero area and main body -- and will usually
+  be overridden by the `content` components in emails built with this design.
+  The files here will only be used when a) an email does not define the same
+  file, or b) when building the design itself (i.e. designing the design).
+- `structure`: This directory holds files that may _sometimes_ change -- top and
+  bottom navigation menus, social media links, and the footer area. Depending on
+  how you prefer to create your designs, you might opt to never change these
+  components in a given design. If and when these same files exist in an email,
+  they will be overridden by that email.
+- `dist`: This directory holds the built version of the design.
 
 ## Theme
 
