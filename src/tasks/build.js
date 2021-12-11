@@ -205,10 +205,10 @@ function render (cb) {
   }
 
   // Set template extension
-  htmlBuild.mjml.fileExt = config.project.files.templateExt
+  htmlBuild.mjml.fileExt = config.design.templates.ext
 
   // Set text build options
-  if (config.project.text.generate) {
+  if (config.email.text.generate) {
     textBuild.status = true
     textBuild.options = config.file.internal.textBuild.options
     textBuild.options.baseElement = []
@@ -218,9 +218,9 @@ function render (cb) {
     }
 
     // Load project-configurable CSS selectors to skip
-    if (config.project.text.skipSelectors) {
+    if (config.email.text.skipSelectors) {
       textBuild.options.selectors = []
-      config.project.text.skipSelectors.forEach(element => {
+      config.email.text.skipSelectors.forEach(element => {
         const obj = {
           selector: element,
           format: 'skip',
@@ -230,18 +230,18 @@ function render (cb) {
     }
 
     // Include image URIs if requested
-    if (config.project.text.images) {
+    if (config.email.text.images) {
       textBuild.include.images = true
       delete textBuild.options.tags.img
     } else {
       textBuild.include.images = false
     }
 
-    // Override default partial includes with project config, if set, and name
+    // Override default partial includes with email config, if set, and name
     // base elements
-    Object.keys(config.project.text.include).forEach(key => {
-      Object.assign(textBuild.include.partials, config.project.text.include)
-      if (config.project.text.include[key] === true) {
+    Object.keys(config.email.text.include).forEach(key => {
+      Object.assign(textBuild.include.partials, config.email.text.include)
+      if (config.email.text.include[key] === true) {
         textBuild.options.baseElement.push('div.component-' + key)
       }
     })
