@@ -4,6 +4,7 @@
      This readme includes documentation from various parts of the Premail
      documentation site, <https://premail.dev>
 
+<<<<<<< HEAD
      Any updates to this file should be reflected in the corresponding areas
      of the documentation site as necessary.
 
@@ -62,6 +63,16 @@ version, ready to import into your emailer of choice.
 
 Read more at
 **[a quick introduction to Premail](https://premail.dev/docs/introduction-to-premail/)**.
+======= One `index.html` file will be rendered, ready to import into your
+emailer of choice.
+[See example.](https://github.com/premail/premail/blob/main/_templates/index.html)
+
+---
+
+**Development of a more useful and interesting version of this tool is happening
+over at the [v2.0.0 branch](https://github.com/premail/premail/tree/v2.0.0).**
+
+> > > > > > > main
 
 ---
 
@@ -84,7 +95,7 @@ Read more at
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Fri Dec 10 22:28:58 UTC 2021 -->
+<!-- Added by: runner, at: Fri Dec 17 01:53:00 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -171,6 +182,8 @@ Head over to the
 for a step-by-step walkthrough, or run `premail -h` to see the full list of
 options:
 
+<<<<<<< HEAD
+
 <!-- The following section is automatically-generated. Do not edit. -->
 <!-- prettier-ignore-start -->
 <!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && ./index.js -h | sed "s/index\.js/premail/g" && echo '```\n<'!'-- '-'->') --><!-- -->
@@ -248,10 +261,19 @@ If you want to say **thank you** and support active development of Premail:
 
 ## Contributing
 
-First off, thanks for taking the time to contribute! Contributions are what make
-the open-source community such an amazing place to learn, inspire, and create.
-Any contributions you make will benefit everybody else and are **greatly
-appreciated**.
+<<<<<<< HEAD First off, thanks for taking the time to contribute! Contributions
+are what make the open-source community such an amazing place to learn, inspire,
+and create. Any contributions you make will benefit everybody else and are
+**greatly appreciated**. =======
+
+- import directly (as HTML) into your emailer of choice
+- share the `index.html` file with colleagues
+- upload the file as part of a repo and use something like
+  [GitHub Pages](https://pages.github.com/) to view/share it in a browser; for
+  instance
+  [here's the rendered file](https://github.com/premail/premail/blob/main/_templates/index.html)
+  from the sample templates
+  > > > > > > > main
 
 Please read
 [our contribution guidelines](https://github.com/premail/premail/tree/v2.0.0/docs/CONTRIBUTING.md),

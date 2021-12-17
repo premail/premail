@@ -81,7 +81,6 @@ over at the [v2.0.0 branch](https://github.com/premail/premail/tree/v2.0.0).**
 <!-- prettier-ignore-start -->
 
 <!--ts-->
-<<<<<<< HEAD
 * [Features](#features)
    * [Custom MJML components](#custom-mjml-components)
 * [Setup and usage](#setup-and-usage)
@@ -95,24 +94,7 @@ over at the [v2.0.0 branch](https://github.com/premail/premail/tree/v2.0.0).**
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Fri Dec 10 22:28:58 UTC 2021 -->
-=======
-* [Overview](#overview)
-* [Setup](#setup)
-   * [If you have Sublime Text 3](#if-you-have-sublime-text-3)
-* [Usage](#usage)
-   * [Creating a new design](#creating-a-new-design)
-      * [Sublime Text 3 users](#sublime-text-3-users)
-   * [Creating a new email from an existing design](#creating-a-new-email-from-an-existing-design)
-   * [Rendering the email for production](#rendering-the-email-for-production)
-      * [Sublime Text 3 users](#sublime-text-3-users-1)
-* [Notes on project structure](#notes-on-project-structure)
-* [Known issues](#known-issues)
-* [Thanks](#thanks)
-* [License](#license)
-
-<!-- Added by: runner, at: Wed Sep 29 19:49:20 UTC 2021 -->
->>>>>>> main
+<!-- Added by: runner, at: Fri Dec 17 01:53:00 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -206,15 +188,6 @@ options:
 <!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && ./index.js -h | sed "s/index\.js/premail/g" && echo '```\n<'!'-- '-'->') --><!-- -->
 ```
 Usage: premail <command> [options]
-=======
-* Go to the [Releases](https://github.com/premail/premail/releases)
-page and grab the most recent stable version. Alternatively, you can simply fork
-this repo and clone it locally.
-* Remove the `.github` folder if you don't want to use
-[GitHub Actions](https://docs.github.com/en/actions).
-* Install [mjml](https://www.npmjs.com/package/mjml) globally using node:
-`npm install -g mjml`
->>>>>>> main
 
 Commands:
   premail build    Build your email                                   [default]
