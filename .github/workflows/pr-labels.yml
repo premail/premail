@@ -15,6 +15,6 @@ jobs:
         with:
           github-token: '${{ secrets.GITHUB_TOKEN }}'
           valid-labels: >-
-            'Type: Bug', 'Type: Security', 'Type: Feature', 'Type:
-            Documentation', 'Type: Dependencies', 'Type: Maintenance'
+            Type: Bug, Type: Security, Type: Feature, Type: Documentation, Type:
+            Dependencies, Type: Maintenance
           disable-reviews: true
