@@ -73,6 +73,9 @@ Read more at
 * [Features](#features)
    * [Custom MJML components](#custom-mjml-components)
 * [Setup and usage](#setup-and-usage)
+   * [Installation](#installation)
+   * [Quickstart](#quickstart)
+   * [CLI options](#cli-options)
 * [Project information](#project-information)
    * [Documentation](#documentation)
    * [Roadmap](#roadmap)
@@ -83,7 +86,7 @@ Read more at
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Fri Dec 17 02:05:55 UTC 2021 -->
+<!-- Added by: runner, at: Fri Dec 17 02:16:04 UTC 2021 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
