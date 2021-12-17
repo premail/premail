@@ -205,7 +205,7 @@ function render (cb) {
   }
 
   // Set template extension
-  htmlBuild.mjml.fileExt = config.design.templates.ext
+  htmlBuild.mjml.fileExt = config.templates.ext
 
   // Set text build options
   if (config.email.text.generate) {
