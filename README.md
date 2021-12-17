@@ -10,7 +10,7 @@
 
 <h1 align="center">
   <a href="https://github.com/premail/premail">
-    <img src="https://raw.githubusercontent.com/premail/premail/v2.0.0/docs/images/logo.svg" alt="Premail" width="500" height="250">
+    <img src="https://raw.githubusercontent.com/premail/premail/main/docs/images/logo.svg" alt="Premail" width="500" height="250">
   </a>
 </h1>
 
@@ -271,7 +271,7 @@ Any contributions you make will benefit everybody else and are **greatly
 appreciated**.
 
 Please read
-[our contribution guidelines](https://github.com/premail/premail/tree/v2.0.0/docs/CONTRIBUTING.md),
+[our contribution guidelines](https://github.com/premail/premail/tree/main/docs/CONTRIBUTING.md),
 and thank you for being involved!
 
 ## Security
@@ -280,11 +280,11 @@ Legalese: Premail is provided **"as is"** without any warranty. Use at your own
 risk.
 
 _For more information and to report security issues, please refer to our
-[security documentation](https://github.com/premail/premail/tree/v2.0.0/docs/SECURITY.md)._
+[security documentation](https://github.com/premail/premail/tree/main/docs/SECURITY.md)._
 
 # Thanks and Sponsorships
 
-<a href="https://www.multietch.com/"><img src="https://raw.githubusercontent.com/premail/premail/v2.0.0/docs/images/sponsors/multietch.jpg" alt="Multi-Etch" width="75" height="75" align="left"></a>Work
+<a href="https://www.multietch.com/"><img src="https://raw.githubusercontent.com/premail/premail/main/docs/images/sponsors/multietch.jpg" alt="Multi-Etch" width="75" height="75" align="left"></a>Work
 funded in part by <a href="https://www.multietch.com/">Multi-Etch,
 LLC</a>.<br />
 
@@ -297,7 +297,7 @@ Premail's developer, and have your name or logo included here!**
 <!-- prettier-ignore-end -->
 
 Premail is built on all sorts of open-source code.
-[Our appreciation to all of these fine projects](https://github.com/premail/premail/tree/v2.0.0/docs/appreciation.md)
+[Our appreciation to all of these fine projects](https://github.com/premail/premail/tree/main/docs/appreciation.md)
 
 # License
 
