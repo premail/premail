@@ -159,16 +159,31 @@ for common use cases:
 
 # Setup and usage
 
+## Installation
+
 `npm install -g premail`
 
 That's it! See
 [setting up Premail](https://premail.dev/docs/overview/setting-up-premail/) for
-additional details.
+additional installation options.
+
+## Quickstart
+
+- Install Premail (above).
+- Create an emtpy directory and enter it on the command line.
+- Run `premail init`. This generates the Premail scaffolding and includes an
+  example design and email source.
+- Run `premail build -e _example`. This builds the example email.
+- Take a look at `emails/_example/dist` to see the built HTML and plain text
+  versions of the email.
 
 Head over to the
 [Premail Usage Guide](https://premail.dev/docs/overview/usage/create-new-premail-project/)
-for a step-by-step walkthrough, or run `premail -h` to see the full list of
-options:
+to start learning about how to use Premail with your own designs and emails.
+
+## CLI options
+
+You can run `premail -h` to see the full list of options:
 
 <!-- The following section is automatically-generated. Do not edit. -->
 <!-- prettier-ignore-start -->
