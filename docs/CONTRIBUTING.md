@@ -13,7 +13,8 @@ When contributing, especially for the first time, consider starting by
 [creating an issue](https://github.com/premail/premail/issues/new) so you can
 get feedback from the maintainers and avoid unncessary work.
 
-**Note:** Premail has a [code of conduct](https://premail.dev/code_of_conduct/).
+**Note:** Premail has a
+[code of conduct](https://github.com/premail/premail/blob/main/docs/CODE_OF_CONDUCT.md).
 Please follow it in all your interactions with the project.
 
 ## Issues and feature requests
