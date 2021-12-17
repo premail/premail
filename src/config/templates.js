@@ -42,10 +42,15 @@ if (fs.existsSync(config.file.project) && fs.existsSync(config.file.design)) {
 
   // Construct paths of all templates
   config.current.templates = {}
-  config.current.templates.array = [
-    ...config.design.templates.array,
-    ...config.email.templates.array,
-  ]
+  if (config.current.email.name) {
+    config.current.templates.array = [
+      ...config.design.templates.array,
+      ...config.email.templates.array,
+    ]
+  } else {
+    config.current.templates.array = [...config.design.templates.array]
+  }
+
   config.current.templates.list = config.current.templates.array
     .toString()
     .split(',')
