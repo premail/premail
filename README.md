@@ -3,6 +3,7 @@
      This readme includes documentation from various parts of the Premail
      documentation site, <https://premail.dev>
 
+<<<<<<< HEAD
      Any updates to this file should be reflected in the corresponding areas
      of the documentation site as necessary.
 
@@ -61,6 +62,16 @@ version, ready to import into your emailer of choice.
 
 Read more at
 **[a quick introduction to Premail](https://premail.dev/docs/introduction-to-premail/)**.
+======= One `index.html` file will be rendered, ready to import into your
+emailer of choice.
+[See example.](https://github.com/premail/premail/blob/main/_templates/index.html)
+
+---
+
+**Development of a more useful and interesting version of this tool is happening
+over at the [v2.0.0 branch](https://github.com/premail/premail/tree/v2.0.0).**
+
+> > > > > > > main
 
 ---
 
@@ -70,6 +81,7 @@ Read more at
 <!-- prettier-ignore-start -->
 
 <!--ts-->
+<<<<<<< HEAD
 * [Features](#features)
    * [Custom MJML components](#custom-mjml-components)
 * [Setup and usage](#setup-and-usage)
@@ -84,6 +96,23 @@ Read more at
 * [License](#license)
 
 <!-- Added by: runner, at: Fri Dec 10 22:28:58 UTC 2021 -->
+=======
+* [Overview](#overview)
+* [Setup](#setup)
+   * [If you have Sublime Text 3](#if-you-have-sublime-text-3)
+* [Usage](#usage)
+   * [Creating a new design](#creating-a-new-design)
+      * [Sublime Text 3 users](#sublime-text-3-users)
+   * [Creating a new email from an existing design](#creating-a-new-email-from-an-existing-design)
+   * [Rendering the email for production](#rendering-the-email-for-production)
+      * [Sublime Text 3 users](#sublime-text-3-users-1)
+* [Notes on project structure](#notes-on-project-structure)
+* [Known issues](#known-issues)
+* [Thanks](#thanks)
+* [License](#license)
+
+<!-- Added by: runner, at: Wed Sep 29 19:49:20 UTC 2021 -->
+>>>>>>> main
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -170,11 +199,22 @@ Head over to the
 for a step-by-step walkthrough, or run `premail -h` to see the full list of
 options:
 
+<<<<<<< HEAD
+
 <!-- The following section is automatically-generated. Do not edit. -->
 <!-- prettier-ignore-start -->
 <!-- markdown-exec(cmd:echo '<'!'-- '-'->\n```' && ./index.js -h | sed "s/index\.js/premail/g" && echo '```\n<'!'-- '-'->') --><!-- -->
 ```
 Usage: premail <command> [options]
+=======
+* Go to the [Releases](https://github.com/premail/premail/releases)
+page and grab the most recent stable version. Alternatively, you can simply fork
+this repo and clone it locally.
+* Remove the `.github` folder if you don't want to use
+[GitHub Actions](https://docs.github.com/en/actions).
+* Install [mjml](https://www.npmjs.com/package/mjml) globally using node:
+`npm install -g mjml`
+>>>>>>> main
 
 Commands:
   premail build    Build your email                                   [default]
@@ -247,10 +287,19 @@ If you want to say **thank you** and support active development of Premail:
 
 ## Contributing
 
-First off, thanks for taking the time to contribute! Contributions are what make
-the open-source community such an amazing place to learn, inspire, and create.
-Any contributions you make will benefit everybody else and are **greatly
-appreciated**.
+<<<<<<< HEAD First off, thanks for taking the time to contribute! Contributions
+are what make the open-source community such an amazing place to learn, inspire,
+and create. Any contributions you make will benefit everybody else and are
+**greatly appreciated**. =======
+
+- import directly (as HTML) into your emailer of choice
+- share the `index.html` file with colleagues
+- upload the file as part of a repo and use something like
+  [GitHub Pages](https://pages.github.com/) to view/share it in a browser; for
+  instance
+  [here's the rendered file](https://github.com/premail/premail/blob/main/_templates/index.html)
+  from the sample templates
+  > > > > > > > main
 
 Please read
 [our contribution guidelines](https://github.com/premail/premail/tree/v2.0.0/docs/CONTRIBUTING.md),
