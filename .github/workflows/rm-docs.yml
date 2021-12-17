@@ -1,0 +1,22 @@
+name: Remove unrelated mirrored docs
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'v2.0.0'
+
+jobs:
+  checkout:
+    name: Remove unrelated docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Remove files
+        run: |
+          rm -f docs/index*.* ||:
+      - name: Autocommit the changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Removing unrelated docs

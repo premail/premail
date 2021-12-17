@@ -1,0 +1,18 @@
+# Default plain-text build configuration
+textBuild:
+  options:
+    tables: true
+    tags:
+      img:
+        format: 'skip'
+  include:
+    images: false
+    partials:
+      topNav: true
+      banner: true
+      salutation: true
+      body: true
+      signoff: true
+      social: true
+      bottomNav: true
+      footer: true

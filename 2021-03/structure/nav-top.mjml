@@ -1,5 +1,0 @@
-<mj-section mj-class="nav nav--top" css-class="nav">
-  <mj-column mj-class="column">
-      <mj-image mj-class="nav__logo" href="https://www.multietch.com" src="https://campaign-image.com/zohocampaigns/multietch_zc_v2_722626000000716006.png" alt="Multi-Etch" />
-  </mj-column>
-</mj-section>

@@ -1,4 +1,0 @@
-{
-  "shell_cmd": "cd $folder; ./mjml-build.sh",
-  "file_patterns": ["*.mjml"]
-}

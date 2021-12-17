@@ -1,0 +1,14 @@
+# Default HTML build configuration
+htmlBuild:
+  mjml:
+    dev:
+      validationLevel: 'strict'
+    prod:
+      validationLevel: 'strict'
+      keepComments: false
+  crush:
+    removeIndentations: true
+    removeLineBreaks: true
+    lineLengthLimit: 500
+    removeHTMLComments: 0
+    removeCSSComments: true

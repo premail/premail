@@ -1,0 +1,60 @@
+# Validation rules
+# Available types:
+# - ascii (checks that string has only ASCII characters)
+# - oneOf (checks that string is in provided 'opt' array of strings)
+# - size (checks that string has 'px' and no other CSS length unit)
+# - url (checks that string is a valid URL and double-quoted)
+validationRules:
+  - type: ascii
+    selectors:
+      - config.project.dirs
+      - config.design.templates
+      - config.email.language
+  - type: oneOf
+    selectors:
+      - config.design.fonts.stack.base
+    opt:
+      - sans
+      - serif
+      - mono
+  - type: size
+    selectors:
+      - config.design.sections.main.horizontalPadding
+      - config.design.sections.salutation.padding
+      - config.design.sections.body.padding
+      - config.design.sections.signoff.padding
+      - config.design.sections.social.horizontalPadding
+      - config.design.sections.social.verticalPadding
+      - config.design.sections.social.topBorder.verticalPadding
+      - config.design.sections.social.topBorder.borderWidth
+      - config.design.sections.footer.horizontalPadding
+      - config.design.sections.footer.verticalPadding
+      - config.design.text.default.size
+      - config.design.text.default.verticalPadding
+      - config.design.lists.leftPadding
+      - config.design.lists.listBottomPadding
+      - config.design.lists.itemBottomPadding
+      - config.design.lists.fontSize
+      - config.design.buttons.primary.height
+      - config.design.buttons.primary.width
+      - config.design.buttons.primary.buttonPadding
+      - config.design.buttons.primary.contentPadding
+      - config.design.buttons.primary.cornerRadius
+      - config.design.buttons.primary.textSize
+      - config.design.buttons.secondary.height
+      - config.design.buttons.secondary.width
+      - config.design.buttons.secondary.buttonPadding
+      - config.design.buttons.secondary.contentPadding
+      - config.design.buttons.secondary.cornerRadius
+      - config.design.buttons.secondary.textSize
+      - config.design.buttons.ghost.height
+      - config.design.buttons.ghost.width
+      - config.design.buttons.ghost.buttonPadding
+      - config.design.buttons.ghost.contentPadding
+      - config.design.buttons.ghost.cornerRadius
+      - config.design.buttons.ghost.borderWidth
+      - config.design.buttons.ghost.textSize
+  - type: url
+    selectors:
+      - config.design.page.backgroundImage
+      - config.design.fonts.stack.custom.href

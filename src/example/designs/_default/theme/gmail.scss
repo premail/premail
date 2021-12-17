@@ -1,0 +1,48 @@
+/* GMAIL-SPECIFIC STYLES
+ *
+ * These are styles that target Gmail behavior. They must be in their own
+ * dedicated <style> block, or Gmail will strip them.
+ *
+ * In order to override the inlined styles, all styles below need to include the
+ * !important flag, so be sure to test!
+ */
+
+// Import Sass variables from Premail.
+@import '~/sassImport.js';
+
+/* Style Gmail-created links.
+ *
+ * Force links created by Gmail (like for addresses and phone numbers) to
+ * inherit their parent text's styles.
+ *
+ * Resources:
+ * https://www.litmus.com/blog/update-banning-blue-links-on-ios-devices-2/
+ */
+
+a[x-apple-data-detectors] {
+  color: inherit !important;
+  text-decoration: none !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+}
+
+/* Reset left margin for item lists in Gmail.
+ *
+ * We set a left-margin on lists to ensure the bullet elements are inside the
+ * container, but Gmail on desktop (alone) already includes the left margin.
+ *
+ * Resources:
+ * https://www.litmus.com/blog/the-ultimate-guide-to-bulleted-lists-in-html-email/
+ */
+
+u + .body .list-item-wrap {
+  margin-left: 0 !important;
+}
+
+@media only screen and (max-width: 640px) {
+  u + .body .list-item-wrap {
+    margin-left: 25px !important;
+  }
+}

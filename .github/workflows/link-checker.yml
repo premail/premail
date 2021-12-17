@@ -1,6 +1,4 @@
 name: Link checker
-# Note this does NOT check links in the dotfiles themselves, only in other (e.g.
-# Markdown) files.
 
 on:
   push:
@@ -30,4 +28,4 @@ jobs:
           # Choose whether to include files with no URLs in the output
           print_all: false
           # A comma separated patterns to exclude during URL checks
-          exclude_patterns: http://www.w3.org
+          exclude_patterns: http://www.w3.org,https://premail.dev/security/

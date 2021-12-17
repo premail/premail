@@ -1,0 +1,229 @@
+/* INLINE STYLES
+ *
+ * The CSS in this file will be inlined by MJML into the HTML elements
+ * themselves to ensure email rendering. Use it for styling basic HTML elements.
+ * Don't include anything that can't be inlined (like link-hover styles).
+ *
+ */
+
+// Import Sass variables from Premail.
+@import '~/sassImport.js';
+
+// Note that MJML sets some values, like background color, directly on
+// <mj-body> in index.hbs
+.body {
+  padding: 0 8px;
+}
+
+@if map-get($page, 'center') {
+  .body {
+    margin: 0;
+  }
+} @else {
+  .body {
+    text-align: left;
+  }
+  .component-topNav,
+  .component-banner,
+  .component-salutation,
+  .component-body,
+  .component-signoff,
+  .component-social,
+  .component-bottomNav,
+  .component-footer {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+@if map-has-key($page, 'backgroundImage') {
+  .body {
+    background-image: url(map-get($page, 'backgroundImage'));
+  }
+}
+
+h1 {
+  margin: 0;
+  padding: 18px 0;
+  font-size: 36px;
+  line-height: 32px;
+  font-weight: bold;
+}
+h2 {
+  margin: 0;
+  padding: 18px 0;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: bold;
+}
+.mj-column-per-50 h2 {
+  padding: 18px;
+  align: center;
+  vertical-align: middle;
+}
+p {
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: map-get($text, 'size');
+  @if map-has-key($text, 'verticalPadding') {
+    margin-bottom: map-get($text, 'verticalPadding');
+  }
+  font-size: map-get($text, 'size');
+  mso-line-height-rule: exactly;
+  line-height: map-get($text, 'lineHeight');
+}
+a {
+  font-weight: map-get($links, 'weight');
+  text-decoration: map-get($links, 'decoration');
+  color: map-get($colors, 'primary');
+  @if map-has-key($links, 'color') {
+    color: map-get($links, 'color');
+  }
+}
+
+/* LIST COMPONENTS
+ *
+ * Rather than using <ul> and <li> elements, which render unpredictably in
+ * email clients, use <mj-list> and <mj-li> elements, then style with the
+ * classes below.
+ */
+
+.list {
+  padding-bottom: map-get($lists, 'listBottomPadding');
+}
+
+.list-item-wrap {
+  margin-left: map-get($lists, 'leftPadding');
+  font-size: map-get($text, 'size') !important;
+  @if map-has-key($lists, 'fontSize') {
+    font-size: map-get($lists, 'fontSize') !important;
+  }
+  mso-line-height-rule: exactly;
+  line-height: map-get($text, 'lineHeight') !important;
+  @if map-has-key($lists, 'lineHeight') {
+    line-height: map-get($lists, 'lineHeight') !important;
+  }
+}
+
+.list-item {
+  margin-bottom: map-get($lists, 'listBottomPadding') !important;
+  @if map-has-key($lists, 'itemBottomPadding') {
+    margin-bottom: map-get($lists, 'itemBottomPadding') !important;
+  }
+}
+
+.list-item__text {
+}
+
+/* SIGNOFF COMPONENT
+ *
+ * Styles applied when using the <mj-signoff> custom component.
+ */
+
+.signoff__text p {
+  mso-line-height-rule: exactly;
+  line-height: map-get($signoff, 'lineHeight');
+}
+
+.signoff__closing {
+  @if map-has-key($signoff, 'closingBottomPadding') {
+    margin-bottom: map-get($signoff, 'closingBottomPadding');
+  }
+}
+
+.signoff__name {
+  @if map-has-key($signoff, 'nameBottomPadding') {
+    margin-bottom: map-get($signoff, 'nameBottomPadding');
+  }
+}
+
+.signoff__title {
+  @if map-has-key($signoff, 'titleBottomPadding') {
+    margin-bottom: map-get($signoff, 'titleBottomPadding');
+  }
+}
+
+.signoff__title2 {
+  @if map-has-key($signoff, 'title2BottomPadding') {
+    margin-bottom: map-get($signoff, 'title2BottomPadding');
+  }
+}
+
+.signoff__title3 {
+  @if map-has-key($signoff, 'title3BottomPadding') {
+    margin-bottom: map-get($signoff, 'title3BottomPadding');
+  }
+}
+
+.signoff__custom {
+}
+
+/* TYPOGRAPHIC ENHANCEMENT STYLES
+ *
+ * These styles will only be included and inlined if the corresponding
+ * typographical enhancements are present in a given email and enabled in your
+ * `premail.yaml` file. For more information, see:
+ * https://github.com/davidmerfield/typeset#css
+ */
+
+@if map-get($typography, 'enableSmallCaps') {
+  .small-caps {
+    font-variant: small-caps;
+    font-size: 95%; // Fallback when font-variant isn't processed.
+  }
+}
+
+@if map-get($typography, 'opticallyAlignLetters') {
+  .pull-T,
+  .pull-V,
+  .pull-W,
+  .pull-Y {
+    margin-left: -0.07em;
+  }
+  .push-T,
+  .push-V,
+  .push-W,
+  .push-Y {
+    margin-right: 0.07em;
+  }
+  .pull-O,
+  .pull-C,
+  .pull-o,
+  .pull-c {
+    margin-left: -0.04em;
+  }
+  .push-O,
+  .push-C,
+  .push-o,
+  .push-c {
+    margin-right: 0.04em;
+  }
+  .pull-A {
+    margin-left: -0.03em;
+  }
+  .push-A {
+    margin-right: 0.03em;
+  }
+}
+
+@if map-get($typography, 'hangPunctuation') {
+  .pull-single {
+    margin-left: -0.27em;
+  }
+  .push-single {
+    margin-right: 0.27em;
+  }
+  .pull-double,
+  .push-double,
+  .pull-single,
+  .push-single {
+    display: inline-block;
+  }
+  .pull-double {
+    margin-left: -0.46em;
+  }
+  .push-double {
+    margin-right: 0.46em;
+  }
+}

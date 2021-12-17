@@ -1,0 +1,92 @@
+---
+# Type
+
+- name: 'Type: Bug'
+  color: b82c17
+  description:
+    'Problems in the program which will cause issues for users or implementors.'
+- name: 'Type: Security'
+  color: b80083
+  description: 'Vulnerability or security risk.'
+- name: 'Type: Feature'
+  color: 7f00ff
+  description: 'New functionality in this tool.'
+- name: 'Type: Documentation'
+  color: 0000ff
+  description: 'In-tool documentation, both doc files and code comments.'
+- name: 'Type: Question'
+  color: 80ff00
+  description:
+    'Requests for help on how to use the project, or general questions.'
+- name: 'Type: Dependencies'
+  color: 555555
+  description: 'Change in project dependencies.'
+- name: 'Type: Maintenance'
+  color: 555555
+  description: 'Generic maintenance tasks, including GitHub Actions.'
+
+# Status
+
+- name: 'Status: Available'
+  color: bee4be
+  description: 'Not currently being worked on. Take the lead!'
+- name: 'Status: In Progress'
+  color: fef2c0
+  description: 'Work is underway.'
+- name: 'Status: Update Needed'
+  color: e11d21
+  description: 'Missing necessary information or review.'
+- name: 'Status: Blocked or Postponed'
+  color: 006a74
+  description: 'On hold.'
+- name: 'Status: Done'
+  color: 000000
+  description: 'Completed.'
+- name: "Status: Won't Fix"
+  color: cdcdcd
+  description:
+    'Outside project scope, off-topic, spam, or otherwise does not apply to this
+    project.'
+- name: 'Status: Stale'
+  color: cdcdcd
+  description: 'No recent activity.'
+- name: 'Status: Abandoned'
+  color: cdcdcd
+  description: 'No activity, considered abandoned.'
+
+# Versions
+
+- name: 'Version: Major'
+  color: 84b6eb
+  description: 'This will cause a major bump in the version number.'
+- name: 'Version: Minor'
+  color: 84b6eb
+  description: 'This will cause a minor bump in the version number.'
+
+# Priority
+
+- name: 'Priority: Critical'
+  color: e11c20
+- name: 'Priority: High'
+  color: eb6420
+- name: 'Priority: Medium'
+  color: fbca04
+- name: 'Priority: Low'
+  color: 84b6ea
+
+# Welcome
+
+- name: 'good first issue'
+  color: 2da44e
+  description:
+    'Beginner-friendly issue for people wanting to contribute to this project.'
+- name: 'help wanted'
+  color: 2da44e
+  description:
+    'We need some extra helping hands or expertise in order to resolve this!'
+
+# Bot (prefixed with "x" so they'll be listed last.)
+
+- name: 'x-Bot: No Abandonment'
+  color: cdcdcd
+  description: 'This will never be marked abandoned by the status bot.'

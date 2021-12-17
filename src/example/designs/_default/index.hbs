@@ -1,0 +1,237 @@
+<!--
+
+ABOUT THIS FILE
+
+index.hbs is a mix of Handlebars and MJML template languages. Usually, you
+should not need to edit it.
+
+See `README.md` in this directory for more information about how to change a
+design.
+
+-->
+
+<mjml lang="{{email.language.default}}">
+  <!--
+
+INCLUDING HANDLEBARS PARTIALS
+
+Partials can be included using the Handlebars partial syntax with the filename,
+regardless of the file's containing directories. (Handlebars comment syntax
+necessary here to prevent this example from being executed.)
+
+-->{{!-- {{> thisisapartial.hbs}} --}}<!--
+
+They can also be included using the Handlebars data syntax using the `partials`
+object, without the filename extension:
+
+-->{{!-- {{partials.thisisapartial}} --}}<!--
+
+You can test for the presence of a partial with:
+
+-->{{!-- {{#if partials.thisisapartial}} {{/if}} --}}<!--
+
+Note that partials are already escaped in prerendering, so trying to use
+Handlebars' "triple-slash" safe string syntax will have no effect.
+
+INCLUDING SETTINGS
+
+Values from configuration files can be inserted with the `project`
+(premail.yaml), `design` (designConfig.yaml) and `email` (emailConfig.yaml)
+objects.
+
+For example (Handlebars comment syntax necessary here to prevent this from being
+executed.):
+
+-->{{!-- {{email.language.default}} --}}<!--
+-->{{!-- {{design.page.backgroundColor}} --}}<!--
+
+They can also be tested with the usual Handlebars syntax.
+
+-->
+
+  <!-- Head declaration -->
+  <mj-head>
+    <!-- Title -->
+    {{#if partials.title}}
+    <mj-title>{{> title.hbs}}</mj-title>
+    {{/if}}
+
+    <!-- Custom head elements -->
+    {{#if design.head}}
+    <mj-raw>{{{design.head.array}}}</mj-raw>
+    {{/if}}
+
+    <!-- Web fonts -->
+    {{#if partials.fonts}} {{> fonts.hbs}} {{/if}}
+
+    <!-- To change inlined CSS styles, edit `design/inline.scss` -->
+    {{#if partials.inline}}
+    <mj-style inline="inline">{{> inline.css}}</mj-style>
+    {{/if}}
+
+    <!-- To change pseudo CSS styles, edit `design/pseudo.scss` -->
+    {{#if partials.pseudo}}
+    <mj-style>{{> pseudo.css}}</mj-style>
+    {{/if}}
+
+    <!-- To change Gmail-specific CSS styles, edit `design/gmail.scss` -->
+    {{#if partials.gmail}}
+    <mj-style>{{> gmail.css}}</mj-style>
+    {{/if}}
+
+    <!-- To change print CSS styles, edit `design/print.scss` -->
+    {{#if partials.print}}
+    <mj-style>{{> print.css}}</mj-style>
+    {{/if}}
+
+    <!-- Custom HTML attributes. -->
+    <mj-html-attributes>
+      <mj-selector path=".list table table">
+        <mj-html-attribute name="role">list</mj-html-attribute>
+      </mj-selector>
+      <mj-selector path=".list table table > tbody">
+        <mj-html-attribute name="role">presentation</mj-html-attribute>
+      </mj-selector>
+    </mj-html-attributes>
+
+    <!-- Style attributes -->
+    {{#if partials.attributes}}
+    <mj-attributes>{{> attributes.hbs}}</mj-attributes>
+    {{/if}}
+
+    <!-- Preview text -->
+    {{#if partials.preview}}
+    <mj-preview>
+      {{> preview.hbs}} {{#if design.previewPad}} {{{file.internal.previewPad}}}
+      {{/if}}
+    </mj-preview>
+    {{/if}}
+  </mj-head>
+
+  <!-- Email body start -->
+  <mj-body css-class="body" background-color="{{design.page.backgroundColor}}">
+    <!-- Top navigation -->
+
+    {{#if partials.topNav}}
+    <mj-wrapper
+      css-class="component-topNav nav nav--top"
+      mj-class="component-topNav nav nav--top"
+    >
+      {{> topNav.hbs}}
+    </mj-wrapper>
+    {{/if}}
+
+    <!-- Hero or header area -->
+
+    {{#if partials.banner}}
+    <mj-wrapper css-class="component-banner" mj-class="component-banner">
+      {{> banner.hbs}}
+    </mj-wrapper>
+    {{/if}}
+
+    <!-- Salutation, aka "Dear friend," -->
+
+    {{#if partials.salutation}}
+    <mj-wrapper
+      css-class="component-salutation"
+      mj-class="component-salutation"
+      background-color="{{design.sections.main.backgroundColor}}"
+      padding-left="{{design.sections.main.horizontalPadding}}"
+      padding-right="{{design.sections.main.horizontalPadding}}"
+    >
+      <mj-section>
+        <mj-column mj-class="column salutation__column">
+          <mj-text mj-class="text text--salutation">
+            {{> salutation.hbs}}
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+    {{/if}}
+
+    <!-- Primary content -->
+
+    {{#if partials.body}}
+    <mj-wrapper
+      css-class="component-body"
+      mj-class="component-body"
+      background-color="{{design.sections.main.backgroundColor}}"
+      padding-left="{{design.sections.main.horizontalPadding}}"
+      padding-right="{{design.sections.main.horizontalPadding}}"
+      padding-top="{{design.sections.body.padding.top}}"
+      padding-bottom="{{design.sections.body.padding.bottom}}"
+    >
+      {{> body.hbs}}
+    </mj-wrapper>
+    {{/if}}
+
+    <!-- Sign-off, signature or closing -->
+
+    {{#if partials.signoff}}
+    <mj-wrapper
+      css-class="component-signoff"
+      mj-class="component-signoff"
+      background-color="{{design.sections.main.backgroundColor}}"
+      padding-left="{{design.sections.main.horizontalPadding}}"
+      padding-right="{{design.sections.main.horizontalPadding}}"
+      padding-top="{{design.sections.signoff.padding.top}}"
+      padding-bottom="{{design.sections.signoff.padding.bottom}}"
+    >
+      {{> signoff.hbs}}
+    </mj-wrapper>
+    {{/if}}
+
+    <!-- Social links -->
+
+    {{#if partials.social}}
+    <mj-wrapper
+      css-class="component-social"
+      mj-class="component-social"
+      background-color="{{design.sections.social.backgroundColor}}"
+      padding-left="{{design.sections.social.horizontalPadding}}"
+      padding-right="{{design.sections.social.horizontalPadding}}"
+      padding-top="{{design.sections.social.verticalPadding}}"
+      padding-bottom="{{design.sections.social.verticalPadding}}"
+    >
+      {{#if design.sections.social.topBorder.include}}
+      <mj-section>
+        <mj-column>
+          <mj-divider mj-class="social__border-top"></mj-divider>
+        </mj-column>
+      </mj-section>
+      {{/if}} {{> social.hbs}}
+    </mj-wrapper>
+    {{/if}}
+
+    <!-- Bottom navigation -->
+
+    {{#if partials.bottomNav}}
+    <mj-wrapper
+      css-class="component-bottomNav nav nav--bottom"
+      mj-class="component-bottomNav nav nav--bottom"
+    >
+      {{> bottomNav.hbs}}
+    </mj-wrapper>
+    {{/if}}
+
+    <!-- Footer -->
+
+    {{#if partials.footer}}
+    <mj-wrapper
+      css-class="component-footer"
+      mj-class="component-footer"
+      background-color="{{design.sections.footer.backgroundColor}}"
+      padding-left="{{design.sections.footer.horizontalPadding}}"
+      padding-right="{{design.sections.footer.horizontalPadding}}"
+      padding-top="{{design.sections.footer.verticalPadding}}"
+      padding-bottom="{{design.sections.footer.verticalPadding}}"
+    >
+      {{> footer.hbs}}
+    </mj-wrapper>
+    {{/if}}
+
+    <!-- Body closure -->
+  </mj-body>
+
+  <!-- Root closure -->
+</mjml>
