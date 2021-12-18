@@ -1,10 +1,11 @@
 'use strict'
 
 /* eslint-disable no-unused-vars */
+const path = require('path')
 const PluginError = require('plugin-error')
 require('pretty-error').start()
 
-const notify = require('../ops/notifications.js')
+const notify = require(path.join(__dirname, '../ops/notifications.js'))
 /* eslint-enable no-unused-vars */
 
 // General error-handling function.

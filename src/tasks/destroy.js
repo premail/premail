@@ -5,9 +5,9 @@ const fs = require('fs-extra')
 const path = require('path')
 const prompts = require('prompts')
 
-const isDirEmpty = require('../helpers/isDirEmpty.js')
-const { config } = require('../config/setup.js')
-const notify = require('../ops/notifications.js')
+const isDirEmpty = require(path.join(__dirname, '../helpers/isDirEmpty.js'))
+const { config } = require(path.join(__dirname, '../config/setup.js'))
+const notify = require(path.join(__dirname, '../ops/notifications.js'))
 /* eslint-enable no-unused-vars */
 
 //

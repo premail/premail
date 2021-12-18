@@ -1,10 +1,11 @@
 'use strict'
 
 /* eslint-disable no-unused-vars */
+const path = require('path')
 const del = require('del')
 
-const { config } = require('../config/setup.js')
-const notify = require('../ops/notifications.js')
+const { config } = require(path.join(__dirname, '../config/setup.js'))
+const notify = require(path.join(__dirname, '../ops/notifications.js'))
 /* eslint-enable no-unused-vars */
 
 //

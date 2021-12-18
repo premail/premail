@@ -3,10 +3,11 @@
 'use strict'
 
 /* eslint-disable no-unused-vars */
+const path = require('path')
 const yargs = require('yargs/yargs')
 const { hideBin } = require('yargs/helpers')
 
-const tasks = require('./gulpfile.js')
+const tasks = require(path.join(__dirname, '/gulpfile.js'))
 /* eslint-enable no-unused-vars */
 
 yargs(hideBin(process.argv))

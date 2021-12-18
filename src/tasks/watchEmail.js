@@ -5,10 +5,10 @@ const { watch, series, parallel } = require('gulp')
 const path = require('path')
 // https://www.npmjs.com/package/gulp-changed
 
-const { config } = require('../config/setup.js')
-const e = require('../ops/errors.js')
-const notify = require('../ops/notifications.js')
-const build = require('../tasks/build.js')
+const e = require(path.join(__dirname, '../ops/errors.js'))
+const { config } = require(path.join(__dirname, '../config/setup.js'))
+const notify = require(path.join(__dirname, '../ops/notifications.js'))
+const build = require(path.join(__dirname, '../tasks/build.js'))
 /* eslint-enable no-unused-vars */
 
 //

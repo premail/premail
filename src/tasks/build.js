@@ -22,15 +22,18 @@ const map = require('map-stream')
 const { htmlToText } = require('html-to-text')
 const filesize = require('filesize')
 
-const e = require('../ops/errors.js')
-const { config } = require('../config/setup.js')
-const { current } = require('../config/current.js')
-const { templates } = require('../config/templates.js')
-const { design } = require('../config/design.js')
-const { sassImport } = require('../config/sassImport.js')
-const { flags } = require('../ops/flags.js')
-const notify = require('../ops/notifications.js')
-const { findOccurrences } = require('../helpers/findOccurrences.js')
+const e = require(path.join(__dirname, '../ops/errors.js'))
+const { config } = require(path.join(__dirname, '../config/setup.js'))
+const { current } = require(path.join(__dirname, '../config/current.js'))
+const { templates } = require(path.join(__dirname, '../config/templates.js'))
+const { design } = require(path.join(__dirname, '../config/design.js'))
+const { sassImport } = require(path.join(__dirname, '../config/sassImport.js'))
+const { flags } = require(path.join(__dirname, '../ops/flags.js'))
+const notify = require(path.join(__dirname, '../ops/notifications.js'))
+const { findOccurrences } = require(path.join(
+  __dirname,
+  '../helpers/findOccurrences.js'
+))
 /* eslint-enable no-unused-vars */
 
 //

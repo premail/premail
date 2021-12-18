@@ -4,11 +4,11 @@
 const fs = require('fs-extra')
 const path = require('path')
 
-const getFiles = require('../helpers/getFiles.js')
+const getFiles = require(path.join(__dirname, '../helpers/getFiles.js'))
 
-const { config } = require('../config/setup.js')
-const { current } = require('../config/current.js')
-const { design } = require('../config/design.js')
+const { config } = require(path.join(__dirname, '../config/setup.js'))
+const { current } = require(path.join(__dirname, '../config/current.js'))
+const { design } = require(path.join(__dirname, '../config/design.js'))
 /* eslint-enable no-unused-vars */
 
 //

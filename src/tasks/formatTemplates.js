@@ -2,9 +2,11 @@
 
 /* eslint-disable no-unused-vars */
 const exec = require('child_process').exec
-const e = require('../ops/errors.js')
-const { config } = require('../config/setup.js')
-const notify = require('../ops/notifications.js')
+const path = require('path')
+
+const e = require(path.join(__dirname, '../ops/errors.js'))
+const { config } = require(path.join(__dirname, '../config/setup.js'))
+const notify = require(path.join(__dirname, '../ops/notifications.js'))
 /* eslint-enable no-unused-vars */
 
 //
