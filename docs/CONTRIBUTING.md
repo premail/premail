@@ -1,7 +1,7 @@
 # Contributing to Premail
 
 <!-- This document gets mirrored to the Premail repo, so be sure all links are
-     absolute, not relative! -->
+     absolute and not relative! -->
 
 Thank you for taking the time to contribute!
 
