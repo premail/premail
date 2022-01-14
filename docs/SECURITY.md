@@ -1,3 +1,8 @@
+---
+# Docusaurus settings
+slug: security
+---
+
 # Premail Security Policy
 
 <!-- This document gets mirrored to the Premail repo, so be sure all links are

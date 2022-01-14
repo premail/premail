@@ -1,3 +1,8 @@
+---
+# Docusaurus settings
+slug: code_of_conduct
+---
+
 # Premail Contributor Covenant Code of Conduct
 
 <!-- This document gets mirrored to the Premail repo, so be sure all links are
