@@ -1,8 +1,3 @@
----
-# Docusaurus settings
-slug: contributing
----
-
 # Contributing to Premail
 
 <!-- This document gets mirrored to the Premail repo, so be sure all links are
