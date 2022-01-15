@@ -9,7 +9,7 @@ validationRules:
     selectors:
       - config.project.dirs
       - config.design.templates
-      - config.email.language
+      #  - config.email.language.default
   - type: oneOf
     selectors:
       - config.design.fonts.stack.base
