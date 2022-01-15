@@ -1,3 +1,8 @@
+---
+# Docusaurus settings
+slug: sponsors
+---
+
 # Sponsorships for Premail
 
 <!-- This document gets mirrored to the Premail repo, so be sure all links are
