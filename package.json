@@ -83,10 +83,17 @@
     "pretty-error": "^3.0.4",
     "prompts": "^2.4.2",
     "sass": "^1.39.0",
+    "shelljs": ">=0.8.5",
     "string-strip-html": "^8.3.0",
     "typeset": "^0.3.1",
     "validator": "^13.6.0",
     "yargs": "^17.2.1"
+  },
+  "security_notes": {
+    "info": "The following dependencies were added simply to address security issues of lower dependencies (dependencies of Premail) that have not yet been fixed. This does not include dependencies of devDependencies.",
+    "dependencies": [
+      "shelljs"
+    ]
   },
   "devDependencies": {
     "eslint": "^7.32.0",
