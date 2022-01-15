@@ -4,9 +4,9 @@
 const exec = require('child_process').exec
 const path = require('path')
 
-const e = require(path.join(__dirname, '../ops/errors.js'))
-const { config } = require(path.join(__dirname, '../config/setup.js'))
-const notify = require(path.join(__dirname, '../ops/notifications.js'))
+const e = require.main.require('./src/ops/errors')
+const { config } = require.main.require('./src/config/setup')
+const notify = require.main.require('./src/ops/notifications')
 /* eslint-enable no-unused-vars */
 
 //

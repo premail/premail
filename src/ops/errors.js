@@ -5,7 +5,7 @@ const path = require('path')
 const PluginError = require('plugin-error')
 require('pretty-error').start()
 
-const notify = require(path.join(__dirname, '../ops/notifications.js'))
+const notify = require.main.require('./src/ops/notifications')
 /* eslint-enable no-unused-vars */
 
 // General error-handling function.

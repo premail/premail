@@ -5,9 +5,9 @@ const fs = require('fs-extra')
 const path = require('path')
 const yaml = require('js-yaml')
 
-const { config } = require(path.join(__dirname, '../config/setup.js'))
-const { current } = require(path.join(__dirname, '../config/current.js'))
-const { design } = require(path.join(__dirname, '../config/design.js'))
+const { config } = require.main.require('./src/config/setup')
+const { current } = require.main.require('./src/config/current')
+const { design } = require.main.require('./src/config/design')
 /* eslint-enable no-unused-vars */
 
 //

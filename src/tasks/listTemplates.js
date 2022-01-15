@@ -3,8 +3,8 @@
 /* eslint-disable no-unused-vars */
 const path = require('path')
 
-const { config } = require(path.join(__dirname, '../config/setup.js'))
-const notify = require(path.join(__dirname, '../ops/notifications.js'))
+const { config } = require.main.require('./src/config/setup')
+const notify = require.main.require('./src/ops/notifications')
 /* eslint-enable no-unused-vars */
 
 //

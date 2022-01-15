@@ -22,18 +22,17 @@ const map = require('map-stream')
 const { htmlToText } = require('html-to-text')
 const filesize = require('filesize')
 
-const e = require(path.join(__dirname, '../ops/errors.js'))
-const { config } = require(path.join(__dirname, '../config/setup.js'))
-const { current } = require(path.join(__dirname, '../config/current.js'))
-const { templates } = require(path.join(__dirname, '../config/templates.js'))
-const { design } = require(path.join(__dirname, '../config/design.js'))
-const { sassImport } = require(path.join(__dirname, '../config/sassImport.js'))
-const { flags } = require(path.join(__dirname, '../ops/flags.js'))
-const notify = require(path.join(__dirname, '../ops/notifications.js'))
-const { findOccurrences } = require(path.join(
-  __dirname,
-  '../helpers/findOccurrences.js'
-))
+const e = require.main.require('./src/ops/errors')
+const { config } = require.main.require('./src/config/setup')
+const { current } = require.main.require('./src/config/current')
+const { templates } = require.main.require('./src/config/templates')
+const { design } = require.main.require('./src/config/design')
+const { sassImport } = require.main.require('./src/config/sassImport')
+const { flags } = require.main.require('./src/ops/flags')
+const notify = require.main.require('./src/ops/notifications')
+const { findOccurrences } = require.main.require(
+  './src/helpers/findOccurrences'
+)
 /* eslint-enable no-unused-vars */
 
 //

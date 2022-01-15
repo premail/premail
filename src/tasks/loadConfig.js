@@ -4,13 +4,13 @@
 const path = require('path')
 const yaml = require('js-yaml')
 
-const validate = require(path.join(__dirname, '../ops/validation.js'))
-const { config } = require(path.join(__dirname, '../config/setup.js'))
-const { current } = require(path.join(__dirname, '../config/current.js'))
-const { design } = require(path.join(__dirname, '../config/design.js'))
-const { sassImport } = require(path.join(__dirname, '../config/sassImport.js'))
-const { flags } = require(path.join(__dirname, '../ops/flags.js'))
-const notify = require(path.join(__dirname, '../ops/notifications.js'))
+const validate = require.main.require('./src/ops/validation')
+const { config } = require.main.require('./src/config/setup')
+const { current } = require.main.require('./src/config/current')
+const { design } = require.main.require('./src/config/design')
+const { sassImport } = require.main.require('./src/config/sassImport')
+const { flags } = require.main.require('./src/ops/flags')
+const notify = require.main.require('./src/ops/notifications')
 /* eslint-enable no-unused-vars */
 
 //

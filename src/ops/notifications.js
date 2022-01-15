@@ -4,7 +4,7 @@
 const path = require('path')
 const colors = require('ansi-colors')
 const prioritizedColor = require('ansi-colors-prioritized')
-const { flags } = require(path.join(__dirname, '../ops/flags.js'))
+const { flags } = require.main.require('./src/ops/flags')
 /* eslint-enable no-unused-vars */
 
 //

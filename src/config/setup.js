@@ -5,8 +5,8 @@ const fs = require('fs-extra')
 const path = require('path')
 const yaml = require('js-yaml')
 
-const projectPath = require(path.join(__dirname, '../helpers/projectPath.js'))
-const getFiles = require(path.join(__dirname, '../helpers/getFiles.js'))
+const projectPath = require.main.require('./src/helpers/projectPath')
+const getFiles = require.main.require('./src/helpers/getFiles')
 /* eslint-enable no-unused-vars */
 
 //

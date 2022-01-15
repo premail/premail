@@ -8,20 +8,14 @@ const { series, parallel } = require('gulp')
 //
 // Tasks
 //
-const init = require(path.join(__dirname, '/src/tasks/init.js'))
-const destroy = require(path.join(__dirname, '/src/tasks/destroy.js'))
-const loadConfig = require(path.join(__dirname, '/src/tasks/loadConfig.js'))
-const clean = require(path.join(__dirname, '/src/tasks/clean.js'))
-const build = require(path.join(__dirname, '/src/tasks/build.js'))
-const watchEmail = require(path.join(__dirname, '/src/tasks/watchEmail.js'))
-const listTemplates = require(path.join(
-  __dirname,
-  '/src/tasks/listTemplates.js'
-))
-const formatTemplates = require(path.join(
-  __dirname,
-  '/src/tasks/formatTemplates.js'
-))
+const init = require('./src/tasks/init')
+const destroy = require('./src/tasks/destroy')
+const loadConfig = require('./src/tasks/loadConfig')
+const clean = require('./src/tasks/clean')
+const build = require('./src/tasks/build')
+const watchEmail = require('./src/tasks/watchEmail')
+const listTemplates = require('./src/tasks/listTemplates')
+const formatTemplates = require('./src/tasks/formatTemplates')
 
 // Tell gulp tasks to use display names instead of function names
 clean.generated.displayName = 'clean.generated'

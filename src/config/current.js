@@ -5,10 +5,10 @@ const fs = require('fs-extra')
 const path = require('path')
 const yaml = require('js-yaml')
 
-const getFiles = require(path.join(__dirname, '../helpers/getFiles.js'))
+const getFiles = require.main.require('./src/helpers/getFiles')
 
-const { config } = require(path.join(__dirname, '../config/setup.js'))
-const { flags } = require(path.join(__dirname, '../ops/flags.js'))
+const { config } = require.main.require('./src/config/setup')
+const { flags } = require.main.require('./src/ops/flags')
 /* eslint-enable no-unused-vars */
 
 //
