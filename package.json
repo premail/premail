@@ -89,12 +89,6 @@
     "validator": "^13.6.0",
     "yargs": "^17.2.1"
   },
-  "security_notes": {
-    "info": "The following dependencies were added simply to address security issues of lower dependencies (dependencies of Premail) that have not yet been fixed. This does not include dependencies of devDependencies.",
-    "dependencies": [
-      "shelljs"
-    ]
-  },
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -105,7 +99,19 @@
     "eslint-plugin-react": "^7.27.0",
     "eslint-plugin-react-hooks": "^1.7.0",
     "markdown-exec": "^1.0.2",
-    "modern-node": "^2.9.0"
+    "modern-node": "^2.9.0",
+    "postcss": ">=8.2.13",
+    "trim": ">=0.0.3",
+    "trim-newlines": ">=3.0.1"
+  },
+  "security_notes": {
+    "info": "The following dependencies and devDependencies were added simply to address security issues of lower dependencies (packages on which Premail depends) that have not yet been fixed.",
+    "dependencies": [
+      "shelljs",
+      "postcss",
+      "trim",
+      "trim-newlines"
+    ]
   },
   "browserslist": {
     "production": [
