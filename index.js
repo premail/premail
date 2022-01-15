@@ -12,12 +12,12 @@ const tasks = require('./gulpfile')
 yargs(hideBin(process.argv))
   // General settings
 
-  .showHelpOnFail(false, 'Use --help for available options')
+  // .showHelpOnFail(true, 'Use --help for available options')
   .usage('Usage: $0 <command> [options]')
 
   // Commands
 
-  .command(['build', '$0'], 'Build your email', yargs => {
+  .command('build', 'Build your email', yargs => {
     tasks.build()
   })
 
@@ -91,6 +91,7 @@ yargs(hideBin(process.argv))
 
   // Additional aliases
 
+  .help('help')
   .group(['h', 'v'], 'More information:')
   .alias('h', 'help')
   .alias('v', 'version')
@@ -100,5 +101,4 @@ yargs(hideBin(process.argv))
   .epilogue('Additional documentation: https://premail.dev')
 
   // End
-
   .parse()
