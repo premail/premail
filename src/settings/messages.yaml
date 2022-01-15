@@ -1,6 +1,11 @@
 # Notification messages displayed at various points in the build.
 # Bodies are required; titles are optional.
 messages:
+  noSettings:
+    title: 'premail.yaml not found'
+    body:
+      'No Premail configuration was found in this directory. Have you run
+      `premail init`?'
   cleaning:
     body: 'Removing generated files...'
   completeHandlebars:

@@ -1,6 +1,7 @@
 'use strict'
 
 /* eslint-disable no-unused-vars */
+const fs = require('fs-extra')
 const path = require('path')
 const yaml = require('js-yaml')
 
@@ -17,6 +18,12 @@ const notify = require.main.require('./src/ops/notifications')
 // Validate and display configuration as necessary.
 //
 module.exports = function loadConfig (done) {
+  // Check if primary config exists; exit on error if it does not
+  if (!fs.existsSync(config.file.project)) {
+    notify.msg('error', config.file.internal.messages.noSettings)
+    process.exit(1)
+  }
+
   // Run validation rules on config
   const validationRules = config.file.internal.validationRules
   for (const i in validationRules) {
