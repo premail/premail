@@ -208,46 +208,48 @@ function render (cb) {
   // Set template extension
   htmlBuild.mjml.fileExt = config.templates.ext
 
-  // Set text build options
-  if (config.email.text.generate) {
-    textBuild.status = true
-    textBuild.options = config.file.internal.textBuild.options
-    textBuild.options.baseElement = []
-    textBuild.include = {
-      images: {},
-      partials: {},
-    }
-
-    // Load project-configurable CSS selectors to skip
-    if (config.email.text.skipSelectors) {
-      textBuild.options.selectors = []
-      config.email.text.skipSelectors.forEach(element => {
-        const obj = {
-          selector: element,
-          format: 'skip',
-        }
-        textBuild.options.selectors.push(obj)
-      })
-    }
-
-    // Include image URIs if requested
-    if (config.email.text.images) {
-      textBuild.include.images = true
-      delete textBuild.options.tags.img
-    } else {
-      textBuild.include.images = false
-    }
-
-    // Override default partial includes with email config, if set, and name
-    // base elements
-    Object.keys(config.email.text.include).forEach(key => {
-      Object.assign(textBuild.include.partials, config.email.text.include)
-      if (config.email.text.include[key] === true) {
-        textBuild.options.baseElement.push('div.component-' + key)
+  // Set email text build options
+  if (config.email) {
+    if (config.email.text.generate) {
+      textBuild.status = true
+      textBuild.options = config.file.internal.textBuild.options
+      textBuild.options.baseElement = []
+      textBuild.include = {
+        images: {},
+        partials: {},
       }
-    })
-  } else {
-    notify.msg('info', config.file.internal.messages.plaintextOff)
+
+      // Load project-configurable CSS selectors to skip
+      if (config.email.text.skipSelectors) {
+        textBuild.options.selectors = []
+        config.email.text.skipSelectors.forEach(element => {
+          const obj = {
+            selector: element,
+            format: 'skip',
+          }
+          textBuild.options.selectors.push(obj)
+        })
+      }
+
+      // Include image URIs if requested
+      if (config.email.text.images) {
+        textBuild.include.images = true
+        delete textBuild.options.tags.img
+      } else {
+        textBuild.include.images = false
+      }
+
+      // Override default partial includes with email config, if set, and name
+      // base elements
+      Object.keys(config.email.text.include).forEach(key => {
+        Object.assign(textBuild.include.partials, config.email.text.include)
+        if (config.email.text.include[key] === true) {
+          textBuild.options.baseElement.push('div.component-' + key)
+        }
+      })
+    } else {
+      notify.msg('info', config.file.internal.messages.plaintextOff)
+    }
   }
 
   // Warn if both Google Font and custom web font are enabled.
