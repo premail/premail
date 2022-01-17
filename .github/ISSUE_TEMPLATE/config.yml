@@ -2,7 +2,9 @@ blank_issues_enabled: false
 contact_links:
   - name: Premail Documentation
     url: https://premail.dev
-    about: Our documentation site has all the details about Premail.
+    about:
+      Our documentation site has all the details about Premail. If you're new to
+      Premail, check here first!
   - name: '@premaildev on Twitter'
     url: https://twitter.com/premaildev
     about: Send a message to Premail on Twitter.
