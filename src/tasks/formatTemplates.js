@@ -15,7 +15,7 @@ const notify = require.main.require('./src/ops/notifications')
 
 module.exports = function formatTemplates (done) {
   const command =
-    'prettier --config .prettierrc.yaml -w "' +
+    'npx prettier --config .prettierrc.yaml -w "' +
     config.current.path +
     '/**/*.{hbs,mjml}"'
 
