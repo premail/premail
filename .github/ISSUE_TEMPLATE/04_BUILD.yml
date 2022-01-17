@@ -2,7 +2,6 @@ name: Build
 description: Change the build process for Premail
 title: 'build: '
 labels: 'Type: Build'
-assignees: ''
 body:
   - type: markdown
     attributes:
