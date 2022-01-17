@@ -31,7 +31,7 @@ jobs:
         run: npm test
       - name: Create a dummy project and build
         run: |
-          npm install -g premail
+          npm install -g .
           mkdir -p project && cd project
           premail init
           premail build
