@@ -91,7 +91,7 @@ yargs(hideBin(process.argv))
 
   // Additional aliases
 
-  .help('help')
+  .help()
   .group(['h', 'v'], 'More information:')
   .alias('h', 'help')
   .alias('v', 'version')
