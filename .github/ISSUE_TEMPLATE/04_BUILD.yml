@@ -7,6 +7,12 @@ body:
     attributes:
       value: |
         **This issue type is intended for changes to Premail's own internal build processes, for instance GitHub Actions.**
+  - type: checkboxes
+    id: dependency
+    attributes:
+      label: Dependencies
+      options:
+        - label: This involves a change or update to one or more dependencies.
   - type: textarea
     id: description
     attributes:
