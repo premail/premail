@@ -7,13 +7,12 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  node:
+    name: Node install and test
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [12.x, 14.x, 16.x]
-
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
@@ -24,3 +23,11 @@ jobs:
         run: npm ci
       - name: Run package tests
         run: npm test
+      - name: Create a dummy project and build
+        run: |
+          npm install -g premail
+          mkdir -p project && cd project
+          premail init
+          premail build
+          premail destroy --yes
+          cd .. && rm -rf project
