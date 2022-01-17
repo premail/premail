@@ -87,7 +87,7 @@ Read more at
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Fri Dec 17 03:13:26 UTC 2021 -->
+<!-- Added by: runner, at: Mon Jan 17 03:13:15 UTC 2022 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -163,6 +163,9 @@ for common use cases:
 
 # Setup and usage
 
+Premail requires Node 12.x or 14.x to run. See the
+[Premail setup documentation for details](https://premail.dev/docs/overview/setting-up-premail/).
+
 ## Installation
 
 `npm install -g premail`
@@ -196,7 +199,7 @@ You can run `premail -h` to see the full list of options:
 Usage: premail <command> [options]
 
 Commands:
-  premail build    Build your email                                   [default]
+  premail build    Build your email
   premail watch    Watch design and configuration files and rebuild as
                     necessary
   premail format   Format templates with Prettier
