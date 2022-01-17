@@ -1,0 +1,21 @@
+name: Chore
+about: Maintenance task for Premail
+title: 'chore: '
+labels: ['Type: Chore', 'x-Bot: No Abandonment']
+assignees: ''
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this issue type only for routine maintenace tasks such as marking a release.
+  - type: checkboxes
+    id: dependency
+    attributes:
+      options:
+        - label: This involves a change or update to a dependency
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+    validations:
+      required: true
