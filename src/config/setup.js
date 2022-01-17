@@ -15,7 +15,7 @@ const getFiles = require.main.require('./src/helpers/getFiles')
 
 const config = {}
 config.__base = projectPath(__dirname)
-config.src = path.join(config.__base, '../../src')
+config.src = path.join(config.__base, '..', '..', 'src')
 config.init = path.join(config.src, 'example')
 config.file = {}
 config.file.internal = {}
