@@ -162,6 +162,9 @@ for common use cases:
 
 # Setup and usage
 
+Premail requires Node 12.x or 14.x to run. See the
+[Premail setup documentation for details](https://premail.dev/docs/overview/setting-up-premail/).
+
 ## Installation
 
 `npm install -g premail`
