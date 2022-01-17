@@ -18,12 +18,15 @@
   color: 80ff00
   description:
     'Requests for help on how to use the project, or general questions.'
+- name: 'Type: Build'
+  color: 555555
+  description: 'Change in the project build process, including GitHub Actions.'
 - name: 'Type: Dependencies'
   color: 555555
   description: 'Change in project dependencies.'
-- name: 'Type: Maintenance'
+- name: 'Type: Chore'
   color: 555555
-  description: 'Generic maintenance tasks, including GitHub Actions.'
+  description: 'Generic maintenance tasks.'
 
 # Status
 
