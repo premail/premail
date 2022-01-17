@@ -198,7 +198,7 @@ You can run `premail -h` to see the full list of options:
 Usage: premail <command> [options]
 
 Commands:
-  premail build    Build your email                                   [default]
+  premail build    Build your email
   premail watch    Watch design and configuration files and rebuild as
                     necessary
   premail format   Format templates with Prettier
