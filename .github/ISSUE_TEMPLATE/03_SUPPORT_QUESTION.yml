@@ -1,15 +1,12 @@
----
 name: Support Question
 about: Question about how to use Premail
 title: 'support: '
 labels: 'Type: Question'
 assignees: ''
----
+# # Support Question
 
-# Support Question
+# ## Premail version
 
-## Premail version
+# <!-- Run `premail -v` and paste the output here. -->
 
-<!-- Run `premail -v` and paste the output here. -->
-
-## Your question
+# ## Your question

@@ -1,0 +1,21 @@
+name: Build
+about: Change the build process for Premail
+title: 'build: '
+labels: 'Type: Build'
+assignees: ''
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue type is intended for changes to Premail's own internal build processes, for instance the GitHub Actions.
+  - type: checkboxes
+    id: dependency
+    attributes:
+      options:
+        - label: This involves a change or update to a dependency
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+    validations:
+      required: true
