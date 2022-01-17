@@ -1,5 +1,5 @@
 name: Build
-about: Change the build process for Premail
+description: Change the build process for Premail
 title: 'build: '
 labels: 'Type: Build'
 assignees: ''
