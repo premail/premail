@@ -1,2 +1,5 @@
----
 blank_issues_enabled: false
+contact_links:
+  - name: Premail Security Policy
+    url: https://github.com/premail/premail/security/policy
+    about: Learn about reporting security vulnerabilities.
