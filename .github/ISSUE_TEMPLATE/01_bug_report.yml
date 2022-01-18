@@ -91,3 +91,7 @@ body:
     attributes:
       label: Other information
       description: Any other information that might be relevant to this bug.
+  - type: markdown
+    attributes:
+      value: |
+        **Thank you!**
