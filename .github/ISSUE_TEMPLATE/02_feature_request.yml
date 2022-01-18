@@ -3,11 +3,10 @@ description: Suggest an idea for Premail
 title: 'feat: '
 labels: 'Type: Feature'
 body:
-  - type: dropdown
+  - type: checkboxes
     id: feature_type
     attributes:
       label: Type of feature
-      multiple: true
       options:
         - New functionality
         - Performance
