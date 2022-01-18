@@ -29,7 +29,8 @@ body:
     attributes:
       label: Preferred solution
       description:
-        If you have a specific technical solution, please describe it here.
+        If you have a specific technical suggestion for this feature, please
+        describe it here.
   - type: textarea
     id: alternatives
     attributes:

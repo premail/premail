@@ -1,0 +1,57 @@
+name: Bug Report
+description: Something isn't working correctly with Premail
+title: 'bug: '
+labels: 'Type: Bug'
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Security note: If you're reporting a vulnerability or other security issue, please see [https://premail.dev/security/](https://premail.dev/security/) for the procedure.**
+  - type: input
+    id: version
+    attributes:
+      label: Premail version
+      description: 'Run `premail -v` and paste the output here.'
+    validations:
+      required: true
+  - type: textarea
+    id: current_behavior
+    attributes:
+      label: Current behavior
+      description: Describe how the bug shows up.
+    validations:
+      required: true
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected behavior
+      description: Describe what you expect the behavior to be without the bug.
+    validations:
+      required: true
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Explain the steps required to duplicate the bug.
+    validations:
+      required: true
+  - type: textarea
+    id: related_code
+    attributes:
+      label: Related code
+      description:
+        If you are able to illustrate this bug with an example or can point to a
+        file or lines in the existing code relevant to this bug, please mention
+        it here.
+  - type: textarea
+    id: solution
+    attributes:
+      label: Preferred solution
+      description:
+        If you have a suggested technical solution to this bug, please describe
+        it here.
+  - type: textarea
+    id: other_info
+    attributes:
+      label: Other information
+      description: Any other information that might be relevant to this bug.
