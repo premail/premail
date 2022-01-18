@@ -3,10 +3,12 @@ name: Node.js CI
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - '.github/**'
   pull_request:
     branches: [main]
-  paths-ignore:
-    - '.github/**'
+    paths-ignore:
+      - '.github/**'
 
 jobs:
   node:
