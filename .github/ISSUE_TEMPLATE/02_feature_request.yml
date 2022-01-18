@@ -15,7 +15,6 @@ body:
         - Other (please describe below)
       validations:
         required: true
-
   - type: textarea
     id: feature_description
     attributes:
