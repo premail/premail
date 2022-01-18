@@ -9,11 +9,12 @@ const { hideBin } = require('yargs/helpers')
 const tasks = require('./gulpfile')
 /* eslint-enable no-unused-vars */
 
-yargs(hideBin(process.argv))
+const argv = yargs(hideBin(process.argv))
   // General settings
 
-  // .showHelpOnFail(true, 'Use --help for available options')
   .usage('Usage: $0 <command> [options]')
+  .default('h', 'h', 'when no arguments are provided')
+  .alias('h', 'help')
 
   // Commands
 
@@ -89,16 +90,14 @@ yargs(hideBin(process.argv))
     type: 'boolean',
   })
 
-  // Additional aliases
+  // Name the default 'Options' section
 
-  .help()
-  .group(['h', 'v'], 'More information:')
-  .alias('h', 'help')
+  .group(['v', 'h'], 'More information:')
   .alias('v', 'version')
 
   // Footer
 
   .epilogue('Additional documentation: https://premail.dev')
 
-  // End
-  .parse()
+// End
+argv.parse()
