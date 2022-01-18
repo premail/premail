@@ -8,11 +8,11 @@ body:
     attributes:
       label: Type of feature
       options:
-        - New functionality
-        - Performance
-        - Code refactoring (e.g. to be simpler or easier to understand)
-        - Developer Experience (DX)
-        - Other (please describe below)
+        - label: New functionality
+        - label: Performance
+        - label: Code refactoring (e.g. to be simpler or easier to understand)
+        - label: Developer Experience (DX)
+        - label: Other (please describe below)
     validations:
       required: true
   - type: textarea
