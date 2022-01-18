@@ -3,6 +3,18 @@ description: Suggest an idea for Premail
 title: 'feat: '
 labels: 'Type: Feature'
 body:
+  - type: dropdown
+    id: feature_type
+    attributes:
+      label: Type of feature
+      options:
+        - New functionality
+        - Performance
+        - Code refactoring (e.g. to be simpler or easier to understand)
+        - Developer Experience (DX)
+        - Other (please describe below)
+    validations:
+      required: true
   - type: textarea
     id: feature_description
     attributes:
