@@ -17,14 +17,8 @@ const watchEmail = require('./src/tasks/watchEmail')
 const listTemplates = require('./src/tasks/listTemplates')
 const formatTemplates = require('./src/tasks/formatTemplates')
 
-// Tell gulp tasks to use display names instead of function names
-clean.generated.displayName = 'clean.generated'
-build.content.displayName = 'build.content'
-build.styles.displayName = 'build.styles'
-build.structure.displayName = 'build.structure'
-
-// Sets
-exports.default = series(
+// Build
+exports.build = series(
   loadConfig,
   formatTemplates,
   clean.generated,
@@ -32,9 +26,6 @@ exports.default = series(
   build.content,
   build.structure
 )
-
-// Build
-exports.build = exports.default
 
 // Provide one-off versions of build tasks
 exports.buildContent = build.content
@@ -51,22 +42,12 @@ exports.watch = series(
   watchEmail
 )
 
-// Format
+// Templates
 exports.formatTemplates = formatTemplates
+exports.listTemplates = listTemplates
 
 // Clean
 exports.clean = clean.generated
-
-// Debug
-exports.loadConfig = loadConfig
-exports.loadConfig.description =
-  'Load the current configuration being used to render your email. To print to the console, use with --debug'
-exports.listTemplates = listTemplates
-exports.listTemplates.description =
-  'List all templates that will be processed. Use with --debug'
-exports.test = async function () {
-  console.log('\n\nTest.\n\n')
-}
 
 //
 // Exports
