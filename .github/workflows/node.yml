@@ -18,7 +18,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04, ubuntu-20.04]
+        os: [ubuntu-18.04, ubuntu-20.04, windows-latest]
         node-version: [12.x, 14.x]
     steps:
       - uses: actions/checkout@v2
@@ -33,8 +33,8 @@ jobs:
       - name: Create a dummy project and build
         run: |
           npm install -g .
-          mkdir -p project && cd project
+          mkdir -p project
+          cd project
           premail init --debug
           premail build
           premail destroy --yes --debug
-          cd .. && rm -rf project
