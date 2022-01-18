@@ -14,6 +14,16 @@ body:
       description: 'Run `premail -v` and paste the output here.'
     validations:
       required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: What operating system are you using?
+      options:
+        - Linux
+        - Mac
+        - Windows
+    validations:
+      required: true
   - type: textarea
     id: current_behavior
     attributes:
