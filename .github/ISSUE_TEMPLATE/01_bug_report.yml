@@ -78,7 +78,7 @@ body:
       label: Related code
       description:
         If you can point to a file or lines in the existing code relevant to
-        this bug, please mention it here.
+        this bug, please do.
   - type: textarea
     id: solution
     attributes:
