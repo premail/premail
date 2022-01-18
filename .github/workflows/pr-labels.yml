@@ -1,4 +1,3 @@
----
 name: PR Labels
 
 on:
@@ -16,5 +15,5 @@ jobs:
           github-token: '${{ secrets.GITHUB_TOKEN }}'
           valid-labels: >-
             Type: Bug, Type: Security, Type: Feature, Type: Documentation, Type:
-            Dependencies, Type: Maintenance
+            Question, Type: Build, Type: Dependencies, Type: Chore
           disable-reviews: true
