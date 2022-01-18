@@ -34,7 +34,7 @@ jobs:
         run: |
           npm install -g .
           mkdir -p project && cd project
-          premail init
+          premail init --debug
           premail build
-          premail destroy --yes
+          premail destroy --yes --debug
           cd .. && rm -rf project
