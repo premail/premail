@@ -51,3 +51,16 @@ body:
         List any other information that is relevant to your issue. Use cases,
         screenshots, related issues, stack traces, links to relevant
         information, environment information if applicable, etc.
+  - type: checkboxes
+    id: open_to_pr
+    attributes:
+      label:
+        If the feature request is approved, would you be willing to submit a
+        Pull Request?
+      description:
+        (Help can be provided if you need assistance submitting a PR.)
+      options:
+        - label: Yes
+        - label: No
+    validations:
+      required: true
