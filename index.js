@@ -13,8 +13,6 @@ const argv = yargs(hideBin(process.argv))
   // General settings
 
   .usage('Usage: $0 <command> [options]')
-  .default('h', 'h', 'when no arguments are provided')
-  .alias('h', 'help')
 
   // Commands
 
@@ -94,6 +92,7 @@ const argv = yargs(hideBin(process.argv))
 
   .group(['v', 'h'], 'More information:')
   .alias('v', 'version')
+  .alias('h', 'help')
 
   // Footer
 
