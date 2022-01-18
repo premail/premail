@@ -27,13 +27,13 @@ body:
   - type: textarea
     id: solution
     attributes:
-      label: Describe preferred solution
+      label: Preferred solution
       description:
         If you have a specific technical solution, please describe it here.
   - type: textarea
     id: alternatives
     attributes:
-      label: Describe alternatives
+      label: Alternatives
       description: Any alternative solutions or features you've considered.
   - type: textarea
     id: related_code
@@ -58,7 +58,7 @@ body:
         If the feature request is approved, would you be willing to submit a
         Pull Request?
       description:
-        '(Help can be provided if you need assistance submitting a PR.)'
+        (Help can be provided if you need assistance submitting a PR.)
       options:
         - label: 'Yes'
         - label: 'No'
