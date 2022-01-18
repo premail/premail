@@ -1,5 +1,5 @@
 name: Support Question
-description: Question about how to use Premail
+description: Ask a question about how to use Premail
 title: 'support: '
 labels: 'Type: Question'
 body:
@@ -11,8 +11,8 @@ body:
     validations:
       required: true
   - type: textarea
-    id: description
+    id: question
     attributes:
-      label: Description
+      label: Your question
     validations:
       required: true

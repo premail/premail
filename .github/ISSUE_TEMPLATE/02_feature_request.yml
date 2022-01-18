@@ -1,0 +1,67 @@
+name: Feature Request
+description: Suggest an idea for Premail
+title: 'feat: '
+labels: 'Type: Feature'
+body:
+  - type: dropdown
+    id: feature_type
+    attributes:
+      label: Type of feature
+      options:
+        - New functionality
+        - Performance
+        - Code refactoring (e.g. to be simpler or easier to understand)
+        - Developer Experience (DX)
+        - Other (please describe below)
+      validations:
+        required: true
+
+  - type: textarea
+    id: feature_description
+    attributes:
+      label: Describe the feature
+      description:
+        A clear and concise description of your feature request. Please note if
+        your request is related to a problem.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Describe preferred solution
+      description:
+        If you have a specific technical solution, please describe it here.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Describe alternatives
+      description: Any alternative solutions or features you've considered.
+  - type: textarea
+    id: related_code
+    attributes:
+      label: Related code
+      description:
+        If you are able to illustrate this request with an example or can point
+        to a file or lines in the existing code relevant to this feature, please
+        mention it here.
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description:
+        List any other information that is relevant to your issue. Use cases,
+        screenshots, related issues, stack traces, links to relevant
+        information, environment information if applicable, etc.
+  - type: checkboxes
+    id: open_to_pr
+    attributes:
+      label:
+        If the feature request is approved, would you be willing to submit a
+        Pull Request?
+      description:
+        (Help can be provided if you need assistance submitting a PR.)
+      options:
+        - label: Yes
+        - label: No
+    validations:
+      required: true
