@@ -5,6 +5,7 @@ const fs = require('fs-extra')
 const path = require('path')
 const prompts = require('prompts')
 
+const procTime = require.main.require('./src/helpers/procTime')
 const isDirEmpty = require.main.require('./src/helpers/isDirEmpty')
 const { config } = require.main.require('./src/config/setup')
 const notify = require.main.require('./src/ops/notifications')
@@ -40,6 +41,12 @@ function destroyStructure () {
   notify.msg('success', 'Premail project destroyed.')
 }
 
+// Initialize project destruction
+function destroy () {
+  destroyStructure()
+  procTime(destroyStructure, 'Project destruction')
+}
+
 // Enable passing of --yes to this command to bypass confirmation.
 prompts.override(require('yargs').argv)
 
@@ -72,7 +79,7 @@ function confirm () {
     const response = await prompts(questions, { onCancel })
 
     if (response.yes) {
-      destroyStructure()
+      destroy()
     }
   })()
 }
