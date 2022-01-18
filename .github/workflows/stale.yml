@@ -18,9 +18,7 @@ jobs:
           days-before-close: 7
           remove-stale-when-updated: true
           stale-issue-label: 'Status: Stale'
-          exempt-issue-labels:
-            - 'Bot: No Abandonment'
-            - 'help-wanted'
+          exempt-issue-labels: ['help-wanted', 'x-Bot: No Abandonment']
           stale-issue-message: >
             There hasn't been any activity on this issue recently, and in order
             to prioritize active issues, it is being marked as stale.
@@ -33,9 +31,7 @@ jobs:
 
             Thank you for your contributions!
           stale-pr-label: 'Status: Stale'
-          exempt-pr-labels:
-            - 'Bot: No Abandonment'
-            - 'help-wanted'
+          exempt-pr-labels: ['help-wanted', 'x-Bot: No Abandonment']
           stale-pr-message: >
             There hasn't been any activity on this pull request recently, and in
             order to prioritize active work, it is being marked as stale.
