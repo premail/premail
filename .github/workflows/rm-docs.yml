@@ -3,7 +3,7 @@ name: Remove unrelated mirrored docs
 on:
   push:
     branches:
-      - 'main'
+      - '**'
     paths:
       - 'docs/**'
 
