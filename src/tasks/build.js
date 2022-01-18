@@ -44,7 +44,7 @@ const built = {
 }
 
 //
-// Build CSS files from Sass source files.
+// Build styles from Sass source files.
 //
 function styles () {
   // Set styles source
@@ -87,7 +87,7 @@ function styles () {
 }
 
 //
-// Preprocess content
+// Build content from templates.
 //
 function content () {
   // Set typography options based on configuration
@@ -178,16 +178,16 @@ function content () {
         e.e(err)
         process.exit(1)
       } else {
-        notify.msg('success', 'Content processing complete.')
+        notify.msg('success', 'Content built.')
       }
     }
   )
 }
 
 //
-// Render email components
+// Build structure from styles + content.
 //
-function render (cb) {
+function structure (cb) {
   // Default build options
   const htmlBuild = {
     file: 'index.html',
@@ -372,7 +372,7 @@ function render (cb) {
           e.e(err)
           process.exit(1)
         } else {
-          notify.msg('success', `Rendering complete at ${config.current.dist}`)
+          notify.msg('success', `Email complete at ${config.current.dist}`)
         }
       }
     )
@@ -382,5 +382,5 @@ function render (cb) {
 module.exports = {
   styles,
   content,
-  render,
+  structure,
 }

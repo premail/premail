@@ -21,7 +21,7 @@ const formatTemplates = require('./src/tasks/formatTemplates')
 clean.generated.displayName = 'clean.generated'
 build.content.displayName = 'build.content'
 build.styles.displayName = 'build.styles'
-build.render.displayName = 'build.render'
+build.structure.displayName = 'build.structure'
 
 // Sets
 exports.default = series(
@@ -30,7 +30,7 @@ exports.default = series(
   clean.generated,
   build.styles,
   build.content,
-  build.render
+  build.structure
 )
 
 // Build
@@ -39,7 +39,7 @@ exports.build = exports.default
 // Provide one-off versions of build tasks
 exports.buildContent = build.content
 exports.buildStyles = build.styles
-exports.buildRender = build.render
+exports.buildStructure = build.structure
 
 // Watch
 exports.watch = series(
@@ -47,7 +47,7 @@ exports.watch = series(
   formatTemplates,
   build.styles,
   build.content,
-  build.render,
+  build.structure,
   watchEmail
 )
 
