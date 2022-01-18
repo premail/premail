@@ -66,6 +66,13 @@ body:
     validations:
       required: true
   - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description:
+        If applicable, provide relevant log output. No need for backticks here.
+      render: shell
+  - type: textarea
     id: related_code
     attributes:
       label: Related code
