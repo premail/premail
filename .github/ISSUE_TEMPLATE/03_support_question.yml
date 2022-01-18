@@ -3,6 +3,10 @@ description: Ask a question about how to use Premail
 title: 'support: '
 labels: 'Type: Question'
 body:
+  - type: markdown
+    attributes:
+      value: |
+        **Before you ask a question, be sure you've checked the [Premail documentation](https://premail.dev) -- your question may already be answered there!**
   - type: input
     id: version
     attributes:
