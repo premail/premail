@@ -6,9 +6,13 @@ body:
   - type: markdown
     attributes:
       value: |
-        **Security note: If you're reporting a vulnerability or other security issue, please see [https://premail.dev/security/](https://premail.dev/security/) for the procedure.**
+        Before opening a bug report, please search for the behavior in the existing issues. **Security note: If you're reporting a vulnerability or other security issue, please see [https://premail.dev/security/](https://premail.dev/security/) for the procedure.**
+
+        ---
+
+        Thank you for taking the time to file a bug report! To address this bug as fast as possible, we need some information.
   - type: input
-    id: version
+    id: v_premail
     attributes:
       label: Premail version
       description: 'Run `premail -v` and paste the output here.'
@@ -22,6 +26,22 @@ body:
         - Linux
         - Mac
         - Windows
+    validations:
+      required: true
+  - type: input
+    id: v_node
+    attributes:
+      label: Node version
+      description: 'Run `node --version` and paste the output here.'
+    validations:
+      required: true
+  - type: input
+    id: v_package_manager
+    attributes:
+      label: NPM or Yarn version
+      description:
+        "Run `npm --version` or `yarn --version` (depending on which you're
+        using) and paste the output here."
     validations:
       required: true
   - type: textarea
