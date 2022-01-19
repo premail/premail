@@ -30,11 +30,12 @@ jobs:
         run: npm ci
       - name: Run package tests
         run: npm test
-      - name: Create a dummy project and build
+      - name: Initialize, build, and destroy a project
         run: |
           npm install -g .
+          npm install -g gnomon
           mkdir -p project
           cd project
-          premail init --debug
-          premail build
-          premail destroy --yes --debug
+          premail init --debug | gnomon --medium=1.0 --high=5.0 --ignore-blank --real-time=false
+          premail build | gnomon --medium=1.0 --high=5.0 --ignore-blank --real-time=false
+          premail destroy --yes --debug | gnomon --medium=1.0 --high=5.0 --ignore-blank --real-time=false
