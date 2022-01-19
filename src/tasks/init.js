@@ -5,7 +5,6 @@ const fs = require('fs-extra')
 const path = require('path')
 const prompts = require('prompts')
 
-const procTime = require.main.require('./src/helpers/procTime')
 const isDirEmpty = require.main.require('./src/helpers/isDirEmpty')
 const { config } = require.main.require('./src/config/setup')
 const notify = require.main.require('./src/ops/notifications')
@@ -32,12 +31,6 @@ function createStructure () {
   }
 
   notify.msg('success', 'Premail project initialized!')
-}
-
-// Initialize project creation
-function init () {
-  createStructure()
-  procTime(createStructure, 'Project initialization')
 }
 
 // Enable passing of --yes to this command to bypass confirmation.
@@ -72,7 +65,7 @@ function confirm (message) {
     const response = await prompts(questions, { onCancel })
 
     if (response.yes) {
-      init()
+      createStructure()
     }
   })()
 }
@@ -85,7 +78,7 @@ function structure () {
   } else if (!isDirEmpty(dest)) {
     confirm('Data already exists in this folder.')
   } else {
-    init()
+    createStructure()
   }
 }
 
