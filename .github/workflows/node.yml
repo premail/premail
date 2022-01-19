@@ -33,9 +33,8 @@ jobs:
       - name: Initialize, build, and destroy a project
         run: |
           npm install -g .
-          npm install -g gnomon
           mkdir -p project
           cd project
-          premail init --debug | gnomon --medium=1.0 --high=5.0 --ignore-blank --real-time=false
-          premail build | gnomon --medium=1.0 --high=5.0 --ignore-blank --real-time=false
-          premail destroy --yes --debug | gnomon --medium=1.0 --high=5.0 --ignore-blank --real-time=false
+          premail init --debug
+          premail build
+          premail destroy --yes --debug
