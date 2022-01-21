@@ -7,8 +7,9 @@
   },
   "main": "index.js",
   "files": [
-    "/docs",
-    "/src"
+    "docs",
+    "src",
+    "gulpfile.js"
   ],
   "scripts": {
     "start": "gulp build",
