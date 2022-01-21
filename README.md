@@ -235,14 +235,14 @@ Detailed documentation and guides are available at **<https://premail.dev>**.
 
 See the [open issues](https://github.com/premail/premail/issues) for a list of
 proposed features and known issues, and
-[projects](https://github.com/premail/premail/projects?query=is%3Aopen+sort%3Aupdated-desc)
+[projects](https://github.com/premail/premail/projects?type=beta&query=is%3Aopen)
 to see them grouped by major release.
 
-- [Top feature requests](https://github.com/premail/premail/issues?q=label%3Anew-feature+is%3Aopen+sort%3Areactions-%2B1-desc)
+- [Top feature requests](https://github.com/premail/premail/issues?q=label%3A%22Type%3A+Feature%22+is%3Aopen+sort%3Areactions-%2B1-desc)
   (Add your votes using the 👍 reaction)
-- [Top bugs](https://github.com/premail/premail/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Areactions-%2B1-desc)
+- [Top bugs](https://github.com/premail/premail/issues?q=is%3Aissue+is%3Aopen+label%3A%22Type%3A+Bug%22+sort%3Areactions-%2B1-desc)
   (Add your votes using the 👍 reaction)
-- [Newest bugs](https://github.com/premail/premail/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
+- [Newest bugs](https://github.com/premail/premail/issues?q=is%3Aopen+is%3Aissue+label%3A%22Type%3A+Bug%22)
 
 ## Getting support
 
@@ -300,7 +300,7 @@ Premail's developer, and have your name or logo included here!**
 <!-- prettier-ignore-end -->
 
 Premail is built on all sorts of open-source code.
-[Our appreciation to all of these fine projects](https://github.com/premail/premail/tree/main/docs/appreciation.md)
+[Our appreciation to all of these fine projects](https://premail.dev/appreciation/)!
 
 # License
 
