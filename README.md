@@ -53,7 +53,7 @@ Premail is component-based, and uses Handlebars for templating. Settings are
 defined in YAML configuration files, and theming happens in a design
 configuration file as well as (optionally) Sass files.
 
-Email templates are all [valid](https://mjml.io/documentation/#validating-mjml)
+Email templates are all [valid](https://documentation.mjml.io/#validating-mjml)
 under [MJML version 4](https://github.com/mjmlio/mjml/releases).
 
 One `index.html` file will be rendered, as well as (optionally) a plain-text
