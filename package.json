@@ -1,6 +1,6 @@
 {
   "name": "premail",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "An easy-to-use component-based build system for MJML, the email templating language, with Handlebars templating, Sass styles, and extra options.",
   "bin": {
     "premail": "./index.js"
