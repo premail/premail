@@ -33,14 +33,14 @@
 [![License: AGPL-3.0+](https://img.shields.io/badge/license-%20AGPL-blue?style=flat-square&logo=gnu)](https://github.com/premail/premail/blob/main/LICENSE)
 [![Pull Requests welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/premail/premail/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22%2C%22Status%3A+Available%22+sort%3Aupdated-desc+)
 
-![Checks](https://img.shields.io/github/checks-status/premail/premail/main.svg?style=flat-square)
+[![Release Date](https://img.shields.io/github/release-date/premail/premail?style=flat-square)](https://github.com/premail/premail/releases/latest)
 [![Node ^12.22.1](https://img.shields.io/badge/node-%5E12.22.1-brightgreen.svg?style=flat-square)](https://nodejs.org/en/download/)
 [![MJML 4.0+ valid](https://img.shields.io/badge/mjml-4%2B-brightgreen.svg?style=flat-square)](https://github.com/mjmlio/mjml/releases)
 [![Code style: JS Standard](https://img.shields.io/badge/code_style-standard-blue.svg?style=flat-square)](https://standardjs.com)
 [![Code format: Prettier](https://img.shields.io/badge/code_format-prettier-blue.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 [![Twitter: @premaildev](https://img.shields.io/badge/Twitter-%40premaildev-%231da1f2?style=flat-square)](https://twitter.com/premaildev)
-[![Coded with love by rootwork](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-rootwork-ff1414.svg?style=flat-square)](https://github.com/rootwork)
+[![Coded with love by rootwork](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-rootwork-ff1414.svg?style=flat-square)](https://github.com/sponsors/rootwork)
 
 </div>
 
@@ -54,7 +54,7 @@ Premail is component-based, and uses Handlebars for templating. Settings are
 defined in YAML configuration files, and theming happens in a design
 configuration file as well as (optionally) Sass files.
 
-Email templates are all [valid](https://mjml.io/documentation/#validating-mjml)
+Email templates are all [valid](https://documentation.mjml.io/#validating-mjml)
 under [MJML version 4](https://github.com/mjmlio/mjml/releases).
 
 One `index.html` file will be rendered, as well as (optionally) a plain-text
@@ -87,7 +87,7 @@ Read more at
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Mon Jan 17 03:13:15 UTC 2022 -->
+<!-- Added by: runner, at: Fri Jan 21 20:48:16 UTC 2022 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -143,7 +143,7 @@ controlled per-email:
   [Detergent](https://codsen.com/os/detergent) and
   [Typeset](https://github.com/davidmerfield/typeset#readme).
 - Enforcing
-  [proper image `alt` tags](https://support.siteimprove.com/hc/en-gb/articles/115000013031-Accessibility-Image-Alt-text-best-practices)
+  [proper image `alt` tags](https://help.siteimprove.com/support/solutions/articles/80000863904)
   and making sure the supplied text doesn't break email code parsers.
 - [Padding preview/preheader text](https://www.goodemailcode.com/email-code/preheader)
   to prevent things like navigation menu items from being visible in a
@@ -218,8 +218,8 @@ Design development:
               in output                                                [boolean]
 
 More information:
-  -h, --help     Show help                                             [boolean]
   -v, --version  Show version number                                   [boolean]
+  -h, --help     Show help                                             [boolean]
 
 Additional documentation: https://premail.dev
 ```
@@ -236,14 +236,14 @@ Detailed documentation and guides are available at **<https://premail.dev>**.
 
 See the [open issues](https://github.com/premail/premail/issues) for a list of
 proposed features and known issues, and
-[projects](https://github.com/premail/premail/projects?query=is%3Aopen+sort%3Aupdated-desc)
+[projects](https://github.com/premail/premail/projects?type=beta&query=is%3Aopen)
 to see them grouped by major release.
 
-- [Top feature requests](https://github.com/premail/premail/issues?q=label%3Anew-feature+is%3Aopen+sort%3Areactions-%2B1-desc)
+- [Top feature requests](https://github.com/premail/premail/issues?q=label%3A%22Type%3A+Feature%22+is%3Aopen+sort%3Areactions-%2B1-desc)
   (Add your votes using the 👍 reaction)
-- [Top bugs](https://github.com/premail/premail/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Areactions-%2B1-desc)
+- [Top bugs](https://github.com/premail/premail/issues?q=is%3Aissue+is%3Aopen+label%3A%22Type%3A+Bug%22+sort%3Areactions-%2B1-desc)
   (Add your votes using the 👍 reaction)
-- [Newest bugs](https://github.com/premail/premail/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
+- [Newest bugs](https://github.com/premail/premail/issues?q=is%3Aopen+is%3Aissue+label%3A%22Type%3A+Bug%22)
 
 ## Getting support
 
@@ -301,7 +301,7 @@ Premail's developer, and have your name or logo included here!**
 <!-- prettier-ignore-end -->
 
 Premail is built on all sorts of open-source code.
-[Our appreciation to all of these fine projects](https://github.com/premail/premail/tree/main/docs/appreciation.md)
+[Our appreciation to all of these fine projects](https://premail.dev/appreciation/)!
 
 # License
 

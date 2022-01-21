@@ -86,7 +86,7 @@ Read more at
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Mon Jan 17 03:13:15 UTC 2022 -->
+<!-- Added by: runner, at: Fri Jan 21 20:48:16 UTC 2022 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -217,8 +217,8 @@ Design development:
               in output                                                [boolean]
 
 More information:
-  -h, --help     Show help                                             [boolean]
   -v, --version  Show version number                                   [boolean]
+  -h, --help     Show help                                             [boolean]
 
 Additional documentation: https://premail.dev
 ```
