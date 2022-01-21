@@ -20,11 +20,11 @@
   <br /><br />
   <a href="https://premail.dev">Read the Documentation</a>
   -
-  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
+  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Bug&template=01_bug_report.yml&title=bug%3A+">Report a Bug</a>
   -
-  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Feature&template=02_FEATURE_REQUEST.md&title=feat%3A+">Request a Feature</a>
+  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Feature&template=02_feature_request.yml&title=feat%3A+">Request a Feature</a>
   -
-  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Question&template=03_SUPPORT_QUESTION.md&title=support%3A+">Ask a Question</a>
+  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Question&template=03_support_question.yml&title=support%3A+">Ask a Question</a>
 </div>
 
 <div align="center">
@@ -88,7 +88,7 @@ Read more at
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Fri Jan 21 21:46:30 UTC 2022 -->
+<!-- Added by: runner, at: Fri Jan 21 22:33:45 UTC 2022 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -151,7 +151,7 @@ controlled per-email:
   recipient's inbox.
 
 Feel free to
-[make suggestions for more enhancements!](https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Feature&template=02_FEATURE_REQUEST.md&title=feat%3A+)
+[make suggestions for more enhancements!](https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Feature&template=02_feature_request.yml&title=feat%3A+)
 
 ## Custom MJML components
 
@@ -252,7 +252,7 @@ to see them grouped by major release.
      https://premail.dev/docs/support-project-help/
      so be sure to update it there as well. -->
 
-**[Ask a support question](https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Question&template=03_SUPPORT_QUESTION.md&title=support%3A+)**
+**[Ask a support question](https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Question&template=03_support_question.yml&title=support%3A+)**
 on GitHub if you're stuck.
 
 ## Helping out
