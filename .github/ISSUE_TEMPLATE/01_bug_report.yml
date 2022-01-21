@@ -38,7 +38,7 @@ body:
   - type: input
     id: v_package_manager
     attributes:
-      label: NPM or Yarn version
+      label: npm or yarn version
       description:
         "Run `npm --version` or `yarn --version` (depending on which you're
         using) and paste the output here."
