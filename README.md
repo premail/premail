@@ -142,7 +142,7 @@ controlled per-email:
   [Detergent](https://codsen.com/os/detergent) and
   [Typeset](https://github.com/davidmerfield/typeset#readme).
 - Enforcing
-  [proper image `alt` tags](https://support.siteimprove.com/hc/en-gb/articles/115000013031-Accessibility-Image-Alt-text-best-practices)
+  [proper image `alt` tags](https://help.siteimprove.com/support/solutions/articles/80000863904)
   and making sure the supplied text doesn't break email code parsers.
 - [Padding preview/preheader text](https://www.goodemailcode.com/email-code/preheader)
   to prevent things like navigation menu items from being visible in a
