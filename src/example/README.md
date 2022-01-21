@@ -59,6 +59,7 @@ under [MJML version 4](https://github.com/mjmlio/mjml/releases).
 
 One `index.html` file will be rendered, as well as (optionally) a plain-text
 version, ready to import into your emailer of choice.
+[See an example of the default layout.](https://refined-github-html-preview.kidonng.workers.dev/premail/premail/raw/main/src/example/designs/_default/dist/index.html)
 
 Read more at
 **[a quick introduction to Premail](https://premail.dev/docs/introduction-to-premail/)**.
@@ -87,7 +88,7 @@ Read more at
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Fri Jan 21 20:48:16 UTC 2022 -->
+<!-- Added by: runner, at: Fri Jan 21 21:46:30 UTC 2022 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
