@@ -24,6 +24,7 @@ const argv = yargs(hideBin(process.argv))
     'watch',
     'Watch design and configuration files and rebuild as necessary',
     yargs => {
+      tasks.build()
       tasks.watch()
     }
   )

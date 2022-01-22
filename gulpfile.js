@@ -13,7 +13,7 @@ const destroy = require('./src/tasks/destroy')
 const loadConfig = require('./src/tasks/loadConfig')
 const clean = require('./src/tasks/clean')
 const build = require('./src/tasks/build')
-const watchEmail = require('./src/tasks/watchEmail')
+const watch = require('./src/tasks/watch')
 const listTemplates = require('./src/tasks/listTemplates')
 const formatTemplates = require('./src/tasks/formatTemplates')
 
@@ -32,15 +32,8 @@ exports.buildContent = build.content
 exports.buildStyles = build.styles
 exports.buildStructure = build.structure
 
-// Watch
-exports.watch = series(
-  loadConfig,
-  formatTemplates,
-  build.styles,
-  build.content,
-  build.structure,
-  watchEmail
-)
+// Rebuild for watch
+exports.rebuild = series(build.styles, build.content, build.structure)
 
 // Templates
 exports.formatTemplates = formatTemplates
@@ -59,7 +52,8 @@ module.exports = {
   init: init.structure,
   destroy: destroy.structure,
   build: exports.build,
-  watch: exports.watch,
+  watch: watch.email,
+  rebuild: exports.rebuild,
   format: exports.formatTemplates,
   clean: exports.clean,
   load: exports.loadConfig,
