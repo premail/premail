@@ -21,6 +21,7 @@ const typeset = require('typeset')
 const map = require('map-stream')
 const { htmlToText } = require('html-to-text')
 const filesize = require('filesize')
+const terminalLink = require('terminal-link')
 
 const e = require.main.require('./src/ops/errors')
 const { config } = require.main.require('./src/config/setup')
@@ -208,6 +209,12 @@ function structure (cb) {
   // Set template extension
   htmlBuild.mjml.fileExt = config.templates.ext
 
+  // Set clickable link
+  let link = terminalLink(
+    config.current.dist,
+    path.resolve(config.current.dist + '/index.html')
+  )
+
   // Set email text build options
   if (config.email) {
     if (config.email.text.generate) {
@@ -218,6 +225,12 @@ function structure (cb) {
         images: {},
         partials: {},
       }
+
+      // Set clickable link to directory
+      link = terminalLink(
+        config.current.dist,
+        path.resolve(config.current.dist)
+      )
 
       // Load project-configurable CSS selectors to skip
       if (config.email.text.skipSelectors) {
@@ -372,7 +385,7 @@ function structure (cb) {
           e.e(err)
           process.exit(1)
         } else {
-          notify.msg('success', `Email complete at ${config.current.dist}`)
+          notify.msg('success', `Email complete at ${link}`)
         }
       }
     )
