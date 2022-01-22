@@ -7,8 +7,9 @@
 
 ## Reporting a Vulnerability
 
-If there are any vulnerabilities in **Premail** or the custom MJML components that are a part of it, **MJML Bullet List** and **MJML Signoff**, don't hesitate to _report
-them_.
+If there are any vulnerabilities in **Premail** or the custom MJML components
+that are a part of it, **MJML Bullet List** and **MJML Signoff**, don't hesitate
+to _report them_.
 
 1. Use any of the [contact options for Premail](https://github.com/premail).
 2. Describe the vulnerability.
