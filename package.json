@@ -76,6 +76,7 @@
     "mjml-bullet-list": "^1.1.7",
     "mjml-signoff": "^1.1.5",
     "mri": "^1.1.6",
+    "nanoid": ">=3.1.31",
     "node-sass-json-importer": "^4.3.0",
     "node-watch": "^0.7.2",
     "npm": "^6.14.14",
@@ -108,6 +109,7 @@
   "security_notes": {
     "info": "The following dependencies and devDependencies were added simply to address security issues of lower dependencies (packages on which Premail depends) that have not yet been fixed.",
     "dependencies": [
+      "nanoid",
       "shelljs",
       "postcss",
       "trim",
