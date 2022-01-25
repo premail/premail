@@ -6,7 +6,8 @@
 const yargs = require('yargs/yargs')
 const { hideBin } = require('yargs/helpers')
 
-const tasks = require('./gulpfile')
+const gulp = require('./gulpfile')
+const watch = require('./src/tasks/watch')
 /* eslint-enable no-unused-vars */
 
 const argv = yargs(hideBin(process.argv))
@@ -17,40 +18,40 @@ const argv = yargs(hideBin(process.argv))
   // Commands
 
   .command('build', 'Build your email', yargs => {
-    tasks.build()
+    gulp.build()
   })
 
   .command(
     'watch',
     'Watch design and configuration files and rebuild as necessary',
     yargs => {
-      tasks.build()
-      tasks.watch()
+      gulp.build()
+      watch.email()
     }
   )
 
   .command('format', 'Format templates with Prettier', yargs => {
-    tasks.format()
+    gulp.format()
   })
 
   .command(
     'clean',
     'Remove generated files from the current design or email',
     yargs => {
-      tasks.clean()
+      gulp.clean()
     }
   )
 
   .command('init', 'Initialize an email project', yargs => {
-    tasks.init()
+    gulp.init()
   })
 
   .command('destroy', 'Destroy an email project', yargs => {
-    tasks.destroy()
+    gulp.destroy()
   })
 
   .command('test', false, yargs => {
-    tasks.test()
+    gulp.test()
   })
 
   // Options

@@ -13,7 +13,6 @@ const destroy = require('./src/tasks/destroy')
 const loadConfig = require('./src/tasks/loadConfig')
 const clean = require('./src/tasks/clean')
 const build = require('./src/tasks/build')
-const watch = require('./src/tasks/watch')
 const listTemplates = require('./src/tasks/listTemplates')
 const formatTemplates = require('./src/tasks/formatTemplates')
 
@@ -52,7 +51,6 @@ module.exports = {
   init: init.structure,
   destroy: destroy.structure,
   build: exports.build,
-  watch: watch.email,
   rebuild: exports.rebuild,
   format: exports.formatTemplates,
   clean: exports.clean,
