@@ -13,7 +13,7 @@ const notify = require.main.require('./src/ops/notifications')
 // Process template files with Prettier
 //
 
-module.exports = function formatTemplates (done) {
+module.exports = function formatTemplates () {
   const command =
     'npx prettier --config .prettierrc.yaml -w "' +
     config.current.path +
@@ -31,5 +31,4 @@ module.exports = function formatTemplates (done) {
       notify.msg('debug', stdout, 'Templates formatted:')
     }
   })
-  done()
 }
