@@ -63,7 +63,7 @@ page:
   # backgroundImage: Note that this must point to an Internet-accessible image
   # (not a local file). It will be repeated across the background of the email.
   # Be sure to double-quote the URI, as in the example provided.
-  # backgroundImage: "'https://www.toptal.com/designers/subtlepatterns/patterns/moroccan-flower.png'"
+  backgroundImage: "'https://raw.githubusercontent.com/atlemo/SubtlePatterns/gh-pages/soft_circle_scales.png'"
   # backgroundColor: Background color for the overall email, and fallback if
   # a background image is set but a client refuses to load it. See "Color
   # values" at the top of this document.
