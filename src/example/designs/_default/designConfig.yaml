@@ -68,6 +68,18 @@ page:
   # a background image is set but a client refuses to load it. See "Color
   # values" at the top of this document.
   backgroundColor: '#fff'
+  # contentWidth: The default width of content items unless otherwise specified.
+  # Individual sections can be expanded to full width, but it will be only their
+  # container that expands (e.g. their visible background image); the content
+  # within those containers will remain at a maximum width of this value.
+  # More information:
+  # https://documentation.mjml.io/#mj-section
+  contentWidth: 600px
+  # fullWidthSections: Whether to expand all sections to full width by default.
+  # Note that as described in "contentWidth", only the section containers
+  # themselves will expand to full width; the content itself will remain
+  # constrained by contentWidth.
+  fullWidthSections: false
 
 # SECTION SETTINGS
 sections:
