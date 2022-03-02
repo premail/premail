@@ -90,7 +90,8 @@ sections:
   main:
     # backgroundColor: See "Color values" at the top of this document.
     backgroundColor: '#fff'
-    # horizontalPadding: See "Size values" at the top of this document.
+    # horizontalPadding: Padding to the left and right of these sections. See
+    # "Size values" at the top of this document.
     horizontalPadding: 18px
 
   topNav:
@@ -98,15 +99,40 @@ sections:
     padding:
       top: 0px
       bottom: 0px
+      left: 0px
+      right: 0px
 
   banner:
     # padding: See "Size values" at the top of this document.
     padding:
       top: 0px
       bottom: 0px
+      left: 0px
+      right: 0px
+    # bottomBorder: Settings for a horizontal border below the banner image.
+    bottomBorder:
+      # include: Set to false to omit the border.
+      include: true
+      # backgroundColor: Only visible if the element has padding. See "Color
+      # values" at the top of this document.
+      backgroundColor: '#fff'
+      # color: By default the border will use "primary" from "Color Branding",
+      # below. If set, this value will override that color. See "Color values"
+      # at the top of this document.
+      color:
+      # width: See "Size values" at the top of this document.
+      width: 2px
+      # padding: See "Size values" at the top of this document.
+      padding:
+        top: 0px
+        bottom: 0px
+        left: 0px
+        right: 0px
 
   salutation:
     # padding: See "Size values" at the top of this document.
+    # Set left and right padding using horizontalPadding in the "main" section,
+    # above.
     padding:
       top: 18px
       bottom: 0px

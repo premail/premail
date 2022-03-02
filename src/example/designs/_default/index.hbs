@@ -121,8 +121,7 @@ They can also be tested with the usual Handlebars syntax.
       css-class="component-topNav nav nav--top"
       mj-class="component-topNav nav nav--top"
       full-width="{{#if design.page.fullWidthSections}}full-width{{/if}}"
-      padding-top="{{design.sections.topNav.padding.top}}"
-      padding-bottom="{{design.sections.topNav.padding.bottom}}"
+      padding="{{design.sections.topNav.padding.top}} {{design.sections.topNav.padding.right}} {{design.sections.topNav.padding.bottom}} {{design.sections.topNav.padding.left}}"
     >
       {{> topNav.hbs}}
     </mj-wrapper>
@@ -135,10 +134,20 @@ They can also be tested with the usual Handlebars syntax.
       css-class="component-banner"
       mj-class="component-banner"
       full-width="{{#if design.page.fullWidthSections}}full-width{{/if}}"
-      padding-top="{{design.sections.banner.padding.top}}"
-      padding-bottom="{{design.sections.banner.padding.bottom}}"
+      padding="{{design.sections.banner.padding.top}} {{design.sections.banner.padding.right}} {{design.sections.banner.padding.bottom}} {{design.sections.banner.padding.left}}"
     >
-      {{> banner.hbs}}
+      {{> banner.hbs}} {{#if design.sections.banner.bottomBorder.include}}
+      <mj-section padding="0">
+        <mj-column>
+          <mj-divider
+            container-background-color="{{design.sections.banner.bottomBorder.backgroundColor}}"
+            border-color="{{#if design.sections.banner.bottomBorder.color}}{{design.sections.banner.bottomBorder.color}}{{else}}{{design.colors.primary}}{{/if}}"
+            border-width="{{design.sections.banner.bottomBorder.width}}"
+            padding="{{design.sections.banner.bottomBorder.padding.top}} {{design.sections.banner.bottomBorder.padding.right}} {{design.sections.banner.bottomBorder.padding.bottom}} {{design.sections.banner.bottomBorder.padding.left}}"
+          ></mj-divider>
+        </mj-column>
+      </mj-section>
+      {{/if}}
     </mj-wrapper>
     {{/if}}
 
@@ -149,8 +158,7 @@ They can also be tested with the usual Handlebars syntax.
       css-class="component-salutation"
       mj-class="component-salutation"
       background-color="{{design.sections.main.backgroundColor}}"
-      padding-left="{{design.sections.main.horizontalPadding}}"
-      padding-right="{{design.sections.main.horizontalPadding}}"
+      padding="{{design.sections.salutation.padding.top}} {{design.sections.main.horizontalPadding}} {{design.sections.salutation.padding.bottom}} {{design.sections.main.horizontalPadding}}"
     >
       <mj-section
         full-width="{{#if design.page.fullWidthSections}}full-width{{/if}}"
