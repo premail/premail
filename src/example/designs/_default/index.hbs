@@ -121,6 +121,8 @@ They can also be tested with the usual Handlebars syntax.
       css-class="component-topNav nav nav--top"
       mj-class="component-topNav nav nav--top"
       full-width="{{#if design.page.fullWidthSections}}full-width{{/if}}"
+      padding-top="{{design.sections.topNav.padding.top}}"
+      padding-bottom="{{design.sections.topNav.padding.bottom}}"
     >
       {{> topNav.hbs}}
     </mj-wrapper>
@@ -133,6 +135,8 @@ They can also be tested with the usual Handlebars syntax.
       css-class="component-banner"
       mj-class="component-banner"
       full-width="{{#if design.page.fullWidthSections}}full-width{{/if}}"
+      padding-top="{{design.sections.banner.padding.top}}"
+      padding-bottom="{{design.sections.banner.padding.bottom}}"
     >
       {{> banner.hbs}}
     </mj-wrapper>
@@ -225,6 +229,8 @@ They can also be tested with the usual Handlebars syntax.
       css-class="component-bottomNav nav nav--bottom"
       mj-class="component-bottomNav nav nav--bottom"
       full-width="{{#if design.page.fullWidthSections}}full-width{{/if}}"
+      padding-top="{{design.sections.bottomNav.padding.top}}"
+      padding-bottom="{{design.sections.bottomNav.padding.bottom}}"
     >
       {{> bottomNav.hbs}}
     </mj-wrapper>

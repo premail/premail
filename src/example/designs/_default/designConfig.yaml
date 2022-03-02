@@ -93,6 +93,18 @@ sections:
     # horizontalPadding: See "Size values" at the top of this document.
     horizontalPadding: 18px
 
+  topNav:
+    # padding: See "Size values" at the top of this document.
+    padding:
+      top: 0px
+      bottom: 0px
+
+  banner:
+    # padding: See "Size values" at the top of this document.
+    padding:
+      top: 0px
+      bottom: 0px
+
   salutation:
     # padding: See "Size values" at the top of this document.
     padding:
@@ -110,10 +122,6 @@ sections:
     padding:
       top: 0px
       bottom: 18px
-
-  topNav:
-
-  banner:
 
   social:
     # backgroundColor: See "Color values" at the top of this document.
@@ -134,6 +142,10 @@ sections:
       borderStyle: dashed
 
   bottomNav:
+    # padding: See "Size values" at the top of this document.
+    padding:
+      top: 0px
+      bottom: 0px
 
   footer:
     # backgroundColor: See "Color values" at the top of this document.
