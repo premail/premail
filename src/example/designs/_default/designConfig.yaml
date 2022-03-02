@@ -74,12 +74,12 @@ page:
   # within those containers will remain at a maximum width of this value.
   # More information:
   # https://documentation.mjml.io/#mj-section
-  contentWidth: 800px
+  contentWidth: 600px
   # fullWidthSections: Whether to expand all sections to full width by default.
   # Note that as described in "contentWidth", only the section containers
   # themselves will expand to full width; the content itself will remain
   # constrained by contentWidth.
-  fullWidthSections: true
+  fullWidthSections: false
 
 # SECTION SETTINGS
 sections:
@@ -103,6 +103,10 @@ sections:
       right: 0px
 
   banner:
+    # backgroundColor: Visible if the image doesn't load. Additionally when
+    # fullWidthSections is set to true, this is the color to the left and right
+    # of the banner image. See "Color values" at the top of this document.
+    backgroundColor: '#fff'
     # padding: See "Size values" at the top of this document.
     padding:
       top: 0px

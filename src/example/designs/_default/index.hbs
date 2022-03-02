@@ -177,7 +177,7 @@ They can also be tested with the usual Handlebars syntax.
 
       <!-- Typography -->
 
-      <mj-class name="text" padding="0" />
+      <mj-class name="text" />
 
       <mj-class
         name="text--salutation"
@@ -303,7 +303,7 @@ They can also be tested with the usual Handlebars syntax.
       <mj-class
         name="hero"
         mode="fixed-height"
-        background-color="grey"
+        background-color="{{design.sections.banner.backgroundColor}}"
         vertical-align="middle"
       />
 
@@ -410,11 +410,12 @@ They can also be tested with the usual Handlebars syntax.
     <mj-wrapper
       css-class="component-banner"
       mj-class="component-banner"
-      full-width="{{#if design.page.fullWidthSections}}full-width{{/if}}"
       padding="{{design.sections.banner.padding.top}} {{design.sections.banner.padding.right}} {{design.sections.banner.padding.bottom}} {{design.sections.banner.padding.left}}"
+      background-color="{{design.sections.banner.backgroundColor}}"
+      full-width="{{#if design.page.fullWidthSections}}full-width{{/if}}"
     >
       {{> banner.hbs}} {{#if design.sections.banner.bottomBorder.include}}
-      <mj-section padding="0">
+      <mj-section>
         <mj-column>
           <mj-divider
             container-background-color="{{design.sections.banner.bottomBorder.backgroundColor}}"
@@ -434,12 +435,11 @@ They can also be tested with the usual Handlebars syntax.
     <mj-wrapper
       css-class="component-salutation"
       mj-class="component-salutation"
-      background-color="{{design.sections.main.backgroundColor}}"
       padding="{{design.sections.salutation.padding.top}} {{design.sections.main.horizontalPadding}} {{design.sections.salutation.padding.bottom}} {{design.sections.main.horizontalPadding}}"
+      background-color="{{design.sections.main.backgroundColor}}"
+      full-width="{{#if design.page.fullWidthSections}}full-width{{/if}}"
     >
-      <mj-section
-        full-width="{{#if design.page.fullWidthSections}}full-width{{/if}}"
-      >
+      <mj-section>
         <mj-column mj-class="column salutation__column">
           <mj-text mj-class="text text--salutation">
             {{> salutation.hbs}}
@@ -494,11 +494,10 @@ They can also be tested with the usual Handlebars syntax.
       padding-right="{{design.sections.social.horizontalPadding}}"
       padding-top="{{design.sections.social.verticalPadding}}"
       padding-bottom="{{design.sections.social.verticalPadding}}"
+      full-width="{{#if design.page.fullWidthSections}}full-width{{/if}}"
     >
       {{#if design.sections.social.topBorder.include}}
-      <mj-section
-        full-width="{{#if design.page.fullWidthSections}}full-width{{/if}}"
-      >
+      <mj-section>
         <mj-column>
           <mj-divider mj-class="social__border-top"></mj-divider>
         </mj-column>
