@@ -139,12 +139,16 @@ sections:
 
   body:
     # padding: See "Size values" at the top of this document.
+    # Set left and right padding using horizontalPadding in the "main" section,
+    # above.
     padding:
       top: 0px
       bottom: 0px
 
   signoff:
     # padding: See "Size values" at the top of this document.
+    # Set left and right padding using horizontalPadding in the "main" section,
+    # above.
     padding:
       top: 0px
       bottom: 18px
