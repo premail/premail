@@ -297,9 +297,10 @@ They can also be tested with the usual Handlebars syntax.
 
       <!-- Images -->
 
-      <mj-class name="image" padding="18px 0" />
-
-      <mj-class name="image--50pc" padding="18px 32px" />
+      <mj-class
+        name="image"
+        padding="{{design.images.verticalPadding}} {{design.images.horizontalPadding}}"
+      />
 
       <!-- Hero (banner) -->
 

@@ -299,6 +299,14 @@ links:
   # decoration: Any valid CSS text-decoration value may be used.
   decoration: underline
 
+# IMAGE STYLES
+# These styles apply only to images that have `mj-class="image"` set.
+images:
+  # verticalPadding: See "Size values" at the top of this document.
+  verticalPadding: 18px
+  # horizontalPadding: See "Size values" at the top of this document.
+  horizontalPadding: 0px
+
 # LIST STYLES
 # These styles only apply to lists created with the <mj-list> and <mj-li>
 # components. They can be overridden by individual component settings. For more
