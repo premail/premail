@@ -74,12 +74,12 @@ page:
   # within those containers will remain at a maximum width of this value.
   # More information:
   # https://documentation.mjml.io/#mj-section
-  contentWidth: 600px
+  contentWidth: 800px
   # fullWidthSections: Whether to expand all sections to full width by default.
   # Note that as described in "contentWidth", only the section containers
   # themselves will expand to full width; the content itself will remain
   # constrained by contentWidth.
-  fullWidthSections: false
+  fullWidthSections: true
 
 # SECTION SETTINGS
 sections:

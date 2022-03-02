@@ -35,20 +35,14 @@ though, all you'll need to know is MJML.
 
 ## Theme
 
-The `theme` subdirectory contains styles as well as design-specific markup.
-
-- `*.scss` files are [Sass files](https://sass-lang.com/guide) that make
-  individual changes to CSS. If you're not familiar with Sass, the `scss` syntax
-  used here is
-  [a superset of CSS](https://sass-lang.com/documentation/syntax#scss) -- so any
-  valid CSS can be placed in these files. If you read through them, you'll see
-  that they use Sass to import variables from your design configuration, but you
-  can ignore or overwrite these styles if you wish. The Sass files are heavily
-  commented to make it clear which styles they control.
-- `*.hbs` files are Handlebars files with MJML markup that load settings from
-  `designConfig.yaml` into MJML itself. If you have a style that you can't seem
-  to change, check these files. They are included in the `index.hbs` file
-  automatically.
+The `theme` subdirectory contains `*.scss`
+[Sass files](https://sass-lang.com/guide) that make individual changes to CSS.
+If you're not familiar with Sass, the `scss` syntax used here is
+[a superset of CSS](https://sass-lang.com/documentation/syntax#scss) -- so any
+valid CSS can be placed in these files. If you read through them, you'll see
+that they use Sass to import variables from your design configuration, but you
+can ignore or overwrite these styles if you wish. The Sass files are heavily
+commented to make it clear which styles they control.
 
 Finally, note that some attributes must be set on `<mj-wrapper>` elements for
 each component directly in the `index.hbs` file. In every case, these are
