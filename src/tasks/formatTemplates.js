@@ -13,7 +13,7 @@ const notify = require.main.require('./src/ops/notifications')
 // Process template files with Prettier
 //
 
-module.exports = function formatTemplates () {
+module.exports = function formatTemplates (display) {
   const command =
     'npx prettier --config .prettierrc.yaml -w "' +
     config.current.path +
@@ -24,11 +24,15 @@ module.exports = function formatTemplates () {
   // https://github.com/sheerun/modern-node/issues/12
   //
   // So we call Prettier directly.
-  exec(command, function (err, stdout, stderr) {
+  exec(command, function (err, stdout, stderr, display) {
     if (err) {
       e.e(err, 'prettier')
     } else {
-      notify.msg('debug', stdout, 'Templates formatted:')
+      if (display) {
+        notify.msg('info', stdout, 'Templates formatted:')
+      } else {
+        notify.msg('debug', stdout, 'Templates formatted:')
+      }
     }
   })
 }

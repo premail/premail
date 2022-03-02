@@ -18,7 +18,6 @@ const { stripHtml } = require('string-strip-html')
 const { alts } = require('html-img-alt')
 const { crush } = require('html-crush')
 const typeset = require('typeset')
-const map = require('map-stream')
 const { htmlToText } = require('html-to-text')
 const filesize = require('filesize')
 

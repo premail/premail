@@ -54,7 +54,7 @@ const argv = yargs(hideBin(process.argv))
   )
 
   .command('format', 'Format templates with Prettier', yargs => {
-    formatTemplates()
+    formatTemplates(true)
   })
 
   .command('init', 'Initialize an email project', yargs => {
