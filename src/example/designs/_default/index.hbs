@@ -184,12 +184,15 @@ They can also be tested with the usual Handlebars syntax.
         padding="{{design.sections.salutation.padding.top}} 0 {{design.sections.salutation.padding.bottom}} 0"
       />
 
-      <mj-class
-        name="text--footer"
-        padding="12px 0"
-        font-size="11px"
-        line-height="11px"
-      />
+      <!-- prettier-ignore -->
+      <mj-class name="text--footer" {{#if design.text.footer.verticalPadding}}
+      padding="{{design.text.footer.verticalPadding}} 0" {{else}} {{#if
+      design.text.footer.size}} padding="{{design.text.footer.size}} 0" {{else}}
+      padding="{{design.text.default.size}} 0" {{/if}} {{/if}} {{#if
+      design.text.footer.color}} color="{{design.text.footer.color}}" {{/if}}
+      {{#if design.text.footer.size}} font-size="{{design.text.footer.size}}"
+      {{/if}} {{#if design.text.footer.lineHeight}}
+      line-height="{{design.text.footer.lineHeight}}" {{/if}} />
 
       <!-- Buttons -->
       <!-- prettier-ignore -->

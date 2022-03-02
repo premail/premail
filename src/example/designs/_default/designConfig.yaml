@@ -186,6 +186,8 @@ sections:
       top: 0px
       bottom: 0px
 
+  # footer: Background color and padding for the footer section. For text
+  # settings, see TEXT STYLES, below.
   footer:
     # backgroundColor: See "Color values" at the top of this document.
     backgroundColor: '#fff'
@@ -258,7 +260,7 @@ fonts:
 
 # TEXT STYLES
 text:
-  # default: Styles for body text, when not otherwise styled.
+  # default: Body text, when not otherwise styled.
   default:
     # color: See "Color values" at the top of this document.
     color: '#666'
@@ -269,6 +271,20 @@ text:
     # 1 would set it to 18px as well; a setting of 1.5 would set it to 27px.
     lineHeight: '1.8'
     # verticalPadding: If unset, this will be equal to the font size.
+    verticalPadding:
+  # footer: Text in the footer section; values that are unset will fall back to
+  # the default text styles.
+  footer:
+    # color: Optional. See "Color values" at the top of this document.
+    color:
+    # size: Optional. See "Size values" at the top of this document.
+    size: 11px
+    # lineHeight: Optional. For footer line height, use a pixel-based size. See
+    # "Size values" at the top of this document.
+    lineHeight: 11px
+    # verticalPadding: Optional. If unset, this will be equal to the font size.
+    # This sets the space between multiple paragraphs, as opposed to the padding
+    # on the entire component, configurable in SECTION SETTINGS, above.
     verticalPadding:
 
 # INLINE LINK STYLES
