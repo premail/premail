@@ -236,8 +236,8 @@ text:
 # These styles do not affect buttons or navigation item links.
 links:
   # color: By default links will use "primary" from "Color Branding", above.
-  # Set this value to override that color. See "Color values" at the top of this
-  # document.
+  # If set, this value will override that color. See "Color values" at the top
+  # of this document.
   color:
   # weight: Any valid CSS font-weight value may be used.
   weight: bold
@@ -246,8 +246,8 @@ links:
 
 # LIST STYLES
 # These styles only apply to lists created with the <mj-list> and <mj-li>
-# components (see README). They can be overridden by individual component
-# settings.
+# components. They can be overridden by individual component settings. For more
+# about this feature, see https://premail.dev/docs/components/mjml-bullet-list
 lists:
   # leftPadding: The default amount by which lists will be padded from the left
   # margin. If you set this to 0, the bullets in the list may overflow their
@@ -297,8 +297,8 @@ buttons:
     # cornerRadius: See "Size values" at the top of this document.
     cornerRadius: 9px
     # backgroundColor: By default this will use "primary" from "Color Branding"
-    # above. Set this value to override that color. See "Color values" at the
-    # top of this document.
+    # above. If set, this value will override that color. See "Color values" at
+    # the top of this document.
     backgroundColor:
     # textColor: See "Color values" at the top of this document.
     textColor: '#fff'
@@ -373,7 +373,8 @@ buttons:
     lineHeight:
 
 # SIGNOFF STYLES
-# These styles only apply to the <mj-signoff> component (see README).
+# These styles only apply to the <mj-signoff> component. For more about this
+# feature, see https://premail.dev/docs/components/mjml-signoff
 signoff:
   # lineHeight: Applies to all text elements in the sign-off. You will probably
   # want to set this to '1' so that the top of the text aligns with the image.
