@@ -12,7 +12,7 @@
 // Note that MJML sets some values, like background color, directly on
 // <mj-body> in index.hbs
 .body {
-  padding: 0;
+  padding: map-get($page, 'verticalPadding') map-get($page, 'horizontalPadding');
 }
 
 @if map-get($page, 'center') {

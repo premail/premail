@@ -31,6 +31,7 @@
 # range from 12px to 17px. Resources:
 # https://us4.campaign-archive.com/?u=00194e641f365c79871912856&id=1b0c8bc3ba&e=d274356b59
 # https://email.uplers.com/blog/em-or-px-how-to-code-your-emails-right/
+# Note that unlike actual CSS, sizes of 0 should be specified as 0px.
 
 # DIRECTORY SETTINGS
 # If set, these design directory settings override the project-wide settings
@@ -80,6 +81,10 @@ page:
   # themselves will expand to full width; the content itself will remain
   # constrained by contentWidth.
   fullWidthSections: false
+  # horizontalPadding: See "Size values" at the top of this document.
+  horizontalPadding: 0px
+  # verticalPadding: See "Size values" at the top of this document.
+  verticalPadding: 0px
 
 # SECTION SETTINGS
 sections:
