@@ -125,9 +125,8 @@ sections:
       # backgroundColor: Only visible if the element has padding. See "Color
       # values" at the top of this document.
       backgroundColor: '#fff'
-      # color: By default the border will use "primary" from "Color Branding",
-      # below. If set, this value will override that color. See "Color values"
-      # at the top of this document.
+      # color: If unset, will use the "primary" color from COLOR BRANDING. See
+      # "Color values" at the top of this document.
       color:
       # width: See "Size values" at the top of this document.
       width: 2px
@@ -169,6 +168,22 @@ sections:
     horizontalPadding: 0px
     # verticalPadding: See "Size values" at the top of this document.
     verticalPadding: 0px
+    # icons: These styles will only apply to elements with
+    # `mj-class="social__icon".
+    icons:
+      # backgroundColor: If unset, will use the "primary" color from COLOR
+      # BRANDING. See "Color values" at the top of this document.
+      backgroundColor:
+      # size: See "Size values" at the top of this document.
+      size: 48px
+      # cornerRadius: See "Size values" at the top of this document.
+      cornerRadius: 6px
+      # horizontalPadding: Padding to the left and right of the icon. See
+      # "Size values" at the top of this document.
+      horizontalPadding: 16px
+      # verticalPadding: Padding above and below the cion. See "Size values" at
+      # the top of this document.
+      verticalPadding: 16px
     # topBorder: Appears between the social icons and email content.
     topBorder:
       # include: Set to false to omit the border.
@@ -290,9 +305,8 @@ text:
 # INLINE LINK STYLES
 # These styles do not affect buttons or navigation item links.
 links:
-  # color: By default links will use "primary" from "Color Branding", above.
-  # If set, this value will override that color. See "Color values" at the top
-  # of this document.
+  # color: If unset, will use the "primary" color from COLOR BRANDING. See
+  # "Color values" at the top of this document.
   color:
   # weight: Any valid CSS font-weight value may be used.
   weight: bold
@@ -359,9 +373,8 @@ buttons:
     contentPadding: 9px 36px
     # cornerRadius: See "Size values" at the top of this document.
     cornerRadius: 9px
-    # backgroundColor: By default this will use "primary" from "Color Branding"
-    # above. If set, this value will override that color. See "Color values" at
-    # the top of this document.
+    # backgroundColor: If unset, will use the "primary" color from COLOR
+    # BRANDING. See "Color values" at the top of this document.
     backgroundColor:
     # textColor: See "Color values" at the top of this document.
     textColor: '#fff'

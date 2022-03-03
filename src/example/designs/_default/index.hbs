@@ -322,19 +322,15 @@ They can also be tested with the usual Handlebars syntax.
         border-color="{{design.colors.primary}}"
       />
 
-      <mj-class
-        name="social__nav"
-        mode="horizontal"
-        icon-size="48px"
-        font-size="16px"
-      />
-
-      <mj-class
-        name="social__icon"
-        padding="16px"
-        background-color="{{design.colors.primary}}"
-        border-radius="6px"
-      />
+      <!-- prettier-ignore -->
+      <mj-class name="social__icon"
+      padding="{{design.sections.social.icons.verticalPadding}}
+      {{design.sections.social.icons.horizontalPadding}}"
+      icon-size="{{design.sections.social.icons.size}}" {{#if
+      design.sections.social.icons.backgroundColor}}
+      background-color="{{design.sections.social.icons.backgroundColor}}"
+      {{else}} background-color="{{design.colors.primary}}" {{/if}}
+      border-radius="{{design.sections.social.icons.cornerRadius}}" />
 
       <!-- Navigation menus -->
 
