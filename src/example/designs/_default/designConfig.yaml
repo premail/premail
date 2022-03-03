@@ -475,16 +475,16 @@ signoff:
   closingBottomPadding:
   # nameBottomPadding: If not set, this will match
   # text.default.verticalPadding (if set) or text.default.size.
-  nameBottomPadding: 0
+  nameBottomPadding: 0px
   # titleBottomPadding: If not set, this will match
   # text.default.verticalPadding (if set) or text.default.size.
-  titleBottomPadding: 0
+  titleBottomPadding: 0px
   # title2BottomPadding: If not set, this will match
   # text.default.verticalPadding (if set) or text.default.size.
-  title2BottomPadding: 0
+  title2BottomPadding: 0px
   # title3BottomPadding: If not set, this will match
   # text.default.verticalPadding (if set) or text.default.size.
-  title3BottomPadding: 0
+  title3BottomPadding: 0px
 
 # TYPOGRAPHY
 # These settings apply to both your HTML version and (if generating) your
