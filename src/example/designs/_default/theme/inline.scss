@@ -12,7 +12,7 @@
 // Note that MJML sets some values, like background color, directly on
 // <mj-body> in index.hbs
 .body {
-  padding: 0 8px;
+  padding: map-get($page, 'verticalPadding') map-get($page, 'horizontalPadding');
 }
 
 @if map-get($page, 'center') {
@@ -86,7 +86,8 @@ a {
  *
  * Rather than using <ul> and <li> elements, which render unpredictably in
  * email clients, use <mj-list> and <mj-li> elements, then style with the
- * classes below.
+ * classes below. For more information, see:
+ * https://premail.dev/docs/components/mjml-bullet-list
  */
 
 .list {
@@ -118,7 +119,9 @@ a {
 
 /* SIGNOFF COMPONENT
  *
- * Styles applied when using the <mj-signoff> custom component.
+ * Styles applied when using the <mj-signoff> custom component. For more
+ * information, see:
+ * https://premail.dev/docs/components/mjml-signoff
  */
 
 .signoff__text p {
