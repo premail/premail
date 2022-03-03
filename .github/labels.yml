@@ -45,7 +45,7 @@
 - name: 'Status: Done'
   color: 000000
   description: 'Completed.'
-- name: "Status: Won't Fix"
+- name: 'Status: wontfix'
   color: cdcdcd
   description:
     'Outside project scope, off-topic, spam, or otherwise does not apply to this
