@@ -433,12 +433,13 @@ buttons:
     textSize:
     lineHeight:
 
-  # ghost: The default style of the ghost button simply inverts the colors of
-  # the primary button. Use both
+  # ghost: The default style of the ghost button inverts the colors of the
+  # primary button. Use both
   # mj-class="button button--ghost" css-class="button button--ghost"
-  # for inheritance of styles from the primary button. You can also use only
+  # for inheritance of styles from the primary button. You can also use
   # mj-class="button--ghost" css-class="button--ghost"
-  # but note that it will still inherit some MJML button default properties.
+  # alone, but note that it will still inherit some of MJML core's button
+  # properties.
   ghost:
     height:
     width:
