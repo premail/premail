@@ -2,7 +2,7 @@
 
 ## Pull Request type
 
-<!-- Please try to limit your pull request to one type; submit multiple pull requests if needed. -->
+<!-- Please try to limit your pull request to one type. Submit multiple pull requests if needed. -->
 
 Please check the type of change your PR introduces:
 
@@ -18,15 +18,11 @@ Please check the type of change your PR introduces:
 
 <!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->
 
-Issue Number: N/A
+Issue Number(s):
 
 ## What is the new behavior?
 
 <!-- Please describe the behavior or changes that are being added by this PR. -->
-
-## -
-
--
 
 ## Does this introduce a breaking change?
 
