@@ -1,7 +1,9 @@
 # Premail Contributor Covenant Code of Conduct
 
-<!-- This document gets mirrored to the Premail repo, so be sure all links are
-     absolute, not relative! -->
+<!-- This document gets mirrored from the Premail documentation site repo to the
+     main Premail repo automatically. It should only be edited in the site repo:
+     https://github.com/premail/website
+     and all links need to be absolute and not relative. -->
 
 ## Our Pledge
 
