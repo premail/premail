@@ -20,7 +20,11 @@ though, all you'll need to know is MJML.
   slightly alter an existing one, this file lists the most common styles for a
   design, which are then mapped automatically to the appropriate locations in
   MJML and CSS. If there are styles you want to add or change that aren't listed
-  here, your next step should be the Sass files in `theme`.
+  here, your next step should be the Sass files in `theme`. All settings here
+  can be overridden in individual structure or content files using valid MJML
+  syntax. For instance, the font size of navigation items is set in this file at
+  `text: navigation: size`, and in the default design's `bottomNav.hbs` file it
+  is overridden with the MJML `font-size` attribute.
 - `content`: This directory holds files that will _always_ change in each email
   -- the title, preview text, header/hero area and main body -- and will usually
   be overridden by the `content` components in emails built with this design.
@@ -44,8 +48,8 @@ that they use Sass to import variables from your design configuration, but you
 can ignore or overwrite these styles if you wish. The Sass files are heavily
 commented to make it clear which styles they control.
 
-Finally, note that some attributes must be set on `<mj-wrapper>` elements for
-each component directly in the `index.hbs` file. In every case, these are
-loading settings from `designConfig.yaml`, so it should be easiest to change
-styles there -- but if you need to alter or add something like a CSS class, take
-a look at what's being defined in `index.hbs`.
+Finally, note that some attributes must be set on `<mj-wrapper>` and other
+elements directly in the `index.hbs` file. In every case, these load settings
+from `designConfig.yaml`, so it should be easiest to change styles there -- but
+if you need to alter or add something like a CSS class, take a look at what's
+being defined in `index.hbs`.

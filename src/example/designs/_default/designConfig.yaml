@@ -4,7 +4,6 @@
 # Settings apply to this design only. For email settings, see the
 # `emailConfig.yaml` file in each individual email directory. For overall
 # settings, see the `premail.yaml` file in your project's home directory.
-#
 
 # SYNTAX NOTES
 #
@@ -100,6 +99,9 @@ sections:
     horizontalPadding: 18px
 
   topNav:
+    # backgroundColor: Optional. If unset, will use the "primary" color from
+    # COLOR BRANDING. See "Color values" at the top of this document.
+    backgroundColor:
     # padding: See "Size values" at the top of this document.
     padding:
       top: 0px
@@ -287,6 +289,19 @@ text:
     lineHeight: '1.8'
     # verticalPadding: If unset, this will be equal to the font size.
     verticalPadding:
+  # navigation: These styles will only apply to elements with
+  # `mj-class="nav__link".
+  navigation:
+    # horizontalPadding: See "Size values" at the top of this document.
+    horizontalPadding: 16px
+    # verticalPadding: See "Size values" at the top of this document.
+    verticalPadding: 0px
+    # size: See "Size values" at the top of this document.
+    size: 16px
+    # color: See "Color values" at the top of this document.
+    color: '#fff'
+    # weight: Any valid CSS font-weight value may be used.
+    weight: bold
   # footer: Text in the footer section; values that are unset will fall back to
   # the default text styles.
   footer:

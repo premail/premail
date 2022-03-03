@@ -334,31 +334,17 @@ They can also be tested with the usual Handlebars syntax.
 
       <!-- Navigation menus -->
 
-      <mj-class
-        name="nav"
-        padding="16px"
-        background-color="{{design.colors.primary}}"
-        color="white"
-      />
-
-      <mj-class name="nav--top" />
-
-      <mj-class name="nav--bottom" />
-
-      <mj-class name="nav__logo" padding="16px" width="75px" height="24px" />
-
-      <mj-class name="nav__navbar" hamburger="hamburger" ico-color="white" />
-
-      <mj-class name="nav__navbar--top" padding="16px 0" />
-
-      <mj-class name="nav__navbar--bottom" padding="4px 0" />
+      <!-- prettier-ignore -->
+      <mj-class name="nav" {{#if design.sections.topNav.backgroundColor}}
+      background-color="{{design.sections.topNav.backgroundColor}}" {{else}}
+      background-color="{{design.colors.primary}}" {{/if}} />
 
       <mj-class
         name="nav__link"
-        padding="0 16px"
-        font-size="16px"
-        font-weight="bold"
-        color="white"
+        padding="{{design.text.navigation.verticalPadding}} {{design.text.navigation.horizontalPadding}}"
+        font-size="{{design.text.navigation.size}}"
+        font-weight="{{design.text.navigation.weight}}"
+        color="{{design.text.navigation.color}}"
       />
     </mj-attributes>
 
