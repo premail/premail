@@ -103,7 +103,6 @@
 - Consider creating `#eq` handlebars helper directly instead of relying on `handlebars-helpers` project [\#35](https://github.com/premail/premail/issues/35)
 - Make sure non-ASCII characters are properly escaped [\#34](https://github.com/premail/premail/issues/34)
 - Add a print stylesheet [\#28](https://github.com/premail/premail/issues/28)
-- Move from px to em/rem for font sizes [\#23](https://github.com/premail/premail/issues/23)
 - Move the janky-looking code in signoff.hbs into a custom component [\#2](https://github.com/premail/premail/issues/2)
 
 ### Bug fixes
