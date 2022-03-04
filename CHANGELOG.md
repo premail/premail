@@ -18,6 +18,7 @@
 ### Other updates
 
 - chore: Update mjml to 4.12.0 [\#55](https://github.com/premail/premail/issues/55)
+- Reduce npm package size; remove transitive dependency updates [\#73](https://github.com/premail/premail/pull/73)
 - Project maintenance updates [\#71](https://github.com/premail/premail/pull/71)
 
 ## [v2.0.5](https://github.com/premail/premail/tree/v2.0.5) (2022-01-21)
@@ -76,6 +77,7 @@
 - Add `mso-line-height-rule:exactly` anywhere line-height is set [\#43](https://github.com/premail/premail/issues/43)
 - Incorporate custom components via new npm packages [\#42](https://github.com/premail/premail/issues/42)
 - create custom component for list [\#9](https://github.com/premail/premail/issues/9)
+- Move functionality into an npm module [\#48](https://github.com/premail/premail/pull/48)
 
 ### Bug fixes
 
