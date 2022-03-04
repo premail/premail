@@ -101,5 +101,5 @@ jobs:
           tag_name: $
           release_name: Release $
           body: $
-          draft: false
+          draft: true
           prerelease: false
