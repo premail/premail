@@ -26,13 +26,13 @@ jobs:
           unreleased: true
           headerLabel: '# Premail Changelog'
           configureSections:
-            '{"features":{"prefix":"**New features:**","labels":["Type:
-            Feature"]},"security":{"prefix":"**Security
-            patches:**","labels":["Type: Security"]},"bugs":{"prefix":"**Bug
-            fixes:**","labels":["Type:
-            Bug"]},"docs":{"prefix":"**Documentation:**","labels":["Type:
-            Documentation"]},"other":{"prefix":"**Other
-            updates:**","labels":["Type: Build","Type: Dependencies","Type:
+            '{"features":{"prefix":"### New features","labels":["Type:
+            Feature"]},"security":{"prefix":"### Security
+            patches","labels":["Type: Security"]},"bugs":{"prefix":"### Bug
+            fixes","labels":["Type: Bug"]},"docs":{"prefix":"###
+            Documentation","labels":["Type:
+            Documentation"]},"other":{"prefix":"### Other
+            updates","labels":["Type: Build","Type: Dependencies","Type:
             Chore"]}}'
           excludeLabels: 'Type: Question,Status: wontfix,x-Bot: No Changelog'
       - name: Publish updated changelog
