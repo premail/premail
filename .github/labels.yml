@@ -93,3 +93,6 @@
 - name: 'x-Bot: No Abandonment'
   color: cdcdcd
   description: 'This will never be marked abandoned by the status bot.'
+- name: 'x-Bot: No Changelog'
+  color: cdcdcd
+  description: 'This will not be included in automated changelog generation.'
