@@ -88,7 +88,7 @@ Read more at
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Fri Jan 21 22:33:45 UTC 2022 -->
+<!-- Added by: runner, at: Fri Mar  4 00:53:33 UTC 2022 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -245,6 +245,9 @@ to see them grouped by major release.
 - [Top bugs](https://github.com/premail/premail/issues?q=is%3Aissue+is%3Aopen+label%3A%22Type%3A+Bug%22+sort%3Areactions-%2B1-desc)
   (Add your votes using the 👍 reaction)
 - [Newest bugs](https://github.com/premail/premail/issues?q=is%3Aopen+is%3Aissue+label%3A%22Type%3A+Bug%22)
+
+Premail's [changelog](CHANGELOG.md) includes unreleased features and fixes, in
+addition to recording what changed in each past release.
 
 ## Getting support
 
