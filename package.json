@@ -57,7 +57,7 @@
     "ansi-colors-prioritized": "^0.1.2",
     "del": "^6.0.0",
     "detergent": "^7.1.0",
-    "fibers": "^5.0.0",
+    "fibers": "^5.0.1",
     "filesize": "^8.0.0",
     "fs-extra": "^10.0.0",
     "gulp": "^4.0.2",
