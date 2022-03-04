@@ -24,7 +24,7 @@ jobs:
           pullRequests: true
           prWoLabels: false
           unreleased: true
-          header: '# Premail Changelog'
+          headerLabel: '# Premail Changelog'
           configureSections:
             '{"features":{"prefix":"**New features:**","labels":["Type:
             Feature"]},"security":{"prefix":"**Security
