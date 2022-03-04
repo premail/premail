@@ -1,6 +1,5 @@
 name: Chore
 description: Maintenance task for Premail
-title: 'chore: '
 labels: ['Type: Chore', 'x-Bot: No Abandonment']
 body:
   - type: markdown
