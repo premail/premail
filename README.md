@@ -19,11 +19,11 @@
   <br /><br />
   <a href="https://premail.dev">Read the Documentation</a>
   -
-  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Bug&template=01_bug_report.yml&title=bug%3A+">Report a Bug</a>
+  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Bug&template=01_bug_report.yml">Report a Bug</a>
   -
-  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Feature&template=02_feature_request.yml&title=feat%3A+">Request a Feature</a>
+  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Feature&template=02_feature_request.yml">Request a Feature</a>
   -
-  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Question&template=03_support_question.yml&title=support%3A+">Ask a Question</a>
+  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Question&template=03_support_question.yml">Ask a Question</a>
 </div>
 
 <div align="center">
@@ -150,7 +150,7 @@ controlled per-email:
   recipient's inbox.
 
 Feel free to
-[make suggestions for more enhancements!](https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Feature&template=02_feature_request.yml&title=feat%3A+)
+[make suggestions for more enhancements!](https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Feature&template=02_feature_request.yml)
 
 ## Custom MJML components
 
@@ -254,7 +254,7 @@ addition to recording what changed in each past release.
      https://premail.dev/docs/support-project-help/
      so be sure to update it there as well. -->
 
-**[Ask a support question](https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Question&template=03_support_question.yml&title=support%3A+)**
+**[Ask a support question](https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Question&template=03_support_question.yml)**
 on GitHub if you're stuck.
 
 ## Helping out
