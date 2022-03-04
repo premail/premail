@@ -7,7 +7,6 @@
   },
   "main": "index.js",
   "files": [
-    "docs",
     "src",
     "gulpfile.js"
   ],
