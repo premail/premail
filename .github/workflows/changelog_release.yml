@@ -48,6 +48,26 @@ jobs:
           commit_message: Update changelog for tag $
           file_pattern: CHANGELOG.md
 
+  copy_changelog:
+    needs: changelog
+    name: Copy changelog to documentation site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Copy files
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source_file: 'CHANGELOG.md'
+          destination_repo: 'premail/website'
+          destination_branch: 'main'
+          destination_folder: 'src/pages'
+          user_email: 'git@rootwork.org'
+          user_name: 'rootwork'
+          commit_message: '[bot] Updated changelog'
+
   release_notes:
     name: Create release notes
     runs-on: ubuntu-latest
