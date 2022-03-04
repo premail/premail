@@ -1,4 +1,4 @@
-# Changelog
+# Premail Changelog
 
 ## [Unreleased](https://github.com/premail/premail/tree/HEAD)
 
@@ -19,11 +19,6 @@
 
 - chore: Update mjml to 4.12.0 [\#55](https://github.com/premail/premail/issues/55)
 - Project maintenance updates [\#71](https://github.com/premail/premail/pull/71) ([rootwork](https://github.com/rootwork))
-- Bump nanoid from 3.1.20 to 3.1.31 [\#62](https://github.com/premail/premail/pull/62) ([dependabot[bot]](https://github.com/apps/dependabot))
-
-**Closed issues:**
-
-- support: "premail init" failing [\#53](https://github.com/premail/premail/issues/53)
 
 ## [v2.0.5](https://github.com/premail/premail/tree/v2.0.5) (2022-01-21)
 
@@ -70,10 +65,6 @@
 
 - docs: Move `docs` and `gh-pages` to another repo entirely [\#50](https://github.com/premail/premail/issues/50)
 - Handle ever-expanding documentation [\#41](https://github.com/premail/premail/issues/41)
-
-**Closed issues:**
-
-- consider setting repo as template [\#12](https://github.com/premail/premail/issues/12)
 
 ## [v2.0.0-beta14](https://github.com/premail/premail/tree/v2.0.0-beta14) (2021-11-04)
 
@@ -136,10 +127,6 @@
 **Bug fixes:**
 
 - gulp's series\(\) doesn't seem to be waiting until each task is done [\#16](https://github.com/premail/premail/issues/16)
-
-**Closed issues:**
-
-- Remove-widows filter causes junk in CSS, header [\#31](https://github.com/premail/premail/issues/31)
 
 ## [v2.0.0-beta10](https://github.com/premail/premail/tree/v2.0.0-beta10) (2021-05-25)
 
