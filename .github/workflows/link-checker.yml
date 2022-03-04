@@ -29,3 +29,5 @@ jobs:
           print_all: false
           # A comma separated patterns to exclude during URL checks
           exclude_patterns: http://www.w3.org
+          # Full paths to files to exclude (comma separated list).
+          exclude_files: CHANGELOG.md
