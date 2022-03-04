@@ -7,7 +7,6 @@
   },
   "main": "index.js",
   "files": [
-    "docs",
     "src",
     "gulpfile.js"
   ],
@@ -73,10 +72,9 @@
     "js-yaml": "^4.1.0",
     "map-stream": "0.0.7",
     "mjml": "^4.12.0",
-    "mjml-bullet-list": "^1.2.1",
-    "mjml-signoff": "^1.2.2",
+    "mjml-bullet-list": "^1.2.2",
+    "mjml-signoff": "^1.2.3",
     "mri": "^1.1.6",
-    "nanoid": ">=3.1.31",
     "node-sass-json-importer": "^4.3.0",
     "npm": "^6.14.14",
     "plugin-error": "^1.0.1",
@@ -84,7 +82,6 @@
     "pretty-error": "^4.0.0",
     "prompts": "^2.4.2",
     "sass": "^1.48.0",
-    "shelljs": ">=0.8.5",
     "string-strip-html": "^8.3.0",
     "typeset": "^0.3.1",
     "validator": "^13.6.0",
@@ -100,20 +97,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^1.7.0",
     "markdown-exec": "^1.0.2",
-    "modern-node": "^2.9.0",
-    "postcss": ">=8.2.13",
-    "trim": ">=0.0.3",
-    "trim-newlines": ">=3.0.1"
-  },
-  "security_notes": {
-    "info": "The following dependencies and devDependencies were added simply to address security issues of lower dependencies (packages on which Premail depends) that have not yet been fixed.",
-    "dependencies": [
-      "nanoid",
-      "shelljs",
-      "postcss",
-      "trim",
-      "trim-newlines"
-    ]
+    "modern-node": "^2.9.0"
   },
   "browserslist": {
     "production": [
