@@ -39,7 +39,7 @@ jobs:
       - name: Publish updated changelog
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Update Changelog for PR
+          commit_message: '[bot] Updated changelog after merged pull request'
           file_pattern: CHANGELOG.md
 
   copy_changelog:

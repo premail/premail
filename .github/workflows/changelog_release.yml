@@ -45,7 +45,7 @@ jobs:
           excludeLabels: 'Type: Question,Status: wontfix,x-Bot: No Changelog'
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Update changelog for tag $
+          commit_message: Updated changelog for release $
           file_pattern: CHANGELOG.md
 
   copy_changelog:
