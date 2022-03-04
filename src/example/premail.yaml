@@ -29,9 +29,9 @@ dirs:
     # If no design is specified when building, default to this design
     default: _default
 
-  theme:
-    # Subdirectory of each design where styles are kept
-    dir: theme
+    theme:
+      # Subdirectory of each design where styles are kept
+      dir: theme
 
   email:
     # Name of the parent directory containing each individual email

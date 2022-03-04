@@ -21,7 +21,7 @@ module.exports = function watchEmail (done) {
   const paths = {
     configProject: config.file.project,
     configDesign: config.current.design.path + path.sep + config.file.design,
-    style: config.current.design.path + '/**/*.scss',
+    style: config.current.design.theme + '/**/*.scss',
     template: config.current.path + '/**/*.' + config.design.templates.ext,
     partials: config.current.path + '/**/*.mjml',
     html: config.current.path + '/**/*.html',
