@@ -50,7 +50,7 @@ const built = {
 //
 function styles () {
   // Set styles source
-  const sourceStyles = config.current.design.path + '/**/*.scss'
+  const sourceStyles = config.current.design.theme + '/**/*.scss'
 
   return pipeline(
     src(sourceStyles),

@@ -16,6 +16,22 @@ const { current } = require.main.require('./src/config/current')
 //
 
 if (fs.existsSync(config.file.project) && fs.existsSync(config.file.design)) {
+  // Set theme dir
+  if (config.design.dirs.theme && config.design.dirs.theme.dir) {
+    config.design.theme = path.join(
+      config.current.design.path,
+      config.design.dirs.theme.dir
+    )
+  } else {
+    config.design.theme = path.join(
+      config.current.design.path,
+      config.project.dirs.design.theme.dir
+    )
+  }
+  // Theme dir is always loaded from the design, even if the current path is
+  // for an email.
+  config.current.design.theme = config.design.theme
+
   // Prepare internal-only (not included in config file) design settings.
   if (config.design.fonts) {
     // Font stack
