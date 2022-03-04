@@ -34,7 +34,7 @@ jobs:
             Documentation"]},"other":{"prefix":"**Other
             updates:**","labels":["Type: Build","Type: Dependencies","Type:
             Chore"]}}'
-          excludeLabels: 'Type: Question,Status: wontfix'
+          excludeLabels: 'Type: Question,Status: wontfix,x-Bot: No Changelog'
       - name: Publish updated changelog
         uses: stefanzweifel/git-auto-commit-action@v4
         with:

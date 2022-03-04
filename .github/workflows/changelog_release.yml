@@ -41,7 +41,7 @@ jobs:
             Documentation"]},"other":{"prefix":"**Other
             updates:**","labels":["Type: Build","Type: Dependencies","Type:
             Chore"]}}'
-          excludeLabels: 'Type: Question,Status: wontfix'
+          excludeLabels: 'Type: Question,Status: wontfix,x-Bot: No Changelog'
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update changelog for tag $
