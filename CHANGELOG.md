@@ -4,21 +4,20 @@
 
 [Full Changelog](https://github.com/premail/premail/compare/v2.0.5...HEAD)
 
-**New features:**
+### New features
 
 - feat: Reset defaults on all `<mj-wrapper>` elements in `index.hbs` [\#67](https://github.com/premail/premail/issues/67)
 
-**Bug fixes:**
+### Bug fixes
 
-- npm is warning me of security vulnerabilities in Premail [\#70](https://github.com/premail/premail/issues/70)
 - bug: Default design tweaks [\#65](https://github.com/premail/premail/issues/65)
-- Update mjml and custom components. Fixes \#55 [\#69](https://github.com/premail/premail/pull/69) ([rootwork](https://github.com/rootwork))
-- Update default design. Fixes \#65 \#67 [\#68](https://github.com/premail/premail/pull/68) ([rootwork](https://github.com/rootwork))
+- Update mjml and custom components. Fixes \#55 [\#69](https://github.com/premail/premail/pull/69)
+- Update default design. Fixes \#65 \#67 [\#68](https://github.com/premail/premail/pull/68)
 
-**Other updates:**
+### Other updates
 
 - chore: Update mjml to 4.12.0 [\#55](https://github.com/premail/premail/issues/55)
-- Project maintenance updates [\#71](https://github.com/premail/premail/pull/71) ([rootwork](https://github.com/rootwork))
+- Project maintenance updates [\#71](https://github.com/premail/premail/pull/71)
 
 ## [v2.0.5](https://github.com/premail/premail/tree/v2.0.5) (2022-01-21)
 
@@ -40,11 +39,11 @@
 
 [Full Changelog](https://github.com/premail/premail/compare/v2.0.1...v2.0.2)
 
-**New features:**
+### New features
 
 - Find a way to preprocess email content, then hand to templates [\#30](https://github.com/premail/premail/issues/30)
 
-**Documentation:**
+### Documentation
 
 - Incorporate amazing-github-template [\#46](https://github.com/premail/premail/issues/46)
 
@@ -56,12 +55,12 @@
 
 [Full Changelog](https://github.com/premail/premail/compare/v2.0.0-beta14...v2.0.0)
 
-**New features:**
+### New features
 
 - Create email workflow [\#39](https://github.com/premail/premail/issues/39)
-- Launch v2.0.0 [\#52](https://github.com/premail/premail/pull/52) ([rootwork](https://github.com/rootwork))
+- Launch v2.0.0 [\#52](https://github.com/premail/premail/pull/52)
 
-**Documentation:**
+### Documentation
 
 - docs: Move `docs` and `gh-pages` to another repo entirely [\#50](https://github.com/premail/premail/issues/50)
 - Handle ever-expanding documentation [\#41](https://github.com/premail/premail/issues/41)
@@ -70,18 +69,18 @@
 
 [Full Changelog](https://github.com/premail/premail/compare/v2.0.0-beta13...v2.0.0-beta14)
 
-**New features:**
+### New features
 
 - Transition to node module [\#44](https://github.com/premail/premail/issues/44)
 - Add `mso-line-height-rule:exactly` anywhere line-height is set [\#43](https://github.com/premail/premail/issues/43)
 - Incorporate custom components via new npm packages [\#42](https://github.com/premail/premail/issues/42)
 - create custom component for list [\#9](https://github.com/premail/premail/issues/9)
 
-**Bug fixes:**
+### Bug fixes
 
 - Get Codacy to respect eslintconfig [\#40](https://github.com/premail/premail/issues/40)
 
-**Documentation:**
+### Documentation
 
 - Add and configure funding settings [\#47](https://github.com/premail/premail/issues/47)
 
@@ -89,7 +88,7 @@
 
 [Full Changelog](https://github.com/premail/premail/compare/v2.0.0-beta12...v2.0.0-beta13)
 
-**New features:**
+### New features
 
 - Measure size of email and warn, per Gmail clipping issue [\#33](https://github.com/premail/premail/issues/33)
 - Add an HTML entity encoder [\#25](https://github.com/premail/premail/issues/25)
@@ -99,7 +98,7 @@
 
 [Full Changelog](https://github.com/premail/premail/compare/v2.0.0-beta11...v2.0.0-beta12)
 
-**New features:**
+### New features
 
 - Consider creating `#eq` handlebars helper directly instead of relying on `handlebars-helpers` project [\#35](https://github.com/premail/premail/issues/35)
 - Make sure non-ASCII characters are properly escaped [\#34](https://github.com/premail/premail/issues/34)
@@ -107,7 +106,7 @@
 - Move from px to em/rem for font sizes [\#23](https://github.com/premail/premail/issues/23)
 - Move the janky-looking code in signoff.hbs into a custom component [\#2](https://github.com/premail/premail/issues/2)
 
-**Bug fixes:**
+### Bug fixes
 
 - Correct fallback colors with ansi-colors-prioritized [\#26](https://github.com/premail/premail/issues/26)
 
@@ -115,7 +114,7 @@
 
 [Full Changelog](https://github.com/premail/premail/compare/v2.0.0-beta10...v2.0.0-beta11)
 
-**New features:**
+### New features
 
 - Add user-configurable option for selectors to skip in plaintext version [\#32](https://github.com/premail/premail/issues/32)
 - Replace .pipe with .pipeline [\#29](https://github.com/premail/premail/issues/29)
@@ -124,7 +123,7 @@
 - run typogrify or something like it on rendered text [\#10](https://github.com/premail/premail/issues/10)
 - Integrate Sass, with gulp workflow [\#1](https://github.com/premail/premail/issues/1)
 
-**Bug fixes:**
+### Bug fixes
 
 - gulp's series\(\) doesn't seem to be waiting until each task is done [\#16](https://github.com/premail/premail/issues/16)
 
@@ -140,7 +139,7 @@
 
 [Full Changelog](https://github.com/premail/premail/compare/v2.0.0-beta7...v2.0.0-beta8)
 
-**New features:**
+### New features
 
 - Splitting gulpfile [\#14](https://github.com/premail/premail/issues/14)
 - add plaintext generation [\#11](https://github.com/premail/premail/issues/11)
@@ -173,12 +172,12 @@
 
 [Full Changelog](https://github.com/premail/premail/compare/v1.0.0...v1.0.1)
 
-**New features:**
+### New features
 
 - add true bold, italic webfonts [\#7](https://github.com/premail/premail/issues/7)
 - add salutation section and move headline [\#5](https://github.com/premail/premail/issues/5)
 
-**Bug fixes:**
+### Bug fixes
 
 - correct use of mj-text [\#8](https://github.com/premail/premail/issues/8)
 - remove http://mjml.io in footer [\#6](https://github.com/premail/premail/issues/6)
