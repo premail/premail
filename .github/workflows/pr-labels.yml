@@ -13,7 +13,7 @@ jobs:
         uses: jesusvasquez333/verify-pr-label-action@v1.4.0
         with:
           github-token: '${{ secrets.GITHUB_TOKEN }}'
-          valid-labels: >-
-            Type: Bug, Type: Security, Type: Feature, Type: Documentation, Type:
-            Question, Type: Build, Type: Dependencies, Type: Chore
+          valid-labels:
+            'Type: Bug, Type: Security, Type: Feature, Type: Documentation,
+            Type: Question, Type: Build, Type: Dependencies, Type: Chore'
           disable-reviews: true
