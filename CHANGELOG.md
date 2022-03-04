@@ -12,8 +12,8 @@
 ### Bug fixes
 
 - Default design tweaks [\#65](https://github.com/premail/premail/issues/65)
-- Update mjml and custom components. Fixes \#55 [\#69](https://github.com/premail/premail/pull/69)
-- Update default design. Fixes \#65 \#67 [\#68](https://github.com/premail/premail/pull/68)
+- Update mjml and custom components [\#69](https://github.com/premail/premail/pull/69)
+- Update default design [\#68](https://github.com/premail/premail/pull/68)
 
 ### Other updates
 
