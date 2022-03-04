@@ -6,18 +6,19 @@
 
 ### New features
 
-- feat: Reset defaults on all `<mj-wrapper>` elements in `index.hbs` [\#67](https://github.com/premail/premail/issues/67)
+- Reset defaults on all `<mj-wrapper>` elements in `index.hbs` [\#67](https://github.com/premail/premail/issues/67)
 - Restrict Sass file loading to theme subdir of design [\#72](https://github.com/premail/premail/pull/72)
 
 ### Bug fixes
 
-- bug: Default design tweaks [\#65](https://github.com/premail/premail/issues/65)
+- Default design tweaks [\#65](https://github.com/premail/premail/issues/65)
 - Update mjml and custom components. Fixes \#55 [\#69](https://github.com/premail/premail/pull/69)
 - Update default design. Fixes \#65 \#67 [\#68](https://github.com/premail/premail/pull/68)
 
 ### Other updates
 
-- chore: Update mjml to 4.12.0 [\#55](https://github.com/premail/premail/issues/55)
+- Update mjml to 4.12.0 [\#55](https://github.com/premail/premail/issues/55)
+- remove issue title prefixes [\#74](https://github.com/premail/premail/pull/74)
 - Reduce npm package size; remove transitive dependency updates [\#73](https://github.com/premail/premail/pull/73)
 - Project maintenance updates [\#71](https://github.com/premail/premail/pull/71)
 
