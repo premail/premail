@@ -26,6 +26,7 @@ jobs:
         uses: heinrichreimer/github-changelog-generator-action@v2.1.1
         with:
           token: $
+          author: false
           issues: true
           issuesWoLabels: false
           pullRequests: true
