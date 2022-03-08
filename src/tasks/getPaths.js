@@ -26,7 +26,7 @@ function getPaths () {
 
     if (config.current.email.name) {
       paths.configEmail = path.resolve(config.file.email)
-      message += `\nEmail config: ${paths.configEmail}`
+      message += `\nEmail config:   ${paths.configEmail}`
     }
 
     if (config.current.design.name) {
