@@ -14,7 +14,7 @@ const { design } = require.main.require('./src/config/design')
 const { flags } = require.main.require('./src/ops/flags')
 const build = require.main.require('./src/tasks/build')
 const notify = require.main.require('./src/ops/notifications')
-const { paths } = require.main.require('./src/tasks/listPaths')
+const { paths } = require.main.require('./src/tasks/getPaths')
 /* eslint-enable no-unused-vars */
 
 //

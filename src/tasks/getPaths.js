@@ -19,7 +19,7 @@ const notify = require.main.require('./src/ops/notifications')
 const paths = {}
 let message = ''
 
-function listPaths () {
+function getPaths () {
   if (fs.existsSync(config.file.project)) {
     paths.configProject = path.resolve(config.file.project)
     message += `\nProject config: ${paths.configProject}`
@@ -49,5 +49,5 @@ function listPaths () {
 module.exports = {
   paths,
   message,
-  listPaths,
+  getPaths,
 }
