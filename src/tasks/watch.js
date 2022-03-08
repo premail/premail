@@ -39,7 +39,14 @@ function email () {
         delay: 1000,
       },
       function (event, filename) {
-        notify.msg('info', `${filename} file changed. Rebuilding email.`)
+        let msg = ''
+        if (event === 'update') {
+          msg = `${filename} changed.`
+        }
+        if (event === 'remove') {
+          msg = `${filename} removed.`
+        }
+        notify.msg('info', `${msg} Rebuilding email.`)
         series(build.styles, build.content, build.structure)
       }
     )
