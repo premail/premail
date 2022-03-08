@@ -1,6 +1,5 @@
 name: Feature request
 description: Suggest an idea for Premail
-title: 'feat: '
 labels: 'Type: Feature'
 body:
   - type: checkboxes

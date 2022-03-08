@@ -45,7 +45,7 @@
 - name: 'Status: Done'
   color: 000000
   description: 'Completed.'
-- name: "Status: Won't Fix"
+- name: 'Status: wontfix'
   color: cdcdcd
   description:
     'Outside project scope, off-topic, spam, or otherwise does not apply to this
@@ -93,3 +93,6 @@
 - name: 'x-Bot: No Abandonment'
   color: cdcdcd
   description: 'This will never be marked abandoned by the status bot.'
+- name: 'x-Bot: No Changelog'
+  color: cdcdcd
+  description: 'This will not be included in automated changelog generation.'

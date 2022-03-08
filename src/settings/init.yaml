@@ -5,8 +5,8 @@ dirs:
   design:
     name: designs
     default: _default
-  theme:
-    dir: theme
+    theme:
+      dir: theme
   email:
     name: emails
   output:

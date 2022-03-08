@@ -19,11 +19,11 @@
   <br /><br />
   <a href="https://premail.dev">Read the Documentation</a>
   -
-  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Bug&template=01_bug_report.yml&title=bug%3A+">Report a Bug</a>
+  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Bug&template=01_bug_report.yml">Report a Bug</a>
   -
-  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Feature&template=02_feature_request.yml&title=feat%3A+">Request a Feature</a>
+  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Feature&template=02_feature_request.yml">Request a Feature</a>
   -
-  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Question&template=03_support_question.yml&title=support%3A+">Ask a Question</a>
+  <a href="https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Question&template=03_support_question.yml">Ask a Question</a>
 </div>
 
 <div align="center">
@@ -87,7 +87,7 @@ Read more at
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Fri Jan 21 22:33:45 UTC 2022 -->
+<!-- Added by: runner, at: Fri Mar  4 03:20:12 UTC 2022 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -150,7 +150,7 @@ controlled per-email:
   recipient's inbox.
 
 Feel free to
-[make suggestions for more enhancements!](https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Feature&template=02_feature_request.yml&title=feat%3A+)
+[make suggestions for more enhancements!](https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Feature&template=02_feature_request.yml)
 
 ## Custom MJML components
 
@@ -245,13 +245,16 @@ to see them grouped by major release.
   (Add your votes using the 👍 reaction)
 - [Newest bugs](https://github.com/premail/premail/issues?q=is%3Aopen+is%3Aissue+label%3A%22Type%3A+Bug%22)
 
+Premail's [changelog](CHANGELOG.md) includes unreleased features and fixes, in
+addition to recording what changed in each past release.
+
 ## Getting support
 
 <!-- Note this is replicated at
      https://premail.dev/docs/support-project-help/
      so be sure to update it there as well. -->
 
-**[Ask a support question](https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Question&template=03_support_question.yml&title=support%3A+)**
+**[Ask a support question](https://github.com/premail/premail/issues/new?assignees=&labels=Type%3A+Question&template=03_support_question.yml)**
 on GitHub if you're stuck.
 
 ## Helping out

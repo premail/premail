@@ -1,0 +1,63 @@
+name: CI - Generate changelog for prerelease
+# Sourced from:
+# https://web.archive.org/web/20210307025139/https://renehernandez.io/essays/2020/09/23/automate-changelog-and-releases-creation-in-github/
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  changelog_prerelease:
+    name: Update changelog for prerelease
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: main
+      - name: Update changelog
+        uses: heinrichreimer/github-changelog-generator-action@v2.3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          author: false
+          issues: true
+          issuesWoLabels: false
+          pullRequests: true
+          prWoLabels: false
+          unreleased: true
+          headerLabel: '# Premail Changelog'
+          configureSections:
+            '{"features":{"prefix":"### New features","labels":["Type:
+            Feature"]},"security":{"prefix":"### Security
+            patches","labels":["Type: Security"]},"bugs":{"prefix":"### Bug
+            fixes","labels":["Type: Bug"]},"docs":{"prefix":"###
+            Documentation","labels":["Type:
+            Documentation"]},"other":{"prefix":"### Other
+            updates","labels":["Type: Build","Type: Dependencies","Type:
+            Chore"]}}'
+          excludeLabels: 'Type: Question,Status: wontfix,x-Bot: No Changelog'
+      - name: Publish updated changelog
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: '[bot] Updated changelog after merged pull request'
+          file_pattern: CHANGELOG.md
+
+  copy_changelog:
+    needs: changelog_prerelease
+    name: Copy changelog to documentation site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Copy files
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source_file: 'CHANGELOG.md'
+          destination_repo: 'premail/website'
+          destination_branch: 'main'
+          destination_folder: 'src/pages'
+          user_email: 'git@rootwork.org'
+          user_name: 'rootwork'
+          commit_message: '[bot] Updated changelog'

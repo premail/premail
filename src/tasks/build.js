@@ -13,6 +13,8 @@ const sassImporter = require('node-sass-json-importer')
 const Fiber = require('fibers') // Depreciated in Node 15-16; see https://github.com/premail/premail/issues/57
 const Handlebars = require('handlebars')
 const mjml = require('mjml')
+const mjmlBulletList = require('mjml-bullet-list')
+const mjmlSignoff = require('mjml-signoff')
 const { det } = require('detergent')
 const { stripHtml } = require('string-strip-html')
 const { alts } = require('html-img-alt')
@@ -47,7 +49,7 @@ const built = {
 //
 function styles () {
   // Set styles source
-  const sourceStyles = config.current.design.path + '/**/*.scss'
+  const sourceStyles = config.current.design.theme + '/**/*.scss'
 
   return pipeline(
     src(sourceStyles),

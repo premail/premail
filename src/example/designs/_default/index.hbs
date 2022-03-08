@@ -62,7 +62,28 @@ They can also be tested with the usual Handlebars syntax.
     {{/if}}
 
     <!-- Web fonts -->
-    {{#if partials.fonts}} {{> fonts.hbs}} {{/if}}
+    {{#if design.fonts.web}}
+    <!-- HREF values in the font element are unquoted, and ignored by Prettier,
+     in order to allow for the double-quoting that JSON-to-Sass variables
+     require. -->
+    <!-- Google fonts -->
+    {{#if design.fonts.stack.google.enabled}}
+    <!-- prettier-ignore -->
+    <mj-font
+        name="{{design.fonts.stack.google.name}}"
+        href={{{design.fonts.stack.google.href}}}
+      />
+    {{/if}}
+    <!-- Custom fonts -->
+    {{#if design.fonts.stack.custom.enabled}}
+    <!-- prettier-ignore -->
+    <mj-font
+        name="{{design.fonts.stack.custom.name}}"
+        href={{{design.fonts.stack.custom.href}}}
+      />
+    {{/if}}
+    <!-- End of web fonts -->
+    {{/if}}
 
     <!-- To change inlined CSS styles, edit `design/inline.scss` -->
     {{#if partials.inline}}
@@ -95,9 +116,217 @@ They can also be tested with the usual Handlebars syntax.
     </mj-html-attributes>
 
     <!-- Style attributes -->
-    {{#if partials.attributes}}
-    <mj-attributes>{{> attributes.hbs}}</mj-attributes>
-    {{/if}}
+    <!-- The settings in `mj-attributes` are a mix of Handlebars and MJML.
+
+        `mj-all` attributes apply to all elements in the email, while `mj-class`
+        attributes apply only to elements with the "mj-class" attribute. Note
+        this is NOT the same as the "class" attribute that loads CSS!
+
+        This section is used to load and apply settings from the
+        `designConfig.yaml` file.
+
+        For more information on how `mjml-attributes` operates, see:
+        https://documentation.mjml.io/#mj-attributes
+
+        We tell Prettier to ignore some of these code blocks in order to
+        preserve Handlebars if/else/eq statements, which it otherwise
+        unhelpfully concatenates.
+    -->
+    <mj-attributes>
+      <!-- Set font defaults. Also see the "web fonts" section above. -->
+      <!-- prettier-ignore -->
+      <mj-all margin="0" padding="0" font-size="{{design.text.default.size}}"
+      color="{{design.text.default.color}}" font-family=" {{#if
+      design.fonts.stack.first}} '{{design.fonts.stack.first}}', {{/if}} {{~#eq
+      design.fonts.stack.base 'serif'}} {{file.internal.fonts.serif}} {{/eq}}
+      {{~#eq design.fonts.stack.base 'sans'}} {{file.internal.fonts.sans}}
+      {{/eq}} {{~#eq design.fonts.stack.base 'mono'}}
+      {{file.internal.fonts.mono}} {{/eq}} " {{!-- Background on these
+      Outlook-specific tags:
+      https://www.hteumeuleu.com/2019/today-i-learned-about-mso-generic-font-family/
+      --}} mso-generic-font-family=" {{~#eq design.fonts.stack.base 'serif'}}
+      roman {{/eq}} {{~#eq design.fonts.stack.base 'sans'}} swiss {{/eq}} {{~#eq
+      design.fonts.stack.base 'mono'}} swiss {{/eq}} " mso-font-alt=" {{~#eq
+      design.fonts.stack.base 'serif'}} {{file.internal.fonts.serif}} {{/eq}}
+      {{~#eq design.fonts.stack.base 'sans'}} {{file.internal.fonts.sans}}
+      {{/eq}} {{~#eq design.fonts.stack.base 'mono'}}
+      {{file.internal.fonts.mono}} {{/eq}} " ico-font-family=" {{#if
+      design.fonts.stack.first}} '{{design.fonts.stack.first}}', {{/if}} {{~#eq
+      design.fonts.stack.base 'serif'}} {{file.internal.fonts.serif}} {{/eq}}
+      {{~#eq design.fonts.stack.base 'sans'}} {{file.internal.fonts.sans}}
+      {{/eq}} {{~#eq design.fonts.stack.base 'mono'}}
+      {{file.internal.fonts.mono}} {{/eq}} " vertical-align="top" />
+
+      <!-- Typography -->
+
+      <mj-class
+        name="text--salutation"
+        padding="{{design.sections.salutation.padding.top}} 0 {{design.sections.salutation.padding.bottom}} 0"
+      />
+
+      <!-- prettier-ignore -->
+      <mj-class name="text--footer" {{#if design.text.footer.verticalPadding}}
+      padding="{{design.text.footer.verticalPadding}} 0" {{else}} {{#if
+      design.text.footer.size}} padding="{{design.text.footer.size}} 0" {{else}}
+      padding="{{design.text.default.size}} 0" {{/if}} {{/if}} {{#if
+      design.text.footer.color}} color="{{design.text.footer.color}}" {{/if}}
+      {{#if design.text.footer.size}} font-size="{{design.text.footer.size}}"
+      {{/if}} {{#if design.text.footer.lineHeight}}
+      line-height="{{design.text.footer.lineHeight}}" {{/if}} />
+
+      <!-- Buttons -->
+      <!-- prettier-ignore -->
+      <mj-class name="button" {{#if design.buttons.primary.height}}
+      height="{{design.buttons.primary.height}}" {{/if}} {{#if
+      design.buttons.primary.width}} width="{{design.buttons.primary.width}}"
+      {{/if}} align="{{design.buttons.primary.align}}"
+      padding-top="{{design.buttons.primary.buttonPadding.top}}"
+      padding-left="{{design.buttons.primary.buttonPadding.left}}"
+      padding-right="{{design.buttons.primary.buttonPadding.right}}"
+      padding-bottom="{{design.buttons.primary.buttonPadding.bottom}}" {{#if
+      design.buttons.primary.backgroundColor}}
+      background-color="{{design.buttons.primary.backgroundColor}}" {{else}}
+      background-color="{{design.colors.primary}}" {{/if}}
+      color="{{design.buttons.primary.textColor}}"
+      font-size="{{design.buttons.primary.textSize}}"
+      line-height="{{design.buttons.primary.lineHeight}}"
+      font-weight="{{design.buttons.primary.weight}}"
+      font-style="{{design.buttons.primary.style}}"
+      text-decoration="{{design.buttons.primary.decoration}}"
+      border-radius="{{design.buttons.primary.cornerRadius}}"
+      inner-padding="{{design.buttons.primary.contentPadding}}" />
+
+      <!-- prettier-ignore -->
+      <mj-class name="button--secondary" {{#if design.buttons.secondary.height}}
+      height="{{design.buttons.secondary.height}}" {{/if}} {{#if
+      design.buttons.secondary.width}}
+      width="{{design.buttons.secondary.width}}" {{/if}} {{#if
+      design.buttons.secondary.align}}
+      align="{{design.buttons.secondary.align}}" {{/if}} {{#if
+      design.buttons.secondary.buttonPadding.top}}
+      padding-top="{{design.buttons.secondary.buttonPadding.top}}" {{/if}} {{#if
+      design.buttons.secondary.buttonPadding.left}}
+      padding-left="{{design.buttons.secondary.buttonPadding.left}}" {{/if}}
+      {{#if design.buttons.secondary.buttonPadding.right}}
+      padding-right="{{design.buttons.secondary.buttonPadding.right}}" {{/if}}
+      {{#if design.buttons.secondary.buttonPadding.bottom}}
+      padding-bottom="{{design.buttons.secondary.buttonPadding.bottom}}" {{/if}}
+      {{#if design.buttons.secondary.backgroundColor}}
+      background-color="{{design.buttons.secondary.backgroundColor}}" {{else}}
+      background-color="{{design.colors.secondary}}" {{/if}} {{#if
+      design.buttons.secondary.textColor}}
+      color="{{design.buttons.secondary.textColor}}" {{/if}} {{#if
+      design.buttons.secondary.textSize}}
+      font-size="{{design.buttons.secondary.textSize}}" {{/if}} {{#if
+      design.buttons.secondary.lineHeight}}
+      line-height="{{design.buttons.secondary.lineHeight}}" {{/if}} {{#if
+      design.buttons.secondary.weight}}
+      font-weight="{{design.buttons.secondary.weight}}" {{/if}} {{#if
+      design.buttons.secondary.style}}
+      font-style="{{design.buttons.secondary.style}}" {{/if}} {{#if
+      design.buttons.secondary.decoration}}
+      text-decoration="{{design.buttons.secondary.decoration}}" {{/if}} {{#if
+      design.buttons.secondary.contentPadding}}
+      inner-padding="{{design.buttons.secondary.contentPadding}}" {{/if}} {{#if
+      design.buttons.secondary.cornerRadius}}
+      border-radius="{{design.buttons.secondary.cornerRadius}}" {{/if}} />
+
+      <!-- prettier-ignore -->
+      <mj-class name="button--ghost" {{#if design.buttons.ghost.height}}
+      height="{{design.buttons.ghost.height}}" {{/if}} {{#if
+      design.buttons.ghost.width}} width="{{design.buttons.ghost.width}}"
+      {{/if}} {{#if design.buttons.ghost.align}}
+      align="{{design.buttons.ghost.align}}" {{/if}} {{#if
+      design.buttons.ghost.buttonPadding.top}}
+      padding-top="{{design.buttons.ghost.buttonPadding.top}}" {{/if}} {{#if
+      design.buttons.ghost.buttonPadding.left}}
+      padding-left="{{design.buttons.ghost.buttonPadding.left}}" {{/if}} {{#if
+      design.buttons.ghost.buttonPadding.right}}
+      padding-right="{{design.buttons.ghost.buttonPadding.right}}" {{/if}} {{#if
+      design.buttons.ghost.buttonPadding.bottom}}
+      padding-bottom="{{design.buttons.ghost.buttonPadding.bottom}}" {{/if}}
+      {{#if design.buttons.ghost.backgroundColor}}
+      background-color="{{design.buttons.ghost.backgroundColor}}" {{else}}
+      background-color="{{design.buttons.primary.textColor}}" {{/if}} {{#if
+      design.buttons.ghost.textColor}}
+      color="{{design.buttons.ghost.textColor}}" {{else}} {{#if
+      design.buttons.primary.backgroundColor}}
+      color="{{design.buttons.primary.backgroundColor}}" {{else}}
+      color="{{design.colors.primary}}" {{/if}} {{/if}} {{#if
+      design.buttons.ghost.textSize}}
+      font-size="{{design.buttons.ghost.textSize}}" {{/if}} {{#if
+      design.buttons.ghost.lineHeight}}
+      line-height="{{design.buttons.ghost.lineHeight}}" {{/if}} {{#if
+      design.buttons.ghost.weight}}
+      font-weight="{{design.buttons.ghost.weight}}" {{/if}} {{#if
+      design.buttons.ghost.style}} font-style="{{design.buttons.ghost.style}}"
+      {{/if}} {{#if design.buttons.ghost.decoration}}
+      text-decoration="{{design.buttons.ghost.decoration}}" {{/if}} {{#if
+      design.buttons.ghost.cornerRadius}} {{#if
+      design.buttons.ghost.contentPadding}}
+      inner-padding="{{design.buttons.ghost.contentPadding}}" {{/if}}
+      border-radius="{{design.buttons.ghost.cornerRadius}}" {{/if}} border="
+      {{#if design.buttons.ghost.borderColor}}
+      {{design.buttons.ghost.borderColor}} {{else}} {{#if
+      design.buttons.primary.backgroundColor}}
+      {{design.buttons.primary.backgroundColor}} {{else}}
+      {{design.colors.primary}} {{/if}} {{/if}} {{#if
+      design.buttons.ghost.borderWidth}} {{design.buttons.ghost.borderWidth}}
+      {{/if}} {{#if design.buttons.ghost.borderStyle}}
+      {{design.buttons.ghost.borderStyle}} {{/if}} " />
+
+      <!-- Images -->
+
+      <mj-class
+        name="image"
+        padding="{{design.images.verticalPadding}} {{design.images.horizontalPadding}}"
+      />
+
+      <!-- Hero (banner) -->
+
+      <mj-class
+        name="hero"
+        mode="fixed-height"
+        background-color="{{design.sections.banner.backgroundColor}}"
+        vertical-align="middle"
+      />
+
+      <!-- Social media links -->
+
+      <mj-class
+        name="social__border-top"
+        padding-top="{{design.sections.social.topBorder.verticalPadding}}"
+        padding-bottom="{{design.sections.social.topBorder.verticalPadding}}"
+        border-width="{{design.sections.social.topBorder.borderWidth}}"
+        border-style="{{design.sections.social.topBorder.borderStyle}}"
+        border-color="{{design.colors.primary}}"
+      />
+
+      <!-- prettier-ignore -->
+      <mj-class name="social__icon"
+      padding="{{design.sections.social.icons.verticalPadding}}
+      {{design.sections.social.icons.horizontalPadding}}"
+      icon-size="{{design.sections.social.icons.size}}" {{#if
+      design.sections.social.icons.backgroundColor}}
+      background-color="{{design.sections.social.icons.backgroundColor}}"
+      {{else}} background-color="{{design.colors.primary}}" {{/if}}
+      border-radius="{{design.sections.social.icons.cornerRadius}}" />
+
+      <!-- Navigation menus -->
+
+      <!-- prettier-ignore -->
+      <mj-class name="nav" {{#if design.sections.topNav.backgroundColor}}
+      background-color="{{design.sections.topNav.backgroundColor}}" {{else}}
+      background-color="{{design.colors.primary}}" {{/if}} />
+
+      <mj-class
+        name="nav__link"
+        padding="{{design.text.navigation.verticalPadding}} {{design.text.navigation.horizontalPadding}}"
+        font-size="{{design.text.navigation.size}}"
+        font-weight="{{design.text.navigation.weight}}"
+        color="{{design.text.navigation.color}}"
+      />
+    </mj-attributes>
 
     <!-- Preview text -->
     {{#if partials.preview}}
@@ -109,13 +338,19 @@ They can also be tested with the usual Handlebars syntax.
   </mj-head>
 
   <!-- Email body start -->
-  <mj-body css-class="body" background-color="{{design.page.backgroundColor}}">
+  <mj-body
+    css-class="body"
+    background-color="{{design.page.backgroundColor}}"
+    width="{{design.page.contentWidth}}"
+  >
     <!-- Top navigation -->
 
     {{#if partials.topNav}}
     <mj-wrapper
       css-class="component-topNav nav nav--top"
       mj-class="component-topNav nav nav--top"
+      full-width="{{#if design.page.fullWidthSections}}full-width{{/if}}"
+      padding="{{design.sections.topNav.padding.top}} {{design.sections.topNav.padding.right}} {{design.sections.topNav.padding.bottom}} {{design.sections.topNav.padding.left}}"
     >
       {{> topNav.hbs}}
     </mj-wrapper>
@@ -124,8 +359,25 @@ They can also be tested with the usual Handlebars syntax.
     <!-- Hero or header area -->
 
     {{#if partials.banner}}
-    <mj-wrapper css-class="component-banner" mj-class="component-banner">
-      {{> banner.hbs}}
+    <mj-wrapper
+      css-class="component-banner"
+      mj-class="component-banner"
+      padding="{{design.sections.banner.padding.top}} {{design.sections.banner.padding.right}} {{design.sections.banner.padding.bottom}} {{design.sections.banner.padding.left}}"
+      background-color="{{design.sections.banner.backgroundColor}}"
+      full-width="{{#if design.page.fullWidthSections}}full-width{{/if}}"
+    >
+      {{> banner.hbs}} {{#if design.sections.banner.bottomBorder.include}}
+      <mj-section>
+        <mj-column>
+          <mj-divider
+            container-background-color="{{design.sections.banner.bottomBorder.backgroundColor}}"
+            border-color="{{#if design.sections.banner.bottomBorder.color}}{{design.sections.banner.bottomBorder.color}}{{else}}{{design.colors.primary}}{{/if}}"
+            border-width="{{design.sections.banner.bottomBorder.width}}"
+            padding="{{design.sections.banner.bottomBorder.padding.top}} {{design.sections.banner.bottomBorder.padding.right}} {{design.sections.banner.bottomBorder.padding.bottom}} {{design.sections.banner.bottomBorder.padding.left}}"
+          ></mj-divider>
+        </mj-column>
+      </mj-section>
+      {{/if}}
     </mj-wrapper>
     {{/if}}
 
@@ -135,9 +387,9 @@ They can also be tested with the usual Handlebars syntax.
     <mj-wrapper
       css-class="component-salutation"
       mj-class="component-salutation"
+      padding="{{design.sections.salutation.padding.top}} {{design.sections.main.horizontalPadding}} {{design.sections.salutation.padding.bottom}} {{design.sections.main.horizontalPadding}}"
       background-color="{{design.sections.main.backgroundColor}}"
-      padding-left="{{design.sections.main.horizontalPadding}}"
-      padding-right="{{design.sections.main.horizontalPadding}}"
+      full-width="{{#if design.page.fullWidthSections}}full-width{{/if}}"
     >
       <mj-section>
         <mj-column mj-class="column salutation__column">
@@ -160,6 +412,7 @@ They can also be tested with the usual Handlebars syntax.
       padding-right="{{design.sections.main.horizontalPadding}}"
       padding-top="{{design.sections.body.padding.top}}"
       padding-bottom="{{design.sections.body.padding.bottom}}"
+      full-width="{{#if design.page.fullWidthSections}}full-width{{/if}}"
     >
       {{> body.hbs}}
     </mj-wrapper>
@@ -176,6 +429,7 @@ They can also be tested with the usual Handlebars syntax.
       padding-right="{{design.sections.main.horizontalPadding}}"
       padding-top="{{design.sections.signoff.padding.top}}"
       padding-bottom="{{design.sections.signoff.padding.bottom}}"
+      full-width="{{#if design.page.fullWidthSections}}full-width{{/if}}"
     >
       {{> signoff.hbs}}
     </mj-wrapper>
@@ -192,6 +446,7 @@ They can also be tested with the usual Handlebars syntax.
       padding-right="{{design.sections.social.horizontalPadding}}"
       padding-top="{{design.sections.social.verticalPadding}}"
       padding-bottom="{{design.sections.social.verticalPadding}}"
+      full-width="{{#if design.page.fullWidthSections}}full-width{{/if}}"
     >
       {{#if design.sections.social.topBorder.include}}
       <mj-section>
@@ -209,6 +464,9 @@ They can also be tested with the usual Handlebars syntax.
     <mj-wrapper
       css-class="component-bottomNav nav nav--bottom"
       mj-class="component-bottomNav nav nav--bottom"
+      full-width="{{#if design.page.fullWidthSections}}full-width{{/if}}"
+      padding-top="{{design.sections.bottomNav.padding.top}}"
+      padding-bottom="{{design.sections.bottomNav.padding.bottom}}"
     >
       {{> bottomNav.hbs}}
     </mj-wrapper>
@@ -225,6 +483,7 @@ They can also be tested with the usual Handlebars syntax.
       padding-right="{{design.sections.footer.horizontalPadding}}"
       padding-top="{{design.sections.footer.verticalPadding}}"
       padding-bottom="{{design.sections.footer.verticalPadding}}"
+      full-width="{{#if design.page.fullWidthSections}}full-width{{/if}}"
     >
       {{> footer.hbs}}
     </mj-wrapper>
