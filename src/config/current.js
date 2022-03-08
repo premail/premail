@@ -62,7 +62,7 @@ if (fs.existsSync(config.file.project)) {
   } else {
     config.design.theme = path.join(
       config.current.design.path,
-      config.project.dirs.theme.dir
+      config.project.dirs.design.theme.dir
     )
   }
   config.current.theme = config.design.theme
