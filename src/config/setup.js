@@ -27,8 +27,6 @@ for (const setting of config.file.internal.__list) {
   Object.assign(config.file.internal, file[0])
 }
 
-config.file.init = path.join(config.file.internal.__dir, 'init.yaml')
-
 module.exports = {
   config,
 }
