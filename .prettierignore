@@ -4,6 +4,10 @@
 .nojekyll
 .docusaurus
 
+# Auto-generated files
+CHANGELOG.md
+docs/CHANGELOG.md
+
 # Licenses
 LICENSE*
 LICENSE*.*

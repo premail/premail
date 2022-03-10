@@ -6,7 +6,12 @@
 const yargs = require('yargs/yargs')
 const { hideBin } = require('yargs/helpers')
 
-const tasks = require('./gulpfile')
+const gulp = require('./gulpfile')
+const paths = require('./src/tasks/getPaths')
+const init = require('./src/tasks/init')
+const destroy = require('./src/tasks/destroy')
+const watch = require('./src/tasks/watch')
+const formatTemplates = require('./src/tasks/formatTemplates')
 /* eslint-enable no-unused-vars */
 
 const argv = yargs(hideBin(process.argv))
@@ -16,40 +21,48 @@ const argv = yargs(hideBin(process.argv))
 
   // Commands
 
-  .command('build', 'Build your email', yargs => {
-    tasks.build()
+  .command('build', 'Build an email', yargs => {
+    formatTemplates()
+    paths.getPaths()
+    gulp.build()
   })
 
   .command(
     'watch',
     'Watch design and configuration files and rebuild as necessary',
     yargs => {
-      tasks.watch()
+      paths.getPaths()
+      gulp.build()
+      watch.email()
     }
   )
-
-  .command('format', 'Format templates with Prettier', yargs => {
-    tasks.format()
-  })
 
   .command(
     'clean',
     'Remove generated files from the current design or email',
     yargs => {
-      tasks.clean()
+      gulp.clean()
     }
   )
 
+  .command(
+    'paths',
+    'List paths being used with the current configuration and command-line flags',
+    yargs => {
+      paths.getPaths()
+    }
+  )
+
+  .command('format', 'Format templates with Prettier', yargs => {
+    formatTemplates(true)
+  })
+
   .command('init', 'Initialize an email project', yargs => {
-    tasks.init()
+    init.structure()
   })
 
   .command('destroy', 'Destroy an email project', yargs => {
-    tasks.destroy()
-  })
-
-  .command('test', false, yargs => {
-    tasks.test()
+    destroy.structure()
   })
 
   // Options

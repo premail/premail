@@ -47,11 +47,6 @@ module.exports = function loadConfig (done) {
     // Uncomment the following line to include internal configuration
     // notify.unjson(config.file.internal, 'Internal configuration:')
 
-    // Project-defined configuration (premail.yaml)
-    if (config.project) {
-      notify.unjson(config.project, 'Project configuration:')
-    }
-
     // Design configuration (designConfig.yaml)
     if (config.design) {
       notify.unjson(config.design, 'Design configuration:')

@@ -53,6 +53,20 @@ if (fs.existsSync(config.file.project)) {
     config.design = { ...config.file.internal.design }
   }
 
+  // Set theme dir
+  if (config.design.dirs.theme && config.design.dirs.theme.dir) {
+    config.design.theme = path.join(
+      config.current.design.path,
+      config.design.dirs.theme.dir
+    )
+  } else {
+    config.design.theme = path.join(
+      config.current.design.path,
+      config.project.dirs.design.theme.dir
+    )
+  }
+  config.current.theme = config.design.theme
+
   // Test if email is set
   config.current.email = {}
   config.current.email.name = ''

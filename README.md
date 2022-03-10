@@ -87,7 +87,7 @@ Read more at
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Fri Mar  4 03:20:12 UTC 2022 -->
+<!-- Added by: runner, at: Tue Mar  8 01:16:07 UTC 2022 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -199,11 +199,13 @@ You can run `premail -h` to see the full list of options:
 Usage: premail <command> [options]
 
 Commands:
-  premail build    Build your email
+  premail build    Build an email
   premail watch    Watch design and configuration files and rebuild as
                     necessary
-  premail format   Format templates with Prettier
   premail clean    Remove generated files from the current design or email
+  premail paths    List paths being used with the current configuration and
+                    command-line flags
+  premail format   Format templates with Prettier
   premail init     Initialize an email project
   premail destroy  Destroy an email project
 
