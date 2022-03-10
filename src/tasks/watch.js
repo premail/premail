@@ -3,8 +3,7 @@
 /* eslint-disable no-unused-vars */
 const fs = require('fs-extra')
 const path = require('path')
-const nodewatch = require('node-watch')
-const { series } = require('gulp')
+const { watch, series } = require('gulp')
 
 const e = require.main.require('./src/ops/errors')
 const { config } = require.main.require('./src/config/setup')
@@ -30,26 +29,7 @@ function email () {
 
     notify.watch('watching')
 
-    // We don't use recursive watching here because it doesn't work on Linux
-    // filesystems. Ref: https://www.npmjs.com/package/node-watch#Example
-    nodewatch(
-      watchPaths,
-      {
-        recursive: false,
-        delay: 1000,
-      },
-      function (event, filename) {
-        let msg = ''
-        if (event === 'update') {
-          msg = `${filename} changed.`
-        }
-        if (event === 'remove') {
-          msg = `${filename} removed.`
-        }
-        notify.msg('info', `${msg} Rebuilding email.`)
-        series(build.styles, build.content, build.structure)
-      }
-    )
+    watch(watchPaths, series(build.styles, build.content, build.structure))
   }
 }
 

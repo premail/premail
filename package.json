@@ -76,7 +76,6 @@
     "mjml-signoff": "^1.2.3",
     "mri": "^1.1.6",
     "node-sass-json-importer": "^4.3.0",
-    "node-watch": "^0.7.2",
     "npm": "^6.14.14",
     "plugin-error": "^1.0.1",
     "prettier": "^2.5.1",
@@ -86,6 +85,7 @@
     "string-strip-html": "^8.3.0",
     "typeset": "^0.3.1",
     "validator": "^13.6.0",
+    "watchr": "^6.11.0",
     "yargs": "^17.3.1"
   },
   "devDependencies": {
