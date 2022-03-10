@@ -14,18 +14,33 @@ const notify = require.main.require('./src/ops/notifications')
 // Create project structure
 //
 
-const source = config.init
-const dest = '.'
+const lib = {
+  path: config.init.path,
+  readme: config.init.readme,
+}
+
+const project = {
+  path: '.',
+  readme: path.basename(config.init.readme),
+}
 
 // Iterate over and copy project structure
 function createStructure () {
-  const path = fs.readdirSync(source)
+  const path = fs.readdirSync(lib.path)
   for (const i in path) {
     notify.msg('plain', `Creating '${path[i]}'`)
   }
 
   try {
-    fs.copySync(source, dest)
+    fs.copySync(lib.path, project.path)
+  } catch (err) {
+    notify.msg('error', err)
+  }
+
+  // Copy project readme
+  try {
+    fs.copySync(lib.readme, project.readme)
+    notify.msg('plain', `Creating '${project.readme}'`)
   } catch (err) {
     notify.msg('error', err)
   }
@@ -75,7 +90,7 @@ function structure () {
 
   if (fs.existsSync(config.file.project)) {
     confirm('A Premail project appears to be already initialized here.')
-  } else if (!isDirEmpty(dest)) {
+  } else if (!isDirEmpty(project.path)) {
     confirm('Data already exists in this folder.')
   } else {
     createStructure()

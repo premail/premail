@@ -14,12 +14,19 @@ const notify = require.main.require('./src/ops/notifications')
 // Destroy project structure
 //
 
-const source = config.init
-const dest = '.'
+const lib = {
+  path: config.init.path,
+  readme: config.init.readme,
+}
+
+const project = {
+  path: '.',
+  readme: path.basename(config.init.readme),
+}
 
 // Iterate over and destroy items matching `init` structure.
 function destroyStructure () {
-  const path = fs.readdirSync(source)
+  const path = fs.readdirSync(lib.path)
 
   notify.msg('warn', 'Destroying Premail project ')
   for (const i in path) {
@@ -37,7 +44,18 @@ function destroyStructure () {
       notify.msg('error', err)
     }
   }
+
   notify.msg('success', 'Premail project destroyed.')
+}
+
+// Destroy project readme
+function destroyReadme () {
+  try {
+    fs.unlinkSync(project.readme)
+    notify.msg('plain', `Deleted '${project.readme}'`)
+  } catch (err) {
+    notify.msg('error', err)
+  }
 }
 
 // Enable passing of --yes to this command to bypass confirmation.
@@ -60,6 +78,17 @@ function confirm () {
             )
         },
       },
+      {
+        type: prev => (prev ? 'confirm' : null),
+        name: 'readme',
+        initial: false,
+        message: '',
+        onRender (kleur) {
+          this.msg = kleur.yellow(
+            ` Do you want to remove the '${project.readme}' file? `
+          )
+        },
+      },
     ]
 
     const onCancel = prompt => {
@@ -74,11 +103,15 @@ function confirm () {
     if (response.yes) {
       destroyStructure()
     }
+
+    if (response.readme) {
+      destroyReadme()
+    }
   })()
 }
 
 function structure () {
-  if (isDirEmpty(dest)) {
+  if (isDirEmpty(project.path)) {
     notify.msg('info', 'Directory is already empty.')
     process.exit(0)
   }

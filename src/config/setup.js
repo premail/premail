@@ -16,7 +16,13 @@ const getFiles = require.main.require('./src/helpers/getFiles')
 const config = {}
 config.__base = projectPath(__dirname)
 config.src = path.join(config.__base, '..', '..', 'src')
-config.init = path.join(config.src, 'scaffolding')
+
+// Initial project scaffolding
+config.init = {}
+config.init.path = path.join(config.src, 'scaffolding')
+config.init.readme = path.join(config.__base, '..', '..', 'README.md')
+
+// Internal settings
 config.file = {}
 config.file.internal = {}
 config.file.internal.__dir = path.join(config.src, 'settings')
