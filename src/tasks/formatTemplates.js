@@ -15,9 +15,10 @@ const notify = require.main.require('./src/ops/notifications')
 
 module.exports = function formatTemplates (display) {
   const command =
-    'npx prettier --config .prettierrc.yaml -w "' +
-    config.current.path +
-    '/**/*.{hbs,mjml}"'
+    'npx prettier --config .prettierrc.yaml -w' +
+    ` "${config.current.path}/**/*.hbs"` +
+    // Ensure generated files are not processed
+    ` "!${config.current.path}/dist/*.*"`
 
   // While modern-node's `format` should be able to handle this formatting,
   // it doesn't seem to look at Prettier config files:
