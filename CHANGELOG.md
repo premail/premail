@@ -7,6 +7,7 @@
 ### New features
 
 - Reset defaults on all `<mj-wrapper>` elements in `index.hbs` [\#67](https://github.com/premail/premail/issues/67)
+- Cleanup tasks, paths and watch [\#77](https://github.com/premail/premail/pull/77)
 - Restrict Sass file loading to theme subdir of design [\#72](https://github.com/premail/premail/pull/72)
 
 ### Bug fixes
