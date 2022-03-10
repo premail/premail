@@ -66,7 +66,7 @@
 
 ### Documentation
 
-- docs: Move `docs` and `gh-pages` to another repo entirely [\#50](https://github.com/premail/premail/issues/50)
+- Move `docs` and `gh-pages` to another repo entirely [\#50](https://github.com/premail/premail/issues/50)
 - Handle ever-expanding documentation [\#41](https://github.com/premail/premail/issues/41)
 
 ## [v2.0.0-beta14](https://github.com/premail/premail/tree/v2.0.0-beta14) (2021-11-04)
