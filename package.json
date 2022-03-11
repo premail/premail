@@ -11,12 +11,11 @@
     "gulpfile.js"
   ],
   "scripts": {
-    "start": "gulp build",
-    "test": "modern test --coverage --coverageReporters='text'",
-    "format": "modern format && gulp formatTemplates",
-    "lint": "modern lint",
-    "precommit": "modern precommit",
-    "readme": "markdown-exec ./README.md"
+    "start": "premail build",
+    "test": "jest",
+    "format": "npx prettier -w .",
+    "readme": "markdown-exec ./README.md",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -96,8 +95,10 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.3",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "husky": "^7.0.4",
+    "jest": "^27.5.1",
     "markdown-exec": "^1.0.2",
-    "modern-node": "^2.9.0"
+    "pretty-quick": "^3.1.3"
   },
   "browserslist": {
     "production": [
