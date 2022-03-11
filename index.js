@@ -67,7 +67,7 @@ const argv = yargs(hideBin(process.argv))
 
   // Options
 
-  .group(['d', 'e', 'p', 'debug'], 'Email project build and watch:')
+  .group(['d', 'e', 'p', 'n', 'debug'], 'Email project build and watch:')
 
   .option('d', {
     alias: 'design',
@@ -85,6 +85,12 @@ const argv = yargs(hideBin(process.argv))
   .option('p', {
     alias: 'prod',
     describe: 'Render production files (minified, no comments)',
+    type: 'boolean',
+  })
+
+  .option('n', {
+    alias: 'noformat',
+    describe: 'Disable auto-formatting of files using Prettier',
     type: 'boolean',
   })
 
