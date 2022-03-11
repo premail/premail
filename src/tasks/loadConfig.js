@@ -4,20 +4,20 @@
 const fs = require('fs-extra')
 const path = require('path')
 const yaml = require('js-yaml')
+const flags = require('yargs').argv
 
 const validate = require.main.require('./src/ops/validation')
 const { config } = require.main.require('./src/config/setup')
 const { current } = require.main.require('./src/config/current')
 const { design } = require.main.require('./src/config/design')
 const { sassImport } = require.main.require('./src/config/sassImport')
-const { flags } = require.main.require('./src/ops/flags')
 const notify = require.main.require('./src/ops/notifications')
 /* eslint-enable no-unused-vars */
 
 //
 // Validate and display configuration as necessary.
 //
-module.exports = function loadConfig (done) {
+module.exports = function loadConfig(done) {
   // Check if primary config exists; exit on error if it does not
   if (!fs.existsSync(config.file.project)) {
     notify.msg('error', config.file.internal.messages.noSettings)

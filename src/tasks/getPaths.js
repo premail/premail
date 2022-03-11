@@ -3,12 +3,12 @@
 /* eslint-disable no-unused-vars */
 const fs = require('fs-extra')
 const path = require('path')
+const flags = require('yargs').argv
 
 const { config } = require.main.require('./src/config/setup')
 const { current } = require.main.require('./src/config/current')
 const { templates } = require.main.require('./src/config/templates')
 const { design } = require.main.require('./src/config/design')
-const { flags } = require.main.require('./src/ops/flags')
 const notify = require.main.require('./src/ops/notifications')
 /* eslint-enable no-unused-vars */
 
@@ -19,7 +19,7 @@ const notify = require.main.require('./src/ops/notifications')
 const paths = {}
 let message = ''
 
-function getPaths () {
+function getPaths() {
   if (fs.existsSync(config.file.project)) {
     paths.configProject = path.resolve(config.file.project)
     message += `\nProject config: ${paths.configProject}`

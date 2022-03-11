@@ -4,7 +4,7 @@
 const path = require('path')
 const colors = require('ansi-colors')
 const prioritizedColor = require('ansi-colors-prioritized')
-const { flags } = require.main.require('./src/ops/flags')
+const flags = require('yargs').argv
 /* eslint-enable no-unused-vars */
 
 //
@@ -18,7 +18,7 @@ const { symbols } = colors
 const greenBright = prioritizedColor(colors.greenBright, colors.green)
 
 // Format messages
-function msg (type, message, title = null) {
+function msg(type, message, title = null) {
   let symbolFormat
   let titleFormat
   let messageFormat
@@ -139,7 +139,7 @@ function msg (type, message, title = null) {
   return [titleFormat, messageFormat]
 }
 
-function watch (message) {
+function watch(message) {
   return console.log(
     '\n ⌚ ' +
       colors.bgGreen.black.bold(' ' + message.toUpperCase() + ' ') +
@@ -147,7 +147,7 @@ function watch (message) {
   )
 }
 
-function json (object, title = null) {
+function json(object, title = null) {
   let objectFormatted = '\n '
   if (title) {
     objectFormatted += symbols.info + ' ' + colors.bold(title) + ' \n'
@@ -157,7 +157,7 @@ function json (object, title = null) {
   return objectFormatted
 }
 
-function unjson (object, title = null) {
+function unjson(object, title = null) {
   let objectFormatted = '\n '
   if (title) {
     objectFormatted += symbols.info + ' ' + colors.bold(title) + ' \n'
