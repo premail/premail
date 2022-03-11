@@ -25,11 +25,11 @@ though, all you'll need to know is MJML.
   syntax. For instance, the font size of navigation items is set in this file at
   `text: navigation: size`, and in the default design's `bottomNav.hbs` file it
   is overridden with the MJML `font-size` attribute.
-- `content`: This directory holds files that will _always_ change in each email
-  -- the title, preview text, header/hero area and main body -- and will usually
-  be overridden by the `content` components in emails built with this design.
-  The files here will only be used when a) an email does not define the same
-  file, or b) when building the design itself (i.e. designing the design).
+- `content`: This directory holds files that will _usually_ change in each email
+  -- the title, preview text, header/hero area and main body. If these templates
+  exist in an email you're building, they'll override the templates in the
+  design. So why have these templates in a design at all? So you can preview
+  what a design will look like -- in other words, when designing the design.
 - `structure`: This directory holds files that may _sometimes_ change -- top and
   bottom navigation menus, social media links, and the footer area. Depending on
   how you prefer to create your designs, you might opt to never change these
