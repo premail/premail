@@ -1,16 +1,22 @@
 {{!-- A banner image, also known as a "hero image". For Retina display, the
 width and height set below should each be half the actual size of the image in
-pixels. --}}
+pixels. Note that if you choose to use text over your image, it's a good idea to
+have a background-color on the text as well, because of Gmail's dark-mode color
+inversion. For details, see the "Color values" section of designConfig.yaml.
+--}}
 <mj-hero
   mj-class="hero"
   height="400px"
   background-height="400px"
   background-url="https://picsum.photos/1200/800"
 >
-  <mj-text mj-class="hero__title">Hero image title</mj-text>
+  <mj-text
+    align="center"
+    font-size="48px"
+    font-weight="bold"
+    padding="5px"
+    color="#222"
+    container-background-color="#eaebea"
+    >Hero image title</mj-text
+  >
 </mj-hero>
-<mj-section>
-  <mj-column>
-    <mj-divider mj-class="hero-border"></mj-divider>
-  </mj-column>
-</mj-section>
