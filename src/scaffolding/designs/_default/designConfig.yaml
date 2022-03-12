@@ -16,13 +16,17 @@
 # need to be single-quoted, '#Likethis'.
 #
 # Color values:
-# Use CSS color keywords, RGB format, or hex format. You can use either 3- or
+# Use CSS named colors, RGB format, or hex format. You can use either 3- or
 # 6-digit hex values; MJML will automatically convert them. Do not use RGBA.
+# The color keyword 'transparent' is widely supported; other keywords like
+# 'inherit' and 'initial' are unreliable.
 # Also note that some email clients will attempt to invert colors when the user
 # has set a preference for dark mode. You have limited control over what these
 # inverted colors will be, though workarounds exist. Resources:
-# https://www.litmus.com/blog/background-colors-html-email/
 # https://www.hteumeuleu.com/2021/fixing-gmail-dark-mode-css-blend-modes/
+# https://www.litmus.com/blog/background-colors-html-email/
+# https://taxiforemail.com/blog/how-to-make-background-images-work-in-dark-mode/
+# https://sidemail.io/articles/dark-mode-in-html-email/
 #
 # Size values:
 # MJML only supports sizes set in pixels. This is largely due to the wide
@@ -113,7 +117,7 @@ sections:
     # backgroundColor: Visible if the image doesn't load. Additionally when
     # fullWidthSections is set to true, this is the color to the left and right
     # of the banner image. See "Color values" at the top of this document.
-    backgroundColor: '#fff'
+    backgroundColor: '#555'
     # padding: See "Size values" at the top of this document.
     padding:
       top: 0px
