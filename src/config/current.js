@@ -150,13 +150,6 @@ if (fs.existsSync(config.file.project)) {
     }
     config.current.dist = config.email.dist
   }
-} else {
-  notify.msg(
-    'error',
-    `Path: ${config.file.project}`,
-    `Premail config file not found. Aborting.`
-  )
-  process.exit(1)
 }
 
 module.exports = {
