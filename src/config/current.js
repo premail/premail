@@ -60,6 +60,13 @@ if (fs.existsSync(config.file.project)) {
         config.current.design.path,
         config.design.dirs.theme.dir
       )
+    } else if (config.project.dirs.theme && config.project.dirs.theme.dir) {
+      // @depreciated: Accounts for location of theme dir config prior to 2.1.0.
+      // Will be removed by 3.0.0.
+      config.design.theme = path.join(
+        config.current.design.path,
+        config.project.dirs.theme.dir
+      )
     } else {
       config.design.theme = path.join(
         config.current.design.path,
