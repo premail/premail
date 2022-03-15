@@ -19,7 +19,7 @@ config.src = path.join(config.__base, '..', '..', 'src')
 
 // Initial project scaffolding
 config.init = {}
-config.init.path = path.join(config.src, 'scaffolding')
+config.init.path = path.join(config.src, 'scaffolding', 'project')
 config.init.readme = path.join(config.__base, '..', '..', 'README.md')
 
 // Internal settings
