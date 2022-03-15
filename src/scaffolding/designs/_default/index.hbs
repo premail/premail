@@ -52,9 +52,9 @@ They can also be tested with the usual Handlebars syntax.
   <!-- Head declaration -->
   <mj-head>
     <!-- Title -->
-    {{#if partials.title}}
-    <mj-title>{{> title.hbs}}</mj-title>
-    {{/if}}
+    {{#if partials.title~}}
+    <mj-title>{{~> title.hbs~}}</mj-title>
+    {{~/if}}
 
     <!-- Custom head elements -->
     {{#if design.head}}
@@ -458,10 +458,11 @@ They can also be tested with the usual Handlebars syntax.
     </mj-attributes>
 
     <!-- Preview text -->
+    <!-- prettier-ignore -->
     {{#if partials.preview}}
     <mj-preview>
-      {{> preview.hbs}} {{#if design.previewPad}} {{{file.internal.previewPad}}}
-      {{/if}}
+      {{~> preview.hbs~}} {{#if design.previewPad}}
+      {{{file.internal.previewPad}}} {{/if}}
     </mj-preview>
     {{/if}}
   </mj-head>
