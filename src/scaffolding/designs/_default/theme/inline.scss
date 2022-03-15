@@ -12,11 +12,15 @@
 
 // Import Sass variables from Premail.
 @import '~/sassImport.js';
+@import 'mixins.scss';
 
 // Note that MJML sets some values, like background color, directly on
 // <mj-body> in index.hbs
 .body {
-  padding: map-get($page, 'verticalPadding') map-get($page, 'horizontalPadding');
+  @include map($page, verticalPadding, padding);
+  @if map-has-key($page, 'backgroundImage') {
+    background-image: url(map-get($page, 'backgroundImage'));
+  }
 }
 
 @if map-get($page, 'center') {
@@ -40,147 +44,65 @@
   }
 }
 
-@if map-has-key($page, 'backgroundImage') {
-  .body {
-    background-image: url(map-get($page, 'backgroundImage'));
-  }
-}
-
 h1 {
-  @if map-has-key($html, 'h1Margin') {
-    margin: map-get($html, 'h1Margin');
-  }
-  @if map-has-key($html, 'h1Padding') {
-    padding: map-get($html, 'h1Padding');
-  }
-  @if map-has-key($html, 'h1BackgroundColor') {
-    background-color: map-get($html, 'h1BackgroundColor');
-  }
-  @if map-has-key($html, 'h1BorderBottom') {
-    border-bottom: map-get($html, 'h1BorderBottom');
-  }
-  @if map-has-key($html, 'h1FontColor') {
-    color: map-get($html, 'h1FontColor');
-  }
-  @if map-has-key($html, 'h1FontSize') {
-    font-size: map-get($html, 'h1FontSize');
-  }
-  @if map-has-key($html, 'h1FontWeight') {
-    font-weight: map-get($html, 'h1FontWeight');
-  }
-  @if map-has-key($html, 'h1FontStyle') {
-    font-style: map-get($html, 'h1FontStyle');
-  }
-  @if map-has-key($html, 'h1LineHeight') {
-    line-height: map-get($html, 'h1LineHeight');
-  }
+  @include map($html, h1Margin, margin);
+  @include map($html, h1Padding, padding);
+  @include map($html, h1BackgroundColor, background-color);
+  @include map($html, h1BorderBottom, border-bottom);
+  @include map($html, h1FontColor, color);
+  @include map($html, h1FontSize, font-size);
+  @include map($html, h1FontWeight, font-weight);
+  @include map($html, h1FontStyle, font-style);
+  @include map($html, h1LineHeight, line-height);
 }
 h2 {
-  @if map-has-key($html, 'h2Margin') {
-    margin: map-get($html, 'h2Margin');
-  }
-  @if map-has-key($html, 'h2Padding') {
-    padding: map-get($html, 'h2Padding');
-  }
-  @if map-has-key($html, 'h2BackgroundColor') {
-    background-color: map-get($html, 'h2BackgroundColor');
-  }
-  @if map-has-key($html, 'h2BorderBottom') {
-    border-bottom: map-get($html, 'h2BorderBottom');
-  }
-  @if map-has-key($html, 'h2FontColor') {
-    color: map-get($html, 'h2FontColor');
-  }
-  @if map-has-key($html, 'h2FontSize') {
-    font-size: map-get($html, 'h2FontSize');
-  }
-  @if map-has-key($html, 'h2FontWeight') {
-    font-weight: map-get($html, 'h2FontWeight');
-  }
-  @if map-has-key($html, 'h2FontStyle') {
-    font-style: map-get($html, 'h2FontStyle');
-  }
-  @if map-has-key($html, 'h2LineHeight') {
-    line-height: map-get($html, 'h2LineHeight');
-  }
+  @include map($html, h2Margin, margin);
+  @include map($html, h2Padding, padding);
+  @include map($html, h2BackgroundColor, background-color);
+  @include map($html, h2BorderBottom, border-bottom);
+  @include map($html, h2FontColor, color);
+  @include map($html, h2FontSize, font-size);
+  @include map($html, h2FontWeight, font-weight);
+  @include map($html, h2FontStyle, font-style);
+  @include map($html, h2LineHeight, line-height);
 }
 h3 {
-  @if map-has-key($html, 'h3Margin') {
-    margin: map-get($html, 'h3Margin');
-  }
-  @if map-has-key($html, 'h3Padding') {
-    padding: map-get($html, 'h3Padding');
-  }
-  @if map-has-key($html, 'h3BackgroundColor') {
-    background-color: map-get($html, 'h3BackgroundColor');
-  }
-  @if map-has-key($html, 'h3BorderBottom') {
-    border-bottom: map-get($html, 'h3BorderBottom');
-  }
-  @if map-has-key($html, 'h3FontColor') {
-    color: map-get($html, 'h3FontColor');
-  }
-  @if map-has-key($html, 'h3FontSize') {
-    font-size: map-get($html, 'h3FontSize');
-  }
-  @if map-has-key($html, 'h3FontWeight') {
-    font-weight: map-get($html, 'h3FontWeight');
-  }
-  @if map-has-key($html, 'h3FontStyle') {
-    font-style: map-get($html, 'h3FontStyle');
-  }
-  @if map-has-key($html, 'h3LineHeight') {
-    line-height: map-get($html, 'h3LineHeight');
-  }
+  @include map($html, h3Margin, margin);
+  @include map($html, h3Padding, padding);
+  @include map($html, h3BackgroundColor, background-color);
+  @include map($html, h3BorderBottom, border-bottom);
+  @include map($html, h3FontColor, color);
+  @include map($html, h3FontSize, font-size);
+  @include map($html, h3FontWeight, font-weight);
+  @include map($html, h3FontStyle, font-style);
+  @include map($html, h3LineHeight, line-height);
 }
 h4 {
-  @if map-has-key($html, 'h4Margin') {
-    margin: map-get($html, 'h4Margin');
-  }
-  @if map-has-key($html, 'h4Padding') {
-    padding: map-get($html, 'h4Padding');
-  }
-  @if map-has-key($html, 'h4BackgroundColor') {
-    background-color: map-get($html, 'h4BackgroundColor');
-  }
-  @if map-has-key($html, 'h4BorderBottom') {
-    border-bottom: map-get($html, 'h4BorderBottom');
-  }
-  @if map-has-key($html, 'h4FontColor') {
-    color: map-get($html, 'h4FontColor');
-  }
-  @if map-has-key($html, 'h4FontSize') {
-    font-size: map-get($html, 'h4FontSize');
-  }
-  @if map-has-key($html, 'h4FontWeight') {
-    font-weight: map-get($html, 'h4FontWeight');
-  }
-  @if map-has-key($html, 'h4FontStyle') {
-    font-style: map-get($html, 'h4FontStyle');
-  }
-  @if map-has-key($html, 'h4LineHeight') {
-    line-height: map-get($html, 'h4LineHeight');
-  }
+  @include map($html, h4Margin, margin);
+  @include map($html, h4Padding, padding);
+  @include map($html, h4BackgroundColor, background-color);
+  @include map($html, h4BorderBottom, border-bottom);
+  @include map($html, h4FontColor, color);
+  @include map($html, h4FontSize, font-size);
+  @include map($html, h4FontWeight, font-weight);
+  @include map($html, h4FontStyle, font-style);
+  @include map($html, h4LineHeight, line-height);
 }
 p {
   margin-top: 0;
   margin-left: 0;
   margin-right: 0;
-  margin-bottom: map-get($text, 'size');
-  @if map-has-key($text, 'verticalPadding') {
-    margin-bottom: map-get($text, 'verticalPadding');
-  }
-  font-size: map-get($text, 'size');
+  @include map($text, size, margin-bottom);
+  @include map($text, verticalPadding, margin-bottom);
+  @include map($text, size, font-size);
   mso-line-height-rule: exactly;
-  line-height: map-get($text, 'lineHeight');
+  @include map($text, lineHeight, line-height);
 }
 a {
-  font-weight: map-get($links, 'weight');
-  text-decoration: map-get($links, 'decoration');
-  color: map-get($colors, 'primary');
-  @if map-has-key($links, 'color') {
-    color: map-get($links, 'color');
-  }
+  @include map($links, weight, font-weight);
+  @include map($links, decoration, text-decoration);
+  @include map($colors, primary, color);
+  @include map($links, color, color);
 }
 
 /* LIST COMPONENTS
@@ -192,27 +114,21 @@ a {
  */
 
 .list {
-  padding-bottom: map-get($lists, 'listBottomPadding');
+  @include map($lists, listBottomPadding, padding-bottom);
 }
 
 .list-item-wrap {
-  margin-left: map-get($lists, 'leftPadding');
-  font-size: map-get($text, 'size') !important;
-  @if map-has-key($lists, 'fontSize') {
-    font-size: map-get($lists, 'fontSize') !important;
-  }
+  @include map($lists, leftPadding, margin-left);
+  @include map($text, size, font-size, i);
+  @include map($lists, fontSize, font-size, i);
   mso-line-height-rule: exactly;
-  line-height: map-get($text, 'lineHeight') !important;
-  @if map-has-key($lists, 'lineHeight') {
-    line-height: map-get($lists, 'lineHeight') !important;
-  }
+  @include map($text, lineHeight, line-height, i);
+  @include map($lists, lineHeight, line-height, i);
 }
 
 .list-item {
-  margin-bottom: map-get($lists, 'listBottomPadding') !important;
-  @if map-has-key($lists, 'itemBottomPadding') {
-    margin-bottom: map-get($lists, 'itemBottomPadding') !important;
-  }
+  @include map($lists, listBottomPadding, margin-bottom, i);
+  @include map($lists, itemBottomPadding, margin-bottom, i);
 }
 
 .list-item__text {
@@ -227,37 +143,27 @@ a {
 
 .signoff__text p {
   mso-line-height-rule: exactly;
-  line-height: map-get($signoff, 'lineHeight');
+  @include map($signoff, lineHeight, line-height);
 }
 
 .signoff__closing {
-  @if map-has-key($signoff, 'closingBottomPadding') {
-    margin-bottom: map-get($signoff, 'closingBottomPadding');
-  }
+  @include map($signoff, closingBottomPadding, margin-bottom);
 }
 
 .signoff__name {
-  @if map-has-key($signoff, 'nameBottomPadding') {
-    margin-bottom: map-get($signoff, 'nameBottomPadding');
-  }
+  @include map($signoff, nameBottomPadding, margin-bottom);
 }
 
 .signoff__title {
-  @if map-has-key($signoff, 'titleBottomPadding') {
-    margin-bottom: map-get($signoff, 'titleBottomPadding');
-  }
+  @include map($signoff, titleBottomPadding, margin-bottom);
 }
 
 .signoff__title2 {
-  @if map-has-key($signoff, 'title2BottomPadding') {
-    margin-bottom: map-get($signoff, 'title2BottomPadding');
-  }
+  @include map($signoff, title2BottomPadding, margin-bottom);
 }
 
 .signoff__title3 {
-  @if map-has-key($signoff, 'title3BottomPadding') {
-    margin-bottom: map-get($signoff, 'title3BottomPadding');
-  }
+  @include map($signoff, title3BottomPadding, margin-bottom);
 }
 
 .signoff__custom {
