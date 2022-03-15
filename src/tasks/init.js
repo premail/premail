@@ -15,17 +15,17 @@ const notify = require.main.require('./src/ops/notifications')
 //
 
 const lib = {
-  path: config.init.path,
-  readme: config.init.readme,
+  path: config.scaf.init,
+  readme: config.scaf.readme,
 }
 
 const project = {
   path: '.',
-  readme: path.basename(config.init.readme),
+  readme: path.basename(config.scaf.readme),
 }
 
 // Iterate over and copy project structure
-function createStructure () {
+function createStructure() {
   const path = fs.readdirSync(lib.path)
   for (const i in path) {
     notify.msg('plain', `Creating '${path[i]}'`)
@@ -52,7 +52,7 @@ function createStructure () {
 prompts.override(require('yargs').argv)
 
 // Confirm user really wants to overwrite data if files already exist.
-function confirm (message) {
+function confirm(message) {
   ;(async () => {
     const questions = [
       {
@@ -60,7 +60,7 @@ function confirm (message) {
         name: 'yes',
         initial: false,
         message: '',
-        onRender (kleur) {
+        onRender(kleur) {
           this.msg = kleur
             .black()
             .bgYellow(
@@ -70,7 +70,7 @@ function confirm (message) {
       },
     ]
 
-    const onCancel = prompt => {
+    const onCancel = (prompt) => {
       notify.msg('plain', '     Canceled.')
       process.nextTick(() => {
         process.exit(0)
@@ -85,7 +85,7 @@ function confirm (message) {
   })()
 }
 
-function structure () {
+function structure() {
   notify.msg('info', 'Initializing Premail project...')
 
   if (fs.existsSync(config.file.project)) {

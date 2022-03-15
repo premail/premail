@@ -15,17 +15,17 @@ const notify = require.main.require('./src/ops/notifications')
 //
 
 const lib = {
-  path: config.init.path,
-  readme: config.init.readme,
+  path: config.scaf.init,
+  readme: config.scaf.readme,
 }
 
 const project = {
   path: '.',
-  readme: path.basename(config.init.readme),
+  readme: path.basename(config.scaf.readme),
 }
 
 // Iterate over and destroy items matching `init` structure.
-function destroyStructure () {
+function destroyStructure() {
   const path = fs.readdirSync(lib.path)
 
   notify.msg('warn', 'Destroying Premail project ')
@@ -49,7 +49,7 @@ function destroyStructure () {
 }
 
 // Destroy project readme
-function destroyReadme () {
+function destroyReadme() {
   try {
     fs.unlinkSync(project.readme)
     notify.msg('plain', `Deleted '${project.readme}'`)
@@ -62,7 +62,7 @@ function destroyReadme () {
 prompts.override(require('yargs').argv)
 
 // Confirm user really wants to destroy data.
-function confirm () {
+function confirm() {
   ;(async () => {
     const questions = [
       {
@@ -70,7 +70,7 @@ function confirm () {
         name: 'yes',
         initial: false,
         message: '',
-        onRender (kleur) {
+        onRender(kleur) {
           this.msg = kleur
             .black()
             .bgYellow(
@@ -79,11 +79,11 @@ function confirm () {
         },
       },
       {
-        type: prev => (prev ? 'confirm' : null),
+        type: (prev) => (prev ? 'confirm' : null),
         name: 'readme',
         initial: false,
         message: '',
-        onRender (kleur) {
+        onRender(kleur) {
           this.msg = kleur.yellow(
             ` Do you want to remove the '${project.readme}' file? `
           )
@@ -91,7 +91,7 @@ function confirm () {
       },
     ]
 
-    const onCancel = prompt => {
+    const onCancel = (prompt) => {
       notify.msg('plain', '     Canceled.')
       process.nextTick(() => {
         process.exit(0)
@@ -110,7 +110,7 @@ function confirm () {
   })()
 }
 
-function structure () {
+function structure() {
   if (isDirEmpty(project.path)) {
     notify.msg('info', 'Directory is already empty.')
     process.exit(0)
