@@ -8,6 +8,7 @@ const { hideBin } = require('yargs/helpers')
 
 const gulp = require('./gulpfile')
 const paths = require('./src/tasks/getPaths')
+const create = require('./src/tasks/create')
 const init = require('./src/tasks/init')
 const destroy = require('./src/tasks/destroy')
 const watch = require('./src/tasks/watch')
@@ -20,6 +21,14 @@ const argv = yargs(hideBin(process.argv))
   .usage('Usage: $0 <command> [options]')
 
   // Commands
+
+  .command(
+    'new <email|design> <destination>',
+    'Create a new email or design',
+    (yargs) => {
+      create.item()
+    }
+  )
 
   .command('build', 'Build an email', (yargs) => {
     format()
@@ -57,17 +66,17 @@ const argv = yargs(hideBin(process.argv))
     format(true)
   })
 
-  .command('init', 'Initialize an email project', (yargs) => {
+  .command('init', 'Initialize a Premail project', (yargs) => {
     init.structure()
   })
 
-  .command('destroy', 'Destroy an email project', (yargs) => {
+  .command('destroy', 'Destroy this Premail project', (yargs) => {
     destroy.structure()
   })
 
   // Options
 
-  .group(['d', 'e', 'p', 'n', 'debug'], 'Email project build and watch:')
+  .group(['d', 'e', 'p', 'n', 'debug'], 'Email development:')
 
   .option('d', {
     alias: 'design',
@@ -78,7 +87,7 @@ const argv = yargs(hideBin(process.argv))
 
   .option('e', {
     alias: 'email',
-    describe: 'Specify email directory to render',
+    describe: 'Specify email directory to use',
     type: 'string',
   })
 
@@ -106,6 +115,8 @@ const argv = yargs(hideBin(process.argv))
       'Include intermediate rendered template (post-Handlebars, pre-MJML) in output',
     type: 'boolean',
   })
+
+  .group(['d', 'e'], 'New emails and designs:')
 
   // Name the default 'Options' section
 
