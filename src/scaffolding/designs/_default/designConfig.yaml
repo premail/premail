@@ -19,7 +19,7 @@
 # Use CSS named colors, RGB format, or hex format. You can use either 3- or
 # 6-digit hex values; MJML will automatically convert them. Do not use RGBA.
 # The color keyword 'transparent' is widely supported; other keywords like
-# 'inherit' and 'initial' are unreliable.
+# 'inherit' and 'currentColor' are unreliable.
 # Also note that some email clients will attempt to invert colors when the user
 # has set a preference for dark mode. You have limited control over what these
 # inverted colors will be, though workarounds exist. Resources:
@@ -223,7 +223,7 @@ colors:
   # primary: Color for buttons, navigation menus, and social media icons.
   primary: '#800080'
   # secondary: Color for headline text.
-  secondary: '#666f9f'
+  secondary: '#555f9f'
 
 # FONT SETTINGS
 fonts:
@@ -284,7 +284,7 @@ text:
   # default: Body text, when not otherwise styled.
   default:
     # color: See "Color values" at the top of this document.
-    color: '#666'
+    color: '#555'
     # size: See "Size values" at the top of this document.
     size: 18px
     # lineHeight: As in CSS, set to unitless values that multiply the font
@@ -293,6 +293,52 @@ text:
     lineHeight: '1.8'
     # verticalPadding: If unset, this will be equal to the font size.
     verticalPadding:
+  # html: Set values directly on HTML elements like <h1>. Values are mapped to
+  # CSS directly, so any valid CSS values can be used. Values can also be
+  # commented out to prevent anything from being inserted. Note these values
+  # will override anything defined within MJML itself, so you may wish to omit
+  # these for finer control.
+  html:
+    # <h1>
+    h1Margin: '0 0 18px'
+    h1Padding: '18px 0 0'
+    h1BackgroundColor: transparent
+    h1BorderBottom: '1px #555 dotted'
+    h1FontColor: '#555'
+    h1FontSize: 36px
+    h1FontWeight: bold
+    h1FontStyle: normal
+    h1LineHeight: 32px
+    # <h2>
+    h2Margin: '0'
+    h2Padding: '18px 0'
+    # h2BackgroundColor: deepPink
+    h2BorderBottom: 'none'
+    # h2FontColor: '#555'
+    h2FontSize: 28px
+    h2FontWeight: bold
+    # h2FontStyle: normal
+    h2LineHeight: 32px
+    # <h3>
+    # h3Margin: '0'
+    # h3Padding: '18px 0'
+    # h3BackgroundColor: transparent
+    # h3BorderBottom: 'none'
+    # h3FontColor: '#555'
+    # h3FontSize: 18px
+    # h3FontWeight: bold
+    # h3FontStyle: normal
+    # h3LineHeight: 24px
+    # <h4>
+    # h4Margin: '0'
+    # h4Padding: '18px 0'
+    # h4BackgroundColor: transparent
+    # h4BorderBottom: 'none'
+    # h4FontColor: '#555'
+    # h4FontSize: 18px
+    # h4FontWeight: bold
+    # h4FontStyle: normal
+    # h4LineHeight: 24px
   # navigation: These styles will only apply to elements with
   # `mj-class="nav__link".
   navigation:

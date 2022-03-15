@@ -2,7 +2,11 @@
  *
  * The CSS in this file will be inlined by MJML into the HTML elements
  * themselves to ensure email rendering. Use it for styling basic HTML elements.
- * Don't include anything that can't be inlined (like link-hover styles).
+ *
+ * Note that these styles will OVERRIDE any styles set within your MJML itself.
+ *
+ * Don't include anything that can't be inlined (like link-hover styles); for
+ * those see `pseudo.scss`.
  *
  */
 
@@ -43,23 +47,120 @@
 }
 
 h1 {
-  margin: 0;
-  padding: 18px 0;
-  font-size: 36px;
-  line-height: 32px;
-  font-weight: bold;
+  @if map-has-key($html, 'h1Margin') {
+    margin: map-get($html, 'h1Margin');
+  }
+  @if map-has-key($html, 'h1Padding') {
+    padding: map-get($html, 'h1Padding');
+  }
+  @if map-has-key($html, 'h1BackgroundColor') {
+    background-color: map-get($html, 'h1BackgroundColor');
+  }
+  @if map-has-key($html, 'h1BorderBottom') {
+    border-bottom: map-get($html, 'h1BorderBottom');
+  }
+  @if map-has-key($html, 'h1FontColor') {
+    color: map-get($html, 'h1FontColor');
+  }
+  @if map-has-key($html, 'h1FontSize') {
+    font-size: map-get($html, 'h1FontSize');
+  }
+  @if map-has-key($html, 'h1FontWeight') {
+    font-weight: map-get($html, 'h1FontWeight');
+  }
+  @if map-has-key($html, 'h1FontStyle') {
+    font-style: map-get($html, 'h1FontStyle');
+  }
+  @if map-has-key($html, 'h1LineHeight') {
+    line-height: map-get($html, 'h1LineHeight');
+  }
 }
 h2 {
-  margin: 0;
-  padding: 18px 0;
-  font-size: 28px;
-  line-height: 32px;
-  font-weight: bold;
+  @if map-has-key($html, 'h2Margin') {
+    margin: map-get($html, 'h2Margin');
+  }
+  @if map-has-key($html, 'h2Padding') {
+    padding: map-get($html, 'h2Padding');
+  }
+  @if map-has-key($html, 'h2BackgroundColor') {
+    background-color: map-get($html, 'h2BackgroundColor');
+  }
+  @if map-has-key($html, 'h2BorderBottom') {
+    border-bottom: map-get($html, 'h2BorderBottom');
+  }
+  @if map-has-key($html, 'h2FontColor') {
+    color: map-get($html, 'h2FontColor');
+  }
+  @if map-has-key($html, 'h2FontSize') {
+    font-size: map-get($html, 'h2FontSize');
+  }
+  @if map-has-key($html, 'h2FontWeight') {
+    font-weight: map-get($html, 'h2FontWeight');
+  }
+  @if map-has-key($html, 'h2FontStyle') {
+    font-style: map-get($html, 'h2FontStyle');
+  }
+  @if map-has-key($html, 'h2LineHeight') {
+    line-height: map-get($html, 'h2LineHeight');
+  }
 }
-.mj-column-per-50 h2 {
-  padding: 18px;
-  align: center;
-  vertical-align: middle;
+h3 {
+  @if map-has-key($html, 'h3Margin') {
+    margin: map-get($html, 'h3Margin');
+  }
+  @if map-has-key($html, 'h3Padding') {
+    padding: map-get($html, 'h3Padding');
+  }
+  @if map-has-key($html, 'h3BackgroundColor') {
+    background-color: map-get($html, 'h3BackgroundColor');
+  }
+  @if map-has-key($html, 'h3BorderBottom') {
+    border-bottom: map-get($html, 'h3BorderBottom');
+  }
+  @if map-has-key($html, 'h3FontColor') {
+    color: map-get($html, 'h3FontColor');
+  }
+  @if map-has-key($html, 'h3FontSize') {
+    font-size: map-get($html, 'h3FontSize');
+  }
+  @if map-has-key($html, 'h3FontWeight') {
+    font-weight: map-get($html, 'h3FontWeight');
+  }
+  @if map-has-key($html, 'h3FontStyle') {
+    font-style: map-get($html, 'h3FontStyle');
+  }
+  @if map-has-key($html, 'h3LineHeight') {
+    line-height: map-get($html, 'h3LineHeight');
+  }
+}
+h4 {
+  @if map-has-key($html, 'h4Margin') {
+    margin: map-get($html, 'h4Margin');
+  }
+  @if map-has-key($html, 'h4Padding') {
+    padding: map-get($html, 'h4Padding');
+  }
+  @if map-has-key($html, 'h4BackgroundColor') {
+    background-color: map-get($html, 'h4BackgroundColor');
+  }
+  @if map-has-key($html, 'h4BorderBottom') {
+    border-bottom: map-get($html, 'h4BorderBottom');
+  }
+  @if map-has-key($html, 'h4FontColor') {
+    color: map-get($html, 'h4FontColor');
+  }
+  @if map-has-key($html, 'h4FontSize') {
+    font-size: map-get($html, 'h4FontSize');
+  }
+  @if map-has-key($html, 'h4FontWeight') {
+    font-weight: map-get($html, 'h4FontWeight');
+  }
+  @if map-has-key($html, 'h4FontStyle') {
+    font-style: map-get($html, 'h4FontStyle');
+  }
+  @if map-has-key($html, 'h4LineHeight') {
+    line-height: map-get($html, 'h4LineHeight');
+  }
 }
 p {
   margin-top: 0;
