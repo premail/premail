@@ -10,7 +10,9 @@
   description: 'Vulnerability or security risk.'
 - name: 'Type: Feature'
   color: 7f00ff
-  description: 'New functionality in this tool.'
+  description:
+    'New functionality. Also includes back-end improvements in performance, DX
+    and code readability.'
 - name: 'Type: Documentation'
   color: 0000ff
   description: 'In-tool documentation, both doc files and code comments.'
