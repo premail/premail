@@ -1,0 +1,239 @@
+/* INLINE STYLES
+ *
+ * The CSS in this file will be inlined by MJML into the HTML elements
+ * themselves to ensure email rendering. Use it for styling basic HTML elements.
+ *
+ * Note that these styles will OVERRIDE any styles set within your MJML itself.
+ *
+ * Don't include anything that can't be inlined (like link-hover styles); for
+ * those see `pseudo.scss`.
+ *
+ */
+
+// Import Sass variables from Premail.
+@import '~/sassImport.js';
+@import 'mixins.scss';
+
+// Note that MJML sets some values, like background color, directly on
+// <mj-body> in index.hbs
+.body {
+  @include map($page, verticalPadding, padding);
+  @if map-has-key($page, 'backgroundImage') {
+    background-image: url(map-get($page, 'backgroundImage'));
+  }
+}
+
+@if map-get($page, 'center') {
+  .body {
+    margin: 0;
+  }
+} @else {
+  .body {
+    text-align: left;
+  }
+  .component-topNav,
+  .component-banner,
+  .component-salutation,
+  .component-body,
+  .component-signoff,
+  .component-social,
+  .component-bottomNav,
+  .component-footer {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+h1 {
+  @include map($html, h1Margin, margin);
+  @include map($html, h1Padding, padding);
+  @include map($html, h1BackgroundColor, background-color);
+  @include map($html, h1BorderBottom, border-bottom);
+  @include map($html, h1FontColor, color);
+  @include map($html, h1FontSize, font-size);
+  @include map($html, h1FontWeight, font-weight);
+  @include map($html, h1FontStyle, font-style);
+  @include map($html, h1LineHeight, line-height);
+}
+h2 {
+  @include map($html, h2Margin, margin);
+  @include map($html, h2Padding, padding);
+  @include map($html, h2BackgroundColor, background-color);
+  @include map($html, h2BorderBottom, border-bottom);
+  @include map($html, h2FontColor, color);
+  @include map($html, h2FontSize, font-size);
+  @include map($html, h2FontWeight, font-weight);
+  @include map($html, h2FontStyle, font-style);
+  @include map($html, h2LineHeight, line-height);
+}
+h3 {
+  @include map($html, h3Margin, margin);
+  @include map($html, h3Padding, padding);
+  @include map($html, h3BackgroundColor, background-color);
+  @include map($html, h3BorderBottom, border-bottom);
+  @include map($html, h3FontColor, color);
+  @include map($html, h3FontSize, font-size);
+  @include map($html, h3FontWeight, font-weight);
+  @include map($html, h3FontStyle, font-style);
+  @include map($html, h3LineHeight, line-height);
+}
+h4 {
+  @include map($html, h4Margin, margin);
+  @include map($html, h4Padding, padding);
+  @include map($html, h4BackgroundColor, background-color);
+  @include map($html, h4BorderBottom, border-bottom);
+  @include map($html, h4FontColor, color);
+  @include map($html, h4FontSize, font-size);
+  @include map($html, h4FontWeight, font-weight);
+  @include map($html, h4FontStyle, font-style);
+  @include map($html, h4LineHeight, line-height);
+}
+p {
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  @include map($text, size, margin-bottom);
+  @include map($text, verticalPadding, margin-bottom);
+  @include map($text, size, font-size);
+  mso-line-height-rule: exactly;
+  @include map($text, lineHeight, line-height);
+}
+a {
+  @include map($links, weight, font-weight);
+  @include map($links, decoration, text-decoration);
+  @include map($colors, primary, color);
+  @include map($links, color, color);
+}
+
+/* LIST COMPONENTS
+ *
+ * Rather than using <ul> and <li> elements, which render unpredictably in
+ * email clients, use <mj-list> and <mj-li> elements, then style with the
+ * classes below. For more information, see:
+ * https://premail.dev/docs/components/mjml-bullet-list
+ */
+
+.list {
+  @include map($lists, listBottomPadding, padding-bottom);
+}
+
+.list-item-wrap {
+  @include map($lists, leftPadding, margin-left);
+  @include map($text, size, font-size, i);
+  @include map($lists, fontSize, font-size, i);
+  mso-line-height-rule: exactly;
+  @include map($text, lineHeight, line-height, i);
+  @include map($lists, lineHeight, line-height, i);
+}
+
+.list-item {
+  @include map($lists, listBottomPadding, margin-bottom, i);
+  @include map($lists, itemBottomPadding, margin-bottom, i);
+}
+
+.list-item__text {
+}
+
+/* SIGNOFF COMPONENT
+ *
+ * Styles applied when using the <mj-signoff> custom component. For more
+ * information, see:
+ * https://premail.dev/docs/components/mjml-signoff
+ */
+
+.signoff__text p {
+  mso-line-height-rule: exactly;
+  @include map($signoff, lineHeight, line-height);
+}
+
+.signoff__closing {
+  @include map($signoff, closingBottomPadding, margin-bottom);
+}
+
+.signoff__name {
+  @include map($signoff, nameBottomPadding, margin-bottom);
+}
+
+.signoff__title {
+  @include map($signoff, titleBottomPadding, margin-bottom);
+}
+
+.signoff__title2 {
+  @include map($signoff, title2BottomPadding, margin-bottom);
+}
+
+.signoff__title3 {
+  @include map($signoff, title3BottomPadding, margin-bottom);
+}
+
+.signoff__custom {
+}
+
+/* TYPOGRAPHIC ENHANCEMENT STYLES
+ *
+ * These styles will only be included and inlined if the corresponding
+ * typographical enhancements are present in a given email and enabled in your
+ * `premail.yaml` file. For more information, see:
+ * https://github.com/davidmerfield/typeset#css
+ */
+
+@if map-get($typography, 'enableSmallCaps') {
+  .small-caps {
+    font-variant: small-caps;
+    font-size: 95%; // Fallback when font-variant isn't processed.
+  }
+}
+
+@if map-get($typography, 'opticallyAlignLetters') {
+  .pull-T,
+  .pull-V,
+  .pull-W,
+  .pull-Y {
+    margin-left: -0.07em;
+  }
+  .push-T,
+  .push-V,
+  .push-W,
+  .push-Y {
+    margin-right: 0.07em;
+  }
+  .pull-O,
+  .pull-C,
+  .pull-o,
+  .pull-c {
+    margin-left: -0.04em;
+  }
+  .push-O,
+  .push-C,
+  .push-o,
+  .push-c {
+    margin-right: 0.04em;
+  }
+  .pull-A {
+    margin-left: -0.03em;
+  }
+  .push-A {
+    margin-right: 0.03em;
+  }
+}
+
+@if map-get($typography, 'hangPunctuation') {
+  .pull-single {
+    margin-left: -0.27em;
+  }
+  .push-single {
+    margin-right: 0.27em;
+  }
+  .pull-double,
+  .push-double,
+  .pull-single,
+  .push-single {
+    display: inline-block;
+  }
+  .pull-double {
+    margin-left: -0.46em;
+  }
+  .push-double {
+    margin-right: 0.46em;
+  }
+}

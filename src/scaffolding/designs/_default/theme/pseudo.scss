@@ -9,11 +9,16 @@
  * https://www.campaignmonitor.com/css/selectors/hover/
  * https://www.emailonacid.com/blog/article/email-development/using-pseudo-elements-to-progressively-enhance-your-emails/
  *
- * In order to override the inlined styles, all styles below need to include the
- * !important flag, so be sure to test in all contexts (e.g. if you change a
+ * ALL STYLES IN THIS FILE MUST INCLUDE THE !important FLAG!
+
+ * Styles here need to override inline styles and !important is the only way to
+ * do so. Because of this, be sure to test in all contexts (e.g. if you change a
  * link's color on hover, make sure it still works in the context of buttons,
  * navigation menus, the footer, headings/subheadings, social icons, etc.).
  */
+
+// Import Sass color functions.
+@use 'sass:color';
 
 // Import Sass variables from Premail.
 @import '~/sassImport.js';
@@ -32,10 +37,24 @@ a {
 }
 .button a {
   @include is-on {
+    background-color: color.scale(
+      map-get($colors, 'primary'),
+      $lightness: -25%
+    ) !important;
+  }
+}
+.button--secondary table a {
+  @include is-on {
+    background-color: color.scale(
+      map-get($colors, 'secondary'),
+      $lightness: -25%
+    ) !important;
   }
 }
 .button--ghost table a {
   @include is-on {
+    background-color: white !important;
+    border-color: map-get($colors, 'secondary') !important;
   }
 }
 .nav a {

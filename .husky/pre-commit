@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo 'Formatting staged files...'
+npx pretty-quick --staged

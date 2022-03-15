@@ -16,7 +16,13 @@ const getFiles = require.main.require('./src/helpers/getFiles')
 const config = {}
 config.__base = projectPath(__dirname)
 config.src = path.join(config.__base, '..', '..', 'src')
-config.init = path.join(config.src, 'example')
+
+// Initial project scaffolding
+config.init = {}
+config.init.path = path.join(config.src, 'scaffolding')
+config.init.readme = path.join(config.__base, '..', '..', 'README.md')
+
+// Internal settings
 config.file = {}
 config.file.internal = {}
 config.file.internal.__dir = path.join(config.src, 'settings')
@@ -26,8 +32,6 @@ for (const setting of config.file.internal.__list) {
   const file = yaml.loadAll(fs.readFileSync(setting, { encoding: 'utf-8' }))
   Object.assign(config.file.internal, file[0])
 }
-
-config.file.init = path.join(config.file.internal.__dir, 'init.yaml')
 
 module.exports = {
   config,

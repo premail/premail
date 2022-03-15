@@ -1,0 +1,19 @@
+/* SASS MIXINS
+ *
+ * This file is not processed directly, only used by the Sass files themselves.
+ *
+ */
+
+// `map` is simply a shortcut to simplify code readability. It takes four
+// arguments: the Sass map name, the YAML key from the design config file, the
+// CSS attribute, and optionally whether to add the !important flag.
+@mixin map($sassMap, $yamlKey, $cssAttr, $important: false) {
+  $i: null;
+  @if $important != false {
+    $i: !important;
+  }
+
+  @if map-has-key($sassMap, $yamlKey) {
+    #{$cssAttr}: map-get($sassMap, $yamlKey) $i;
+  }
+}

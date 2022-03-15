@@ -4,11 +4,11 @@
 const fs = require('fs-extra')
 const path = require('path')
 const yaml = require('js-yaml')
+const flags = require('yargs').argv
 
 const getFiles = require.main.require('./src/helpers/getFiles')
 
 const { config } = require.main.require('./src/config/setup')
-const { flags } = require.main.require('./src/ops/flags')
 /* eslint-enable no-unused-vars */
 
 //

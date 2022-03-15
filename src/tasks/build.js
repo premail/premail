@@ -22,6 +22,7 @@ const { crush } = require('html-crush')
 const typeset = require('typeset')
 const { htmlToText } = require('html-to-text')
 const filesize = require('filesize')
+const flags = require('yargs').argv
 
 const e = require.main.require('./src/ops/errors')
 const { config } = require.main.require('./src/config/setup')
@@ -29,7 +30,6 @@ const { current } = require.main.require('./src/config/current')
 const { templates } = require.main.require('./src/config/templates')
 const { design } = require.main.require('./src/config/design')
 const { sassImport } = require.main.require('./src/config/sassImport')
-const { flags } = require.main.require('./src/ops/flags')
 const notify = require.main.require('./src/ops/notifications')
 const { findOccurrences } = require.main.require(
   './src/helpers/findOccurrences'
@@ -47,7 +47,7 @@ const built = {
 //
 // Build styles from Sass source files.
 //
-function styles () {
+function styles() {
   // Set styles source
   const sourceStyles = config.current.design.theme + '/**/*.scss'
 
@@ -71,12 +71,11 @@ function styles () {
     tap(function (file) {
       const contents = file.contents.toString()
       built.styles[path.basename(file.path)] = contents
-      config.partials[
-        path.basename(file.path, path.extname(file.path))
-      ] = contents
+      config.partials[path.basename(file.path, path.extname(file.path))] =
+        contents
     }),
 
-    err => {
+    (err) => {
       if (err) {
         e.e(err, 'sass')
         process.exit(1)
@@ -90,7 +89,7 @@ function styles () {
 //
 // Build content from templates.
 //
-function content () {
+function content() {
   // Set typography options based on configuration
   config.typography = {
     detergent: config.file.internal.typography.detergent,
@@ -119,7 +118,7 @@ function content () {
 
   // Disable applicable Typeset options
   const typesetDisable = []
-  Object.keys(config.typography.typeset.options).forEach(key => {
+  Object.keys(config.typography.typeset.options).forEach((key) => {
     if (!config.typography.typeset.options[key]) {
       typesetDisable.push(key)
     }
@@ -137,7 +136,7 @@ function content () {
         filename !== config.design.templates.main &&
         !config.current.templates.names.includes(filename)
       ) {
-        findOccurrences(/\/>/gim, contents).forEach(result =>
+        findOccurrences(/\/>/gim, contents).forEach((result) =>
           notify.msg(
             'warn',
             config.file.internal.messages.voidTags,
@@ -168,13 +167,12 @@ function content () {
     tap(function (file) {
       const contents = file.contents.toString()
       built.content[path.basename(file.path)] = contents
-      config.partials[
-        path.basename(file.path, path.extname(file.path))
-      ] = contents
+      config.partials[path.basename(file.path, path.extname(file.path))] =
+        contents
     }),
 
     // Error handling
-    err => {
+    (err) => {
       if (err) {
         e.e(err)
         process.exit(1)
@@ -188,7 +186,7 @@ function content () {
 //
 // Build structure from styles + content.
 //
-function structure (cb) {
+function structure(cb) {
   // Default build options
   const htmlBuild = {
     file: 'index.html',
@@ -223,7 +221,7 @@ function structure (cb) {
       // Load project-configurable CSS selectors to skip
       if (config.email.text.skipSelectors) {
         textBuild.options.selectors = []
-        config.email.text.skipSelectors.forEach(element => {
+        config.email.text.skipSelectors.forEach((element) => {
           const obj = {
             selector: element,
             format: 'skip',
@@ -242,7 +240,7 @@ function structure (cb) {
 
       // Override default partial includes with email config, if set, and name
       // base elements
-      Object.keys(config.email.text.include).forEach(key => {
+      Object.keys(config.email.text.include).forEach((key) => {
         Object.assign(textBuild.include.partials, config.email.text.include)
         if (config.email.text.include[key] === true) {
           textBuild.options.baseElement.push('div.component-' + key)
@@ -368,7 +366,7 @@ function structure (cb) {
       gulpif(textBuild.status, dest(config.current.dist)),
 
       // Error handling
-      err => {
+      (err) => {
         if (err) {
           e.e(err)
           process.exit(1)

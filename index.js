@@ -11,7 +11,7 @@ const paths = require('./src/tasks/getPaths')
 const init = require('./src/tasks/init')
 const destroy = require('./src/tasks/destroy')
 const watch = require('./src/tasks/watch')
-const formatTemplates = require('./src/tasks/formatTemplates')
+const format = require('./src/tasks/format')
 /* eslint-enable no-unused-vars */
 
 const argv = yargs(hideBin(process.argv))
@@ -21,8 +21,8 @@ const argv = yargs(hideBin(process.argv))
 
   // Commands
 
-  .command('build', 'Build an email', yargs => {
-    formatTemplates()
+  .command('build', 'Build an email', (yargs) => {
+    format()
     paths.getPaths()
     gulp.build()
   })
@@ -30,7 +30,7 @@ const argv = yargs(hideBin(process.argv))
   .command(
     'watch',
     'Watch design and configuration files and rebuild as necessary',
-    yargs => {
+    (yargs) => {
       paths.getPaths()
       gulp.build()
       watch.email()
@@ -40,7 +40,7 @@ const argv = yargs(hideBin(process.argv))
   .command(
     'clean',
     'Remove generated files from the current design or email',
-    yargs => {
+    (yargs) => {
       gulp.clean()
     }
   )
@@ -48,26 +48,26 @@ const argv = yargs(hideBin(process.argv))
   .command(
     'paths',
     'List paths being used with the current configuration and command-line flags',
-    yargs => {
+    (yargs) => {
       paths.getPaths()
     }
   )
 
-  .command('format', 'Format templates with Prettier', yargs => {
-    formatTemplates(true)
+  .command('format', 'Format templates with Prettier', (yargs) => {
+    format(true)
   })
 
-  .command('init', 'Initialize an email project', yargs => {
+  .command('init', 'Initialize an email project', (yargs) => {
     init.structure()
   })
 
-  .command('destroy', 'Destroy an email project', yargs => {
+  .command('destroy', 'Destroy an email project', (yargs) => {
     destroy.structure()
   })
 
   // Options
 
-  .group(['d', 'e', 'p', 'debug'], 'Email project build and watch:')
+  .group(['d', 'e', 'p', 'n', 'debug'], 'Email project build and watch:')
 
   .option('d', {
     alias: 'design',
@@ -85,6 +85,12 @@ const argv = yargs(hideBin(process.argv))
   .option('p', {
     alias: 'prod',
     describe: 'Render production files (minified, no comments)',
+    type: 'boolean',
+  })
+
+  .option('n', {
+    alias: 'noformat',
+    describe: 'Disable auto-formatting of files using Prettier',
     type: 'boolean',
   })
 
