@@ -5,17 +5,16 @@ const fs = require('fs-extra')
 const path = require('path')
 const flags = require('yargs').argv
 
-const isDirEmpty = require.main.require('./src/helpers/isDirEmpty')
 const { config } = require.main.require('./src/config/setup')
 const { current } = require.main.require('./src/config/current')
 const { design } = require.main.require('./src/config/design')
 const notify = require.main.require('./src/ops/notifications')
+const copy = require.main.require('./src/ops/copy')
 /* eslint-enable no-unused-vars */
 
 //
 // Create a new project item (design or email)
 //
-
 function item() {
   // Command name, from yargs
   const premailNew = flags._[0]
@@ -42,7 +41,7 @@ function item() {
   // New email
   if (premailNew && newType === 'email') {
     if (emailSource === false) {
-      sourcePath = `${config.project.dirs.email.name}/NEEDTOCREATETHIS`
+      sourcePath = `${config.scaf.email}`
       sourceMsg = 'Source: Blank email template'
     } else {
       sourcePath = `${config.project.dirs.email.name}/${emailSource}`
@@ -51,7 +50,8 @@ function item() {
     destPath = `${config.project.dirs.email.name}/${newDest}`
     destMsg = `Destination: ${destPath}`
 
-    notify.msg('info', `${sourceMsg}\n   ${destMsg}`, 'Creating new email')
+    notify.msg('info', `${sourceMsg}\n   ${destMsg}\n`, 'Creating new email')
+    copy(sourcePath, destPath)
   }
 
   // New design
@@ -65,14 +65,17 @@ function item() {
     destPath = `${config.project.dirs.design.name}/${newDest}`
     destMsg = `Destination: ${destPath}`
 
-    notify.msg('info', `${sourceMsg}\n   ${destMsg}`, 'Creating new design')
+    notify.msg('info', `${sourceMsg}\n   ${destMsg}\n`, 'Creating new design')
+    copy(sourcePath, destPath)
   }
 
   // Unknown option
   else if (premailNew) {
     notify.msg('error', 'Unknown option for `premail new`')
-  } else {
-    // Technically yargs will prevent this fallback condition ever being met.
+  }
+
+  // Technically yargs will prevent this fallback condition ever being met.
+  else {
     return null
   }
 }

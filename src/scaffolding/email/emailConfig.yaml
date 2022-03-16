@@ -1,0 +1,63 @@
+#
+# EMAIL CONFIGURATION
+#
+# Settings apply to this email only. For design settings, see the
+# `designConfig.yaml` file in each individual design directory. For overall
+# settings, see the `premail.yaml` file in your project's home directory.
+#
+
+# DIRECTORY SETTINGS
+# If set, these email directory settings override both the project-wide settings
+# in `premail.yaml` in your home project directory and design directory settings
+# in the design's `designConfig.yaml` file.
+dirs:
+  design:
+    # If no design is specified when building this email, default to this design
+    # default: _default
+
+  output:
+    # When building this email, save files to this subdirectory
+    # dir: dist
+
+# PLAIN-TEXT GENERATION
+text:
+  # Whether or not to generate a plain-text version. The subsequent options
+  # in this section will only apply if this is set to "true". Note that while
+  # only a small portion of recipients will see the text version, it appears to
+  # lower the risk of your email being interpreted as spam. Resources:
+  # https://www.litmus.com/blog/best-practices-for-plain-text-emails-a-look-at-why-theyre-important/
+  # https://www.indiehackers.com/post/10-tips-for-better-email-deliverability-0f73b1fbee
+  generate: true
+
+  # When set to true, images are replaced by URLs to the image file in the
+  # plaintext version. Set to false to omit these images completely. Any tags
+  # wrapping the images (such as link tags) will be unaffected.
+  images: false
+
+  # Whether to include the following elements in the plain-text version.
+  include:
+    topNav: true
+    banner: true
+    salutation: true
+    body: true
+    signoff: true
+    social: true
+    bottomNav: true
+    footer: true
+
+  # Optionally provide a list of CSS selectors to remove from the text version.
+  # One selector per line; most CSS selectors and combinators supported.
+  # For more information about syntax, see
+  # https://github.com/html-to-text/node-html-to-text#selectors
+  skipSelectors:
+    - div.mj-menu-trigger # Remove the mobile navigation container and icons
+
+# LANGUAGE SPECIFICATION
+language:
+  # Sets the default language wrapping each email. This must be set to a valid
+  # lanugage tag to inform assistive devices like screen readers. If you have
+  # multilingual emails, you can include `lang` attributes in wrapping <div>
+  # tags. Resources:
+  # https://github.com/hteumeuleu/email-guidelines#lang
+  # https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
+  default: en
