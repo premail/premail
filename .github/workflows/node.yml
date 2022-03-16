@@ -39,6 +39,7 @@ jobs:
           cd project
           premail init --debug
           premail build
+          premail clean
           premail new design 1 --debug
           premail new email 2022 --debug
           premail build -e 2022 -d 1
