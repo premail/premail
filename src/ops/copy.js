@@ -15,7 +15,13 @@ const notify = require.main.require('./src/ops/notifications')
 //
 // Copy source to new destination
 //
-module.exports = function copy(source, dest, type = null, list = false) {
+module.exports = function copy(
+  source,
+  dest,
+  type = null,
+  list = false,
+  overwrite = false
+) {
   let sourcePath
   let sourceMsg
   let destPath
@@ -50,7 +56,7 @@ module.exports = function copy(source, dest, type = null, list = false) {
   }
 
   // Check if destination exists
-  if (fs.existsSync(destPath) && !isDirEmpty(destPath)) {
+  if (!overwrite && fs.existsSync(destPath) && !isDirEmpty(destPath)) {
     notify.msg(
       'error',
       `The path ${destPath} already has data. Aborting.`,
