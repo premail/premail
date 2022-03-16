@@ -32,7 +32,7 @@ if (fs.existsSync(config.file.project)) {
   config.current.design = {}
   config.current.design.name = config.project.dirs.design.default
   if (flags.d) {
-    config.current.design.name = flags.d
+    config.current.design.name = String(flags.d)
   }
   config.current.design.path = path.join(
     config.project.__base,
@@ -87,7 +87,7 @@ if (fs.existsSync(config.file.project)) {
   config.current.email = {}
   config.current.email.name = ''
   if (flags.e) {
-    config.current.email.name = flags.e
+    config.current.email.name = String(flags.e)
   }
 
   // If no email is set, build based on design
