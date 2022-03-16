@@ -42,5 +42,4 @@ jobs:
           premail new design 1 --debug
           premail new email 2022 --debug
           premail build -e 2022 -d 1
-          premail watch -e 2022 -d 1
           premail destroy --yes --readme
