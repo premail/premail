@@ -23,8 +23,8 @@ const argv = yargs(hideBin(process.argv))
   // Commands
 
   .command(
-    'new <email|design> <destination>',
-    'Create a new email or design',
+    'new <email|design> <dest>',
+    'Create a new email or design in <dest>',
     (yargs) => {
       create.item()
     }
