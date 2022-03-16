@@ -30,11 +30,15 @@ jobs:
         run: npm ci
       - name: Run package tests
         run: npm test
-      - name: Initialize, build, and destroy a project
+      - name: Run project commands
         run: |
           npm install -g .
           mkdir -p project
           cd project
           premail init --debug
           premail build
-          premail destroy --yes --readme --debug
+          premail new design 1 --debug
+          premail new email 2022 --debug
+          premail build -e 2022 -d 1
+          premail watch -e 2022 -d 1
+          premail destroy --yes --readme

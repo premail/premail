@@ -12,14 +12,14 @@ const copy = require.main.require('./src/ops/copy')
 function item() {
   // Command arguments, from yargs; these are required and so are always set.
   const type = flags._[1]
-  const dest = flags._[2]
+  const dest = String(flags._[2])
 
   let source = false
 
   if (flags.e && type === 'email') {
-    source = flags.e
+    source = String(flags.e)
   } else if (flags.d && type === 'design') {
-    source = flags.d
+    source = String(flags.d)
   }
 
   copy(source, dest, type)
