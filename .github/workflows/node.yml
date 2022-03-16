@@ -37,9 +37,10 @@ jobs:
           npm install -g .
           mkdir -p project
           cd project
-          premail init --debug
-          premail build
-          premail new design 1 --debug
-          premail new email 2022 --debug
-          premail build -e 2022 -d 1
-          premail destroy --yes --readme
+          echo '> premail init --debug' && premail init --debug
+          echo '> premail build' && premail build
+          echo '> premail clean' && premail clean
+          echo '> premail new design 1 --debug' && premail new design 1 --debug
+          echo '> premail new email 2022 --debug' && premail new email 2022 --debug
+          echo '> premail build -e 2022 -d 1' && premail build -e 2022 -d 1
+          echo '> premail destroy --yes --readme' && premail destroy --yes --readme
