@@ -12,7 +12,7 @@ const notify = require.main.require('./src/ops/notifications')
 // Clean generated files and directories.
 //
 
-function generated (done) {
+function generatedSync(done) {
   notify.msg('warn', config.file.internal.messages.cleaning)
   const deletedFilePaths = [config.current.dist + '/*']
   del(deletedFilePaths)
@@ -20,6 +20,14 @@ function generated (done) {
   done()
 }
 
+function generatedAsync() {
+  notify.msg('warn', config.file.internal.messages.cleaning)
+  const deletedFilePaths = [config.current.dist + '/*']
+  del(deletedFilePaths)
+  notify.msg('debug', deletedFilePaths.join('\n'))
+}
+
 module.exports = {
-  generated,
+  generatedSync,
+  generatedAsync,
 }
