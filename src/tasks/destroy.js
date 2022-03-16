@@ -14,21 +14,13 @@ const notify = require.main.require('./src/ops/notifications')
 // Destroy project structure
 //
 
-const lib = {
-  path: config.scaf.init,
-  readme: config.scaf.readme,
-}
-
-const project = {
-  path: '.',
-  readme: path.basename(config.scaf.readme),
-}
+const currentPath = '.'
+const readme = path.join(currentPath, path.basename(config.scaf.readme))
 
 // Iterate over and destroy items matching `init` structure.
 function destroyStructure() {
-  const path = fs.readdirSync(lib.path)
+  const path = fs.readdirSync(config.scaf.init)
 
-  notify.msg('warn', 'Destroying Premail project ')
   for (const i in path) {
     const item = path[i]
     try {
@@ -48,11 +40,11 @@ function destroyStructure() {
   notify.msg('success', 'Premail project destroyed.')
 }
 
-// Destroy project readme
+// Remove project readme
 function destroyReadme() {
   try {
-    fs.unlinkSync(project.readme)
-    notify.msg('plain', `Deleted '${project.readme}'`)
+    fs.unlinkSync(readme)
+    notify.msg('plain', `Deleted '${readme}'`)
   } catch (err) {
     notify.msg('error', err)
   }
@@ -85,7 +77,7 @@ function confirm() {
         message: '',
         onRender(kleur) {
           this.msg = kleur.yellow(
-            ` Do you want to remove the '${project.readme}' file? `
+            ` Do you want to remove the '${readme}' file? `
           )
         },
       },
@@ -101,17 +93,21 @@ function confirm() {
     const response = await prompts(questions, { onCancel })
 
     if (response.yes) {
-      destroyStructure()
+      notify.msg('warn', 'Destroying Premail project ')
     }
 
     if (response.readme) {
       destroyReadme()
     }
+
+    if (response.yes) {
+      destroyStructure()
+    }
   })()
 }
 
 function structure() {
-  if (isDirEmpty(project.path)) {
+  if (isDirEmpty(currentPath)) {
     notify.msg('info', 'Directory is already empty.')
     process.exit(0)
   }

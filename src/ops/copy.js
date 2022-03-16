@@ -47,6 +47,10 @@ module.exports = function copy(
 
     sourceMsg = sourcePath
     destPath = `${config.project.dirs.design.name}/${dest}`
+  } else if (type === 'project') {
+    sourcePath = source
+    sourceMsg = 'Premail'
+    destPath = dest
   }
 
   // Unknown copy type

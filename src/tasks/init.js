@@ -7,6 +7,7 @@ const prompts = require('prompts')
 
 const isDirEmpty = require.main.require('./src/helpers/isDirEmpty')
 const { config } = require.main.require('./src/config/setup')
+const copy = require.main.require('./src/ops/copy')
 const notify = require.main.require('./src/ops/notifications')
 /* eslint-enable no-unused-vars */
 
@@ -14,33 +15,16 @@ const notify = require.main.require('./src/ops/notifications')
 // Create project structure
 //
 
-const lib = {
-  path: config.scaf.init,
-  readme: config.scaf.readme,
-}
+const dest = '.'
 
-const project = {
-  path: '.',
-  readme: path.basename(config.scaf.readme),
-}
-
-// Iterate over and copy project structure
 function createStructure() {
-  const path = fs.readdirSync(lib.path)
-  for (const i in path) {
-    notify.msg('plain', `Creating '${path[i]}'`)
-  }
-
-  try {
-    fs.copySync(lib.path, project.path)
-  } catch (err) {
-    notify.msg('error', err)
-  }
+  // Copy project structure
+  copy(config.scaf.init, dest, 'project', true, true)
 
   // Copy project readme
   try {
-    fs.copySync(lib.readme, project.readme)
-    notify.msg('plain', `Creating '${project.readme}'`)
+    fs.copySync(config.scaf.readme, path.basename(config.scaf.readme))
+    notify.msg('plain', `Creating '${path.basename(config.scaf.readme)}'`)
   } catch (err) {
     notify.msg('error', err)
   }
@@ -86,11 +70,9 @@ function confirm(message) {
 }
 
 function structure() {
-  notify.msg('info', 'Initializing Premail project...')
-
   if (fs.existsSync(config.file.project)) {
     confirm('A Premail project appears to be already initialized here.')
-  } else if (!isDirEmpty(project.path)) {
+  } else if (!isDirEmpty(dest)) {
     confirm('Data already exists in this directory.')
   } else {
     createStructure()
