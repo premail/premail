@@ -6,11 +6,13 @@ on:
       - '**'
     paths-ignore:
       - '.github/**'
+      - 'docs/**'
   pull_request:
     branches:
       - '**'
     paths-ignore:
       - '.github/**'
+      - 'docs/**'
 
 jobs:
   node:
