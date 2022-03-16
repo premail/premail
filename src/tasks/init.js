@@ -91,7 +91,7 @@ function structure() {
   if (fs.existsSync(config.file.project)) {
     confirm('A Premail project appears to be already initialized here.')
   } else if (!isDirEmpty(project.path)) {
-    confirm('Data already exists in this folder.')
+    confirm('Data already exists in this directory.')
   } else {
     createStructure()
   }
