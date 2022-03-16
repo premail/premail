@@ -33,7 +33,6 @@ module.exports = function format(display) {
 
     // Run the formatting
     const command = prettier + prettierArgs
-    console.log(command)
     exec(command, function (err, stdout, stderr, display) {
       if (err) {
         e.e(err, 'prettier')
