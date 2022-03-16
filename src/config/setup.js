@@ -17,10 +17,12 @@ const config = {}
 config.__base = projectPath(__dirname)
 config.src = path.join(config.__base, '..', '..', 'src')
 
-// Initial project scaffolding
-config.init = {}
-config.init.path = path.join(config.src, 'scaffolding')
-config.init.readme = path.join(config.__base, '..', '..', 'README.md')
+// Scaffolding
+config.scaf = {}
+config.scaf.__dir = path.join(config.src, 'scaffolding')
+config.scaf.init = path.join(config.scaf.__dir, 'project')
+config.scaf.readme = path.join(config.__base, '..', '..', 'README.md')
+config.scaf.email = path.join(config.scaf.__dir, 'email')
 
 // Internal settings
 config.file = {}

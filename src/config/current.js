@@ -9,6 +9,7 @@ const flags = require('yargs').argv
 const getFiles = require.main.require('./src/helpers/getFiles')
 
 const { config } = require.main.require('./src/config/setup')
+const notify = require.main.require('./src/ops/notifications')
 /* eslint-enable no-unused-vars */
 
 //
@@ -50,7 +51,12 @@ if (fs.existsSync(config.file.project)) {
     )
     config.design = { ...config.file.internal.design, ...designJSON[0] }
   } else {
-    config.design = { ...config.file.internal.design }
+    notify.msg(
+      'error',
+      `Path: ${config.file.design}`,
+      `Design config file not found. Aborting.`
+    )
+    process.exit(1)
   }
 
   // Set theme dir
@@ -121,6 +127,13 @@ if (fs.existsSync(config.file.project)) {
         fs.readFileSync(config.file.email, { encoding: 'utf-8' })
       )
       config.email = emailJSON[0]
+    } else {
+      notify.msg(
+        'error',
+        `Path: ${config.file.email}`,
+        `Email config file not found. Aborting.`
+      )
+      process.exit(1)
     }
 
     // Set output dir

@@ -7,6 +7,7 @@ const prompts = require('prompts')
 
 const isDirEmpty = require.main.require('./src/helpers/isDirEmpty')
 const { config } = require.main.require('./src/config/setup')
+const copy = require.main.require('./src/ops/copy')
 const notify = require.main.require('./src/ops/notifications')
 /* eslint-enable no-unused-vars */
 
@@ -14,33 +15,16 @@ const notify = require.main.require('./src/ops/notifications')
 // Create project structure
 //
 
-const lib = {
-  path: config.init.path,
-  readme: config.init.readme,
-}
+const dest = '.'
 
-const project = {
-  path: '.',
-  readme: path.basename(config.init.readme),
-}
-
-// Iterate over and copy project structure
-function createStructure () {
-  const path = fs.readdirSync(lib.path)
-  for (const i in path) {
-    notify.msg('plain', `Creating '${path[i]}'`)
-  }
-
-  try {
-    fs.copySync(lib.path, project.path)
-  } catch (err) {
-    notify.msg('error', err)
-  }
+function createStructure() {
+  // Copy project structure
+  copy(config.scaf.init, dest, 'project', true, true)
 
   // Copy project readme
   try {
-    fs.copySync(lib.readme, project.readme)
-    notify.msg('plain', `Creating '${project.readme}'`)
+    fs.copySync(config.scaf.readme, path.basename(config.scaf.readme))
+    notify.msg('plain', `Creating '${path.basename(config.scaf.readme)}'`)
   } catch (err) {
     notify.msg('error', err)
   }
@@ -52,7 +36,7 @@ function createStructure () {
 prompts.override(require('yargs').argv)
 
 // Confirm user really wants to overwrite data if files already exist.
-function confirm (message) {
+function confirm(message) {
   ;(async () => {
     const questions = [
       {
@@ -60,7 +44,7 @@ function confirm (message) {
         name: 'yes',
         initial: false,
         message: '',
-        onRender (kleur) {
+        onRender(kleur) {
           this.msg = kleur
             .black()
             .bgYellow(
@@ -70,7 +54,7 @@ function confirm (message) {
       },
     ]
 
-    const onCancel = prompt => {
+    const onCancel = (prompt) => {
       notify.msg('plain', '     Canceled.')
       process.nextTick(() => {
         process.exit(0)
@@ -85,13 +69,11 @@ function confirm (message) {
   })()
 }
 
-function structure () {
-  notify.msg('info', 'Initializing Premail project...')
-
+function structure() {
   if (fs.existsSync(config.file.project)) {
     confirm('A Premail project appears to be already initialized here.')
-  } else if (!isDirEmpty(project.path)) {
-    confirm('Data already exists in this folder.')
+  } else if (!isDirEmpty(dest)) {
+    confirm('Data already exists in this directory.')
   } else {
     createStructure()
   }
