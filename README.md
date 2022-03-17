@@ -215,7 +215,8 @@ Email development:
   -d, --design    Specify design directory to use [string] [default: "_default"]
   -e, --email     Specify email directory to use                        [string]
   -p, --prod      Render production files (minified, no comments)      [boolean]
-  -n, --noformat  Disable auto-formatting of files using Prettier      [boolean]
+  -s, --noserve   Disable serving rendered email via browserSync       [boolean]
+  -f, --noformat  Disable auto-formatting of files using Prettier      [boolean]
       --debug     Append to any command to see verbose details         [boolean]
 
 Design development:
