@@ -8,6 +8,6 @@ const fs = require('fs-extra')
 // Determine if a directory is empty.
 //
 
-module.exports = function isDirEmpty (path) {
+module.exports = function isDirEmpty(path) {
   return fs.readdirSync(path).length === 0
 }

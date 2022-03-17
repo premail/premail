@@ -67,9 +67,11 @@ if (fs.existsSync(config.file.project) && fs.existsSync(config.file.design)) {
     ...config.current.templates.array,
   ]
 
-  config.current.templates.names = config.current.templates.array.map(item => {
-    return path.basename(item)
-  })
+  config.current.templates.names = config.current.templates.array.map(
+    (item) => {
+      return path.basename(item)
+    }
+  )
 
   // Define intermediate rendered template -- post-Handlebars, pre-MJML
   config.current.templates.int = path.join(

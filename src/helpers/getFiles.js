@@ -9,7 +9,7 @@ const path = require('path')
 // List all files in a directory.
 //
 
-module.exports = function getFiles (base, ext, files, result) {
+module.exports = function getFiles(base, ext, files, result) {
   files = files || fs.readdirSync(base)
   result = result || []
 
