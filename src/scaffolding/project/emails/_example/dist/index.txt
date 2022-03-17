@@ -46,7 +46,7 @@ consectetur mauris. Ut sed ultricies ante. Aliquam
 vestibulum pretium ligula sit amet pretium.
 
 
-“A QUOTED SUBHEADING”
+‘A QUOTED SUBHEADING’
 
 Donec eu turpis nec erat auctor euismod imperdiet vel urna.
 Suspendisse in urna iaculis, mattis metus luctus, egestas
@@ -87,7 +87,7 @@ Thank you,
 
 John Q. Public
 
-Wild and Crazy Guy
+Your Friendly Neighbor
 
 Example, Inc. [https://example.com]
 
@@ -104,8 +104,7 @@ https://linkedin.com/#
 Website [https://mjml.io/#] Shop [https://mjml.io/#] Careers
 [https://mjml.io/#] Contact [https://mjml.io/#]
 
-This email was sent to you because you signed up on our
-website or purchased something from us recently. Not
+This email was sent to you because we really like you! Not
 interested? Unsubscribe or manage your preferences
 [$[LI:UNSUBSCRIBE]$].
 Friendly Co., 123 Main Street, Anywhere, US 33333
