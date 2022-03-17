@@ -12,8 +12,8 @@ const create = require('./src/tasks/create')
 const init = require('./src/tasks/init')
 const destroy = require('./src/tasks/destroy')
 const clean = require('./src/tasks/clean')
-const watch = require('./src/tasks/watch')
 const server = require('./src/tasks/server')
+const watch = require('./src/tasks/watch')
 const format = require('./src/tasks/format')
 /* eslint-enable no-unused-vars */
 
@@ -44,7 +44,6 @@ const argv = yargs(hideBin(process.argv))
     (yargs) => {
       paths.getPaths()
       gulp.build()
-      server.launch()
       watch.email()
     }
   )

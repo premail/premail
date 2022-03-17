@@ -14,15 +14,21 @@ const notify = require.main.require('./src/ops/notifications')
 // Load project in web server
 //
 
-function launch() {
+function start(done) {
   browserSync.init({
     server: {
       baseDir: config.current.dist,
     },
-    watch: true,
   })
+  done()
+}
+
+function reload(done) {
+  browserSync.reload()
+  done()
 }
 
 module.exports = {
-  launch,
+  start,
+  reload,
 }
