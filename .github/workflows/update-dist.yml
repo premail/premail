@@ -3,7 +3,7 @@ name: Update built versions of design and example email
 on:
   push:
     branches:
-      - [main]
+      - main
     paths:
       - 'src/scaffolding/project/**'
 
