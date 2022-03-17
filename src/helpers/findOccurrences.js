@@ -4,7 +4,7 @@
 // Determine instances of a string and return line and column numbers.
 //
 
-function lineNumberByIndex (index, string) {
+function lineNumberByIndex(index, string) {
   const re = /^[\S\s]/gm
   let line = 0
   let match
