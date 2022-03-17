@@ -47,9 +47,9 @@ function msg(type, message, title = null) {
       symbolFormat = '\n ' + symbols.error
       if (title) {
         titleFormat = console.error(
-          ` ${symbolFormat} ` + bgRed(white(bold(' ' + title + ' '))) + ' '
+          ` ${symbolFormat} ` + bgRed(white(bold(` ${title} `))) + ' '
         )
-        messageFormat = console.error(red('    ' + message))
+        messageFormat = console.error(red(`    ${message}`))
       } else {
         titleFormat = null
         messageFormat = console.error(
@@ -61,9 +61,9 @@ function msg(type, message, title = null) {
       symbolFormat = '\n ' + symbols.warning
       if (title) {
         titleFormat = console.warn(
-          inverse(yellow(bold(` ${symbolFormat} ` + title + ' ')))
+          inverse(yellow(bold(` ${symbolFormat} ${title} `)))
         )
-        messageFormat = console.warn(yellow('   ' + message))
+        messageFormat = console.warn(yellow(`   ${message}`))
       } else {
         titleFormat = null
         messageFormat = console.warn(
@@ -75,7 +75,7 @@ function msg(type, message, title = null) {
       symbolFormat = '\n ' + symbols.success
       if (title) {
         titleFormat = console.log(` ${symbolFormat} ` + green(bold(title)))
-        messageFormat = console.log(green('   ' + message))
+        messageFormat = console.log(green(`   ${message}`))
       } else {
         titleFormat = null
         messageFormat = console.log(
@@ -87,7 +87,7 @@ function msg(type, message, title = null) {
       symbolFormat = '\n ' + symbols.info
       if (title) {
         titleFormat = console.log(` ${symbolFormat} ` + cyan(bold(title)))
-        messageFormat = console.log(cyan('   ' + message))
+        messageFormat = console.log(cyan(`   ${message}`))
       } else {
         titleFormat = null
         messageFormat = console.log(` ${symbolFormat} ` + cyan(message) + ' \n')
@@ -98,7 +98,7 @@ function msg(type, message, title = null) {
         symbolFormat = '\n ' + symbols.info
         if (title) {
           titleFormat = console.log(` ${symbolFormat} ` + cyan(bold(title)))
-          messageFormat = console.log(cyan('   ' + message))
+          messageFormat = console.log(cyan(`   ${message}`))
         } else {
           titleFormat = null
           messageFormat = console.log(
@@ -129,7 +129,7 @@ function msg(type, message, title = null) {
             '"\x1b[0m\n'
         )
       } else {
-        console.error('\x1b[31mSupplied value was: "' + type + '"\x1b[0m\n')
+        console.error(`\x1b[31mSupplied value was: "${type}"\x1b[0m\n`)
       }
   }
 
@@ -145,7 +145,7 @@ function watch(message) {
 function json(object, title = null) {
   let objectFormatted = '\n '
   if (title) {
-    objectFormatted += symbols.info + ' ' + bold(title) + ' \n'
+    objectFormatted += `${symbols.info} ` + bold(title) + ' \n'
   }
   objectFormatted +=
     '\n ' + console.dir(object, { depth: null, colors: true }) + ' \n'
@@ -155,7 +155,7 @@ function json(object, title = null) {
 function unjson(object, title = null) {
   let objectFormatted = '\n '
   if (title) {
-    objectFormatted += symbols.info + ' ' + bold(title) + ' \n'
+    objectFormatted += `${symbols.info} ` + bold(title) + ' \n'
   }
   const objectFlattened = JSON.stringify(object, null, 2)
 
