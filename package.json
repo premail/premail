@@ -52,8 +52,6 @@
     "url": "https://github.com/sponsors/rootwork"
   },
   "dependencies": {
-    "ansi-colors": "^4.1.1",
-    "ansi-colors-prioritized": "^0.1.2",
     "del": "^6.0.0",
     "detergent": "^7.1.0",
     "fibers": "^5.0.1",
@@ -69,6 +67,8 @@
     "html-img-alt": "^2.1.0",
     "html-to-text": "^8.1.0",
     "js-yaml": "^4.1.0",
+    "kleur": "^4.1.4",
+    "log-symbols": "^4.1.0",
     "map-stream": "0.0.7",
     "mjml": "^4.12.0",
     "mjml-bullet-list": "^1.2.2",

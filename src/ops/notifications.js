@@ -2,20 +2,27 @@
 
 /* eslint-disable no-unused-vars */
 const path = require('path')
-const colors = require('ansi-colors')
-const prioritizedColor = require('ansi-colors-prioritized')
+const symbols = require('log-symbols')
+const {
+  green,
+  yellow,
+  red,
+  cyan,
+  white,
+  bgRed,
+  bold,
+  inverse,
+} = require('kleur/colors')
+
+// const colors = require('ansi-colors')
+// const prioritizedColor = require('ansi-colors-prioritized')
+
 const flags = require('yargs').argv
 /* eslint-enable no-unused-vars */
 
 //
 // Set notifications
 //
-
-// Set message styles
-const { symbols } = colors
-
-// Provide fallback colors for 'bright' versions
-const greenBright = prioritizedColor(colors.greenBright, colors.green)
 
 // Format messages
 function msg(type, message, title = null) {
@@ -37,16 +44,16 @@ function msg(type, message, title = null) {
   // Theme notification types
   switch (type) {
     case 'error':
-      symbolFormat = '\n ' + symbols.cross
+      symbolFormat = '\n ' + symbols.error
       if (title) {
         titleFormat = console.error(
-          ' ' + colors.bgRed.white.bold(symbolFormat + ' ' + title + ' ') + ' '
+          ` ${symbolFormat} ` + bgRed(white(bold(` ${title} `))) + ' '
         )
-        messageFormat = console.error(colors.red('   ' + message))
+        messageFormat = console.error(red(`    ${message}`))
       } else {
         titleFormat = null
         messageFormat = console.error(
-          ' ' + colors.red.bold(symbolFormat + ' ' + message) + ' \n'
+          ` ${symbolFormat} ` + red(bold(message)) + ' \n'
         )
       }
       break
@@ -54,58 +61,48 @@ function msg(type, message, title = null) {
       symbolFormat = '\n ' + symbols.warning
       if (title) {
         titleFormat = console.warn(
-          ' ' +
-            colors.bgYellow.black.bold(symbolFormat + ' ' + title + ' ') +
-            ' '
+          inverse(yellow(bold(` ${symbolFormat} ${title} `)))
         )
-        messageFormat = console.warn(colors.yellow('   ' + message))
+        messageFormat = console.warn(yellow(`   ${message}`))
       } else {
         titleFormat = null
         messageFormat = console.warn(
-          ' ' + colors.bgYellow.black(symbolFormat + ' ' + message) + ' \n'
+          ` ${symbolFormat} ` + yellow(bold(message)) + ' \n'
         )
       }
       break
     case 'success':
-      symbolFormat = '\n ' + symbols.check
+      symbolFormat = '\n ' + symbols.success
       if (title) {
-        titleFormat = console.log(
-          ' ' + colors.bold(greenBright(symbolFormat + ' ' + title + ' ')) + ' '
-        )
-        messageFormat = console.log(greenBright('   ' + message))
+        titleFormat = console.log(` ${symbolFormat} ` + green(bold(title)))
+        messageFormat = console.log(green(`   ${message}`))
       } else {
         titleFormat = null
         messageFormat = console.log(
-          ' ' + greenBright(symbolFormat + ' ' + message) + ' \n'
+          ` ${symbolFormat} ` + green(message) + ' \n'
         )
       }
       break
     case 'info':
       symbolFormat = '\n ' + symbols.info
       if (title) {
-        titleFormat = console.log(
-          ' ' + colors.cyan.bold(symbolFormat + ' ' + title + ' ') + ' '
-        )
-        messageFormat = console.log(colors.cyan('   ' + message))
+        titleFormat = console.log(` ${symbolFormat} ` + cyan(bold(title)))
+        messageFormat = console.log(cyan(`   ${message}`))
       } else {
         titleFormat = null
-        messageFormat = console.log(
-          ' ' + colors.cyan(symbolFormat + ' ' + message) + ' \n'
-        )
+        messageFormat = console.log(` ${symbolFormat} ` + cyan(message) + ' \n')
       }
       break
     case 'debug':
       if (flags.debug) {
         symbolFormat = '\n ' + symbols.info
         if (title) {
-          titleFormat = console.log(
-            ' ' + colors.cyan.bold(symbolFormat + ' ' + title + ' ') + ' '
-          )
-          messageFormat = console.log(colors.cyan('   ' + message))
+          titleFormat = console.log(` ${symbolFormat} ` + cyan(bold(title)))
+          messageFormat = console.log(cyan(`   ${message}`))
         } else {
           titleFormat = null
           messageFormat = console.log(
-            ' ' + colors.cyan.bold(symbolFormat + ' ' + message) + ' \n'
+            ` ${symbolFormat} ` + cyan(bold(message)) + ' \n'
           )
         }
       } else {
@@ -114,11 +111,11 @@ function msg(type, message, title = null) {
       break
     case 'plain':
       if (title) {
-        titleFormat = console.log(colors.white.bold(title))
-        messageFormat = console.log(colors.white(message))
+        titleFormat = console.log(white(bold(title)))
+        messageFormat = console.log(white(message))
       } else {
         titleFormat = null
-        messageFormat = console.log(colors.white(message))
+        messageFormat = console.log(white(message))
       }
       break
     default:
@@ -132,7 +129,7 @@ function msg(type, message, title = null) {
             '"\x1b[0m\n'
         )
       } else {
-        console.error('\x1b[31mSupplied value was: "' + type + '"\x1b[0m\n')
+        console.error(`\x1b[31mSupplied value was: "${type}"\x1b[0m\n`)
       }
   }
 
@@ -141,16 +138,14 @@ function msg(type, message, title = null) {
 
 function watch(message) {
   return console.log(
-    '\n ⌚ ' +
-      colors.bgGreen.black.bold(' ' + message.toUpperCase() + ' ') +
-      ' ⌚\n'
+    '\n ⌚ ' + inverse(green(bold(' ' + message.toUpperCase() + ' '))) + ' ⌚\n'
   )
 }
 
 function json(object, title = null) {
   let objectFormatted = '\n '
   if (title) {
-    objectFormatted += symbols.info + ' ' + colors.bold(title) + ' \n'
+    objectFormatted += `${symbols.info} ` + bold(title) + ' \n'
   }
   objectFormatted +=
     '\n ' + console.dir(object, { depth: null, colors: true }) + ' \n'
@@ -160,7 +155,7 @@ function json(object, title = null) {
 function unjson(object, title = null) {
   let objectFormatted = '\n '
   if (title) {
-    objectFormatted += symbols.info + ' ' + colors.bold(title) + ' \n'
+    objectFormatted += `${symbols.info} ` + bold(title) + ' \n'
   }
   const objectFlattened = JSON.stringify(object, null, 2)
 
@@ -172,7 +167,7 @@ function unjson(object, title = null) {
       .replace(/[\]]/g, '')
       .replace(/^ {2}/gm, '') +
     ' \n'
-  return console.log(colors.cyan(objectFormatted))
+  return console.log(cyan(objectFormatted))
 }
 
 module.exports = {
@@ -180,5 +175,4 @@ module.exports = {
   watch,
   json,
   unjson,
-  colors,
 }
