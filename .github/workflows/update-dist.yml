@@ -20,17 +20,14 @@ jobs:
           node-version: '12'
       - name: Install dependencies
         run: npm ci --ignore-scripts
-      - name: Globally install local Premail
-        run: npm install -g .
-      - name: Enter project scaffolding directory
+      - name: Install Premail and recompile project
         run: |
+          npm install -g .
           cd src
           cd scaffolding
           cd project
-      - name: Recompile default design
-        run: premail build --noserve
-      - name: Recompile example email
-        run: premail build --noserve -e _example
+          premail build --noserve
+          premail build --noserve -e _example
       - name: Autocommit the changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
