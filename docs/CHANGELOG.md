@@ -7,6 +7,7 @@
 ### New features
 
 - Reset defaults on all `<mj-wrapper>` elements in `index.hbs` [\#67](https://github.com/premail/premail/issues/67)
+- Auto-open `dist/index.html` in default browser with browserSync [\#66](https://github.com/premail/premail/issues/66)
 - `premail new email` [\#59](https://github.com/premail/premail/issues/59)
 - `premail new design` [\#58](https://github.com/premail/premail/issues/58)
 - Improve new-project scaffolding, example design theming, and file formatting [\#78](https://github.com/premail/premail/pull/78)
