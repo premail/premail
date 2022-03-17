@@ -78,7 +78,7 @@ const argv = yargs(hideBin(process.argv))
 
   // Options
 
-  .group(['d', 'e', 'p', 'n', 'debug'], 'Email development:')
+  .group(['d', 'e', 'p', 's', 'f', 'debug'], 'Email development:')
 
   .option('d', {
     alias: 'design',
@@ -99,7 +99,13 @@ const argv = yargs(hideBin(process.argv))
     type: 'boolean',
   })
 
-  .option('n', {
+  .option('s', {
+    alias: 'noserve',
+    describe: 'Disable serving rendered email via browserSync',
+    type: 'boolean',
+  })
+
+  .option('f', {
     alias: 'noformat',
     describe: 'Disable auto-formatting of files using Prettier',
     type: 'boolean',

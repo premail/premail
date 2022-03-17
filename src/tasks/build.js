@@ -371,7 +371,7 @@ function structure(cb) {
           e.e(err)
           process.exit(1)
         } else {
-          notify.msg('success', `Email complete at ${config.current.dist}`)
+          notify.msg('success', '', `Email complete at ${config.current.dist}`)
         }
       }
     )

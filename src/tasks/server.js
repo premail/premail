@@ -2,6 +2,7 @@
 
 /* eslint-disable no-unused-vars */
 const browserSync = require('browser-sync').create('Premail')
+const flags = require('yargs').argv
 
 const e = require.main.require('./src/ops/errors')
 const { config } = require.main.require('./src/config/setup')
@@ -14,12 +15,19 @@ const notify = require.main.require('./src/ops/notifications')
 // Load project in web server
 //
 
+let noServe = false
+if (flags.s || flags.noserve) {
+  noServe = true
+}
+
 function start(done) {
-  browserSync.init({
-    server: {
-      baseDir: config.current.dist,
-    },
-  })
+  if (!noServe) {
+    browserSync.init({
+      server: {
+        baseDir: config.current.dist,
+      },
+    })
+  }
   done()
 }
 
