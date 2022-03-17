@@ -15,6 +15,7 @@
 
 ### Bug fixes
 
+- `premail clean` returns error [\#80](https://github.com/premail/premail/issues/80)
 - Fixing default design regressions [\#65](https://github.com/premail/premail/issues/65)
 - Paths for designs and emails need to be coerced to strings [\#63](https://github.com/premail/premail/issues/63)
 - Accommodate old location of theme dir config [\#79](https://github.com/premail/premail/pull/79)
