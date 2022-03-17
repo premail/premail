@@ -87,7 +87,7 @@ Read more at
 * [Thanks and Sponsorships](#thanks-and-sponsorships)
 * [License](#license)
 
-<!-- Added by: runner, at: Wed Mar 16 19:45:34 UTC 2022 -->
+<!-- Added by: runner, at: Thu Mar 17 21:22:29 UTC 2022 -->
 
 <!--te-->
 <!-- prettier-ignore-end -->
@@ -215,7 +215,8 @@ Email development:
   -d, --design    Specify design directory to use [string] [default: "_default"]
   -e, --email     Specify email directory to use                        [string]
   -p, --prod      Render production files (minified, no comments)      [boolean]
-  -n, --noformat  Disable auto-formatting of files using Prettier      [boolean]
+  -s, --noserve   Disable serving rendered email via browserSync       [boolean]
+  -f, --noformat  Disable auto-formatting of files using Prettier      [boolean]
       --debug     Append to any command to see verbose details         [boolean]
 
 Design development:

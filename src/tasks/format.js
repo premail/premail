@@ -14,8 +14,13 @@ const notify = require.main.require('./src/ops/notifications')
 // Process template and theme files with Prettier
 //
 
+let noFormat = false
+if (flags.f || flags.noformat) {
+  noFormat = true
+}
+
 module.exports = function format(display) {
-  if (!flags.noformat && !flags.n) {
+  if (!noFormat) {
     const prettier = 'npx prettier'
     let prettierArgs = ' --config .prettierrc.yaml --write'
 

@@ -11,6 +11,7 @@ const { series, parallel } = require('gulp')
 const loadConfig = require('./src/tasks/loadConfig')
 const clean = require('./src/tasks/clean')
 const build = require('./src/tasks/build')
+const server = require('./src/tasks/server')
 
 // Build
 exports.build = series(
@@ -18,7 +19,8 @@ exports.build = series(
   clean.generatedAsync,
   build.styles,
   build.content,
-  build.structure
+  build.structure,
+  server.start
 )
 
 // Define tasks

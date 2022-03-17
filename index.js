@@ -12,6 +12,7 @@ const create = require('./src/tasks/create')
 const init = require('./src/tasks/init')
 const destroy = require('./src/tasks/destroy')
 const clean = require('./src/tasks/clean')
+const server = require('./src/tasks/server')
 const watch = require('./src/tasks/watch')
 const format = require('./src/tasks/format')
 /* eslint-enable no-unused-vars */
@@ -77,7 +78,7 @@ const argv = yargs(hideBin(process.argv))
 
   // Options
 
-  .group(['d', 'e', 'p', 'n', 'debug'], 'Email development:')
+  .group(['d', 'e', 'p', 's', 'f', 'debug'], 'Email development:')
 
   .option('d', {
     alias: 'design',
@@ -98,7 +99,13 @@ const argv = yargs(hideBin(process.argv))
     type: 'boolean',
   })
 
-  .option('n', {
+  .option('s', {
+    alias: 'noserve',
+    describe: 'Disable serving rendered email via browserSync',
+    type: 'boolean',
+  })
+
+  .option('f', {
     alias: 'noformat',
     describe: 'Disable auto-formatting of files using Prettier',
     type: 'boolean',

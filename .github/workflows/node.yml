@@ -38,9 +38,9 @@ jobs:
           mkdir -p project
           cd project
           echo '> premail init --debug' && premail init --debug
-          echo '> premail build' && premail build
+          echo '> premail build --noserve' && premail build --noserve
           echo '> premail clean' && premail clean
           echo '> premail new design 1 --debug' && premail new design 1 --debug
           echo '> premail new email 2022 --debug' && premail new email 2022 --debug
-          echo '> premail build -e 2022 -d 1' && premail build -e 2022 -d 1
+          echo '> premail build -e 2022 -d 1 --noserve' && premail build -e 2022 -d 1 --noserve
           echo '> premail destroy --yes --readme' && premail destroy --yes --readme

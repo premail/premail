@@ -12,6 +12,7 @@ const { current } = require.main.require('./src/config/current')
 const { templates } = require.main.require('./src/config/templates')
 const { design } = require.main.require('./src/config/design')
 const build = require.main.require('./src/tasks/build')
+const server = require.main.require('./src/tasks/server')
 const notify = require.main.require('./src/ops/notifications')
 const { paths } = require.main.require('./src/tasks/getPaths')
 /* eslint-enable no-unused-vars */
@@ -29,7 +30,10 @@ function email() {
 
     notify.watch('watching')
 
-    watch(watchPaths, series(build.styles, build.content, build.structure))
+    watch(
+      watchPaths,
+      series(build.styles, build.content, build.structure, server.reload)
+    )
   }
 }
 
