@@ -22,7 +22,6 @@ const { crush } = require('html-crush')
 const typeset = require('typeset')
 const { htmlToText } = require('html-to-text')
 const filesize = require('filesize')
-const browserSync = require('browser-sync').create()
 const flags = require('yargs').argv
 
 const e = require.main.require('./src/ops/errors')
@@ -351,15 +350,6 @@ function structure(cb) {
       // Write HTML version
       rename(htmlBuild.file),
       dest(config.current.dist),
-
-      // Load HTML version in browser
-      tap(function (file) {
-        browserSync.init({
-          server: {
-            baseDir: config.current.dist,
-          },
-        })
-      }),
 
       // Plain-text conversion
       gulpif(
