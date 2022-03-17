@@ -12,7 +12,7 @@ const e = require.main.require('./src/ops/errors')
 const notify = require.main.require('./src/ops/notifications')
 /* eslint-enable no-unused-vars */
 
-module.exports = function validate (type, selector, opt) {
+module.exports = function validate(type, selector, opt) {
   // If this is an email variable and no email has been set, skip.
   if (selector.includes('config.email') && !config.current.email) {
     process.exit(0)
@@ -39,7 +39,7 @@ module.exports = function validate (type, selector, opt) {
 }
 
 // If value is a string, send it to be validated; if not, iterate over it.
-function checkType (type, value, location, file, opt) {
+function checkType(type, value, location, file, opt) {
   if (typeof value === 'object' && value.constructor === Object) {
     iterate(type, value, location, file, opt)
   } else {
@@ -49,7 +49,7 @@ function checkType (type, value, location, file, opt) {
 
 // Iterate over a value until something that isn't an object or boolean is
 // encountered. Note that numbers are coerced into strings.
-function iterate (type, value, location, file, opt) {
+function iterate(type, value, location, file, opt) {
   for (var k in value) {
     if (typeof value[k] === 'object' && value[k] !== null) {
       iterate(type, value[k], location, file, opt)
@@ -65,7 +65,7 @@ function iterate (type, value, location, file, opt) {
 }
 
 // Process validation of strings and notify on failures.
-function scan (type, value, location, file, opt) {
+function scan(type, value, location, file, opt) {
   if (value !== null && typeof value !== 'undefined') {
     const unquoted = v.trim(value, "'")
     let err
@@ -74,7 +74,7 @@ function scan (type, value, location, file, opt) {
       // ASCII: Strings that are restricted to ASCII characters.
       case 'ascii':
         err = {
-          message: `Non-ASCII characters detected in ${file}:\n   ${location}: ${value}`,
+          message: `Non-ASCII characters detected in ${file}:\n    ${location}: ${value}`,
           type: 'validation',
           subtype: 'ASCII',
         }
@@ -82,7 +82,7 @@ function scan (type, value, location, file, opt) {
       // Size: Must be in pixels.
       case 'size':
         err = {
-          message: `MJML requires all sizes to be in pixels. Check ${file}\n   ${location}: ${value}`,
+          message: `MJML requires all sizes to be in pixels. Check ${file}\n    ${location}: ${value}`,
           type: 'validation',
           subtype: 'Size',
         }
@@ -92,7 +92,7 @@ function scan (type, value, location, file, opt) {
       // oneOf: Only strings provided in the 'opt' array are valid.
       case 'oneOf':
         err = {
-          message: `Invalid setting in ${file}\n   ${location} set to '${value}', but must be one of: ${opt}`,
+          message: `Invalid setting in ${file}\n    ${location} set to '${value}', but must be one of: ${opt}`,
           type: 'validation',
           subtype: 'One-of',
         }
@@ -103,10 +103,10 @@ function scan (type, value, location, file, opt) {
           type: 'validation',
           subtype: 'URL',
           quote: {
-            message: `URL value must be double quoted in ${file}\n   ${location}: ${value}`,
+            message: `URL value must be double quoted in ${file}\n    ${location}: ${value}`,
           },
           url: {
-            message: `Invalid URL in ${file}\n   ${location}: ${unquoted}`,
+            message: `Invalid URL in ${file}\n    ${location}: ${unquoted}`,
           },
         }
         return (
@@ -118,7 +118,7 @@ function scan (type, value, location, file, opt) {
       // Display an error if an unrecognized validation is requested.
       default:
         err = {
-          message: `Validation type not recognized\n   Requested validation type: ${type}`,
+          message: `Validation type not recognized\n    Requested validation type: ${type}`,
         }
         throw e.e(err)
     }

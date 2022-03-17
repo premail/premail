@@ -11,7 +11,7 @@ const notify = require.main.require('./src/ops/notifications')
 // General error-handling function.
 // @TODO: Incorporate other error types into this one, accommodating
 // .on('error')
-function e (err, type = null, subtype = null) {
+function e(err, type = null, subtype = null) {
   const error = err.message
 
   switch (type) {
@@ -20,9 +20,7 @@ function e (err, type = null, subtype = null) {
       if (error.includes('design.js') && error.includes('Error: expected')) {
         return notify.msg(
           'warn',
-          'Sass variable import choked on the design configuration. Did you make sure to double quote anything with CSS-reserved selectors like URLs?' +
-            notify.colors.bold(` "'https://example.com/'" `) +
-            'See the "SYNTAX NOTES" section at the top of your designConfig.yaml file.',
+          `Sass variable import choked on the design configuration. Did you make sure to double quote anything with CSS-reserved selectors like URLs?'\n"'https://example.com/'"\nSee the "SYNTAX NOTES" section at the top of your designConfig.yaml file.`,
           'Sass processing error:'
         )
       } else {
@@ -41,7 +39,7 @@ function e (err, type = null, subtype = null) {
 }
 
 // Handlebars
-const hbError = function logError (error) {
+const hbError = function logError(error) {
   const message = new PluginError('gulp-hb', error.message).toString()
   notify.msg('error', `${message}`, 'Handlebars processing error:')
   notify.msg('error', '', 'Templates were not created!')
@@ -49,7 +47,7 @@ const hbError = function logError (error) {
 }
 
 // MJML
-const mjmlError = function logError (error) {
+const mjmlError = function logError(error) {
   const message = new PluginError('gulp-mjml', error.message).toString()
   notify.msg('error', `${message}`, 'MJML processing error:')
   notify.msg('error', '', 'HTML was not built!')
@@ -57,7 +55,7 @@ const mjmlError = function logError (error) {
 }
 
 // Plain text
-const textError = function logError (error) {
+const textError = function logError(error) {
   const message = new PluginError('gulp-html2txt', error.message).toString()
   notify.msg('error', `${message}`, 'Plain-text generation error:')
   notify.msg('error', '', 'Plain text version was not built!')

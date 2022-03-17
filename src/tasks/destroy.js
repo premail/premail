@@ -3,6 +3,7 @@
 /* eslint-disable no-unused-vars */
 const fs = require('fs-extra')
 const path = require('path')
+const symbols = require('log-symbols')
 const prompts = require('prompts')
 
 const isDirEmpty = require.main.require('./src/helpers/isDirEmpty')
@@ -64,9 +65,10 @@ function confirm() {
         message: '',
         onRender(kleur) {
           this.msg = kleur
-            .black()
-            .bgYellow(
-              ' ⚠ This will DESTROY ALL PREMAIL DATA in this directory. Are you sure you want to continue? '
+            .inverse()
+            .yellow()
+            .bold(
+              ` ${symbols.warning} This will DESTROY ALL PREMAIL DATA in this directory. Are you sure you want to continue? `
             )
         },
       },
