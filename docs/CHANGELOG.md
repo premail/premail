@@ -25,6 +25,7 @@
 ### Other updates
 
 - Update mjml to 4.12.0 [\#55](https://github.com/premail/premail/issues/55)
+- Update example design and email; do so automatically from now on [\#89](https://github.com/premail/premail/pull/89)
 - Bump Prettier [\#88](https://github.com/premail/premail/pull/88)
 - Move colored console output from ansi-colors to kleur [\#85](https://github.com/premail/premail/pull/85)
 - Updating dependencies [\#75](https://github.com/premail/premail/pull/75)
