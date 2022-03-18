@@ -1,8 +1,8 @@
 # Premail Changelog
 
-## [Unreleased](https://github.com/premail/premail/tree/HEAD)
+## [v2.1.0](https://github.com/premail/premail/tree/v2.1.0) (2022-03-18)
 
-[Full Changelog](https://github.com/premail/premail/compare/v2.0.5...HEAD)
+[Full Changelog](https://github.com/premail/premail/compare/v2.0.5...v2.1.0)
 
 ### New features
 
