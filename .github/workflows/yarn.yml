@@ -1,4 +1,4 @@
-name: Yarn CI
+name: Yarn CI (tests published package only)
 
 on:
   push:
@@ -34,7 +34,7 @@ jobs:
         run: yarn test
       - name: Run project commands
         run: |
-          yarn add -g file:./
+          yarn add file:./
           mkdir -p project
           cd project
           echo '> yarn premail init --debug --yes' && yarn premail init --debug --yes
