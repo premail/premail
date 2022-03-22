@@ -1,10 +1,17 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Premail documentation
+  - name: Suggest new documentation
+    url: https://github.com/premail/website/issues/new/choose
+    about:
+      Premail's documentation is located in another repo; please file general
+      documentation issues using the Open button at right. If you have an issue
+      with Premail's inline documentation (e.g. code comments), file it as a bug
+      report, above.
+  - name: Read Premail documentation
     url: https://premail.dev
     about:
-      Our documentation site has all the details about Premail. If you're new to
-      Premail, check here first!
+      If you're new to Premail, check our documentation site first for details
+      and guides.
   - name: '@premaildev on Twitter'
     url: https://twitter.com/premaildev
     about: Send a message to Premail on Twitter
