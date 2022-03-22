@@ -34,7 +34,7 @@ jobs:
         run: yarn test
       - name: Run project commands
         run: |
-          yarn add -g .
+          yarn add -g file:./
           mkdir -p project
           cd project
           echo '> yarn premail init --debug --yes' && yarn premail init --debug --yes
