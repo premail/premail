@@ -12,6 +12,9 @@ contact_links:
     about:
       If you're new to Premail, check our documentation site first for details
       and guides.
+  - name: Premail contribution guide
+    url: https://premail.dev/contributing
+    about: Learn how to contribute to Premail development.
   - name: '@premaildev on Twitter'
     url: https://twitter.com/premaildev
     about: Send a message to Premail on Twitter
