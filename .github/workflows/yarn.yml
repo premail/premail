@@ -1,0 +1,46 @@
+name: Yarn CI
+
+on:
+  push:
+    branches:
+      - '**'
+    paths-ignore:
+      - '.github/**'
+      - 'docs/**'
+  pull_request:
+    branches:
+      - '**'
+    paths-ignore:
+      - '.github/**'
+      - 'docs/**'
+
+jobs:
+  node:
+    name: Yarn install and test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, ubuntu-20.04, windows-latest]
+        node-version: [12.x, 14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Run package tests
+        run: yarn test
+      - name: Run project commands
+        run: |
+          yarn add file:./
+          mkdir -p project
+          cd project
+          echo '> yarn premail init --debug --yes' && yarn premail init --debug --yes
+          echo '> yarn premail build --noserve' && yarn premail build --noserve
+          echo '> yarn premail clean' && yarn premail clean
+          echo '> yarn premail new design 1 --debug' && yarn premail new design 1 --debug
+          echo '> yarn premail new email 2022 --debug' && yarn premail new email 2022 --debug
+          echo '> yarn premail build -e 2022 -d 1 --noserve' && yarn premail build -e 2022 -d 1 --noserve
+          echo '> yarn premail destroy --yes --readme' && yarn premail destroy --yes --readme
