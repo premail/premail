@@ -15,7 +15,9 @@
 </h1>
 
 <div align="center">
-  <strong>Premail is an easy-to-use component-based build system for MJML, the email templating language, with Handlebars templating, Sass styles, and extra options.</strong>
+  <strong>Premail is an easy-to-use component-based build system for MJML, the
+    email templating language, with Handlebars templating, Sass styles, and
+    extra options.</strong>
   <br /><br />
   <a href="https://premail.dev">Read the Documentation</a>
   -
