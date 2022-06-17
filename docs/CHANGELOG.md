@@ -1,5 +1,13 @@
 # Premail Changelog
 
+## [Unreleased](https://github.com/premail/premail/tree/HEAD)
+
+[Full Changelog](https://github.com/premail/premail/compare/v2.1.0...HEAD)
+
+**Merged pull requests:**
+
+- Add Yarn testing [\#96](https://github.com/premail/premail/pull/96)
+
 ## [v2.1.0](https://github.com/premail/premail/tree/v2.1.0) (2022-03-18)
 
 [Full Changelog](https://github.com/premail/premail/compare/v2.0.5...v2.1.0)
