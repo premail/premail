@@ -21,7 +21,8 @@ if (fs.existsSync(config.file.project) && fs.existsSync(config.file.design)) {
   const colors = config.design.colors
   const fonts = config.design.fonts
   const text = config.design.text.default
-  const html = config.design.text.html
+  const nav = config.design.text.navigation
+  const footer = config.design.text.footer
   const links = config.design.links
   const lists = config.design.lists
   const signoff = config.design.signoff
@@ -32,7 +33,8 @@ if (fs.existsSync(config.file.project) && fs.existsSync(config.file.design)) {
     colors,
     fonts,
     text,
-    html,
+    nav,
+    footer,
     links,
     lists,
     signoff,
