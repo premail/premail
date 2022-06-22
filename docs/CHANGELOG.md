@@ -8,7 +8,7 @@
 
 - Better document YAML-to-Sass variable system [\#97](https://github.com/premail/premail/pull/97)
 
-**Merged pull requests:**
+### Other updates
 
 - Add Yarn testing [\#96](https://github.com/premail/premail/pull/96)
 
