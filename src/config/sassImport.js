@@ -20,6 +20,7 @@ if (fs.existsSync(config.file.project) && fs.existsSync(config.file.design)) {
   const page = config.design.page
   const colors = config.design.colors
   const fonts = config.design.fonts
+  const html = config.design.text.html
   const text = config.design.text.default
   const nav = config.design.text.navigation
   const footer = config.design.text.footer
@@ -32,6 +33,7 @@ if (fs.existsSync(config.file.project) && fs.existsSync(config.file.design)) {
     page,
     colors,
     fonts,
+    html,
     text,
     nav,
     footer,

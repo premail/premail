@@ -10,13 +10,91 @@
  *
  */
 
-// Import Sass variables from Premail.
-@import '~/sassImport.js';
-@import 'mixins.scss';
+// Optionally import Sass modules. These statements must come before any other
+// rules. For information on these, see:
+// https://sass-lang.com/documentation/modules
+//
+// @use 'sass:color';
+// @use 'sass:list';
+@use 'sass:map';
+// @use 'sass:math';
+// @use 'sass:meta';
+// @use 'sass:selector';
+// @use 'sass:string';
 
-// Note that MJML sets some values, like background color, directly on
-// <mj-body> in index.hbs
+@import 'mixins.scss';
+// This imports our own Sass mixins.
+
+@import '~/sassImport.js';
+// This import statement brings some variables defined in `designConfig.yaml`
+// to make them usable here in the form of Sass maps. The YAML keys and their
+// corresponding Sass map names are:
+//
+// page:            $page
+// colors:          $colors
+// fonts:           $fonts
+// text.html:       $html
+// text.default:    $text
+// text.navigation: $nav
+// text.footer:     $footer
+// links:           $links
+// lists:           $lists
+// signoff:         $signoff
+// typography:      $typography
+//
+// The @map() mixin imported above simplifies using these values. It takes four
+// arguments: the Sass map name, the YAML key from the design config file, the
+// CSS attribute, and optionally whether to add the !important flag.
+//
+// For instance, to use the text.default.color value (#555 in the example
+// design) you would write:
+//
+//   @include map($text, color, color);
+//
+// which will compile in CSS to:
+//
+//   color: $555;
+//
+// To use the text.default.lineHeight value (1.8 in the example design) and give
+// it an !important flag, you would write:
+//
+//   @include map($text, lineHeight, line-height, i);
+//
+// which will compile in CSS to:
+//
+//   line-height: 1.8 !important;
+//
+// If a value is not set in `designConfig.yaml`, the map() mixin will not
+// generate any CSS. For instance, if you referred to an empty
+// text.default.verticalPadding value (not set in the example design) and wrote:
+//
+//   @include map($text, verticalPadding, padding-top);
+//
+// No CSS would be generated unless text.default.verticalPadding was given a
+// value.
+//
+// If you need to conditionally print a rule or ruleset based on whether a
+// value is set, use Sass's built-in @if map-has-key() function directly.
+//
+// For instance, in the default .body ruleset below, you'll see that we test if
+// the page.backgroundImage value is set, and if it is we set the
+// background-image CSS attribute to that value, using this syntax:
+//
+// @if map-has-key($page, 'backgroundImage') {
+//   background-image: url(map-get($page, 'backgroundImage'));
+// }
+//
+// url() is inside the value for the attribute background-image, so we need to
+// test if the YAML value exists before returning the CSS.
+//
+// Finally, remember that as stated at the top, all the CSS in this file will
+// override any styles set within your MJML, and will be automatically inlined
+// on the elements in your email. Things like link-hover styles should be
+// defined in `pseudo.scss`.
+
 .body {
+  // Note that MJML sets some values, like background color, directly on
+  // <mj-body> in index.hbs
   @include map($page, verticalPadding, padding);
   @if map-has-key($page, 'backgroundImage') {
     background-image: url(map-get($page, 'backgroundImage'));
