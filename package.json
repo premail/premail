@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "start": "premail build",
-    "test": "jest",
+    "test": "npx jest",
     "format": "npx prettier -w .",
     "readme": "markdown-exec ./README.md",
     "prepare": "husky install"
