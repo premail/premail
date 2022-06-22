@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/premail/premail/compare/v2.1.0...HEAD)
 
+### Documentation
+
+- Better document YAML-to-Sass variable system [\#97](https://github.com/premail/premail/pull/97)
+
 **Merged pull requests:**
 
 - Add Yarn testing [\#96](https://github.com/premail/premail/pull/96)
