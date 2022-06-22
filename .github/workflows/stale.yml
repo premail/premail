@@ -19,7 +19,7 @@ jobs:
         id: stale
         uses: sonia-corporation/stale@1.57.0
         with:
-          dry-run: true # Test the workflow
+          dry-run: false # Test the workflow
           github-token: ${{ secrets.GITHUB_TOKEN }}
           # Issue settings
           issue-days-before-stale: 90
