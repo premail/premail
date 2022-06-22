@@ -25,10 +25,11 @@ jobs:
           issue-days-before-stale: 90
           issue-days-before-close: 10
           issue-stale-label: 'Status: Stale' # Add this label when marking stale
-          issue-ignore-any-labels: # If an issue has any of these labels, ignore
-            - 'good first issue'
-            - 'help-wanted'
-            - 'x-Bot: No Abandonment'
+          issue-ignore-any-labels:
+            | # If an issue has any of these labels, ignore
+            good first issue
+            help-wanted
+            x-Bot: No Abandonment
           issue-ignore-all-assignees: true # If an issue is assigned, ignore
           issue-ignore-all-project-cards: true # If an issue is in a project, ignore
           issue-ignore-any-milestones: true # If an issue is in a milestone, ignore
@@ -48,8 +49,9 @@ jobs:
           pull-request-days-before-stale: 60
           pull-request-days-before-close: 10
           pull-request-stale-label: 'Status: Stale' # Add this label when marking stale
-          pull-request-ignore-any-labels: # If a PR has any of these labels, ignore
-            - 'x-Bot: No Abandonment'
+          pull-request-ignore-any-labels:
+            | # If a PR has any of these labels, ignore
+            x-Bot: No Abandonment
           pull-request-ignore-draft: true # If a PR is in draft state, ignore
           pull-request-close-comment: >
             There hasn't been any activity on this pull request recently, and in
