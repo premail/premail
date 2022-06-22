@@ -29,6 +29,7 @@ jobs:
             | # If an issue has any of these labels, ignore
             good first issue
             help-wanted
+            Status: Blocked or Postponed
             x-Bot: No Abandonment
           issue-ignore-all-assignees: true # If an issue is assigned, ignore
           issue-ignore-all-project-cards: true # If an issue is in a project, ignore
@@ -51,6 +52,7 @@ jobs:
           pull-request-stale-label: 'Status: Stale' # Add this label when marking stale
           pull-request-ignore-any-labels:
             | # If a PR has any of these labels, ignore
+            Status: Blocked or Postponed
             x-Bot: No Abandonment
           pull-request-ignore-draft: true # If a PR is in draft state, ignore
           pull-request-close-comment: >
