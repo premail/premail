@@ -1,25 +1,38 @@
 name: Stale
 
 on:
+  # Allow to run it manually on GitHub (a button will be visible)
+  # See https://github.blog/changelog/2020-07-06-github-actions-manual-triggers-with-workflow_dispatch/
+  workflow_dispatch:
   schedule:
     - cron: '0 8 * * *'
-  workflow_dispatch:
 
 jobs:
   stale:
     name: 🧹 Clean up stale issues and PRs
     runs-on: ubuntu-latest
     steps:
-      - name: 🚀 Run stale
-        uses: actions/stale@v4.1.0
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v2
+      - name: Stale
+        id: stale
+        uses: sonia-corporation/stale@1
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          days-before-stale: 90
-          days-before-close: 7
-          remove-stale-when-updated: true
-          stale-issue-label: 'Status: Stale'
-          exempt-issue-labels: 'help-wanted, x-Bot: No Abandonment'
-          stale-issue-message: >
+          dry-run: true # Test the workflow
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # Issue settings
+          issue-days-before-stale: 90
+          issue-days-before-close: 10
+          issue-stale-label: 'Status: Stale' # Add this label when marking stale
+          issue-ignore-any-labels: # If an issue has any of these labels, ignore
+            - 'good first issue'
+            - 'help-wanted'
+            - 'x-Bot: No Abandonment'
+          issue-ignore-all-assignees: true # If an issue is assigned, ignore
+          issue-ignore-all-project-cards: true # If an issue is in a project, ignore
+          issue-ignore-any-milestones: true # If an issue is in a milestone, ignore
+          issue-stale-comment: >
             There hasn't been any activity on this issue recently, and in order
             to prioritize active issues, it is being marked as stale.
 
@@ -27,16 +40,23 @@ jobs:
             solves the issue. Let us know if that works for you by leaving a 👍
 
             Because this issue is marked as stale, it will be closed and locked
-            in 7 days if no further activity occurs.
+            in 10 days if no further activity occurs. If you want to prevent it
+            from being closed, just leave a comment.
 
             Thank you for your contributions!
-          stale-pr-label: 'Status: Stale'
-          exempt-pr-labels: 'help-wanted, x-Bot: No Abandonment'
-          stale-pr-message: >
+          # PR settings
+          pull-request-days-before-stale: 60
+          pull-request-days-before-close: 10
+          pull-request-stale-label: 'Status: Stale' # Add this label when marking stale
+          pull-request-ignore-any-labels: # If a PR has any of these labels, ignore
+            - 'x-Bot: No Abandonment'
+          pull-request-ignore-draft: true # If a PR is in draft state, ignore
+          pull-request-close-comment: >
             There hasn't been any activity on this pull request recently, and in
             order to prioritize active work, it is being marked as stale.
 
-            This PR will be closed and locked in 7 days if no further activity
-            occurs.
+            This PR will be closed and locked in 10 days if no further activity
+            occurs. If you want to prevent it from being closed, leave a comment
+            or push new commits.
 
             Thank you for your contributions!
