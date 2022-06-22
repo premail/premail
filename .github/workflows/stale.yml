@@ -38,12 +38,15 @@ jobs:
             There hasn't been any activity on this issue recently, and in order
             to prioritize active issues, it is being marked as stale.
 
+
             Please make sure to update to the latest version and check if that
             solves the issue. Let us know if that works for you by leaving a 👍
+
 
             Because this issue is marked as stale, it will be closed and locked
             in 10 days if no further activity occurs. If you want to prevent it
             from being closed, just leave a comment.
+
 
             Thank you for your contributions!
           # PR settings
@@ -59,8 +62,10 @@ jobs:
             There hasn't been any activity on this pull request recently, and in
             order to prioritize active work, it is being marked as stale.
 
+
             This PR will be closed and locked in 10 days if no further activity
             occurs. If you want to prevent it from being closed, leave a comment
             or push new commits.
+
 
             Thank you for your contributions!
