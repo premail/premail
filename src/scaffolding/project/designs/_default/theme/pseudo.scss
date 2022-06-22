@@ -10,18 +10,32 @@
  * https://www.emailonacid.com/blog/article/email-development/using-pseudo-elements-to-progressively-enhance-your-emails/
  *
  * ALL STYLES IN THIS FILE MUST INCLUDE THE !important FLAG!
-
- * Styles here need to override inline styles and !important is the only way to
+ *
+ * Styles here need to override inline styles, and !important is the only way to
  * do so. Because of this, be sure to test in all contexts (e.g. if you change a
  * link's color on hover, make sure it still works in the context of buttons,
  * navigation menus, the footer, headings/subheadings, social icons, etc.).
  */
 
-// Import Sass color functions.
+// Optionally import Sass modules. These statements must come before any other
+// rules. For information on these, see:
+// https://sass-lang.com/documentation/modules
+//
 @use 'sass:color';
+// @use 'sass:list';
+@use 'sass:map';
+// @use 'sass:math';
+// @use 'sass:meta';
+// @use 'sass:selector';
+// @use 'sass:string';
 
-// Import Sass variables from Premail.
+@import 'mixins.scss';
+// This imports our own Sass mixins.
+
 @import '~/sassImport.js';
+// This import statement brings some variables defined in `designConfig.yaml`
+// to make them usable here in the form of Sass maps. For details on how this
+// works, see this section in the `inline.scss` file.
 
 @mixin is-on {
   &:hover,

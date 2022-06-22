@@ -4,6 +4,9 @@
 # Settings apply to this design only. For email settings, see the
 # `emailConfig.yaml` file in each individual email directory. For overall
 # settings, see the `premail.yaml` file in your project's home directory.
+#
+# Some values can also be imported to Sass files. See the `theme/inline.scss`
+# file for information about this.
 
 # SYNTAX NOTES
 #
