@@ -36,15 +36,11 @@ jobs:
           issue-ignore-all-project-cards: true # If an issue is in a project, ignore
           issue-ignore-any-milestones: true # If an issue is in a milestone, ignore
           issue-stale-comment: |
-            There hasn't been any activity on this issue recently, and in order
-            to prioritize active issues, it is being marked as stale.
+            There hasn't been any activity on this issue recently, and in order to prioritize active issues, it is being marked as stale.
 
-            Please make sure to update to the latest version and check if that
-            solves the issue. Let us know if that works for you by leaving a 👍
+            Please make sure to update to the latest version and check if that solves the issue. Let us know if that works for you by leaving a 👍
 
-            Because this issue is marked as stale, it will be closed and locked
-            in 10 days if no further activity occurs. If you want to prevent it
-            from being closed, just leave a comment.
+            Because this issue is marked as stale, it will be closed and locked in 10 days if no further activity occurs. If you want to prevent it from being closed, just leave a comment.
 
             Thank you for your contributions!
 
@@ -58,11 +54,8 @@ jobs:
             'x-Bot: No Abandonment'
           pull-request-ignore-draft: true # If a PR is in draft state, ignore
           pull-request-close-comment: |
-            There hasn't been any activity on this pull request recently, and in
-            order to prioritize active work, it is being marked as stale.
+            There hasn't been any activity on this pull request recently, and in order to prioritize active work, it is being marked as stale.
 
-            This PR will be closed and locked in 10 days if no further activity
-            occurs. If you want to prevent it from being closed, leave a comment
-            or push new commits.
+            This PR will be closed and locked in 10 days if no further activity occurs. If you want to prevent it from being closed, leave a comment or push new commits.
 
             Thank you for your contributions!
