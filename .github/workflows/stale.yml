@@ -29,7 +29,7 @@ jobs:
           issue-ignore-any-labels:
             | # If an issue has any of these labels, ignore
             'good first issue'
-            'help-wanted'
+            'help wanted'
             'Status: Blocked or Postponed'
             'x-Bot: No Abandonment'
           issue-ignore-all-assignees: true # If an issue is assigned, ignore
