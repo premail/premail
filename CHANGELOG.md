@@ -10,6 +10,7 @@
 
 ### Other updates
 
+- Bump terser from 5.10.0 to 5.14.2 [\#99](https://github.com/premail/premail/pull/99)
 - Add Yarn testing [\#96](https://github.com/premail/premail/pull/96)
 
 ## [v2.1.0](https://github.com/premail/premail/tree/v2.1.0) (2022-03-18)
