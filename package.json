@@ -75,7 +75,7 @@
     "mjml-bullet-list": "^1.2.2",
     "mjml-signoff": "^1.2.3",
     "node-sass-json-importer": "^4.3.0",
-    "npm": "^6.14.14",
+    "npm": "^9.6.5",
     "plugin-error": "^1.0.1",
     "prettier": "^2.6.0",
     "pretty-error": "^4.0.0",
