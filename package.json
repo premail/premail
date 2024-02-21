@@ -52,7 +52,7 @@
     "url": "https://github.com/sponsors/rootwork"
   },
   "dependencies": {
-    "browser-sync": "^2.27.9",
+    "browser-sync": "^3.0.2",
     "del": "^6.0.0",
     "detergent": "^7.1.0",
     "fibers": "^5.0.1",
